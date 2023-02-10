@@ -2,21 +2,21 @@ $white: #fff;
 $black: #000;
 $transparent: rgba(255, 255, 255, 0);
 
-// old neutrals
+// Neutrals
+$n-1: #F4F4F7;
+$n-2: #DFDEE6;
+$n-3: #CAC8D5;
+$n-4: #B6B4C4;
+$n-5: #A3A0B3;
+$n-6: #908DA2;
+$n-7: #7E7B91;
+$n-8: #6D6A80;
+$n-9: #5D5B69;
+$n-10: #4C4B52;
+$n-11: #39383C;
+$n-12: #39383C;
 
-$n-8: #f8f9fb;
-$n-7: #edeff5;
-$n-6: #cbd0e0;
-$n-5: #abb1cc;
-$n-4: #8d92b7;
-$n-3: #7275a1;
-$n-2: #565785;
-$n-1: #3a3b64;
-
-// new neutrals
-
-$n-10: #4c4b52;
-
+// Primary Blue
 $primary: #2c02ff;
 $primary-focus: #2d5dff4d;
 
@@ -32,3 +32,13 @@ $p-09: #0106a6;
 $p-10: #000e88;
 $p-11: #00126a;
 $p-12: #00124d;
+
+//Alert Colors
+$informational: #F4F4F7;
+$informational-light: #D6E0FF;
+$success: #6CF070;
+$success-light: #D7FAD8;
+$error: #FF2E54;
+$error-light: #FFD6DE;
+$warning: #FFA42E;
+$warning-light: #FFEED6;
