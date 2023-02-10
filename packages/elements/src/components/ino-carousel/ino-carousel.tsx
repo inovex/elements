@@ -42,6 +42,7 @@ export class InoCarousel implements ComponentInterface {
 
     nextSlide.selected = true;
     this.currentSlideEl = nextSlide;
+
     this.setupTimer();
   }
 
@@ -75,6 +76,7 @@ export class InoCarousel implements ComponentInterface {
    */
   @Prop() reverse = false;
 
+  @Watch('autoplay')
   @Watch('intermission')
   @Watch('reverse')
   onTimerPropsChange() {
@@ -82,7 +84,7 @@ export class InoCarousel implements ComponentInterface {
   }
 
   componentDidLoad(): void {
-    if (this.autoplay) this.setupTimer();
+    this.setupTimer();
 
     this.onSlotChanged();
 
@@ -99,6 +101,8 @@ export class InoCarousel implements ComponentInterface {
 
   private setupTimer() {
     clearInterval(this.timer);
+
+    if (!this.autoplay) return;
     this.timer = setInterval(
       () => this.emitNextSlide(this.reverse ? 'previous' : 'next'),
       this.intermission
@@ -137,7 +141,6 @@ export class InoCarousel implements ComponentInterface {
   };
 
   render() {
-
     return (
       <Host class="ino-carousel">
         <div class="ino-carousel__container">
@@ -160,18 +163,18 @@ export class InoCarousel implements ComponentInterface {
               />
             </div>
           )}
-        </div>
-        <div class="ino-carousel__stepper">
-          {this.allSlides.map((el) => (
-            <div
-              class={classNames({
-                'ino-carousel__stepper-dot': true,
-                'ino-carousel__stepper-dot--selected':
-                  el === this.currentSlideEl,
-              })}
-              onClick={() => this.valueChange.emit(el.value)}
-            />
-          ))}
+          <div class="ino-carousel__stepper">
+            {this.allSlides.map((el) => (
+              <div
+                class={classNames({
+                  'ino-carousel__stepper-dot': true,
+                  'ino-carousel__stepper-dot--selected':
+                    el === this.currentSlideEl,
+                })}
+                onClick={() => this.valueChange.emit(el.value)}
+              />
+            ))}
+          </div>
         </div>
       </Host>
     );
