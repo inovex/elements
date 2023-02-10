@@ -18,7 +18,7 @@
           "text": "default - content of the Accordion"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},

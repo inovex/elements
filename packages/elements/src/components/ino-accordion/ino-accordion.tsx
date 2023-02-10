@@ -15,7 +15,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-accordion',
   styleUrl: 'ino-accordion.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Accordion implements ComponentInterface {
   @Element() el: HTMLInoAccordionElement;
