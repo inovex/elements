@@ -12,18 +12,18 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding-left: 16px;
+    padding-left: 10px;
     min-height: 48px;
   }
 
   &--content {
-    padding: 0 52px 32px 52px;
+    padding: 0 56px 32px 52px;
     @include typography.typo(body-m);
     color:  theme.$n-10;
   }
 
   &--title {
-    padding-left: 20px;
+    padding-left: 10px;
     @include typography.typo(title-m);
 
     color: #4C4B52; 

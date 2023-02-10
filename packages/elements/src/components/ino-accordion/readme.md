@@ -27,19 +27,6 @@
 | `"default"` | content of the Accordion |
 
 
-## Dependencies
-
-### Depends on
-
-- [ino-icon](../ino-icon)
-
-### Graph
-```mermaid
-graph TD;
-  ino-accordion --> ino-icon
-  style ino-accordion fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

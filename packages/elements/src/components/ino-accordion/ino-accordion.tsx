@@ -61,10 +61,11 @@ export class Accordion implements ComponentInterface {
             <span></span>
             <span></span>
           </button>
-
-          <span class={`ino-accordion--title ${
-            this.expanded ? 'expanded' : ''
-          }`}>{this.accordionTitle}</span>
+          <span
+            class={`ino-accordion--title ${this.expanded ? 'expanded' : ''}`}
+          >
+            {this.accordionTitle}
+          </span>
         </div>
         <div
           class={`ino-accordion--content-wrapper ${
