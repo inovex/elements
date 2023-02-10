@@ -16,3 +16,35 @@ ino-carousel-slide {
     opacity: 1;
   }
 }
+
+@mixin fadeTransition($name, $from, $to, $duration) {
+  animation: #{$name} $duration;
+
+  @keyframes #{$name} {
+    from {
+      opacity: $from;
+    }
+    to {
+      opacity: $to;
+    }
+  }
+}
+
+.ino-carousel-slide {
+
+  @include fadeTransition(
+    'fadeOut',
+    1,
+    0,
+    var(--carousel-animation-duration)
+  );
+
+  &--selected {
+    @include fadeTransition(
+      'fadeIn',
+      0,
+      1,
+      var(--carousel-animation-duration)
+    );
+  }
+}

@@ -60,6 +60,8 @@ const template = new TemplateGenerator<Components.InoCarousel>(
 `);
 
 export const Playground = template.generatePlaygroundStory();
+
+/*
 export const Autoplay = template.generateStoryForProp('autoplay', true, {
   intermission: 2000,
   animated: true,
@@ -79,3 +81,4 @@ export const Reverse = template.generateStoryForProp('reverse', true, {
   animated: true,
   infinite: true,
 });
+*/

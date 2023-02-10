@@ -11,19 +11,6 @@ ino-carousel {
   --carousel-animation-duration: var(--ino-carousel-animation-duration, 700ms);
 }
 
-@mixin fadeTransition($name, $from, $to, $duration) {
-  animation: #{$name} $duration;
-
-  @keyframes #{$name} {
-    from {
-      opacity: $from;
-    }
-    to {
-      opacity: $to;
-    }
-  }
-}
-
 ino-carousel {
   .ino-carousel {
     position: relative;
@@ -47,13 +34,6 @@ ino-carousel {
     }
   }
 
-  .ino-carousel--no-buttons {
-    .ino-carousel__left-arrow,
-    .ino-carousel__right-arrow {
-      display: none;
-    }
-  }
-
   .ino-carousel__right-arrow {
     right: 16px;
   }
@@ -66,24 +46,6 @@ ino-carousel {
     height: 100%;
   }
 
-  .ino-carousel--animated {
-    &.ino-carousel-slide--selected {
-      @include fadeTransition(
-        'fadeIn',
-        0,
-        1,
-        var(--carousel-animation-duration)
-      );
-    }
-    &:not(.ino-carousel-slide--selected) {
-      @include fadeTransition(
-        'fadeOut',
-        1,
-        0,
-        var(--carousel-animation-duration)
-      );
-    }
-  }
   .ino-carousel__stepper {
     display: flex;
     flex-direction: row;

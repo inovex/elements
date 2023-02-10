@@ -75,11 +75,7 @@ export namespace Components {
     }
     interface InoCarousel {
         /**
-          * Enables the slide animation
-         */
-        "animated": boolean;
-        /**
-          * Enables autoplay which causes slides to be changed automatically
+          * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
          */
         "autoplay": boolean;
         /**
@@ -99,11 +95,12 @@ export namespace Components {
          */
         "reverse": boolean;
         /**
-          * Optional group value to manually manage the displayed slide
+          * `value` of the slide that should be displayed.
          */
-        "value"?: string | number;
+        "value": string | number;
     }
     interface InoCarouselSlide {
+        "selected": boolean;
         /**
           * Link to the image
          */
@@ -1827,11 +1824,7 @@ declare namespace LocalJSX {
     }
     interface InoCarousel {
         /**
-          * Enables the slide animation
-         */
-        "animated"?: boolean;
-        /**
-          * Enables autoplay which causes slides to be changed automatically
+          * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
          */
         "autoplay"?: boolean;
         /**
@@ -1847,7 +1840,7 @@ declare namespace LocalJSX {
          */
         "intermission"?: number;
         /**
-          * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.
+          * Emits the `value` of the slide that should be displayed after interaction or autoplay interval.
          */
         "onValueChange"?: (event: InoCarouselCustomEvent<number | string>) => void;
         /**
@@ -1855,11 +1848,12 @@ declare namespace LocalJSX {
          */
         "reverse"?: boolean;
         /**
-          * Optional group value to manually manage the displayed slide
+          * `value` of the slide that should be displayed.
          */
-        "value"?: string | number;
+        "value": string | number;
     }
     interface InoCarouselSlide {
+        "selected"?: boolean;
         /**
           * Link to the image
          */

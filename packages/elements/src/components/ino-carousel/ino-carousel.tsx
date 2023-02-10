@@ -2,19 +2,16 @@ import {
   Component,
   ComponentInterface,
   Element,
-  Host,
-  Prop,
-  Watch,
-  h,
   Event,
   EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+  Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
 
-enum ArrowDirections {
-  LEFT,
-  RIGHT,
-}
 /**
  * @slot default - One or more `ino-carousel-slide`
  */
@@ -25,40 +22,38 @@ enum ArrowDirections {
 })
 export class InoCarousel implements ComponentInterface {
   @Element() el: HTMLInoCarouselElement;
-  private slides: HTMLInoCarouselSlideElement[];
-  private currentSlide = 0;
-  private stepper = [];
-  private slideCounter = 1;
   private timer: NodeJS.Timeout;
 
+  @State() allSlides: HTMLInoCarouselSlideElement[] = [];
+  private currentSlideEl: HTMLInoCarouselSlideElement = null;
+
   /**
-   * Optional group value to manually manage the displayed slide
+   * `value` of the slide that should be displayed.
    */
-  @Prop() value?: string | number;
+  @Prop() value!: string | number;
+
   @Watch('value')
   valueChanged(newVal: string | number) {
-    this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the current slide
-    this.selectSlide(newVal);
-    this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
+    const nextSlide = this.allSlides.find(
+      (slide: HTMLInoCarouselSlideElement) => slide.value === newVal
+    );
+
+    if (this.currentSlideEl) this.currentSlideEl.selected = false;
+
+    nextSlide.selected = true;
+    this.currentSlideEl = nextSlide;
+    this.setupTimer();
   }
+
   /**
-   * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.
+   * Emits the `value` of the slide that should be displayed after interaction or autoplay interval.
    */
   @Event() valueChange: EventEmitter<number | string>;
 
   /**
-   * Enables autoplay which causes slides to be changed automatically
+   * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
    */
   @Prop() autoplay = false;
-  @Watch('autoplay')
-  autoplayChanged() {
-    this.configureAutoplay();
-  }
-
-  /**
-   * Enables the slide animation
-   */
-  @Prop() animated = false;
 
   /**
    * Hides the arrow buttons
@@ -80,173 +75,108 @@ export class InoCarousel implements ComponentInterface {
    */
   @Prop() reverse = false;
 
+  @Watch('intermission')
+  @Watch('reverse')
+  onTimerPropsChange() {
+    this.setupTimer();
+  }
+
   componentDidLoad(): void {
-    this.slides = this.getSlides();
-    this.configureSlides();
-    this.configureAutoplay();
+    if (this.autoplay) this.setupTimer();
+
+    this.onSlotChanged();
+
+    if (this.value == null) {
+      console.error('ino-carousel: A value is required.');
+    } else {
+      this.valueChanged(this.value);
+    }
   }
 
-  /**
-   * adds a slide animation to the given slide
-   * required to prevent the animation from playing when loading the component
-   * @param slide carousel slide
-   */
-  private addAnimationToSlide = (slide: HTMLInoCarouselSlideElement) => {
-    if (!this.animated) return;
-    if (!slide.classList.contains('ino-carousel--animated')) {
-      slide.classList.add('ino-carousel--animated');
-    }
-  };
-
-  private configureSlides = () => {
-    if (this.slides.length < 1) return;
-    if (!this.selectSlide(this.value))
-      this.slides[this.currentSlide].classList.add(
-        'ino-carousel-slide--selected'
-      );
-  };
-
-  private selectSlide(value: string | number): boolean {
-    let slideSelected = false;
-    this.slides.forEach((slide) => {
-      if (value === slide.value) {
-        slide.classList.add('ino-carousel-slide--selected');
-        this.currentSlide = this.slides.indexOf(slide);
-        slideSelected = true;
-      } else {
-        slide.classList.remove('ino-carousel-slide--selected');
-      }
-    });
-    return slideSelected;
-  }
-
-  private configureAutoplay = () => {
-    if (this.slides.length < 1) return;
-    if (this.autoplay) {
-      this.timer = setInterval(this.nextSlide, this.intermission);
-      return;
-    }
+  disconnectedCallback(): void {
     clearInterval(this.timer);
-  };
+  }
 
-  /**
-   * Switches to the next slide
-   * Required for autoplay to work
-   */
-  private nextSlide = () => {
-    this.valueChange.emit((this.currentSlide = this.getNextSlide())); // emit new slide
-    this.slides[this.currentSlide].classList.remove(
-      'ino-carousel-slide--selected'
+  private setupTimer() {
+    clearInterval(this.timer);
+    this.timer = setInterval(
+      () => this.emitNextSlide(this.reverse ? 'previous' : 'next'),
+      this.intermission
     );
-    this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to current slide
-    this.addAnimationToSlide(this.slides[this.currentSlide]);
-    this.slides[this.currentSlide].classList.add(
-      'ino-carousel-slide--selected'
-    ); // adds the slide animation to the new slide
+  }
 
-    // Update the stepper dot
-    this.stepper.forEach((dot) => {
-      dot.classList.remove('ino-carousel__stepper-dot--selected');
-    });
-    this.stepper[this.currentSlide].classList.add(
-      'ino-carousel__stepper-dot--selected'
-    );
+  private emitNextSlide(direction: 'next' | 'previous' = 'next') {
+    let nextSlide = (direction === 'next'
+      ? this.currentSlideEl.nextElementSibling
+      : this.currentSlideEl
+          .previousElementSibling) as HTMLInoCarouselSlideElement;
 
-    this.slideCounter++;
-
-    // disables the timer after all slides have been shown
-    if (!this.infinite && this.slideCounter >= this.slides.length) {
-      this.slideCounter = 1;
-      clearInterval(this.timer);
-    }
-  };
-
-  private emitSlideChange(iconArrow: ArrowDirections): void {
-    const allSlides = this.getSlides();
-
-    if (!allSlides || allSlides.length === 0) return;
-
-    const carouselSlide = this.getSlides()[this.currentSlide];
-
-    if (!carouselSlide) {
-      this.valueChange.emit(allSlides[0].value);
+    if (!this.infinite) {
+      this.valueChange.emit(nextSlide?.value ?? this.currentSlideEl.value);
       return;
     }
 
-    let nextSlide: HTMLInoCarouselSlideElement;
-    switch (iconArrow) {
-      case ArrowDirections.RIGHT:
-        nextSlide =
-          (carouselSlide.nextElementSibling as HTMLInoCarouselSlideElement) ??
-          allSlides[0];
-        break;
-      case ArrowDirections.LEFT:
-        nextSlide =
-          (carouselSlide.previousElementSibling as HTMLInoCarouselSlideElement) ??
-          allSlides[allSlides.length - 1];
-
-        break;
+    if (direction === 'previous') {
+      nextSlide = nextSlide ?? this.allSlides[this.allSlides.length - 1];
+    } else {
+      nextSlide = nextSlide ?? this.allSlides[0];
     }
+
     this.valueChange.emit(nextSlide.value);
   }
 
-  private getSlides() {
-    return Array.from(
-      this.el.querySelectorAll('ino-carousel-slide')
-    ) as HTMLInoCarouselSlideElement[];
-  }
+  private onSlotChanged = () => {
+    this.allSlides = Array.from(
+      this.el.getElementsByTagName('ino-carousel-slide')
+    );
 
-  private mod = (a, b) => ((a % b) + b) % b;
-
-  // /**
-  //  * determines the index of the next slide
-  //  */
-  private getNextSlide = () =>
-    this.reverse
-      ? this.mod(this.currentSlide - 1, this.slides.length)
-      : this.mod(this.currentSlide + 1, this.slides.length);
+    if (this.allSlides.length === 0)
+      console.warn(
+        'ino-carousel: No ino-carousel-slide elements have been found. Make sure to provide them via the default slot.'
+      );
+  };
 
   render() {
     const classes = classNames({
       'ino-carousel': true,
       'ino-carousel--no-buttons': this.hideButtons,
     });
-    const stepper = Array.from(
-      { length: this.getSlides().length },
-      (_, index) => (
-        <div
-          ref={(el) => (this.stepper[index] = el)}
-          class={classNames({
-            'ino-carousel__stepper-dot': true,
-            'ino-carousel__stepper-dot--selected': index === this.currentSlide,
-          })}
-          onClick={() => {
-            this.value = this.slides[index].value;
-          }}
-        />
-      )
-    );
 
     return (
       <Host value={this.value}>
         <div class={classes}>
           <div class="ino-carousel__container">
-            <slot />
+            <slot onSlotchange={this.onSlotChanged} />
           </div>
-          <div class="ino-carousel__left-arrow">
-            <ino-icon-button
-              icon="arrow_left"
-              onClick={() => this.emitSlideChange(ArrowDirections.LEFT)}
-            />
-          </div>
-          <div class="ino-carousel__right-arrow">
-            <ino-icon-button
-              icon="arrow_right"
-              onClick={() => this.emitSlideChange(ArrowDirections.RIGHT)}
-            />
-          </div>
+          {!this.hideButtons && (
+            <div class="ino-carousel__left-arrow">
+              <ino-icon-button
+                icon="arrow_left"
+                onClick={() => this.emitNextSlide('previous')}
+              />
+            </div>
+          )}
+          {!this.hideButtons && (
+            <div class="ino-carousel__right-arrow">
+              <ino-icon-button
+                icon="arrow_right"
+                onClick={() => this.emitNextSlide('next')}
+              />
+            </div>
+          )}
         </div>
-        <div class="ino-carousel__stepper">{stepper}</div>
+        <div class="ino-carousel__stepper">
+          {this.allSlides.map((el) => (
+            <div
+              class={classNames({
+                'ino-carousel__stepper-dot': true,
+                'ino-carousel__stepper-dot--selected':
+                  el === this.currentSlideEl,
+              })}
+              onClick={() => this.valueChange.emit(el.value)}
+            />
+          ))}
+        </div>
       </Host>
     );
   }

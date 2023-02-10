@@ -483,29 +483,12 @@
       },
       "props": [
         {
-          "name": "animated",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "animated",
-          "reflectToAttr": false,
-          "docs": "Enables the slide animation",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "autoplay",
           "type": "boolean",
           "mutable": false,
           "attr": "autoplay",
           "reflectToAttr": false,
-          "docs": "Enables autoplay which causes slides to be changed automatically",
+          "docs": "Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -590,7 +573,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "Optional group value to manually manage the displayed slide",
+          "docs": "`value` of the slide that should be displayed.",
           "docsTags": [],
           "values": [
             {
@@ -600,8 +583,8 @@
               "type": "string"
             }
           ],
-          "optional": true,
-          "required": false
+          "optional": false,
+          "required": true
         }
       ],
       "methods": [],
@@ -612,11 +595,32 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.",
+          "docs": "Emits the `value` of the slide that should be displayed after interaction or autoplay interval.",
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-carousel-animation-duration",
+          "annotation": "prop",
+          "docs": "sets the duration of the slide animation"
+        },
+        {
+          "name": "--ino-carousel-height",
+          "annotation": "prop",
+          "docs": "sets the height of the carousel component"
+        },
+        {
+          "name": "--ino-carousel-icon-color",
+          "annotation": "prop",
+          "docs": "sets the color of the navigation buttons"
+        },
+        {
+          "name": "--ino-carousel-width",
+          "annotation": "prop",
+          "docs": "sets the width of the carousel component"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -639,6 +643,22 @@
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
+        {
+          "name": "selected",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "selected",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "src",
           "type": "string",
