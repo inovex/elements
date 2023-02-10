@@ -21,11 +21,14 @@ export class InoCarouselSlide implements ComponentInterface {
    */
   @Prop() src: string;
 
+  /**
+   * Selected state controlled by the `<ino-carousel>`
+   */
   @Prop() selected: boolean;
   /**
    * Value of the slide
    */
-  @Prop() value: any;
+  @Prop() value: number | string;
 
   render() {
     return (
@@ -33,7 +36,7 @@ export class InoCarouselSlide implements ComponentInterface {
         'ino-carousel-slide': true,
         'ino-carousel-slide--selected': this.selected,
       })}>
-        <div style={{ 'background-image': `url(${this.src})` }} />
+        <div class="ino-carousel-slide__image" style={{ 'background-image': `url(${this.src})` }} />
       </Host>
     );
   }

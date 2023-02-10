@@ -1,13 +1,11 @@
+@use "../base/new-theme";
+
 ino-carousel {
   /**
    * @prop --ino-carousel-icon-color: sets the color of the navigation buttons
-   * @prop --ino-carousel-width: sets the width of the carousel component
-   * @prop --ino-carousel-height: sets the height of the carousel component
    * @prop --ino-carousel-animation-duration: sets the duration of the slide animation
    */
   --carousel-icon-color: var(--ino-carousel-icon-color, #fff);
-  --carousel-width: var(--ino-carousel-width, 700px);
-  --carousel-height: var(--ino-carousel-height, 400px);
   --carousel-animation-duration: var(--ino-carousel-animation-duration, 700ms);
 }
 
@@ -19,10 +17,14 @@ ino-carousel {
     position: relative;
     overflow: hidden;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   &__slides {
-
+    flex: 1;
+    display: grid;
   }
 
   &__arrow {
@@ -52,21 +54,19 @@ ino-carousel {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-top: 8px;
+    gap: 10px;
   }
 
   &__stepper-dot {
-    display: flex;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #DFDEE6;
-    margin: 0 5px;
+    background-color: new-theme.$n-02;
     cursor: pointer;
     transition: background-color 300ms ease-in-out;
 
     &--selected {
-      background-color: #4655FF;
+      background-color: new-theme.$p-05;
     }
   }
 }

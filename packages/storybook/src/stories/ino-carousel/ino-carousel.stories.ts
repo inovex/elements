@@ -19,7 +19,7 @@ export default {
   title: 'Graphic/<ino-carousel>',
   component: 'ino-carousel',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-carousel'), 
+    (story) => decorateStoryWithClass(story, 'story-carousel'),
   ],
   args: {
     value: 0,
@@ -45,7 +45,6 @@ const template = new TemplateGenerator<Components.InoCarousel>(
       class="customizable-carousel"
       value="${args.value}"
       autoplay="${args.autoplay}"
-      animated="${args.animated}"
       hide-buttons="${args.hideButtons}"
       infinite="${args.infinite}"
       intermission="${args.intermission}"

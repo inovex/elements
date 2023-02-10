@@ -606,19 +606,9 @@
           "docs": "sets the duration of the slide animation"
         },
         {
-          "name": "--ino-carousel-height",
-          "annotation": "prop",
-          "docs": "sets the height of the carousel component"
-        },
-        {
           "name": "--ino-carousel-icon-color",
           "annotation": "prop",
           "docs": "sets the color of the navigation buttons"
-        },
-        {
-          "name": "--ino-carousel-width",
-          "annotation": "prop",
-          "docs": "sets the width of the carousel component"
         }
       ],
       "slots": [
@@ -649,7 +639,7 @@
           "mutable": false,
           "attr": "selected",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Selected state controlled by the `<ino-carousel>`",
           "docsTags": [],
           "values": [
             {
@@ -677,7 +667,7 @@
         },
         {
           "name": "value",
-          "type": "any",
+          "type": "number | string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
@@ -685,7 +675,10 @@
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "number"
+            },
+            {
+              "type": "string"
             }
           ],
           "optional": false,

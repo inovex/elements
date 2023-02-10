@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description        | Type      | Default     |
-| ---------- | ---------- | ------------------ | --------- | ----------- |
-| `selected` | `selected` |                    | `boolean` | `undefined` |
-| `src`      | `src`      | Link to the image  | `string`  | `undefined` |
-| `value`    | `value`    | Value of the slide | `any`     | `undefined` |
+| Property   | Attribute  | Description                                       | Type               | Default     |
+| ---------- | ---------- | ------------------------------------------------- | ------------------ | ----------- |
+| `selected` | `selected` | Selected state controlled by the `<ino-carousel>` | `boolean`          | `undefined` |
+| `src`      | `src`      | Link to the image                                 | `string`           | `undefined` |
+| `value`    | `value`    | Value of the slide                                | `number \| string` | `undefined` |
 
 
 ----------------------------------------------

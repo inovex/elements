@@ -100,6 +100,9 @@ export namespace Components {
         "value": string | number;
     }
     interface InoCarouselSlide {
+        /**
+          * Selected state controlled by the `<ino-carousel>`
+         */
         "selected": boolean;
         /**
           * Link to the image
@@ -108,7 +111,7 @@ export namespace Components {
         /**
           * Value of the slide
          */
-        "value": any;
+        "value": number | string;
     }
     interface InoCheckbox {
         /**
@@ -1853,6 +1856,9 @@ declare namespace LocalJSX {
         "value": string | number;
     }
     interface InoCarouselSlide {
+        /**
+          * Selected state controlled by the `<ino-carousel>`
+         */
         "selected"?: boolean;
         /**
           * Link to the image
@@ -1861,7 +1867,7 @@ declare namespace LocalJSX {
         /**
           * Value of the slide
          */
-        "value"?: any;
+        "value"?: number | string;
     }
     interface InoCheckbox {
         /**
