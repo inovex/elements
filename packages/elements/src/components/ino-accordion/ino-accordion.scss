@@ -1,13 +1,15 @@
 @use 'base/typography-new' as typography;
 @use 'base/new-theme' as theme;
 
+
 .ino-accordion {
   &:hover {
-    background: #f6fafe;
+    background: theme.$p-01;
   }
   border-radius: 24px;
 
   &--header {
+    cursor: pointer;
     display: flex;
     align-items: center;
     padding-left: 16px;
@@ -17,22 +19,79 @@
   &--content {
     padding: 0 52px 32px 52px;
     @include typography.typo(body-m);
-
-    color: #4C4B52;
+    color:  theme.$n-10;
   }
 
   &--title {
     padding-left: 20px;
     @include typography.typo(title-m);
 
-    color: #4655ff;
+    color: #4C4B52; 
+    &.expanded {
+      color: theme.$p-05; 
+      ;
+    }
   }
 
   &--expanded {
-    background: #f6fafe;
+    background: theme.$p-01;
 
     &:hover {
-      background: #f6fafe;
+      background: theme.$p-01;
     }
   }
+
+  .ino-accordion--content-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  
+  .ino-accordion--content-wrapper.expanded {
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in;
+  }
+}
+
+.ino-accordion--header button {
+  &:hover{
+    background: theme.$p-01;
+  }
+  background: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  position: relative;
+}
+
+.ino-accordion--header button span {
+  position: absolute;
+  transition: 300ms;
+  background: theme.$p-05;
+  border-radius: 2.5px;
+}
+
+
+.ino-accordion--header button span:first-child {
+  top: 25%;
+  bottom: 25%;
+  width: 10%;
+  left: 45%;
+}
+
+.ino-accordion--header button span:last-child {
+  left: 25%;
+  right: 25%;
+  height: 10%;
+  top: 45%;
+}
+
+
+.ino-accordion--header button.clicked span {
+  transform: rotate(90deg);
+}
+
+.ino-accordion--header button.clicked span:last-child {
+  left: 50%;
+  right: 50%;
 }

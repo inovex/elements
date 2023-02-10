@@ -41,27 +41,40 @@ export class Accordion implements ComponentInterface {
   }
 
   private toggleExpand() {
-    this.expanded = !this.expanded;
-    this.expandedChange.emit(this.expanded);
+    this.expandedChange.emit(!this.expanded);
   }
   render() {
     const inoAccordionClasses = classNames({
       'ino-accordion': true,
       'ino-accordion--expanded': this.expanded,
     });
+
+    const inoAccordionContent = classNames({
+      visibility: this.expanded ? 'visible' : 'hidden',
+      'ino-accordion--content': true,
+    });
+
     return (
       <div class={inoAccordionClasses}>
         <div class="ino-accordion--header" onClick={() => this.toggleExpand()}>
-          {!this.expanded ? <ino-icon icon="add" /> : null}
-          {this.expanded ? <ino-icon icon="close" /> : null}
+          <button class={this.expanded ? 'clicked' : ''}>
+            <span></span>
+            <span></span>
+          </button>
 
-          <span class="ino-accordion--title">{this.accordionTitle}</span>
+          <span class={`ino-accordion--title ${
+            this.expanded ? 'expanded' : ''
+          }`}>{this.accordionTitle}</span>
         </div>
-        {this.expanded ? (
-          <div class="ino-accordion--content">
+        <div
+          class={`ino-accordion--content-wrapper ${
+            this.expanded ? 'expanded' : ''
+          }`}
+        >
+          <div class={inoAccordionContent}>
             <slot />
           </div>
-        ) : null}
+        </div>
       </div>
     );
   }

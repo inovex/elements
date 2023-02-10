@@ -20,14 +20,8 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "ino-icon"
-      ],
-      "dependencyGraph": {
-        "ino-accordion": [
-          "ino-icon"
-        ]
-      },
+      "dependencies": [],
+      "dependencyGraph": {},
       "props": [
         {
           "name": "accordionTitle",
@@ -2599,7 +2593,6 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
-        "ino-accordion",
         "ino-card",
         "ino-chip",
         "ino-datepicker",
@@ -2616,9 +2609,6 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-accordion": [
-          "ino-icon"
-        ],
         "ino-card": [
           "ino-icon"
         ],
