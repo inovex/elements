@@ -11,16 +11,21 @@ ino-carousel {
   --carousel-animation-duration: var(--ino-carousel-animation-duration, 700ms);
 }
 
-ino-carousel {
-  .ino-carousel {
+.ino-carousel {
+  width: 700px;
+  height: 400px;
+
+  &__container {
     position: relative;
-    height: var(--carousel-height);
-    width: var(--carousel-width);
     overflow: hidden;
+    height: 100%;
   }
 
-  .ino-carousel__left-arrow,
-  .ino-carousel__right-arrow {
+  &__slides {
+
+  }
+
+  &__arrow {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,29 +37,25 @@ ino-carousel {
     ino-icon {
       --icon-color: var(--carousel-icon-color);
     }
+
+    &--left {
+      left: 16px;
+    }
+
+    &--right {
+      right: 16px;
+    }
   }
 
-  .ino-carousel__right-arrow {
-    right: 16px;
-  }
-
-  .ino-carousel__left-arrow {
-    left: 16px;
-  }
-
-  .ino-carousel__container {
-    height: 100%;
-  }
-
-  .ino-carousel__stepper {
+  &__stepper {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-top: 5px
+    padding-top: 8px;
   }
 
-  .ino-carousel__stepper-dot {
+  &__stepper-dot {
     display: flex;
     width: 10px;
     height: 10px;
@@ -63,6 +64,7 @@ ino-carousel {
     margin: 0 5px;
     cursor: pointer;
     transition: background-color 300ms ease-in-out;
+
     &--selected {
       background-color: #4655FF;
     }

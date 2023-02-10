@@ -137,19 +137,15 @@ export class InoCarousel implements ComponentInterface {
   };
 
   render() {
-    const classes = classNames({
-      'ino-carousel': true,
-      'ino-carousel--no-buttons': this.hideButtons,
-    });
 
     return (
-      <Host value={this.value}>
-        <div class={classes}>
-          <div class="ino-carousel__container">
+      <Host class="ino-carousel">
+        <div class="ino-carousel__container">
+          <div class="ino-carousel__slides">
             <slot onSlotchange={this.onSlotChanged} />
           </div>
           {!this.hideButtons && (
-            <div class="ino-carousel__left-arrow">
+            <div class="ino-carousel__arrow ino-carousel__arrow--left">
               <ino-icon-button
                 icon="arrow_left"
                 onClick={() => this.emitNextSlide('previous')}
@@ -157,7 +153,7 @@ export class InoCarousel implements ComponentInterface {
             </div>
           )}
           {!this.hideButtons && (
-            <div class="ino-carousel__right-arrow">
+            <div class="ino-carousel__arrow ino-carousel__arrow--right">
               <ino-icon-button
                 icon="arrow_right"
                 onClick={() => this.emitNextSlide('next')}
