@@ -64,7 +64,7 @@ export class InoCarousel implements ComponentInterface {
   /**
    * Restarts playback from the first slide upon reaching the last slide
    */
-  @Prop() infinite = false;
+  @Prop() infinite = true;
 
   /**
    * Sets the intermission between two slides (Unit: ms)

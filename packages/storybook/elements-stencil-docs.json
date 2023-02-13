@@ -524,7 +524,7 @@
           "reflectToAttr": false,
           "docs": "Restarts playback from the first slide upon reaching the last slide",
           "docsTags": [],
-          "default": "false",
+          "default": "true",
           "values": [
             {
               "type": "boolean"
@@ -624,9 +624,9 @@
       "filePath": "./src/components/ino-carousel-slide/ino-carousel-slide.tsx",
       "fileName": "ino-carousel-slide.tsx",
       "tag": "ino-carousel-slide",
-      "readme": "# ino-carousel-slide\n",
+      "readme": "# ino-carousel-slide\n\nAn image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.\n",
       "usage": {},
-      "docs": "",
+      "docs": "An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],

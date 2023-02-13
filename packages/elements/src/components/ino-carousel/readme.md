@@ -76,7 +76,7 @@ class MyComponent extends Component {
 | -------------------- | -------------- | --------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
 | `autoplay`           | `autoplay`     | Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds. | `boolean`          | `false`     |
 | `hideButtons`        | `hide-buttons` | Hides the arrow buttons                                                                             | `boolean`          | `false`     |
-| `infinite`           | `infinite`     | Restarts playback from the first slide upon reaching the last slide                                 | `boolean`          | `false`     |
+| `infinite`           | `infinite`     | Restarts playback from the first slide upon reaching the last slide                                 | `boolean`          | `true`      |
 | `intermission`       | `intermission` | Sets the intermission between two slides (Unit: ms)                                                 | `number`           | `5000`      |
 | `reverse`            | `reverse`      | Enables reverse playback of the slides                                                              | `boolean`          | `false`     |
 | `value` _(required)_ | `value`        | `value` of the slide that should be displayed.                                                      | `number \| string` | `undefined` |
