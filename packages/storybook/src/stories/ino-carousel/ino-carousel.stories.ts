@@ -1,14 +1,10 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 
-// @ts-ignore
 import lightningImg from '../../assets/images/lightning.jpg';
-// @ts-ignore
 import mountainsImg from '../../assets/images/mountains.jpg';
-// @ts-ignore
 import nidarosImg from '../../assets/images/nidaros.jpg';
 
 import { decorateStoryWithClass } from '../utils';
@@ -23,11 +19,10 @@ export default {
   ],
   args: {
     value: 0,
-    autoplay: false,
-    animated: false,
+    autoplay: true,
     hideButtons: false,
     infinite: true,
-    intermission: 5000,
+    intermission: 2000,
     reverse: false,
   },
 } as Meta;
@@ -60,24 +55,5 @@ const template = new TemplateGenerator<Components.InoCarousel>(
 
 export const Playground = template.generatePlaygroundStory();
 
-/*
-export const Autoplay = template.generateStoryForProp('autoplay', true, {
-  intermission: 2000,
-  animated: true,
-  infinite: true,
-});
-export const Animated = template.generateStoryForProp('animated', true);
 export const HideButtons = template.generateStoryForProp('hideButtons', true);
-export const Infinite = template.generateStoryForProp('infinite', true);
-export const Intermission = template.generateStoryForProp('intermission', 2000, {
-  autoplay: true,
-  animated: true,
-  infinite: true,
-});
-export const Reverse = template.generateStoryForProp('reverse', true, {
-  intermission: 2000,
-  autoplay: true,
-  animated: true,
-  infinite: true,
-});
-*/
+export const Reverse = template.generateStoryForProp('reverse', true);
