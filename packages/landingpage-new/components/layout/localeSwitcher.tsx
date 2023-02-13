@@ -11,10 +11,7 @@ const LocaleSwitcher = () => {
   const handleLocaleChangeNew = useCallback(
     (switchToEnglish: boolean) => {
       router.push(
-        router.pathname,
-        switchToEnglish
-          ? router.asPath.replace(Supported_Locales.DE, Supported_Locales.EN)
-          : router.asPath.replace(Supported_Locales.EN, Supported_Locales.DE)
+        switchToEnglish ? `/${Supported_Locales.EN}` : `/${Supported_Locales.DE}`
       );
     },
     [router]
