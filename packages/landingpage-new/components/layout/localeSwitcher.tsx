@@ -10,12 +10,13 @@ const LocaleSwitcher = () => {
 
   const handleLocaleChangeNew = useCallback(
     (switchToEnglish: boolean) => {
-      router.push(
-        switchToEnglish ? `/${Supported_Locales.EN}` : `/${Supported_Locales.DE}`
-      );
+      const pathArray = router.asPath.split('/');
+      pathArray[1] = switchToEnglish ? Supported_Locales.EN : Supported_Locales.DE;
+      const newAsPath = pathArray.join('/');
+      router.push(newAsPath);
     },
     [router]
-  );
+  );  
 
   return (
     <div>
