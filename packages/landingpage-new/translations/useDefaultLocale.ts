@@ -1,9 +1,9 @@
+import { useRouter } from 'next/router';
+import { useMount } from 'react-use';
 import { defaultLocale, Supported_Locales } from './config';
 import { isLocale } from './types';
 
-export function getInitialLocale(): Supported_Locales {
-  console.log('getinitial', defaultLocale);
-
+function getInitialLocale(): Supported_Locales {
   const localSetting = localStorage.getItem('locale');
   if (localSetting && isLocale(localSetting)) {
     return localSetting;
@@ -16,3 +16,14 @@ export function getInitialLocale(): Supported_Locales {
 
   return defaultLocale;
 }
+
+function useDefaultLocale() {
+  const router = useRouter();
+
+  return () => {
+    const initLang = getInitialLocale();
+    router.push(initLang);
+  };
+}
+
+export default useDefaultLocale;

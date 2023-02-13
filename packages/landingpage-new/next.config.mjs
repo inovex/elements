@@ -23,6 +23,15 @@ const nextConfiguration = {
     ],
   },
   basePath: BASE_PATH, // TODO remove when old landingpage is replaced
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/en',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 const withMDX = nextMdx({
