@@ -61,14 +61,14 @@ ino-switch.ino-switch__default {
         unselected-icon-size: 10px,
         handle-surface-color: white,
         unselected-handle-color: white,
-        unselected-track-color: theme.$n-6,
+        unselected-track-color: theme.$n-3,
         unselected-hover-handle-color: white,
         unselected-focus-handle-color: white,
         unselected-pressed-handle-color: white,
-        disabled-selected-handle-color: theme.$n-6,
+        disabled-selected-handle-color: theme.$n-2,
         disabled-selected-track-color: transparent,
         disabled-unselected-track-color: transparent,
-        disabled-unselected-handle-color: theme.$n-6,
+        disabled-unselected-handle-color: theme.$n-2,
         disabled-track-opacity: 1,
         disabled-handle-opacity: 1,
       )
@@ -89,7 +89,7 @@ ino-switch.ino-switch__default {
     }
 
     &:disabled .mdc-switch__track {
-      border: 2px solid theme.$n-6;
+      border: 2px solid theme.$n-2;
       margin: -1.5px;
     }
   }
@@ -111,13 +111,13 @@ ino-switch.ino-switch__icon-toggle .mdc-switch {
     align-items: center;
     height: 28px;
     width: 48px;
-    color: theme.$n-3;
-    fill: theme.$n-3;
+    color: theme.$n-7;
+    fill: theme.$n-7;
 
     ino-icon {
       --icon-width: 20px;
       --icon-height: 20px;
-      --icon-color: #{theme.$n-3};
+      --icon-color: #{theme.$n-7};
     }
 
     &--selected ino-icon {
@@ -141,7 +141,7 @@ ino-switch.ino-switch__icon-toggle .mdc-switch {
   }
 
   &:hover .switch-icon--unselected::after {
-    background-color: theme.$n-7;
+    background-color: theme.$n-1;
   }
 
   @include switch.theme(
@@ -150,10 +150,10 @@ ino-switch.ino-switch__icon-toggle .mdc-switch {
         selected-hover-handle-color: white,
         selected-focus-handle-color: white,
         selected-pressed-handle-color: white,
-        selected-track-color: theme.$n-7,
-        selected-hover-track-color: theme.$n-6,
-        selected-focus-track-color: theme.$n-6,
-        selected-pressed-track-color: theme.$n-6,
+        selected-track-color: theme.$n-2,
+        selected-hover-track-color: theme.$n-2,
+        selected-focus-track-color: theme.$n-2,
+        selected-pressed-track-color: theme.$n-2,
         track-height: 36px,
         track-width: 104px,
         track-shape: 18px,
@@ -164,9 +164,9 @@ ino-switch.ino-switch__icon-toggle .mdc-switch {
         unselected-icon-size: 20px,
         handle-surface-color: white,
         unselected-handle-color: white,
-        unselected-track-color: theme.$n-7,
-        unselected-focus-track-color: theme.$n-6,
-        unselected-hover-track-color: theme.$n-6,
+        unselected-track-color: theme.$n-2,
+        unselected-focus-track-color: theme.$n-2,
+        unselected-hover-track-color: theme.$n-2,
         disabled-selected-track-color: transparent,
         disabled-selected-handle-color: white,
         disabled-unselected-handle-color: white,
