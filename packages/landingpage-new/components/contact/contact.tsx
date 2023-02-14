@@ -2,7 +2,7 @@ import styles from './contact.module.scss';
 import Image from 'next/image';
 import { InoButton, InoIcon, InoInput, InoTextarea } from '@elements';
 import { FormEventHandler, useState } from 'react';
-import useBasePath from '../../utils/hooks/use-base-path';
+import useBasePath from '../../utils/hooks/useBasePath';
 import useTranslation from 'utils/hooks/useTranslation';
 
 function Contact() {

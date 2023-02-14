@@ -6,7 +6,7 @@ import { readFile } from 'fs/promises';
 
 const theme = JSON.parse(await readFile('../../node_modules/shiki/themes/github-light.json'));
 
-const BASE_PATH = '/landingpage-new';
+const BASE_PATH = '/' + process.env.BASE_PATH;
 
 /** @type {import('next').NextConfig} */
 const nextConfiguration = {
@@ -23,15 +23,6 @@ const nextConfiguration = {
     ],
   },
   basePath: BASE_PATH, // TODO remove when old landingpage is replaced
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/en',
-        permanent: true,
-      },
-    ]
-  },
 };
 
 const withMDX = nextMdx({
