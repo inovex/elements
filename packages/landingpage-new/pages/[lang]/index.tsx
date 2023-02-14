@@ -13,9 +13,14 @@ import {
 import { Locale_File } from 'translations/types';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
+import useDefaultLocale from '../../translations/useDefaultLocale';
+import { useMount } from 'react-use';
 
 const Home: NextPage = () => {
+  const redirectToDefaultLocale = useDefaultLocale();
   const { t } = useTranslation();
+
+  useMount(redirectToDefaultLocale);
 
   return (
     <Page title={[t('common.meta.home')]}>
