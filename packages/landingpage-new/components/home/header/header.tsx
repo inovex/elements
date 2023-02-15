@@ -4,7 +4,7 @@ import styles from './header.module.scss';
 import InstallChips from './install-chips';
 import Link from 'next/link';
 import { MainRoutes } from 'utils/routes';
-import useBasePath from 'utils/hooks/use-base-path';
+import useBasePath from 'utils/hooks/useBasePath';
 import useTranslation from 'utils/hooks/useTranslation';
 import classNames from 'classnames';
 

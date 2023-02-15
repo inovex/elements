@@ -6,6 +6,7 @@ import {
   h,
   ComponentInterface,
 } from '@stencil/core';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-carousel-slide',
@@ -21,14 +22,21 @@ export class InoCarouselSlide implements ComponentInterface {
   @Prop() src: string;
 
   /**
+   * Selected state controlled by the `<ino-carousel>`
+   */
+  @Prop() selected: boolean;
+  /**
    * Value of the slide
    */
-  @Prop() value: any;
+  @Prop() value: number | string;
 
   render() {
     return (
-      <Host>
-        <div style={{ 'background-image': `url(${this.src})` }} />
+      <Host class={classNames({
+        'ino-carousel-slide': true,
+        'ino-carousel-slide--selected': this.selected,
+      })}>
+        <div class="ino-carousel-slide__image" style={{ 'background-image': `url(${this.src})` }} />
       </Host>
     );
   }

@@ -85,11 +85,7 @@ export namespace Components {
     }
     interface InoCarousel {
         /**
-          * Enables the slide animation
-         */
-        "animated": boolean;
-        /**
-          * Enables autoplay which causes slides to be changed automatically
+          * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
          */
         "autoplay": boolean;
         /**
@@ -109,11 +105,15 @@ export namespace Components {
          */
         "reverse": boolean;
         /**
-          * Optional group value to manually manage the displayed slide
+          * `value` of the slide that should be displayed.
          */
-        "value"?: string;
+        "value": string | number;
     }
     interface InoCarouselSlide {
+        /**
+          * Selected state controlled by the `<ino-carousel>`
+         */
+        "selected": boolean;
         /**
           * Link to the image
          */
@@ -121,7 +121,7 @@ export namespace Components {
         /**
           * Value of the slide
          */
-        "value": any;
+        "value": number | string;
     }
     interface InoCheckbox {
         /**
@@ -1862,11 +1862,7 @@ declare namespace LocalJSX {
     }
     interface InoCarousel {
         /**
-          * Enables the slide animation
-         */
-        "animated"?: boolean;
-        /**
-          * Enables autoplay which causes slides to be changed automatically
+          * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
          */
         "autoplay"?: boolean;
         /**
@@ -1882,7 +1878,7 @@ declare namespace LocalJSX {
          */
         "intermission"?: number;
         /**
-          * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.
+          * Emits the `value` of the slide that should be displayed after interaction or autoplay interval.
          */
         "onValueChange"?: (event: InoCarouselCustomEvent<number | string>) => void;
         /**
@@ -1890,11 +1886,15 @@ declare namespace LocalJSX {
          */
         "reverse"?: boolean;
         /**
-          * Optional group value to manually manage the displayed slide
+          * `value` of the slide that should be displayed.
          */
-        "value"?: string;
+        "value": string | number;
     }
     interface InoCarouselSlide {
+        /**
+          * Selected state controlled by the `<ino-carousel>`
+         */
+        "selected"?: boolean;
         /**
           * Link to the image
          */
@@ -1902,7 +1902,7 @@ declare namespace LocalJSX {
         /**
           * Value of the slide
          */
-        "value"?: any;
+        "value"?: number | string;
     }
     interface InoCheckbox {
         /**

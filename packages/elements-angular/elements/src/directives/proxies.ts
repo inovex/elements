@@ -113,7 +113,7 @@ export class InoCard {
 
 export declare interface InoCarousel extends Components.InoCarousel {
   /**
-   * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked. 
+   * Emits the `value` of the slide that should be displayed after interaction or autoplay interval. 
    */
   valueChange: EventEmitter<CustomEvent<number | string>>;
 
@@ -121,13 +121,13 @@ export declare interface InoCarousel extends Components.InoCarousel {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['animated', 'autoplay', 'hideButtons', 'infinite', 'intermission', 'reverse', 'value']
+  inputs: ['autoplay', 'hideButtons', 'infinite', 'intermission', 'reverse', 'value']
 })
 @Component({
   selector: 'ino-carousel',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['animated', 'autoplay', 'hideButtons', 'infinite', 'intermission', 'reverse', 'value']
+  inputs: ['autoplay', 'hideButtons', 'infinite', 'intermission', 'reverse', 'value']
 })
 export class InoCarousel {
   protected el: HTMLElement;
@@ -143,13 +143,13 @@ export declare interface InoCarouselSlide extends Components.InoCarouselSlide {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['src', 'value']
+  inputs: ['selected', 'src', 'value']
 })
 @Component({
   selector: 'ino-carousel-slide',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['src', 'value']
+  inputs: ['selected', 'src', 'value']
 })
 export class InoCarouselSlide {
   protected el: HTMLElement;
