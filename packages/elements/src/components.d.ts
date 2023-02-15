@@ -13,11 +13,11 @@ import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
         /**
-          * Sets the title for this element.
+          * The title of the accordion.
          */
         "accordionTitle": string;
         /**
-          * Sets the expanded state for this element.
+          * Weather the accordion is expanded or collapsed.
          */
         "expanded": boolean;
     }
@@ -1782,15 +1782,15 @@ declare global {
 declare namespace LocalJSX {
     interface InoAccordion {
         /**
-          * Sets the title for this element.
+          * The title of the accordion.
          */
         "accordionTitle"?: string;
         /**
-          * Sets the expanded state for this element.
+          * Weather the accordion is expanded or collapsed.
          */
         "expanded"?: boolean;
         /**
-          * Emits when the user clicks on the icon toggle  to change the expanded state. Contains the status in `event.detail`.
+          * Emits when the user clicks on the icon toggle to change the expanded state. Contains the status in `event.detail`.
          */
         "onExpandedChange"?: (event: InoAccordionCustomEvent<boolean>) => void;
     }
