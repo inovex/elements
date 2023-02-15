@@ -1,6 +1,8 @@
 @use 'base/typography-new' as typography;
 @use 'base/new-theme' as theme;
 
+$animation-time: 200ms;
+
 .ino-accordion {
   &:hover {
     background: theme.$p-01;
@@ -16,13 +18,13 @@
   }
 
   &__content {
-    visibility: hidden;
-    padding: 0 56px 32px 52px;
     @include typography.typo(body-m);
+    padding: 0 56px 32px 52px;
     color: theme.$n-10;
-    transition: visibility 0.2 ease-in-out;
+    opacity: 0;
+    transition: opacity $animation-time ease-in-out;
     &--visible {
-      visibility: visible;
+      opacity: 1;
     }
   }
 
@@ -43,50 +45,48 @@
   .ino-accordion__content-wrapper {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-in-out;
-  }
+    transition: max-height $animation-time ease-in-out;
 
-  .ino-accordion__content-wrapper--expanded {
-    max-height: 1000px;
+    &--expanded {
+      max-height: 1000px;
+    }
   }
 }
 
-.ino-accordion__toggle-button--collapsed,
-.ino-accordion__toggle-button--expanded {
+.toggle-button {
   background: none;
   width: 32px;
   height: 32px;
   border: 0;
   position: relative;
-  & > .toggle-icon {
+
+  .toggle-icon {
     position: absolute;
     transition: 300ms;
     background: theme.$p-05;
     border-radius: 2.5px;
 
-    &:first-child {
+    &--expanded {
       top: 25%;
       bottom: 25%;
       width: 10%;
       left: 45%;
     }
 
-    &:last-child {
+    &--collapsed {
       left: 25%;
       right: 25%;
       height: 10%;
       top: 45%;
     }
   }
-}
-
-.ino-accordion__toggle-button--expanded {
-  & > .toggle-icon {
-    transform: rotate(90deg);
-
-    &:last-child {
-      left: 50%;
-      right: 50%;
+  &--expanded {
+    .toggle-icon {
+      transform: rotate(90deg);
+      &--collapsed {
+        left: 50%;
+        right: 50%;
+      }
     }
   }
 }

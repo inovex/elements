@@ -48,38 +48,37 @@ export class Accordion implements ComponentInterface {
       'ino-accordion': true,
       'ino-accordion--expanded': this.expanded,
     });
+    const toggleButtonClasses = classNames({
+      'toggle-button': true,
+      'toggle-button--expanded': this.expanded,
+
+    });
 
     const inoAccordionContent = classNames({
-      'ino-accordion__content--visible': this.expanded,
       'ino-accordion__content': true,
+      'ino-accordion__content--visible': this.expanded,
+    });
+
+    const titleClasses = classNames({
+      'ino-accordion__title': true,
+      'ino-accordion__title--expanded': this.expanded,
+    });
+
+    const contentWrapperClasses = classNames({
+      'ino-accordion__content-wrapper': true,
+      'ino-accordion__content-wrapper--expanded': this.expanded,
     });
 
     return (
       <div class={inoAccordionClasses}>
         <div class="ino-accordion__header" onClick={() => this.toggleExpand()}>
-          <button
-            class={
-              this.expanded
-                ? 'ino-accordion__toggle-button--expanded'
-                : 'ino-accordion__toggle-button--collapsed'
-            }
-          >
-            <span class="toggle-icon"></span>
-            <span class="toggle-icon"></span>
+        <button class={toggleButtonClasses}>
+            <span class="toggle-icon toggle-icon--expanded"></span>
+            <span class="toggle-icon toggle-icon--collapsed"></span>
           </button>
-          <span
-            class={`ino-accordion__title ${
-              this.expanded ? 'ino-accordion__title--expanded' : ''
-            }`}
-          >
-            {this.accordionTitle}
-          </span>
+          <span class={titleClasses}>{this.accordionTitle}</span>
         </div>
-        <div
-          class={`ino-accordion__content-wrapper ${
-            this.expanded ? 'ino-accordion__content-wrapper--expanded' : ''
-          }`}
-        >
+        <div class={contentWrapperClasses}>
           <div class={inoAccordionContent}>
             <slot />
           </div>
