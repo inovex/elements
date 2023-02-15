@@ -8,6 +8,34 @@ import { Components } from '@inovex.de/elements';
 
 
 
+export declare interface InoAccordion extends Components.InoAccordion {
+  /**
+   * Emits when the user clicks on the icon toggle to change the expanded state. Contains the status in `event.detail`. 
+   */
+  expandedChange: EventEmitter<CustomEvent<boolean>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['accordionTitle', 'expanded']
+})
+@Component({
+  selector: 'ino-accordion',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['accordionTitle', 'expanded']
+})
+export class InoAccordion {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['expandedChange']);
+  }
+}
+
+
 export declare interface InoAutocomplete extends Components.InoAutocomplete {
   /**
    * Emits the list item the user clicked on either as a string or
