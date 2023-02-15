@@ -36,7 +36,7 @@ ino-card {
     --ino-global-primary-color,
     #{theme.color(primary, base)}
   );
-  --card-checkmark-color: var(--ino-card-checkmark-color, #fff);
+  --card-checkmark-color: var(--ino-card-checkmark-color, #{theme.color(primary, base)});
 }
 
 ino-card {
