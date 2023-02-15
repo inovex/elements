@@ -62,7 +62,7 @@ $animation-time: 200ms;
 
   .toggle-icon {
     position: absolute;
-    transition: 300ms;
+    transition: $animation-time;
     background: theme.$p-05;
     border-radius: 2.5px;
 
