@@ -33,21 +33,19 @@ export default function FaqSection() {
           <p className={styles.subheader}>{t('faq.subheader')}</p>
         </div>
       </div>
-      {faqs.length > 0 && ( // the faqs.length is of no use as there will always be faqs, the switching of the locale breaks the ino-accordion
-        <div className={styles.accordionWrapper}>
-          {faqs.map((faq) => (
-            <div className={styles.accordion} key={faq.id}>
-              <InoAccordion
-                accordionTitle={faq.title}
-                expanded={expanded[faq.id]}
-                onExpandedChange={() => handleExpandedChange(faq.id)}
-              >
-                {faq.content}
-              </InoAccordion>
-            </div>
-          ))}
-        </div>
-      )}
+      <div className={styles.accordionWrapper}>
+        {faqs.map((faq) => (
+          <div className={styles.accordion} key={faq.id}>
+            <InoAccordion
+              accordionTitle={faq.title}
+              expanded={expanded[faq.id]}
+              onExpandedChange={() => handleExpandedChange(faq.id)}
+            >
+              <>{faq.content}</>
+            </InoAccordion>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
