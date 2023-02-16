@@ -1,16 +1,10 @@
-@mixin StrongText($color: #232527) {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
-  letter-spacing: 0.009em;
-  color: $color;
-}
+@use './../../../../elements/src/components/base/new-theme' as theme;
 
-@mixin LightText($color: #232527) {
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 19px;
-  letter-spacing: 0.04em;
+@mixin Text($weight, $size, $line-height, $spacing, $color) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: $spacing;
   color: $color;
 }
 
@@ -19,14 +13,11 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 5px;
-
-  a {
-    text-decoration: none;
-  }
+  padding: 40px 5px 5px;
 }
 
 .card {
+  position: relative;
   width: 277px;
   height: 392px;
   margin-right: 50px;
@@ -36,12 +27,12 @@
     0px 2px 1px rgba(20, 20, 20, 0.0243888);
   border-radius: 5px;
   &:last-child {
-    background-image: url('./resource-pattern.svg');
+    background-image: url('./assets/resource-pattern.svg');
   }
 }
 
 .header {
-  @include StrongText($color: #000e88);
+  @include Text(700, 20px, 30px, 0.009em, theme.$p-10);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,13 +49,24 @@
 .Image {
   object-fit: contain;
 }
-
 .content {
-  @include LightText($color: #00126a);
   padding: 16px 0 16px 32px;
+
+  @include Text(700, 12px, 19px, 0.04em, theme.$p-11);
+
+  a {
+    @include Text(700, 12px, 19px, 0.04em, theme.$p-11);
+  }
 }
 
 .footer {
-  @include StrongText($color: #39383c);
-  padding: 0 0 0 32px;
+  @include Text(700, 20px, 30px, 0.009em, theme.$n-11);
+  padding: 0 32px;
+}
+
+.linkIcon {
+  position: absolute;
+  cursor: pointer;
+  bottom: 11px;
+  right: 11px;
 }

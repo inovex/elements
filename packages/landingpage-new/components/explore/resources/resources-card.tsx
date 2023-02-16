@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styles from './resources-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import linkIcon from './assets/link-icon.svg';
 
 type Resource = {
   id: number;
   blog_url: string;
   blog_img_url: string;
-  blog_title: string;
+  blog_title: string | ReactNode;
   blog_author: string;
 };
 
@@ -24,19 +25,25 @@ function ResourceCard() {
     },
     {
       id: 2,
-      blog_url: 'https://www.inovex.de/en/about-us/open-source/',
+      blog_url: 'https://www.inovex.de/de/training/web-components/inhouse/',
       blog_img_url:
-        'https://www.inovex.de/wp-content/uploads/2020/09/inovex-elements-1500x880.png',
-      blog_title: 'One more Article or anything?',
-      blog_author: 'Content Creator / 30.09.2020',
+        'https://www.inovex.de/wp-content/uploads/2021/05/web-components.png',
+      blog_title: (
+        <div>
+          inovex Academy:<br></br>
+          Web Components
+        </div>
+      ),
+      blog_author: 'Auf Anfrage / 2 Tage Training',
     },
   ];
 
   return (
     <>
       <h1 className="header-d3">
-        the <b>Resources</b>
+        <b>more</b> information?
       </h1>
+      <p>Every now and then we report about new stuff.</p>
       <div className={styles.row}>
         {cards.map((card) => (
           <div key={card.id} className={styles.card}>
@@ -59,6 +66,16 @@ function ResourceCard() {
             <Link href={card.blog_url}>
               <div className={styles.footer}>{card.blog_title}</div>
             </Link>
+            <div className={styles.linkIcon}>
+            <Link href={card.blog_url}>
+              <Image
+                width={18}
+                height={18}
+                src={linkIcon}
+                alt="link-icon"
+              />
+              </Link>
+            </div>
           </div>
         ))}
 
