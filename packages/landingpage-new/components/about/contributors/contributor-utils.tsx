@@ -20,6 +20,7 @@ export enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
   TobiasHeimGalindo = 81302108,
   ninaschlz = 93990641,
   MBuchberger = 117914010,
+  leagrimm = 106106637,
 }
 const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
 
@@ -74,9 +75,13 @@ export const userInfo: Map<GITHUB_CONTRIBUTOR_ID_WHITELIST, UserInformation> =
       GITHUB_CONTRIBUTOR_ID_WHITELIST.MBuchberger,
       { role: Role.DESIGN, name: 'Magdalena' },
     ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.leagrimm,
+      { role: Role.DESIGN, name: 'Lea' },
+    ],
   ]);
 
-const allDesigners = ['MBuchberger'];
+const allDesigners = ['MBuchberger', 'leagrimm'];
 
 export async function getGitHubContributers(): Promise<GithubContributor[]> {
   const contributors: GithubContributor[] = await fetch(
