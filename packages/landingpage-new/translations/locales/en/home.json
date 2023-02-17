@@ -30,8 +30,8 @@
     "button": "I'm a Button"
   },
   "faq": {
-    "title_1": "FAQ",
-    "subheader" : "Lorem Ipsum stuff english",
+    "title": "FAQ",
+    "subheader" : "Here you can find answers to the most frequently asked questions about the Elements",
     "faqs": [
     {
       "id": 1,

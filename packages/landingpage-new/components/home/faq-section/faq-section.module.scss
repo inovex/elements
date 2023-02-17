@@ -1,5 +1,10 @@
+.subheader{
+  color: #3a3b64;
+}
+
 .accordionWrapper {
-  .accordion {
+  padding-top: 55px;
+  .accordion:not(:last-child){
     margin-bottom: 8px;
   }
 }

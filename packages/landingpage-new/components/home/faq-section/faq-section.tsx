@@ -1,7 +1,7 @@
 import styles from './faq-section.module.scss';
 import { InoAccordion } from '@elements';
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useSet } from 'react-use';
 import useTranslation from 'utils/hooks/useTranslation';
 
 interface FaqItem {
@@ -14,20 +14,13 @@ export default function FaqSection() {
   const { t } = useTranslation();
   const faqs: FaqItem[] = t('faq.faqs');
 
-  const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
-
-  const handleExpandedChange = (id: number) => {
-    setExpanded((prevExpanded) => ({
-      ...prevExpanded,
-      [id]: !prevExpanded[id],
-    }));
-  };
+  const [_, { has, toggle }] = useSet(new Set<number>());
 
   return (
     <>
       <div>
         <h1 className="header-d3">
-          <b>{t('faq.title_1')}</b>
+          <b>{t('faq.title')}</b>
         </h1>
         <div className={classNames(styles.subHeaderContainer, 'body-l')}>
           <p className={styles.subheader}>{t('faq.subheader')}</p>
@@ -38,8 +31,8 @@ export default function FaqSection() {
           <div className={styles.accordion} key={faq.id}>
             <InoAccordion
               accordionTitle={faq.title}
-              expanded={expanded[faq.id]}
-              onExpandedChange={() => handleExpandedChange(faq.id)}
+              expanded={has(faq.id)}
+              onExpandedChange={() => toggle(faq.id)}
             >
               <>{faq.content}</>
             </InoAccordion>
