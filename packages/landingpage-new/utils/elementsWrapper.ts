@@ -8,6 +8,7 @@ export const importElement = <Component extends keyof typeof Components>(element
   ssr: false 
 });
 
+export const InoAccordion = importElement('InoAccordion')
 export const InoButton = importElement('InoButton');
 export const InoChip = importElement('InoChip');
 export const InoTab = importElement('InoTab');
