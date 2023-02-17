@@ -6,6 +6,81 @@
   },
   "components": [
     {
+      "filePath": "./src/components/ino-accordion/ino-accordion.tsx",
+      "fileName": "ino-accordion.tsx",
+      "tag": "ino-accordion",
+      "readme": "# ino-accordion\n\n\n",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default - The content of the Accordion"
+        }
+      ],
+      "encapsulation": "none",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "accordionTitle",
+          "type": "string",
+          "mutable": false,
+          "attr": "accordion-title",
+          "reflectToAttr": false,
+          "docs": "The title of the accordion.",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "expanded",
+          "reflectToAttr": false,
+          "docs": "Weather the accordion is expanded or collapsed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "expandedChange",
+          "detail": "boolean",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the user clicks on the icon toggle to change the expanded state. Contains the status in `event.detail`.",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [
+        {
+          "name": "default",
+          "docs": "The content of the Accordion"
+        }
+      ],
+      "parts": [],
+      "listeners": []
+    },
+    {
       "filePath": "./src/components/ino-autocomplete/ino-autocomplete.tsx",
       "fileName": "ino-autocomplete.tsx",
       "tag": "ino-autocomplete",
@@ -483,29 +558,12 @@
       },
       "props": [
         {
-          "name": "animated",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "animated",
-          "reflectToAttr": false,
-          "docs": "Enables the slide animation",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "autoplay",
           "type": "boolean",
           "mutable": false,
           "attr": "autoplay",
           "reflectToAttr": false,
-          "docs": "Enables autoplay which causes slides to be changed automatically",
+          "docs": "Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -541,7 +599,7 @@
           "reflectToAttr": false,
           "docs": "Restarts playback from the first slide upon reaching the last slide",
           "docsTags": [],
-          "default": "false",
+          "default": "true",
           "values": [
             {
               "type": "boolean"
@@ -586,19 +644,22 @@
         },
         {
           "name": "value",
-          "type": "string",
+          "type": "number | string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "Optional group value to manually manage the displayed slide",
+          "docs": "`value` of the slide that should be displayed.",
           "docsTags": [],
           "values": [
+            {
+              "type": "number"
+            },
             {
               "type": "string"
             }
           ],
-          "optional": true,
-          "required": false
+          "optional": false,
+          "required": true
         }
       ],
       "methods": [],
@@ -609,7 +670,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.",
+          "docs": "Emits the `value` of the slide that should be displayed after interaction or autoplay interval.",
           "docsTags": []
         }
       ],
@@ -620,19 +681,9 @@
           "docs": "sets the duration of the slide animation"
         },
         {
-          "name": "--ino-carousel-height",
-          "annotation": "prop",
-          "docs": "sets the height of the carousel component"
-        },
-        {
           "name": "--ino-carousel-icon-color",
           "annotation": "prop",
           "docs": "sets the color of the navigation buttons"
-        },
-        {
-          "name": "--ino-carousel-width",
-          "annotation": "prop",
-          "docs": "sets the width of the carousel component"
         }
       ],
       "slots": [
@@ -648,15 +699,31 @@
       "filePath": "./src/components/ino-carousel-slide/ino-carousel-slide.tsx",
       "fileName": "ino-carousel-slide.tsx",
       "tag": "ino-carousel-slide",
-      "readme": "# ino-carousel-slide\n",
+      "readme": "# ino-carousel-slide\n\nAn image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.\n",
       "usage": {},
-      "docs": "",
+      "docs": "An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
+        {
+          "name": "selected",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "selected",
+          "reflectToAttr": false,
+          "docs": "Selected state controlled by the `<ino-carousel>`",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "src",
           "type": "string",
@@ -675,7 +742,7 @@
         },
         {
           "name": "value",
-          "type": "any",
+          "type": "number | string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
@@ -683,7 +750,10 @@
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "number"
+            },
+            {
+              "type": "string"
             }
           ],
           "optional": false,
