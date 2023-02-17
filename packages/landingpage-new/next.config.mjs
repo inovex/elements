@@ -6,7 +6,7 @@ import { readFile } from 'fs/promises';
 
 const theme = JSON.parse(await readFile('../../node_modules/shiki/themes/github-light.json'));
 
-const BASE_PATH = '/landingpage-new';
+const BASE_PATH = '/' + process.env.BASE_PATH;
 
 /** @type {import('next').NextConfig} */
 const nextConfiguration = {

@@ -1,8 +1,8 @@
 import {useRouter} from 'next/router';
 
-function UseBasePath() {
+function useBasePath() {
   const {basePath} = useRouter();
   return basePath;
 }
 
-export default UseBasePath;
+export default useBasePath;
