@@ -2,35 +2,23 @@
   color: #39383C;
 }
 
-.carouselContainer {
-  width: 1050px;
-  height: 600px;
-
+.container {
   display: flex;
   align-items: center;
   gap: 75px;
 
-  @media only screen and (min-width: 1901px) {
-    width: 1500px;
-    height: 845px;
-  }
-
-  @media only screen and (max-width: 1900px) {
-    width: 1050px;
-    height: 600px;
-  }
-
   @media only screen and (max-width: 1400px) {
-    width: 750px;
-    height: 430px;
     gap: 40px;
   }
 
   @media only screen and (max-width: 1000px) {
-    width: 550px;
-    height: 300px;
     gap: 20px
   }
+}
+
+.carouselContainer {
+  flex: 1;
+  aspect-ratio: 16 / 9;
 }
 
 .slideshow {
@@ -39,7 +27,11 @@
   height: 100%;
   width: 100%;
   flex: 1;
-  box-shadow: 5px 5px 15px lightgrey;
   text-align: center;
   margin-top: 30px;
+
+  [class~="ino-carousel__slides"] {
+    margin: 2px;
+    box-shadow: 5px 5px 15px lightgrey;
+  }
 }
