@@ -4,6 +4,7 @@ import { useMethods } from 'react-use';
 import classNames from 'classnames';
 import useTranslation from '../../utils/hooks/useTranslation';
 import useBasePath from '../../utils/hooks/useBasePath';
+import useSwipe from '../../utils/hooks/useSwipe';
 
 enum Slides {
   Jarvis,
@@ -36,6 +37,9 @@ function Examples() {
     Slides.Jarvis as Slides
   );
 
+  const swipeHandlers = useSwipe({ onSwipedLeft: increment, onSwipedRight: decrement });
+
+
   return (
     <>
       <h1 className="header-d3">
@@ -44,8 +48,9 @@ function Examples() {
       <p className={classNames('body-l', styles.subtitle)}>
         {t('examples.sub_title')}
       </p>
-      <div className={styles.container}>
+      <div className={styles.container} {...swipeHandlers}>
         <InoIconButton
+          class={styles.arrowButton}
           icon="arrow_left"
           activated
           onClick={() => decrement()}
@@ -55,28 +60,29 @@ function Examples() {
             className={styles.slideshow}
             hideButtons
             autoplay
-            value={slide}
+            value={String(slide)}
             onValueChange={(ev) => set(ev.detail)}
           >
             <InoCarouselSlide
-              value={Slides.Jarvis}
+              value={String(Slides.Jarvis)}
               src={`${carouselImgPathPrefix}_JARVIS.png`}
             ></InoCarouselSlide>
             <InoCarouselSlide
-              value={Slides.SelfService}
+              value={String(Slides.SelfService)}
               src={`${carouselImgPathPrefix}_SELFSERVICE.png`}
             ></InoCarouselSlide>
             <InoCarouselSlide
-              value={Slides.SelfOnboarding}
+              value={String(Slides.SelfOnboarding)}
               src={`${carouselImgPathPrefix}_SELFONBOARDING.png`}
             ></InoCarouselSlide>
             <InoCarouselSlide
-              value={Slides.Inca}
+              value={String(Slides.Inca)}
               src={`${carouselImgPathPrefix}_INCA.png`}
             ></InoCarouselSlide>
           </InoCarousel>
         </div>
         <InoIconButton
+          class={styles.arrowButton}
           icon="arrow_right"
           activated
           onClick={() => increment()}
