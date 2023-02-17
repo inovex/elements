@@ -16,6 +16,12 @@
   }
 }
 
+@media (max-width: 800px) {
+  .arrowButton {
+    display: none;
+  }
+}
+
 .carouselContainer {
   flex: 1;
   aspect-ratio: 16 / 9;
