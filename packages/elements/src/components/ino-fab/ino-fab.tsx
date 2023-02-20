@@ -25,13 +25,6 @@ export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
   private tooltip?: HTMLInoTooltipElement;
 
-  @Watch('label')
-watchHandler() {
-  if (this.tooltip) {
-    this.tooltip.remove();
-    this.renderTooltip();
-  }
-}
 
   @Element() el!: HTMLInoFabElement;
 
@@ -88,6 +81,13 @@ watchHandler() {
       console.warn(
         `Property 'icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`
       );
+    }
+  }
+  @Watch('label')
+  watchHandler() {
+    if (this.tooltip) {
+      this.tooltip.remove();
+      this.renderTooltip();
     }
   }
 
