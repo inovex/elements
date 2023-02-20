@@ -2,5 +2,13 @@
   "demos": {
     "title_1": "demo",
     "title_2": "projects"
+  },
+  "resources": {
+    "title_1": "more",
+    "title_2": "information?",
+    "subtitle": "Every now and then we report about new stuff.",
+    "alt_image": "blog image of ",
+    "sample_title" : "We are always evolving!",
+    "sample_subtitle": "Stay tuned for more elements content!"
   }
 }

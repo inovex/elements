@@ -1,38 +1,33 @@
-@use './../../../../elements/src/components/base/new-theme' as theme;
-
-@mixin Text($weight, $size, $line-height, $spacing, $color) {
-  font-weight: $weight;
-  font-size: $size;
-  line-height: $line-height;
-  letter-spacing: $spacing;
-  color: $color;
-}
-
 .row {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
+  flex-wrap: wrap;
+  gap: 50px;
   padding: 40px 5px 5px;
+  @media (max-width: 876px) {
+    justify-content: center;
+  }
 }
 
-.card {
+.card,
+.sampleCard {
   position: relative;
   width: 277px;
   height: 392px;
-  margin-right: 50px;
+
   box-shadow: 0px 0px 18px rgba(20, 20, 20, 0.07),
     0px 0px 8.08158px rgba(20, 20, 20, 0.0456112),
     0px 0px 5.20969px rgba(20, 20, 20, 0.035),
     0px 2px 1px rgba(20, 20, 20, 0.0243888);
   border-radius: 5px;
-  &:last-child {
-    background-image: url('./assets/resource-pattern.svg');
-  }
+}
+
+.sampleCard {
+  background-image: url('./assets/resource-pattern.svg');
 }
 
 .header {
-  @include Text(700, 20px, 30px, 0.009em, theme.$p-10);
+  text-align: center;
+  color: #000e88;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +38,6 @@
     rgba(190, 204, 255, 0.2) -26.15%,
     rgba(190, 204, 255, 0) 136.49%
   );
-  text-align: center;
 }
 
 .Image {
@@ -52,22 +46,20 @@
 }
 .content {
   padding: 16px 0 16px 32px;
+  color: #00126a;
 
-  @include Text(700, 12px, 19px, 0.04em, theme.$p-11);
-
-  a {
-    @include Text(700, 12px, 19px, 0.04em, theme.$p-11);
+  &:last-child {
+    color: #000e88;
   }
 }
 
 .footer {
-  @include Text(700, 20px, 30px, 0.009em, theme.$n-11);
+  color: #39383c;
   padding: 0 32px;
 }
 
 .linkIcon {
   position: absolute;
-  cursor: pointer;
   bottom: 11px;
   right: 11px;
 }
