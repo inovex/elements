@@ -53,8 +53,8 @@ function ResourceCard() {
       <p>{t('resources.subtitle')}</p>
       <div className={styles.row}>
         {cards.map((card) => (
-          <Link href={card.blog_url} target="_blank">
-            <div key={card.id} className={styles.card}>
+          <Link href={card.blog_url} target="_blank" key={card.id}>
+            <div className={styles.card}>
               <div className={styles.header}>
                 <Image
                   width={213}
