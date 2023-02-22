@@ -1,7 +1,9 @@
-.link {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  float: left;
-  margin-right: 50px;
+.cardWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 40px;
+    ino-card {
+      margin-bottom: 15px;
+    }
 }

@@ -1,6 +1,12 @@
 {
+  "header": {
+    "title": "Erkunden",
+    "subtitle": "Entdecken Sie die Elements und erfahren Sie, wie sie in verschiedensten Projekten eingesetzt werden."
+  },
   "demos": {
     "title_1": "Demo",
-    "title_2": "Projekte"
+    "title_2": "Projekte",
+    "subtitle": "Wir haben für jedes Framework eine einfache To-Do Liste implementiert - sehen Sie sich diese hier an.",
+    "show_demo": "Demo Projekt anzeigen"
   }
 }
