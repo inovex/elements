@@ -40,6 +40,7 @@ function Demos() {
               <Link
                 className={styles.footer}
                 href={DemoProjectByFrameworks[key as Framework] ?? ''}
+                target="_blank"
               >
                 {t('demos.show_demo')}
               </Link>
