@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-columns: minmax(622px, 1fr) 1fr;
+  grid-template-columns: minmax(350px, 1fr) minmax(0px, 1fr);
   grid-template-rows: 1fr min-content 1fr;
   grid-template-areas:
     'header image'
@@ -11,11 +11,16 @@
 
 .image {
   grid-area: image;
+  opacity: 1;
+  transition: opacity 1s ease;
+  overflow: visible;
+  z-index: -1;
 }
 
 .headerContainer {
   grid-area: header;
   align-self: end;
+  grid-column: 1 / span 2;
 
   .header {
     margin: 0;
@@ -34,14 +39,28 @@
 
 .info {
   grid-area: info;
-  max-width: 500px;
+  max-width: 650px;
+  grid-column: 1 / span 2
 }
 
 .installation {
   grid-area: installation;
   align-self: start;
+  grid-column: 1 / span 2;
 
   .animation {
     padding-top: 15px;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .image {
+    opacity: 0.5;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image {
+    opacity: 0.2;
   }
 }
