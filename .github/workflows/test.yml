@@ -44,7 +44,7 @@ jobs:
       - name: Upload build artifacts
         uses: ./.github/workflows/artifacts-upload
         with:
-          upload-example-artifacts: $(github.ref == 'refs/heads/master')
+          upload-example-artifacts: ${{ github.ref == 'refs/heads/master' }}
           upload-storybook-artifact: true
 
   unicorn:
