@@ -4,10 +4,10 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 import { vueOutputTarget } from './output-targets/vue-output-target';
 import { JsonDocsOutputTarget } from './output-targets/json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
-import { path } from "@stencil/core/compiler";
+import { join } from "path";
 
-const angularDirectivesPath = path.join(__dirname, '../elements-angular/elements/src/directives');
-const reactProxyPath =  path.join(__dirname,'../elements-react/src/components');
+const angularDirectivesPath = join(__dirname, '../elements-angular/elements/src/directives');
+const reactProxyPath =  join(__dirname,'../elements-react/src/components');
 
 export const config: Config = {
   buildEs5: false,
@@ -15,9 +15,9 @@ export const config: Config = {
     experimentalImportInjection: true,
     initializeNextTick: true
   },
-  globalScript: path.join(__dirname, 'src/util/import-fonts.ts'),
-  globalStyle: path.join(__dirname, 'src/global/styles.scss'),
-  tsconfig: path.join(__dirname, 'tsconfig.lib.json'),
+  globalScript: join(__dirname, 'src/util/import-fonts.ts'),
+  globalStyle: join(__dirname, 'src/global/styles.scss'),
+  tsconfig: join(__dirname, 'tsconfig.lib.json'),
   enableCache: true,
   sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
@@ -47,7 +47,7 @@ export const config: Config = {
     }),
     vueOutputTarget({
       componentCorePackage: '@inovex.de/elements',
-      proxiesFile: path.join(__dirname, '../elements-vue/src/proxies.ts'),
+      proxiesFile: join(__dirname, '../elements-vue/src/proxies.ts'),
       includeDefineCustomElements: false,
       // external event names (valueChange, checkedChange, ...) have to be mapped to vue event names
       // see elements-vue/src/index.ts
@@ -97,7 +97,7 @@ export const config: Config = {
   ],
   plugins: [
     sass({
-      includePaths: [ '../../node_modules'] .map((d) => path.join(__dirname, d)),
+      includePaths: [ '../../node_modules'] .map((d) => join(__dirname, d)),
     }),
   ],
   preamble: 'Crafted with ❤ by inovex GmbH',
