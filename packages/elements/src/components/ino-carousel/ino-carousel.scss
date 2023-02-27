@@ -1,39 +1,33 @@
+@use "../base/new-theme";
+
 ino-carousel {
   /**
    * @prop --ino-carousel-icon-color: sets the color of the navigation buttons
-   * @prop --ino-carousel-width: sets the width of the carousel component
-   * @prop --ino-carousel-height: sets the height of the carousel component
    * @prop --ino-carousel-animation-duration: sets the duration of the slide animation
    */
   --carousel-icon-color: var(--ino-carousel-icon-color, #fff);
-  --carousel-width: var(--ino-carousel-width, 700px);
-  --carousel-height: var(--ino-carousel-height, 400px);
   --carousel-animation-duration: var(--ino-carousel-animation-duration, 700ms);
 }
 
-@mixin fadeTransition($name, $from, $to, $duration) {
-  animation: #{$name} $duration;
+.ino-carousel {
+  width: 700px;
+  height: 400px;
 
-  @keyframes #{$name} {
-    from {
-      opacity: $from;
-    }
-    to {
-      opacity: $to;
-    }
-  }
-}
-
-ino-carousel {
-  .ino-carousel {
+  &__container {
     position: relative;
-    height: var(--carousel-height);
-    width: var(--carousel-width);
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  .ino-carousel__left-arrow,
-  .ino-carousel__right-arrow {
+  &__slides {
+    flex: 1;
+    display: grid;
+  }
+
+  &__arrow {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,43 +39,34 @@ ino-carousel {
     ino-icon {
       --icon-color: var(--carousel-icon-color);
     }
-  }
 
-  .ino-carousel--no-buttons {
-    .ino-carousel__left-arrow,
-    .ino-carousel__right-arrow {
-      display: none;
+    &--left {
+      left: 16px;
+    }
+
+    &--right {
+      right: 16px;
     }
   }
 
-  .ino-carousel__right-arrow {
-    right: 16px;
+  &__stepper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
 
-  .ino-carousel__left-arrow {
-    left: 16px;
-  }
+  &__stepper-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: new-theme.$n-2;
+    cursor: pointer;
+    transition: background-color 300ms ease-in-out;
 
-  .ino-carousel__container {
-    height: 100%;
-  }
-
-  .ino-carousel--animated {
-    &.ino-carousel-slide--selected {
-      @include fadeTransition(
-        'fadeIn',
-        0,
-        1,
-        var(--carousel-animation-duration)
-      );
-    }
-    &:not(.ino-carousel-slide--selected) {
-      @include fadeTransition(
-        'fadeOut',
-        1,
-        0,
-        var(--carousel-animation-duration)
-      );
+    &--selected {
+      background-color: new-theme.$p-05;
     }
   }
 }

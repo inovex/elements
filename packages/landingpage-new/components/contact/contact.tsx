@@ -2,7 +2,8 @@ import styles from './contact.module.scss';
 import Image from 'next/image';
 import { InoButton, InoIcon, InoInput, InoTextarea } from '@elements';
 import { FormEventHandler, useState } from 'react';
-import useBasePath from '../../utils/hooks/use-base-path';
+import useBasePath from '../../utils/hooks/useBasePath';
+import useTranslation from 'utils/hooks/useTranslation';
 
 function Contact() {
   const basePath = useBasePath();
@@ -11,6 +12,8 @@ function Contact() {
   const [message, setMessage] = useState('');
 
   const inovexMail = 'jan-niklas.voss@inovex.de';
+
+  const { t } = useTranslation();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -33,13 +36,10 @@ function Contact() {
       </div>
       <div className={styles.wrapper}>
         <h1 className="header-d3">
-          <b>contact</b> us
+          <b>{t('contact.title_1')}</b>{' '}
+          {t('contact.title_2')}
         </h1>
-        <p className="body-l">
-          Do you have any questions, suggestions or want to work with us? Then
-          we look forward to your message!
-        </p>
-
+        <p className="body-l">{t('contact.description')}</p>
         <form className={styles.form_container} onSubmit={onSubmit}>
           {/*          <InoInput
             className={styles.first_name}
@@ -74,7 +74,7 @@ function Contact() {
             value={subject}
             onValueChange={(e) => setSubject(e.detail)}
             type="text"
-            label="Subject"
+            label={t('contact.label_subject')}
             outline
             required
           ></InoInput>
@@ -82,12 +82,12 @@ function Contact() {
             className={styles.message}
             value={message}
             onValueChange={(e) => setMessage(e.detail)}
-            label="Message"
+            label={t('contact.label_message')}
             outline
             required
           ></InoTextarea>
           <InoButton className={styles.submit_button} type="submit">
-            Send Mail
+            <span>{t('contact.label_submit')}</span>
             <InoIcon slot="icon-trailing" icon="mail"></InoIcon>
           </InoButton>
         </form>

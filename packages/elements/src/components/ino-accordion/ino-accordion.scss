@@ -1,0 +1,92 @@
+@use 'base/typography-new' as typography;
+@use 'base/new-theme' as theme;
+
+$animation-time: 200ms;
+
+.ino-accordion {
+  &:hover {
+    background: theme.$p-01;
+  }
+  border-radius: 24px;
+
+  &__header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    min-height: 48px;
+  }
+
+  &__content {
+    @include typography.typo(body-m);
+    padding: 0 56px 32px 52px;
+    color: theme.$n-10;
+    opacity: 0;
+    transition: opacity $animation-time ease-in-out;
+    &--visible {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    padding-left: 10px;
+    @include typography.typo(title-m);
+
+    color: theme.$n-10;
+    &--expanded {
+      color: theme.$p-05;
+    }
+  }
+
+  &--expanded {
+    background: theme.$p-01;
+  }
+
+  .ino-accordion__content-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $animation-time ease-in-out;
+
+    &--expanded {
+      max-height: 1000px;
+    }
+  }
+}
+
+.toggle-button {
+  background: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  position: relative;
+
+  .toggle-icon {
+    position: absolute;
+    transition: $animation-time;
+    background: theme.$p-05;
+    border-radius: 2.5px;
+
+    &--expanded {
+      top: 25%;
+      bottom: 25%;
+      width: 10%;
+      left: 45%;
+    }
+
+    &--collapsed {
+      left: 25%;
+      right: 25%;
+      height: 10%;
+      top: 45%;
+    }
+  }
+  &--expanded {
+    .toggle-icon {
+      transform: rotate(90deg);
+      &--collapsed {
+        left: 50%;
+        right: 50%;
+      }
+    }
+  }
+}

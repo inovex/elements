@@ -8,6 +8,7 @@ import type { JSX } from '@inovex.de/elements';
 import { defineCustomElements } from '@inovex.de/elements/dist/loader';
 
 defineCustomElements();
+export const InoAccordion = /*@__PURE__*/createReactComponent<JSX.InoAccordion, HTMLInoAccordionElement>('ino-accordion');
 export const InoAutocomplete = /*@__PURE__*/createReactComponent<JSX.InoAutocomplete, HTMLInoAutocompleteElement>('ino-autocomplete');
 export const InoButton = /*@__PURE__*/createReactComponent<JSX.InoButton, HTMLInoButtonElement>('ino-button');
 export const InoCard = /*@__PURE__*/createReactComponent<JSX.InoCard, HTMLInoCardElement>('ino-card');

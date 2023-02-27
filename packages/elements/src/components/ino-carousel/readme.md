@@ -72,22 +72,21 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property       | Attribute      | Description                                                         | Type      | Default     |
-| -------------- | -------------- | ------------------------------------------------------------------- | --------- | ----------- |
-| `animated`     | `animated`     | Enables the slide animation                                         | `boolean` | `false`     |
-| `autoplay`     | `autoplay`     | Enables autoplay which causes slides to be changed automatically    | `boolean` | `false`     |
-| `hideButtons`  | `hide-buttons` | Hides the arrow buttons                                             | `boolean` | `false`     |
-| `infinite`     | `infinite`     | Restarts playback from the first slide upon reaching the last slide | `boolean` | `false`     |
-| `intermission` | `intermission` | Sets the intermission between two slides (Unit: ms)                 | `number`  | `5000`      |
-| `reverse`      | `reverse`      | Enables reverse playback of the slides                              | `boolean` | `false`     |
-| `value`        | `value`        | Optional group value to manually manage the displayed slide         | `string`  | `undefined` |
+| Property             | Attribute      | Description                                                                                         | Type               | Default     |
+| -------------------- | -------------- | --------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
+| `autoplay`           | `autoplay`     | Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds. | `boolean`          | `false`     |
+| `hideButtons`        | `hide-buttons` | Hides the arrow buttons                                                                             | `boolean`          | `false`     |
+| `infinite`           | `infinite`     | Restarts playback from the first slide upon reaching the last slide                                 | `boolean`          | `true`      |
+| `intermission`       | `intermission` | Sets the intermission between two slides (Unit: ms)                                                 | `number`           | `5000`      |
+| `reverse`            | `reverse`      | Enables reverse playback of the slides                                                              | `boolean`          | `false`     |
+| `value` _(required)_ | `value`        | `value` of the slide that should be displayed.                                                      | `number \| string` | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                                                                             | Type                            |
-| ------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `valueChange` | Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked. | `CustomEvent<number \| string>` |
+| Event         | Description                                                                                     | Type                            |
+| ------------- | ----------------------------------------------------------------------------------------------- | ------------------------------- |
+| `valueChange` | Emits the `value` of the slide that should be displayed after interaction or autoplay interval. | `CustomEvent<number \| string>` |
 
 
 ## Slots
@@ -99,12 +98,10 @@ class MyComponent extends Component {
 
 ## CSS Custom Properties
 
-| Name                                | Description                               |
-| ----------------------------------- | ----------------------------------------- |
-| `--ino-carousel-animation-duration` | sets the duration of the slide animation  |
-| `--ino-carousel-height`             | sets the height of the carousel component |
-| `--ino-carousel-icon-color`         | sets the color of the navigation buttons  |
-| `--ino-carousel-width`              | sets the width of the carousel component  |
+| Name                                | Description                              |
+| ----------------------------------- | ---------------------------------------- |
+| `--ino-carousel-animation-duration` | sets the duration of the slide animation |
+| `--ino-carousel-icon-color`         | sets the color of the navigation buttons |
 
 
 ## Dependencies
