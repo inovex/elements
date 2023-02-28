@@ -1,12 +1,13 @@
 .container {
   display: grid;
-  grid-template-columns: minmax(350px, 1fr) minmax(0px, 1fr);
+  grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);
   grid-template-rows: 1fr min-content 1fr;
   grid-template-areas:
     'header image'
     'info image'
     'installation image';
   grid-row-gap: 40px;
+  margin-top: 75px;
 }
 
 .image {
@@ -21,6 +22,7 @@
   grid-area: header;
   align-self: end;
   grid-column: 1 / span 2;
+  padding-top: 40px;
 
   .header {
     margin: 0;
@@ -53,14 +55,14 @@
   }
 }
 
-@media screen and (max-width: 1350px) {
-  .image {
-    opacity: 0.5;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .image {
     opacity: 0.2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .image {
+    opacity: 0;
   }
 }
