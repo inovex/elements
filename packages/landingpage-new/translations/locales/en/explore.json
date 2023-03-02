@@ -1,4 +1,8 @@
 {
+  "header": {
+    "title": "explore",
+    "subtitle": "Explore the Elements and learn how they are used in a variety of projects."
+  },
   "examples": {
     "title_1": "Application",
     "title_2": "examples",
@@ -6,7 +10,9 @@
   },
   "demos": {
     "title_1": "demo",
-    "title_2": "projects"
+    "title_2": "projects",
+    "subtitle": "We implemented a simple to do list with each framework - go and check it out.",
+    "show_demo": "show demo project"
   },
   "resources": {
     "title_1": "more",

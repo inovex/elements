@@ -11,13 +11,17 @@ import { Locale_File } from 'translations/types';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
 import Examples from 'components/explore/examples';
+import ExploreHeader from 'components/explore/explore-header';
+import styles from './index.module.scss';
+import classNames from 'classnames';
 
 const Explore = () => {
   const { t } = useTranslation();
 
   return (
     <Page title={[t('common.meta.explore')]}>
-      <div className="section-container">
+      <div className={classNames('section-container', styles.exploreContainer)}>
+        <ExploreHeader />
         <section id={SubRoutes.EXPLORE_EXAMPLES}>
           <Examples />
         </section>
@@ -25,7 +29,7 @@ const Explore = () => {
           <Demos />
         </section>
         <section id={SubRoutes.EXPLORE_RESSOURCES}>
-          <ResourceCard/>
+          <ResourceCard />
         </section>
       </div>
     </Page>
@@ -33,11 +37,15 @@ const Explore = () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const {localization} = getStaticLanguageProps(ctx as LangContext, Locale_File.EXPLORE).props;
+  const { localization } = getStaticLanguageProps(
+    ctx as LangContext,
+    Locale_File.EXPLORE
+  ).props;
 
   return { props: { localization } };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
+export const getStaticPaths: GetStaticPaths = async () =>
+  getStaticLanguagePaths();
 
 export default Explore;
