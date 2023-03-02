@@ -1,9 +1,18 @@
+$card-width: 295px;
+$gap: 20px;
+$tolerance: 300px;
+$all-cards-incl-gap: $card-width * 4 + 3 * $gap + $tolerance;
+
 .cardWrapper{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   padding-top: 40px;
-    ino-card {
-      margin-bottom: 15px;
-    }
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(2, $card-width);
+  grid-gap: $gap;
+
+  @media (min-width: $all-cards-incl-gap) {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 295px);
+  }
 }
