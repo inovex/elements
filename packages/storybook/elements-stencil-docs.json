@@ -644,16 +644,13 @@
         },
         {
           "name": "value",
-          "type": "number | string",
+          "type": "string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "`value` of the slide that should be displayed.",
           "docsTags": [],
           "values": [
-            {
-              "type": "number"
-            },
             {
               "type": "string"
             }
@@ -666,7 +663,7 @@
       "events": [
         {
           "event": "valueChange",
-          "detail": "number | string",
+          "detail": "string",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -742,16 +739,13 @@
         },
         {
           "name": "value",
-          "type": "number | string",
+          "type": "string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "Value of the slide",
           "docsTags": [],
           "values": [
-            {
-              "type": "number"
-            },
             {
               "type": "string"
             }

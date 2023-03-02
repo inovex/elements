@@ -30,13 +30,17 @@ export class InoCarousel implements ComponentInterface {
   /**
    * `value` of the slide that should be displayed.
    */
-  @Prop() value!: string | number;
+  @Prop() value!: string;
 
   @Watch('value')
   valueChanged(newVal: string | number) {
     const nextSlide = this.allSlides.find(
-      (slide: HTMLInoCarouselSlideElement) => slide.value === newVal
+      (slide: HTMLInoCarouselSlideElement) =>  slide.value === newVal
     );
+
+    if(!nextSlide) {
+      throw new Error(`<ino-carousel-slide> with value '${newVal}' could not be found in the children of <ino-carousel>`)
+    }
 
     if (this.currentSlideEl) this.currentSlideEl.selected = false;
 
@@ -49,7 +53,7 @@ export class InoCarousel implements ComponentInterface {
   /**
    * Emits the `value` of the slide that should be displayed after interaction or autoplay interval.
    */
-  @Event() valueChange: EventEmitter<number | string>;
+  @Event() valueChange: EventEmitter<string>;
 
   /**
    * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
