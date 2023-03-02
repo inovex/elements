@@ -13,9 +13,17 @@
 .image {
   grid-area: image;
   opacity: 1;
-  transition: opacity 1s ease;
+  transition: opacity 500ms ease;
   overflow: visible;
   z-index: -1;
+
+  @media screen and (max-width: 768px) {
+    opacity: 0.2;
+  }
+
+  @media screen and (max-width: 600px) {
+    opacity: 0;
+  }
 }
 
 .headerContainer {
@@ -52,17 +60,5 @@
 
   .animation {
     padding-top: 15px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .image {
-    opacity: 0.2;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .image {
-    opacity: 0;
   }
 }
