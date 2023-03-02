@@ -1,4 +1,9 @@
 {
+  "examples": {
+    "title_1": "Application",
+    "title_2": "examples",
+    "sub_title": "We use the elements in many different of our products, creating a great and consistent product experience. Here are some examples:"
+  },
   "demos": {
     "title_1": "demo",
     "title_2": "projects"

@@ -15,6 +15,7 @@ import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
 import useDefaultLocale from '../../translations/useDefaultLocale';
 import { useMount } from 'react-use';
+import FaqSection from 'components/home/faq-section/faq-section';
 
 const Home: NextPage = () => {
   const redirectToDefaultLocale = useDefaultLocale();
@@ -33,6 +34,9 @@ const Home: NextPage = () => {
         </section>
         <section id={SubRoutes.HOME_COMPONENTS}>
           <ComponentSample></ComponentSample>
+        </section>
+        <section id={SubRoutes.HOME_FAQ}>
+        <FaqSection></FaqSection>
         </section>
         <section id={SubRoutes.HOME_CONTACT}>
           <Contact />

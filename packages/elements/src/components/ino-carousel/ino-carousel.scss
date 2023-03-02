@@ -7,11 +7,11 @@ ino-carousel {
    */
   --carousel-icon-color: var(--ino-carousel-icon-color, #fff);
   --carousel-animation-duration: var(--ino-carousel-animation-duration, 700ms);
+  width: 700px;
+  height: 400px;
 }
 
 .ino-carousel {
-  width: 700px;
-  height: 400px;
 
   &__container {
     position: relative;

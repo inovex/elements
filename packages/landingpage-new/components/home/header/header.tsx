@@ -16,12 +16,11 @@ export default function Header() {
       <div className={styles.container}>
         <div className={styles.image}>
           <Image
-            width={686}
-            height={787}
-            src={`${basePath}/elements-collage.png`}
+            width={663}
+            height={354}
+            src={`${basePath}/elements-collection-image.png`}
             alt="Elements Collage"
             style={{
-              maxWidth: '100%',
               height: 'auto',
               objectFit: 'contain',
             }}
@@ -35,24 +34,25 @@ export default function Header() {
             {t('header.title_2')} <mark>{t('header.title_mark')}</mark>
           </h1>
         </div>
-          <div className={classNames(styles.info, 'body-l')}>
-            <p>{t('header.subtitle_1')}</p>
-            <p>
-              {t('header.subtitle_2')}{' '}
-              <Link href={`${locale}${MainRoutes.LIBRARY}`}>
-                {t('common.elements')}.
-              </Link>
-            </p>
-          </div>
-          <div className={styles.installation}>
-            <Link href={`${locale}${MainRoutes.GETTING_STARTED}`}>
-              <InoButton><span>{t('header.getting_started')}</span></InoButton>
+        <div className={classNames(styles.info, 'body-l')}>
+          <p>
+            {t('header.subtitle_1')}{' '}
+            <Link href={`${locale}${MainRoutes.LIBRARY}`}>
+              {t('common.elements')}.
             </Link>
-            <div className={styles.animation}>
-              <InstallChips></InstallChips>
-            </div>
+          </p>
+        </div>
+        <div className={styles.installation}>
+          <Link href={`${locale}${MainRoutes.GETTING_STARTED}`}>
+            <InoButton>
+              <span>{t('header.getting_started')}</span>
+            </InoButton>
+          </Link>
+          <div className={styles.animation}>
+            <InstallChips></InstallChips>
           </div>
         </div>
+      </div>
     </>
   );
 }

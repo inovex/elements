@@ -28,7 +28,7 @@ export class InoCarouselSlide implements ComponentInterface {
   /**
    * Value of the slide
    */
-  @Prop() value: number | string;
+  @Prop() value: string;
 
   render() {
     return (
