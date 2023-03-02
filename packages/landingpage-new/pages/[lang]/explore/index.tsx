@@ -1,5 +1,6 @@
 import { SubRoutes } from 'utils/routes';
 import Demos from 'components/explore/demos';
+import ResourceCard from 'components/explore/resources/resources-card';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import {
   getStaticLanguagePaths,
@@ -22,6 +23,9 @@ const Explore = () => {
         </section>
         <section id={SubRoutes.EXPLORE_DEMOS}>
           <Demos />
+        </section>
+        <section id={SubRoutes.EXPLORE_RESSOURCES}>
+          <ResourceCard/>
         </section>
       </div>
     </Page>
