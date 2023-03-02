@@ -2,3 +2,14 @@
     display: flex;
     justify-content: space-between;
 }
+
+.claimContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  font-weight: 500 !important;
+  color: #39383C;
+}
