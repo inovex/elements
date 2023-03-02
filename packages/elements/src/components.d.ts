@@ -107,7 +107,7 @@ export namespace Components {
         /**
           * `value` of the slide that should be displayed.
          */
-        "value": string | number;
+        "value": string;
     }
     interface InoCarouselSlide {
         /**
@@ -121,7 +121,7 @@ export namespace Components {
         /**
           * Value of the slide
          */
-        "value": number | string;
+        "value": string;
     }
     interface InoCheckbox {
         /**
@@ -1880,7 +1880,7 @@ declare namespace LocalJSX {
         /**
           * Emits the `value` of the slide that should be displayed after interaction or autoplay interval.
          */
-        "onValueChange"?: (event: InoCarouselCustomEvent<number | string>) => void;
+        "onValueChange"?: (event: InoCarouselCustomEvent<string>) => void;
         /**
           * Enables reverse playback of the slides
          */
@@ -1888,7 +1888,7 @@ declare namespace LocalJSX {
         /**
           * `value` of the slide that should be displayed.
          */
-        "value": string | number;
+        "value": string;
     }
     interface InoCarouselSlide {
         /**
@@ -1902,7 +1902,7 @@ declare namespace LocalJSX {
         /**
           * Value of the slide
          */
-        "value"?: number | string;
+        "value"?: string;
     }
     interface InoCheckbox {
         /**

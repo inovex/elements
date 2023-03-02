@@ -115,7 +115,7 @@ export declare interface InoCarousel extends Components.InoCarousel {
   /**
    * Emits the `value` of the slide that should be displayed after interaction or autoplay interval. 
    */
-  valueChange: EventEmitter<CustomEvent<number | string>>;
+  valueChange: EventEmitter<CustomEvent<string>>;
 
 }
 

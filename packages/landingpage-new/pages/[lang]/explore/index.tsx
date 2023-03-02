@@ -1,18 +1,25 @@
 import { SubRoutes } from 'utils/routes';
 import Demos from 'components/explore/demos';
-import {GetStaticPaths, GetStaticProps} from 'next';
-import {getStaticLanguagePaths, getStaticLanguageProps} from 'utils/context/staticPaths';
-import {LangContext} from 'types/langContext';
-import {Locale_File} from 'translations/types';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import {
+  getStaticLanguagePaths,
+  getStaticLanguageProps,
+} from 'utils/context/staticPaths';
+import { LangContext } from 'types/langContext';
+import { Locale_File } from 'translations/types';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
+import Examples from 'components/explore/examples';
 
 const Explore = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <Page title={[t('common.meta.explore')]}>
       <div className="section-container">
+        <section id={SubRoutes.EXPLORE_EXAMPLES}>
+          <Examples />
+        </section>
         <section id={SubRoutes.EXPLORE_DEMOS}>
           <Demos />
         </section>

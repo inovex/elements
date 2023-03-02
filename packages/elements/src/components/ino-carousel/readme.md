@@ -72,21 +72,21 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property             | Attribute      | Description                                                                                         | Type               | Default     |
-| -------------------- | -------------- | --------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
-| `autoplay`           | `autoplay`     | Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds. | `boolean`          | `false`     |
-| `hideButtons`        | `hide-buttons` | Hides the arrow buttons                                                                             | `boolean`          | `false`     |
-| `infinite`           | `infinite`     | Restarts playback from the first slide upon reaching the last slide                                 | `boolean`          | `true`      |
-| `intermission`       | `intermission` | Sets the intermission between two slides (Unit: ms)                                                 | `number`           | `5000`      |
-| `reverse`            | `reverse`      | Enables reverse playback of the slides                                                              | `boolean`          | `false`     |
-| `value` _(required)_ | `value`        | `value` of the slide that should be displayed.                                                      | `number \| string` | `undefined` |
+| Property             | Attribute      | Description                                                                                         | Type      | Default     |
+| -------------------- | -------------- | --------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `autoplay`           | `autoplay`     | Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds. | `boolean` | `false`     |
+| `hideButtons`        | `hide-buttons` | Hides the arrow buttons                                                                             | `boolean` | `false`     |
+| `infinite`           | `infinite`     | Restarts playback from the first slide upon reaching the last slide                                 | `boolean` | `true`      |
+| `intermission`       | `intermission` | Sets the intermission between two slides (Unit: ms)                                                 | `number`  | `5000`      |
+| `reverse`            | `reverse`      | Enables reverse playback of the slides                                                              | `boolean` | `false`     |
+| `value` _(required)_ | `value`        | `value` of the slide that should be displayed.                                                      | `string`  | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                                                                     | Type                            |
-| ------------- | ----------------------------------------------------------------------------------------------- | ------------------------------- |
-| `valueChange` | Emits the `value` of the slide that should be displayed after interaction or autoplay interval. | `CustomEvent<number \| string>` |
+| Event         | Description                                                                                     | Type                  |
+| ------------- | ----------------------------------------------------------------------------------------------- | --------------------- |
+| `valueChange` | Emits the `value` of the slide that should be displayed after interaction or autoplay interval. | `CustomEvent<string>` |
 
 
 ## Slots
