@@ -10,5 +10,19 @@
     "alt_image": "blog image of ",
     "sample_title" : "We are always evolving!",
     "sample_subtitle": "Stay tuned for more elements content!"
+  },
+  "articles": {
+    "announcement-v1": {
+      "url": "https://www.inovex.de/en/blog/inovex-elements-open-source/",
+      "title": "Announcing @inovex.de/elements 1.0: Our Open Source UI Library!",
+      "author": "Patrick Hillert",
+      "date": "30.09.2020"
+    },
+    "trainings": {
+      "url": "https://www.inovex.de/en/training/web-components/inhouse/",
+      "title": "inovex Academy: Web Components",
+      "author": "On Request",
+      "date": "2 days training"
+    }
   }
 }
