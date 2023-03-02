@@ -7,6 +7,7 @@ import {
   Host,
   Listen,
   Prop,
+  Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
 import { Placement } from 'tippy.js';
@@ -22,6 +23,8 @@ import { hasSlotContent } from '../../util/component-utils';
 })
 export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
+  private tooltip?: HTMLInoTooltipElement;
+
 
   @Element() el!: HTMLInoFabElement;
 
@@ -80,6 +83,13 @@ export class Fab implements ComponentInterface {
       );
     }
   }
+  @Watch('label')
+  watchHandler() {
+    if (this.tooltip) {
+      this.tooltip.remove();
+      this.renderTooltip();
+    }
+  }
 
   componentDidLoad() {
     this.fabRipple = new MDCRipple(
@@ -99,12 +109,13 @@ export class Fab implements ComponentInterface {
         this.tooltipPlacement === 'none' ? undefined : this.tooltipPlacement,
       trigger: 'mouseenter focus',
     };
-
+  
     const tooltip = document.createElement('ino-tooltip');
     Object.keys(attributes).forEach((key) =>
       tooltip.setAttribute(key, attributes[key])
     );
     this.el.appendChild(tooltip);
+    this.tooltip = tooltip;
   }
 
   disconnectedCallback() {
