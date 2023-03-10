@@ -11,7 +11,7 @@ import { InoButton, InoPopover } from '@elements';
 import Link from 'next/link';
 import useTranslation from 'utils/hooks/useTranslation';
 
-const POPOVER_OFFSET = -46;
+const POPOVER_OFFSET = 10;
 
 export default function Navbar() {
   const router = useRouter();
@@ -39,7 +39,7 @@ export default function Navbar() {
           <InoPopover
             for={mainRouteName}
             interactive
-            placement="bottom"
+            placement="bottom-start"
             trigger="mouseenter"
             controlled={false}
             visible={false}
@@ -47,17 +47,6 @@ export default function Navbar() {
             colorScheme="transparent"
           >
             <div className={styles.popover}>
-              <LinkItem
-                url={mainRouteUrl}
-                name={t(
-                  `common.navigation.${mainRouteName.replace(
-                    ' ',
-                    '_'
-                  )}.mainroute`
-                )}
-                isActive={isRouteActive(mainRouteUrl, mainRouteName)}
-                noMargin={true}
-              />
               {subRoutes.map(({ name: subRouteName, url: subRouteUrl }) => {
                 const subrouteDivider = getDividerByMainRoute(
                   mainRouteUrl as MainRoutes
