@@ -7,8 +7,10 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className='inovex-elements-typo'>
       <Header></Header>
-      <main className={styles.main}>{children}</main>
-      <Footer></Footer>
+      <div className={styles.main}>
+        <main>{children}</main>
+        <Footer></Footer>
+      </div>
     </div>
   );
 }
