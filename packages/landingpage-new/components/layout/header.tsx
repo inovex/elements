@@ -31,7 +31,7 @@ export default function Header() {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://elements.inovex.de"
+          href={basePath}
         >
           <Image
             src={ElementsLogo}
