@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import '@code-hike/mdx/dist/index.css';
-import '../styles/custom-ch.css';
+import '../styles/custom-ch.css'
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout';
 import {
@@ -18,13 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <>
-      <LanguageProvider localization={pageProps.localization}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </LanguageProvider>
-    </>
+    <LanguageProvider localization={pageProps.localization}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </LanguageProvider>
   );
 }
 
