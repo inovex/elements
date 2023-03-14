@@ -2,9 +2,7 @@ import styles from './footer.module.scss';
 import { getDividerByMainRoute, MainRoutes, Routes } from '../../utils/routes';
 import LinkItem from './linkItem';
 import useTranslation from 'utils/hooks/useTranslation';
-import Image from 'next/image';
-import inovexLogo from '@assets/inovex-logo.svg';
-import classNames from 'classnames';
+import Attributions from './attributions';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -40,25 +38,7 @@ export default function Footer() {
           </div>
         ))}
       </div>
-      <a
-        className={classNames(styles.inovexClaim, 'body-m')}
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.inovex.de/"
-      >
-        <small>provided by</small>
-        <Image
-          src={inovexLogo}
-          alt="Github Logo"
-          width={30}
-          height={30}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-          }}
-        />
-        <small>inovex GmbH</small>
-      </a>
+      <Attributions />
     </footer>
   );
 }
