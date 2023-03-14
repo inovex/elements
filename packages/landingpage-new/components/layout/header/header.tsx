@@ -1,6 +1,6 @@
 import {useMedia} from 'react-use';
-import HeaderDesktop from './header.desktop';
-import HeaderMobile from './header.mobile';
+import HeaderDesktop from './desktop/header.desktop';
+import HeaderMobile from './mobile/header.mobile';
 
 export default function Header() {
 

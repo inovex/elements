@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
-import { Routes } from '../../utils/routes';
-import LinkItem from './linkItem';
+import { Routes } from '../../../../utils/routes';
+import LinkItem from '../../linkItem';
 import { InoPopover } from '@elements';
 import useTranslation from 'utils/hooks/useTranslation';
-import { ContactButton } from '../shared/contactButton';
+import { ContactButton } from '../../../shared/contactButton';
 
 const POPOVER_OFFSET = -46;
 

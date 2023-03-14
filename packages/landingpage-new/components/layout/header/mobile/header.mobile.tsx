@@ -1,16 +1,30 @@
 import styles from './header.mobile.module.scss';
-import MenuIcon from './menuIcon';
 import { useClickAway, useToggle } from 'react-use';
 import classNames from 'classnames';
-import { useEffect, useRef, useState } from 'react';
+import * as React from 'react';
+import { SVGProps, useEffect, useRef, useState } from 'react';
 import elementsLogo from '@assets/elements.svg';
 import Image from 'next/image';
-import { InoButton, InoIcon } from '@elements';
-import { Routes } from '../../utils/routes';
-import LinkItem from './linkItem';
-import useTranslation from '../../utils/hooks/useTranslation';
+import { InoIcon } from '@elements';
+import { Routes } from '../../../../utils/routes';
+import LinkItem from '../../linkItem';
+import useTranslation from '../../../../utils/hooks/useTranslation';
 import { useRouter } from 'next/router';
-import {ContactButton} from "../shared/contactButton";
+import { ContactButton } from '../../../shared/contactButton';
+
+const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width={24}
+    height={26}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <rect width={24} height={4} rx={2} />
+    <rect y={11} width={24} height={4} rx={2} />
+    <rect y={22} width={24} height={4} rx={2} />
+  </svg>
+);
 
 export default function HeaderMobile() {
   const ref = useRef(null);
