@@ -10,6 +10,7 @@ import { Routes } from '../../utils/routes';
 import LinkItem from './linkItem';
 import useTranslation from '../../utils/hooks/useTranslation';
 import { useRouter } from 'next/router';
+import {ContactButton} from "../shared/contactButton";
 
 export default function HeaderMobile() {
   const ref = useRef(null);
@@ -89,7 +90,7 @@ export default function HeaderMobile() {
             }
           )}
         </div>
-        <InoButton>Contact us</InoButton>
+        <ContactButton />
       </div>
     </>
   );

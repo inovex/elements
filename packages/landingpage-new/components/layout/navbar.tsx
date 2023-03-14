@@ -1,16 +1,16 @@
 import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
-import { Routes, SubRoutes } from '../../utils/routes';
+import { Routes } from '../../utils/routes';
 import LinkItem from './linkItem';
-import { InoButton, InoPopover } from '@elements';
-import Link from 'next/link';
+import { InoPopover } from '@elements';
 import useTranslation from 'utils/hooks/useTranslation';
+import { ContactButton } from '../shared/contactButton';
 
 const POPOVER_OFFSET = -46;
 
 export default function Navbar() {
   const router = useRouter();
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
 
   function isRouteActive(mainRouteUrl: string, mainRouteName: string) {
     const pathSplit = router.pathname.split('/');
@@ -60,11 +60,7 @@ export default function Navbar() {
           </InoPopover>
         </div>
       ))}
-      <Link href={`/${locale}#${SubRoutes.HOME_CONTACT}`}>
-        <InoButton>
-          <span>{t('common.navigation.contact.name')}</span>
-        </InoButton>
-      </Link>
+      <ContactButton />
     </nav>
   );
 }
