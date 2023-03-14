@@ -1,0 +1,64 @@
+@use '/../../styles/theme';
+
+.icon {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  cursor: pointer;
+  color: theme.$n-7;
+  transition: color 300ms;
+
+  &:hover {
+    color: theme.$primary;
+  }
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  transform: translateX(-100%);
+  transition: transform 300ms;
+
+  height: 100%;
+  width: 200px;
+  padding: 20px 33px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: white;
+  box-shadow: 0 3px 10px 0 #14141429;
+
+  &Open {
+    transform: translateX(0);
+  }
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.routes {
+  height: 80%;
+  overflow: auto;
+}
+
+.subRoutes {
+  max-height: 0;
+  opacity: 0;
+  margin-left: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: height 300ms, opacity 300ms;
+
+  &Expanded {
+    opacity: 1;
+    max-height: 9999px;
+  }
+}

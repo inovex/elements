@@ -1,11 +1,6 @@
 import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
-import {
-  getDividerByMainRoute,
-  MainRoutes,
-  Routes,
-  SubRoutes,
-} from '../../utils/routes';
+import { Routes, SubRoutes } from '../../utils/routes';
 import LinkItem from './linkItem';
 import { InoButton, InoPopover } from '@elements';
 import Link from 'next/link';
@@ -25,19 +20,17 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      {Routes.map(({ name: mainRouteName, url: mainRouteUrl, subRoutes }) => (
+      {Routes.map(({ key, url: mainRouteUrl, subRoutes }) => (
         <div key={mainRouteUrl}>
-          <div id={mainRouteName}>
+          <div id={key}>
             <LinkItem
               url={mainRouteUrl}
-              name={t(
-                `common.navigation.${mainRouteName.replace(' ', '_')}.mainroute`
-              )}
-              isActive={isRouteActive(mainRouteUrl, mainRouteName)}
+              name={t(`common.navigation.${key}.name`)}
+              isActive={isRouteActive(mainRouteUrl, key)}
             />
           </div>
           <InoPopover
-            for={mainRouteName}
+            for={key}
             interactive
             placement="bottom"
             trigger="mouseenter"
@@ -49,40 +42,27 @@ export default function Navbar() {
             <div className={styles.popover}>
               <LinkItem
                 url={mainRouteUrl}
-                name={t(
-                  `common.navigation.${mainRouteName.replace(
-                    ' ',
-                    '_'
-                  )}.mainroute`
-                )}
-                isActive={isRouteActive(mainRouteUrl, mainRouteName)}
+                name={t(`common.navigation.${key}.name`)}
+                isActive={isRouteActive(mainRouteUrl, key)}
                 noMargin={true}
               />
-              {subRoutes.map(({ name: subRouteName, url: subRouteUrl }) => {
-                const subrouteDivider = getDividerByMainRoute(
-                  mainRouteUrl as MainRoutes
-                );
-                return (
-                  <LinkItem
-                    key={subRouteName + subRouteUrl}
-                    url={`${mainRouteUrl}${subrouteDivider}${subRouteUrl}`}
-                    name={t(
-                      `common.navigation.${mainRouteName.replace(
-                        ' ',
-                        '_'
-                      )}.subroutes.${subRouteName.replace(' ', '_')}`
-                    )}
-                    isDense={true}
-                  />
-                );
-              })}
+              {subRoutes.map(({ key: subRouteName, url: subRouteUrl }) => (
+                <LinkItem
+                  key={subRouteUrl}
+                  url={subRouteUrl}
+                  name={t(
+                    `common.navigation.${key}.subroutes.${subRouteName}.name`
+                  )}
+                  isDense={true}
+                />
+              ))}
             </div>
           </InoPopover>
         </div>
       ))}
       <Link href={`/${locale}#${SubRoutes.HOME_CONTACT}`}>
         <InoButton>
-          <span>{t('common.navigation.contact')}</span>
+          <span>{t('common.navigation.contact.name')}</span>
         </InoButton>
       </Link>
     </nav>
