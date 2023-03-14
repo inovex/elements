@@ -1,8 +1,8 @@
-@use 'base/typography';
-@use 'base/animation';
-@use 'ino-spinner/ino-spinner' as spinner;
-@use 'base/theme';
-@use 'base/common';
+@use '../base/typography';
+@use '../base/animation';
+@use '../ino-spinner/ino-spinner' as spinner;
+@use '../base/theme';
+@use '../base/common';
 
 /* Colors: */
 $white: #ffffff;

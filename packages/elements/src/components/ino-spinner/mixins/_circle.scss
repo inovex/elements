@@ -1,5 +1,5 @@
 @use './transitions';
-@use 'base/theme';
+@use '../base/theme';
 
 @mixin circle-color($color) {
   > div:before {

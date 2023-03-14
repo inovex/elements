@@ -19,19 +19,13 @@
   "files": [
     "dist/"
   ],
-  "scripts": {
-    "build": "npm run clean && npm run compile",
-    "clean": "shx rm -rf dist",
-    "compile": "npm run tsc",
-    "tsc": "tsc -p ."
-  },
   "dependencies": {
     "@inovex.de/elements": "^8.0.0"
   },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
   "devDependencies": {
-    "shx": "^0.3.2",
-    "typescript": "^4.2.4",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0"
+    "typescript": "^4.2.4"
   }
 }

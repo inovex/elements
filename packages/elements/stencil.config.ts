@@ -4,34 +4,35 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 import { vueOutputTarget } from './output-targets/vue-output-target';
 import { JsonDocsOutputTarget } from './output-targets/json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
+import { join } from "path";
 
-const angularDirectivesPath = '../elements-angular/elements/src/directives';
-const reactProxyPath = '../elements-react/src/components';
+const angularDirectivesPath = join(__dirname, '../elements-angular/elements/src/directives');
+const reactProxyPath =  join(__dirname,'../elements-react/src/components');
 
 export const config: Config = {
   buildEs5: false,
   extras: {
-    cssVarsShim: true,
-    dynamicImportShim: true,
-    shadowDomShim: true,
-    safari10: true,
-    scriptDataOpts: true,
-    appendChildSlotFix: false,
-    cloneNodeFix: false,
-    slotChildNodesFix: true,
     experimentalImportInjection: true,
+    initializeNextTick: true
   },
-  globalScript: './src/util/import-fonts.ts',
-  globalStyle: './src/global/styles.scss',
+  globalScript: join(__dirname, 'src/util/import-fonts.ts'),
+  globalStyle: join(__dirname, 'src/global/styles.scss'),
+  tsconfig: join(__dirname, 'tsconfig.lib.json'),
   enableCache: true,
   sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
+  taskQueue: 'async',
   outputTargets: [
     {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
     },
     { type: 'docs-readme' },
+    {
+      type: 'docs-vscode',
+      file: 'dist/html.html-data.json',
+      sourceCodeBaseUrl: 'https://github.com/inovex/elements//tree/master/packages/elements',
+    },
     JsonDocsOutputTarget,
     react({
       componentCorePackage: '@inovex.de/elements',
@@ -46,7 +47,7 @@ export const config: Config = {
     }),
     vueOutputTarget({
       componentCorePackage: '@inovex.de/elements',
-      proxiesFile: '../elements-vue/src/proxies.ts',
+      proxiesFile: join(__dirname, '../elements-vue/src/proxies.ts'),
       includeDefineCustomElements: false,
       // external event names (valueChange, checkedChange, ...) have to be mapped to vue event names
       // see elements-vue/src/index.ts
@@ -96,8 +97,7 @@ export const config: Config = {
   ],
   plugins: [
     sass({
-      injectGlobalPaths: [],
-      includePaths: ['./src/components', '../../node_modules'],
+      includePaths: [ '../../node_modules'] .map((d) => join(__dirname, d)),
     }),
   ],
   preamble: 'Crafted with ❤ by inovex GmbH',

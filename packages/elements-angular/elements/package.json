@@ -18,10 +18,6 @@
     "@angular/common": "^12.0.1",
     "@angular/core": "^12.0.1"
   },
-  "scripts": {
-    "build": "cd .. && ng build && tsc -p elements/tsconfig.schematics.json",
-    "clean": "shx rm -rf dist && shx rm -rf ../dist"
-  },
   "schematics": "./schematics/collection.json",
   "ng-add": {
     "save": "dependencies"

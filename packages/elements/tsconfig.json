@@ -1,27 +1,23 @@
 {
+  "extends": "../../tsconfig",
   "compilerOptions": {
-    "alwaysStrict": true,
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "declaration": true,
+    "strict": false,
+    "noImplicitReturns": false,
+    "declaration": false,
+    "module": "commonjs",
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["dom", "DOM.Iterable", "es2017"],
-    "moduleResolution": "node",
-    "module": "esnext",
+    "lib": ["dom", "es2017"],
     "target": "es2017",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "jsx": "react",
+    "noImplicitAny": false,
     "jsxFactory": "h",
-    "types": ["jest"],
-    "skipLibCheck": true
+    "types": ["jest"]
   },
-  "ts-node": { // to make our scripts work
-    "compilerOptions": {
-      "module": "commonjs"
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.eslint.json"
     }
-  },
-  "include": ["src", "types/jsx.d.ts", "output-targets", "scripts"],
-  "exclude": ["node_modules"]
+  ]
 }

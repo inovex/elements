@@ -1,7 +1,7 @@
-@use 'base/mdc-customize';
+@use '../base/mdc-customize';
 @use '@material/slider/slider';
 @use '@material/slider' as slider-mixins;
-@use 'base/new-theme' as theme;
+@use '../base/new-theme' as theme;
 @use "@material/ripple";
 
 @include slider.core-styles;

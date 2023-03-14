@@ -1,8 +1,8 @@
-@use 'base/mdc-customize';
+@use '../base/mdc-customize';
 @use '@material/form-field/mdc-form-field';
 @use '@material/checkbox/mdc-checkbox';
 @use '@material/checkbox';
-@use 'base/theme';
+@use '../base/theme';
 
 $primary-dark: #2C02FF;
 $primary-base: #4B4EFF;
@@ -59,7 +59,7 @@ $focus-border-color: $primary-base;
     color: $disabled-color;
   }
 
-  .ino-checkbox-selection { 
+  .ino-checkbox-selection {
     .mdc-checkbox__background {
       border-radius: 50px;
     }

@@ -1,4 +1,4 @@
-@import 'base/typography';
+@import '../base/typography';
 
 @mixin tooltip($background-color, $font-color) {
   @include font(sans-serif, m, regular);

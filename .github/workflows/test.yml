@@ -8,42 +8,49 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
+  build_core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/dependencies-install
+      - run: yarn nx run-many --target=build --projects=elements* --exclude=*-example
+        # Build caches for (canary) release workflow
+      - if: github.ref == 'refs/heads/master'
+        name: Upload build artifacts for canary release
+        uses: ./.github/workflows/artifacts-upload
+        with:
+          upload-core-artifacts: true
+
   test:
+    needs:
+      - build_core
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/dependencies-install
       - run: yarn lint
+      - run: yarn build:core
       - run: yarn test
 
-  build:
+  build_dependent:
     runs-on: ubuntu-latest
+    needs:
+      - build_core
     steps:
-    - uses: actions/checkout@v3
-    - uses: ./.github/workflows/dependencies-install
-    - run: npm config set scripts-prepend-node-path true
-    - run: yarn build
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # Build caches for unicorn deployment
-    - if: github.ref != 'refs/heads/master'
-      name: Upload build artifacts for unicorn deployment
-      uses: ./.github/workflows/artifacts-upload
-      with:
-        upload-storybook-artifact: true
-
-    # Build caches for (canary) release workflow
-    - if: github.ref == 'refs/heads/master'
-      name: Upload build artifacts for canary release
-      uses: ./.github/workflows/artifacts-upload
-      with:
-        upload-core-artifacts: true
-        upload-example-artifacts: true
-        upload-storybook-artifact: true
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/dependencies-install
+      - run: npm config set scripts-prepend-node-path true
+      - run: yarn nx run-many --target=build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload build artifacts
+        uses: ./.github/workflows/artifacts-upload
+        with:
+          upload-example-artifacts: ${{ github.ref == 'refs/heads/master' }}
+          upload-storybook-artifact: true
 
   unicorn:
     needs:
       - test
-      - build
+      - build_dependent
     uses: ./.github/workflows/deploy-unicorn.yml

@@ -8,13 +8,6 @@
     "Jan-Niklas Voß <jvoss@inovex.de>",
     "Pascal Fecht <pfecht@inovex.de>"
   ],
-  "scripts": {
-    "clean": "shx rm -rf dist",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
-  },
   "dependencies": {
     "@inovex.de/elements-vue": "^8.0.0",
     "vue": "^3.2.31",

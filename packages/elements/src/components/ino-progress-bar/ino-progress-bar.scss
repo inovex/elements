@@ -1,7 +1,7 @@
-@use 'base/mdc-customize';
+@use '../base/mdc-customize';
 @use '@material/linear-progress/mdc-linear-progress';
 @use '@material/linear-progress';
-@use 'base/theme';
+@use '../base/theme';
 
 :host {
   /**

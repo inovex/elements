@@ -1,10 +1,10 @@
-@use 'base/mdc-customize';
+@use '../base/mdc-customize';
 @use '@material/list';
 @use '@material/menu-surface/mdc-menu-surface';
 @use '@material/menu/mdc-menu';
 @use '@material/select/mdc-select';
 @use '@material/select';
-@use 'base/theme';
+@use '../base/theme';
 @use '../ino-label/ino-label';
 
 @include list.deprecated-core-styles;

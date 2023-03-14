@@ -1,0 +1,72 @@
+{
+  "name": "elements-angular",
+  "sourceRoot": "{projectRoot}/src",
+  "projectType": "library",
+  "tags": [],
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*"]
+  },
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["packages/elements-angular/elements/dist"],
+      "options": {
+        "cwd": "packages/elements-angular",
+        "commands": ["ng build", "nx run elements-angular:schematics"],
+        "parallel": false
+      }
+    },
+    "compile": {
+      "executor": "nx:run-commands",
+      "outputs": ["packages/elements-angular/elements/dist"],
+      "options": {
+        "cwd": "packages/elements-angular",
+        "commands": ["ng build", "nx run elements-angular:schematics"],
+        "parallel": false
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-angular",
+        "commands": ["nx watch --projects=elements-angular -- nx run elements-angular:compile"]
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-angular",
+        "command": "eslint elements/src"
+      },
+      "configurations": {
+        "fix": {
+          "command": "eslint elements/src --fix"
+        }
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-angular",
+        "commands": ["shx rm -rf dist ", "shx rm -rf elements/dist"]
+      },
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
+        }
+      }
+    },
+    "schematics": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/elements/dist/schematics"],
+      "options": {
+        "cwd": "packages/elements-angular",
+        "commands": [
+          "tsc -p elements/tsconfig.schematics.json --outDir elements/dist/schematics",
+          "shx cp elements/schematics/collection.json elements/dist/schematics/collection.json"
+        ],
+        "parallel": false
+      }
+    }
+  }
+}

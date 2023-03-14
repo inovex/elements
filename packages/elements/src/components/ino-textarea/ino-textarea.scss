@@ -1,8 +1,8 @@
-@use 'base/mdc-customize';
+@use '../base/mdc-customize';
 @use '@material/textfield/mdc-text-field';
 @use "@material/floating-label/mdc-floating-label";
 @use '@material/textfield';
-@use 'base/theme';
+@use '../base/theme';
 
 ino-textarea {
   /**
@@ -30,7 +30,7 @@ ino-textarea {
   .mdc-text-field {
     width: inherit;
     height: inherit;
-  } 
+  }
 
   .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) {
     @include textfield.focused-outline-color(var(--textarea-outline-color));

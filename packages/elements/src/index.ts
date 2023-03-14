@@ -1,1 +1,1 @@
-export {config as inoElementsConfig, InoElementsConfig, setupConfig } from './components/config';
+export * from './interface'

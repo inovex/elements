@@ -1,10 +1,10 @@
-@use 'base/mdc-customize';
+@use '../base/mdc-customize';
 @use '@material/button/mdc-button';
 @use '@material/button';
-@use 'base/animation';
-@use 'base/typography';
-@use 'base/common';
-@use 'base/new-theme' as theme;
+@use '../base/animation';
+@use '../base/typography';
+@use '../base/common';
+@use '../base/new-theme' as theme;
 
 /* borders */
 $round-border: 24px 24px 24px 24px;

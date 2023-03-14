@@ -1,8 +1,8 @@
-@use 'base/mdc-customize';
+@use '../base/mdc-customize';
 @use '@material/switch';
 @use '@material/switch/styles';
-@use 'base/new-theme' as theme;
-@use 'base/theme' as old-theme;
+@use '../base/new-theme' as theme;
+@use '../base/theme' as old-theme;
 
 @mixin set-track-border-color {
   .mdc-switch__track {

@@ -2,11 +2,6 @@
   "name": "elements-vue-example",
   "version": "8.0.0",
   "private": true,
-  "scripts": {
-    "start": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
   "dependencies": {
     "@inovex.de/elements-vue": "^8.0.0",
     "core-js": "^3.21.1",
@@ -21,22 +16,6 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {
-      "vue/no-deprecated-slot-attribute": "off"
-    }
   },
   "browserslist": [
     "> 1%",

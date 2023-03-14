@@ -30,12 +30,6 @@
     "url": "https://github.com/inovex/elements/issues"
   },
   "license": "MIT",
-  "scripts": {
-    "dev": "start-storybook -p 6006 -c config --quiet --no-version-updates",
-    "build": "build-storybook -c config -o dist",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
-  },
   "files": [
     "dist/"
   ],
@@ -73,7 +67,7 @@
     "sass": "^1.49.7",
     "sass-loader": "^12.6.0",
     "story-description-loader": "^1.0.0",
-    "typescript": "^4.2.4",
+    "typescript": "^4.5.5",
     "webpack": "^5.0.0"
   },
   "resolutions": {

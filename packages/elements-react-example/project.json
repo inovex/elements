@@ -1,0 +1,43 @@
+{
+  "name": "elements-react-example",
+  "projectType": "application",
+  "sourceRoot": "packages/elements-react-example/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "packages/elements-react-example",
+        "command": "vite build"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-react-example"
+      },
+      "defaultConfiguration": "dev",
+      "configurations": {
+        "dev": {
+          "command": "vite --port 4300"
+        },
+        "prod": {
+          "command": "vite preview --port 4300"
+        }
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-react-example",
+        "command": "shx rm -rf dist"
+      },
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
+        }
+      }
+    }
+  }
+}

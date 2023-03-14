@@ -1,0 +1,60 @@
+{
+  "name": "elements",
+  "sourceRoot": "packages/elements/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["packages/elements/dist"],
+      "options": {
+        "cwd": "packages/elements",
+        "command": "stencil build --ci"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements",
+        "command": "stencil build --watch --ci"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements",
+        "command": "stencil test --e2e --no-build"
+      },
+      "configurations": {
+        "ci": {
+          "command": "stencil test --e2e --no-build"
+        },
+        "watch": {
+          "command": "stencil test --e2e --watch"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/elements/src/*.{ts,tsx}",
+          "packages/elements/scripts/*.{ts,tsx}",
+          "packages/elements/output-targets/*.{ts,tsx}"
+        ]
+      }
+    },
+    "icons": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node --project packages/elements/tsconfig.json packages/elements/scripts/integrateIcons.ts"
+      },
+      "configurations": {
+        "optimize": {
+          "command": "svgo -f packages/elements/src/assets/ino-icon --config svgo.config.js"
+        }
+      }
+    }
+  }
+}

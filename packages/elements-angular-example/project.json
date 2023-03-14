@@ -1,0 +1,43 @@
+{
+  "name": "elements-angular-example",
+  "projectType": "application",
+  "sourceRoot": "packages/elements-angular-example/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "packages/elements-angular-example",
+        "command": "ng build --base-href /example-projects/angular/"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-angular-example"
+      },
+      "defaultConfiguration": "dev",
+      "configurations": {
+        "dev": {
+          "commands": ["ng serve --open"]
+        },
+        "prod": {
+          "commands": ["ng serve --hmr --open"]
+        }
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-angular-example",
+        "command": "shx rm -rf dist"
+      },
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
+        }
+      }
+    }
+  }
+}

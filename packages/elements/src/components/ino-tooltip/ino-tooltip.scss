@@ -1,5 +1,5 @@
 @use './mixins' as tooltip-mixins;
-@use 'base/theme';
+@use '../base/theme';
 
 ino-tooltip .ino-tooltip__composer {
   font-size: 0.8rem;

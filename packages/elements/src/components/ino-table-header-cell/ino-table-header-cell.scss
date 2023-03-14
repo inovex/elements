@@ -1,6 +1,6 @@
-@use 'base/mdc-customize';
-@use 'base/theme';
-@use 'base/typography';
+@use '../base/mdc-customize';
+@use '../base/theme';
+@use '../base/typography';
 @use '@material/data-table';
 
 $margin-right: 8px;

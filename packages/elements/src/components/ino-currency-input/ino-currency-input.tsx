@@ -8,7 +8,7 @@ import {
   EventEmitter,
   Watch,
 } from '@stencil/core';
-import { config } from '../config';
+import { inoElementsConfig as config } from '../config';
 
 /**
  * @slot default - `<ino-input>` of `type="text"`
