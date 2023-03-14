@@ -7,13 +7,15 @@ import {getStaticLanguagePaths, getStaticLanguageProps} from 'utils/context/stat
 import {LangContext} from 'types/langContext';
 import {Locale_File} from 'translations/types';
 import {NextPage} from 'next';
+import Image from 'next/image';
+import img404 from '@assets/404.svg';
 
 const Custom404: NextPage = () => {
   const {t, locale} = useTranslation();
 
   return (
     <div className={styles.container}>
-      <h1 className="header-d1">404</h1>
+      <Image src={img404} alt="404 error image" width={300} height={300} />
       <p className="body-l">
         {t('common.404.description')}
       </p>
