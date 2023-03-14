@@ -79,17 +79,17 @@ export const Routes: RouteTree = [
       {
         key: 'examples',
         fragment: SubRoutes.EXPLORE_EXAMPLES,
-        url: `${MainRoutes.EXPLORE}/${SubRoutes.EXPLORE_EXAMPLES}`,
+        url: `${MainRoutes.EXPLORE}#${SubRoutes.EXPLORE_EXAMPLES}`,
       },
       {
         key: 'resources',
         fragment: SubRoutes.EXPLORE_RESSOURCES,
-        url: `${MainRoutes.EXPLORE}/${SubRoutes.EXPLORE_RESSOURCES}`,
+        url: `${MainRoutes.EXPLORE}#${SubRoutes.EXPLORE_RESSOURCES}`,
       },
       {
         key: 'demos',
         fragment: SubRoutes.EXPLORE_DEMOS,
-        url: `${MainRoutes.EXPLORE}/${SubRoutes.EXPLORE_DEMOS}`,
+        url: `${MainRoutes.EXPLORE}#${SubRoutes.EXPLORE_DEMOS}`,
       },
     ],
   },
@@ -126,22 +126,22 @@ export const Routes: RouteTree = [
       {
         key: 'styleguide',
         fragment: SubRoutes.LIBRARY_STYLEGUIDE,
-        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_STYLEGUIDE}`,
+        url: `${MainRoutes.LIBRARY}#${SubRoutes.LIBRARY_STYLEGUIDE}`,
       },
       {
         key: 'components',
         fragment: SubRoutes.LIBRARY_COMPONENTS,
-        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_COMPONENTS}`,
+        url: `${MainRoutes.LIBRARY}#${SubRoutes.LIBRARY_COMPONENTS}`,
       },
       {
         key: 'patterns',
         fragment: SubRoutes.LIBRARY_PATTERNS,
-        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_PATTERNS}`,
+        url: `${MainRoutes.LIBRARY}#${SubRoutes.LIBRARY_PATTERNS}`,
       },
       {
         key: 'changelogs',
         fragment: SubRoutes.LIBRARY_CHANGELOGS,
-        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_CHANGELOGS}`,
+        url: `${MainRoutes.LIBRARY}#${SubRoutes.LIBRARY_CHANGELOGS}`,
       },
     ],
   },
@@ -152,17 +152,17 @@ export const Routes: RouteTree = [
       {
         key: 'team',
         fragment: SubRoutes.ABOUT_TEAM,
-        url: `${MainRoutes.ABOUT}/${SubRoutes.ABOUT_TEAM}`,
+        url: `${MainRoutes.ABOUT}#${SubRoutes.ABOUT_TEAM}`,
       },
       {
         key: 'history',
         fragment: SubRoutes.ABOUT_HISTORY,
-        url: `${MainRoutes.ABOUT}/${SubRoutes.ABOUT_HISTORY}`,
+        url: `${MainRoutes.ABOUT}#${SubRoutes.ABOUT_HISTORY}`,
       },
       {
         key: 'activity',
         fragment: SubRoutes.ABOUT_ACTIVITY,
-        url: `${MainRoutes.ABOUT}/${SubRoutes.ABOUT_ACTIVITY}`,
+        url: `${MainRoutes.ABOUT}#${SubRoutes.ABOUT_ACTIVITY}`,
       },
     ],
   },

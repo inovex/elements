@@ -28,8 +28,8 @@
         "patterns": {
           "name": "patterns"
         },
-        "ressources": {
-          "name": "ressources"
+        "resources": {
+          "name": "resources"
         },
         "demos": {
           "name": "demos"
@@ -37,9 +37,7 @@
       }
     },
     "getting_started": {
-      "name": {
-        "name": "getting started"
-      },
+      "name": "getting started",
       "subroutes": {
         "javascript": {
           "name": "javascript"

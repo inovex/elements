@@ -1,26 +1,40 @@
 import styles from './header.mobile.module.scss';
 import MenuIcon from './menuIcon';
-import {useClickAway, useToggle} from 'react-use';
+import { useClickAway, useToggle } from 'react-use';
 import classNames from 'classnames';
-import {useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import elementsLogo from '@assets/elements.svg';
 import Image from 'next/image';
-import {InoButton, InoIcon, InoList} from '@elements';
-import {Routes} from '../../utils/routes';
+import { InoButton, InoIcon } from '@elements';
+import { Routes } from '../../utils/routes';
 import LinkItem from './linkItem';
 import useTranslation from '../../utils/hooks/useTranslation';
+import { useRouter } from 'next/router';
 
 export default function HeaderMobile() {
   const ref = useRef(null);
   const [menuIsOpen, toggleMenu] = useToggle(false);
   const [expandedSubMenu, expandSubMenu] = useState<string | null>(null);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      toggleMenu(false);
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router.events, toggleMenu]);
 
   useClickAway(ref, () => toggleMenu(false));
+  useEffect(() => expandSubMenu(null), [menuIsOpen]);
 
   return (
     <>
-      <MenuIcon className={styles.icon} onClick={toggleMenu}/>
+      <MenuIcon className={styles.icon} onClick={toggleMenu} />
       <div
         ref={ref}
         className={classNames({
@@ -36,11 +50,11 @@ export default function HeaderMobile() {
         />
         <div className={styles.routes}>
           {Routes.map(
-            ({key: mainRouteName, url: mainRouteUrl, subRoutes}) => {
+            ({ key: mainRouteName, url: mainRouteUrl, subRoutes }) => {
               const routeIsExpanded = expandedSubMenu === mainRouteName;
 
               return (
-                <div key={mainRouteName} >
+                <div key={mainRouteName}>
                   <div className={styles.menuItem}>
                     <LinkItem
                       url={mainRouteUrl}
@@ -54,21 +68,21 @@ export default function HeaderMobile() {
                     />
                   </div>
                   <div
-                       className={classNames({
-                         [styles.subRoutes]: true,
-                         [styles.subRoutesExpanded]: routeIsExpanded,
-                       })}
+                    className={classNames({
+                      [styles.subRoutes]: true,
+                      [styles.subRoutesExpanded]: routeIsExpanded,
+                    })}
                   >
-                  {(
-                    subRoutes.map(route => (
+                    {subRoutes.map((route) => (
                       <LinkItem
                         key={route.url}
                         url={route.url}
-                        name={t(`common.navigation.${mainRouteName}.subroutes.${route.key}.name`)}
+                        name={t(
+                          `common.navigation.${mainRouteName}.subroutes.${route.key}.name`
+                        )}
                         isDense={true}
                       />
-                    ))
-                  )}
+                    ))}
                   </div>
                 </div>
               );
