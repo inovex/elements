@@ -3,7 +3,7 @@ name: Deploy Landingpage New
 on:
   workflow_dispatch:
   push:
-    branches: 
+    branches:
       - master
     paths:
       - 'packages/landingpage-new/**'
@@ -14,17 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/dependencies-install
-      - name: Build elements
-        run: yarn build
-        working-directory: packages/elements
-      - name: Build elements-react
-        run: yarn build
-        working-directory: packages/elements-react
-      - name: Build landingpage-new
-        run: yarn build
+      - name: Build Landingpage
+        run: yarn build:landingpage-new
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        working-directory: packages/landingpage-new
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
