@@ -11,6 +11,16 @@ import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
+    interface InoAccordion {
+        /**
+          * The title of the accordion.
+         */
+        "accordionTitle": string;
+        /**
+          * Weather the accordion is expanded or collapsed.
+         */
+        "expanded": boolean;
+    }
     interface InoAutocomplete {
         /**
           * Number of ms the search function should be delayed after the user typed something.
@@ -75,11 +85,7 @@ export namespace Components {
     }
     interface InoCarousel {
         /**
-          * Enables the slide animation
-         */
-        "animated": boolean;
-        /**
-          * Enables autoplay which causes slides to be changed automatically
+          * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
          */
         "autoplay": boolean;
         /**
@@ -99,11 +105,15 @@ export namespace Components {
          */
         "reverse": boolean;
         /**
-          * Optional group value to manually manage the displayed slide
+          * `value` of the slide that should be displayed.
          */
-        "value"?: string;
+        "value": string;
     }
     interface InoCarouselSlide {
+        /**
+          * Selected state controlled by the `<ino-carousel>`
+         */
+        "selected": boolean;
         /**
           * Link to the image
          */
@@ -111,7 +121,7 @@ export namespace Components {
         /**
           * Value of the slide
          */
-        "value": any;
+        "value": string;
     }
     interface InoCheckbox {
         /**
@@ -1312,6 +1322,10 @@ export namespace Components {
         "trigger": TooltipTrigger;
     }
 }
+export interface InoAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoAccordionElement;
+}
 export interface InoAutocompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoAutocompleteElement;
@@ -1433,6 +1447,12 @@ export interface InoTextareaCustomEvent<T> extends CustomEvent<T> {
     target: HTMLInoTextareaElement;
 }
 declare global {
+    interface HTMLInoAccordionElement extends Components.InoAccordion, HTMLStencilElement {
+    }
+    var HTMLInoAccordionElement: {
+        prototype: HTMLInoAccordionElement;
+        new (): HTMLInoAccordionElement;
+    };
     interface HTMLInoAutocompleteElement extends Components.InoAutocomplete, HTMLStencilElement {
     }
     var HTMLInoAutocompleteElement: {
@@ -1710,6 +1730,7 @@ declare global {
         new (): HTMLInoTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "ino-accordion": HTMLInoAccordionElement;
         "ino-autocomplete": HTMLInoAutocompleteElement;
         "ino-button": HTMLInoButtonElement;
         "ino-card": HTMLInoCardElement;
@@ -1759,6 +1780,20 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface InoAccordion {
+        /**
+          * The title of the accordion.
+         */
+        "accordionTitle"?: string;
+        /**
+          * Weather the accordion is expanded or collapsed.
+         */
+        "expanded"?: boolean;
+        /**
+          * Emits when the user clicks on the icon toggle to change the expanded state. Contains the status in `event.detail`.
+         */
+        "onExpandedChange"?: (event: InoAccordionCustomEvent<boolean>) => void;
+    }
     interface InoAutocomplete {
         /**
           * Number of ms the search function should be delayed after the user typed something.
@@ -1827,11 +1862,7 @@ declare namespace LocalJSX {
     }
     interface InoCarousel {
         /**
-          * Enables the slide animation
-         */
-        "animated"?: boolean;
-        /**
-          * Enables autoplay which causes slides to be changed automatically
+          * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
          */
         "autoplay"?: boolean;
         /**
@@ -1847,19 +1878,23 @@ declare namespace LocalJSX {
          */
         "intermission"?: number;
         /**
-          * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.
+          * Emits the `value` of the slide that should be displayed after interaction or autoplay interval.
          */
-        "onValueChange"?: (event: InoCarouselCustomEvent<number | string>) => void;
+        "onValueChange"?: (event: InoCarouselCustomEvent<string>) => void;
         /**
           * Enables reverse playback of the slides
          */
         "reverse"?: boolean;
         /**
-          * Optional group value to manually manage the displayed slide
+          * `value` of the slide that should be displayed.
          */
-        "value"?: string;
+        "value": string;
     }
     interface InoCarouselSlide {
+        /**
+          * Selected state controlled by the `<ino-carousel>`
+         */
+        "selected"?: boolean;
         /**
           * Link to the image
          */
@@ -1867,7 +1902,7 @@ declare namespace LocalJSX {
         /**
           * Value of the slide
          */
-        "value"?: any;
+        "value"?: string;
     }
     interface InoCheckbox {
         /**
@@ -3161,6 +3196,7 @@ declare namespace LocalJSX {
         "trigger"?: TooltipTrigger;
     }
     interface IntrinsicElements {
+        "ino-accordion": InoAccordion;
         "ino-autocomplete": InoAutocomplete;
         "ino-button": InoButton;
         "ino-card": InoCard;
@@ -3213,6 +3249,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ino-accordion": LocalJSX.InoAccordion & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
             "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;

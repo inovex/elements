@@ -16,22 +16,6 @@
     "eslint": "^8.32.0",
     "eslint-plugin-vue": "^9.9.0"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {
-      "vue/no-deprecated-slot-attribute": "off"
-    }
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions"

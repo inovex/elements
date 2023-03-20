@@ -8,6 +8,7 @@ import {
   defineCustomElements,
 } from '@inovex.de/elements/dist/loader';
 import { useEffect } from 'react';
+import { LanguageProvider } from 'utils/context/LanguageContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -17,9 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <LanguageProvider localization={pageProps.localization}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </LanguageProvider>
   );
 }
 

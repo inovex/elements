@@ -11,9 +11,9 @@ runs:
         registry-url: https://registry.npmjs.org
         scope: '@inovex.de' # important for yarn
         always-auth: true
-    - name: restore lerna cache
+    - name: restore node_modules cache
       uses: actions/cache@v3
-      id: lerna-cache
+      id: node-cache
       with:
         path: '**/node_modules'
         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
@@ -25,12 +25,12 @@ runs:
         restore-keys: |
           nx_cache-${{ github.ref_name || github.ref }}-${{ github.job }}
     - name: restore nx cache (build core)
-      if: ${{ github.job }} != "build_core"
+      if: github.job != 'build_core'
       uses: actions/cache@v3
       with:
         path: '**/.nx-cache'
         key: nx_cache-${{ github.ref_name || github.ref }}-build_core-${{ github.run_id }}
     - name: Install Dependencies
-      if: steps.lerna-cache.outputs.cache-hit != 'true'
+      if: steps.node-cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile
       shell: bash

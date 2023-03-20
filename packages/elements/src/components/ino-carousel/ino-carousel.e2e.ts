@@ -2,12 +2,13 @@ import { E2EElement, E2EPage } from '@stencil/core/testing';
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_CAROUSEL = `
-<ino-carousel>
+<ino-carousel value="0">
     <ino-carousel-slide value="0" id="slide1"></ino-carousel-slide>
     <ino-carousel-slide value="1" id=slide2></ino-carousel-slide>
 </ino-carousel>`;
 const CAROUSEL = 'ino-carousel';
-const DIV_SELECTOR = 'ino-carousel > div';
+const LEFT_ARROW_SELECTOR = '.ino-carousel__arrow--left';
+const RIGHT_ARROW_SELECTOR = '.ino-carousel__arrow--right';
 
 describe('ino-carousel', () => {
   it('should render with default values', async () => {
@@ -30,8 +31,8 @@ describe('ino-carousel', () => {
       await carousel.setAttribute('hide-buttons', true);
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
-      expect(div).toHaveClass('ino-carousel--no-buttons');
+      expect(await page.find(LEFT_ARROW_SELECTOR)).toBeNull();
+      expect(await page.find(RIGHT_ARROW_SELECTOR)).toBeNull();
     });
   });
 });
@@ -45,15 +46,15 @@ describe('InoCarousel', () => {
   beforeEach(async () => {
     page = await setupPageWithContent(`
 
-    <ino-carousel>
+    <ino-carousel value="a">
       <ino-carousel-slide value="a"></ino-carousel-slide>
       <ino-carousel-slide value="b"></ino-carousel-slide>
       <ino-carousel-slide value="c"></ino-carousel-slide>
     </ino-carousel>
     `);
-    inoCarousel = await page.find('ino-carousel');
-    iconArrowLeft = await page.find('.ino-carousel__left-arrow > ino-icon-button')
-    iconArrowRight = await page.find('.ino-carousel__right-arrow > ino-icon-button')
+    inoCarousel = await page.find(CAROUSEL);
+    iconArrowLeft = await page.find(LEFT_ARROW_SELECTOR)
+    iconArrowRight = await page.find(RIGHT_ARROW_SELECTOR)
   });
 
   async function simulateIconClick(icon: 'Left' | 'Right'): Promise<void> {

@@ -16,6 +16,7 @@ import ComponentSampleCard from './component-sample-card';
 import { useMedia, useSet } from 'react-use';
 import Link from 'next/link';
 import { MainRoutes } from 'utils/routes';
+import useTranslation from 'utils/hooks/useTranslation';
 import classNames from 'classnames';
 
 enum ChipValues {
@@ -33,16 +34,19 @@ export default function ComponentSample() {
   const [, { has, toggle }] = useSet<ChipValues>(new Set([]));
 
   const isSmallScreen = useMedia('(max-width: 660px)', false);
+  const { t, locale } = useTranslation();
 
   return (
     <div>
       <h1 className="header-d3">
-        the <b>components</b>
+        {t('component_sample.title_1')} <b>{t('component_sample.title_2')}</b>
       </h1>
       <div className={classNames(styles.subHeaderContainer, 'body-l')}>
-        <p className={styles.subheader}>Check out some of our components</p>
+        <p className={styles.subheader}>{t('component_sample.subheader')}</p>
         <span className={styles.link}>
-          <Link href={MainRoutes.LIBRARY}>Check out all components</Link>
+          <Link href={`${locale}${MainRoutes.LIBRARY}`}>
+            {t('component_sample.link')}
+          </Link>
         </span>
       </div>
       <div className={styles.componentGrid}>
@@ -81,7 +85,7 @@ export default function ComponentSample() {
             componentName="Button"
             componentCategory="Button"
           >
-            <InoButton>I&apos;m a Button</InoButton>
+            <InoButton><span>{t('component_sample.button')}</span></InoButton>
           </ComponentSampleCard>
         </div>
         <div className={styles.input}>

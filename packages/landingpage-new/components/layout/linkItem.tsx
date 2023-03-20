@@ -1,6 +1,7 @@
 import styles from './linkItem.module.scss';
 import classNames from 'classnames';
 import Link from 'next/link';
+import useTranslation from 'utils/hooks/useTranslation';
 
 type Props = {
   url: string;
@@ -17,8 +18,10 @@ export default function LinkItem({
   isDense = false,
   noMargin = false,
 }: Props) {
+  const { locale } = useTranslation();
+
   return (
-    <Link href={url}>
+    <Link href={`/${locale}${url}`}>
       <p
         className={classNames(
           styles.link,

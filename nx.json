@@ -17,6 +17,11 @@
       "dependsOn": ["^build"]
     }
   },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
+    }
+  },
   "generators": {
     "@nrwl/angular:application": {
       "style": "scss",

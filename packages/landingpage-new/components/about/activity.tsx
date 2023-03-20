@@ -14,6 +14,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { GithubCommitsPerMonth } from 'types/github';
+import useTranslation from 'utils/hooks/useTranslation';
 
 ChartJS.register(
   CategoryScale,
@@ -49,6 +50,7 @@ function Activity({ commitsPerMonth }: Props) {
     datasets: [],
     labels: [],
   } as ChartData<'line', number[], string>);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const labels = Object.keys(commitsPerMonth);
@@ -59,7 +61,7 @@ function Activity({ commitsPerMonth }: Props) {
       datasets: [
         {
           fill: true,
-          label: 'contributions',
+          label: t('activity.contributions'),
           data,
           borderColor: '#4F46FF',
           backgroundColor: '#BECCFF50',
@@ -71,10 +73,10 @@ function Activity({ commitsPerMonth }: Props) {
   return (
     <>
       <h1 className="header-d3">
-        our <b>activity</b>
+        {t('activity.title_1')} <b>{t('activity.title_2')}</b>
       </h1>
-      {graphData.datasets.length === 0 ? (
-        <div>No recent activity found.</div>
+      {graphData.datasets[0]?.data.length === 0 ? (
+        <div>{t('activity.not_found')}</div>
       ) : (
         <div className={styles.graphContainer}>
           <Line options={graphOptions} data={graphData} />

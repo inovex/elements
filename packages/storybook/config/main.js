@@ -9,6 +9,11 @@ module.exports = {
   staticDirs: ['../static', '../../elements/src/assets'],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
   addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil'],
+  typescript: {
+    compilerOptions: {
+      "typeRoots" : ["node_modules/@types", "../src/types"]
+    },
+  },
   webpackFinal: (config) => {
     config.devServer = {
       watchContentBase: true,

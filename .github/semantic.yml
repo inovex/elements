@@ -13,6 +13,7 @@ types:
   - chore
   - revert
 scopes:
+  - elements|ino-accordion
   - elements|ino-autocomplete
   - elements|ino-button
   - elements|ino-card

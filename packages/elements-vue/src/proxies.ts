@@ -8,6 +8,13 @@ import type { JSX } from '@inovex.de/elements';
 
 
 
+export const InoAccordion = /*@__PURE__*/ defineContainer<JSX.InoAccordion>('ino-accordion', undefined, [
+  'expanded',
+  'accordionTitle',
+  'expandedChange'
+]);
+
+
 export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete>('ino-autocomplete', undefined, [
   'debounce',
   'noOptionsText',
@@ -39,7 +46,6 @@ export const InoCard = /*@__PURE__*/ defineContainer<JSX.InoCard>('ino-card', un
 export const InoCarousel = /*@__PURE__*/ defineContainer<JSX.InoCarousel>('ino-carousel', undefined, [
   'value',
   'autoplay',
-  'animated',
   'hideButtons',
   'infinite',
   'intermission',
@@ -51,6 +57,7 @@ export const InoCarousel = /*@__PURE__*/ defineContainer<JSX.InoCarousel>('ino-c
 
 export const InoCarouselSlide = /*@__PURE__*/ defineContainer<JSX.InoCarouselSlide>('ino-carousel-slide', undefined, [
   'src',
+  'selected',
   'value'
 ]);
 

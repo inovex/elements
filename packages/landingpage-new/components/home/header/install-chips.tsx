@@ -4,6 +4,7 @@ import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
 import Image from 'next/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
+import useTranslation from 'utils/hooks/useTranslation';
 import { Framework, IconByFramework } from '../../../utils/frameworks';
 
 const FrameworksArr = Object.values(Framework);
@@ -32,6 +33,8 @@ export default function InstallChips() {
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);
   const [, , reset] = useTimeoutFn(() => setShowTooltip(false), 3000);
+
+  const { t } = useTranslation();
 
   useInterval(
     () => {
@@ -76,7 +79,7 @@ export default function InstallChips() {
             'body-m'
           )}
         >
-          Copied to your clipboard ✓
+          {t('header.clipboard_success')}
         </p>
       </div>
       <div className={styles.frameworks}>

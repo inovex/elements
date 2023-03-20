@@ -12,11 +12,20 @@
   "bugs": {
     "url": "https://github.com/inovex/elements/issues"
   },
-  "peerDependencies": {
-    "@angular/common": "^15.1.0",
-    "@angular/core": "^15.1.0",
-    "@inovex.de/elements": "^8.0.0"
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "clean": "shx rm -rf dist && shx rm -rf elements/dist",
+    "lint": "eslint elements/src",
+    "lint:fix": "eslint elements/src --fix",
+    "e2e": "ng e2e",
+    "preinstall": "node ./preinstall.js",
+    "postinstall": "node ./postinstall.js",
+    "copy:prepare": "shx mkdir -p elements/dist/schematics",
+    "copy:collection": "shx cp elements/schematics/collection.json elements/dist/schematics/collection.json",
+    "postbuild": "npm run copy:prepare && npm run copy:collection"
   },
+  "private": true,
   "dependencies": {
     "tslib": "^2.3.0"
   },

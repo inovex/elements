@@ -1,11 +1,10 @@
-ino-carousel-slide {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.ino-carousel-slide {
+  grid-row: 1;
+  grid-column: 1;
   opacity: 0;
+  transition: opacity var(--carousel-animation-duration);
 
-  > div {
+  &__image {
     background-size: cover;
     background-position: 50%;
     width: 100%;
