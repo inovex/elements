@@ -110,7 +110,7 @@
     "yalc": "^1.0.0-pre.32"
   },
   "resolutions": {
-    "jest-runner":"^26.6.2"
+    "jest-runner": "^26.6.2"
   },
   "dependencies": {
     "@angular/animations": "~15.1.0",

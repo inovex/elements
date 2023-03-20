@@ -4,6 +4,7 @@
   "author": "Sven Lindauer <slindauer@inovex.de>",
   "description": "Angular library for @inovex.de/elements to use the components in Angular projects",
   "contributors": [
+    "Jan-Niklas Voß <jvoss@inovex.de>",
     "Pascal Fecht <pfecht@inovex.de>",
     "Sven Lindauer <slindauer@inovex.de>",
     "Benjamin Pagelsdorf <benjamin.pagelsdorf@inovex.de>"
@@ -12,20 +13,11 @@
   "bugs": {
     "url": "https://github.com/inovex/elements/issues"
   },
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "clean": "shx rm -rf dist && shx rm -rf elements/dist",
-    "lint": "eslint elements/src",
-    "lint:fix": "eslint elements/src --fix",
-    "e2e": "ng e2e",
-    "preinstall": "node ./preinstall.js",
-    "postinstall": "node ./postinstall.js",
-    "copy:prepare": "shx mkdir -p elements/dist/schematics",
-    "copy:collection": "shx cp elements/schematics/collection.json elements/dist/schematics/collection.json",
-    "postbuild": "npm run copy:prepare && npm run copy:collection"
+  "peerDependencies": {
+    "@angular/common": "^15.1.0",
+    "@angular/core": "^15.1.0",
+    "@inovex.de/elements": "^8.0.0"
   },
-  "private": true,
   "dependencies": {
     "tslib": "^2.3.0"
   },
