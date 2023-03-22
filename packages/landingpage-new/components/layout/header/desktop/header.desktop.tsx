@@ -1,4 +1,4 @@
-import styles from './header.module.scss';
+import styles from './header.desktop.module.scss';
 import Navbar from './navbar';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -6,7 +6,7 @@ import ElementsLogo from '@assets/elements.svg';
 import useBasePath from 'utils/hooks/useBasePath';
 import LocaleSwitcher from './localeSwitcher';
 
-export default function Header() {
+export default function HeaderDesktop() {
   const [yOffset, setYOffset] = useState(0);
   const basePath = useBasePath();
 

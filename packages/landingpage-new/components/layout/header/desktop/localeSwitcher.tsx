@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import useTranslation from 'utils/hooks/useTranslation';
 import { InoSwitch } from '@elements';
-import { Supported_Locales } from '../../translations/config';
+import { Supported_Locales } from '../../../../translations/config';
 
 const LocaleSwitcher = () => {
   const router = useRouter();

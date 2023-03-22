@@ -1,11 +1,15 @@
 import { ReactNode } from 'react';
 import styles from './layout.module.scss';
-import Header from './layout/header';
-import Footer from './layout/footer';
+import Footer from './layout/footer/footer';
+import Head from 'next/head';
+import Header from './layout/header/header';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className='inovex-elements-typo'>
+    <div className="inovex-elements-typo">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      </Head>
       <Header></Header>
       <div className={styles.main}>
         <main>{children}</main>
