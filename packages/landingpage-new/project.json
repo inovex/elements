@@ -27,8 +27,7 @@
         "prod": {
           "command": "next start -p 4600"
         }
-      },
-      "dependsOn": ["^start"]
+      }
     },
     "lint": {
       "executor": "nx:run-commands",
