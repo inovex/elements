@@ -1,10 +1,20 @@
+const BASE_PATH = '/landingpage-new';
+
 /** @type {import('next').NextConfig} */
 const nextConfiguration = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  assetPrefix: BASE_PATH + '/',
   images: {
-    unoptimized: true
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/u/**',
+      },
+    ],
   },
-  basePath: '/landingpage-new', // TODO remove when old landingpage is replaced
+  basePath: BASE_PATH, // TODO remove when old landingpage is replaced
 };
 
 const withImages = require('next-images');

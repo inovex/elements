@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2022-12-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-header:** We've decided to remove the `ino-header` component as it did not really provide the flexibility we wanted. To still use the inovex-elements header styles, we recommend to integrate our new stylesheet which styles all headlines from `<h1>` to `<h6>` and more. Have a look at [our integration guide](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-stylesheet--page).
+
+### Refactoring
+
+* **elements|ino-header:** remove component ([#793](https://github.com/inovex/elements/issues/793)) ([a83734d](https://github.com/inovex/elements/commit/a83734de27ee64f459b14d0a08b487aab07c38ae))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 

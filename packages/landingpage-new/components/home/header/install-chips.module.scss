@@ -1,15 +1,24 @@
 .container {
   display: flex;
-  column-gap: 20px;
+  row-gap: 20px;
+  flex-direction: column;
   position: relative;
 }
 
 .chipContainer {
-  width: 410px;
-
-  // hide success message
-  background-color: white;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 20px;
+  background-color: #fff;
   z-index: 1;
+}
+
+.frameworks {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
 }
 
 .chip {
@@ -21,16 +30,16 @@
 }
 
 .successMessage {
-  position: absolute;
   color: #68ce6a;
   font-weight: bolder;
-  margin: 0;
-  bottom: 0;
-  left: 30px;
-  transition: bottom 1s;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 1s, opacity 1s;
 
   &Show {
-    bottom: -20px;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 1s;
   }
 }
 

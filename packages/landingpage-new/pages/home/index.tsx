@@ -1,3 +1,4 @@
+import Contact from 'components/contact/contact';
 import type { NextPage } from 'next';
 import styles from './home.module.scss';
 
@@ -8,7 +9,7 @@ import { SubRoutes } from '../../utils/routes';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className="section-container">
       <section id={SubRoutes.HOME_INFO}>
         <Header></Header>
       </section>
@@ -17,6 +18,9 @@ const Home: NextPage = () => {
       </section>
       <section id={SubRoutes.HOME_COMPONENTS}>
         <ComponentSample></ComponentSample>
+      </section>
+      <section id={SubRoutes.HOME_CONTACT} className={styles.contact}>
+        <Contact />
       </section>
     </div>
   );

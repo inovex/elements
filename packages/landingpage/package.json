@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-landingpage",
-  "version": "7.1.2",
+  "version": "8.0.0",
   "description": "The landingpage for inovex elements",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "private": true,
@@ -16,7 +16,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "dependencies": {
-    "@inovex.de/elements-vue": "^7.1.2",
+    "@inovex.de/elements-vue": "^8.0.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },

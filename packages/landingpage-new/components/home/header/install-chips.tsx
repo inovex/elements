@@ -4,6 +4,10 @@ import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
 import Image from 'next/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
+import angularIcon from '@assets/angular.svg';
+import jsIcon from '@assets/javascript.svg';
+import reactIcon from '@assets/react-icon.svg';
+import vueIcon from '@assets/vue.svg';
 
 enum Framework {
   VUE = 'VUE',
@@ -22,32 +26,26 @@ const CommandByFrameworks: Record<Framework, string> = {
 };
 
 const IconByFramework: Record<Framework, string> = {
-  [Framework.VUE]: 'vue.svg',
-  [Framework.ANGULAR]: 'angular.svg',
-  [Framework.REACT]: 'react-icon.svg',
-  [Framework.NATIVE]: 'javascript.svg',
+  [Framework.VUE]: vueIcon,
+  [Framework.ANGULAR]: angularIcon,
+  [Framework.REACT]: reactIcon,
+  [Framework.NATIVE]: jsIcon,
 };
 
 const COMMAND_CHIP_ID = 'command-chip';
 
 export default function InstallChips() {
-  const [
-    manuallySelectedFramework,
-    setManuallySelectedFramework,
-  ] = useState<Framework | null>(null);
+  const [manuallySelectedFramework, setManuallySelectedFramework] =
+    useState<Framework | null>(null);
   const [carouselFramework, setCarouselFramework] = useState<Framework>(
     Framework.VUE
   );
-  const [currentFramework, setCurrentFramework] = useState<Framework>(
-    carouselFramework
-  );
+  const [currentFramework, setCurrentFramework] =
+    useState<Framework>(carouselFramework);
 
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);
-  const [,, reset] = useTimeoutFn(
-    () => setShowTooltip(false),
-    3000
-  );
+  const [, , reset] = useTimeoutFn(() => setShowTooltip(false), 3000);
 
   useInterval(
     () => {
@@ -85,36 +83,39 @@ export default function InstallChips() {
         >
           <code className={styles.installCommand}>$ {currentCommand}</code>
         </InoChip>
-      </div>
-      {FrameworksArr.map((framework: Framework) => (
-        <div
-          key={framework}
+        <p
           className={classNames(
-            styles.icon,
-            framework === currentFramework && styles.iconActive
+            styles.successMessage,
+            showTooltip && styles.successMessageShow
           )}
         >
-          <Image
-            onClick={() => {
-              setManuallySelectedFramework(
-                currentFramework === framework ? null : framework
-              );
-              setCarouselFramework(framework);
-            }}
-            src={`/${IconByFramework[framework]}`}
-            alt="Javascript Logo"
-            fill
-            sizes="25px" />
-        </div>
-      ))}
-      <p
-        className={classNames(
-          styles.successMessage,
-          showTooltip && styles.successMessageShow
-        )}
-      >
-        Copied to your clipboard ✓
-      </p>
+          Copied to your clipboard ✓
+        </p>
+      </div>
+      <div className={styles.frameworks}>
+        {FrameworksArr.map((framework: Framework) => (
+          <div
+            key={framework}
+            className={classNames(
+              styles.icon,
+              framework === currentFramework && styles.iconActive
+            )}
+          >
+            <Image
+              onClick={() => {
+                setManuallySelectedFramework(
+                  currentFramework === framework ? null : framework
+                );
+                setCarouselFramework(framework);
+              }}
+              src={`${IconByFramework[framework]}`}
+              alt="Javascript Logo"
+              fill
+              sizes="25px"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

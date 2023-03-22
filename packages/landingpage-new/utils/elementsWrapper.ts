@@ -24,3 +24,5 @@ export const InoSegmentGroup = importElement('InoSegmentGroup');
 export const InoCard = importElement('InoCard');
 export const InoList = importElement('InoList');
 export const InoSegmentButton = importElement('InoSegmentButton');
+export const InoTextarea = importElement('InoTextarea');
+export const InoSpinner = importElement('InoSpinner');

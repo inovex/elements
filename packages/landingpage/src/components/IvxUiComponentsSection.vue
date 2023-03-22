@@ -104,7 +104,7 @@
       <ino-icon slot="icon-leading" icon="onboarding"></ino-icon>
     </ino-chip>
 
-    <ino-header title="TEAM" />
+    <div class="header-h1">TEAM</div>
   </div>
 </template>
 
@@ -116,7 +116,6 @@ import {
   InoChip,
   InoDatepicker,
   InoFab,
-  InoHeader,
   InoIcon, InoIconButton, InoInput,
   InoSwitch, InoTab, InoTabBar
 } from "@inovex.de/elements-vue";
@@ -127,7 +126,6 @@ export default {
     InoFab,
     InoChip,
     InoButton,
-    InoHeader,
     InoCheckbox,
     InoIcon,
     InoDatepicker,
@@ -262,11 +260,11 @@ ino-chip {
 ino-datepicker {
   width: 250px;
 }
-ino-header {
+.header-h1 {
   width: 250px;
 }
 @media screen and (max-width: 650px) {
-  ino-header {
+  .header-h1 {
     margin-left: -20px !important;
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/landingpage-new",
-  "version": "0.1.0",
+  "version": "8.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,13 +11,17 @@
     "clean": "shx rm -rf out && shx rm -rf .next"
   },
   "dependencies": {
-    "@inovex.de/elements-react": "^7.1.2",
+    "@inovex.de/elements-react": "^8.0.0",
     "@mdx-js/loader": "^2.1.4",
     "@mdx-js/react": "^2.1.4",
     "@next/mdx": "^12.3.1",
+    "@types/chart.js": "^2.9.37",
+    "chart.js": "^4.0.1",
     "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
     "next": "13.0.3",
     "react": "18.2.0",
+    "react-chartjs-2": "^5.0.1",
     "react-dom": "18.2.0",
     "react-use": "^17.4.0",
     "sharp": "^0.31.1"
