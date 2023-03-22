@@ -1,7 +1,7 @@
 @use '../../../../styles/theme';
 
 .icon {
-  position: absolute;
+  position: fixed;
   top: 25px;
   left: 25px;
   cursor: pointer;
@@ -14,7 +14,7 @@
 }
 
 .menu {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 10;
