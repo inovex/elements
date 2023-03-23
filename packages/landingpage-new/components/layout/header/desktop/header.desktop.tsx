@@ -36,10 +36,9 @@ export default function HeaderDesktop() {
           <Image
             src={ElementsLogo}
             alt="inovex-elements Logo"
-            width={48}
-            height={55}
+            width={68}
+            height={68}
           />
-          <p className="title-l">elements</p>
         </a>
       </div>
       <div className={styles.language}>
