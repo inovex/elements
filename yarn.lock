@@ -4619,10 +4619,10 @@
   resolved "https://registry.npmjs.org/@soda/get-current-script/-/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==
 
-"@stencil-community/eslint-plugin@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.npmjs.org/@stencil-community/eslint-plugin/-/eslint-plugin-0.4.2.tgz#cf5dba35d496f40f640dc23eb3a715cfffd563a3"
-  integrity sha512-QIzEEW/gbxoAEqAy+rzChg10J5o5lyQV/jGH0GKHd0rsf33YOblOMf9zPFdjSBJxbI8TwByuszbsZhyW4KVQ+Q==
+"@stencil-community/eslint-plugin@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/@stencil-community/eslint-plugin/-/eslint-plugin-0.5.0.tgz#f0f212183b28ba16071ae1235ac675ecdd10b59a"
+  integrity sha512-KLn+//K7EalP5GvP1iu8ORMFEWRlLEkwPxQSuS84jkIALFZMa9fbJoNlqeg0St6xZudhRNHlC5iq+7/X6hLpLw==
   dependencies:
     eslint-utils "^3.0.0"
     tsutils "3.0.0"
