@@ -22,9 +22,6 @@
   "dependencies": {
     "@inovex.de/elements": "^8.0.0"
   },
-  "peerDependencies": {
-    "vue": "^3.0.0"
-  },
   "devDependencies": {
     "typescript": "^4.2.4"
   }

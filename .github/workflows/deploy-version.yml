@@ -48,8 +48,7 @@ jobs:
       - uses: ./.github/workflows/artifacts-download
         with:
           download-core-artifacts: true
-          check-artifacts: true # search in current workflow run
-          workflow-conclusion: "in_progress" # need to change to in_progress, cause current workflow run is always running
+          workflow-id: ${{ github.event.workflow_run.workflow_id }}
       - name: Prepare git config
         run: |
           git config --global user.name "${{ github.actor }}"
@@ -94,8 +93,7 @@ jobs:
         with:
           name: storybook
           path: version/${{ needs.publish.outputs.newTag }} # Push to the proper directory on gh pages branch.
-          check-artifacts: true # search in current workflow run
-          workflow-conclusion: "in_progress" # need to change to in_progress, cause current workflow run is always running
+          workflow: ${{ github.event.workflow_run.workflow_id }}
       - name: Provide latest symlink
         run: cd version && rm -f latest && ln -s ${{ needs.publish.outputs.newTag }} latest
         shell: bash
