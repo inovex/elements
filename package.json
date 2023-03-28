@@ -71,6 +71,7 @@
     "@types/jest": "26.0.14",
     "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
+    "copy-webpack-plugin": "^11.0.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-no-null": "^1.0.2",
     "eslint-plugin-react": "^7.32.1",

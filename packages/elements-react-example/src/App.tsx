@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import './index.scss';
-import logo from './favicon.svg';
+import logo from '../../../assets/logo/elements.svg';
 
 import { InoList, InoListDivider, InoNavDrawer } from './shared/InovexElements';
 
