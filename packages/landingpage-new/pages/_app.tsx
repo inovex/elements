@@ -9,6 +9,7 @@ import {
 } from '@inovex.de/elements/dist/loader';
 import { useEffect } from 'react';
 import { LanguageProvider } from 'utils/context/LanguageContext';
+import { StorybookPathsProvider } from 'utils/context/StorybookPathsContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -19,9 +20,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <LanguageProvider localization={pageProps.localization}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <StorybookPathsProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </StorybookPathsProvider>
     </LanguageProvider>
   );
 }
