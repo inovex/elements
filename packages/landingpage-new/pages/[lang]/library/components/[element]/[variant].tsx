@@ -1,27 +1,17 @@
 import { useRouter } from 'next/router';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useStorybookPathsContext } from 'utils/context/StorybookPathsContext';
-import useForwardToStorybookPage from 'utils/hooks/useForwardToStorybookPage';
+import useForwardToStorybookPage from 'utils/hooks/useForwardToStoryPage';
+import useStorybookIframeSetup from 'utils/hooks/useStorybookIframeSetup';
 
 function StoryBookSubPage () {
     const iframeRef = useRef(null);
     const router = useRouter();
     const { element, variant} = router.query;
-    const { loading, setElement, setVariant, activeStorybookPath} = useStorybookPathsContext();
+    const { loading, activeStorybookPath} = useStorybookPathsContext();
     const { forwardToStoryPage } = useForwardToStorybookPage();
-    
-    // test url on landingpage-new
-        // http://localhost:4600/landingpage-new/en/library/components/buttons-ino-button/outlined
 
-    // prevent showing iframe error with undefined variables
-    useEffect(() => {
-        if(typeof element === 'string' && typeof variant === 'string'){
-            if(element !== undefined && variant !== undefined){
-                setElement(element);
-                setVariant(variant);
-            }
-        }
-    },[element, variant]);
+    useStorybookIframeSetup(element, variant);
 
     const onLoadHandler = () => {
         // only works with same origin
