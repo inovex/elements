@@ -22,8 +22,7 @@ export const StorybookPathsProvider = ({ children }: Params) => {
     const [activeStorybookPath, setActiveStorybookPath] = React.useState<string>('');
 
     useEffect(() => {
-
-        if((!element || undefined)){
+        if((!element || element === undefined)){
             setActiveStorybookPath(`https://elements.inovex.de/version/latest/?path=/story/docs-welcome--page`)
         } else {
             switch(variant) {
