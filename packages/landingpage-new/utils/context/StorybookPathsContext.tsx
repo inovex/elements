@@ -17,19 +17,28 @@ type Params = {
 };
 
 export const StorybookPathsProvider = ({ children }: Params) => {
-    // rename variables because slugs & variables can't be the same
     const [element, setElement] = React.useState<string>();
     const [variant, setVariant] = React.useState<string>();
     const [activeStorybookPath, setActiveStorybookPath] = React.useState<string>('');
 
     useEffect(() => {
-        if(!element && !variant){
+
+        if((!element || undefined)){
             setActiveStorybookPath(`https://elements.inovex.de/version/latest/?path=/story/docs-welcome--page`)
-        } else if(!variant){
-            setActiveStorybookPath(`https://elements.inovex.de/version/latest/?path=/docs/${element}`)
         } else {
-            setActiveStorybookPath(`https://elements.inovex.de/version/latest/?path=/docs/${element}--${variant}`)
+            switch(variant) {
+                case ('' || 'playground'):
+                    setActiveStorybookPath(`https://elements.inovex.de/version/latest/?path=/docs/${element}`)
+                    break;
+                case ('documentation'):
+                    setActiveStorybookPath(`https://elements.inovex.de/version/latest/?path=/docs/${element}-documentation--page`)
+                    break;
+                default:
+                    setActiveStorybookPath(`https://elements.inovex.de/version/latest/?path=/docs/${element}--${variant}`)
+                    break;
+            }
         }
+       
     },[element, variant])
 
   return (

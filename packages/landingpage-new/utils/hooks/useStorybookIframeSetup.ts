@@ -8,11 +8,15 @@ function useStorybookIframeSetup (element: string | string[] | undefined) {
         if(!element || element === undefined){
             setElement('')
             setVariant('')
-        } else if (typeof element === 'string') {
-            setElement(element)
         } else {
-            setElement(element[0]);
-            setVariant(element[1]);
+            for(let i = 0; i < 1; i++){
+                if(element[i] !== undefined){
+                    setElement(element[0]);
+                    if(i === 1){
+                        setVariant(element[1]);
+                    }
+                }
+            }
         }
     },[element])
 }

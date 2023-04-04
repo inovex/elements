@@ -19,7 +19,7 @@ function StoryBookPage () {
 
         // test url 
         const testURL = 'https://elements.inovex.de/version/latest/?path=/docs/buttons-ino-chip--fill'
-        forwardToStoryPage(testURL);
+        //forwardToStoryPage(testURL);
     }
 
     return (
