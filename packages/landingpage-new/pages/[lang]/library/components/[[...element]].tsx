@@ -4,14 +4,14 @@ import { useStorybookPathsContext } from 'utils/context/StorybookPathsContext';
 import useForwardToStorybookPage from 'utils/hooks/useForwardToStoryPage';
 import useStorybookIframeSetup from 'utils/hooks/useStorybookIframeSetup';
 
-function StoryBookSubPage () {
+function StoryBookPage () {
     const iframeRef = useRef(null);
     const router = useRouter();
-    const { element, variant} = router.query;
-    const { loading, activeStorybookPath} = useStorybookPathsContext();
+    const { element } = router.query;
+    const { activeStorybookPath } = useStorybookPathsContext();
     const { forwardToStoryPage } = useForwardToStorybookPage();
-
-    useStorybookIframeSetup(element, variant);
+    
+    useStorybookIframeSetup(element);
 
     const onLoadHandler = () => {
         // only works with same origin
@@ -21,8 +21,6 @@ function StoryBookSubPage () {
         const testURL = 'https://elements.inovex.de/version/latest/?path=/docs/buttons-ino-chip--fill'
         forwardToStoryPage(testURL);
     }
-
-    if(loading) return <h1>Loading...</h1>
 
     return (
         <div>
@@ -43,4 +41,4 @@ function StoryBookSubPage () {
     )
 }
 
-export default StoryBookSubPage;
+export default StoryBookPage;
