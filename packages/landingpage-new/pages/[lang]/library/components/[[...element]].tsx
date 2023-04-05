@@ -3,10 +3,13 @@ import { useRef } from 'react';
 import { useStorybookPathsContext } from 'utils/context/StorybookPathsContext';
 import useForwardToStorybookPage from 'utils/hooks/useForwardToStoryPage';
 import useStorybookIframeSetup from 'utils/hooks/useStorybookIframeSetup';
+import useTranslation from 'utils/hooks/useTranslation';
+useTranslation
 
 function StoryBookPage () {
     const iframeRef = useRef(null);
     const router = useRouter();
+    const { locale } = useTranslation();
     const { activeStorybookPath } = useStorybookPathsContext();
     const { forwardToStoryPage } = useForwardToStorybookPage();
     
@@ -18,7 +21,7 @@ function StoryBookPage () {
 
         // test url 
         const testURL = 'https://elements.inovex.de/version/latest/?path=/docs/buttons-ino-chip--fill'
-        forwardToStoryPage(testURL);
+        forwardToStoryPage(testURL, locale);
     }
 
     return (
