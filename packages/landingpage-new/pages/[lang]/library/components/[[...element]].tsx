@@ -7,11 +7,10 @@ import useStorybookIframeSetup from 'utils/hooks/useStorybookIframeSetup';
 function StoryBookPage () {
     const iframeRef = useRef(null);
     const router = useRouter();
-    const { element } = router.query;
     const { activeStorybookPath } = useStorybookPathsContext();
     const { forwardToStoryPage } = useForwardToStorybookPage();
     
-    useStorybookIframeSetup(element);
+    useStorybookIframeSetup(router);
 
     const onLoadHandler = () => {
         // only works with same origin
@@ -19,7 +18,7 @@ function StoryBookPage () {
 
         // test url 
         const testURL = 'https://elements.inovex.de/version/latest/?path=/docs/buttons-ino-chip--fill'
-        //forwardToStoryPage(testURL);
+        forwardToStoryPage(testURL);
     }
 
     return (
