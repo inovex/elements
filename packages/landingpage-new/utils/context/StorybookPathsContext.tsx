@@ -17,8 +17,8 @@ type Params = {
 };
 
 export const StorybookPathsProvider = ({ children }: Params) => {
-    const [element, setElement] = React.useState<string>();
-    const [variant, setVariant] = React.useState<string>();
+    const [element, setElement] = React.useState<string>(); // needs to be undefined to show welcome-page,
+    const [variant, setVariant] = React.useState<string>(''); // needs to be empty string for playground to show up
     const [activeStorybookPath, setActiveStorybookPath] = React.useState<string>('');
     
     useEffect(() => {
