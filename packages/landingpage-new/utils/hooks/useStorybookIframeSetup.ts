@@ -1,13 +1,10 @@
-import { NextRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useStorybookPathsContext } from 'utils/context/StorybookPathsContext';
 
-function useStorybookIframeSetup (router: NextRouter) {
-    const { element } = router.query;
+function useStorybookIframeSetup (element: string | string[] | undefined) {
     const { setElement, setVariant } = useStorybookPathsContext();
-
     useEffect(() => {
-        if(router.isReady && element !== undefined && typeof element !== 'string'){
+        if(element !== undefined && typeof element !== 'string'){
             element.forEach((element, index) => {
                 if(index === 0){
                     setElement(element);
@@ -19,7 +16,7 @@ function useStorybookIframeSetup (router: NextRouter) {
             setElement('') 
             setVariant('')
         }
-    },[router.isReady])
+    },[element])
 }
 
 export default useStorybookIframeSetup;
