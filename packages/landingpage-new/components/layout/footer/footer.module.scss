@@ -1,17 +1,20 @@
 .footer {
   display: flex;
-  justify-content: center;
-  column-gap: 8%;
-  row-gap: 5px;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 150px;
   margin-bottom: 120px;
+}
+
+.sublinks {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .col {
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
-
-  & > :first-child {
-    margin-bottom: 20px;
-  }
+  row-gap: 17px;
 }

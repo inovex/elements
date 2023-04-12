@@ -3,7 +3,6 @@ import Navbar from './navbar';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ElementsLogo from '@assets/elements.svg';
-import inovexLogo from '@assets/inovex-logo.svg';
 import useBasePath from 'utils/hooks/useBasePath';
 import LocaleSwitcher from './localeSwitcher';
 
@@ -32,15 +31,14 @@ export default function HeaderDesktop() {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://elements.inovex.de"
+          href={basePath}
         >
           <Image
             src={ElementsLogo}
             alt="inovex-elements Logo"
-            width={48}
-            height={55}
+            width={68}
+            height={68}
           />
-          <p className="title-l">elements</p>
         </a>
       </div>
       <div className={styles.language}>
@@ -57,23 +55,6 @@ export default function HeaderDesktop() {
       >
         <Image
           src={`${basePath}/github-logo.png`}
-          alt="Github Logo"
-          width={30}
-          height={30}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-          }}
-        />
-      </a>
-      <a
-        className={styles.inovex}
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.inovex.de/"
-      >
-        <Image
-          src={inovexLogo}
           alt="Github Logo"
           width={30}
           height={30}

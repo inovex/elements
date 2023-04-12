@@ -6,7 +6,7 @@ import { InoPopover } from '@elements';
 import useTranslation from 'utils/hooks/useTranslation';
 import { ContactButton } from '../../../shared/contactButton';
 
-const POPOVER_OFFSET = -46;
+const POPOVER_OFFSET = 10;
 
 export default function Navbar() {
   const router = useRouter();
@@ -40,12 +40,6 @@ export default function Navbar() {
             colorScheme="transparent"
           >
             <div className={styles.popover}>
-              <LinkItem
-                url={mainRouteUrl}
-                name={t(`common.navigation.${key}.name`)}
-                isActive={isRouteActive(mainRouteUrl, key)}
-                noMargin={true}
-              />
               {subRoutes.map(({ key: subRouteName, url: subRouteUrl }) => (
                 <LinkItem
                   key={subRouteUrl}

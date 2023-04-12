@@ -61,7 +61,7 @@ export default function HeaderMobile() {
           src={elementsLogo}
           alt={'elements logo'}
           width={40}
-          height={48}
+          height={40}
         />
         <div className={styles.routes}>
           {Routes.map(

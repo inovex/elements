@@ -30,6 +30,11 @@
               "src/favicon.ico",
               "src/assets",
               {
+                "glob": "favicon.ico",
+                "input": "../../assets/logo",
+                "output": "."
+              },
+              {
                 "glob": "**/*.svg",
                 "input": "../../node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
                 "output": "ino-icon"

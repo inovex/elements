@@ -14,7 +14,7 @@ $header-height: 120px;
   grid-template-rows: 1fr;
   column-gap: 30px;
   grid-template-areas:
-    "logo navbar github inovex language";
+    "logo navbar github language";
   align-items: center;
   transition: height 50ms linear;
 }
@@ -60,8 +60,4 @@ $header-height: 120px;
 
 .github {
   grid-area: github;
-}
-
-.inovex {
-  grid-area: inovex;
 }
