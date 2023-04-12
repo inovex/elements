@@ -13,7 +13,7 @@ function useForwardToStorybookPage(){
          *      example story-page: ".../docs/${element}--${variant}"
          * first check if user clicked on documention, for correct extration of {element}
          */
-    
+
         if(iframeURL.includes('documentation')){
             const element = iframeURL.slice(iframeURL.lastIndexOf('/')+1, iframeURL.indexOf('-documentation'));
             if(element !== undefined) {
@@ -22,7 +22,7 @@ function useForwardToStorybookPage(){
         } else {
             const element = iframeURL.slice(iframeURL.lastIndexOf('/')+1, iframeURL.indexOf('--'));
             const variant = iframeURL.slice(iframeURL.indexOf('--')+2, iframeURL.length+1)
-            
+
             if(element !== undefined && variant !== undefined && variant !== 'playground') {
                 setResultPath(`/${locale}/library/components/${element}/${variant}`);
             } else {

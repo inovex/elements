@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import '@code-hike/mdx/dist/index.css';
-import '../styles/custom-ch.css'
+import '../styles/custom-ch.css';
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout';
 import {
@@ -9,9 +9,9 @@ import {
 } from '@inovex.de/elements/dist/loader';
 import { useEffect } from 'react';
 import { LanguageProvider } from 'utils/context/LanguageContext';
-import { StorybookPathsProvider } from 'utils/context/StorybookPathsContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log('app', pageProps)
   useEffect(() => {
     void applyPolyfills().then(() => {
       void defineCustomElements(window);
@@ -20,11 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <LanguageProvider localization={pageProps.localization}>
-      <StorybookPathsProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </StorybookPathsProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </LanguageProvider>
   );
 }
