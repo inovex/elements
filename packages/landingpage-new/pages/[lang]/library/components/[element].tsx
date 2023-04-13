@@ -1,46 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { useMount } from 'react-use';
 import { useInitialStorybookUrl } from '../../../../utils/hooks/useInitialStorybookUrl';
 import { InoSpinner } from '@elements';
 import styles from './[element].module.scss';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import {
   getStaticLanguagePaths,
   getStaticLanguageProps,
 } from '../../../../utils/context/staticPaths';
 import { LangContext } from '../../../../types/langContext';
-import { Locale_File } from '../../../../translations/types';
+import { Locale_File, Localization } from '../../../../translations/types';
 import { merge } from 'lodash';
+import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 
-type PostCurrentStoryMessage = {
-  type: string;
-  storyId: string;
-};
+interface Props {
+  origin: string;
+  localization: Localization;
+}
 
-const POST_CURRENT_STORY_TYPE = 'post-current-story';
-
-function StoryBookPage() {
-  const { push, query } = useRouter();
+const StoryBookPage: NextPage<Props> = (props) => {
   const initialStorybookUrl = useInitialStorybookUrl();
-  const [storyId, setStoryId] = useState<string | null>(null);
+  useStorybookUrlSyncer(props.origin);
 
-  useEffect(() => {
-    if (!storyId || !query.lang) return;
-
-    push({ query: { ...query, element: storyId } }, undefined, {
-      shallow: true,
-    });
-  }, [storyId]);
-
-  useMount(() => {
-    window.onmessage = (event: MessageEvent<PostCurrentStoryMessage>) => {
-      // TODO: check origin
-      if (event.data?.type !== POST_CURRENT_STORY_TYPE) return;
-
-      setStoryId(event.data.storyId);
-    };
-  });
 
   return (
     <div className={styles.container}>
@@ -60,7 +39,7 @@ function StoryBookPage() {
       )}
     </div>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { localization } = getStaticLanguageProps(
@@ -68,7 +47,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     Locale_File.LIBRARY
   ).props;
 
-  return { props: { localization } };
+  return { props: { localization, origin: process.env.ORIGIN } };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
