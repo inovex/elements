@@ -1,19 +1,25 @@
 import {CH} from '@code-hike/mdx/components';
+import {StepIndicator} from './../../components/shared/stepIndicator';
 
 # Integrate with React
 
 Let's get you up to speed quickly with the usage of the Elements to create a simple login page.
 
-## Preparation
+// Add screenshot
 
-First, create a new React app for our login page.
+## Preparation 
+
+Some content goes here.
+
+<StepIndicator step='1'/> First, create a new React app for our login page.
 
 ```bash
 npx create-react-app <your app name>
 cd <your app name>
 npm start
 ```
-Add the package `@inovex.de/elements-react` to your project using **npm** or **yarn**:
+
+<StepIndicator step='2'/> Add the package `@inovex.de/elements-react` to your project using **npm** or **yarn**:
 <CH.Code>
   ```bash npm
   npm install @inovex.de/elements-react --save
@@ -23,7 +29,7 @@ Add the package `@inovex.de/elements-react` to your project using **npm** or **y
   ```
 </CH.Code>
 
-Once our React app is ready, delete the boilerplate code and restructure the function until our App.js looks something like this:
+<StepIndicator step='3'/> Once our React app is ready, delete the boilerplate code and restructure the function until our App.js looks something like this:
 
 > Hint: For the Styling and Structure of your App we recommend following along with the provided [codesandbox](https://codesandbox.io/s/github/inovex/elements-example-react).
 
@@ -77,7 +83,7 @@ Every component has a variety of powerful and unique properties. They are listed
 
 The Playground allows you to modify these properties and see the result in real time. Additionally, we provide examples about the usage of each component with its given properties.
 
-Following up on our login-form, we add a type and value property, setting it to a state object named _email_. Do the same for the password `<InoInput>`.
+<StepIndicator step='4'/> Following up on our login-form, we add a type and value property, setting it to a state object named _email_. Do the same for the password `<InoInput>`.
 
 ```tsx
 const [email, setEmail] = React.useState('');

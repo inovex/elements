@@ -6,6 +6,7 @@ vendor/
 .stencil/
 .idea/
 .vscode/
+*.mdx
 node_modules/
 
 # Ignore auto-generated files
