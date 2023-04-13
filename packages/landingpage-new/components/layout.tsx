@@ -11,8 +11,8 @@ export default function Layout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
       </Head>
       <Header></Header>
-      <div className={styles.main}>
-        <main>{children}</main>
+      <div className={styles.body}>
+        <main className={styles.main}>{children}</main>
         <Footer></Footer>
       </div>
     </div>

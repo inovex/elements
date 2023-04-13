@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useMount } from 'react-use';
 import { useInitialStorybookUrl } from '../../../../utils/hooks/useInitialStorybookUrl';
+import {InoSpinner} from "@elements";
+import styles from './[element].module.scss';
 
 type PostCurrentStoryMessage = {
   type: string;
@@ -33,7 +35,12 @@ function StoryBookPage() {
   });
 
   return (
-    <div>
+    <div className={styles.container}>
+      {
+        !initialStorybookUrl && (
+          <InoSpinner type="circle"></InoSpinner>
+        )
+      }
       {initialStorybookUrl && (
         <iframe
           src={initialStorybookUrl}
