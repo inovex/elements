@@ -124,25 +124,27 @@ export const Routes: RouteTree = [
     url: MainRoutes.LIBRARY,
     subRoutes: [
       {
-        key: 'styleguide',
-        fragment: SubRoutes.LIBRARY_STYLEGUIDE,
-        url: `${MainRoutes.LIBRARY}#${SubRoutes.LIBRARY_STYLEGUIDE}`,
-      },
-      {
         key: 'components',
         fragment: SubRoutes.LIBRARY_COMPONENTS,
-        url: `${MainRoutes.LIBRARY}#${SubRoutes.LIBRARY_COMPONENTS}`,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_COMPONENTS}`,
+      },
+      /*
+      {
+        key: 'styleguide',
+        fragment: SubRoutes.LIBRARY_STYLEGUIDE,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_STYLEGUIDE}`,
       },
       {
         key: 'patterns',
         fragment: SubRoutes.LIBRARY_PATTERNS,
-        url: `${MainRoutes.LIBRARY}#${SubRoutes.LIBRARY_PATTERNS}`,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_PATTERNS}`,
       },
       {
         key: 'changelogs',
         fragment: SubRoutes.LIBRARY_CHANGELOGS,
-        url: `${MainRoutes.LIBRARY}#${SubRoutes.LIBRARY_CHANGELOGS}`,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_CHANGELOGS}`,
       },
+       */
     ],
   },
   {
