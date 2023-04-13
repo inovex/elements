@@ -44,13 +44,11 @@ export const LanguageProvider = ({ localization, children }: Params) => {
   }, [localizationState.locale]);
 
   useDeepCompareEffect(() => {
-    console.log(query.lang, localizationState)
     if (
       typeof query.lang === 'string' &&
       isLocale(query.lang) &&
       localization?.locale !== query.lang
     ) {
-      console.log('set')
       setLocalizationState({
         locale: localization?.locale,
         translations: localization?.translations,

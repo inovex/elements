@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 import { LanguageProvider } from 'utils/context/LanguageContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log('app', pageProps)
   useEffect(() => {
     void applyPolyfills().then(() => {
       void defineCustomElements(window);
