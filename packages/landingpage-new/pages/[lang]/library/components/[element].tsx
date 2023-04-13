@@ -2,8 +2,16 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useMount } from 'react-use';
 import { useInitialStorybookUrl } from '../../../../utils/hooks/useInitialStorybookUrl';
-import {InoSpinner} from "@elements";
+import { InoSpinner } from '@elements';
 import styles from './[element].module.scss';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import {
+  getStaticLanguagePaths,
+  getStaticLanguageProps,
+} from '../../../../utils/context/staticPaths';
+import { LangContext } from '../../../../types/langContext';
+import { Locale_File } from '../../../../translations/types';
+import { merge } from 'lodash';
 
 type PostCurrentStoryMessage = {
   type: string;
@@ -36,11 +44,7 @@ function StoryBookPage() {
 
   return (
     <div className={styles.container}>
-      {
-        !initialStorybookUrl && (
-          <InoSpinner type="circle"></InoSpinner>
-        )
-      }
+      {!initialStorybookUrl && <InoSpinner type="circle"></InoSpinner>}
       {initialStorybookUrl && (
         <iframe
           src={initialStorybookUrl}
@@ -57,5 +61,27 @@ function StoryBookPage() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const { localization } = getStaticLanguageProps(
+    ctx as LangContext,
+    Locale_File.LIBRARY
+  ).props;
+
+  return { props: { localization } };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const languagePaths = getStaticLanguagePaths().paths;
+  const elementPaths = languagePaths.map(() => ({ params: { element: '' } }));
+  const langXElementPaths = languagePaths.map((path, index) =>
+    merge(path, elementPaths[index])
+  );
+
+  return {
+    paths: langXElementPaths,
+    fallback: true,
+  };
+};
 
 export default StoryBookPage;

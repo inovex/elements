@@ -14,10 +14,10 @@ export const useInitialStorybookUrl = () => {
   }
 
   useEffect(() => {
-    if (!isReady) return;
+    if (iFrameStartURl || !isReady || !query.element) return;
 
     setIFrameStartURl(fromLandingpageToStorybookUrl(query.element as string));
-  }, [isReady]);
+  }, [isReady, query.element]);
 
   return iFrameStartURl;
 };
