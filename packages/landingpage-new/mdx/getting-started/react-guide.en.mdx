@@ -1,11 +1,25 @@
 import {CH} from '@code-hike/mdx/components';
 import {StepIndicator} from './../../components/shared/stepIndicator';
+import Image from 'next/image';
+import useBasePath from 'utils/hooks/useBasePath';
+
 
 # Integrate with React
 
 Let's get you up to speed quickly with the usage of the Elements to create a simple login page.
 
-// Add screenshot
+<Image
+  width={663}
+  height={354}
+  src={`${useBasePath()}/login-form.png`}
+  alt="Elements Collage"
+  style={{
+    height: 'auto',
+    objectFit: 'contain',
+    borderRadius: '20px',
+    boxShadow: '10px 5px 5px grey',
+  }}
+/>
 
 ## Preparation 
 
