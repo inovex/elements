@@ -13,13 +13,15 @@ const Components = () => {
   const router = useRouter();
 
   useMount(() => {
-    router.push(router.asPath + '/' + WELCOME_PAGE_PLACEHOLDER)
+    router.push(`${router.asPath}/${WELCOME_PAGE_PLACEHOLDER}`);
   });
 
   return <></>;
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, Locale_File.GETTING_STARTED);
-export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
+export const getStaticProps: GetStaticProps = async (ctx) =>
+  getStaticLanguageProps(ctx as LangContext, Locale_File.GETTING_STARTED);
+export const getStaticPaths: GetStaticPaths = async () =>
+  getStaticLanguagePaths();
 
 export default Components;
