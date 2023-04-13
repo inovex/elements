@@ -17,7 +17,7 @@ export const useInitialStorybookUrl = () => {
   }
 
   useEffect(() => {
-    if (iFrameStartURl || !isReady || !query.element) return;
+    if (iFrameStartURl || !isReady) return;
 
     setIFrameStartURl(fromLandingpageToStorybookUrl(query.element as string));
   }, [isReady, query.element]);
