@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useStorybook } from '../../../../utils/hooks/useStorybook';
-import { useDeepCompareEffect, useMount } from 'react-use';
+import { useMount } from 'react-use';
+import { useInitialStorybookUrl } from '../../../../utils/hooks/useInitialStorybookUrl';
 
 type PostCurrentStoryMessage = {
   type: string;
@@ -11,7 +11,8 @@ type PostCurrentStoryMessage = {
 const POST_CURRENT_STORY_TYPE = 'post-current-story';
 
 function StoryBookPage() {
-  const { push, query, isReady } = useRouter();
+  const { push, query } = useRouter();
+  const initialStorybookUrl = useInitialStorybookUrl();
   const [storyId, setStoryId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -22,12 +23,8 @@ function StoryBookPage() {
     });
   }, [storyId]);
 
-  const { fromLandingpageToStorybookUrl } = useStorybook(
-    process.env.NEXT_PUBLIC_STORYBOOK_URL as string
-  );
-
   useMount(() => {
-    window.onmessage = function (event: MessageEvent<PostCurrentStoryMessage>) {
+    window.onmessage = (event: MessageEvent<PostCurrentStoryMessage>) => {
       // TODO: check origin
       if (event.data?.type !== POST_CURRENT_STORY_TYPE) return;
 
@@ -35,20 +32,11 @@ function StoryBookPage() {
     };
   });
 
-  const [iFrameStartURl, setIFrameStartURl] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!isReady) return;
-
-    setIFrameStartURl(fromLandingpageToStorybookUrl(query.element as string));
-  }, [isReady]);
-
   return (
     <div>
-      {iFrameStartURl && (
+      {initialStorybookUrl && (
         <iframe
-          src={iFrameStartURl}
-          onLoad={(ev) => console.log(ev)}
+          src={initialStorybookUrl}
           style={{
             position: 'absolute',
             left: 0,
