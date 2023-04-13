@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+export const WELCOME_PAGE_PLACEHOLDER = 'welcome';
+
 export const useInitialStorybookUrl = () => {
   const storybookUrl = process.env.NEXT_PUBLIC_STORYBOOK_URL;
 
@@ -8,7 +10,8 @@ export const useInitialStorybookUrl = () => {
   const [iFrameStartURl, setIFrameStartURl] = useState<string | null>(null);
 
   function fromLandingpageToStorybookUrl(query: string): string {
-    if (!query) return `${storybookUrl}?path=/docs/docs-welcome--page`;
+    if (!query || query === WELCOME_PAGE_PLACEHOLDER)
+      return `${storybookUrl}?path=/docs/docs-welcome--page`;
 
     return `${storybookUrl}?path=/docs/${query}`;
   }
