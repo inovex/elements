@@ -8,6 +8,7 @@ module.exports = {
   staticDirs: ['../static', '../../elements/src/assets', '../../../assets/logo'],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
   addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil'],
+  managerEntries: ['./addons/post-current-story'],
   typescript: {
     compilerOptions: {
       "typeRoots" : ["node_modules/@types", "../src/types"]
