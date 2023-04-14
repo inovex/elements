@@ -51,7 +51,7 @@
   }
 
   a > h3 {
-    color: #003c7e !important;
+    color: #2C02FF !important;
   }</style><style>/** TODO: Add LATO Font here **/
 
   /* Left side */
@@ -59,11 +59,20 @@
     font-weight: 500;
   }
 
+  .os-content .search-field {
+    margin-top: 0px;
+  }
+
+  .os-content .sidebar-header {
+    display: none;
+  }
+
   .os-content .sidebar-subheading {
-    letter-spacing: 0.1em;
-    font-weight: bold;
-    color: #96A3B0;
-    font-size: 13px;
+    /* Title Small */
+    letter-spacing: 0.02px;
+    font-weight: 600;
+    color: #CBD0E0; /* n-6 */
+    font-size: 14px;
     margin-top: 32px;
     margin-bottom: 6px;
   }
@@ -74,38 +83,70 @@
     padding-bottom: 6px;
     font-size: 14px;
     margin: 0 12px;
-    border-radius: 5px;
+    border-radius: 17px;
     font-weight: 500;
     letter-spacing: 0.5px;
+    transition: 0.15s ease-in-out;
   }
-
+  
+  /* skip to canvas button*/
   .os-content .sidebar-item + a {
     margin-top: 3px;
+    z-index: 50;
+    box-shadow: #2C02FF 0 0 0 1px inset;
+    color: #2C02FF;
   }
 
-  .os-content .sidebar-item[data-selected="true"] {
-    color: #003c7e;
-    background-color: rgba(0, 60, 126, 0.1);
+  .os-content .sidebar-item + a:hover {
+    box-shadow: #2C02FF 0 0 0 1px inset;
   }
 
-  .os-content .sidebar-item[data-selected="true"]:hover,
-  .os-content .sidebar-item[data-selected="true"]:focus {
-    color: #003c7e;
-    background-color: rgba(0, 60, 126, 0.2);
+  .os-content .sidebar-item + a:active {
+    background-color: #2C02FF;
+    color: white;
   }
+
+  .os-content .sidebar-item + a:focus {
+    background-color: white;
+    box-shadow: #2C02FF 0 0 0 1px inset, rgb(#2C02FF / 40%) 0 1px 9px 2px;
+    color: #2C02FF;
+    z-index: 50;
+  } 
+
+  .os-content .sidebar-item:hover {
+    background-color: #F8F9FB; /* n-8 */
+  }
+
+  .os-content .sidebar-item[data-selected="false"]:focus {
+    color: #2C02FF;
+    background-color: #E8EDFF; /*light blue*/
+  }
+  
+  .os-content .sidebar-item[data-selected="true"],
+  .os-content .sidebar-item[data-selected="true"]:focus  {
+    color: #2C02FF;
+    background-color: #D7E0FF; /* middle blue*/
+  }
+
 
   .os-content svg {
-    color: #68798A;
+    color: #ABB1CC; /* n-5  */
   }
 
   .os-content .sidebar-item[data-selected="true"] svg {
-    color: #003c7e;
+    color: #2C02FF;
   }
 
   .os-content .sidebar-header > div > a {
-    color: #003c7e;
+    color: #2C02FF;
     font-size: 20px;
     letter-spacing: -.0083333333em;
+  }
+
+  div[role=main] .os-host {
+    bottom: 0 !important;
+    z-index: 10 !important;
+    top:initial;
   }
 
   /** Custom Border radius on the main wrapper */
@@ -130,4 +171,4 @@
           
       
           
-            window['DOCS_MODE'] = false;</script><script src="runtime~main.6fb022a7ddf7f93cd84f.manager.bundle.js"></script><script src="718.62d5baf6027b5ded59fd.manager.bundle.js"></script><script src="main.d491d8ce6f46b95744f8.manager.bundle.js"></script></body>
+            window['DOCS_MODE'] = false;</script><script src="runtime~main.6fb022a7ddf7f93cd84f.manager.bundle.js"></script><script src="718.62d5baf6027b5ded59fd.manager.bundle.js"></script><script src="main.f7f1e38dea549ddf5d6b.manager.bundle.js"></script></body>
