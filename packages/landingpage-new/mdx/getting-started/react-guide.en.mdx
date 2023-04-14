@@ -1,31 +1,51 @@
 import {CH} from '@code-hike/mdx/components';
 import {StepIndicator} from './../../components/shared/stepIndicator';
+import {Hint} from './../../components/shared/hint';
 import Image from 'next/image';
 import useBasePath from 'utils/hooks/useBasePath';
 
 
-# Integrate with React
+<section>
 
-Let's get you up to speed quickly with the usage of the Elements to create a simple login page.
+<div style={{ display: "flex", alignItems: "center", justifyContent: 'space-between' }}>
+  <div>
+    # **integrate** with react
+    
+    Let's get you up to speed quickly with the usage of the Elements to create a simple login page.
+  </div>
+  <Image
+  width={92}
+  height={80}
+  src={`${useBasePath()}/react-icon.svg`}
+  alt="A depiction of the login form to be built"
+  style={{
+    borderRadius: '12px',
+  }}
+/>
+</div>
 
 <Image
-  width={663}
-  height={354}
+  width={420}
+  height={260}
   src={`${useBasePath()}/login-form.png`}
-  alt="Elements Collage"
+  alt="A depiction of the login form to be built"
   style={{
     height: 'auto',
-    objectFit: 'contain',
-    borderRadius: '20px',
-    boxShadow: '10px 5px 5px grey',
+    width: '100%',
+    maxWidth: '420px',
+    borderRadius: '12px',
+    boxShadow: '2px 2px 8px 3px rgba(0, 0, 0, 0.14)',
+    margin: '80px 0 0',
   }}
 />
 
-## Preparation 
+</section>
 
-Some content goes here.
+<section>
 
-<StepIndicator step='1'/> First, create a new React app for our login page.
+## Preparation
+
+<StepIndicator step='1'> First, create a new React app for our login page.</StepIndicator>
 
 ```bash
 npx create-react-app <your app name>
@@ -33,7 +53,7 @@ cd <your app name>
 npm start
 ```
 
-<StepIndicator step='2'/> Add the package `@inovex.de/elements-react` to your project using **npm** or **yarn**:
+<StepIndicator step='2'> Add the package `@inovex.de/elements-react` to your project using **npm** or **yarn**:</StepIndicator>
 <CH.Code>
   ```bash npm
   npm install @inovex.de/elements-react --save
@@ -43,9 +63,7 @@ npm start
   ```
 </CH.Code>
 
-<StepIndicator step='3'/> Once our React app is ready, delete the boilerplate code and restructure the function until our App.js looks something like this:
-
-> Hint: For the Styling and Structure of your App we recommend following along with the provided [codesandbox](https://codesandbox.io/s/github/inovex/elements-example-react).
+  <StepIndicator step='3'> Once our React app is ready, delete the boilerplate code and restructure the function until our App.js looks something like this:</StepIndicator>
 
 ```tsx App.js
 function App() {
@@ -54,6 +72,8 @@ function App() {
 
 export default App;
 ```
+<Hint>Hint: For the Styling and Structure of your App we recommend following along with the provided [codesandbox](https://codesandbox.io/s/github/inovex/elements-example-react).</Hint>
+
 
 To demonstrate how fast you can create a stylish login form, let's start with our sign in, consisting of two input fields for the credentials and one button to submit.
 ```tsx App.js
@@ -68,58 +88,70 @@ To demonstrate how fast you can create a stylish login form, let's start with ou
   )
 ```
 
-## Properties
+</section>
 
-To configure either the functionality or the appearance of the inovex-elements, we use **properties**.
+  <section>
 
-<CH.Section>
-In this case, we give our `<InoInput>` the [outline property](focus://1[25:32],2[28:35]) to change its appearance and use the [label property](focus://1[11:24],2[11:27]) to give it its corresponding label. More properties of the `<InoInput>` can be found in our **[docs](https://elements.inovex.de/version/v7.1.0/?path=/docs/input-ino-input--playground)**.
+  ## Properties
+  
+  To configure either the functionality or the appearance of the inovex-elements, we use properties.
+  
+  <CH.Section>
+  In this case, we give our `<InoInput>` the [outline property](focus://1[25:32],2[28:35]) to change its appearance and use the [label property](focus://1[11:24],2[11:27]) to give it its corresponding label. More properties of the `<InoInput>` can be found in our **[docs](https://elements.inovex.de/version/v7.1.0/?path=/docs/input-ino-input--playground)**.
+  
+  ```tsx
+  <InoInput label="email" outline />
+  <InoInput label="password" outline />
+  ```
+  </CH.Section>
 
-```tsx
-<InoInput label="email" outline />
-<InoInput label="password" outline />
-```
-</CH.Section>
+  ### Playground
+  
+  Every component has a variety of powerful and unique properties. They are listed and explained in each component **Playground**:
 
-Every component has a variety of powerful and unique properties. They are listed and explained in each component **Playground**:
+<div class="table-shadow">
+  
+  | Property        | Attribute         | Description                                                                                                 | Type                                                                                             | Default      |
+| --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------ |
+| `type`          | `type`            | The type of this element (default = text).                                                                  | `"color" \| "email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url" \| "week"` | `'text'`     |
+| `label`         | `label`           | The optional floating label of this input field.                                                            | `string`                                                                                         | `undefined`  |
+| `outline`       | `outline`         | Styles the input field as outlined element.                                                                 | `boolean`                                                                                        | `undefined`  |
+| `pattern`       | `pattern`         | The validation pattern of this element.                                                                     | `string`                                                                                         | `undefined`  |
+| `placeholder`   | `placeholder`     | The placeholder of this element.                                                                            | `string`                                                                                         | `undefined`  |
+| `required`      | `required`        | Marks this element as required.                                                                             | `boolean`                                                                                        | `undefined`  |
+| `showLabelHint` | `show-label-hint` | If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required. | `boolean`                                                                                        | `undefined`  |
+| `value`         | `value`           | The value of this input field.                                                                               | `string`                                                                                         | `''`         |
 
-| Property        | Attribute         | Description                                                                                                 | Type                                                                                             | Default     |
-| --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------- |
-| `type`          | `type`            | The type of this element (default = text).                                                                  | `"color" \| "email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url" \| "week"` | `'text'`    |
-| `label`         | `label`           | The optional floating label of this input field.                                                            | `string`                                                                                         | `undefined` |
-| `outline`       | `outline`         | Styles the input field as outlined element.                                                                 | `boolean`                                                                                        | `undefined` |
-| `pattern`       | `pattern`         | The validation pattern of this element.                                                                     | `string`                                                                                         | `undefined` |
-| `placeholder`   | `placeholder`     | The placeholder of this element.                                                                            | `string`                                                                                         | `undefined` |
-| `required`      | `required`        | Marks this element as required.                                                                             | `boolean`                                                                                        | `undefined` |
-| `showLabelHint` | `show-label-hint` | If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required | `boolean`                                                                                        | `undefined` |  | `string` | `''` |
+</div>
+  
+  <Hint>Hint: These are some of the properties of the `<InoInput>` component.</Hint>
+  
+  The Playground allows you to modify these properties and see the result in real time. Additionally, we provide examples about the usage of each component with its given properties.
+  
+    <StepIndicator step='4'>Following up on our login-form, we add a type and value property, setting it to a state object named _email_. Do the same for the password `<InoInput>`.</StepIndicator>
+  
+  ```tsx
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  ```
+  
 
-> Hint: These are some of the properties of the `<InoInput>` component.
-
-The Playground allows you to modify these properties and see the result in real time. Additionally, we provide examples about the usage of each component with its given properties.
-
-<StepIndicator step='4'/> Following up on our login-form, we add a type and value property, setting it to a state object named _email_. Do the same for the password `<InoInput>`.
-
-```tsx
-const [email, setEmail] = React.useState('');
-const [password, setPassword] = React.useState('');
-```
-
-```tsx
-<InoInput
-    type="email"
-    label="email"
-    outline
-    value={email}>
-</InoInput>
-
-<InoInput
-    type="password"
-    label="password"
-    outline
-    value={password}>
-</InoInput>
-```
-
+  ```tsx
+  <InoInput
+      type="email"
+      label="email"
+      outline
+      value={email}>
+  </InoInput>
+  
+  <InoInput
+      type="password"
+      label="password"
+      outline
+      value={password}>
+  </InoInput>
+  ```
+  
 ## Events
 
 With the exact same approach, we use **Events**. They emit a certain value when the user does something that triggers our Event to fire. In other terms: Our event gives us a **reaction** to an **action** made by our User.
@@ -127,12 +159,15 @@ In case of our `<InoInput>` the action is the user typing and our events reactio
 
 Let's give our login form the `valueChange` event of the `<InoInput>` component, so that we can store the value typed by the user into our email or password states.
 
+<div class="table-shadow">
+
 | Event             | Description                                                                    | Type                  |
 | ----------------- | ------------------------------------------------------------------------------ | --------------------- |
 | **`valueChange`** | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 | `inoBlur`         | Emits when the input field is blurred and validates email input                | `CustomEvent<void>`   |
 | `inoFocus`        | Emits when the input field is focused                                          | `CustomEvent<void>`   |
 
+</div>
 ```tsx
 <InoInput
     type="email"
@@ -151,19 +186,20 @@ Let's give our login form the `valueChange` event of the `<InoInput>` component,
 ></InoInput>
 ```
 
-> Hint: while in our Playground the Event is called `valueChange`, we name it `onValueChange` inside of our `<InoInput>`. The reason for this is that we want to accomodate our naming similar to the react-way of naming events (e.g. onClick)
+<Hint>Hint: while in our Playground the Event is called `valueChange`, we name it `onValueChange` inside of our `<InoInput>`. The reason for this is that we want to accomodate our naming similar to the react-way of naming events (e.g. onClick)</Hint>
 
 ## Slots
 
 Many components of the Elements Library have **slots**, that can be filled by other components or your own content to further customize its functionality or appearance.
 If we use the slots of the `<InoInput>` we can add an `<InoIcon>` inside our input field, while retaining the full usability of the `<InoIcon>`.
 
+<div class="table-shadow">
 | Slot                  | Description                  |
 | --------------------- | ---------------------------- |
 | `"icon-leading"`      | For the icon to be prepended |
 | **`"icon-trailing"`** | For the icon to be appended  |
-
-> Hint: We can choose the position of our slot, that will render the `<InoIcon>` component. Other components like the `<InoCard>` allow a `header`, `content`, `footer` approach of positioning its slots.
+</div>
+<Hint>Hint: We can choose the position of our slot, that will render the `<InoIcon>` component. Other components like the `<InoCard>` allow a `header`, `content`, `footer` approach of positioning its slots.</Hint>
 
 ```tsx
 <InoInput
@@ -191,13 +227,17 @@ InoInput {
 }
 ```
 
+</section>
+
+<section>
+
 ## Finishing Touches
 
 Let's apply what we learned by the example of the `<InoInput>` on other Elements components to finalize our login-page.
 
 ### Add a Logo
 
-> Hint: automatically style your logo with rounded borders by using the `rounded` property of `<InoImg>`
+<Hint>Hint: automatically style your logo with rounded borders by using the `rounded` property of `<InoImg>`</Hint>
 
 ```tsx
 <InoImg
@@ -343,6 +383,10 @@ More about the properties of the InoSnackbar is documented [here](https://elemen
 The `stacked` property indicates that the tab icon and label should flow vertically instead of horizontally.
 Alternatively, group `<InoTab>` into an [ino-tab-bar](https://elements.inovex.de/version/v7.1.0/?path=/docs/structure-ino-tab-bar--playground), if you plan on using many tabs.
 
+</section>
+
+<section>
+
 ## Wrapping Up
 
 Congratulations! You have created a login-page with React and the main concepts of the **Inovex Elements** - _The last interoperable UI library for any framework_:
@@ -353,3 +397,5 @@ Congratulations! You have created a login-page with React and the main concepts 
 - CSS-Variables
 
 With the same approach you can keep on coding, don’t start from scratch every time you create a new project.
+
+</section>
