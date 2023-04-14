@@ -7,19 +7,13 @@ import {
   getStaticLanguageProps,
 } from '../../../../utils/context/staticPaths';
 import { LangContext } from '../../../../types/langContext';
-import { Locale_File, Localization } from '../../../../translations/types';
+import { Locale_File } from '../../../../translations/types';
 import { merge } from 'lodash';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 
-interface Props {
-  origin: string;
-  localization: Localization;
-}
-
-const StoryBookPage: NextPage<Props> = (props) => {
-
+const StoryBookPage: NextPage<void> = () => {
   const initialStorybookUrl = useInitialStorybookUrl();
-  useStorybookUrlSyncer(props.origin);
+  useStorybookUrlSyncer();
 
   return (
     <div className={styles.container}>
@@ -41,14 +35,8 @@ const StoryBookPage: NextPage<Props> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { localization } = getStaticLanguageProps(
-    ctx as LangContext,
-    Locale_File.LIBRARY
-  ).props;
-
-  return { props: { localization, origin: process.env.ORIGIN } };
-};
+export const getStaticProps: GetStaticProps = async (ctx) =>
+  getStaticLanguageProps(ctx as LangContext, Locale_File.LIBRARY);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const languagePaths = getStaticLanguagePaths().paths;
