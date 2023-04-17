@@ -1,3 +1,5 @@
+@import '../../../styles/theme.scss';
+
 .container {
   display: grid;
   grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);
@@ -30,7 +32,7 @@
   grid-area: header;
   align-self: end;
   grid-column: 1 / span 2;
-  padding-top: 40px;
+  
 
   .header {
     margin: 0;
@@ -40,7 +42,7 @@
     padding: 0 5px 0 3px;
     background: linear-gradient(
         0,
-        rgba(212, 204, 255, 0.5) 40%,
+        rgba($p-03, 40%),
         transparent 40%
     );
     width: fit-content;
