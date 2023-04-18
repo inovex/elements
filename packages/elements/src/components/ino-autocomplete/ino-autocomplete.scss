@@ -1,38 +1,38 @@
 @use '../base/mdc-customize';
 @use '@material/list';
-@use '../base/theme';
+@use '../base/theme' as theme;
 
 @include list.deprecated-core-styles;
 
 .ino-autocomplete__list {
-  margin: 8px 0 0 0;
+  margin: 0.5rem 0 0 0;
   padding: 0;
   background-color: white;
-  box-shadow: 0px 1px 5px 0px #DBDBDB;
-  border-radius: 4px;
+  box-shadow: 0rem 0.063rem 0.313rem 0rem #DBDBDB;
+  border-radius: 0.25rem;
   overflow: auto;
 }
 
 .ino-autocomplete__list-item {
-  height: 24px;
-  font-size: 10px;
-  padding: 4px 9px;
+  height: 1.5rem;
+  font-size: 0.75rem;
+  padding: 0.438rem 0rem 0.313rem 0.563rem;
 
   &--selected {
-    //background-color: rgba(61, 64, 245, 0.1);
-    background-color: #f6fafe;
+    background-color: #f6fafe; //$p-01
     color: black;
   }
 
   &--highlight {
-    color: white;
-    background-color: rgba(theme.color(primary), 0.7);
+    color: theme.color(primary, dark);
+    background-color: transparent;
+    font-weight: bold;
   }
 
   &--no-match {
-    height: 24px;
-    font-size: 10px;
-    padding: 4px 9px;
+    height: 1.5rem;
+    font-size: 0.75rem;
+    padding: 0.438rem 0rem 0.313rem 0.563rem;
     color: theme.color(light, dark);
   }
 }
