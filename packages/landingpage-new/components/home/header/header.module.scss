@@ -32,7 +32,6 @@
   grid-area: header;
   align-self: end;
   grid-column: 1 / span 2;
-  
 
   .header {
     margin: 0;
@@ -41,22 +40,13 @@
   mark {
     padding: 0 5px 0 3px;
     width: fit-content;
-    position: relative;
-    background-color: transparent;
-    isolation: isolate;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 56%;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba($p-03, 40%);
-      z-index: -1;
-    }
+    background: linear-gradient(
+      0,
+      rgba($p-03, 40%) 40%,
+      transparent 40%,
+    )
+    
   }
-
 }
 
 .info {
