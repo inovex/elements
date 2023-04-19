@@ -15,6 +15,15 @@ export default {
       handles: ['chipClicked', 'chipRemoved'],
     },
   },
+  args: {
+    disabled: false,
+    fill: 'solid',
+    removable: false,
+    selectable: false,
+    selected: false,
+    value: '',
+    clickable: true,
+  }
 } as Meta<Components.InoChip>;
 
 const template = new TemplateGenerator<Components.InoChip>(
@@ -28,6 +37,7 @@ const template = new TemplateGenerator<Components.InoChip>(
       selectable="${args.selectable}"
       selected="${args.selected}"
       value="${args.value}"
+      clickable="${args.clickable}"
     >
       Label
     </ino-chip>
@@ -144,3 +154,5 @@ const templateRemove = new TemplateGenerator<Components.InoChip>(
  * In order to make ino-chip-elements removable, add `removable`. This will add a close icon on the right side of this chip which emits the `removeChip` event on click.
  */
 export const Remove = templateRemove.generatePlaygroundStory();
+
+export const Clickable = template.generateStoryForProp('clickable', true);
