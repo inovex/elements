@@ -351,6 +351,7 @@ export const InoPopover = /*@__PURE__*/ defineContainer<JSX.InoPopover>('ino-pop
   'interactive',
   'followCursor',
   'trigger',
+  'delay',
   'controlled',
   'visible',
   'visibleChanged'

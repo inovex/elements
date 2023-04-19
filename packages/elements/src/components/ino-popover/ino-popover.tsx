@@ -150,6 +150,18 @@ export class Popover implements ComponentInterface {
   }
 
   /**
+   * The delay in milliseconds before `ino-tooltip` shows up or hides.
+   * 
+   * If only one number is given, the show and hide delay get the given delay duration.
+   * 
+   * If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.
+   * 
+   * A delay value of `null` defaults to 0ms.
+   * 
+   */
+  @Prop() delay?: number | [number, number | null];
+
+  /**
    * Returns the internally used tippy.js instance
    * For more informations see: https://atomiks.github.io/tippyjs/
    */
@@ -227,6 +239,7 @@ export class Popover implements ComponentInterface {
       appendTo: this.attachToBody ? document.body : this.popoverContainer,
       content: this.popoverContent,
       duration: 100,
+      delay: this.delay,
       followCursor: shouldFollowCursor ? this.followCursor : false,
       placement: this.placement,
       trigger: this.trigger,

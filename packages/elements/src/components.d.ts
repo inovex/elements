@@ -855,6 +855,10 @@ export namespace Components {
          */
         "controlled": boolean;
         /**
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  A delay value of `null` defaults to 0ms.
+         */
+        "delay"?: number | [number, number | null];
+        /**
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
@@ -2690,6 +2694,10 @@ declare namespace LocalJSX {
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled"?: boolean;
+        /**
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  A delay value of `null` defaults to 0ms.
+         */
+        "delay"?: number | [number, number | null];
         /**
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
