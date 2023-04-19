@@ -938,6 +938,23 @@
       },
       "props": [
         {
+          "name": "clickable",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "clickable",
+          "reflectToAttr": false,
+          "docs": "Marks this element as clickable and displayes all interactions like hover-effects, click-effects, pointer-curser,...",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
