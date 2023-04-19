@@ -1,4 +1,4 @@
-.main {
+.body {
   margin: auto;
   width: 70%;
 
@@ -10,4 +10,8 @@
   @media screen and (max-width: 1200px) {
     width: 80%;
   }
+}
+
+.main {
+  min-height: 500px;
 }

@@ -1,23 +1,25 @@
-import React, { ReactNode } from 'react';
+import React, {ReactNode, useEffect} from 'react';
 import { useRouter } from 'next/router';
 import { isLocale, Locale_File, Localization } from 'translations/types';
 import defaultStrings from 'translations/locales/en';
 import locales from 'translations/locales';
 import { LangContext } from 'types/langContext';
 import { Supported_Locales } from 'translations/config';
-import { useLocalStorage } from 'react-use';
+import {useDeepCompareEffect, useLocalStorage} from 'react-use';
 
 interface ContextProps {
   readonly localization: Localization;
   readonly setLocale: (localization: Localization) => void;
 }
 
+const DEFAULT_LOCALE: Localization = {
+  locale: Supported_Locales.DE,
+  translations: defaultStrings[Locale_File.HOME],
+  namespace: Locale_File.HOME,
+}
+
 export const LanguageContext = React.createContext<ContextProps>({
-  localization: {
-    locale: Supported_Locales.DE,
-    translations: defaultStrings[Locale_File.HOME],
-    namespace: Locale_File.HOME,
-  },
+  localization: DEFAULT_LOCALE,
   setLocale: () => null,
 });
 
@@ -35,13 +37,13 @@ export const LanguageProvider = ({ localization, children }: Params) => {
   const [storedLocale, setStoredLocale] = useLocalStorage('locale');
 
   const { query } = useRouter();
-  React.useEffect(() => {
+  useEffect(() => {
     if (localizationState.locale !== storedLocale) {
       setStoredLocale(localizationState.locale);
     }
-  }, [localizationState]);
+  }, [localizationState.locale]);
 
-  React.useEffect(() => {
+  useDeepCompareEffect(() => {
     if (
       typeof query.lang === 'string' &&
       isLocale(query.lang) &&
