@@ -14,6 +14,8 @@ export default {
     placement: 'auto',
     trigger: 'mouseenter focus',
     colorScheme: 'primary',
+    delay: 0,
+    message: '',
   },
 } as Meta;
 
@@ -26,14 +28,18 @@ const template = new TemplateGenerator<Components.InoTooltip>(
     placement="${args.placement}"
     trigger="${args.trigger}"
     color-scheme="${args.colorScheme}"
-  >This is a tooltip</ino-tooltip>
+    delay="${args.delay}"
+  >This is a tooltip for</ino-tooltip>
 `);
 
 export const Playground = template.generatePlaygroundStory();
 
 export const Placement = template.generateStoryForProp('placement', 'right', {
-  for: 'tooltip-target-placement',
+  for: 'tooltip-target-placement'
 });
 export const Trigger = template.generateStoryForProp('trigger', 'click', {
   for: 'tooltip-target-trigger',
+});
+export const Delay = template.generateStoryForProp('delay', 500, {
+  for: 'tooltip-target-delay',
 });

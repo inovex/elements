@@ -62,6 +62,18 @@ export class Tooltip implements ComponentInterface {
    */
   @Prop() trigger: TooltipTrigger = 'mouseenter focus';
 
+  /**
+   * The delay in milliseconds before `ino-tooltip` shows up or hides.
+   * 
+   * If only one number is given, the show and hide delay get the given delay duration.
+   * 
+   * If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.
+   * 
+   * A delay value of `null` defaults to 0ms.
+   * 
+   */
+  @Prop() delay?: number | [number, number | null];
+
   @Watch('trigger')
   async triggerChanged() {
     await this.create();
@@ -74,6 +86,7 @@ export class Tooltip implements ComponentInterface {
    * @deprecated
    */
   @Prop() label?: string;
+
 
   /**
    * Returns the internally used tippy.js instance
@@ -113,6 +126,7 @@ export class Tooltip implements ComponentInterface {
     const options = {
       content: this.el,
       duration: 100,
+      delay: this.delay,
       placement: this.placement,
       trigger: this.trigger,
     };

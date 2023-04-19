@@ -1300,6 +1300,10 @@ export namespace Components {
          */
         "colorScheme": 'primary' | 'transparent';
         /**
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  A delay value of `null` defaults to 0ms.
+         */
+        "delay"?: number | [number, number | null];
+        /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "for"?: string;
@@ -3177,6 +3181,10 @@ declare namespace LocalJSX {
           * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
          */
         "colorScheme"?: 'primary' | 'transparent';
+        /**
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  A delay value of `null` defaults to 0ms.
+         */
+        "delay"?: number | [number, number | null];
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
