@@ -18,7 +18,7 @@
   font-size: 0.75rem;
   padding: 0.438rem 0rem 0.313rem 0.563rem;
 
-  &--selected {
+  &--selected, &:hover {
     background-color: #f6fafe; //$p-01
     color: black;
   }
@@ -35,4 +35,10 @@
     padding: 0.438rem 0rem 0.313rem 0.563rem;
     color: theme.color(light, dark);
   }
+}
+
+.ino-input--font-grey {
+  
+  color: #A3A0B3 !important; //n-05
+  
 }
