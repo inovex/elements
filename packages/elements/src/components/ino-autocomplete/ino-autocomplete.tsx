@@ -86,9 +86,7 @@ export class Autocomplete implements ComponentInterface {
   @Listen('selection')
   onItemSelect(ev: CustomEvent<{ selection: Selection }>) {
     const value = ev.detail.selection.value;
-    this.inputEl?.classList.remove('ino-input--font-grey');
-    console.log('onItemSelect', value)
-    // feuert bei jeder selection und emitted ein valueChangeEvent
+    this.inputEl.classList.remove('ino-input--font-grey');
     this.valueChange.emit(value);
   }
 
@@ -128,6 +126,9 @@ export class Autocomplete implements ComponentInterface {
 
   private onInputValueChange = (e: CustomEvent<string>) => {
     this.inoInputEl.value = e.detail;
+    if(!this.inputEl.classList.contains('ino-input--font-grey')){
+      this.inputEl.classList.add('ino-input--font-grey');
+    }
     e.stopPropagation();
   };
 
