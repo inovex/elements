@@ -67,7 +67,7 @@ export class Chip implements ComponentInterface {
   @Prop() value?: string;
 
   /**
-   * Marks this element as clickable and displayes all interactions like hover-effects, click-effects, pointer-curser,...
+   * Marks this element as clickable and displayes all interactions like hover-effects, click-effects, pointer-cursor,...
    */
   @Prop() clickable = true;
 
