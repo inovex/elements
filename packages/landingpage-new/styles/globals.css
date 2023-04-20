@@ -54,11 +54,18 @@ ino-chip * {
 .table-shadow {
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .content-menu-layout {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: minmax(400px, 960px) 1fr;
+}
+
+.hint {
+  color: #908da2;
+  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 24px;
 }

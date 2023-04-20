@@ -6,8 +6,9 @@ vendor/
 .stencil/
 .idea/
 .vscode/
-*.mdx
 node_modules/
+
+*.mdx
 
 # Ignore auto-generated files
 components.d.ts
