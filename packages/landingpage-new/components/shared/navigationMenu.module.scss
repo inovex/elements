@@ -1,3 +1,5 @@
+@use '@styles/theme';
+
 .aside {
   margin-left: 100px;
 }
@@ -12,7 +14,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 80px;
-  color: #908da2;
+  color: theme.$n-6;
 }
 
 .navigationMenu > ul > li > a {
@@ -25,20 +27,17 @@ li.active:before {
   position: absolute;
   left: -14px;
   height: 50px;
-  border-left: 2px solid #4655ff;
+  border-left: 2px solid theme.$p-05;
   top: -14px;
 }
 
 .navigationMenu .active {
-  color: blue;
+  color: theme.$p-05;
 }
 
 .navigationMenu > ul {
   list-style-type: none;
-  padding: var(--ds-space-0, 0px);
-  font-size: var(--ds-font-size-050, 11px);
-  line-height: calc(14 / 11);
-  margin: var(--ds-space-150, 12px) 0 0 0;
+  padding: 0;
 }
 
 .aside > .navigationMenu > h5 {
@@ -48,11 +47,5 @@ li.active:before {
 
 .navigationMenu > ul > li {
   position: relative;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 16px;
-  line-height: 25px;
-  line-height: inherit;
-  margin-bottom: var(--ds-space-0, 0px);
   margin-top: 32px;
 }
