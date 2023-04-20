@@ -1,0 +1,16 @@
+.count_up {
+    font-size: 36px;
+    font-weight: bold;
+    animation: count-up-animation 2s ease-out forwards;
+  }
+  
+  @keyframes count-up-animation {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
