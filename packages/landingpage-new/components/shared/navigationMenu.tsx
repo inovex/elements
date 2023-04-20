@@ -1,35 +1,24 @@
 import { useEffect, useState } from 'react';
+import styles from './navigationMenu.module.scss';
 
 export function NavigationMenu() {
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('preparation');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(entry.target.id);
             setActiveSection(entry.target.id);
           }
         });
-        const rootMargin = '-30% 0px -70% 0px';
-
-        const [top, right, bottom, left] = rootMargin.split(' ');
-        const viewportHeight = window.innerHeight;
-
-        const topPixels = (parseFloat(top) / 100) * viewportHeight;
-        const bottomPixels = (parseFloat(bottom) / 100) * viewportHeight;
-
-        const rootMarginPixels = `${topPixels}px ${right} ${bottomPixels}px ${left}`;
-
-        console.log(rootMarginPixels);
       },
       { rootMargin: '-30% 0px -70% 0px' } // top, right, bottom, left margins around the root element's bounding box
     );
 
     const sections = document.querySelectorAll('article section[id]');
-    sections.forEach((heading) => {
-      observer.observe(heading);
+    sections.forEach((section) => {
+      observer.observe(section);
     });
 
     return () => observer.disconnect();
@@ -41,7 +30,6 @@ export function NavigationMenu() {
       'href'
     );
     if (!targetId) return;
-    console.log(event.currentTarget);
     const targetElement = document.querySelector(targetId);
     if (!targetElement) return;
 
@@ -49,7 +37,7 @@ export function NavigationMenu() {
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    // Change the URL hash (because we're preventing the default anchor click)
+    // Change the URL (because we're preventing the default anchor click behavior)
     const newUrl = `${window.location.origin}${window.location.pathname}${targetId}`;
     window.history.pushState(null, '', newUrl);
 
@@ -61,26 +49,30 @@ export function NavigationMenu() {
   }
 
   return (
-    <aside>
-      <nav className="navigation-menu">
+    <aside className={styles.aside}>
+      <nav className={styles.navigationMenu}>
         <h5>REACT GUIDE</h5>
         <ul>
-          <li className={activeSection === 'preparation' ? 'active' : ''}>
+          <li className={activeSection === 'preparation' ? styles.active : ''}>
             <a href="#preparation" onClick={handleAnchorClick}>
               Preparation
             </a>
           </li>
-          <li className={activeSection === 'properties' ? 'active' : ''}>
+          <li className={activeSection === 'properties' ? styles.active : ''}>
             <a href="#properties" onClick={handleAnchorClick}>
               Properties
             </a>
           </li>
-          <li className={activeSection === 'finishing-touches' ? 'active' : ''}>
+          <li
+            className={
+              activeSection === 'finishing-touches' ? styles.active : ''
+            }
+          >
             <a href="#finishing-touches" onClick={handleAnchorClick}>
               Finishing Touches
             </a>
           </li>
-          <li className={activeSection === 'wrapping-up' ? 'active' : ''}>
+          <li className={activeSection === 'wrapping-up' ? styles.active : ''}>
             <a href="#wrapping-up" onClick={handleAnchorClick}>
               Wrapping up
             </a>

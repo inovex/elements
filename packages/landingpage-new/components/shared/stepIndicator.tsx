@@ -1,4 +1,5 @@
-import { CSSProperties, ReactNode } from 'react';
+import { ReactNode } from 'react';
+import styles from './stepIndicator.module.scss';
 
 interface StepIndicatorProps {
   step?: string | null;
@@ -14,37 +15,13 @@ export function StepIndicator({
   step = '?',
   children = null,
 }: StepIndicatorProps) {
-  const wrapperStyle: CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-  };
-
-  const stepStyle: CSSProperties = {
-    flex: 'none',
-    height: '30px',
-    width: '30px',
-    backgroundColor: '#2D02FF',
-    borderRadius: '50%',
-    color: '#fff',
-    fontSize: '20px',
-    lineHeight: '30px',
-    textAlign: 'center',
-    marginRight: '16px',
-  };
-
   if (children === null) {
-    return (
-      <div className="step" style={stepStyle}>
-        {step}
-      </div>
-    );
+    return <div className={styles.step}>{step}</div>;
   } else {
     return (
-      <div className="step-indicator-wrapper" style={wrapperStyle}>
-        <div className="step" style={stepStyle}>
-          {step}
-        </div>
-        <div className="step-text">{children}</div>
+      <div className={styles.wrapper}>
+        <div className={styles.step}>{step}</div>
+        <div>{children}</div>
       </div>
     );
   }

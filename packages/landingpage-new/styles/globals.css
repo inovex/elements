@@ -57,67 +57,8 @@ ino-chip * {
   margin-bottom: 30px;
 }
 
-.grid-wrapper {
+.content-menu-layout {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: minmax(400px, 960px) 1fr;
-  grid-template-areas: 'content nav';
-}
-
-aside {
-  margin-left: 100px;
-}
-
-aside > .navigation-menu {
-  border-left: 1px solid var(--ds-border, #ebecf0);
-  margin-top: var(--ds-space-400, 35px);
-  padding-block: var(--ds-space-050, 4px);
-  padding-inline: var(--ds-space-150, 12px);
-  margin-bottom: var(--ds-space-400, 32px);
-  min-width: 184px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 80px;
-  color: #908da2;
-}
-
-.navigation-menu > ul > li > a {
-  font-weight: 200;
-  color: inherit;
-}
-
-li.active:before {
-  content: '';
-  position: absolute;
-  left: -14px;
-  height: 50px;
-  border-left: 2px solid #4655ff;
-  top: -14px;
-}
-
-.navigation-menu .active {
-  color: blue;
-}
-
-.navigation-menu > ul {
-  list-style-type: none;
-  padding: var(--ds-space-0, 0px);
-  font-size: var(--ds-font-size-050, 11px);
-  line-height: calc(14 / 11);
-  margin: var(--ds-space-150, 12px) 0 0 0;
-}
-
-aside > .navigation-menu > h5 {
-  margin-bottom: 40px;
-}
-
-.navigation-menu > ul > li {
-  position: relative;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 16px;
-  line-height: 25px;
-  line-height: inherit;
-  margin-bottom: var(--ds-space-0, 0px);
-  margin-top: 32px;
 }
