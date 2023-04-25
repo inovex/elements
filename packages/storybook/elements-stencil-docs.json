@@ -5417,8 +5417,9 @@
           "mutable": false,
           "attr": "delay",
           "reflectToAttr": false,
-          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nA delay value of `null` defaults to 0ms.",
+          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
           "docsTags": [],
+          "default": "0",
           "values": [
             {
               "type": "[number, number]"
@@ -8112,8 +8113,9 @@
           "mutable": false,
           "attr": "delay",
           "reflectToAttr": false,
-          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nA delay value of `null` defaults to 0ms.",
+          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
           "docsTags": [],
+          "default": "0",
           "values": [
             {
               "type": "[number, number]"
