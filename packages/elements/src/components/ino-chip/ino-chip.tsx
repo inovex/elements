@@ -67,9 +67,9 @@ export class Chip implements ComponentInterface {
   @Prop() value?: string;
 
   /**
-   * Marks this element as not clickable and disables all interactions like hover-effects, click-effects, pointer-cursor,...
+   * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
    */
-  @Prop() notclickable = false;
+  @Prop() clickable = true;
 
   /**
    * Event that emits the `value` as soon as the user clicks on the chip.
@@ -146,7 +146,7 @@ export class Chip implements ComponentInterface {
       'ino-chip--solid': this.fill === 'solid',
       'ino-chip--outline': this.fill === 'outline',
       'ino-chip-disabled': this.disabled,
-      'ino-chip--not-clickable': this.notclickable,
+      'ino-chip--not-clickable': !this.clickable,
     });
 
     const chipClasses = classNames({

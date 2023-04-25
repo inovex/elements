@@ -151,6 +151,10 @@ export namespace Components {
     }
     interface InoChip {
         /**
+          * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
+         */
+        "clickable": boolean;
+        /**
           * Disables all interactions.
          */
         "disabled": boolean;
@@ -163,10 +167,6 @@ export namespace Components {
           * @deprecated
          */
         "label": string;
-        /**
-          * Marks this element as not clickable and disables all interactions like hover-effects, click-effects, pointer-cursor,...
-         */
-        "notclickable": boolean;
         /**
           * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
          */
@@ -1940,6 +1940,10 @@ declare namespace LocalJSX {
     }
     interface InoChip {
         /**
+          * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
+         */
+        "clickable"?: boolean;
+        /**
           * Disables all interactions.
          */
         "disabled"?: boolean;
@@ -1952,10 +1956,6 @@ declare namespace LocalJSX {
           * @deprecated
          */
         "label"?: string;
-        /**
-          * Marks this element as not clickable and disables all interactions like hover-effects, click-effects, pointer-cursor,...
-         */
-        "notclickable"?: boolean;
         /**
           * Event that emits the `value` as soon as the user clicks on the chip.
          */
