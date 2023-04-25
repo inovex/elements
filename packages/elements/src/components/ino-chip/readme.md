@@ -112,16 +112,16 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 ## Properties
 
-| Property     | Attribute    | Description                                                                                                                               | Type                   | Default     |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `clickable`  | `clickable`  | Marks this element as clickable and displayes all interactions like hover-effects, click-effects, pointer-curser,...                      | `boolean`              | `true`      |
-| `disabled`   | `disabled`   | Disables all interactions.                                                                                                                | `boolean`              | `false`     |
-| `fill`       | `fill`       | The fill type of this element.                                                                                                            | `"outline" \| "solid"` | `'solid'`   |
-| `label`      | `label`      | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead  The content of the component. | `string`               | `undefined` |
-| `removable`  | `removable`  | Adds a close icon on the right side of this chip which emits the `removeChip` event on click.                                             | `boolean`              | `false`     |
-| `selectable` | `selectable` | Makes the chip selectable.                                                                                                                | `boolean`              | `false`     |
-| `selected`   | `selected`   | Marks this element as selected (**works only in conjunction with `selectable`**)                                                          | `boolean`              | `false`     |
-| `value`      | `value`      | The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.                                                         | `string`               | `undefined` |
+| Property       | Attribute      | Description                                                                                                                               | Type                   | Default     |
+| -------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `disabled`     | `disabled`     | Disables all interactions.                                                                                                                | `boolean`              | `false`     |
+| `fill`         | `fill`         | The fill type of this element.                                                                                                            | `"outline" \| "solid"` | `'solid'`   |
+| `label`        | `label`        | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead  The content of the component. | `string`               | `undefined` |
+| `notclickable` | `notclickable` | Marks this element as not clickable and disables all interactions like hover-effects, click-effects, pointer-cursor,...                   | `boolean`              | `false`     |
+| `removable`    | `removable`    | Adds a close icon on the right side of this chip which emits the `removeChip` event on click.                                             | `boolean`              | `false`     |
+| `selectable`   | `selectable`   | Makes the chip selectable.                                                                                                                | `boolean`              | `false`     |
+| `selected`     | `selected`     | Marks this element as selected (**works only in conjunction with `selectable`**)                                                          | `boolean`              | `false`     |
+| `value`        | `value`        | The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.                                                         | `string`               | `undefined` |
 
 
 ## Events

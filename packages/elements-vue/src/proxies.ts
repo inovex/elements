@@ -82,7 +82,7 @@ export const InoChip = /*@__PURE__*/ defineContainer<JSX.InoChip>('ino-chip', un
   'selectable',
   'selected',
   'value',
-  'clickable',
+  'notclickable',
   'chipClicked',
   'chipRemoved'
 ]);

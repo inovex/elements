@@ -938,23 +938,6 @@
       },
       "props": [
         {
-          "name": "clickable",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "clickable",
-          "reflectToAttr": false,
-          "docs": "Marks this element as clickable and displayes all interactions like hover-effects, click-effects, pointer-curser,...",
-          "docsTags": [],
-          "default": "true",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
@@ -1009,6 +992,23 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "notclickable",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "notclickable",
+          "reflectToAttr": false,
+          "docs": "Marks this element as not clickable and disables all interactions like hover-effects, click-effects, pointer-cursor,...",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,

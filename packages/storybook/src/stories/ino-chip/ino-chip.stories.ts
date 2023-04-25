@@ -21,8 +21,8 @@ export default {
     removable: false,
     selectable: false,
     selected: false,
+    notclickable: false,
     value: '',
-    clickable: true,
   }
 } as Meta<Components.InoChip>;
 
@@ -37,7 +37,7 @@ const template = new TemplateGenerator<Components.InoChip>(
       selectable="${args.selectable}"
       selected="${args.selected}"
       value="${args.value}"
-      clickable="${args.clickable}"
+      notclickable="${args.notclickable}"
     >
       Label
     </ino-chip>
@@ -155,4 +155,4 @@ const templateRemove = new TemplateGenerator<Components.InoChip>(
  */
 export const Remove = templateRemove.generatePlaygroundStory();
 
-export const Clickable = template.generateStoryForProp('clickable', true);
+export const NotClickable = template.generateStoryForProp('notclickable', true);
