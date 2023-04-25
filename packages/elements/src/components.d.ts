@@ -151,6 +151,10 @@ export namespace Components {
     }
     interface InoChip {
         /**
+          * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
+         */
+        "clickable": boolean;
+        /**
           * Disables all interactions.
          */
         "disabled": boolean;
@@ -1935,6 +1939,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface InoChip {
+        /**
+          * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
+         */
+        "clickable"?: boolean;
         /**
           * Disables all interactions.
          */
