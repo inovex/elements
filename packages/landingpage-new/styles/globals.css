@@ -13,23 +13,6 @@ body {
   color: #232527;
 }
 
-:root h3.header-h3 {
-  font-weight: lighter !important;
-  color: #232527;
-}
-
-/* :root h2.header-h2 {
-  font-weight: lighter !important;
-  color: #232527;
-} */
-
-:root h1.header-h1 {
-  font-weight: lighter !important;
-  color: #232527;
-}
-
-
-
 :root b {
   font-weight: bold; /* for firefox */
 }
