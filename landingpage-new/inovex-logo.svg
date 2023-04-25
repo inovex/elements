@@ -1,13 +1,100 @@
-<svg viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <g id="Group-15" fill="#051C59">
-      <polygon id="Fill-1" points="24.4504204 0 0.969004425 23.4606543 28.447323 16.9217507"></polygon>
-      <polygon id="Fill-2" points="48.9809558 26.5057427 25.5495398 49.9664412 21.5526372 33.0946021">
-      </polygon>
-      <polygon id="Fill-3" points="26.4986726 0.998227233 49.9800885 24.4588815 33.0933628 28.4522502">
-      </polygon>
-      <polygon id="Fill-4" points="23.451323 48.9681919 0.0194646018 25.5570071 16.9061903 21.5641247">
-      </polygon>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 626 626">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #31acea;
+      }
+
+      .cls-2 {
+        fill: #424bff;
+      }
+
+      .cls-3 {
+        fill: #80f879;
+      }
+
+      .cls-4 {
+        fill: #28a3a3;
+      }
+
+      .cls-5 {
+        isolation: isolate;
+      }
+
+      .cls-6 {
+        fill: url(#Unbenannter_Verlauf_40);
+        opacity: .13;
+      }
+
+      .cls-6, .cls-7, .cls-8, .cls-9 {
+        mix-blend-mode: multiply;
+      }
+
+      .cls-7 {
+        fill: url(#Unbenannter_Verlauf_37);
+        opacity: .25;
+      }
+
+      .cls-8 {
+        fill: url(#Unbenannter_Verlauf_46);
+        opacity: .3;
+      }
+
+      .cls-9 {
+        fill: url(#Unbenannter_Verlauf_39);
+        opacity: .32;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_39" data-name="Unbenannter Verlauf 39" x1="190.86" y1="188.32" x2="376.65" y2="139.71" gradientUnits="userSpaceOnUse">
+      <stop offset=".31" stop-color="#fff"/>
+      <stop offset=".47" stop-color="#c1d9cb"/>
+      <stop offset=".83" stop-color="#277c4c"/>
+      <stop offset=".9" stop-color="#096a34"/>
+    </linearGradient>
+    <linearGradient id="Unbenannter_Verlauf_46" data-name="Unbenannter Verlauf 46" x1="481.39" y1="422.33" x2="286.81" y2="477.55" gradientUnits="userSpaceOnUse">
+      <stop offset=".38" stop-color="#fff"/>
+      <stop offset="1" stop-color="#241f9c"/>
+    </linearGradient>
+    <linearGradient id="Unbenannter_Verlauf_40" data-name="Unbenannter Verlauf 40" x1="199.31" y1="478.15" x2="152.43" y2="294.11" gradientUnits="userSpaceOnUse">
+      <stop offset=".31" stop-color="#fff"/>
+      <stop offset=".37" stop-color="#f2f2f9"/>
+      <stop offset=".49" stop-color="#d2d1ea"/>
+      <stop offset=".65" stop-color="#9e9cd3"/>
+      <stop offset=".84" stop-color="#5753b3"/>
+      <stop offset=".97" stop-color="#241f9c"/>
+    </linearGradient>
+    <linearGradient id="Unbenannter_Verlauf_37" data-name="Unbenannter Verlauf 37" x1="418.74" y1="119.22" x2="474.31" y2="329.32" gradientUnits="userSpaceOnUse">
+      <stop offset=".43" stop-color="#fff"/>
+      <stop offset=".49" stop-color="#f9f9fc"/>
+      <stop offset=".57" stop-color="#ebeaf5"/>
+      <stop offset=".65" stop-color="#d2d1ea"/>
+      <stop offset=".74" stop-color="#b0aedb"/>
+      <stop offset=".83" stop-color="#8481c7"/>
+      <stop offset=".93" stop-color="#4f4baf"/>
+      <stop offset="1" stop-color="#241f9c"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-5">
+    <g id="Ebene_1" data-name="Ebene 1">
+      <g>
+        <g>
+          <path class="cls-3" d="m69.66,300.32c-3.73,3.73-5.41,8.7-5.17,13.59l170.81-45.77h0l122.56-32.84-20.08-74.93-25.69-95.88c-4.28.22-8.51,1.9-11.78,5.17l-230.66,230.66Z"/>
+          <path class="cls-9" d="m69.66,300.32c-3.73,3.73-5.41,8.7-5.17,13.59l170.81-45.77h0l122.56-32.84-20.08-74.93-25.69-95.88c-4.28.22-8.51,1.9-11.78,5.17l-230.66,230.66Z"/>
+        </g>
+        <g>
+          <path class="cls-2" d="m390.7,357.86l-122.56,32.84,45.77,170.81c4.28-.22,8.51-1.9,11.78-5.17l230.66-230.66c3.73-3.73,5.41-8.7,5.17-13.59l-170.81,45.77h0Z"/>
+          <path class="cls-8" d="m390.7,357.86l-122.56,32.84,45.77,170.81c4.28-.22,8.51-1.9,11.78-5.17l230.66-230.66c3.73-3.73,5.41-8.7,5.17-13.59l-170.81,45.77h0Z"/>
+        </g>
+        <g>
+          <path class="cls-4" d="m64.49,313.91c.22,4.28,1.9,8.51,5.17,11.78l230.66,230.66c3.73,3.73,8.7,5.41,13.59,5.17l-78.61-293.37-170.81,45.77Z"/>
+          <path class="cls-6" d="m64.49,313.91c.22,4.28,1.9,8.51,5.17,11.78l230.66,230.66c3.73,3.73,8.7,5.41,13.59,5.17l-78.61-293.37-170.81,45.77Z"/>
+        </g>
+        <g>
+          <path class="cls-1" d="m357.86,235.3h0l32.84,122.56,170.81-45.77c-.22-4.28-1.9-8.51-5.17-11.78l-230.66-230.66c-3.73-3.73-8.7-5.41-13.59-5.17l25.69,95.88,20.08,74.93Z"/>
+          <path class="cls-7" d="m357.86,235.3h0l32.84,122.56,170.81-45.77c-.22-4.28-1.9-8.51-5.17-11.78l-230.66-230.66c-3.73-3.73-8.7-5.41-13.59-5.17l25.69,95.88,20.08,74.93Z"/>
+        </g>
+      </g>
     </g>
   </g>
 </svg>
