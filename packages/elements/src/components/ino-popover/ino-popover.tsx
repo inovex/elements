@@ -156,10 +156,10 @@ export class Popover implements ComponentInterface {
    * 
    * If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.
    * 
-   * A delay value of `null` defaults to 0ms.
+   * Defaults to 0ms.
    * 
    */
-  @Prop() delay?: number | [number, number | null];
+  @Prop() delay?: number | [number, number] = 0;
 
   /**
    * Returns the internally used tippy.js instance

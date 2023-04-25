@@ -43,9 +43,9 @@ export default {
     },
     delay: {
       control: {
-        type: 'number',
-      }
-    }
+        type: 'object',
+      },
+    },
   },
   args: {
     controlled: false,
@@ -83,7 +83,7 @@ const template = new TemplateGenerator<Components.InoPopover>(
         visible="${args.visible}"
         hide-on-blur="${args.hideOnBlur}"
         hide-on-esc="${args.hideOnEsc}"
-        delay="${args.delay}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
       >
         <div class="styled-popover">
           <ino-icon icon="user"></ino-icon>
@@ -170,4 +170,4 @@ export const Visible = templateControlledPopover.generateStoryForProp(
   true
 );
 
-export const Delay = template.generateStoryForProp('delay', 500)
+export const Delay = template.generateStoryForProp('delay', [500, 200])
