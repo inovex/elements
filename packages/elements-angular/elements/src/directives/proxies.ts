@@ -811,14 +811,14 @@ and emits with `false` when the target or the outside is clicked.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['attachToBody', 'colorScheme', 'controlled', 'distance', 'followCursor', 'for', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible'],
+  inputs: ['attachToBody', 'colorScheme', 'controlled', 'delay', 'distance', 'followCursor', 'for', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible'],
   methods: ['getTippyInstance']
 })
 @Component({
   selector: 'ino-popover',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['attachToBody', 'colorScheme', 'controlled', 'distance', 'followCursor', 'for', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible']
+  inputs: ['attachToBody', 'colorScheme', 'controlled', 'delay', 'distance', 'followCursor', 'for', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible']
 })
 export class InoPopover {
   protected el: HTMLElement;
@@ -1269,14 +1269,14 @@ export declare interface InoTooltip extends Components.InoTooltip {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'for', 'label', 'placement', 'trigger'],
+  inputs: ['colorScheme', 'delay', 'for', 'label', 'placement', 'trigger'],
   methods: ['getTippyInstance']
 })
 @Component({
   selector: 'ino-tooltip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'for', 'label', 'placement', 'trigger']
+  inputs: ['colorScheme', 'delay', 'for', 'label', 'placement', 'trigger']
 })
 export class InoTooltip {
   protected el: HTMLElement;

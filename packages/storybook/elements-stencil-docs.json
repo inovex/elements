@@ -5429,6 +5429,26 @@
           "required": false
         },
         {
+          "name": "delay",
+          "type": "[number, number] | number",
+          "mutable": false,
+          "attr": "delay",
+          "reflectToAttr": false,
+          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "[number, number]"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "distance",
           "type": "number",
           "mutable": false,
@@ -8102,6 +8122,26 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "delay",
+          "type": "[number, number] | number",
+          "mutable": false,
+          "attr": "delay",
+          "reflectToAttr": false,
+          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "[number, number]"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
