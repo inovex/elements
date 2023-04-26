@@ -41,8 +41,10 @@ export class Tooltip implements ComponentInterface {
   @Prop() placement: Placement = 'auto';
 
   @Watch('placement')
-  async placementChanged() {
-    await this.create();
+  async onPlacementChange() {
+    this.tooltipInstance?.setProps({
+      placement: this.placement
+    })
   }
 
   /**
@@ -64,15 +66,22 @@ export class Tooltip implements ComponentInterface {
 
   /**
    * The delay in milliseconds before `ino-tooltip` shows up or hides.
-   * 
+   *
    * If only one number is given, the show and hide delay get the given delay duration.
-   * 
+   *
    * If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.
-   * 
+   *
    * Defaults to 0ms.
-   * 
+   *
    */
   @Prop() delay?: number | [number, number] = 0;
+
+  @Watch('delay')
+  onDelayChange() {
+    this.tooltipInstance?.setProps({
+      delay: this.delay
+    })
+  }
 
   @Watch('trigger')
   async triggerChanged() {
