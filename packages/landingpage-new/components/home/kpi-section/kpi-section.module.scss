@@ -1,8 +1,23 @@
-.header_container {
-    display: flex;
-    gap: 0.7rem;
-}
-
 .subheader {
     max-width: 36.125rem;
+}
+
+.kpi_wrapper {
+    display: grid;
+    grid-template: auto / repeat(auto-fit, minmax(15rem, 1fr));
+    margin-top: 6.5rem;
+    gap: 2rem;
+    transition: grid-template ease-in-out 0.25s;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 2rem;
+    }
+}
+
+.kpi_container {
+    display: grid;
+    grid-template: auto auto / 1fr;
+    align-items: start;
+    align-content: space-between;
+    justify-items: center;
 }
