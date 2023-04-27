@@ -1,6 +1,7 @@
 @use '../base/mdc-customize';
 @use '@material/list';
 @use '../base/theme' as theme;
+@use '../base/new-theme' as new-theme;
 
 @include list.deprecated-core-styles;
 
@@ -8,18 +9,18 @@
   margin: 0.5rem 0 0 0;
   padding: 0;
   background-color: white;
-  box-shadow: 0rem 0.063rem 0.313rem 0rem #DBDBDB;
-  border-radius: 0.25rem;
+  box-shadow: 0 1px 5px #DBDBDB;
+  border-radius: 4px;
   overflow: auto;
 }
 
 .ino-autocomplete__list-item {
   height: 1.5rem;
-  font-size: 0.75rem;
-  padding: 0.438rem 0rem 0.313rem 0.563rem;
+  font-size: 0.85rem;
+  padding: 7px 0 7px 9px;
 
   &--selected, &:hover {
-    background-color: #f6fafe; //$p-01
+    background-color: new-theme.$p-01;
     color: black;
   }
 
@@ -30,13 +31,11 @@
   }
 
   &--no-match {
-    height: 1.5rem;
-    font-size: 0.75rem;
-    padding: 0.438rem 0rem 0.313rem 0.563rem;
     color: theme.color(light, dark);
+    pointer-events: none;
   }
 }
 
 .ino-input--font-grey {
-  color: #A3A0B3 !important; //n-05
+  --ino-input-color: #{new-theme.$n-5};  //n-05
 }
