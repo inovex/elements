@@ -120,6 +120,8 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 </details>
 
+<img src="./test.svg">
+
 # Contributors
 
 # ❓ Support

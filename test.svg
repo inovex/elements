@@ -21,6 +21,10 @@
           color: var(--color-fg-muted);
         }
 
+        h1 {
+          color: hotpink !important;
+        }
+
         h1.no-border {
           border: none;
         }
