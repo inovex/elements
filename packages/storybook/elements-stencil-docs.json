@@ -3820,6 +3820,11 @@
           "docs": "color of the caret"
         },
         {
+          "name": "--ino-input-color",
+          "annotation": "prop",
+          "docs": "text color of the input"
+        },
+        {
           "name": "--ino-input-icon-color",
           "annotation": "prop",
           "docs": "icon color"
