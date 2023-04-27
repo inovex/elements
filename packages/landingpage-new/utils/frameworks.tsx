@@ -1,7 +1,7 @@
-import vueIcon from '@assets/vue.svg';
 import angularIcon from '@assets/angular.svg';
-import reactIcon from '@assets/react-icon.svg';
 import jsIcon from '@assets/javascript.svg';
+import reactIcon from '@assets/react.svg';
+import vueIcon from '@assets/vue.svg';
 
 export enum Framework {
   JS = 'javascript',
