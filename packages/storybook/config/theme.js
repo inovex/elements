@@ -5,13 +5,13 @@ export default create({
   base: 'light',
 
   colorPrimary: '#9ccd00',
-  colorSecondary: '#003c7e',
+  colorSecondary: '#2C02FF',
 
   // UI
   appBg: 'white',
   appContentBg: 'rgba(255,255,255,0.9)',
-  appBorderColor: 'rgb(236,236,236)',
-  appBorderRadius: 4,
+  appBorderColor: '#EDEFF5',
+  appBorderRadius: 17,
 
   // Typography
   fontBase: '"Lato", Helvetica, Verdana',
@@ -23,8 +23,8 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: 'rgba(0, 0, 0, 0.87)',
-  barSelectedColor: '#003c7e',
-  barBg: '#F8F8F8',
+  barSelectedColor: '#2C02FF',
+  barBg: '#EDEFF5',
 
   // Form colors
   inputBg: 'white',
@@ -34,4 +34,6 @@ export default create({
 
   brandTitle: 'INOVEX ELEMENTS v' + version,
   brandUrl: '/',
+
+  
 });

@@ -1,14 +1,14 @@
 // main point of configuration for storybook
-const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   core: {
     builder: 'webpack5',
   },
-  staticDirs: ['../static', '../../elements/src/assets'],
+  staticDirs: ['../static', '../../elements/src/assets', '../../../assets/logo'],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
   addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil'],
+  managerEntries: ['./addons/post-current-story'],
   typescript: {
     compilerOptions: {
       "typeRoots" : ["node_modules/@types", "../src/types"]
@@ -49,17 +49,6 @@ module.exports = {
       use: [{ loader: "story-description-loader", options: { isTSX: true } }],
     });
 
-    // Copy Plugin
-    config.plugins.push(
-      new CopyPlugin({
-        patterns: [
-          {
-            from: './src/**/*.svg',
-            to: 'assets/[name][ext]',
-          },
-        ],
-      })
-    );
     return config;
   },
 };

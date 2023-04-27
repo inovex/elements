@@ -114,6 +114,7 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 | Property     | Attribute    | Description                                                                                                                               | Type                   | Default     |
 | ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `clickable`  | `clickable`  | Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...                       | `boolean`              | `true`      |
 | `disabled`   | `disabled`   | Disables all interactions.                                                                                                                | `boolean`              | `false`     |
 | `fill`       | `fill`       | The fill type of this element.                                                                                                            | `"outline" \| "solid"` | `'solid'`   |
 | `label`      | `label`      | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead  The content of the component. | `string`               | `undefined` |

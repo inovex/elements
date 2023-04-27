@@ -17,8 +17,11 @@ $chip-color-font: theme.$primary;
 $icon-size: 16px;
 
 ino-chip {
-
   height: 24px; // default height
+ 
+  &.ino-chip--not-clickable {
+    pointer-events: none;
+  }
 
   // base styling
   .ino-chip-container {

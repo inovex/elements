@@ -3,50 +3,90 @@
   "language": "Language",
   "navigation": {
     "home": {
-      "mainroute": "home",
+      "name": "home",
       "subroutes": {
-        "info": "info",
-        "core_aspects": "core aspects",
-        "components": "components",
-        "faq": "faq"
+        "info": {
+          "name": "info"
+        },
+        "core_aspects": {
+          "name": "core aspects"
+        },
+        "components": {
+          "name": "components"
+        },
+        "faq": {
+          "name": "faq"
+        }
       }
     },
     "explore": {
-      "mainroute": "explore",
+      "name": "explore",
       "subroutes": {
-        "examples": "examples",
-        "patterns": "patterns",
-        "ressources": "ressources",
-        "demos": "demos"
+        "examples": {
+          "name": "examples"
+        },
+        "patterns": {
+          "name": "patterns"
+        },
+        "resources": {
+          "name": "resources"
+        },
+        "demos": {
+          "name": "demos"
+        }
       }
     },
     "getting_started": {
-      "mainroute": "getting started",
+      "name": "getting started",
       "subroutes": {
-        "javascript": "javascript",
-        "react": "react",
-        "angular": "angular",
-        "vue": "vue"
+        "javascript": {
+          "name": "javascript"
+        },
+        "react": {
+          "name": "react"
+        },
+        "angular": {
+          "name": "angular"
+        },
+        "vue": {
+          "name": "vue"
+        }
       }
     },
     "library": {
-      "mainroute": "library",
+      "name": "library",
       "subroutes": {
-        "styleguide": "styleguide",
-        "components": "components",
-        "patterns": "patterns",
-        "changelogs": "changelogs"
+        "styleguide": {
+          "name": "styleguide"
+        },
+        "components": {
+          "name": "components"
+        },
+        "patterns": {
+          "name": "patterns"
+        },
+        "changelogs": {
+          "name": "changelogs"
+        }
       }
     },
     "about": {
-      "mainroute": "about",
+      "name": "about",
       "subroutes": {
-        "team": "team",
-        "history": "history",
-        "activity": "activity"
+        "team": {
+          "name": "team"
+        },
+        "history": {
+          "name": "history"
+        },
+        "activity": {
+          "name": "activity"
+        }
       }
     },
-    "contact": "Contact us"
+    "contact": {
+      "name": "Contact us"
+    }
   },
   "meta": {
     "home": "Home",

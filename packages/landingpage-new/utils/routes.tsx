@@ -1,12 +1,16 @@
 type RouteTree = MainRoute[];
 
 type Route = {
-  name: string;
+  key: string;
   url: string;
 };
 
+type SubRoute = Route & {
+  fragment: string;
+};
+
 type MainRoute = Route & {
-  subRoutes: Route[];
+  subRoutes: SubRoute[];
 };
 
 export enum MainRoutes {
@@ -43,118 +47,125 @@ export enum SubRoutes {
 // TODO: create meaningful routes
 export const Routes: RouteTree = [
   {
-    name: 'home',
+    key: 'home',
     url: MainRoutes.HOME,
     subRoutes: [
       {
-        name: 'info',
-        url: SubRoutes.HOME_INFO,
+        key: 'info',
+        fragment: SubRoutes.HOME_INFO,
+        url: `${MainRoutes.HOME}#${SubRoutes.HOME_INFO}`,
       },
       {
-        name: 'core aspects',
-        url: SubRoutes.HOME_CORE_ASPECTS,
+        key: 'core_aspects',
+        fragment: SubRoutes.HOME_CORE_ASPECTS,
+        url: `${MainRoutes.HOME}#${SubRoutes.HOME_CORE_ASPECTS}`,
       },
       {
-        name: 'components',
-        url: SubRoutes.HOME_COMPONENTS,
+        key: 'components',
+        fragment: SubRoutes.HOME_COMPONENTS,
+        url: `${MainRoutes.HOME}#${SubRoutes.HOME_COMPONENTS}`,
       },
       {
-        name: 'faq',
-        url: SubRoutes.HOME_FAQ,
+        key: 'faq',
+        fragment: SubRoutes.HOME_FAQ,
+        url: `${MainRoutes.HOME}#${SubRoutes.HOME_FAQ}`,
       },
     ],
   },
   {
-    name: 'explore',
+    key: 'explore',
     url: MainRoutes.EXPLORE,
     subRoutes: [
       {
-        name: 'examples',
-        url: SubRoutes.EXPLORE_EXAMPLES,
+        key: 'examples',
+        fragment: SubRoutes.EXPLORE_EXAMPLES,
+        url: `${MainRoutes.EXPLORE}#${SubRoutes.EXPLORE_EXAMPLES}`,
       },
       {
-        name: 'patterns',
-        url: SubRoutes.EXPLORE_PATTERNS,
+        key: 'resources',
+        fragment: SubRoutes.EXPLORE_RESSOURCES,
+        url: `${MainRoutes.EXPLORE}#${SubRoutes.EXPLORE_RESSOURCES}`,
       },
       {
-        name: 'ressources',
-        url: SubRoutes.EXPLORE_RESSOURCES,
-      },
-      {
-        name: 'demos',
-        url: SubRoutes.EXPLORE_DEMOS,
+        key: 'demos',
+        fragment: SubRoutes.EXPLORE_DEMOS,
+        url: `${MainRoutes.EXPLORE}#${SubRoutes.EXPLORE_DEMOS}`,
       },
     ],
   },
   {
-    name: 'getting started',
+    key: 'getting_started',
     url: MainRoutes.GETTING_STARTED,
     subRoutes: [
       {
-        name: 'javascript',
-        url: SubRoutes.GETTING_STARTED_JAVASCRIPT,
+        key: 'javascript',
+        fragment: SubRoutes.GETTING_STARTED_JAVASCRIPT,
+        url: `${MainRoutes.GETTING_STARTED}/${SubRoutes.GETTING_STARTED_JAVASCRIPT}`,
       },
       {
-        name: 'react',
-        url: SubRoutes.GETTING_STARTED_REACT,
+        key: 'react',
+        fragment: SubRoutes.GETTING_STARTED_REACT,
+        url: `${MainRoutes.GETTING_STARTED}/${SubRoutes.GETTING_STARTED_REACT}`,
       },
       {
-        name: 'angular',
-        url: SubRoutes.GETTING_STARTED_ANGULAR,
+        key: 'angular',
+        fragment: SubRoutes.GETTING_STARTED_ANGULAR,
+        url: `${MainRoutes.GETTING_STARTED}/${SubRoutes.GETTING_STARTED_ANGULAR}`,
       },
       {
-        name: 'vue',
-        url: SubRoutes.GETTING_STARTED_VUE,
+        key: 'vue',
+        fragment: SubRoutes.GETTING_STARTED_VUE,
+        url: `${MainRoutes.GETTING_STARTED}/${SubRoutes.GETTING_STARTED_VUE}`,
       },
     ],
   },
   {
-    name: 'library',
+    key: 'library',
     url: MainRoutes.LIBRARY,
     subRoutes: [
       {
-        name: 'styleguide',
-        url: SubRoutes.LIBRARY_STYLEGUIDE,
+        key: 'components',
+        fragment: SubRoutes.LIBRARY_COMPONENTS,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_COMPONENTS}`,
+      },
+      /*
+      {
+        key: 'styleguide',
+        fragment: SubRoutes.LIBRARY_STYLEGUIDE,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_STYLEGUIDE}`,
       },
       {
-        name: 'components',
-        url: SubRoutes.LIBRARY_COMPONENTS,
+        key: 'patterns',
+        fragment: SubRoutes.LIBRARY_PATTERNS,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_PATTERNS}`,
       },
       {
-        name: 'patterns',
-        url: SubRoutes.LIBRARY_PATTERNS,
+        key: 'changelogs',
+        fragment: SubRoutes.LIBRARY_CHANGELOGS,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_CHANGELOGS}`,
       },
-      {
-        name: 'changelogs',
-        url: SubRoutes.LIBRARY_CHANGELOGS,
-      },
+       */
     ],
   },
   {
-    name: 'about',
+    key: 'about',
     url: MainRoutes.ABOUT,
     subRoutes: [
       {
-        name: 'team',
-        url: SubRoutes.ABOUT_TEAM,
+        key: 'team',
+        fragment: SubRoutes.ABOUT_TEAM,
+        url: `${MainRoutes.ABOUT}#${SubRoutes.ABOUT_TEAM}`,
       },
       {
-        name: 'history',
-        url: SubRoutes.ABOUT_HISTORY,
+        key: 'history',
+        fragment: SubRoutes.ABOUT_HISTORY,
+        url: `${MainRoutes.ABOUT}#${SubRoutes.ABOUT_HISTORY}`,
       },
       {
-        name: 'activity',
-        url: SubRoutes.ABOUT_ACTIVITY,
+        key: 'activity',
+        fragment: SubRoutes.ABOUT_ACTIVITY,
+        url: `${MainRoutes.ABOUT}#${SubRoutes.ABOUT_ACTIVITY}`,
       },
     ],
   },
 ];
-
-export const getDividerByMainRoute = (mainRoute: MainRoutes): '/' | '#' => {
-  switch (mainRoute) {
-    case MainRoutes.GETTING_STARTED:
-      return '/';
-    default:
-      return '#';
-  }
-};

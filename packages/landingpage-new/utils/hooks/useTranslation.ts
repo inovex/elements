@@ -10,7 +10,7 @@ export default function useTranslation() {
     if (localization) {
       text = _.get(localization.translations, key);
       if (!text) {
-        console.warn(
+        throw new Error(
           `Translation '${key}' for locale '${localization.locale}' not found.`
         );
       }

@@ -3,50 +3,90 @@
   "language": "Sprache",
   "navigation": {
     "home": {
-      "mainroute": "home",
+      "name": "Home",
       "subroutes": {
-        "info": "info",
-        "core_aspects": "kernaspekte",
-        "components": "komponenten",
-        "faq": "faq"
+        "info": {
+          "name": "Info"
+        },
+        "core_aspects": {
+          "name": "Kernaspekte"
+        },
+        "components": {
+          "name": "Komponenten"
+        },
+        "faq": {
+          "name": "FAQ"
+        }
       }
     },
     "explore": {
-      "mainroute": "erkunden",
+      "name": "Erkunden",
       "subroutes": {
-        "examples": "beispiele",
-        "patterns": "muster",
-        "ressources": "ressourcen",
-        "demos": "demos"
+        "examples": {
+          "name": "Beispiele"
+        },
+        "patterns": {
+          "name": "Muster"
+        },
+        "resources": {
+          "name": "Ressourcen"
+        },
+        "demos": {
+          "name": "Demos"
+        }
       }
     },
     "getting_started": {
-      "mainroute": "erste schritte",
+      "name": "Erste Schritte",
       "subroutes": {
-        "javascript": "javascript",
-        "react": "react",
-        "angular": "angular",
-        "vue": "vue"
+        "javascript": {
+          "name": "Javascript"
+        },
+        "react": {
+          "name": "React"
+        },
+        "angular": {
+          "name": "Angular"
+        },
+        "vue": {
+          "name": "Vue"
+        }
       }
     },
     "library": {
-      "mainroute": "bibliothek",
+      "name": "Bibliothek",
       "subroutes": {
-        "styleguide": "styleguide",
-        "components": "komponenten",
-        "patterns": "muster",
-        "changelogs": "änderungshistorie"
+        "styleguide": {
+          "name": "Styleguide"
+        },
+        "components": {
+          "name": "Komponenten"
+        },
+        "patterns": {
+          "name": "Muster"
+        },
+        "changelogs": {
+          "name": "Änderungshistorie"
+        }
       }
     },
     "about": {
-      "mainroute": "über uns",
+      "name": "Über uns",
       "subroutes": {
-        "team": "team",
-        "history": "geschichte",
-        "activity": "aktivität"
+        "team": {
+          "name": "Team"
+        },
+        "history": {
+          "name": "Geschichte"
+        },
+        "activity": {
+          "name": "Aktivität"
+        }
       }
     },
-    "contact": "Kontakt"
+    "contact": {
+      "name": "Kontakt"
+    }
   },
   "meta": {
     "home": "Home",

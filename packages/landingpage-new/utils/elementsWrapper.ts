@@ -24,6 +24,7 @@ export const InoControlItem = importElement('InoControlItem');
 export const InoSegmentGroup = importElement('InoSegmentGroup');
 export const InoCard = importElement('InoCard');
 export const InoList = importElement('InoList');
+export const InoListItem = importElement('InoListItem');
 export const InoSegmentButton = importElement('InoSegmentButton');
 export const InoTextarea = importElement('InoTextarea');
 export const InoSelect = importElement('InoSelect');

@@ -82,6 +82,7 @@ export const InoChip = /*@__PURE__*/ defineContainer<JSX.InoChip>('ino-chip', un
   'selectable',
   'selected',
   'value',
+  'clickable',
   'chipClicked',
   'chipRemoved'
 ]);
@@ -351,6 +352,7 @@ export const InoPopover = /*@__PURE__*/ defineContainer<JSX.InoPopover>('ino-pop
   'interactive',
   'followCursor',
   'trigger',
+  'delay',
   'controlled',
   'visible',
   'visibleChanged'
@@ -533,6 +535,7 @@ export const InoTooltip = /*@__PURE__*/ defineContainer<JSX.InoTooltip>('ino-too
   'placement',
   'for',
   'trigger',
+  'delay',
   'label'
 ]);
 

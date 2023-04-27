@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  gap: 46px;
+  align-items: center;
+}
+
+div.popover {
+  row-gap: 24px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px;
+  border-radius: 5px;
+}
