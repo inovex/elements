@@ -1,0 +1,37 @@
+.inovex-elements-typo h1 {
+  font-size: 40px;
+}
+
+.inovex-elements-typo h2 {
+  margin-top: 80px;
+}
+
+p {
+  line-height: 25px;
+}
+
+/* TODO: Typography above needs to be standardised/specified in elements package */
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 200px;
+  row-gap: 80px;
+}
+
+.section-container section:first-child {
+  margin: 80px 0 0 0;
+}
+
+.table-shadow {
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  margin-bottom: 15px;
+}
+
+.hint {
+  color: #908da2;
+  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}

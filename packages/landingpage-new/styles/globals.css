@@ -1,4 +1,5 @@
 @import '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
+@import './guide.css';
 
 html,
 body {
@@ -22,50 +23,7 @@ h1.header-d3 {
   box-sizing: border-box;
 }
 
-p {
-  line-height: 25px;
-}
-
 ino-chip * {
   /* mdc chip works with box-sizing: content-box which gets overwritten by global styles */
   box-sizing: initial;
-}
-
-.section-container {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 200px;
-  row-gap: 80px;
-}
-
-.section-container section:first-child {
-  margin: 80px 0 0 0;
-}
-
-.inovex-elements-typo h1 {
-  font-size: 40px;
-}
-
-.inovex-elements-typo h2 {
-  font-size: 28px;
-  margin-top: 80px;
-}
-
-.table-shadow {
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
-  margin-bottom: 15px;
-}
-
-.content-menu-layout {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: minmax(400px, 960px) 1fr;
-}
-
-.hint {
-  color: #908da2;
-  font-size: 12px;
-  margin-top: 8px;
-  margin-bottom: 24px;
 }

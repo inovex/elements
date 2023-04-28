@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
 import styles from './navigationMenu.module.scss';
+import { Sections } from './sections';
 
-export function NavigationMenu() {
-  const [activeSection, setActiveSection] = useState('preparation');
+interface NavigationMenuProps {
+  sections: Sections;
+}
+
+export function NavigationMenu({ sections }: NavigationMenuProps) {
+  const [activeSection, setActiveSection] = useState(
+    Object.values(sections)[0]
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -10,27 +17,29 @@ export function NavigationMenu() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
+            if (!Object.values(sections).includes(entry.target.id)) {
+              console.warn("Couldn't find section in sections object");
+            }
           }
         });
       },
       { rootMargin: '-30% 0px -70% 0px' } // top, right, bottom, left margins around the root element's bounding box
     );
 
-    const sections = document.querySelectorAll('article section[id]');
-    sections.forEach((section) => {
+    const DomSectionElements = document.querySelectorAll('article section[id]');
+    DomSectionElements.forEach((section) => {
       observer.observe(section);
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [sections]);
 
-  function handleAnchorClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  function handleAnchorClick(
+    event: React.MouseEvent<HTMLAnchorElement>,
+    section: string
+  ) {
     event.preventDefault();
-    const targetId = (event.currentTarget as HTMLAnchorElement).getAttribute(
-      'href'
-    );
-    if (!targetId) return;
-    const targetElement = document.querySelector(targetId);
+    const targetElement = document.querySelector(`#${section}`);
     if (!targetElement) return;
 
     const headerOffset = 80;
@@ -38,7 +47,7 @@ export function NavigationMenu() {
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
     // Change the URL (because we're preventing the default anchor click behavior)
-    const newUrl = `${window.location.origin}${window.location.pathname}${targetId}`;
+    const newUrl = `${window.location.origin}${window.location.pathname}#${section}`;
     window.history.pushState(null, '', newUrl);
 
     // Using window.scrollTo() instead of element.scrollIntoView() because the latter doesn't support offsets
@@ -49,34 +58,24 @@ export function NavigationMenu() {
   }
 
   return (
-    <aside className={styles.aside}>
+    <aside className={styles.aside + ' menu'}>
       <nav className={styles.navigationMenu}>
         <h5>REACT GUIDE</h5>
-        <ul>
-          <li className={activeSection === 'preparation' ? styles.active : ''}>
-            <a href="#preparation" onClick={handleAnchorClick}>
-              Preparation
-            </a>
-          </li>
-          <li className={activeSection === 'properties' ? styles.active : ''}>
-            <a href="#properties" onClick={handleAnchorClick}>
-              Properties
-            </a>
-          </li>
-          <li
-            className={
-              activeSection === 'finishing-touches' ? styles.active : ''
-            }
-          >
-            <a href="#finishing-touches" onClick={handleAnchorClick}>
-              Finishing Touches
-            </a>
-          </li>
-          <li className={activeSection === 'wrapping-up' ? styles.active : ''}>
-            <a href="#wrapping-up" onClick={handleAnchorClick}>
-              Wrapping up
-            </a>
-          </li>
+        <ul className={styles.sections}>
+          {sections &&
+            Object.entries(sections).map(([key, section]) => (
+              <li
+                key={key}
+                className={activeSection === section ? styles.active : ''}
+              >
+                <a
+                  href={`#${section}`}
+                  onClick={(event) => handleAnchorClick(event, section)}
+                >
+                  {key}
+                </a>
+              </li>
+            ))}
         </ul>
       </nav>
     </aside>

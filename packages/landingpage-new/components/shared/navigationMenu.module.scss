@@ -17,7 +17,7 @@
   color: theme.$n-6;
 }
 
-.navigationMenu > ul > li > a {
+.navigationMenu > .sections > li > a {
   font-weight: 200;
   color: inherit;
 }
@@ -35,7 +35,7 @@ li.active:before {
   color: theme.$p-05;
 }
 
-.navigationMenu > ul {
+.navigationMenu > .sections {
   list-style-type: none;
   padding: 0;
 }
@@ -45,7 +45,7 @@ li.active:before {
   margin-top: 0;
 }
 
-.navigationMenu > ul > li {
+.navigationMenu > .sections > li {
   position: relative;
   margin-top: 32px;
 }

@@ -21,7 +21,7 @@ export function StepIndicator({
     return (
       <div className={styles.wrapper}>
         <div className={styles.step}>{step}</div>
-        <div>{children}</div>
+        <p>{children}</p>
       </div>
     );
   }
