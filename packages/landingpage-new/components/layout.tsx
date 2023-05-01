@@ -14,8 +14,8 @@ export default function Layout({ children }: { children: ReactNode }) {
         />
       </Head>
       <Header></Header>
-      <div className={styles.main}>
-        <main>{children}</main>
+      <div className={styles.body}>
+        <main className={styles.main}>{children}</main>
         <Footer></Footer>
       </div>
     </div>
