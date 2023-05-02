@@ -29,6 +29,8 @@ export default function Header() {
         <div className={styles.headerContainer}>
           <h1 className={classNames(styles.header, 'header-d2')}>
             <b>{t('header.title_1')}</b>
+          </h1>
+          <h1 className={classNames(styles.header, 'header-d2')}>
             {t('header.title_2')} <mark>{t('header.title_mark')}</mark>
           </h1>
         </div>
