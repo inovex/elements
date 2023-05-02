@@ -1,8 +1,9 @@
 {
   "header": {
-    "title_1": "die interoperable UI-Bibliothek",
-    "title_2": "für jedes",
-    "title_mark": "Framework",
+    "elements_label": "inovex-elements",
+    "title_1": "die ",
+    "title_mark": "interoperable UI-Bibliothek",
+    "title_2": "für jedes Framework",
     "subtitle_1": "Es ist herausfordernd, UI-Komponenten zu erstellen und zu pflegen. Fange nicht jedes Mal von vorne an, wenn Du ein neues Projekt erstellst. Erstelle Komponenten einmal und setze sie überall ein! Verwende gerne unsere Open-Source-Bibliothek für UI-Komponenten",
     "getting_started": "Jetzt loslegen",
     "clipboard_success": "In die Zwischenablage kopiert ✓"

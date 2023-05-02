@@ -28,10 +28,14 @@ export default function Header() {
         </div>
         <div className={styles.headerContainer}>
           <h1 className={classNames(styles.header, 'header-d2')}>
-            <b>{t('header.title_1')}</b>
+            <b>{t('header.elements_label')}</b>
           </h1>
-          <h1 className={classNames(styles.header, 'header-d2')}>
-            {t('header.title_2')} <mark>{t('header.title_mark')}</mark>
+          <h1 className={classNames(styles.subheader, 'header-d2')}>
+            {t('header.title_1')}
+            <mark>{t('header.title_mark')}</mark>
+          </h1>
+          <h1 className={classNames(styles.subheader, 'header-d2')}>
+            {t('header.title_2')}
           </h1>
         </div>
         <div className={classNames(styles.info, 'body-l')}>
@@ -43,7 +47,10 @@ export default function Header() {
           </p>
         </div>
         <div className={styles.installation}>
-          <Link href={`${locale}${MainRoutes.GETTING_STARTED}`}>
+          <Link
+            className={styles.link}
+            href={`${locale}${MainRoutes.GETTING_STARTED}`}
+          >
             <InoButton>
               <span>{t('header.getting_started')}</span>
             </InoButton>
