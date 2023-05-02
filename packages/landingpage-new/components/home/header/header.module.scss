@@ -37,6 +37,11 @@
     margin: 0;
   }
 
+  .subheader {
+    margin: 0;
+    font-weight: 300;
+  }
+
   mark {
     padding: 0 5px 0 3px;
     width: fit-content;
@@ -45,7 +50,7 @@
       rgba($p-03, 40%) 40%,
       transparent 40%,
     )
-    
+
   }
 }
 
@@ -59,6 +64,11 @@
   grid-area: installation;
   align-self: start;
   grid-column: 1 / span 2;
+
+  .link {
+    display: block;
+    width: fit-content;
+  }
 
   .animation {
     padding-top: 15px;
