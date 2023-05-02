@@ -67,6 +67,11 @@ export const Routes: RouteTree = [
         url: `${MainRoutes.HOME}#${SubRoutes.HOME_COMPONENTS}`,
       },
       {
+        key: 'kpi',
+        fragment: SubRoutes.HOME_KPI,
+        url: `${MainRoutes.HOME}#${SubRoutes.HOME_KPI}`,
+      },
+      {
         key: 'faq',
         fragment: SubRoutes.HOME_FAQ,
         url: `${MainRoutes.HOME}#${SubRoutes.HOME_FAQ}`,

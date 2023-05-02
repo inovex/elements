@@ -1,23 +1,20 @@
 .subheader {
-    max-width: 36.125rem;
+  max-width: 36.125rem;
+  color: #3a3b64;
 }
 
 .kpi_wrapper {
-    display: grid;
-    grid-template: auto / repeat(auto-fit, minmax(15rem, 1fr));
-    margin-top: 6.5rem;
-    gap: 2rem;
-    transition: grid-template ease-in-out 0.25s;
-
-    @media screen and (max-width: 768px) {
-        margin-top: 2rem;
-    }
+  max-width: 800px;
+  display: flex;
+  margin-top: 2rem;
+  gap: 2rem;
 }
 
 .kpi_container {
-    display: grid;
-    grid-template: auto auto / 1fr;
-    align-items: start;
-    align-content: space-between;
-    justify-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
 }

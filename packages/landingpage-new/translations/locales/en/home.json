@@ -31,7 +31,7 @@
   "kpi": {
     "title_1": "who",
     "title_2": " we are",
-    "subheader": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
+    "subheader": "What sets us apart?",
     "kpis": [
       {
         "id": "kpi1",
@@ -41,14 +41,14 @@
       },
       {
         "id": "kpi2",
-        "title": "active web developers",
-        "target_value": 4,
+        "title": "active members",
+        "target_value": 5,
         "suffix": ""
       },
       {
         "id": "kpi3",
         "title": "years expert knowledge",
-        "target_value": 2,
+        "target_value": 5,
         "suffix": "+"
       }
     ]
