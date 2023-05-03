@@ -1,7 +1,7 @@
 <div align="center">
 <p>
   <a href="https://elements.inovex.de/#/">
-    <img width="300" src="assets/logo//elements.svg">
+    <img width="300" src="test.svg">
   </a>
 </p>
 
@@ -99,28 +99,6 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
  
 </style>
 
-<details open><summary>Parent1</summary>
-
-* <details><summary>Child1.1</summary>
-
-  * Child 1.1.1
-  * <details><summary>Child 1.1.2</summary>
-      
-    * Child 1.1.2.1
-    * Child 1.1.2.2
-      
-    </details>
-  * Child 1.1.2
-  </details> 
-
-* <details><summary>Child1.2</summary>
-    etc
-  </details> 
-
-
-</details>
-
-<img src="./test.svg">
 
 # Contributors
 
