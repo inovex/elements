@@ -26,6 +26,7 @@ export enum SubRoutes {
   HOME_CORE_ASPECTS = 'core-aspects',
   HOME_COMPONENTS = 'components',
   HOME_CONTACT = 'contact',
+  HOME_KPI = 'kpi',
   HOME_FAQ = 'faq',
   EXPLORE_EXAMPLES = 'examples',
   EXPLORE_PATTERNS = 'patterns',
@@ -64,6 +65,11 @@ export const Routes: RouteTree = [
         key: 'components',
         fragment: SubRoutes.HOME_COMPONENTS,
         url: `${MainRoutes.HOME}#${SubRoutes.HOME_COMPONENTS}`,
+      },
+      {
+        key: 'kpi',
+        fragment: SubRoutes.HOME_KPI,
+        url: `${MainRoutes.HOME}#${SubRoutes.HOME_KPI}`,
       },
       {
         key: 'faq',
