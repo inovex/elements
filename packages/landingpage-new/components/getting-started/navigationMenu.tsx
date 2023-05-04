@@ -1,19 +1,16 @@
-import { Sections } from 'components/shared/sections';
 import { useEffect, useState } from 'react';
+import 'utils/stringExtensions';
 import styles from './navigationMenu.module.scss';
 
+// We use Record<string, string> instead of enum because we can iterate over it AND use it as a type
+export type Sections = Record<string, string>;
 interface NavigationMenuProps {
   title: string;
-  sections: Sections;
 }
 
-export default function NavigationMenu({
-  title,
-  sections,
-}: NavigationMenuProps) {
-  const [activeSection, setActiveSection] = useState(
-    Object.values(sections)[0]
-  );
+export default function NavigationMenu({ title }: NavigationMenuProps) {
+  const [activeSection, setActiveSection] = useState<string>();
+  const [sections, setSections] = useState<Sections>();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,22 +18,34 @@ export default function NavigationMenu({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
-            if (!Object.values(sections).includes(entry.target.id)) {
-              console.warn("Couldn't find section in sections object");
-            }
           }
         });
       },
       { rootMargin: '-30% 0px -70% 0px' } // top, right, bottom, left margins around the root element's bounding box
     );
 
-    const DomSectionElements = document.querySelectorAll('article section[id]');
+    const DomSectionElements = document.querySelectorAll(
+      'section[data-menu-section]'
+    );
+
+    const sectionsTemp: Sections = {};
+
     DomSectionElements.forEach((section) => {
+      const headingElement = section.querySelector('h2');
+      if (headingElement) {
+        const headingText = headingElement.innerHTML.trim();
+        const key = headingText;
+        const value = headingText.toCamelCase();
+        sectionsTemp[key] = value;
+      }
       observer.observe(section);
     });
 
+    setActiveSection(Object.values(sectionsTemp)[0]); // set the first section as active
+    setSections(sectionsTemp);
+
     return () => observer.disconnect();
-  }, [sections]);
+  }, []);
 
   function handleAnchorClick(
     event: React.MouseEvent<HTMLAnchorElement>,
@@ -67,14 +76,14 @@ export default function NavigationMenu({
         <h5>{title}</h5>
         <ul className={styles.sections}>
           {sections &&
-            Object.entries(sections).map(([key, section]) => (
+            Object.entries(sections).map(([key, value]) => (
               <li
                 key={key}
-                className={activeSection === section ? styles.active : ''}
+                className={activeSection === value ? styles.active : ''}
               >
                 <a
-                  href={`#${section}`}
-                  onClick={(event) => handleAnchorClick(event, section)}
+                  href={`#${value}`}
+                  onClick={(event) => handleAnchorClick(event, value)}
                 >
                   {key}
                 </a>

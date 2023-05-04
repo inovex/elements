@@ -1,6 +1,5 @@
 import { InoSegmentButton, InoSegmentGroup } from '@elements';
 import Page from 'components/layout/page';
-import reactSections from 'components/shared/sections';
 import { useRouter } from 'next/router';
 import { Framework, NameByFramework } from 'utils/frameworks';
 import useTranslation from 'utils/hooks/useTranslation';
@@ -38,7 +37,7 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
       </div>
       <div className={styles.container}>
         {children}
-        <NavigationMenu title={'TEST'} sections={reactSections} />
+        <NavigationMenu title={frameworkName + 'GUIDE'} />
         <div className={styles.sandbox}>
           <h1>{t('sandbox.title')}</h1>
           <p className="title-s">{t('sandbox.description')}</p>
