@@ -1,12 +1,11 @@
-import {CH} from '@code-hike/mdx/components';
-import StepIndicator from 'components/getting-started/stepIndicator';
-import NavigationMenu from 'components/shared/navigationMenu';
-import Image from 'next/image';
-import useBasePath from 'utils/hooks/useBasePath';
-import reactSections from 'components/shared/sections.ts';
+import { CH } from "@code-hike/mdx/components";
+import StepIndicator from "components/getting-started/stepIndicator";
+import NavigationMenu from "components/getting-started/navigationMenu";
+import Image from "next/image";
+import useBasePath from "utils/hooks/useBasePath";
+import reactSections from "components/shared/sections.ts";
 import Hint from "components/getting-started/hint";
 import TableShadow from "components/getting-started/tableShadow";
-
 
 <article>
 
@@ -26,73 +25,85 @@ import TableShadow from "components/getting-started/tableShadow";
     style={{
       borderRadius: '12px',
     }}
-  />
+    />
+
   </div>
 
-  <Image
-    width={420}
-    height={260}
-    src={`${useBasePath()}/login-form.png`}
-    alt="A screenshot of the login form"
-    style={{
-      height: 'auto',
-      width: '100%',
-      maxWidth: '420px',
-      borderRadius: '12px',
-      boxShadow: '2px 2px 8px 3px rgba(0, 0, 0, 0.14)',
-      margin: '80px 0 0',
-    }}
-  />
+{" "}
+<Image
+  width={420}
+  height={260}
+  src={`${useBasePath()}/login-form.png`}
+  alt="A screenshot of the login form"
+  style={{
+    height: "auto",
+    width: "100%",
+    maxWidth: "420px",
+    borderRadius: "12px",
+    boxShadow: "2px 2px 8px 3px rgba(0, 0, 0, 0.14)",
+    margin: "80px 0 0",
+  }}
+/>
 
   </section>
 
   <section  id={Object.values(reactSections)[0]}>
 
-  <h2>Preparation</h2>
+{" "}
+<h2>Preparation</h2>
 
-  <StepIndicator step='1'> First, create a new React app for our login page.</StepIndicator>
+{" "}
+<StepIndicator step="1">
+  {" "}
+  First, create a new React app for our login page.
+</StepIndicator>
 
-  ```bash
-  npx create-react-app <your app name>
-  cd <your app name>
-  npm start
-  ```
+```bash
+npx create-react-app <your app name>
+cd <your app name>
+npm start
+```
 
-  <StepIndicator step='2'> Add the package `@inovex.de/elements-react` to your project using **npm** or **yarn**:</StepIndicator>
-  <CH.Code>
-    ```bash npm
-    npm install @inovex.de/elements-react --save
-    ```
-    ```bash yarn
-    yarn add @inovex.de/elements-react
-    ```
-  </CH.Code>
+{" "}
+<StepIndicator step="2">
+  {" "}
+  Add the package `@inovex.de/elements-react` to your project using **npm** or **yarn**:
+</StepIndicator>
+<CH.Code>
+  ```bash npm npm install @inovex.de/elements-react --save ``` ```bash yarn yarn
+  add @inovex.de/elements-react ```
+</CH.Code>
 
     <StepIndicator step='3'> Once our React app is ready, delete the boilerplate code and restructure the function until our App.js looks something like this:</StepIndicator>
 
-  ```tsx App.js
-  function App() {
-    return <div></div>;
-  }
+```tsx App.js
+function App() {
+  return <div></div>;
+}
 
-  export default App;
-  ```
+export default App;
+```
 
-  <Hint>Hint: For the Styling and Structure of your App we recommend following along with the provided [codesandbox](https://codesandbox.io/s/github/inovex/elements-example-react).</Hint>
+{" "}
+<Hint>
+  Hint: For the Styling and Structure of your App we recommend following along
+  with the provided
+  [codesandbox](https://codesandbox.io/s/github/inovex/elements-example-react).
+</Hint>
 
+To demonstrate how fast you can create a stylish login form, let's start with our sign in, consisting of two input fields for the credentials and one button to submit.
 
-  To demonstrate how fast you can create a stylish login form, let's start with our sign in, consisting of two input fields for the credentials and one button to submit.
-  ```tsx App.js
-    // ...
-    return (
-      <div className="body">
-        <h1>Login to your Account</h1>
-        <InoInput label="email" outline></InoInput>
-        <InoInput label="password" outline></InoInput>
-        <InoButton type="submit">Sign In</InoButton>
-      </div>
-    )
-  ```
+```tsx App.js
+  // ...
+  return (
+    <div className="body">
+      <h1>Login to your Account</h1>
+      <InoInput label="email" outline></InoInput>
+      <InoInput label="password" outline></InoInput>
+      <InoButton type="submit">Sign In</InoButton>
+    </div>
+  )
+```
 
   </section>
 
@@ -115,22 +126,20 @@ import TableShadow from "components/getting-started/tableShadow";
 
     Every component has a variety of powerful and unique properties. They are listed and explained in each component **Playground**:
 
-
   <TableShadow>
 
-  | Name             | Description                                                                                                | Type                                                                                              | Default    |
-  | ---------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------- |
-  | `type`           | The type of this element (default = text).                                                                 | `various | text`                                                                                 | `'text'`   |
-  | `label`          | The optional floating label of this input field.                                                           | `string`                                                                                          | `undefined`|
-  | `outline`        | Styles the input field as an outlined element.                                                             | `boolean`                                                                                         | `undefined`|
-  | `pattern`        | The validation pattern of this element.                                                                    | `string`                                                                                          | `undefined`|
-  | `placeholder`    | The placeholder of this element.                                                                           | `string`                                                                                          | `undefined`|
-  | `required`       | Marks this element as required.                                                                            | `boolean`                                                                                         | `undefined`|
-  | `show-label-hint`| If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required.| `boolean`                                                                                         | `undefined`|
-  | `value`          | The value of this input field.                                                                             | `string`                                                                                          | `''`       |
+| Name              | Description                                                                                                  | Type      | Default     |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ | --------- | ----------- | -------- |
+| `type`            | The type of this element (default = text).                                                                   | `various  | text`       | `'text'` |
+| `label`           | The optional floating label of this input field.                                                             | `string`  | `undefined` |
+| `outline`         | Styles the input field as an outlined element.                                                               | `boolean` | `undefined` |
+| `pattern`         | The validation pattern of this element.                                                                      | `string`  | `undefined` |
+| `placeholder`     | The placeholder of this element.                                                                             | `string`  | `undefined` |
+| `required`        | Marks this element as required.                                                                              | `boolean` | `undefined` |
+| `show-label-hint` | If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required. | `boolean` | `undefined` |
+| `value`           | The value of this input field.                                                                               | `string`  | `''`        |
 
   </TableShadow>
-
 
     <Hint>Hint: These are some of the properties of the `<InoInput>` component.</Hint>
 
@@ -160,21 +169,20 @@ import TableShadow from "components/getting-started/tableShadow";
     </InoInput>
     ```
 
-  ## Events
+## Events
 
-  With the exact same approach, we use **Events**. They emit a certain value when the user does something that triggers our Event to fire. In other terms: Our event gives us a **reaction** to an **action** made by our User.
-  In case of our `<InoInput>` the action is the user typing and our events reaction contains the typed input.
+With the exact same approach, we use **Events**. They emit a certain value when the user does something that triggers our Event to fire. In other terms: Our event gives us a **reaction** to an **action** made by our User.
+In case of our `<InoInput>` the action is the user typing and our events reaction contains the typed input.
 
-  Let's give our login form the `valueChange` event of the `<InoInput>` component, so that we can store the value typed by the user into our email or password states.
+Let's give our login form the `valueChange` event of the `<InoInput>` component, so that we can store the value typed by the user into our email or password states.
 
   <TableShadow>
 
-| Event             | Description                                                                    | Type                   |
-| ----------------- | ------------------------------------------------------------------------------ | ---------------------- |
-| **valueChange**   | Emits when the user types something in. Contains typed input in event.detail | CustomEvent\<string> |
-| inoBlur       | Emits when the input field is blurred and validates email input                | CustomEvent\<void>   |
-| inoFocus      | Emits when the input field is focused                                          | CustomEvent\<void>   |
-
+| Event           | Description                                                                  | Type                 |
+| --------------- | ---------------------------------------------------------------------------- | -------------------- |
+| **valueChange** | Emits when the user types something in. Contains typed input in event.detail | CustomEvent\<string> |
+| inoBlur         | Emits when the input field is blurred and validates email input              | CustomEvent\<void>   |
+| inoFocus        | Emits when the input field is focused                                        | CustomEvent\<void>   |
 
   </TableShadow>
   ```tsx
@@ -186,21 +194,22 @@ import TableShadow from "components/getting-started/tableShadow";
       valueChange={value => setEmail(value.detail)}
   ></InoInput>
 
-  <InoInput
-      type="password"
-      label="password"
-      outline
-      value={password}
-      valueChange={value => setPassword(value.detail)}
-  ></InoInput>
-  ```
+{" "}
+<InoInput
+  type="password"
+  label="password"
+  outline
+  value={password}
+  valueChange={(value) => setPassword(value.detail)}
+></InoInput>
+```
 
   <Hint>Hint: while in our Playground the Event is called `valueChange`, we name it `valueChange` inside of our `<InoInput>`. The reason for this is that we want to accomodate our naming similar to the react-way of naming events (e.g. onClick)</Hint>
 
-  ## Slots
+## Slots
 
-  Many components of the Elements Library have **slots**, that can be filled by other components or your own content to further customize its functionality or appearance.
-  If we use the slots of the `<InoInput>` we can add an `<InoIcon>` inside our input field, while retaining the full usability of the `<InoIcon>`.
+Many components of the Elements Library have **slots**, that can be filled by other components or your own content to further customize its functionality or appearance.
+If we use the slots of the `<InoInput>` we can add an `<InoIcon>` inside our input field, while retaining the full usability of the `<InoIcon>`.
 
   <TableShadow>
 | Slot                | Description                  |
@@ -211,31 +220,31 @@ import TableShadow from "components/getting-started/tableShadow";
   </TableShadow>
   <Hint>Hint: We can choose the position of our slot, that will render the `<InoIcon>` component. Other components like the `<InoCard>` allow a `header`, `content`, `footer` approach of positioning its slots.</Hint>
 
-  ```tsx
-  <InoInput
-    type="password"
-    label="password"
-    outline
-    value={password}
-    valueChange={(value) => setPassword(value.detail)}
-  >
-    <InoIcon slot="icon-trailing" icon="password"></InoIcon>
-  </InoInput>
-  ```
+```tsx
+<InoInput
+  type="password"
+  label="password"
+  outline
+  value={password}
+  valueChange={(value) => setPassword(value.detail)}
+>
+  <InoIcon slot="icon-trailing" icon="password"></InoIcon>
+</InoInput>
+```
 
-  Note that we indicated the position of the slot inside our `<InoIcon>` with `slot="icon-trailing"`.
+Note that we indicated the position of the slot inside our `<InoIcon>` with `slot="icon-trailing"`.
 
-  ## CSS-Variables
+## CSS-Variables
 
-  In order to provide a CSS way of styling the inovex-elements, we sometimes provide custom properties, a.k.a. CSS-Variables.
-  In the case of the `<ino-input>`, there are two variables we can use to change the appearance of our component: `--ino-input-line-color` to change the color of the underline and the `--ino-input-label-color` which changes the color of the floating label. They can be used like this:
+In order to provide a CSS way of styling the inovex-elements, we sometimes provide custom properties, a.k.a. CSS-Variables.
+In the case of the `<ino-input>`, there are two variables we can use to change the appearance of our component: `--ino-input-line-color` to change the color of the underline and the `--ino-input-label-color` which changes the color of the floating label. They can be used like this:
 
-  ```scss
-  InoInput {
-    --ino-input-line-color: blue;
-    --ino-input-label-color: blue;
-  }
-  ```
+```scss
+InoInput {
+  --ino-input-line-color: blue;
+  --ino-input-label-color: blue;
+}
+```
 
   </section>
 
@@ -243,174 +252,173 @@ import TableShadow from "components/getting-started/tableShadow";
 
     <h2>Finishing Touches</h2>
 
-  Let's apply what we learned by the example of the `<InoInput>` on other Elements components to finalize our login-page.
+Let's apply what we learned by the example of the `<InoInput>` on other Elements components to finalize our login-page.
 
-  ### Add a Logo
+### Add a Logo
 
   <Hint>Hint: automatically style your logo with rounded borders by using the `rounded` property of `<InoImg>`</Hint>
 
-  ```tsx
-  <InoImg
-    alt="Elements logo"
-    decoding="async"
-    src={logo}
-    height={75}
-    width={75}
-    fallbackIcon="cloud"
-  ></InoImg>
-  ```
+```tsx
+<InoImg
+  alt="Elements logo"
+  decoding="async"
+  src={logo}
+  height={75}
+  width={75}
+  fallbackIcon="cloud"
+></InoImg>
+```
 
-  If our image can't be loaded, it will render an `<InoIcon icon="cloud">` due to the `fallbackIcon="cloud"` property.
+If our image can't be loaded, it will render an `<InoIcon icon="cloud">` due to the `fallbackIcon="cloud"` property.
 
-  ### Use Popovers on Components
+### Use Popovers on Components
 
-  The `<InoPopover>` component is perfect for additional information or hints.
+The `<InoPopover>` component is perfect for additional information or hints.
 
-  ```tsx
-  <InoButton id="sign-up">Sign Up</InoButton>
+```tsx
+<InoButton id="sign-up">Sign Up</InoButton>
 
-  <InoPopover for="sign-up" placement="bottom" interactive>
-      <div className="styled-popover">
-          <InoIcon icon="user"></InoIcon>
-        Already have an account? Sign in.
-      </div>
-  </InoPopover>
-  ```
+<InoPopover for="sign-up" placement="bottom" interactive>
+    <div className="styled-popover">
+        <InoIcon icon="user"></InoIcon>
+      Already have an account? Sign in.
+    </div>
+</InoPopover>
+```
 
-  Make sure the `id` of the hosting element and the `for` property of the attached `<InoPopover>` is the same.
-  Given the intention or background of your page, it is helpful to change the `placement`(`top`, `right`, `bottom`, `left`).
-  Use the `interactive` property if you want to interact with the popover content (e.g. button clicks).
+Make sure the `id` of the hosting element and the `for` property of the attached `<InoPopover>` is the same.
+Given the intention or background of your page, it is helpful to change the `placement`(`top`, `right`, `bottom`, `left`).
+Use the `interactive` property if you want to interact with the popover content (e.g. button clicks).
 
-  ### Toggle Password Visibility
+### Toggle Password Visibility
 
-  By clicking on the ino icon lock, we can toggle the visibility of our password by changing the InoInput `type` property.
+By clicking on the ino icon lock, we can toggle the visibility of our password by changing the InoInput `type` property.
 
-  ```tsx
-  const [hidePassword, setVisibility] = React.useState<InputType>('password');
+```tsx
+const [hidePassword, setVisibility] = React.useState<InputType>('password');
 
-  const togglePasswordVisibility = () => {
-    if (hidePassword === 'password') {
-      setVisibility('text');
-    } else {
-      setVisibility('password');
-    }
-  };
-  ```
-
-  ```tsx
-  <InoInput
-    type={hidePassword}
-    label="password"
-    outline
-    value={password}
-    valueChange={(value) => setPassword(value.detail)}
-  >
-    <InoIcon
-      slot="icon-trailing"
-      icon="password"
-      clickable
-      onClick={() => togglePasswordVisibility()}
-    ></InoIcon>
-  </InoInput>
-  ```
-
-  ### Add Notifications
-
-  Most components have built in styles and themes you can choose from. Let's add a different Notification, every time our user signs in.
-  If the credentials are too short, we use the property `type="error"` of the `<InoSnackbar>` to indicate a failed login attempt. In the case of a succesful login, we can use `type="success"`
-
-  ```tsx
-  const [showSnackbar, setSnackbar] = React.useState(false);
-  const [isValid, setValidity] = React.useState(false);
-
-  const submit = () => {
-    setSnackbar(true);
-    setValidity(email.length > 0 && password.length >= 8);
-    setEmail('');
-    setPassword('');
-
-    setTimeout(() => {
-      setSnackbar(false);
-    }, 5000);
-  };
-
-  const ValidateLogin = () => {
-    if (isValid) {
-      return (
-        <InoSnackbar
-          action-text="Welcome back!"
-          timeout={5000}
-          type="success"
-          stay-visible-on-hover="false"
-        >
-          Sucessfully logged in
-        </InoSnackbar>
-      );
-    } else {
-      return (
-        <InoSnackbar
-          action-text="email and/or password too short"
-          timeout={5000}
-          type="error"
-          stay-visible-on-hover="false"
-        >
-          Login failed
-        </InoSnackbar>
-      );
-    }
-  };
-  ```
-
-  ```tsx
-  <InoButton
-    type="submit"
-    onClick={() => {
-      submit();
-    }}
-  >
-    Sign In
-  </InoButton>;
-
-  {
-    showSnackbar ? <ValidateLogin /> : null;
+const togglePasswordVisibility = () => {
+  if (hidePassword === 'password') {
+    setVisibility('text');
+  } else {
+    setVisibility('password');
   }
-  ```
+};
+```
 
-  Change the types accordingly to your wishes. The timeout property is in _ms_ and indicates when the snackbar disappears. The timeout can be disabled by setting it to a negative value.
-  More about the properties of the InoSnackbar is documented [here](https://elements.inovex.de/version/v7.1.0/?path=/docs/notification-ino-snackbar--playground).
+```tsx
+<InoInput
+  type={hidePassword}
+  label="password"
+  outline
+  value={password}
+  valueChange={(value) => setPassword(value.detail)}
+>
+  <InoIcon
+    slot="icon-trailing"
+    icon="password"
+    clickable
+    onClick={() => togglePasswordVisibility()}
+  ></InoIcon>
+</InoInput>
+```
 
-  ### Display Login Alternatives
+### Add Notifications
 
-  ```tsx
-  <InoTab icon="mail" indicator-content-width="false" stacked>
-      Gmail
-  </InoTab>
-  <InoTab icon="mail" indicator-content-width="false" stacked>
-      Yahoo
-  </InoTab>
-  ```
+Most components have built in styles and themes you can choose from. Let's add a different Notification, every time our user signs in.
+If the credentials are too short, we use the property `type="error"` of the `<InoSnackbar>` to indicate a failed login attempt. In the case of a succesful login, we can use `type="success"`
 
-  The `stacked` property indicates that the tab icon and label should flow vertically instead of horizontally.
-  Alternatively, group `<InoTab>` into an [ino-tab-bar](https://elements.inovex.de/version/v7.1.0/?path=/docs/structure-ino-tab-bar--playground), if you plan on using many tabs.
+```tsx
+const [showSnackbar, setSnackbar] = React.useState(false);
+const [isValid, setValidity] = React.useState(false);
+
+const submit = () => {
+  setSnackbar(true);
+  setValidity(email.length > 0 && password.length >= 8);
+  setEmail('');
+  setPassword('');
+
+  setTimeout(() => {
+    setSnackbar(false);
+  }, 5000);
+};
+
+const ValidateLogin = () => {
+  if (isValid) {
+    return (
+      <InoSnackbar
+        action-text="Welcome back!"
+        timeout={5000}
+        type="success"
+        stay-visible-on-hover="false"
+      >
+        Sucessfully logged in
+      </InoSnackbar>
+    );
+  } else {
+    return (
+      <InoSnackbar
+        action-text="email and/or password too short"
+        timeout={5000}
+        type="error"
+        stay-visible-on-hover="false"
+      >
+        Login failed
+      </InoSnackbar>
+    );
+  }
+};
+```
+
+```tsx
+<InoButton
+  type="submit"
+  onClick={() => {
+    submit();
+  }}
+>
+  Sign In
+</InoButton>;
+
+{
+  showSnackbar ? <ValidateLogin /> : null;
+}
+```
+
+Change the types accordingly to your wishes. The timeout property is in _ms_ and indicates when the snackbar disappears. The timeout can be disabled by setting it to a negative value.
+More about the properties of the InoSnackbar is documented [here](https://elements.inovex.de/version/v7.1.0/?path=/docs/notification-ino-snackbar--playground).
+
+### Display Login Alternatives
+
+```tsx
+<InoTab icon="mail" indicator-content-width="false" stacked>
+    Gmail
+</InoTab>
+<InoTab icon="mail" indicator-content-width="false" stacked>
+    Yahoo
+</InoTab>
+```
+
+The `stacked` property indicates that the tab icon and label should flow vertically instead of horizontally.
+Alternatively, group `<InoTab>` into an [ino-tab-bar](https://elements.inovex.de/version/v7.1.0/?path=/docs/structure-ino-tab-bar--playground), if you plan on using many tabs.
 
   </section>
 
   <section id={Object.values(reactSections)[3]}>
 
-  <h2>Wrapping Up</h2>
+{" "}
+<h2>Wrapping Up</h2>
 
-  Congratulations! You have created a login-page with React and the main concepts of the **Inovex Elements** - _The last interoperable UI library for any framework_:
+Congratulations! You have created a login-page with React and the main concepts of the **Inovex Elements** - _The last interoperable UI library for any framework_:
 
-  - Properties
-  - Events
-  - Slots
-  - CSS-Variables
+- Properties
+- Events
+- Slots
+- CSS-Variables
 
-  With the same approach you can keep on coding, don’t start from scratch every time you create a new project.
+With the same approach you can keep on coding, don’t start from scratch every time you create a new project.
 
   </section>
 </article>
 
-<NavigationMenu title="REACT GUIDE" sections={reactSections}/>
-
- 
+<NavigationMenu title="REACT GUIDE" sections={reactSections} />
