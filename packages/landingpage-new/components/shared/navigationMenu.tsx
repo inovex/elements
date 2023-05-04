@@ -1,6 +1,6 @@
-import { Sections } from 'components/shared/sections';
 import { useEffect, useState } from 'react';
 import styles from './navigationMenu.module.scss';
+import { Sections } from './sections';
 
 interface NavigationMenuProps {
   title: string;
