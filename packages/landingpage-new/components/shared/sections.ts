@@ -9,4 +9,4 @@ export const reactSections: Sections = {
   'Wrapping Up': 'wrapping-up',
 };
 
-// TODO: Discuss where to store this file
+export default reactSections;

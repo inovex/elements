@@ -3,10 +3,14 @@ import styles from './navigationMenu.module.scss';
 import { Sections } from './sections';
 
 interface NavigationMenuProps {
+  title: string;
   sections: Sections;
 }
 
-export function NavigationMenu({ sections }: NavigationMenuProps) {
+export default function NavigationMenu({
+  title,
+  sections,
+}: NavigationMenuProps) {
   const [activeSection, setActiveSection] = useState(
     Object.values(sections)[0]
   );
@@ -60,7 +64,7 @@ export function NavigationMenu({ sections }: NavigationMenuProps) {
   return (
     <aside className={styles.aside + ' menu'}>
       <nav className={styles.navigationMenu}>
-        <h5>REACT GUIDE</h5>
+        <h5>{title}</h5>
         <ul className={styles.sections}>
           {sections &&
             Object.entries(sections).map(([key, section]) => (
