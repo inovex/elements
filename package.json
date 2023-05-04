@@ -9,7 +9,7 @@
     "start:core": "nx run elements:start",
     "start:storybook": "nx run-many --target=start --projects=storybook,elements --output-style=stream",
     "start:angular": "nx run-many --target=start --projects=,elements,elements-angular --output-style=stream",
-    "start:angular-example": "nx run angular-example:start",
+    "start:angular-example": "nx run elements-angular-example:start",
     "start:react-example": "nx run-many --target=start --projects=elements-react*,elements --output-style=stream",
     "start:react-example:only": "nx run react-example:start",
     "start:vue-example": "nx run-many --target=start --projects=elements-vue*,elements --output-style=stream",

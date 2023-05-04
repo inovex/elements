@@ -17,7 +17,12 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "packages/elements-angular-example/src/favicon.ico",
-          "packages/elements-angular-example/src/assets"
+          "packages/elements-angular-example/src/assets",
+          {
+            "glob": "**/*.svg",
+            "input": "node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
+            "output": "ino-icon"
+          }
         ],
         "styles": ["packages/elements-angular-example/src/styles.scss"],
         "scripts": [],
@@ -50,7 +55,7 @@
       },
       "defaultConfiguration": "production"
     },
-    "serve": {
+    "start": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {

@@ -11,7 +11,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     ReactiveFormsModule,
     SharedModule,
-    InoElementsModule,
+    InoElementsModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
