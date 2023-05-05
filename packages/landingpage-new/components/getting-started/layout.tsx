@@ -36,8 +36,8 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
         </InoSegmentGroup>
       </div>
       <div className={styles.container}>
-        {children}
-        <NavigationMenu title={frameworkName + 'GUIDE'} />
+        <article>{children}</article>
+        <NavigationMenu title={frameworkName.toUpperCase() + ' GUIDE'} />
         <div className={styles.sandbox}>
           <h1>{t('sandbox.title')}</h1>
           <p className="title-s">{t('sandbox.description')}</p>

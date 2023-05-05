@@ -5,15 +5,13 @@
 }
 
 .aside > .navigationMenu {
-  border-left: 1px solid var(--ds-border, #ebecf0);
-  margin-top: var(--ds-space-400, 35px);
-  padding-block: var(--ds-space-050, 4px);
-  padding-inline: var(--ds-space-150, 12px);
-  margin-bottom: var(--ds-space-400, 32px);
-  min-width: 184px;
-  position: -webkit-sticky;
   position: sticky;
   top: 80px;
+  margin-top: 35px;
+  border-left: 1px solid #ebecf0;
+  padding-inline: 12px;
+  margin-bottom: 32px;
+  min-width: 184px;
   color: theme.$n-6;
 }
 
