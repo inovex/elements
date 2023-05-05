@@ -5,7 +5,7 @@ $animation-time: 200ms;
 
 .ino-accordion {
   &:hover {
-    background: theme.$p-01;
+    background: theme.$p-1;
   }
   border-radius: 24px;
 
@@ -34,12 +34,12 @@ $animation-time: 200ms;
 
     color: theme.$n-10;
     &--expanded {
-      color: theme.$p-05;
+      color: theme.$p-5;
     }
   }
 
   &--expanded {
-    background: theme.$p-01;
+    background: theme.$p-1;
   }
 
   .ino-accordion__content-wrapper {
@@ -63,7 +63,7 @@ $animation-time: 200ms;
   .toggle-icon {
     position: absolute;
     transition: $animation-time;
-    background: theme.$p-05;
+    background: theme.$p-5;
     border-radius: 2.5px;
 
     &--expanded {
