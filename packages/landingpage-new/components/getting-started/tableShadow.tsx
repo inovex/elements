@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TableShadow.module.scss';
+import styles from './tableShadow.module.scss';
 
 interface TableShadowProps {
   children: React.ReactNode;
