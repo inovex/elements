@@ -216,12 +216,13 @@ Type: `Promise<void>`
 
 ## CSS Custom Properties
 
-| Name                      | Description        |
-| ------------------------- | ------------------ |
-| `--ino-input-caret-color` | color of the caret |
-| `--ino-input-icon-color`  | icon color         |
-| `--ino-input-label-color` | color of the label |
-| `--ino-input-line-color`  | line color         |
+| Name                      | Description             |
+| ------------------------- | ----------------------- |
+| `--ino-input-caret-color` | color of the caret      |
+| `--ino-input-color`       | text color of the input |
+| `--ino-input-icon-color`  | icon color              |
+| `--ino-input-label-color` | color of the label      |
+| `--ino-input-line-color`  | line color              |
 
 
 ## Dependencies

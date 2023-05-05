@@ -29,6 +29,31 @@
     "link": "zu allen Komponenten",
     "button": "Ich bin ein Button"
   },
+  "kpi": {
+    "title_1": "Wer ",
+    "title_2": " wird sind",
+    "subheader": "Was zeichnet uns aus?",
+    "kpis": [
+      {
+        "id": "kpi1",
+        "title": "Komponenten",
+        "target_value": 46,
+        "suffix": ""
+      },
+      {
+        "id": "kpi2",
+        "title": "aktive Mitarbeitende",
+        "target_value": 4,
+        "suffix": ""
+      },
+      {
+        "id": "kpi3",
+        "title": "Jahre Expertenwissen",
+        "target_value": 5,
+        "suffix": "+"
+      }
+    ]
+  },
   "faq": {
     "title": "FAQ",
     "subheader": "Hier finden Sie Antworten auf die am häufigsten gestellten Fragen rund um die Elements",

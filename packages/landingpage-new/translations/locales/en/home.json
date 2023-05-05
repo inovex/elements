@@ -5,7 +5,7 @@
     "title_mark": "interoperable UI library",
     "title_2": "for any framework",
     "subtitle_1": "It’s hard to build and maintain UI components. Don’t start from scratch every time you create a new project. Build them once, run them everywhere! Use our open source UI component library",
-    "getting_started": "Getting started",
+    "getting_started": "Get started",
     "clipboard_success": "Copied to your clipboard ✓"
   },
   "core_aspects": {
@@ -28,6 +28,31 @@
     "subheader": "Check out some of our components",
     "link": "Check out all components",
     "button": "I'm a Button"
+  },
+  "kpi": {
+    "title_1": "who",
+    "title_2": " we are",
+    "subheader": "What sets us apart?",
+    "kpis": [
+      {
+        "id": "kpi1",
+        "title": "components",
+        "target_value": 46,
+        "suffix": ""
+      },
+      {
+        "id": "kpi2",
+        "title": "active members",
+        "target_value": 5,
+        "suffix": ""
+      },
+      {
+        "id": "kpi3",
+        "title": "years expert knowledge",
+        "target_value": 5,
+        "suffix": "+"
+      }
+    ]
   },
   "faq": {
     "title": "FAQ",

@@ -8,11 +8,6 @@ body {
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-:root h1.header-d2, h1.header-d3 {
-  font-weight: lighter !important;
-  color: #232527;
-}
-
 :root b {
   font-weight: bold; /* for firefox */
 }
