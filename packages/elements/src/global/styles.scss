@@ -84,48 +84,47 @@
 }
 
 .inovex-elements-theme {
-  $white: #fff;
-  $black: #000;
-  $transparent: rgba(255, 255, 255, 0);
+  --inovex-elements-white: #{new-theme.$white};
+  --inovex-elements-black: #{new-theme.$black}; --inovex-elements-transparent: #{new-theme.$transparent};
   
   // Neutrals
-  $n-1: #F4F4F7;
-  $n-2: #DFDEE6;
-  $n-3: #CAC8D5;
-  $n-4: #B6B4C4;
-  $n-5: #A3A0B3;
-  $n-6: #908DA2;
-  $n-7: #7E7B91;
-  $n-8: #6D6A80;
-  $n-9: #5D5B69;
-  $n-10: #4C4B52;
-  $n-11: #39383C;
-  $n-12: #39383C;
+  --inovex-elements-n-1: #{new-theme.$n-1};
+  --inovex-elements-n-2: #{new-theme.$n-2};
+  --inovex-elements-n-3: #{new-theme.$n-3};
+  --inovex-elements-n-4: #{new-theme.$n-4};
+  --inovex-elements-n-5: #{new-theme.$n-5};
+  --inovex-elements-n-6: #{new-theme.$n-6};
+  --inovex-elements-n-7: #{new-theme.$n-7};
+  --inovex-elements-n-8: #{new-theme.$n-8};
+  --inovex-elements-n-9: #{new-theme.$n-9};
+  --inovex-elements-n-10: #{new-theme.$n-10};
+  --inovex-elements-n-11: #{new-theme.$n-11};
+  --inovex-elements-n-12: #{new-theme.$n-12};
   
   // Primary Blue
-  $primary: #2c02ff;
-  $primary-focus: #2d5dff4d;
+  --inovex-elements-primary: #{new-theme.$primary};
+  --inovex-elements-primary-focus: #{new-theme.$primary-focus};
   
-  $p-01: #f6fafe;
-  $p-02: #e2ecff;
-  $p-03: #beccff;
-  $p-04: #8aa1ff;
-  $p-05: #4655ff;
-  $p-06: #2d02ff;
-  $p-07: #1801e1;
-  $p-08: #0801c4;
-  $p-09: #0106a6;
-  $p-10: #000e88;
-  $p-11: #00126a;
-  $p-12: #00124d;
+  --inovex-elements-p-01: #{new-theme.$p-1};
+  --inovex-elements-p-02: #{new-theme.$p-2};
+  --inovex-elements-p-03: #{new-theme.$p-3};
+  --inovex-elements-p-04: #{new-theme.$p-4};
+  --inovex-elements-p-05: #{new-theme.$p-5};
+  --inovex-elements-p-06: #{new-theme.$p-6};
+  --inovex-elements-p-07: #{new-theme.$p-7};
+  --inovex-elements-p-08: #{new-theme.$p-8};
+  --inovex-elements-p-09: #{new-theme.$p-9};
+  --inovex-elements-p-10: #{new-theme.$p-10};
+  --inovex-elements-p-11: #{new-theme.$p-11};
+  --inovex-elements-p-12: #{new-theme.$p-12};
   
   //Alert Colors
-  $informational: #F4F4F7;
-  $informational-light: #D6E0FF;
-  $success: #6CF070;
-  $success-light: #D7FAD8;
-  $error: #FF2E54;
-  $error-light: #FFD6DE;
-  $warning: #FFA42E;
-  $warning-light: #FFEED6;
+  --inovex-elements-informational: #{new-theme.$informational};
+  --inovex-elements-informational-light: #{new-theme.$informational-light};
+  --inovex-elements-success: #{new-theme.$success};
+  --inovex-elements-success-light: #{new-theme.$success-light};
+  --inovex-elements-error: #{new-theme.$error};
+  --inovex-elements-error-light: #{new-theme.$error-light};
+  --inovex-elements-warning: #{new-theme.$warning};
+  --inovex-elements-warning-light: #{new-theme.$warning-light};
 }
