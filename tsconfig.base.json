@@ -9,6 +9,9 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "esnext",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      "@inovex.de/elements-angular": ["packages/elements-angular/src/index.ts"]
+    }
   }
 }
