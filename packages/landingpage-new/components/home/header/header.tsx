@@ -1,12 +1,12 @@
-import Image from 'next/image';
 import { InoButton } from '@elements';
-import styles from './header.module.scss';
-import InstallChips from './install-chips';
+import classNames from 'classnames';
+import Image from 'next/image';
 import Link from 'next/link';
-import { MainRoutes } from 'utils/routes';
 import useBasePath from 'utils/hooks/useBasePath';
 import useTranslation from 'utils/hooks/useTranslation';
-import classNames from 'classnames';
+import { MainRoutes } from 'utils/routes';
+import styles from './header.module.scss';
+import InstallChips from './install-chips';
 
 export default function Header() {
   const basePath = useBasePath();
