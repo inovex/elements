@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import styles from './Hint.module.scss';
+import styles from './hint.module.scss';
 
 type HintProps = {
   children: ReactNode;
