@@ -1,18 +1,19 @@
-$card-width: 295px;
-$gap: 20px;
-$tolerance: 300px;
+$card-width: 21.071rem;
+$gap: 1.429rem;
+$tolerance: 21.429rem;
 $all-cards-incl-gap: $card-width * 4 + 3 * $gap + $tolerance;
 
 .cardWrapper{
-  padding-top: 40px;
+  padding-top: 2.857rem;
 
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: repeat(2, $card-width);
+  grid-template-columns: repeat(auto-fit, $card-width);
+  justify-content: center;
   grid-gap: $gap;
 
   @media (min-width: $all-cards-incl-gap) {
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(4, 295px);
+    grid-template-columns: repeat(auto-fit, 21.071rem);
   }
 }
