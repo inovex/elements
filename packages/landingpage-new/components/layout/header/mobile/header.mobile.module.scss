@@ -1,15 +1,13 @@
-@use '../../../../styles/theme';
-
 .icon {
   position: fixed;
-  top: 25px;
-  left: 25px;
+  top: 1.786rem;
+  left: 1.786rem;
   cursor: pointer;
-  color: theme.$n-7;
+  color: var(--inovex-elements-n-7);
   transition: color 300ms;
 
   &:hover {
-    color: theme.$primary;
+    color: var(--inovex-elements-primary);
   }
 }
 
@@ -22,15 +20,15 @@
   transition: transform 300ms;
 
   height: 100%;
-  width: 200px;
-  padding: 20px 33px;
+  width: 14.286rem;
+  padding: 1.429rem 2.357rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  background-color: white;
-  box-shadow: 0 3px 10px 0 #14141429;
+  background-color: var(--inovex-elements-white);
+  box-shadow: 0 0.214rem 0.714 0 var(--inovex-elements-n-1);
 
   &Open {
     transform: translateX(0);
@@ -49,10 +47,10 @@
 }
 
 .subRoutes {
-  margin-left: 2px;
+  margin-left: 0.143rem;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.143rem;
 
   overflow: hidden;
   height: 0;

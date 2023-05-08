@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  row-gap: 20px;
+  row-gap: 1.429rem;
   flex-direction: column;
   position: relative;
 }
@@ -10,26 +10,26 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  column-gap: 20px;
+  column-gap: 1.429rem;
   z-index: 1;
 }
 
 .frameworks {
   display: flex;
   flex-direction: row;
-  column-gap: 20px;
+  column-gap: 1.429rem;
 }
 
 .chip {
-  height: 36px;
+  height: 2.571rem;
 }
 
 .installCommand {
-  font-size: 16px;
+  font-size: 1.143rem;
 }
 
 .successMessage {
-  color: #68ce6a;
+  color: var(--inovex-elements-success);
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s linear 1s, opacity 1s;
@@ -42,8 +42,8 @@
 }
 
 .icon {
-  height: 25px;
-  width: 25px;
+  height: 1.786rem;
+  width: 1.786rem;
   opacity: 0.3;
   transition: opacity 1s;
   position: relative;

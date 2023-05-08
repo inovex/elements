@@ -1,19 +1,19 @@
 .coreAspectsContainer {
   display: flex;
   justify-content: center;
-  height: 448px;
+  height: 32rem;
   width: 100%;
-  background-color: #e9e5fe;
-  border-radius: 267px 0px;
-  column-gap: 40px;
+  background-color: var(--inovex-elements-p-2);
+  border-radius: 19.071rem 0px;
+  column-gap: 2.857rem;
 
   .coreAspect {
-    height: 350px;
+    height: 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 300px;
+    width: 21.429rem;
     text-align: center;
     margin: auto 0;
   }
@@ -22,7 +22,7 @@
 @media only screen and (max-width: 1600px) {
   .coreAspectsContainer {
     .coreAspect {
-      width: 250px;
+      width: 15.857rem;
     }
   }
 }
@@ -30,16 +30,16 @@
 @media only screen and (max-width: 1350px) {
   .coreAspectsContainer {
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 2.143rem;
     height: 100%;
     width: 80%;
     margin: auto;
-    padding: 70px 0;
+    padding: 5rem 0;
 
     .coreAspect {
       margin: auto;
       width: 75%;
-      height: 300px;
+      height: 21.429rem;
 
       p {
         margin: 0.5em 0;
@@ -58,7 +58,7 @@
 @media only screen and (max-width: 500px) {
   .coreAspectsContainer {
     .coreAspect {
-      height: 350px;
+      height: 25rem;
     }
   }
 }

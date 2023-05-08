@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 0.357rem;
 }
 
 .attribution {
   display: flex;
   align-items: center;
-  column-gap: 10px;
-  color: #7275A1 !important;
+  column-gap: 0.714rem;
+  color: var(--inovex-elements-n-7) !important;
 }

@@ -1,10 +1,10 @@
 .subheader{
-  color: #3a3b64;
+  color: var(--inovex-elements-n-11);
 }
 
 .accordionWrapper {
-  padding-top: 55px;
+  padding-top: 3.929rem;
   .accordion:not(:last-child){
-    margin-bottom: 8px;
+    margin-bottom: 0.571rem;
   }
 }

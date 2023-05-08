@@ -63,8 +63,8 @@ function Activity({ commitsPerMonth }: Props) {
           fill: true,
           label: t('activity.contributions'),
           data,
-          borderColor: '#4F46FF',
-          backgroundColor: '#BECCFF50',
+          borderColor: '#2c02ff',
+          backgroundColor: '#e2ecff99',
         },
       ],
     });

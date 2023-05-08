@@ -1,18 +1,18 @@
 .subtitle {
-  color: #39383C;
+  color: var(--inovex-elements-n-11);
 }
 
 .container {
   display: flex;
   align-items: center;
-  gap: 75px;
+  gap: 5.357rem;
 
   @media only screen and (max-width: 1400px) {
-    gap: 40px;
+    gap: 2.857rem;
   }
 
   @media only screen and (max-width: 1000px) {
-    gap: 20px
+    gap: 1.429rem;
   }
 }
 
@@ -34,10 +34,10 @@
   width: 100%;
   flex: 1;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 2.143rem;
 
   [class~="ino-carousel__slides"] {
-    margin: 2px;
-    box-shadow: 5px 5px 15px lightgrey;
+    margin: 0.143rem;
+    box-shadow: 0.357rem 0.357rem 1.071rem var(--inovex-elements-n-2);
   }
 }
