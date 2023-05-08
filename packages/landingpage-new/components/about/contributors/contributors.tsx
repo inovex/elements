@@ -1,11 +1,10 @@
 import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
-import { GithubContributor } from 'types/github';
-import { userInfo } from './contributor-utils';
 import useTranslation from 'utils/hooks/useTranslation';
+import {ElementsContributor} from '../../../types/contributors';
 
 interface Params {
-  users: GithubContributor[];
+  users: ElementsContributor[];
 }
 
 function Contributors({ users }: Params) {
@@ -19,12 +18,12 @@ function Contributors({ users }: Params) {
         {users?.length === 0 ? (
           <div>{t('contributors.not_found')}</div>
         ) : (
-          users?.map((contributor: GithubContributor) => (
+          users?.map((contributor) => (
             <ContributorCard
-              role={userInfo.get(contributor.id)?.role ? t(`contributors.roles.${userInfo.get(contributor.id)?.role}`) : ''}
+              role={contributor.roles.map(r =>t(`contributors.roles.${r}`)).join(' & ')}
               key={contributor.id}
               avatarUrl={contributor.avatar_url}
-              username={userInfo.get(contributor.id)?.name ?? contributor.login}
+              username={contributor.name}
               profileLink={contributor.html_url}
             />
           ))
