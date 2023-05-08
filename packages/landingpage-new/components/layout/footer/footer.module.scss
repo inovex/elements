@@ -2,19 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 150px;
-  margin-bottom: 120px;
+  row-gap: 10.714rem;
+  margin-bottom: 8.571rem;
+
+  @media only screen and (max-width: 700px) {
+    row-gap: 4rem;
+  }
 }
 
 .sublinks {
   width: 100%;
-  max-width: 1400px;
+  max-width: 100rem;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .col {
   display: flex;
   flex-direction: column;
-  row-gap: 17px;
+  row-gap: 1.214rem;
+  min-width: 10rem;
+}
+
+.empty {
+  height: 0;
+  
+  @media only screen and (max-width: 700px) {
+    display: none;
+  }
 }

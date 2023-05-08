@@ -1,15 +1,15 @@
 p.link {
   cursor: pointer;
-  color: #7275A1;
+  color: var(--inovex-elements-n-6);
   overflow-wrap: break-word;
 
   &:hover {
-    color:  #2C0CF9;
+    color: var(--inovex-elements-primary);
   }
 }
 
 p.linkActive {
-  color: #3A3B64;
+  color: var(--inovex-elements-n-10);
 }
 
 p.noMargin {
@@ -19,4 +19,10 @@ p.noMargin {
 p.linkDense {
   font-weight: lighter !important;
   margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  p:not(.linkDense) {
+    margin: 1.5rem 0 0;
+  }
 }
