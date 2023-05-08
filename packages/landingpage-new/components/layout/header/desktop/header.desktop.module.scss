@@ -61,3 +61,12 @@ $header-height: 120px;
 .github {
   grid-area: github;
 }
+
+.githubImage {
+  transition: filter 300ms;
+  filter: opacity(0.5);
+
+  &:hover {
+    filter: opacity(1);
+  }
+}
