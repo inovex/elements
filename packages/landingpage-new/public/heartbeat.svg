@@ -1,26 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="Logo" x="0" y="0"
      style="enable-background:new 0 0 180 180" version="1.1" viewBox="0 0 180 180">
-     <style type="text/css">
+  <style type="text/css">
+  <!-- Animation is configured to run after 3 seconds  -->
     @keyframes heartbeat {
-      0% {
+      0%, 8% {
         transform: scale(1);
       }
-      15% {
+      1.875% {
         transform: scale(1.05);
       }
-      30% {
+      3.75% {
         transform: scale(0.97);
       }
-      50% {
+      6.25% {
         transform: scale(1.1);
       }
     }
     .heartbeat {
       transform-origin: center;
-      animation: heartbeat 1s ease infinite;
+      animation: heartbeat 8s ease infinite;
       animation-fill-mode: both;
+      animation-delay: 3s;
     }
-    .st1{fill:#2d02ff}.st2{fill:#beccff}
+    .st1 {
+      fill: #2d02ff;
+    }
+    .st2 {
+      fill: #beccff;
+    }
   </style>
   <g class="heartbeat">
   <path d="M0 0h180v180H0z" style="fill:none"/>

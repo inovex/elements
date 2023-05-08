@@ -1,29 +1,32 @@
 <div align="center">
 <p>
   <a href="https://elements.inovex.de/#/">
-    <img width="300" src="test.svg">
+    <img width="300" src="packages/landingpage-new/public/heartbeat.svg">
   </a>
 </p>
 
 <h1>inovex elements</h1>
 
 
-<p>Lovingly crafted components based on native Web Components <br>for Angular, React, Vue or any JavaScript project.</p>
+<p>Lovingly crafted UI components based on native Web Components <br>for Angular, React, Vue or any JavaScript project.</p>
 
 <details>
 <summary  align="center" style="margin-bottom:10px">Badges</summary>
-Add badges from somewhere like: [shields.io](https://shields.io/)
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+![GitHub](https://img.shields.io/github/license/inovex/elements?style=plastic)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/inovex/elements/latest/master?style=plastic)
+![GitHub issues](https://img.shields.io/github/issues/inovex/elements?style=plastic)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@inovex.de/elements@8.0.0?style=plastic)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/@inovex.de/elements?style=plastic)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/inovex/elements?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/inovex/elements?style=social)
 </details>
 
-<!-- <hr class="space"> -->
+<h1> Showcase</h1>
+<p>[To be added]</p>
+<!-- TODO: Add inovex-elements image showcase -->
 
-<h1 class="no-border"> Showcase</h1>
-<a href="https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-welcome--page"><img src="https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png" style="margin-bottom: 30px;"></a>
-<!-- TODO: Replace showcase image with inovex-elements image -->
+
 
 <h1 align="center">Installation</h1>
 
@@ -38,7 +41,7 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
  <sub>***Note**: Click on the framework logo to view the installation guide.*</sub>
 
 # 🚀 Demo
-
+<!-- TODO: Add a demo -->
 [To be added]
 
 </div>
@@ -50,6 +53,12 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
   - 🛠️ Integrable with your favorite framework
   - 🛡 Written in TypeScript with predictable static types.
 
+# ⚙️ Tech
+We are using the following libraries under the hood:
+- [Stencil](https://github.com/ionic-team/stencil) for creating native web components
+- [Material](https://github.com/material-components/material-components-web) as a technical foundation for our custom UI components
+
+
 # 🔗 Links
 
 - [Home page](https://elements.inovex.de/#/)
@@ -59,6 +68,7 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 - [Changelog](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-changelog--page)
 
 # Contributors
+<!-- TODO: Add Contributors -->
 [To be added]
 
 # ❓ Support
