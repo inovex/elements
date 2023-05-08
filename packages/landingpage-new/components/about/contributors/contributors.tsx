@@ -25,6 +25,7 @@ function Contributors({ users }: Params) {
               avatarUrl={contributor.avatar_url}
               username={contributor.name}
               profileLink={contributor.html_url}
+              isInactive={contributor.isInactive}
             />
           ))
         )}

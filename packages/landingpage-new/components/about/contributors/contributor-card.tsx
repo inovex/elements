@@ -4,12 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Card from 'components/shared/card';
 import classNames from 'classnames';
+import { InoChip } from '@elements';
 
 interface Props {
   role: string;
   username: string;
   avatarUrl: string;
   profileLink: string;
+  isInactive?: boolean;
 }
 
 const ContributorsCard: FunctionComponent<Props> = ({
@@ -17,17 +19,23 @@ const ContributorsCard: FunctionComponent<Props> = ({
   username,
   avatarUrl,
   profileLink,
+  isInactive,
 }) => (
   <Card
     cardClassName={styles.contributorCard}
     header={
-      <Image
-        className={styles.Image}
-        src={avatarUrl}
-        width={100}
-        height={100}
-        alt={`Avatar of ${username}`}
-      />
+      <div className={styles.avatarContainer}>
+        <Image
+          className={styles.Image}
+          src={avatarUrl}
+          width={100}
+          height={100}
+          alt={`Avatar of ${username}`}
+        />
+        {isInactive && (
+          <InoChip clickable={false} className={styles.statusChip}>Inactive</InoChip>
+        )}
+      </div>
     }
     headerClassName={classNames(styles.center, 'body-l')}
     content={

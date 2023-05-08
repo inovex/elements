@@ -16,6 +16,7 @@ export const CONTRIBUTORS: inovexContributor[] = [
     login: 'pfecht',
     name: 'Pascal',
     roles: [Role.PO, Role.DEV],
+    isInactive: true,
   },
   {
     login: 'BenPag',
@@ -26,16 +27,19 @@ export const CONTRIBUTORS: inovexContributor[] = [
     login: 'JCofman',
     name: 'Jacob',
     roles: [Role.DEV],
+    isInactive: true,
   },
   {
     login: 'Sl1nd',
     name: 'Sven',
     roles: [Role.DEV],
+    isInactive: true,
   },
   {
     login: 'ninaschlz',
     name: 'Nina',
     roles: [Role.DEV],
+    isInactive: true,
   },
   {
     login: 'MariaLStefan',
@@ -46,6 +50,7 @@ export const CONTRIBUTORS: inovexContributor[] = [
     login: 'TobiasHeimGalindo',
     name: 'Tobias',
     roles: [Role.DEV],
+    isInactive: true,
   },
   {
     login: 'BingeCode',
@@ -56,6 +61,7 @@ export const CONTRIBUTORS: inovexContributor[] = [
     login: 'AlessaRad',
     name: 'Alessa',
     roles: [Role.DEV],
+    isInactive: true,
   },
   {
     login: 'MBuchberger',
@@ -66,6 +72,7 @@ export const CONTRIBUTORS: inovexContributor[] = [
     login: 'leagrimm',
     name: 'Lea',
     roles: [Role.DESIGN],
+    isInactive: true,
   },
   {
     login: 'subserap',

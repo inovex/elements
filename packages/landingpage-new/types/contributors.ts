@@ -5,6 +5,7 @@ export type inovexContributor = {
   login: string;
   name: string;
   roles: Role[];
+  isInactive?: boolean;
 };
 
 export type GithubContributor = {
