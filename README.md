@@ -5,10 +5,10 @@
   </a>
 </p>
 
-<h1>inovex elements</h1>
+# inovex elements
 
 
-<p>Lovingly crafted UI components based on native Web Components <br>for Angular, React, Vue or any JavaScript project.</p>
+Lovingly crafted UI components based on native Web Components <br>for Angular, React, Vue or any JavaScript project.
 
 <details>
 <summary  align="center" style="margin-bottom:10px">Badges</summary>
@@ -22,9 +22,11 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/inovex/elements?style=social)
 </details>
 
-<h1> Showcase</h1>
-<p>[To be added]</p>
+# Showcase
+[To be added]
 <!-- TODO: Add inovex-elements image showcase -->
+
+<br>
 
 <h1 align="center">Installation</h1>
 
@@ -37,6 +39,8 @@
 
 
  <sub>***Note**: Click on the framework logo to view the installation guide.*</sub>
+
+<br>
 
 # 🚀 Demo
 <!-- TODO: Add a demo -->
