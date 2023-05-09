@@ -26,8 +26,6 @@
 <p>[To be added]</p>
 <!-- TODO: Add inovex-elements image showcase -->
 
-
-
 <h1 align="center">Installation</h1>
 
 <div align="center">
@@ -46,6 +44,8 @@
 
 </div>
 
+<br><br>
+
 # ✨ Features
   
   - 🌈 Beautiful UI designed for web applications.
@@ -53,19 +53,24 @@
   - 🛠️ Integrable with your favorite framework
   - 🛡 Written in TypeScript with predictable static types.
 
+<br>
+
 # ⚙️ Tech
 We are using the following libraries under the hood:
 - [Stencil](https://github.com/ionic-team/stencil) for creating native web components
 - [Material](https://github.com/material-components/material-components-web) as a technical foundation for our custom UI components
 
+<br>
 
 # 🔗 Links
 
-- [Home page](https://elements.inovex.de/#/)
+- [Elements Landing Page](https://elements.inovex.de/#/)
+- [How to Contribute](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-contributing-quick-start--page)
 - [Components Overview](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-welcome--page)
-- [Customizing theme]()
-- [Contributing](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-contributing-quick-start--page)
 - [Changelog](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-changelog--page)
+<!-- - [Customizing theme]()  -->
+
+<br>
 
 # Contributors
  <a href="https://github.com/janivo"><img src="https://avatars.githubusercontent.com/u/22963121?s=120&v=4" alt="Profile picture of janivo's github account" width="60px"></a>
@@ -88,6 +93,8 @@ We are using the following libraries under the hood:
 <a href="https://github.com/rbrtmrln"><img src="https://avatars.githubusercontent.com/u/21999136?s=120&v=4" alt="Profile picture of rbrtmrln's github account" width="60px"></a>
 <a href="https://github.com/JacobCofman"><img src="https://avatars.githubusercontent.com/u/47525997?s=120&v=4" alt="Profile picture of JacobCofman's github account" width="60px"></a>
 <a href="https://github.com/Safi1012"><img src="https://avatars.githubusercontent.com/u/3514796?s=120&v=4" alt="Profile picture of Safi1012's github account" width="60px"></a>
+
+<br>
 
 # ❓ Support
 
