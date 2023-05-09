@@ -2,15 +2,11 @@ import { SubRoutes } from 'utils/routes';
 import { getGitHubContributers } from 'components/about/contributors/contributor-utils';
 import History from 'components/about/history';
 import Activity from 'components/about/activity';
-import {
-  GithubCommitsPerMonth,
-  GithubContributor,
-  GithubParticipation,
-} from 'types/github';
+import { GithubCommitsPerMonth, GithubParticipation } from 'types/github';
 import Contributors from 'components/about/contributors/contributors';
 import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
-import { Localization, Locale_File } from 'translations/types';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { Locale_File, Localization } from 'translations/types';
 import { LangContext } from 'types/langContext';
 import {
   getStaticLanguagePaths,
@@ -20,6 +16,8 @@ import { de, enUS } from 'date-fns/locale';
 import { Supported_Locales } from 'translations/config';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
+import { ElementsContributor } from '../../../types/contributors';
+import { inDevEnvironment } from '../../../utils/in-dev-mode';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
@@ -47,6 +45,17 @@ async function getCommitPerMonth(
     GITHUB_REPO_URL + '/stats/participation',
     requestInit
   );
+
+  if (fetchResult.status === 403) {
+    const rateLimitWarning = 'Github rate limit exceeded. Try again later.';
+
+    if (inDevEnvironment) {
+      console.warn(rateLimitWarning);
+      return {};
+    } else {
+      throw new Error(rateLimitWarning);
+    }
+  }
 
   const activities: GithubParticipation = await fetchResult.json();
 
@@ -76,7 +85,7 @@ async function getCommitPerMonth(
 }
 
 interface Params {
-  users: GithubContributor[];
+  users: ElementsContributor[];
   commitsPerMonth: GithubCommitsPerMonth;
   localization: Localization;
 }

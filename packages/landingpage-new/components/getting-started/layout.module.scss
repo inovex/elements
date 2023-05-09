@@ -1,11 +1,31 @@
 .container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(400px, 960px) 1fr;
+
+  .content {
+    grid-row: 1;
+    grid-column: 1 / 2;
+  }
+
+  .menu {
+    grid-row: 1;
+    grid-column: 2 / 3;
+  }
+
+  .sandbox {
+    grid-row: 2;
+    grid-column: 1 / 3;
+    margin-bottom: 120px;
+  }
+
   table {
     border-collapse: collapse;
     width: 100%;
   }
 
   th {
-    background-color: rgb(246, 248, 250);;
+    background-color: rgb(246, 248, 250);
     text-align: left;
     padding: 8px;
     &:first-child {
@@ -22,7 +42,7 @@
   }
 
   tr:nth-child(even) {
-    background-color: rgb(246, 248, 250);;
+    background-color: rgb(246, 248, 250);
   }
 }
 

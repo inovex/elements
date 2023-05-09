@@ -151,6 +151,10 @@ export namespace Components {
     }
     interface InoChip {
         /**
+          * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
+         */
+        "clickable": boolean;
+        /**
           * Disables all interactions.
          */
         "disabled": boolean;
@@ -855,6 +859,10 @@ export namespace Components {
          */
         "controlled": boolean;
         /**
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+         */
+        "delay"?: number | [number, number];
+        /**
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
@@ -1299,6 +1307,10 @@ export namespace Components {
           * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
          */
         "colorScheme": 'primary' | 'transparent';
+        /**
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+         */
+        "delay"?: number | [number, number];
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
@@ -1935,6 +1947,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface InoChip {
+        /**
+          * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
+         */
+        "clickable"?: boolean;
         /**
           * Disables all interactions.
          */
@@ -2687,6 +2703,10 @@ declare namespace LocalJSX {
          */
         "controlled"?: boolean;
         /**
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+         */
+        "delay"?: number | [number, number];
+        /**
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
@@ -3177,6 +3197,10 @@ declare namespace LocalJSX {
           * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
          */
         "colorScheme"?: 'primary' | 'transparent';
+        /**
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+         */
+        "delay"?: number | [number, number];
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */

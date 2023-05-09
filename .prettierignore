@@ -8,6 +8,8 @@ vendor/
 .vscode/
 node_modules/
 
+*.mdx
+
 # Ignore auto-generated files
 components.d.ts
 readme.md

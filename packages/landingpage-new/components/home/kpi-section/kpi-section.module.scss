@@ -1,0 +1,20 @@
+.subheader {
+  max-width: 36.125rem;
+  color: #3a3b64;
+}
+
+.kpi_wrapper {
+  max-width: 800px;
+  display: flex;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.kpi_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}

@@ -938,6 +938,23 @@
       },
       "props": [
         {
+          "name": "clickable",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "clickable",
+          "reflectToAttr": false,
+          "docs": "Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
@@ -3820,6 +3837,11 @@
           "docs": "color of the caret"
         },
         {
+          "name": "--ino-input-color",
+          "annotation": "prop",
+          "docs": "text color of the input"
+        },
+        {
           "name": "--ino-input-icon-color",
           "annotation": "prop",
           "docs": "icon color"
@@ -5409,6 +5431,26 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "delay",
+          "type": "[number, number] | number",
+          "mutable": false,
+          "attr": "delay",
+          "reflectToAttr": false,
+          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "[number, number]"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
@@ -8085,6 +8127,26 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "delay",
+          "type": "[number, number] | number",
+          "mutable": false,
+          "attr": "delay",
+          "reflectToAttr": false,
+          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "[number, number]"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {

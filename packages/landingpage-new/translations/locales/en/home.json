@@ -1,10 +1,11 @@
 {
   "header": {
-    "title_1": "the interoperable UI library",
-    "title_2": "for any",
-    "title_mark": "framework",
+    "elements_label": "inovex Elements",
+    "title_1": "the ",
+    "title_mark": "interoperable UI library",
+    "title_2": "for any framework",
     "subtitle_1": "It’s hard to build and maintain UI components. Don’t start from scratch every time you create a new project. Build them once, run them everywhere! Use our open source UI component library",
-    "getting_started": "Getting started",
+    "getting_started": "Get started",
     "clipboard_success": "Copied to your clipboard ✓"
   },
   "core_aspects": {
@@ -28,56 +29,81 @@
     "link": "Check out all components",
     "button": "I'm a Button"
   },
+  "kpi": {
+    "title_1": "who",
+    "title_2": " we are",
+    "subheader": "What sets us apart?",
+    "kpis": [
+      {
+        "id": "kpi1",
+        "title": "components",
+        "target_value": 46,
+        "suffix": ""
+      },
+      {
+        "id": "kpi2",
+        "title": "active members",
+        "target_value": 5,
+        "suffix": ""
+      },
+      {
+        "id": "kpi3",
+        "title": "years expert knowledge",
+        "target_value": 5,
+        "suffix": "+"
+      }
+    ]
+  },
   "faq": {
     "title": "FAQ",
-    "subheader" : "Here you can find answers to the most frequently asked questions about the Elements",
+    "subheader": "Here you can find answers to the most frequently asked questions about the Elements",
     "faqs": [
-    {
-      "id": 1,
-      "title": "Are the inovex Elements open source?",
-      "content": "Yes! The inovex Elements library is open source and made available for free under the MIT license."
-    },
-    {
-      "id": 2,
-      "title": "How can I use the Elements?",
-      "content": "You can use the inovex Elements web components library in any web project because they are based on web components, a framework independent standard. To make things even easier, we provide different packages for the commonly used frameworks like Angular, React and Vue. Have a look at our integration guides to see how to use them in detail."
-    },
-    {
-      "id": 3,
-      "title": "Where is the best place to start if I am new?",
-      "content": "Have a look at our Getting Started page which explains the basics and guides you through your first steps with the inovex Elements. It also provides detailed instructions on how to include the inovex Elements in your own projects."
-    },
-    {
-      "id": 4,
-      "title": "Are there any examples where the inovex Elements have been used?",
-      "content": "The inovex Elements are primarily used for our internal web tools at inovex GmbH. To get a feeling on how the elements look and feel like, you can check out our example projects."
-    },
-    {
-      "id": 5,
-      "title": "Who is behind the inovex elements?",
-      "content": "The inovex elements is managed by a team of software developers and designers at inovex, a digital innovation company based in Germany. With the inovex elements, we want to offer a library of web components to enable developers to create great user experiences quickly and time-efficiently."
-    },
-    {
-      "id": 6,
-      "title": "How do I report a Problem with the web-components?",
-      "content": "You can report a problem with the web-components by writing using our contact form or by opening an issue in our GitHub repository. Please provide as much information as possible (e.g. affected web-component, browser version and steps to reproduce the issue), so that we can investigate and solve any issue quickly."
-    },
-    {
-      "id": 7,
-      "title": "What requirements do the inovex elements have?",
-      "content": "There are no requirements except that your application must be a web application. The inovex Elements library supports the latest version of all major browsers. Keep in mind that our components are currently optimized for comprehensive desktop applications."
-    },
-    {
-      "id": 8,
-      "title": "Why are the material web components used in the inovex Elements?",
-      "content": "To avoid reinventing the wheel, we built on top of Google’s Material Web Components, a comprehensive toolbox of the most common UI elements. This allows us to concentrate on our styling and special features without having to implement functionality that is already well-known and battle-tested."
-    },
-    {
-      "id": 9,
-      "title": "How often are the inovex Elements updated?",
-      "content": "We update the inovex Elements library regularly to ensure that our users are able to get the most out of our components. We aim to release a new version at least (one-/bi-monthly) and will try our best to keep it up-to-date with all the latest web-component technology."
-    }
-  ]},
+      {
+        "title": "What are the inovex Elements?",
+        "content": "The inovex Elements are a collection of components (e.g. buttons, text fields, ...) for the web, which are based on the Web Components standard. This allows us to use the inovex Elements in any web framework, creating a consistent UI/UX feeling across all applications while saving massive development and maintenance efforts."
+      },
+      {
+        "title": "Why doesn't everyone use such a Web Components library?",
+        "content": "Web components are a relatively new standard, which has only been supported by the most popular browsers since 2018. In addition, the maintenance of such a library is initially more complex, since each framework (React, Angular, ...) brings its own specifics with it. However, once this hurdle has been overcome, you can save yourself immense maintenance effort, since new components only have to be built once and can then be used in any framework."
+      },
+      {
+        "title": "Are the inovex Elements open source?",
+        "content": "Yes! The inovex Elements library is open source and made available for free under the MIT license."
+      },
+      {
+        "title": "How can I use the Elements?",
+        "content": "You can use the inovex Elements web components library in any web project because they are based on web components, a framework independent standard. To make things even easier, we provide different packages for the commonly used frameworks like Angular, React and Vue. Have a look at our integration guides to see how to use them in detail."
+      },
+      {
+        "title": "What requirements do the inovex Elements have?",
+        "content": "There are no requirements except that your application must be a web application. The inovex Elements library supports the latest version of all major browsers. Keep in mind that our components are currently optimized for comprehensive desktop applications."
+      },
+      {
+        "title": "Where is the best place to start if I am new?",
+        "content": "Have a look at our Getting Started page which explains the basics and guides you through your first steps with the inovex Elements. It also provides detailed instructions on how to include the inovex Elements in your own projects."
+      },
+      {
+        "title": "Are there any examples where the inovex Elements have been used?",
+        "content": "The inovex Elements are primarily used for our internal web tools at inovex GmbH. To get a feeling on how the elements look and feel like, you can check out our example projects."
+      },
+      {
+        "title": "Who is behind the inovex Elements?",
+        "content": "The inovex Elements is managed by a team of software developers and designers at inovex, a digital innovation company based in Germany. With the inovex Elements, we want to offer a library of web components to enable developers to create great user experiences quickly and time-efficiently."
+      },
+      {
+        "title": "How do I report a Problem with the web-components?",
+        "content": "You can report a problem with the web-components by writing using our contact form or by opening an issue in our GitHub repository. Please provide as much information as possible (e.g. affected web-component, browser version and steps to reproduce the issue), so that we can investigate and solve any issue quickly."
+      },
+      {
+        "title": "Why are the material web components used in the inovex Elements?",
+        "content": "To avoid reinventing the wheel, we built on top of Google’s Material Web Components, a comprehensive toolbox of the most common UI elements. This allows us to concentrate on our styling and special features without having to implement functionality that is already well-known and battle-tested."
+      },
+      {
+        "title": "How often are the inovex Elements updated?",
+        "content": "We update the inovex Elements library regularly to ensure that our users are able to get the most out of our components. We aim to release a new version at least (one-/bi-monthly) and will try our best to keep it up-to-date with all the latest web-component technology."
+      }
+    ]
+  },
   "contact": {
     "title_1": "contact",
     "title_2": "us",

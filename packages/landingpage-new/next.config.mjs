@@ -1,12 +1,14 @@
+import { remarkCodeHike } from '@code-hike/mdx';
 import nextMdx from '@next/mdx';
-import withImages from 'next-images';
-import {remarkCodeHike} from '@code-hike/mdx';
-import remarkGfm from 'remark-gfm';
-import {readFile} from 'fs/promises';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import path, {join} from "path";
+import { readFile } from 'fs/promises';
+import withImages from 'next-images';
+import path, { join } from 'path';
+import remarkGfm from 'remark-gfm';
 
-const theme = JSON.parse(await readFile('../../node_modules/shiki/themes/github-light.json'));
+const theme = JSON.parse(
+  await readFile('../../node_modules/shiki/themes/github-light.json')
+);
 
 const BASE_PATH = '/' + process.env.BASE_PATH;
 
@@ -34,15 +36,17 @@ const nextConfiguration = {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: assetsPath, to: publicPath,
+            from: assetsPath,
+            to: publicPath,
             globOptions: {
-              ignore: ["**/*.{html,md}"],
+              ignore: ['**/*.{html,md}'],
             },
           },
         ],
-      }));
+      })
+    );
 
-    return config
+    return config;
   },
 };
 
@@ -50,7 +54,14 @@ const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [
-      [remarkCodeHike, {autoImport: false, theme, showCopyButton: true}],
+      [
+        remarkCodeHike,
+        {
+          autoImport: false,
+          theme,
+          showCopyButton: true,
+        },
+      ],
       remarkGfm,
     ],
     rehypePlugins: [],
