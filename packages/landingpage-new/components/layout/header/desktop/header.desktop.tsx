@@ -54,6 +54,7 @@ export default function HeaderDesktop() {
         href="https://github.com/inovex/elements"
       >
         <Image
+          className={styles.githubImage}
           src={`${basePath}/github-logo.png`}
           alt="Github Logo"
           width={30}
