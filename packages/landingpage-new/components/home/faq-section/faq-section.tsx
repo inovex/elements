@@ -27,12 +27,12 @@ export default function FaqSection() {
         </div>
       </div>
       <div className={styles.accordionWrapper}>
-        {faqs.map((faq) => (
-          <div className={styles.accordion} key={faq.id}>
+        {faqs.map((faq, index) => (
+          <div className={styles.accordion} key={index}>
             <InoAccordion
               accordionTitle={faq.title}
-              expanded={has(faq.id)}
-              onExpandedChange={() => toggle(faq.id)}
+              expanded={has(index)}
+              onExpandedChange={() => toggle(index)}
             >
               <>{faq.content}</>
             </InoAccordion>
