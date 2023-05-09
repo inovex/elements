@@ -1,14 +1,4 @@
-export type GithubContributor = {
-  id: number;
-  login: string;
-  html_url: string;
-  avatar_url: string;
-  type: GithubUserTypes;
-};
 
-export type GithubCommitAuthor = {
-  author: GithubContributor;
-};
 
 export type GithubParticipation = {
   all: number[];
