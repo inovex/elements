@@ -68,8 +68,30 @@ We are using the following libraries under the hood:
 - [Changelog](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-changelog--page)
 
 # Contributors
-<!-- TODO: Add Contributors -->
-[To be added]
+ <a href="https://github.com/janivo"><img src="https://avatars.githubusercontent.com/u/22963121?s=120&v=4" alt="janivo" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/pfecht"><img src="https://avatars.githubusercontent.com/u/26819398?s=120&v=4" alt="pfecht" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/silentHoo"><img src="https://avatars.githubusercontent.com/u/1610894?s=120&v=4" alt="silentHoo" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/dependabot[bot]"><img src="https://avatars.githubusercontent.com/in/29110?s=120&v=4" alt="dependabot[bot]" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/BenPag"><img src="https://avatars.githubusercontent.com/u/23154336?s=120&v=4" alt="BenPag" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/P1NHE4D"><img src="https://avatars.githubusercontent.com/u/44554211?s=120&v=4" alt="P1NHE4D" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/MariaLStefan"><img src="https://avatars.githubusercontent.com/u/103122411?s=120&v=4" alt="MariaLStefan" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/TobiasHeimGalindo"><img src="https://avatars.githubusercontent.com/u/81302108?s=120&v=4" alt="TobiasHeimGalindo" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/Sl1nd"><img src="https://avatars.githubusercontent.com/u/12165722?s=120&v=4" alt="Sl1nd" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/AlessaRad"><img src="https://avatars.githubusercontent.com/u/76041234?s=120&v=4" alt="AlessaRad" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/ninaschlz"><img src="https://avatars.githubusercontent.com/u/93990641?s=120&v=4" alt="ninaschlz" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/JCofman"><img src="https://avatars.githubusercontent.com/u/2118956?s=120&v=4" alt="JCofman" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/magruschinske"><img src="https://avatars.githubusercontent.com/u/2526728?s=120&v=4" alt="magruschinske" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/github-actions[bot]"><img src="https://avatars.githubusercontent.com/in/15368?s=120&v=4" alt="github-actions[bot]" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/ReySi"><img src="https://avatars.githubusercontent.com/u/17897870?s=120&v=4" alt="ReySi" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/michael-janssen-inovex"><img src="https://avatars.githubusercontent.com/u/110045164?s=120&v=4" alt="michael-janssen-inovex" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/InovexElements"><img src="https://avatars.githubusercontent.com/u/72502833?s=120&v=4" alt="InovexElements" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/helperFunction"><img src="https://avatars.githubusercontent.com/u/100796738?s=120&v=4" alt="helperFunction" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/BingeCode"><img src="https://avatars.githubusercontent.com/u/48513535?s=120&v=4" alt="BingeCode" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/krimdomu"><img src="https://avatars.githubusercontent.com/u/388436?s=120&v=4" alt="krimdomu" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/JohannesNissl"><img src="https://avatars.githubusercontent.com/u/93182203?s=120&v=4" alt="JohannesNissl" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/rbrtmrln"><img src="https://avatars.githubusercontent.com/u/21999136?s=120&v=4" alt="rbrtmrln" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/JacobCofman"><img src="https://avatars.githubusercontent.com/u/47525997?s=120&v=4" alt="JacobCofman" class="avatar avatar-user" height="60px" width="60px"></a>
+<a href="https://github.com/Safi1012"><img src="https://avatars.githubusercontent.com/u/3514796?s=120&v=4" alt="Safi1012" class="avatar avatar-user" height="60px" width="60px"></a>
 
 # ❓ Support
 
