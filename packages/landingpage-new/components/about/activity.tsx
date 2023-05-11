@@ -54,7 +54,11 @@ function Activity({ commitsPerMonth }: Props) {
 
   useEffect(() => {
     const labels = Object.keys(commitsPerMonth);
-    const data = Object.values(commitsPerMonth);
+    const data = Object.values(commitsPerMonth)
+    const inovexTheme = document.querySelectorAll('.inovex-elements-theme')
+    const style = getComputedStyle(inovexTheme[0]);
+    const primaryColor = style.getPropertyValue('--inovex-elements-primary');
+    const primaryFocusColor = style.getPropertyValue('--inovex-elements-primary-focus');
 
     setGraphData({
       labels,
@@ -63,8 +67,8 @@ function Activity({ commitsPerMonth }: Props) {
           fill: true,
           label: t('activity.contributions'),
           data,
-          borderColor: '#2c02ff',
-          backgroundColor: '#e2ecff99',
+          borderColor: primaryColor,
+          backgroundColor: primaryFocusColor,
         },
       ],
     });
