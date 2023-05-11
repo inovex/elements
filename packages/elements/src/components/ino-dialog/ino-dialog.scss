@@ -1,8 +1,8 @@
 @use '../base/mdc-customize';
 @use '@material/dialog/mdc-dialog';
+@use '../base/new-theme' as theme;
 
-$material-dialog-box-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px,
-  rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px;
+$material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
 $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
 
 :host {
@@ -18,9 +18,10 @@ $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
   $background-color: var(--ino-dialog-background-color, #fff);
   $width: var(--ino-dialog-width, auto);
   $height: var(--ino-dialog-height, auto);
-  $border-radius: var(--ino-dialog-border-radius, unset);
+  $padding: var(--ino-dialog-padding, 62px);
+  $border-radius: var(--ino-dialog-border-radius, 17px);
   $box-shadow: var(--ino-dialog-box-shadow, #{$material-dialog-box-shadow});
-  $border: var(--ino-dialog-border, unset);
+  $border: var(--ino-dialog-border, 1px solid theme.$primary);
   $scrim-bg: var(
     --ino-dialog-overlay-background-color,
     #{$material-dialog-scrim-background-color}
@@ -38,7 +39,7 @@ $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
   .mdc-dialog .mdc-dialog__surface {
     background-color: $background-color;
     overflow: visible;
-    max-width: unset;
+    max-width: 552px;
     min-width: unset;
     max-height: unset;
     min-height: unset;
@@ -46,7 +47,19 @@ $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
     width: 100%;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
-    border: $border;
+    border: #{$border};
+    padding: #{$padding}
+  }
+
+  .mdc-dialog .mdc-dialog__surface h1 {
+    margin: 0 auto 38px;
+    font-weight: 400;
+  }
+
+  .mdc-dialog .mdc-dialog__surface .button-row {
+    margin-top: 63px;
+    display: flex;
+    justify-content: space-around;
   }
 }
 
@@ -57,14 +70,17 @@ $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
   .mdc-dialog {
     align-items: flex-end;
   }
+
   .mdc-dialog .mdc-dialog__container {
     justify-content: unset;
     transform: translateY(100%);
     transition: transform 300ms ease-in-out;
   }
+
   .mdc-dialog--open .mdc-dialog__container {
     transform: translateY(0px);
   }
+
   .mdc-dialog .mdc-dialog__surface {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

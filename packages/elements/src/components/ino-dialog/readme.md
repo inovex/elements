@@ -77,12 +77,18 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 ## Properties
 
-| Property      | Attribute     | Description                                                                                                                                                            | Type      | Default     |
-| ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `attachTo`    | `attach-to`   | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`  | `undefined` |
-| `dismissible` | `dismissible` | Close the dialog on pressing the ESC key or clicking outside of the dialog.                                                                                            | `boolean` | `undefined` |
-| `fullwidth`   | `fullwidth`   | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean` | `undefined` |
-| `open`        | `open`        | Opens the dialog if set to true                                                                                                                                        | `boolean` | `false`     |
+| Property         | Attribute          | Description                                                                                                                                                            | Type      | Default     |
+| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `attachTo`       | `attach-to`        | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`  | `undefined` |
+| `body`           | `body`             |                                                                                                                                                                        | `string`  | `undefined` |
+| `canceltext`     | `canceltext`       |                                                                                                                                                                        | `string`  | `undefined` |
+| `dismissible`    | `dismissible`      | Close the dialog on pressing the ESC key or clicking outside of the dialog.                                                                                            | `boolean` | `undefined` |
+| `fullwidth`      | `fullwidth`        | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean` | `undefined` |
+| `hasBodySlot`    | `has-body-slot`    |                                                                                                                                                                        | `boolean` | `undefined` |
+| `hasContentSlot` | `has-content-slot` |                                                                                                                                                                        | `boolean` | `undefined` |
+| `headline`       | `headline`         |                                                                                                                                                                        | `string`  | `undefined` |
+| `open`           | `open`             | Opens the dialog if set to true                                                                                                                                        | `boolean` | `false`     |
+| `submittext`     | `submittext`       |                                                                                                                                                                        | `string`  | `undefined` |
 
 
 ## Events
@@ -111,6 +117,20 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 | `--ino-dialog-overlay-background-color` | background color of the overlay |
 | `--ino-dialog-width`                    | width of the dialog             |
 
+
+## Dependencies
+
+### Depends on
+
+- [ino-button](../ino-button)
+
+### Graph
+```mermaid
+graph TD;
+  ino-dialog --> ino-button
+  ino-button --> ino-spinner
+  style ino-dialog fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

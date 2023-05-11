@@ -64,6 +64,10 @@ export default {
     open: false,
     fullwidth: false,
     dismissible: false,
+    headline: 'Hi, I am a headline',
+    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, conset',
+    submitText: 'submit',
+    cancelText: 'discarge'
   },
 } as Meta<Components.InoDialog>;
 
@@ -80,32 +84,12 @@ const template = new TemplateGenerator<InoDialogExtended>(
     fullwidth="${args.fullwidth}"
     dismissible="${args.dismissible}"
     attach-to="${args.attachTo}"
+    headline="${args.headline}"
+    body="${args.body}"
+    submittext="${args.submitText}"
+    canceltext="${args.cancelText}"
   >
-  <div class="ino-dialog-header">
-    <div class="ino-dialog-title">
-      <h3>Select your favourite characters</h3>
-    </div>
-    <ino-icon-button icon="close" data-ino-dialog-action="close"></ino-icon-button>
-  </div>
-  <div class="ino-dialog-content">
-    <ino-segment-group value="2" id="dense-segment-grp">
-      <ino-segment-button dense value="1">Morty</ino-segment-button>
-      <ino-segment-button dense value="2">Pickle Rick</ino-segment-button>
-      <ino-segment-button dense value="3">Squanchy</ino-segment-button>
-      <ino-segment-button dense value="4">Beth</ino-segment-button>
-      <ino-segment-button dense value="5">Jerry</ino-segment-button>
-      <ino-segment-button dense value="6">Summer</ino-segment-button>
-    </ino-segment-group>
-  </div>
-  <div class="ino-dialog-footer">
-    <ino-button
-      icon="remove"
-      data-ino-dialog-action="cancel"
-      fill="outline"
-      >Cancel
-    </ino-button>
-    <ino-button icon="mail" data-ino-dialog-action="submit">Submit</ino-button>
-  </div>
+
   </ino-dialog>
 `);
 

@@ -222,6 +222,7 @@
       ],
       "encapsulation": "none",
       "dependents": [
+        "ino-dialog",
         "ino-input-file"
       ],
       "dependencies": [
@@ -230,6 +231,9 @@
       "dependencyGraph": {
         "ino-button": [
           "ino-spinner"
+        ],
+        "ino-dialog": [
+          "ino-button"
         ],
         "ino-input-file": [
           "ino-button"
@@ -2013,8 +2017,17 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "dependencies": [
+        "ino-button"
+      ],
+      "dependencyGraph": {
+        "ino-dialog": [
+          "ino-button"
+        ],
+        "ino-button": [
+          "ino-spinner"
+        ]
+      },
       "props": [
         {
           "name": "attachTo",
@@ -2023,6 +2036,38 @@
           "attr": "attach-to",
           "reflectToAttr": false,
           "docs": "The target element the dialog should be attached to.\nIf not given, the dialog is a child of the documents body.\nNote: This property is immutable after initialization.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "mutable": false,
+          "attr": "body",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "canceltext",
+          "type": "string",
+          "mutable": false,
+          "attr": "canceltext",
+          "reflectToAttr": false,
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -2065,6 +2110,54 @@
           "required": false
         },
         {
+          "name": "hasBodySlot",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "has-body-slot",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hasContentSlot",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "has-content-slot",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "headline",
+          "type": "string",
+          "mutable": false,
+          "attr": "headline",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "open",
           "type": "boolean",
           "mutable": false,
@@ -2079,6 +2172,22 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "submittext",
+          "type": "string",
+          "mutable": false,
+          "attr": "submittext",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
           "required": false
         }
       ],

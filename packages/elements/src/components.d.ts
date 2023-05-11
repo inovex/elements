@@ -367,6 +367,8 @@ export namespace Components {
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
+        "body"?: string;
+        "canceltext"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -375,10 +377,14 @@ export namespace Components {
           * Defines a full width dialog sliding up from the bottom of the page.
          */
         "fullwidth"?: boolean;
+        "hasBodySlot"?: boolean;
+        "hasContentSlot"?: boolean;
+        "headline"?: string;
         /**
           * Opens the dialog if set to true
          */
         "open": boolean;
+        "submittext"?: string;
     }
     interface InoFab {
         /**
@@ -2172,6 +2178,8 @@ declare namespace LocalJSX {
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
+        "body"?: string;
+        "canceltext"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -2180,6 +2188,9 @@ declare namespace LocalJSX {
           * Defines a full width dialog sliding up from the bottom of the page.
          */
         "fullwidth"?: boolean;
+        "hasBodySlot"?: boolean;
+        "hasContentSlot"?: boolean;
+        "headline"?: string;
         /**
           * Emits an event upon closing the dialog
          */
@@ -2188,6 +2199,7 @@ declare namespace LocalJSX {
           * Opens the dialog if set to true
          */
         "open"?: boolean;
+        "submittext"?: string;
     }
     interface InoFab {
         /**

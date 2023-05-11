@@ -52,6 +52,20 @@ export class Dialog implements ComponentInterface {
    */
   @Prop() open = false;
 
+  @Prop() headline?:string;
+
+  @Prop() body?:string;
+
+  @Prop() hasBodySlot?:boolean;
+
+  @Prop() hasContentSlot?:boolean
+
+  @Prop() canceltext?:string;
+
+  @Prop() submittext?:string;
+
+  // @Prop() hideCancelButton?:boolean;
+
   @Watch('open')
   openChanged(open: boolean) {
     open ? this.mdcDialog?.open() : this.mdcDialog?.close();
@@ -85,6 +99,8 @@ export class Dialog implements ComponentInterface {
     // During first initaliazation, attach the dialog to the target.
     const target = this.attachTo ? document.querySelector(this.attachTo) : document.body;
     target?.appendChild(this.el);
+    this.hasBodySlot = !!this.el.querySelector('[slot="body"]');
+    this.hasContentSlot = !!this.el.querySelector('[slot="content"]');
   }
 
   componentDidLoad() {
@@ -125,7 +141,21 @@ export class Dialog implements ComponentInterface {
               aria-modal="true"
             >
               <div tabindex="0" />
-              <slot />
+              {!this.hasContentSlot?
+                <div> 
+                  {this.headline && <h1>{this.headline}</h1>}
+                  {this.body && 
+                    <div class="body">
+                      {this.body}
+                    </div> 
+                  }
+                  <slot name="body"/>
+                  <div class="button-row">
+                    {this.canceltext && <ino-button  variant="outlined">{this.canceltext}</ino-button>}
+                    {this.submittext && <ino-button>{this.submittext}</ino-button>}
+                  </div>
+              </div>
+              : <slot name="content"/>}
             </div>
           </div>
           <div class="mdc-dialog__scrim" onClick={() => this.dismissible && this.close.emit('close')} />
