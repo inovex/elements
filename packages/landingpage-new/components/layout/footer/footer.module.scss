@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 10.714rem;
-  margin-bottom: 8.571rem;
+  row-gap: 150px;
+  margin-bottom: 120px;
 
   @media only screen and (max-width: 700px) {
     row-gap: 4rem;
@@ -12,11 +12,11 @@
 
 .sublinks {
   width: 100%;
-  max-width: 100rem;
+  max-width: 1400px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 28px;
 }
 
 .col {

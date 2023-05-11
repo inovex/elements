@@ -1,7 +1,7 @@
 .icon {
   position: fixed;
-  top: 1.786rem;
-  left: 1.786rem;
+  top: 25px;
+  left: 25px;
   cursor: pointer;
   color: var(--inovex-elements-n-7);
   transition: color 300ms;
@@ -20,15 +20,16 @@
   transition: transform 300ms;
 
   height: 100%;
-  width: 14.286rem;
-  padding: 1.429rem 2.357rem;
+  width: 200px;
+  padding: 20px 33px;
+
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   background-color: var(--inovex-elements-white);
-  box-shadow: 0 0.214rem 0.714 0 var(--inovex-elements-n-1);
+  box-shadow: 0 3px 10px 0 var(--inovex-elements-n-1);
 
   &Open {
     transform: translateX(0);
@@ -47,10 +48,10 @@
 }
 
 .subRoutes {
-  margin-left: 0.143rem;
+  margin-left: 2px;
   display: flex;
   flex-direction: column;
-  gap: 1.143rem;
+  gap: 16px;
 
   overflow: hidden;
   height: 0;

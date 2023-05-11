@@ -6,8 +6,8 @@
     'header image'
     'info image'
     'installation image';
-  grid-row-gap: 2.857rem;
-  margin-top: 5.357rem;
+    grid-row-gap: 40px;
+    margin-top: 75px;
 }
 
 .image {
@@ -36,7 +36,7 @@
   }
 
   mark {
-    padding: 0 0.357rem 0 0.214rem;
+    padding: 0 5px 0 3px;
     position: relative;
     width: fit-content;
     isolation: isolate;
@@ -59,7 +59,7 @@
 
 .info {
   grid-area: info;
-  max-width: 46.429rem;
+  max-width: 650px;
   grid-column: 1 / span 2
 }
 
@@ -69,6 +69,6 @@
   grid-column: 1 / span 2;
 
   .animation {
-    padding-top: 1.071rem;
+    padding-top: 15px;
   }
 }

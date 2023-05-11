@@ -1,10 +1,10 @@
-$card-width: 21.071rem;
-$gap: 1.429rem;
-$tolerance: 21.429rem;
+$card-width: 295px;
+$gap: 20px;
+$tolerance: 300px;
 $all-cards-incl-gap: $card-width * 4 + 3 * $gap + $tolerance;
 
 .cardWrapper{
-  padding-top: 2.857rem;
+  padding-top: 40px;
 
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -14,6 +14,6 @@ $all-cards-incl-gap: $card-width * 4 + 3 * $gap + $tolerance;
 
   @media (min-width: $all-cards-incl-gap) {
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(auto-fit, 21.071rem);
+    grid-template-columns: repeat(auto-fit, 295px);
   }
 }

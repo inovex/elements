@@ -5,14 +5,14 @@
 .container {
   display: flex;
   align-items: center;
-  gap: 5.357rem;
+  gap: 75px;
 
   @media only screen and (max-width: 1400px) {
-    gap: 2.857rem;
+    gap: 40px;
   }
 
   @media only screen and (max-width: 1000px) {
-    gap: 1.429rem;
+    gap: 20px
   }
 }
 
@@ -34,10 +34,10 @@
   width: 100%;
   flex: 1;
   text-align: center;
-  margin-top: 2.143rem;
+  margin-top: 30px;
 
   [class~="ino-carousel__slides"] {
-    margin: 0.143rem;
-    box-shadow: 0.357rem 0.357rem 1.071rem var(--inovex-elements-n-2);
+    margin: 2px;
+    box-shadow: 5px 5px 15px var(--inovex-elements-n-2);
   }
 }

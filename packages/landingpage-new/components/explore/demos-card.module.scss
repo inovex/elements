@@ -1,26 +1,26 @@
 .card {
-  height: 9.214rem;
-  width: 21rem;
-  box-shadow: 0px 0.214rem 0.714rem rgba(20, 20, 20, 0.16);
-  border-radius: 1.214rem;
+  height: 129px;
+  width: 294px;
+  box-shadow: 0px 3px 10px rgba(20, 20, 20, 0.16);
+  border-radius: 17px;
   transition: all ease-in 0.15s;
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0px 0.214rem 0.714rem rgba(20, 20, 20, 0.3);
+    box-shadow: 0px 3px 10px rgba(20, 20, 20, 0.3);
   }
 }
 .content {
   display: flex;
   align-items: center;
-  padding: 1.357rem 0 0 1.714rem;
-  gap: 1.143rem;
+  padding: 19px 0 0 24px;
+  gap: 16px;
 }
 .link {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 0 1.714rem 1.714rem;
+  padding: 0 0 24px 24px;
 
   a {
     color: var(--inovex-elements-p-5);
@@ -28,7 +28,7 @@
 
   ino-icon {
     --ino-icon-color: var(--inovex-elements-p-5);
-    margin-left: 0.714rem;
-    width: 0.429rem;
+    margin-left: 10px;
+    width: 6px;
   }
 }

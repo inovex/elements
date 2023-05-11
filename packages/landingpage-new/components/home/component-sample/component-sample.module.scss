@@ -1,18 +1,18 @@
-$minmax: minmax(15rem, 22.571rem);
+$minmax: minmax(210px, 316px);
 
 .subHeaderContainer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  column-gap: 0.571rem;
+  column-gap: 8px;
 
   .subheader {
-    max-width: 46rem;
+    max-width: 644px;
     color: var(--inovex-elements-n-11);
   }
 
   .link {
-    margin: 1.143rem 0; // same margins as <p>
+    margin: 16px 0; // same margins as <p>
   }
 }
 
@@ -20,17 +20,17 @@ $minmax: minmax(15rem, 22.571rem);
 .componentGrid {
   display: grid;
   grid-template-columns: repeat(4, $minmax);
-  grid-template-rows: repeat(2, 18.429rem);
+  grid-template-rows: repeat(2, 258px);
   grid-template-areas:
     'chip slider snackbar input'
     'toggle control-item segment-group segment-group';
   justify-content: space-evenly;
-  gap: 2.5rem;
-  padding-top: 4.286rem;
+  gap: 35px;
+  padding-top: 60px;
 
   @media only screen and (max-width: 1360px) {
     grid-template-columns: repeat(2, $minmax);
-    grid-template-rows: repeat(4, 18.429rem);
+    grid-template-rows: repeat(4, 258px);;
     grid-template-areas:
       'chip slider'
       'snackbar input'
@@ -55,7 +55,7 @@ $minmax: minmax(15rem, 22.571rem);
 .chips {
   display: flex;
   justify-content: center;
-  gap: 1.071rem;
+  gap: 15px;
   width: 100%;
 }
 

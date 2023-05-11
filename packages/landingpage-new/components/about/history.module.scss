@@ -1,12 +1,12 @@
 .container {
   width: 80%;
-  margin: 3.571rem auto;
+  margin: 50px auto;
   position: relative;
   overflow: hidden;
 
   mark {
     position: relative;
-    padding: 0 0.357rem 0 0.214rem;
+    padding: 0 5px 0 3px;
     width: -moz-fit-content;
     width: fit-content;
     isolation: isolate;
@@ -33,17 +33,17 @@
   position: absolute;
   top: 0;
   left: 50%;
-  margin-left: -0.071rem;
-  width: 0.143rem;
+  margin-left: -1px;
+  width: 2px;
   height: 100%;
   background: var(--inovex-elements-n-2);
   z-index: 1;
-  margin-top: 1.071rem;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 900px) {
   .container:before {
-    left: 0.714rem;
-    width: 0.143rem;
+    left: 10px;
+    width: 2px;
   }
 }

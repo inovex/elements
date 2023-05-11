@@ -1,11 +1,11 @@
 .contact_section {
   width: 100%;
-  max-width: 92.857rem;
+  max-width: 1300px;
   margin: auto;
 
   display: flex;
   justify-content: space-between;
-  gap: 1.429rem;
+  gap: 20px;
 
   .image1, .image2 {
     display: block;
@@ -13,18 +13,18 @@
   }
 
   .image1 {
-    height: 10.714rem;
-    width: 10.714rem;
+    height: 150px;
+    width: 150px;
   }
 
   .image2 {
-    margin-top: 28.571rem;
-    height: 9.786rem;
-    width: 13.429rem;
+    margin-top: 400px;
+    height: 137px;
+    width: 188px;
   }
 
   .wrapper {
-    min-width: 28.571rem;
+    min-width: 400px;
     max-width: 36.25rem;
     padding: 0 1rem;
   }
