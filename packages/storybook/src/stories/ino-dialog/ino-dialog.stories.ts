@@ -66,8 +66,8 @@ export default {
     dismissible: false,
     headline: 'Hi, I am a headline',
     body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, conset',
-    submitText: 'submit',
-    cancelText: 'discarge'
+    submittext: 'submit',
+    canceltext: 'discarge'
   },
 } as Meta<Components.InoDialog>;
 
@@ -86,8 +86,8 @@ const template = new TemplateGenerator<InoDialogExtended>(
     attach-to="${args.attachTo}"
     headline="${args.headline}"
     body="${args.body}"
-    submittext="${args.submitText}"
-    canceltext="${args.cancelText}"
+    submittext="${args.submittext}"
+    canceltext="${args.canceltext}"
   >
 
   </ino-dialog>

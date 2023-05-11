@@ -40,7 +40,7 @@ $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
     background-color: $background-color;
     overflow: visible;
     max-width: 552px;
-    min-width: unset;
+    min-width: 480px;
     max-height: unset;
     min-height: unset;
     height: 100%;
@@ -54,6 +54,12 @@ $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
   .mdc-dialog .mdc-dialog__surface h1 {
     margin: 0 auto 38px;
     font-weight: 400;
+  }
+
+  .mdc-dialog .mdc-dialog__surface .no-body {
+    .button-row {
+      margin-top: 78px;
+    }
   }
 
   .mdc-dialog .mdc-dialog__surface .button-row {

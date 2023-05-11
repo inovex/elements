@@ -142,17 +142,18 @@ export class Dialog implements ComponentInterface {
             >
               <div tabindex="0" />
               {!this.hasContentSlot?
-                <div> 
-                  {this.headline && <h1>{this.headline}</h1>}
-                  {this.body && 
-                    <div class="body">
-                      {this.body}
-                    </div> 
-                  }
+                <div class={!this.body? 'no-body' : null}> 
+                  {this.headline? <h1>{this.headline}</h1> : null}
+                  {
+                    this.body?
+                      <div class="body">
+                        {this.body}
+                      </div> 
+                  : null}
                   <slot name="body"/>
                   <div class="button-row">
-                    {this.canceltext && <ino-button  variant="outlined">{this.canceltext}</ino-button>}
-                    {this.submittext && <ino-button>{this.submittext}</ino-button>}
+                    {this.canceltext? <ino-button  variant="outlined">{this.canceltext}</ino-button> : null}
+                    {this.submittext? <ino-button>{this.submittext}</ino-button> : null}
                   </div>
               </div>
               : <slot name="content"/>}
