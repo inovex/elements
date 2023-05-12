@@ -3,7 +3,7 @@
 @use '../base/new-theme' as theme;
 
 $material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
-$material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
+$material-dialog-scrim-background-color: rgba(theme.$p-4, 0.25);
 
 :host {
   /**
@@ -29,6 +29,7 @@ $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
 
   .mdc-dialog__scrim {
     background-color: $scrim-bg;
+    backdrop-filter: blur(5px);
   }
 
   .mdc-dialog .mdc-dialog__container {
