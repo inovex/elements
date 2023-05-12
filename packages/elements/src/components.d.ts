@@ -380,6 +380,7 @@ export namespace Components {
         "hasBodySlot"?: boolean;
         "hasContentSlot"?: boolean;
         "headline"?: string;
+        "icon"?: string;
         /**
           * Opens the dialog if set to true
          */
@@ -2191,6 +2192,7 @@ declare namespace LocalJSX {
         "hasBodySlot"?: boolean;
         "hasContentSlot"?: boolean;
         "headline"?: string;
+        "icon"?: string;
         /**
           * Emits an event upon closing the dialog
          */

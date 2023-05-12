@@ -319,13 +319,13 @@ export declare interface InoDialog extends Components.InoDialog {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['attachTo', 'body', 'canceltext', 'dismissible', 'fullwidth', 'hasBodySlot', 'hasContentSlot', 'headline', 'open', 'submittext']
+  inputs: ['attachTo', 'body', 'canceltext', 'dismissible', 'fullwidth', 'hasBodySlot', 'hasContentSlot', 'headline', 'icon', 'open', 'submittext']
 })
 @Component({
   selector: 'ino-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['attachTo', 'body', 'canceltext', 'dismissible', 'fullwidth', 'hasBodySlot', 'hasContentSlot', 'headline', 'open', 'submittext']
+  inputs: ['attachTo', 'body', 'canceltext', 'dismissible', 'fullwidth', 'hasBodySlot', 'hasContentSlot', 'headline', 'icon', 'open', 'submittext']
 })
 export class InoDialog {
   protected el: HTMLElement;

@@ -64,6 +64,8 @@ export class Dialog implements ComponentInterface {
 
   @Prop() submittext?:string;
 
+  @Prop() icon?:string;
+
   // @Prop() hideCancelButton?:boolean;
 
   @Watch('open')
@@ -131,6 +133,8 @@ export class Dialog implements ComponentInterface {
   }
 
   render() {
+  
+
     return (
       <Host class={{'ino-dialog--fullwidth': this.fullwidth}}>
         <div class="mdc-dialog">
@@ -143,7 +147,12 @@ export class Dialog implements ComponentInterface {
               <div tabindex="0" />
               {!this.hasContentSlot?
                 <div class={!this.body? 'no-body' : null}> 
-                  {this.headline? <h1>{this.headline}</h1> : null}
+                  {this.headline? 
+                    <div class="headline">
+                      {this.icon && <ino-icon icon={this.icon} />}
+                      <h1>{this.headline}</h1>
+                    </div>
+                  : null}
                   {
                     this.body?
                       <div class="body">

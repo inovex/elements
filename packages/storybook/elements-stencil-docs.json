@@ -2018,10 +2018,12 @@
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
+        "ino-icon",
         "ino-button"
       ],
       "dependencyGraph": {
         "ino-dialog": [
+          "ino-icon",
           "ino-button"
         ],
         "ino-button": [
@@ -2146,6 +2148,22 @@
           "type": "string",
           "mutable": false,
           "attr": "headline",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
@@ -2711,6 +2729,7 @@
         "ino-card",
         "ino-chip",
         "ino-datepicker",
+        "ino-dialog",
         "ino-fab",
         "ino-fab-set",
         "ino-icon-button",
@@ -2731,6 +2750,9 @@
           "ino-icon"
         ],
         "ino-datepicker": [
+          "ino-icon"
+        ],
+        "ino-dialog": [
           "ino-icon"
         ],
         "ino-fab": [

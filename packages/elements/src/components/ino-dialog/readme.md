@@ -87,6 +87,7 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 | `hasBodySlot`    | `has-body-slot`    |                                                                                                                                                                        | `boolean` | `undefined` |
 | `hasContentSlot` | `has-content-slot` |                                                                                                                                                                        | `boolean` | `undefined` |
 | `headline`       | `headline`         |                                                                                                                                                                        | `string`  | `undefined` |
+| `icon`           | `icon`             |                                                                                                                                                                        | `string`  | `undefined` |
 | `open`           | `open`             | Opens the dialog if set to true                                                                                                                                        | `boolean` | `false`     |
 | `submittext`     | `submittext`       |                                                                                                                                                                        | `string`  | `undefined` |
 
@@ -122,11 +123,13 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 ### Depends on
 
+- [ino-icon](../ino-icon)
 - [ino-button](../ino-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-dialog --> ino-icon
   ino-dialog --> ino-button
   ino-button --> ino-spinner
   style ino-dialog fill:#f9f,stroke:#333,stroke-width:4px

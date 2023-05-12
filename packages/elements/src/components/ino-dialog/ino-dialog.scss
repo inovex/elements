@@ -49,17 +49,31 @@ $material-dialog-scrim-background-color: rgba(theme.$p-4, 0.25);
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     border: #{$border};
-    padding: #{$padding}
+    padding: #{$padding};
   }
 
   .mdc-dialog .mdc-dialog__surface h1 {
-    margin: 0 auto 38px;
+    margin: 0 0 0;
     font-weight: 400;
   }
 
   .mdc-dialog .mdc-dialog__surface .no-body {
     .button-row {
       margin-top: 78px;
+    }
+  }
+
+  .mdc-dialog .mdc-dialog__surface .body {
+    margin: 38px 0 0;
+  }
+  .mdc-dialog .mdc-dialog__surface .headline {
+    display: flex;
+    align-items: center;
+
+    ino-icon {
+      --icon-width: 28px;
+      --icon-height: 28px;
+      margin-right: 27px;
     }
   }
 
