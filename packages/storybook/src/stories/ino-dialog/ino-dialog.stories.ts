@@ -55,8 +55,8 @@ export default {
     dismissible: true,
     headline: 'Hi, I am a headline',
     description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, conset',
-    actiontext: 'submit',
-    canceltext: 'discarge',
+    actionbutton: 'submit',
+    cancelbutton: 'discarge',
     icon: 'search',
   },
 } as Meta<Components.InoDialog>;
@@ -77,8 +77,8 @@ const template = new TemplateGenerator<InoDialogExtended>(
     attach-to="${args.attachTo}"
     headline="${args.headline}"
     description="${args.description}"
-    actiontext="${args.actiontext}"
-    canceltext="${args.canceltext}"
+    actionbutton="${args.actionbutton}"
+    cancelbutton="${args.cancelbutton}"
     icon="${args.icon}"
   >
   </ino-dialog>
@@ -99,20 +99,22 @@ const templateConfirmation = new TemplateGenerator<InoDialogExtended>(
     dismissible="${args.dismissible}"
     attach-to="${args.attachTo}"
     headline="${args.headline}"
-    actiontext="${args.actiontext}"
-    canceltext="${args.canceltext}"
+    actionbutton="${args.actionbutton}"
+    cancelbutton="${args.cancelbutton}"
   >
   </ino-dialog>
 `);
 
 /**
- * A Confirmation Dialog requires an action to be taken in order for the dialog to be completed and closed. Contains a headline, cancel and primary action button.
+ * A Confirmation Dialog requires an action to be taken in order for the dialog to be completed and closed. 
+ * 
+ * Contains a `headline`, `cancelbutton` and `actionbutton`.
  */
 export const ConfirmationDialog = templateConfirmation.generatePlaygroundStory();
 ConfirmationDialog.args = {
   headline: 'Discard draft?',
-  canceltext: 'Cancel',
-  actiontext: 'Discard',
+  cancelbutton: 'Cancel',
+  actionbutton: 'Discard',
   dataDialogId: 'demo-conformation-dialog',
   buttonText: ' Open confirmation Dialog'
 };
@@ -127,22 +129,24 @@ const templateConfirmationWithText = new TemplateGenerator<InoDialogExtended>(
     dismissible="${args.dismissible}"
     attach-to="${args.attachTo}"
     headline="${args.headline}"
-    actiontext="${args.actiontext}"
-    canceltext="${args.canceltext}"
+    actionbutton="${args.actionbutton}"
+    cancelbutton="${args.cancelbutton}"
     description="${args.description}"
   >
   </ino-dialog>
 `);
 
 /**
- * A Confirmation Dialog with Text requires an action to be taken in order for the dialog to be completed and closed. Contains a header, text, cancel and primary action button.
+ * A Confirmation Dialog with Text requires an action to be taken in order for the dialog to be completed and closed. 
+ * 
+ * Contains a `headline`, `description`, `cancelbutton` and `actionbutton`.
  */
 export const ConfirmationDialogWithText = templateConfirmationWithText.generatePlaygroundStory();
 ConfirmationDialogWithText.args = {
   headline: 'Do you really want to delete your account?',
   description: 'After deleting your account, you will no longer be able to access your saved items.',
-  canceltext: 'Cancel',
-  actiontext: 'Delete account',
+  cancelbutton: 'Cancel',
+  actionbutton: 'Delete account',
   dataDialogId: 'demo-conformation-with-text-dialog',
   buttonText: 'Open confirmation Dialog with text'
 };
@@ -157,7 +161,7 @@ const templateConfirmationWithIcon = new TemplateGenerator<InoDialogExtended>(
     dismissible="${args.dismissible}"
     attach-to="${args.attachTo}"
     headline="${args.headline}"
-    actiontext="${args.actiontext}"
+    actionbutton="${args.actionbutton}"
     description="${args.description}"
     icon="${args.icon}"
   >
@@ -165,13 +169,16 @@ const templateConfirmationWithIcon = new TemplateGenerator<InoDialogExtended>(
 `);
 
 /**
- * A Confirmation Dialog with Hero Icon requires an acknowledgement of the information from the user. User has to confirm with one klick on the primary button. Contains a hero icon, header, text, cancel and primary action button.
+ * A Confirmation Dialog with Hero Icon requires an acknowledgement of the information from the user. User has to confirm with one klick on the primary button. 
+ * 
+ * 
+ * Contains a `ino-icon` (use `icon="iconID"` on the `ino-dialog` to select one of the given [ino-icons](https://elements.inovex.de/version/v8.0.0/?path=/docs/graphic-ino-icon--all-icons)), `headline`, `description`, `canceltext` and `actionbutton`.
  */
 export const ConfirmationDialogWithIcon = templateConfirmationWithIcon.generatePlaygroundStory();
 ConfirmationDialogWithIcon.args = {
   headline: 'Perfect! You almost made it...',
   description: 'A confirmation email is on the way. Please click on the link in the email to complete the registration and secure your discount code.',
-  actiontext: 'Confirm',
+  actionbutton: 'Confirm',
   dataDialogId: 'demo-conformation-with-icon-dialog',
   buttonText: 'Open confirmation Dialog with icon',
   icon: 'message',
@@ -187,8 +194,8 @@ args => html`
     dismissible="${args.dismissible}"
     attach-to="${args.attachTo}"
     headline="${args.headline}"
-    actiontext="${args.actiontext}"
-    canceltext="${args.canceltext}"
+    actionbutton="${args.actionbutton}"
+    cancelbutton="${args.cancelbutton}"
     description="${args.description}"
   >
     <form slot="body">
@@ -205,14 +212,14 @@ args => html`
 `);
 
 /**
- * Use `slot="body"` on the child-element of `ino-dialog` to add additional content between the description and the action buttons.
+ * Use `slot="body"` on the child-element of `ino-dialog` to add additional content between the `description` and the `cancelbutton` & `actionbutton`.
  */
 export const additionalBodyContent = templateAdditionalBodyContent.generatePlaygroundStory();
 additionalBodyContent.args = {
   headline: 'Invite users',
   description: 'Inviting users is the easiest way to get your team collaborating. Enter an email address and assign a role below.',
-  actiontext: 'Send invite',
-  canceltext: 'Cancel',
+  actionbutton: 'Send invite',
+  cancelbutton: 'Cancel',
   dataDialogId: 'demo-additional-body-content-dialog',
   buttonText: 'Open Dialog with additional body content',
 };
@@ -227,8 +234,8 @@ args => html`
     dismissible="${args.dismissible}"
     attach-to="${args.attachTo}"
     headline="${args.headline}"
-    actiontext="${args.actiontext}"
-    canceltext="${args.canceltext}"
+    actionbutton="${args.actionbutton}"
+    cancelbutton="${args.cancelbutton}"
     description="${args.description}"
   >
     <ino-carousel slot="content"
@@ -254,7 +261,7 @@ const onSlideChanged = (ev: CustomEvent<string>) => {
 }
 
 /**
- * Use `slot="content"` on the child-element of `ino-dialog` to remove the given dialog elements (`headline`, `description`,  `cancelButton` & `actionButton`) and instead display your own custom content.
+ * Use `slot="content"` on the child-element of `ino-dialog` to remove the given dialog elements (`headline`, `description`,  `cancelbutton` & `actionbutton`) and instead display your own custom content.
  */
 export const customContent = templateCustomContent.generatePlaygroundStory();
 customContent.args = {
