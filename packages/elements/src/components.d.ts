@@ -364,11 +364,21 @@ export namespace Components {
     }
     interface InoDialog {
         /**
+          * Adds a button with the given text to proceed with an action`
+         */
+        "actiontext"?: string;
+        /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
-        "body"?: string;
+        /**
+          * Adds a button with the given text to close the `ino-dialog`
+         */
         "canceltext"?: string;
+        /**
+          * Adds a text to the body of the `ino-dialog`
+         */
+        "description"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -377,15 +387,18 @@ export namespace Components {
           * Defines a full width dialog sliding up from the bottom of the page.
          */
         "fullwidth"?: boolean;
-        "hasBodySlot"?: boolean;
-        "hasContentSlot"?: boolean;
+        /**
+          * Adds a headline to the `ino-dialog`
+         */
         "headline"?: string;
+        /**
+          * Adds a `ino-icon` besides the headline
+         */
         "icon"?: string;
         /**
           * Opens the dialog if set to true
          */
         "open": boolean;
-        "submittext"?: string;
     }
     interface InoFab {
         /**
@@ -2176,11 +2189,21 @@ declare namespace LocalJSX {
     }
     interface InoDialog {
         /**
+          * Adds a button with the given text to proceed with an action`
+         */
+        "actiontext"?: string;
+        /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
-        "body"?: string;
+        /**
+          * Adds a button with the given text to close the `ino-dialog`
+         */
         "canceltext"?: string;
+        /**
+          * Adds a text to the body of the `ino-dialog`
+         */
+        "description"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -2189,9 +2212,13 @@ declare namespace LocalJSX {
           * Defines a full width dialog sliding up from the bottom of the page.
          */
         "fullwidth"?: boolean;
-        "hasBodySlot"?: boolean;
-        "hasContentSlot"?: boolean;
+        /**
+          * Adds a headline to the `ino-dialog`
+         */
         "headline"?: string;
+        /**
+          * Adds a `ino-icon` besides the headline
+         */
         "icon"?: string;
         /**
           * Emits an event upon closing the dialog
@@ -2201,7 +2228,6 @@ declare namespace LocalJSX {
           * Opens the dialog if set to true
          */
         "open"?: boolean;
-        "submittext"?: string;
     }
     interface InoFab {
         /**

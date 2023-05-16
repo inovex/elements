@@ -13,6 +13,7 @@ import {
   Listen
 } from '@stencil/core';
 import { DialogCloseAction } from '../types';
+import { hasSlotContent } from '../../util/component-utils';
 
 const DIALOG_ACTION_ATTRIBUTE = 'data-ino-dialog-action';
 
@@ -52,18 +53,30 @@ export class Dialog implements ComponentInterface {
    */
   @Prop() open = false;
 
+  /**
+   * Adds a headline to the `ino-dialog`
+   */
   @Prop() headline?:string;
 
-  @Prop() body?:string;
+  /**
+   * Adds a text to the body of the `ino-dialog`
+   */
+  @Prop() description?:string;
 
-  @Prop() hasBodySlot?:boolean;
-
-  @Prop() hasContentSlot?:boolean
-
+  /**
+   * Adds a button with the given text to close the `ino-dialog`
+   */
   @Prop() canceltext?:string;
 
-  @Prop() submittext?:string;
+  /**
+   * Adds a button with the given text to proceed with an action`
+   */
+  @Prop() actiontext?:string;
 
+
+  /**
+   * Adds a `ino-icon` besides the headline
+   */
   @Prop() icon?:string;
 
   // @Prop() hideCancelButton?:boolean;
@@ -101,8 +114,6 @@ export class Dialog implements ComponentInterface {
     // During first initaliazation, attach the dialog to the target.
     const target = this.attachTo ? document.querySelector(this.attachTo) : document.body;
     target?.appendChild(this.el);
-    this.hasBodySlot = !!this.el.querySelector('[slot="body"]');
-    this.hasContentSlot = !!this.el.querySelector('[slot="content"]');
   }
 
   componentDidLoad() {
@@ -135,6 +146,9 @@ export class Dialog implements ComponentInterface {
   render() {
   
 
+    //const hasBodySlot = hasSlotContent(this.el, 'body');
+    const hasContentSlot = hasSlotContent(this.el, 'content');
+
     return (
       <Host class={{'ino-dialog--fullwidth': this.fullwidth}}>
         <div class="mdc-dialog">
@@ -145,8 +159,8 @@ export class Dialog implements ComponentInterface {
               aria-modal="true"
             >
               <div tabindex="0" />
-              {!this.hasContentSlot?
-                <div class={!this.body? 'no-body' : null}> 
+              {!hasContentSlot?
+                <div> 
                   {this.headline? 
                     <div class="headline">
                       {this.icon && <ino-icon icon={this.icon} />}
@@ -154,15 +168,15 @@ export class Dialog implements ComponentInterface {
                     </div>
                   : null}
                   {
-                    this.body?
-                      <div class="body">
-                        {this.body}
+                    this.description?
+                      <div class="description">
+                        {this.description}
                       </div> 
                   : null}
                   <slot name="body"/>
-                  <div class="button-row">
+                  <div class={`${'button-row'} ${!(this.description) && 'big-margin'}`}>
                     {this.canceltext? <ino-button  variant="outlined">{this.canceltext}</ino-button> : null}
-                    {this.submittext? <ino-button>{this.submittext}</ino-button> : null}
+                    {this.actiontext? <ino-button>{this.actiontext}</ino-button> : null}
                   </div>
               </div>
               : <slot name="content"/>}

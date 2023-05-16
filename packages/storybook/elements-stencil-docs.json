@@ -2032,6 +2032,22 @@
       },
       "props": [
         {
+          "name": "actiontext",
+          "type": "string",
+          "mutable": false,
+          "attr": "actiontext",
+          "reflectToAttr": false,
+          "docs": "Adds a button with the given text to proceed with an action`",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "attachTo",
           "type": "string",
           "mutable": false,
@@ -2048,12 +2064,12 @@
           "required": false
         },
         {
-          "name": "body",
+          "name": "canceltext",
           "type": "string",
           "mutable": false,
-          "attr": "body",
+          "attr": "canceltext",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Adds a button with the given text to close the `ino-dialog`",
           "docsTags": [],
           "values": [
             {
@@ -2064,12 +2080,12 @@
           "required": false
         },
         {
-          "name": "canceltext",
+          "name": "description",
           "type": "string",
           "mutable": false,
-          "attr": "canceltext",
+          "attr": "description",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Adds a text to the body of the `ino-dialog`",
           "docsTags": [],
           "values": [
             {
@@ -2112,44 +2128,12 @@
           "required": false
         },
         {
-          "name": "hasBodySlot",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "has-body-slot",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "hasContentSlot",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "has-content-slot",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "headline",
           "type": "string",
           "mutable": false,
           "attr": "headline",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Adds a headline to the `ino-dialog`",
           "docsTags": [],
           "values": [
             {
@@ -2165,7 +2149,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Adds a `ino-icon` besides the headline",
           "docsTags": [],
           "values": [
             {
@@ -2190,22 +2174,6 @@
             }
           ],
           "optional": false,
-          "required": false
-        },
-        {
-          "name": "submittext",
-          "type": "string",
-          "mutable": false,
-          "attr": "submittext",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
           "required": false
         }
       ],

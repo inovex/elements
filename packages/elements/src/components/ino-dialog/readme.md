@@ -77,19 +77,17 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                            | Type      | Default     |
-| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `attachTo`       | `attach-to`        | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`  | `undefined` |
-| `body`           | `body`             |                                                                                                                                                                        | `string`  | `undefined` |
-| `canceltext`     | `canceltext`       |                                                                                                                                                                        | `string`  | `undefined` |
-| `dismissible`    | `dismissible`      | Close the dialog on pressing the ESC key or clicking outside of the dialog.                                                                                            | `boolean` | `undefined` |
-| `fullwidth`      | `fullwidth`        | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean` | `undefined` |
-| `hasBodySlot`    | `has-body-slot`    |                                                                                                                                                                        | `boolean` | `undefined` |
-| `hasContentSlot` | `has-content-slot` |                                                                                                                                                                        | `boolean` | `undefined` |
-| `headline`       | `headline`         |                                                                                                                                                                        | `string`  | `undefined` |
-| `icon`           | `icon`             |                                                                                                                                                                        | `string`  | `undefined` |
-| `open`           | `open`             | Opens the dialog if set to true                                                                                                                                        | `boolean` | `false`     |
-| `submittext`     | `submittext`       |                                                                                                                                                                        | `string`  | `undefined` |
+| Property      | Attribute     | Description                                                                                                                                                            | Type      | Default     |
+| ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `actiontext`  | `actiontext`  | Adds a button with the given text to proceed with an action`                                                                                                           | `string`  | `undefined` |
+| `attachTo`    | `attach-to`   | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`  | `undefined` |
+| `canceltext`  | `canceltext`  | Adds a button with the given text to close the `ino-dialog`                                                                                                            | `string`  | `undefined` |
+| `description` | `description` | Adds a text to the body of the `ino-dialog`                                                                                                                            | `string`  | `undefined` |
+| `dismissible` | `dismissible` | Close the dialog on pressing the ESC key or clicking outside of the dialog.                                                                                            | `boolean` | `undefined` |
+| `fullwidth`   | `fullwidth`   | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean` | `undefined` |
+| `headline`    | `headline`    | Adds a headline to the `ino-dialog`                                                                                                                                    | `string`  | `undefined` |
+| `icon`        | `icon`        | Adds a `ino-icon` besides the headline                                                                                                                                 | `string`  | `undefined` |
+| `open`        | `open`        | Opens the dialog if set to true                                                                                                                                        | `boolean` | `false`     |
 
 
 ## Events
