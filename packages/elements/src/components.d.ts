@@ -366,7 +366,7 @@ export namespace Components {
         /**
           * Adds a button with the given text to proceed with an action`
          */
-        "actiontext"?: string;
+        "actionbutton"?: string;
         /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
@@ -374,7 +374,7 @@ export namespace Components {
         /**
           * Adds a button with the given text to close the `ino-dialog`
          */
-        "canceltext"?: string;
+        "cancelbutton"?: string;
         /**
           * Adds a text to the body of the `ino-dialog`
          */
@@ -2191,7 +2191,7 @@ declare namespace LocalJSX {
         /**
           * Adds a button with the given text to proceed with an action`
          */
-        "actiontext"?: string;
+        "actionbutton"?: string;
         /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
@@ -2199,7 +2199,7 @@ declare namespace LocalJSX {
         /**
           * Adds a button with the given text to close the `ino-dialog`
          */
-        "canceltext"?: string;
+        "cancelbutton"?: string;
         /**
           * Adds a text to the body of the `ino-dialog`
          */

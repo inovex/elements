@@ -66,12 +66,12 @@ export class Dialog implements ComponentInterface {
   /**
    * Adds a button with the given text to close the `ino-dialog`
    */
-  @Prop() canceltext?:string;
+  @Prop() cancelbutton?:string;
 
   /**
    * Adds a button with the given text to proceed with an action`
    */
-  @Prop() actiontext?:string;
+  @Prop() actionbutton?:string;
 
 
   /**
@@ -175,8 +175,8 @@ export class Dialog implements ComponentInterface {
                   : null}
                   <slot name="body"/>
                   <div class={`${'button-row'} ${!(this.description) && 'big-margin'}`}>
-                    {this.canceltext? <ino-button  variant="outlined">{this.canceltext}</ino-button> : null}
-                    {this.actiontext? <ino-button>{this.actiontext}</ino-button> : null}
+                    {this.cancelbutton? <ino-button  variant="outlined">{this.cancelbutton}</ino-button> : null}
+                    {this.actionbutton? <ino-button>{this.actionbutton}</ino-button> : null}
                   </div>
               </div>
               : <slot name="content"/>}

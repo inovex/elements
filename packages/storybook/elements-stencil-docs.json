@@ -2032,10 +2032,10 @@
       },
       "props": [
         {
-          "name": "actiontext",
+          "name": "actionbutton",
           "type": "string",
           "mutable": false,
-          "attr": "actiontext",
+          "attr": "actionbutton",
           "reflectToAttr": false,
           "docs": "Adds a button with the given text to proceed with an action`",
           "docsTags": [],
@@ -2064,10 +2064,10 @@
           "required": false
         },
         {
-          "name": "canceltext",
+          "name": "cancelbutton",
           "type": "string",
           "mutable": false,
-          "attr": "canceltext",
+          "attr": "cancelbutton",
           "reflectToAttr": false,
           "docs": "Adds a button with the given text to close the `ino-dialog`",
           "docsTags": [],
@@ -2189,43 +2189,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-dialog-background-color",
-          "annotation": "prop",
-          "docs": "background color of the dialog"
-        },
-        {
-          "name": "--ino-dialog-border",
-          "annotation": "prop",
-          "docs": "border shorthand of the dialog"
-        },
-        {
-          "name": "--ino-dialog-border-radius",
-          "annotation": "prop",
-          "docs": "border-radius of the dialog"
-        },
-        {
-          "name": "--ino-dialog-box-shadow",
-          "annotation": "prop",
-          "docs": "box-shadow of the dialog"
-        },
-        {
-          "name": "--ino-dialog-height",
-          "annotation": "prop",
-          "docs": "height of the dialog"
-        },
-        {
-          "name": "--ino-dialog-overlay-background-color",
-          "annotation": "prop",
-          "docs": "background color of the overlay"
-        },
-        {
-          "name": "--ino-dialog-width",
-          "annotation": "prop",
-          "docs": "width of the dialog"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
