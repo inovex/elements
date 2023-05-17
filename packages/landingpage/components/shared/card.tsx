@@ -26,9 +26,11 @@ const Card: FunctionComponent<Props> = ({
     className={classNames([styles.card, cardClassName])}
     disableElevation={true}
   >
-    {header && <div slot="header" className={classNames(headerClassName)}>
-      {header}
-    </div>}
+    {header && (
+      <div slot="header" className={classNames(headerClassName)}>
+        {header}
+      </div>
+    )}
     <div slot="content" className={classNames(contentClassName)}>
       {content}
     </div>

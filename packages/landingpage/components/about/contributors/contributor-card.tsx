@@ -33,7 +33,9 @@ const ContributorsCard: FunctionComponent<Props> = ({
           alt={`Avatar of ${username}`}
         />
         {isInactive && (
-          <InoChip clickable={false} className={styles.statusChip}>Inactive</InoChip>
+          <InoChip clickable={false} className={styles.statusChip}>
+            Inactive
+          </InoChip>
         )}
       </div>
     }

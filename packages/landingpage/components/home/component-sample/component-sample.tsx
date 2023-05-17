@@ -85,7 +85,9 @@ export default function ComponentSample() {
             componentName="Button"
             componentCategory="Button"
           >
-            <InoButton><span>{t('component_sample.button')}</span></InoButton>
+            <InoButton>
+              <span>{t('component_sample.button')}</span>
+            </InoButton>
           </ComponentSampleCard>
         </div>
         <div className={styles.input}>

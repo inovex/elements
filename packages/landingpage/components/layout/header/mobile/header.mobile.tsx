@@ -36,7 +36,7 @@ export default function HeaderMobile() {
   useEffect(() => {
     const handleRouteChange = () => {
       toggleMenu(false);
-    }
+    };
 
     router.events.on('routeChangeStart', handleRouteChange);
     return () => {

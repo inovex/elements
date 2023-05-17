@@ -35,8 +35,10 @@ function Examples() {
     Slides.Jarvis as Slides
   );
 
-  const swipeHandlers = useSwipe({ onSwipedLeft: increment, onSwipedRight: decrement });
-
+  const swipeHandlers = useSwipe({
+    onSwipedLeft: increment,
+    onSwipedRight: decrement,
+  });
 
   return (
     <>

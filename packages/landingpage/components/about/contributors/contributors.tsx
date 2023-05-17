@@ -1,7 +1,7 @@
 import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
 import useTranslation from 'utils/hooks/useTranslation';
-import {ElementsContributor} from '../../../types/contributors';
+import { ElementsContributor } from '../../../types/contributors';
 
 interface Params {
   users: ElementsContributor[];
@@ -20,7 +20,9 @@ function Contributors({ users }: Params) {
         ) : (
           users?.map((contributor) => (
             <ContributorCard
-              role={contributor.roles.map(r =>t(`contributors.roles.${r}`)).join(' & ')}
+              role={contributor.roles
+                .map((r) => t(`contributors.roles.${r}`))
+                .join(' & ')}
               key={contributor.id}
               avatarUrl={contributor.avatar_url}
               username={contributor.name}

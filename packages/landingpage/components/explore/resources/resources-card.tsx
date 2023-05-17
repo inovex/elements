@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './resources-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,26 +19,25 @@ function ResourceCard() {
   const [resources, setResources] = useState<Resource[]>([]);
 
   useEffect(() => {
-      setResources([
-        {
-          url: t('articles.announcement-v1.url'),
-          img_url:
-            'https://www.inovex.de/wp-content/uploads/2020/09/inovex-elements-1500x880.png',
-          title: t('articles.announcement-v1.title'),
-          author: t('articles.announcement-v1.author'),
-          date: t('articles.announcement-v1.date'),
-        },
-        {
-          url: t('articles.trainings.url'),
-          img_url:
-            'https://www.inovex.de/wp-content/uploads/2021/05/web-components.png',
-          title: t('articles.trainings.title'),
-          author: t('articles.trainings.author'),
-          date: t('articles.trainings.date'),
-        },
-      ])
-    }, [locale]
-  );
+    setResources([
+      {
+        url: t('articles.announcement-v1.url'),
+        img_url:
+          'https://www.inovex.de/wp-content/uploads/2020/09/inovex-elements-1500x880.png',
+        title: t('articles.announcement-v1.title'),
+        author: t('articles.announcement-v1.author'),
+        date: t('articles.announcement-v1.date'),
+      },
+      {
+        url: t('articles.trainings.url'),
+        img_url:
+          'https://www.inovex.de/wp-content/uploads/2021/05/web-components.png',
+        title: t('articles.trainings.title'),
+        author: t('articles.trainings.author'),
+        date: t('articles.trainings.date'),
+      },
+    ]);
+  }, [locale]);
 
   return (
     <>

@@ -11,7 +11,10 @@ export default function ExploreHeader() {
         <h1 className="header-d3">
           <b>{t('header.title')}</b>
         </h1>
-        <p className={classNames('title-l', styles.subtitle)}> {t('header.subtitle')}</p>
+        <p className={classNames('title-l', styles.subtitle)}>
+          {' '}
+          {t('header.subtitle')}
+        </p>
       </div>
       <Image
         width={461}
