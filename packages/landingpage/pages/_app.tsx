@@ -9,6 +9,8 @@ import {
 } from '@inovex.de/elements/dist/loader';
 import { useEffect } from 'react';
 import { LanguageProvider } from 'utils/context/LanguageContext';
+import useDefaultLocale from '../translations/useDefaultLocale';
+import { useMount } from 'react-use';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -16,6 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       void defineCustomElements(window);
     });
   }, []);
+
+  const redirectToDefaultLocale = useDefaultLocale();
+  useMount(redirectToDefaultLocale);
 
   return (
     <LanguageProvider localization={pageProps.localization}>

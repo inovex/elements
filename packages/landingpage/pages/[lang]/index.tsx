@@ -13,16 +13,11 @@ import {
 import { Locale_File } from 'translations/types';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
-import useDefaultLocale from '../../translations/useDefaultLocale';
-import { useMount } from 'react-use';
 import FaqSection from 'components/home/faq-section/faq-section';
 import KPIsection from 'components/home/kpi-section/kpi-section';
 
 const Home: NextPage = () => {
-  const redirectToDefaultLocale = useDefaultLocale();
   const { t } = useTranslation();
-
-  useMount(redirectToDefaultLocale);
 
   return (
     <Page title={[t('common.meta.home')]}>
@@ -40,7 +35,7 @@ const Home: NextPage = () => {
           <KPIsection></KPIsection>
         </section>
         <section id={SubRoutes.HOME_FAQ}>
-        <FaqSection></FaqSection>
+          <FaqSection></FaqSection>
         </section>
         <section id={SubRoutes.HOME_CONTACT}>
           <Contact />
