@@ -34,6 +34,12 @@
       "title": "inovex Academy: Web Components",
       "author": "On Request",
       "date": "2 days training"
+    },
+    "monorepo-comparison": {
+      "url": "https://www.inovex.de/en/blog/evaluation-frontend-monorepo-frameworks/",
+      "title": "Evaluation of front-end monorepo frameworks: Nx vs. Bit vs. Rush vs. Turborepo",
+      "author": "Robin Pavkovic",
+      "date": "04.04.2023"
     }
   }
 }

@@ -36,6 +36,14 @@ function ResourceCard() {
         author: t('articles.trainings.author'),
         date: t('articles.trainings.date'),
       },
+      {
+        url: t('articles.monorepo-comparison.url'),
+        img_url:
+          'https://www.inovex.de/wp-content/uploads/Frontend-Monorepo-Frameworks-1500x880.png',
+        title: t('articles.monorepo-comparison.title'),
+        author: t('articles.monorepo-comparison.author'),
+        date: t('articles.monorepo-comparison.date'),
+      },
     ]);
   }, [locale]);
 
