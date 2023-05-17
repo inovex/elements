@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ElementsLogo from '@assets/elements.svg';
 import LocaleSwitcher from './localeSwitcher';
+import Link from 'next/link';
+import useTranslation from '../../../../utils/hooks/useTranslation';
 
 export default function HeaderDesktop() {
+  const { locale } = useTranslation();
   const [yOffset, setYOffset] = useState(0);
 
   useEffect(() => {
@@ -26,10 +29,12 @@ export default function HeaderDesktop() {
       style={{ '--factor': yOffset } as React.CSSProperties}
     >
       <div className={styles.logo}>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="/"
+        <Link
+          href={{
+            pathname: '/[lang]',
+            query: { lang: locale },
+          }}
+          replace
         >
           <Image
             src={ElementsLogo}
@@ -37,7 +42,7 @@ export default function HeaderDesktop() {
             width={68}
             height={68}
           />
-        </a>
+        </Link>
       </div>
       <div className={styles.language}>
         <LocaleSwitcher />
