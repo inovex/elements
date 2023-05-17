@@ -1,5 +1,5 @@
 {
-  "name": "@inovex.de/landingpage-new",
+  "name": "@inovex.de/landingpage",
   "version": "8.0.0",
   "private": true,
   "dependencies": {
@@ -29,6 +29,7 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "next-images": "^1.8.4",
     "sass": "^1.55.0",
     "typescript": "4.8.4"
