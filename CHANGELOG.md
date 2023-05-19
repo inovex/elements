@@ -1,4 +1,53 @@
 # Changelog
+## [8.1.0](https://github.com/inovex/elements/compare/v8.0.0...v8.1.0) (2023-05-17)
+
+
+### Features
+
+* add new elements logo ([#912](https://github.com/inovex/elements/issues/912)) ([190ac1a](https://github.com/inovex/elements/commit/190ac1a3c3f44099b2c27e9e0e77da68cf93b0af))
+* **elements|ino-carousel:** add stepper to indicate currently displayed slide ([#878](https://github.com/inovex/elements/issues/878)) ([e414aef](https://github.com/inovex/elements/commit/e414aefaef9218dc11acc59f863d6ae6233d6bea))
+* **elements|ino-chip:** add clickable option ([#933](https://github.com/inovex/elements/issues/933)) ([6051f84](https://github.com/inovex/elements/commit/6051f84f2233af5c80ac0e510c5088ea8254177f))
+* **elements:** add delay option for ino-tooltip and ino-popover ([#932](https://github.com/inovex/elements/issues/932)) ([067aa59](https://github.com/inovex/elements/commit/067aa59ea426bf937c5732382321c2b060f8f706))
+* **elements:** add ino-accordion component ([#876](https://github.com/inovex/elements/issues/876)) ([82c98a8](https://github.com/inovex/elements/commit/82c98a8ce83edccb933bb976fa97d8b4aefbf926))
+* **landingpage:** add coreaspects and make it responsive ([#858](https://github.com/inovex/elements/issues/858)) ([62632f1](https://github.com/inovex/elements/commit/62632f129d818b8240050a1c480496c782f75433))
+* **landingpage:** add examples section ([#875](https://github.com/inovex/elements/issues/875)) ([976b069](https://github.com/inovex/elements/commit/976b069eb7ce9fc1b25a9c42bbf2aa56d773040d))
+* **landingpage:** add faq to landingage ([#882](https://github.com/inovex/elements/issues/882)) ([863b016](https://github.com/inovex/elements/commit/863b0161c1b93d35b59319db7d665ef925dfd14b))
+* **landingpage:** add header to explore page ([#895](https://github.com/inovex/elements/issues/895)) ([ccbbebd](https://github.com/inovex/elements/commit/ccbbebdeac93345520255eb3674678e4ded4c90d))
+* **landingpage:** add inovex elements label to header ([#929](https://github.com/inovex/elements/issues/929)) ([ad40353](https://github.com/inovex/elements/commit/ad40353392e3178f0d3c6adccca0d2e16c83a0fc))
+* **landingpage:** add KPI section ([#935](https://github.com/inovex/elements/issues/935)) ([074acda](https://github.com/inovex/elements/commit/074acda838fb95ff73367e8f8b5c9765160e829e))
+* **landingpage:** add links to demo projects in explore ([#854](https://github.com/inovex/elements/issues/854)) ([b2b98fb](https://github.com/inovex/elements/commit/b2b98fbdd9f3d56d0d45be1a180e5cf91086be82))
+* **landingpage:** add navigation menu for mobile ([#904](https://github.com/inovex/elements/issues/904)) ([9bb6c82](https://github.com/inovex/elements/commit/9bb6c820f1c225a35dbdd470b533d6afdd3dd1e3))
+* **landingpage:** add resource section ([#860](https://github.com/inovex/elements/issues/860)) ([1d0e1a0](https://github.com/inovex/elements/commit/1d0e1a0dc46a6437437e2327a7c4e459b6cb4cd1))
+* **landingpage:** add serap & ben to contributors ([#941](https://github.com/inovex/elements/issues/941)) ([1f2c33c](https://github.com/inovex/elements/commit/1f2c33c135d2b1591f6a5c9c097b9bf0f9867981))
+* **landingpage:** add styling to the getting started tables ([#867](https://github.com/inovex/elements/issues/867)) ([95e41a0](https://github.com/inovex/elements/commit/95e41a012dd071bceeea1456b0bc661e9ab1ea1e))
+* **landingpage:** add sub navigation ([#856](https://github.com/inovex/elements/issues/856)) ([a5c3eaa](https://github.com/inovex/elements/commit/a5c3eaae50a59b1cc2c0783005f4bb7c4c964c82))
+* **landingpage:** enable sharing of storybook urls ([#924](https://github.com/inovex/elements/issues/924)) ([a5910b6](https://github.com/inovex/elements/commit/a5910b681ff656fdd7a0dac15d2bad1672436ab8))
+* **landingpage:** improve FAQ section ([#942](https://github.com/inovex/elements/issues/942)) ([c5b0086](https://github.com/inovex/elements/commit/c5b0086c90f8c3f6baf29df7561aff235bb64a00))
+* **landingpage:** improve react getting started guide ([#934](https://github.com/inovex/elements/issues/934)) ([4bec779](https://github.com/inovex/elements/commit/4bec7793356e8b7f03e57f1cdee3bd6aa73b20ea))
+* **landingpage:** integrate i18n ([#828](https://github.com/inovex/elements/issues/828)) ([dfe97e9](https://github.com/inovex/elements/commit/dfe97e9cf97eb7bb9784785d633708f8c6145223))
+* **storybook:** update welcome page ([#903](https://github.com/inovex/elements/issues/903)) ([9323b17](https://github.com/inovex/elements/commit/9323b1756119b279db6c0c6d9ab599e5cc152e52))
+
+
+### Bug Fixes
+
+* **elements|ino-card:** selection state not working properly ([#881](https://github.com/inovex/elements/issues/881)) ([028f5e9](https://github.com/inovex/elements/commit/028f5e9364fb92028060e033f71bf5aecd64100c))
+* **elements|ino-range:** prevent error on value change ([#926](https://github.com/inovex/elements/issues/926)) ([4556b84](https://github.com/inovex/elements/commit/4556b84f58737bf77ee831ba94c7b0eb2a1a1615))
+* **elements|ino-tooltip:** label not updating on change ([#890](https://github.com/inovex/elements/issues/890)) ([29d2236](https://github.com/inovex/elements/commit/29d22362482cb694f1b5df5fe76f0b565f611883))
+* fix vue and react example project for stackblitz ([#853](https://github.com/inovex/elements/issues/853)) ([8e583b9](https://github.com/inovex/elements/commit/8e583b987d2469901ae5ceb9a245f38e279e3df6))
+* **landingpage:** correct order and links of frameworks ([#855](https://github.com/inovex/elements/issues/855)) ([b300295](https://github.com/inovex/elements/commit/b3002954b490ebd0d386d35bcbf66ea20c8f7f9a))
+* **landingpage:** fix broken redirects ([4da6687](https://github.com/inovex/elements/commit/4da6687959825605c733a7d06639ecbde43d57b2))
+* **landingpage:** fix responsive layout ([#901](https://github.com/inovex/elements/issues/901) ([2d2e151](https://github.com/inovex/elements/commit/2d2e1513bc8bcd3e05f8174e2d125397530b597f))
+* **landingpage:** language switch not working ([#880](https://github.com/inovex/elements/issues/880)) ([112f2b7](https://github.com/inovex/elements/commit/112f2b7b2f9288fa17b82da89aae889ed197e440))
+
+
+### Styling
+
+* **elements|ino-autocomplete:** update design ([#930](https://github.com/inovex/elements/issues/930)) ([5c900b4](https://github.com/inovex/elements/commit/5c900b4d50d2f8e0ed01f97ef276a8fef8d2656d))
+* **landingpage:** add greyscale to Github logo ([#943](https://github.com/inovex/elements/issues/943)) ([dff232e](https://github.com/inovex/elements/commit/dff232e602c4cbf3c52bc4e5f88df65f730dd069))
+* **landingpage:** improve header and footer stylings ([#900](https://github.com/inovex/elements/issues/900)) ([0bb40ab](https://github.com/inovex/elements/commit/0bb40ab3a272f389ff9936ca5f7cef3e697aee4f))
+* **landingpage:** improve visual integration of storybook ([#923](https://github.com/inovex/elements/issues/923)) ([eb99a04](https://github.com/inovex/elements/commit/eb99a04a329bc9c12b3f5fb1b414d2a6ccf16a00))
+* **landingpage:** improve wrap of core aspects ([#944](https://github.com/inovex/elements/issues/944)) ([4e4be6b](https://github.com/inovex/elements/commit/4e4be6b8a7167afe3272beb7c37493fb0cb77424))
+
 ## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2023-01-05)
 
 

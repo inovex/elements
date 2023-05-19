@@ -14,6 +14,9 @@
         "components": {
           "name": "components"
         },
+        "kpi": {
+          "name": "Who we are"
+        },
         "faq": {
           "name": "faq"
         }

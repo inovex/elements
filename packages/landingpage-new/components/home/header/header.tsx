@@ -1,12 +1,12 @@
-import Image from 'next/image';
 import { InoButton } from '@elements';
-import styles from './header.module.scss';
-import InstallChips from './install-chips';
+import classNames from 'classnames';
+import Image from 'next/image';
 import Link from 'next/link';
-import { MainRoutes } from 'utils/routes';
 import useBasePath from 'utils/hooks/useBasePath';
 import useTranslation from 'utils/hooks/useTranslation';
-import classNames from 'classnames';
+import { MainRoutes } from 'utils/routes';
+import styles from './header.module.scss';
+import InstallChips from './install-chips';
 
 export default function Header() {
   const basePath = useBasePath();
@@ -30,10 +30,11 @@ export default function Header() {
           <h1 className={classNames(styles.header, 'header-d2')}>
             <b>{t('header.elements_label')}</b>
           </h1>
-          <h1 className={classNames(styles.header, 'header-d2')}>
-            {t('header.title_1')}<mark>{t('header.title_mark')}</mark>
+          <h1 className={classNames(styles.subheader, 'header-d2')}>
+            {t('header.title_1')}
+            <mark>{t('header.title_mark')}</mark>
           </h1>
-          <h1 className={classNames(styles.header, 'header-d2')}>
+          <h1 className={classNames(styles.subheader, 'header-d2')}>
             {t('header.title_2')}
           </h1>
         </div>
@@ -46,7 +47,10 @@ export default function Header() {
           </p>
         </div>
         <div className={styles.installation}>
-          <Link href={`${locale}${MainRoutes.GETTING_STARTED}`}>
+          <Link
+            className={styles.link}
+            href={`${locale}${MainRoutes.GETTING_STARTED}`}
+          >
             <InoButton>
               <span>{t('header.getting_started')}</span>
             </InoButton>

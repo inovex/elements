@@ -50,11 +50,13 @@ $icon-padding-to-border: 6px;
 /* Shared Styles */
 ino-input {
   /**
+   * @prop --ino-input-color: text color of the input
    * @prop --ino-input-caret-color: color of the caret
    * @prop --ino-input-label-color: color of the label
    * @prop --ino-input-line-color: line color
    * @prop --ino-input-icon-color: icon color
    */
+  --input-color: var(--ino-input-color, #{textfield.$ink-color});
   --input-caret-color: var(--ino-input-caret-color, #{theme.color(primary)});
   --input-label-color: var(--ino-input-label-color, #{theme.color(primary)});
   --input-line-color: var(--ino-input-line-color, #{theme.color(primary)});
@@ -64,6 +66,10 @@ ino-input {
   @include icon.icon-core-styles;
   @include typography.font(sans-serif, m, regular);
   @include textfield.caret-color(var(--input-caret-color));
+
+  .mdc-text-field {
+    @include textfield.ink-color(var(--input-color));
+  }
 
   & * {
     box-sizing: initial;

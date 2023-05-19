@@ -86,12 +86,12 @@ export class Range implements ComponentInterface {
   @Watch('value')
   @Watch('valueEnd')
   handleValueChange(newValue: number) {
-    this.sliderInstance.setValue(newValue);
+    this.sliderInstance?.setValue(newValue);
   }
 
   @Watch('valueStart')
   handleRangedValueChanged(newValue: number) {
-    this.sliderInstance.setValueStart(newValue);
+    this.sliderInstance?.setValueStart(newValue);
   }
 
   /**
@@ -187,7 +187,7 @@ export class Range implements ComponentInterface {
       'mdc-slider--discrete': this.discrete,
       'mdc-slider--tick-marks': this.markers,
       'mdc-slider--disabled': this.disabled,
-      'mdc-slider--range': this.ranged,      
+      'mdc-slider--range': this.ranged,
     });
 
     return (

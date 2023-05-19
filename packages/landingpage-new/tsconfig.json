@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@elements": ["utils/elementsWrapper.ts"],
-      "@assets/*": ["public/*"]
+      "@assets/*": ["public/*"],
+      "@styles/*": ["styles/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
