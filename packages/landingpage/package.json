@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-landingpage",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "description": "The landingpage for inovex elements",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "private": true,
@@ -9,7 +9,7 @@
     "Pascal Fecht <pfecht@inovex.de>"
   ],
   "dependencies": {
-    "@inovex.de/elements-vue": "^8.0.0",
+    "@inovex.de/elements-vue": "^8.1.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },

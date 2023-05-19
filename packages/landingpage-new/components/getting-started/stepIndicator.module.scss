@@ -1,0 +1,19 @@
+@use 'styles/theme';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  flex: none;
+  height: 30px;
+  width: 30px;
+  background-color: theme.$p-06;
+  border-radius: 50%;
+  color: theme.$white;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  margin-right: 16px;
+}
