@@ -3,6 +3,12 @@
   width: 294px;
   box-shadow: 0px 3px 10px rgba(20, 20, 20, 0.16);
   border-radius: 17px;
+  transition: all ease-in 0.15s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 3px 10px rgba(20, 20, 20, 0.3);
+  }
 }
 .content {
   display: flex;
@@ -17,10 +23,11 @@
   padding: 0 0 24px 24px;
 
   a {
-    color: #4655ff;
+    color: var(--inovex-elements-p-5);
   }
+
   ino-icon {
-    --ino-icon-color: #4655ff;
+    --ino-icon-color: var(--inovex-elements-p-5);
     margin-left: 10px;
     width: 6px;
   }

@@ -3,7 +3,6 @@
 @use '../components/base/new-theme' as new-theme;
 
 .inovex-elements-typo {
-
   font-family: Lato, Verdana, sans-serif;
 
   a {
@@ -84,6 +83,48 @@
   }
 }
 
-
-
-
+.inovex-elements-theme {
+  --inovex-elements-white: #{new-theme.$white};
+  --inovex-elements-black: #{new-theme.$black}; --inovex-elements-transparent: #{new-theme.$transparent};
+  
+  // Neutrals
+  --inovex-elements-n-1: #{new-theme.$n-1};
+  --inovex-elements-n-2: #{new-theme.$n-2};
+  --inovex-elements-n-3: #{new-theme.$n-3};
+  --inovex-elements-n-4: #{new-theme.$n-4};
+  --inovex-elements-n-5: #{new-theme.$n-5};
+  --inovex-elements-n-6: #{new-theme.$n-6};
+  --inovex-elements-n-7: #{new-theme.$n-7};
+  --inovex-elements-n-8: #{new-theme.$n-8};
+  --inovex-elements-n-9: #{new-theme.$n-9};
+  --inovex-elements-n-10: #{new-theme.$n-10};
+  --inovex-elements-n-11: #{new-theme.$n-11};
+  --inovex-elements-n-12: #{new-theme.$n-12};
+  
+  // Primary Blue
+  --inovex-elements-primary: #{new-theme.$primary};
+  --inovex-elements-primary-focus: #{new-theme.$primary-focus};
+  
+  --inovex-elements-p-1: #{new-theme.$p-1};
+  --inovex-elements-p-2: #{new-theme.$p-2};
+  --inovex-elements-p-3: #{new-theme.$p-3};
+  --inovex-elements-p-4: #{new-theme.$p-4};
+  --inovex-elements-p-5: #{new-theme.$p-5};
+  --inovex-elements-p-6: #{new-theme.$p-6};
+  --inovex-elements-p-7: #{new-theme.$p-7};
+  --inovex-elements-p-8: #{new-theme.$p-8};
+  --inovex-elements-p-9: #{new-theme.$p-9};
+  --inovex-elements-p-10: #{new-theme.$p-10};
+  --inovex-elements-p-11: #{new-theme.$p-11};
+  --inovex-elements-p-12: #{new-theme.$p-12};
+  
+  //Alert Colors
+  --inovex-elements-informational: #{new-theme.$informational};
+  --inovex-elements-informational-light: #{new-theme.$informational-light};
+  --inovex-elements-success: #{new-theme.$success};
+  --inovex-elements-success-light: #{new-theme.$success-light};
+  --inovex-elements-error: #{new-theme.$error};
+  --inovex-elements-error-light: #{new-theme.$error-light};
+  --inovex-elements-warning: #{new-theme.$warning};
+  --inovex-elements-warning-light: #{new-theme.$warning-light};
+}
