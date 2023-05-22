@@ -25,7 +25,7 @@
   }
 
   th {
-    background-color: rgb(246, 248, 250);
+    background-color: var(--inovex-elements-p-1);
     text-align: left;
     padding: 8px;
     &:first-child {
@@ -37,12 +37,12 @@
   }
 
   td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--inovex-elements-n-1);
     padding: 8px;
   }
 
   tr:nth-child(even) {
-    background-color: rgb(246, 248, 250);
+    background-color: var(--inovex-elements-p-1);
   }
 }
 

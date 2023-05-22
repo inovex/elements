@@ -9,11 +9,30 @@ html {
   margin-bottom: 20px;
   display: flex;
   flex-direction: row;
+  position: relative;
+  z-index: 0;
 }
 
 .color-rect {
   height: 48px;
   width: 48px;
+}
+
+.transparent {
+  position: relative;
+  border: 1px solid black;
+  
+  &::after {
+    position: absolute;
+    content: '';
+    inset: 8px 8px -8px -8px;
+    background-color: #B6B4C4;
+    z-index: -1;
+  }
+}
+
+.border {
+  box-sizing: border-box;
 }
 
 .color-hex {
