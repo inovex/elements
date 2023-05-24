@@ -469,6 +469,7 @@ export class Input implements ComponentInterface {
       'mdc-text-field--with-leading-icon': leadingIconSlot,
       'mdc-text-field--with-trailing-icon': trailingIconSlot || this.unit,
       'mdc-text-field--no-label': !this.label,
+      'mdc-text-field--has-helpertext': hasHelperText,
     });
 
     return (
