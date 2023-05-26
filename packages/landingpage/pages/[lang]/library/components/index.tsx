@@ -1,5 +1,5 @@
-import { useInitialStorybookUrl } from '../../../../utils/hooks/useInitialStorybookUrl';
-import { InoSpinner } from '@elements';
+import { useStorybookUrl } from '../../../../utils/hooks/useStorybookUrl';
+import { InoButton, InoIcon, InoSpinner } from '@elements';
 import styles from './index.module.scss';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import {
@@ -10,17 +10,40 @@ import { LangContext } from '../../../../types/langContext';
 import { Locale_File } from '../../../../translations/types';
 import { merge } from 'lodash';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
+import openInNew from '@assets/open-in-new.svg';
+import { useMemo } from 'react';
 
 const StoryBookPage: NextPage<void> = () => {
-  const initialStorybookUrl = useInitialStorybookUrl();
-  useStorybookUrlSyncer();
+  const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
+  const currentStory = useStorybookUrlSyncer();
+  const url = useMemo(
+    () => (currentStory ? fromLandingpageToStorybookUrl(currentStory) : null),
+    [currentStory]
+  );
 
   return (
     <div className={styles.container}>
-      {!initialStorybookUrl && <InoSpinner type="circle"></InoSpinner>}
-      {initialStorybookUrl && (
+      {url && (
+        <a
+          className={styles.openExternallyButton}
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <InoButton>
+            <InoIcon
+              className={styles.openExternallyButtonIcon}
+              icon={openInNew}
+              slot="icon-leading"
+            ></InoIcon>
+            Open storybook in new tab
+          </InoButton>
+        </a>
+      )}
+      {!initialUrl && <InoSpinner type="circle"></InoSpinner>}
+      {initialUrl && (
         <iframe
-          src={initialStorybookUrl}
+          src={initialUrl}
           style={{
             position: 'absolute',
             left: 0,
