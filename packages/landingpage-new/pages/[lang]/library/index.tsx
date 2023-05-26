@@ -7,7 +7,7 @@ import { LangContext } from '../../../types/langContext';
 import { Locale_File } from '../../../translations/types';
 import { useRouter } from 'next/router';
 import { useMount } from 'react-use';
-import { WELCOME_PAGE_PLACEHOLDER } from '../../../utils/hooks/useInitialStorybookUrl';
+import { WELCOME_PAGE_PLACEHOLDER } from '../../../utils/hooks/useStorybookUrl';
 import { SubRoutes } from '../../../utils/routes';
 
 const Components = () => {
