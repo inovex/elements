@@ -1,3 +1,15 @@
+.avatarContainer {
+  position: relative;
+}
+
+.statusChip {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+}
+
 .contributorCard {
   width: 200px;
 }
@@ -7,7 +19,7 @@
 }
 
 .role {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--inovex-elements-n-7);
 }
 
 .footer {

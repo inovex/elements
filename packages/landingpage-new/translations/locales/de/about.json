@@ -4,13 +4,9 @@
     "title_2": "@ inovex elements",
     "not_found": "Keine aktuellen Teammitglieder gefunden.",
     "roles": {
-      "frontend_developer": "Frontend Entwickler:in",
-      "frontend_engineer": "Frontend Engineer",
-      "frontend_expert": "Frontend Expert:in",
-      "fullstack_developer": "Fullstack Entwickler:in",
       "product_owner": "Product Owner",
-      "design": "UI / UX Designer:in",
-      "project_manager": "Projektleitung & Entwickler:in"
+      "developer": "Entwickler:in",
+      "design": "UI/UX Designer:in"
     }
   },
   "history": {
@@ -21,7 +17,7 @@
         "title": "Machbarkeitsstudie 🔎",
         "date": "Februar 2018",
         "description": "Im Jahr 2018 haben wir unsere Reise begonnen. Wir haben Wochen damit verbracht zu evaluieren, welches Framework zu unseren Bedürfnissen passt und welche Entscheidung für die nächsten Jahre Bestand haben könnte. In der Frontend-Welt ist es immer eine Wette auf Zeit und nie einfach, die richtige Wahl zu treffen. Wir begannen elements als Nebenprojekt und evaluierten, welche Bibliothek und welche Tools am besten geeignet sind, um uns beim Schreiben von standardbasierten Webkomponenten zu helfen. Wir haben viel ausprobiert und uns die verfügbaren Bibliotheken Polymer, SkateJS, SlimJS, Switzerland und Stencil angesehen. Wir wägten die Funktionen gegeneinander ab und entschieden uns für Stencil."
-      }, 
+      },
       "getting_started": {
         "title": "Es geht los 🛫",
         "date": "Juni 2018",

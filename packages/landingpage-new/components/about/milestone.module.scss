@@ -30,14 +30,14 @@
     height: 16px;
     border-radius: 8px;
     margin-top: 15px;
-    background-color: #CCD1D9;
+    background-color: var(--inovex-elements-n-2);
     z-index: 2;
   }
 
   .content {
     width: 95%;
     padding: 0 15px;
-    color: #232527;
+    color: var(--inovex-elements-n-12);
   }
 
   .content h3 {
@@ -45,12 +45,12 @@
   }
 
   .content .subtitle {
-    color: #232527;
+    color: var(--inovex-elements-n-12);
     margin-bottom: 10px;
   }
 
   .content .text {
-    color: #232527;
+    color: var(--inovex-elements-n-12);
   }
 
   @media screen and (max-width: 900px) {
@@ -62,7 +62,7 @@
       border-radius: 8px;
       margin-top: 15px;
       margin-left: 2px;
-      background-color: #CCD1D9;
+      background-color: var(--inovex-elements-n-2);
       z-index: 2;
     }
 

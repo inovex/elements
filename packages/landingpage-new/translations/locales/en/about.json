@@ -4,13 +4,9 @@
     "title_2": "@ inovex elements",
     "not_found": "No recent contributors found.",
     "roles": {
-      "frontend_developer": "Frontend Developer",
-      "frontend_engineer": "Frontend Engineer",
-      "frontend_expert": "Frontend Expert",
-      "fullstack_developer": "Fullstack Developer",
       "product_owner": "Product Owner",
-      "design": "UI / UX Design",
-      "project_manager": "Projekt Manager & Developer"
+      "developer": "Developer",
+      "design": "UI/UX Designer"
     }
   },
   "history": {
@@ -21,7 +17,7 @@
         "title": "Proof of concept 🔎",
         "date": "February 2018",
         "description": "In 2018 we started our journey. We spent weeks evaluating which framework matches our needs and which decision may last for the next few years. It’s always a bet on time in front-end worlds and never easy to make the right pick. We started the elements as a side project and evaluated which library and tools would be the best choice for helping us writing standards based Web Components. We tried a lot and looked into the available libraries Polymer, SkateJS, SlimJS, Switzerland and Stencil. We opposed the features and decided to use Stencil."
-      }, 
+      },
       "getting_started": {
         "title": "Getting started 🛫",
         "date": "June 2018",

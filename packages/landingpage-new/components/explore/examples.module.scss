@@ -1,5 +1,5 @@
 .subtitle {
-  color: #39383C;
+  color: var(--inovex-elements-n-11);
 }
 
 .container {
@@ -38,6 +38,6 @@
 
   [class~="ino-carousel__slides"] {
     margin: 2px;
-    box-shadow: 5px 5px 15px lightgrey;
+    box-shadow: 5px 5px 15px var(--inovex-elements-n-2);
   }
 }

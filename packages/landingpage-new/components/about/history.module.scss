@@ -1,15 +1,31 @@
-.container mark {
-  padding: 0 5px 0 3px;
-  background: linear-gradient(0, rgba(212, 204, 255, 0.5) 40%, transparent 40%);
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
 .container {
   width: 80%;
   margin: 50px auto;
   position: relative;
   overflow: hidden;
+
+  mark {
+    position: relative;
+    padding: 0 5px 0 3px;
+    width: -moz-fit-content;
+    width: fit-content;
+    isolation: isolate;
+    background-color: var(--inovex-elements-transparent); // needed, else background defaults to yellow
+
+    &::before {
+      position: absolute;
+      content: '';
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        0,
+        var(--inovex-elements-p-3) 40%,
+        var(--inovex-elements-transparent) 40%,
+        );
+      opacity: 0.4;
+      
+    }
+  }
 }
 
 .container:before {
@@ -20,7 +36,7 @@
   margin-left: -1px;
   width: 2px;
   height: 100%;
-  background: #ccd1d9;
+  background: var(--inovex-elements-n-2);
   z-index: 1;
   margin-top: 15px;
 }

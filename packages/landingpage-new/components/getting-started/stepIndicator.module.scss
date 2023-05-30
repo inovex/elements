@@ -1,5 +1,3 @@
-@use 'styles/theme';
-
 .wrapper {
   display: flex;
   align-items: center;
@@ -9,9 +7,9 @@
   flex: none;
   height: 30px;
   width: 30px;
-  background-color: theme.$p-6;
+  background-color: var(--inovex-elements-p-6);
   border-radius: 50%;
-  color: theme.$white;
+  color: white;
   font-size: 20px;
   line-height: 30px;
   text-align: center;
