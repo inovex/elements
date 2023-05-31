@@ -1,9 +1,8 @@
 <div align="center">
-<p>
-  <a href="https://elements.inovex.de/#/">
+
+  <a href="https://elements.inovex.de/">
     <img width="300" src="assets/logo/elements.svg">
   </a>
-</p>
 
 # inovex elements
 
