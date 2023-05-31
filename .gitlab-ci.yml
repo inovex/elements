@@ -6,7 +6,7 @@ pages:
   stage: deploy
   script:
     - mkdir .public
-    - rsync -r --exclude=gitlab-ci.yml * .public
+    - rsync -a --exclude=gitlab-ci.yml * .public
     - mv .public public
 
   artifacts:
