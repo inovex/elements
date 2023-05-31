@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+  position: relative;
+}
+
+.chipContainer {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 20px;
+  z-index: 1;
+}
+
+.frameworks {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+.chip {
+  height: 2.571rem;
+}
+
+.installCommand {
+  font-size: 1.143rem;
+}
+
+.successMessage {
+  color: var(--inovex-elements-success);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 1s, opacity 1s;
+
+  &Show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 1s;
+  }
+}
+
+.icon {
+  height: 25px;
+  width: 25px;
+  opacity: 0.3;
+  transition: opacity 1s;
+  position: relative;
+  cursor: pointer;
+
+  &:hover, &Active {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,31 @@
+.avatarContainer {
+  position: relative;
+}
+
+.statusChip {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+}
+
+.contributorCard {
+  width: 200px;
+}
+
+.Image {
+  border-radius: 50%;
+}
+
+.role {
+  color: var(--inovex-elements-n-7);
+}
+
+.footer {
+  max-width: 200px;
+}
+
+.center {
+  text-align: center;
+}

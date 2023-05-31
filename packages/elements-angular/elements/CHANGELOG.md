@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/inovex/elements/compare/v8.0.0...v8.1.0) (2023-05-17)
+
+
+### Features
+
+* **elements|ino-carousel:** add stepper to indicate currently displayed slide ([#878](https://github.com/inovex/elements/issues/878)) ([e414aef](https://github.com/inovex/elements/commit/e414aefaef9218dc11acc59f863d6ae6233d6bea))
+* **elements|ino-chip:** add clickable option ([#933](https://github.com/inovex/elements/issues/933)) ([6051f84](https://github.com/inovex/elements/commit/6051f84f2233af5c80ac0e510c5088ea8254177f))
+* **elements:** add delay option for ino-tooltip and ino-popover ([#932](https://github.com/inovex/elements/issues/932)) ([067aa59](https://github.com/inovex/elements/commit/067aa59ea426bf937c5732382321c2b060f8f706))
+* **elements:** add ino-accordion component ([#876](https://github.com/inovex/elements/issues/876)) ([82c98a8](https://github.com/inovex/elements/commit/82c98a8ce83edccb933bb976fa97d8b4aefbf926))
+* **landingpage:** add examples section ([#875](https://github.com/inovex/elements/issues/875)) ([976b069](https://github.com/inovex/elements/commit/976b069eb7ce9fc1b25a9c42bbf2aa56d773040d))
+
+
+### Miscellaneous
+
+* improve nx configuration ([#847](https://github.com/inovex/elements/issues/847)) ([d0de779](https://github.com/inovex/elements/commit/d0de77977371145b34cb49667396a6f97efb3441))
+
 ## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2023-01-05)
 
 

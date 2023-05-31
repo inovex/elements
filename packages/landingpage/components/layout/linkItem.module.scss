@@ -1,0 +1,28 @@
+p.link {
+  cursor: pointer;
+  color: var(--inovex-elements-n-6);
+  overflow-wrap: break-word;
+
+  &:hover {
+    color: var(--inovex-elements-primary);
+  }
+}
+
+p.linkActive {
+  color: var(--inovex-elements-n-10);
+}
+
+p.noMargin {
+  margin: 0;
+}
+
+p.linkDense {
+  font-weight: lighter !important;
+  margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  p:not(.linkDense) {
+    margin: 21px 0 0;
+  }
+}

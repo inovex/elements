@@ -1,0 +1,45 @@
+{
+  "header": {
+    "title": "explore",
+    "subtitle": "Explore the Elements and learn how they are used in a variety of projects."
+  },
+  "examples": {
+    "title_1": "Application",
+    "title_2": "examples",
+    "sub_title": "We use the elements in many different of our products, creating a great and consistent product experience. Here are some examples:"
+  },
+  "demos": {
+    "title_1": "demo",
+    "title_2": "projects",
+    "subtitle": "We implemented a simple to do list with each framework - go and check it out.",
+    "show_demo": "show demo project"
+  },
+  "resources": {
+    "title_1": "more",
+    "title_2": "information?",
+    "subtitle": "Every now and then we report about new stuff.",
+    "alt_image": "blog image of ",
+    "sample_title" : "We are always evolving!",
+    "sample_subtitle": "Stay tuned for more elements content!"
+  },
+  "articles": {
+    "announcement-v1": {
+      "url": "https://www.inovex.de/en/blog/inovex-elements-open-source/",
+      "title": "Announcing @inovex.de/elements 1.0: Our Open Source UI Library!",
+      "author": "Patrick Hillert",
+      "date": "30.09.2020"
+    },
+    "trainings": {
+      "url": "https://www.inovex.de/en/training/web-components/inhouse/",
+      "title": "inovex Academy: Web Components",
+      "author": "On Request",
+      "date": "2 days training"
+    },
+    "monorepo-comparison": {
+      "url": "https://www.inovex.de/en/blog/evaluation-frontend-monorepo-frameworks/",
+      "title": "Evaluation of front-end monorepo frameworks: Nx vs. Bit vs. Rush vs. Turborepo",
+      "author": "Robin Pavkovic",
+      "date": "04.04.2023"
+    }
+  }
+}

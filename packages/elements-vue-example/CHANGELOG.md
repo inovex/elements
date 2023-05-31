@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/inovex/elements/compare/v8.0.0...v8.1.0) (2023-05-17)
+
+
+### Bug Fixes
+
+* fix vue and react example project for stackblitz ([#853](https://github.com/inovex/elements/issues/853)) ([8e583b9](https://github.com/inovex/elements/commit/8e583b987d2469901ae5ceb9a245f38e279e3df6))
+
 ## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2023-01-05)
 
 

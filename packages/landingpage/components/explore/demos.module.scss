@@ -1,0 +1,19 @@
+$card-width: 295px;
+$gap: 20px;
+$tolerance: 300px;
+$all-cards-incl-gap: $card-width * 4 + 3 * $gap + $tolerance;
+
+.cardWrapper{
+  padding-top: 40px;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, $card-width);
+  justify-content: center;
+  grid-gap: $gap;
+
+  @media (min-width: $all-cards-incl-gap) {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, 295px);
+  }
+}

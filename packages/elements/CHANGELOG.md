@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/inovex/elements/compare/v8.0.0...v8.1.0) (2023-05-17)
+
+
+### Features
+
+* **elements|ino-carousel:** add stepper to indicate currently displayed slide ([#878](https://github.com/inovex/elements/issues/878)) ([e414aef](https://github.com/inovex/elements/commit/e414aefaef9218dc11acc59f863d6ae6233d6bea))
+* **elements|ino-chip:** add clickable option ([#933](https://github.com/inovex/elements/issues/933)) ([6051f84](https://github.com/inovex/elements/commit/6051f84f2233af5c80ac0e510c5088ea8254177f))
+* **elements:** add delay option for ino-tooltip and ino-popover ([#932](https://github.com/inovex/elements/issues/932)) ([067aa59](https://github.com/inovex/elements/commit/067aa59ea426bf937c5732382321c2b060f8f706))
+* **elements:** add ino-accordion component ([#876](https://github.com/inovex/elements/issues/876)) ([82c98a8](https://github.com/inovex/elements/commit/82c98a8ce83edccb933bb976fa97d8b4aefbf926))
+* **landingpage:** add examples section ([#875](https://github.com/inovex/elements/issues/875)) ([976b069](https://github.com/inovex/elements/commit/976b069eb7ce9fc1b25a9c42bbf2aa56d773040d))
+
+
+### Bug Fixes
+
+* **elements|ino-card:** selection state not working properly ([#881](https://github.com/inovex/elements/issues/881)) ([028f5e9](https://github.com/inovex/elements/commit/028f5e9364fb92028060e033f71bf5aecd64100c))
+* **elements|ino-range:** prevent error on value change ([#926](https://github.com/inovex/elements/issues/926)) ([4556b84](https://github.com/inovex/elements/commit/4556b84f58737bf77ee831ba94c7b0eb2a1a1615))
+* **elements|ino-tooltip:** label not updating on change ([#890](https://github.com/inovex/elements/issues/890)) ([29d2236](https://github.com/inovex/elements/commit/29d22362482cb694f1b5df5fe76f0b565f611883))
+
+
+### Styling
+
+* **elements|ino-autocomplete:** update design ([#930](https://github.com/inovex/elements/issues/930)) ([5c900b4](https://github.com/inovex/elements/commit/5c900b4d50d2f8e0ed01f97ef276a8fef8d2656d))
+
 ## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2023-01-05)
 
 

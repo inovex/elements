@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/inovex/elements/compare/v8.0.0...v8.1.0) (2023-05-17)
+
+
+### Features
+
+* add new elements logo ([#912](https://github.com/inovex/elements/issues/912)) ([190ac1a](https://github.com/inovex/elements/commit/190ac1a3c3f44099b2c27e9e0e77da68cf93b0af))
+
 ## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2023-01-05)
 
 

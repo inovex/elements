@@ -14,10 +14,8 @@
     "start:react-example:only": "nx run react-example:start",
     "start:vue-example": "nx run-many --target=start --projects=elements-vue*,elements --output-style=stream",
     "start:vue-example:only": "nx run vue-example:start",
-    "start:landingpage": "nx run-many --target=start --projects=landingpage,elements-vue,elements --output-style=stream",
+    "start:landingpage": "nx run-many --target=start --projects=landingpage,elements-react,elements --output-style=stream",
     "start:landingpage:only": "nx run landingpage:start",
-    "start:landingpage-new": "nx run-many --target=start --projects=landingpage-new,elements-react,elements --output-style=stream",
-    "start:landingpage-new:only": "nx run landingpage-new:start",
     "---build---": "",
     "build": "nx run-many --target=build --output-style=stream",
     "build:core": "nx run elements:build",
@@ -30,7 +28,6 @@
     "build:react-example": "nx run elements-react-example:build",
     "build:vue-example": "nx run elements-vue-example:build",
     "build:landingpage": "nx run landingpage:build",
-    "build:landingpage-new": "nx run landingpage-new:build",
     "---test---": "",
     "test": "nx run-many --target=test --output-style=stream --configuration=ci",
     "test:core": "nx run elements:test",
@@ -151,5 +148,5 @@
     ]
   },
   "name": "core",
-  "version": "8.0.0"
+  "version": "8.1.0"
 }

@@ -4,14 +4,14 @@ import {Meta} from "@storybook/addon-docs";
 
 # Stylesheet
 To make your application look like the inovex-elements from top to bottom,
-we have prepared a global stylesheet for you, which brings the basic styles (headings, link, ...) with it.
+we have prepared a global stylesheet for you, which brings the basic styles (headings, link, theme-colors...) with it.
 
 You can integrate it by following these simple steps:
 1. Use one of our many packages (elements, elements-react, ...)
 2. Import our stylsheet in your global stylesheet (e.g. like this: `@use '@inovex.de/elements/dist/inovex-elements/inovex-elements.css'`)
-3. Give the body element of your application the class `inovex-elements-typo`
+3. Give the body element of your application the class `inovex-elements-typo` to get access to the typography styles or the class `inovex-elements-theme` for using the elements theme colors.
 
-The following elements now receive the inovex-elements style:
+With `inovex-elements-typo` the following elements now receive the inovex-elements style:
 - All headlines (from `<h1>` to `<h6>`)
 - [Links](/docs/docs-styleguide-typography) (`<a>`)
 - The following class will be available for you to use (take a look at our typography guide for when to use what)
@@ -31,3 +31,45 @@ The following elements now receive the inovex-elements style:
   - `.body-m`
   - `.body-s`
 
+With `inovex-elements-theme` the following css-color-variables will be available:
+- Basic colors:
+  - `--inovex-elements-white`
+  - `--inovex-elements-black`
+  - `--inovex-elements-transparent`
+- neutrals greys in the shades 
+  - `--inovex-elements-n-1` (lightest)
+  - `--inovex-elements-n-2`
+  - `--inovex-elements-n-3`
+  - `--inovex-elements-n-4`
+  - `--inovex-elements-n-5`
+  - `--inovex-elements-n-6`
+  - `--inovex-elements-n-7`
+  - `--inovex-elements-n-8`
+  - `--inovex-elements-n-9`
+  - `--inovex-elements-n-10`
+  - `--inovex-elements-n-11`
+  - `--inovex-elements-n-12` (darkest)
+- primary blue colors in the shades 
+  - `--inovex-elements-primary` 
+  - `--inovex-elements-primary-focus`
+  - `--inovex-elements-p-1` (lightest)
+  - `--inovex-elements-p-2`
+  - `--inovex-elements-p-3`
+  - `--inovex-elements-p-4`
+  - `--inovex-elements-p-5`
+  - `--inovex-elements-p-6`
+  - `--inovex-elements-p-7`
+  - `--inovex-elements-p-8`
+  - `--inovex-elements-p-9`
+  - `--inovex-elements-p-10`
+  - `--inovex-elements-p-11`
+  - `--inovex-elements-p-12` (darkest)
+- alert colors (with additional light-versions):
+  - `--inovex-elements-informational`
+  - `--inovex-elements-informational-light`
+  - `--inovex-elements-success` 
+  - `--inovex-elements-success-light`
+  - `--inovex-elements-error` 
+  - `--inovex-elements-error-light`
+  - `--inovex-elements-warning`
+  - `--inovex-elements-warning-light`

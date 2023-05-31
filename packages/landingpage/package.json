@@ -1,28 +1,37 @@
 {
-  "name": "@inovex.de/elements-landingpage",
-  "version": "8.0.0",
-  "description": "The landingpage for inovex elements",
-  "author": "Patrick Hillert <phillert@inovex.de>",
+  "name": "@inovex.de/landingpage",
+  "version": "8.1.0",
   "private": true,
-  "contributors": [
-    "Jan-Niklas Voß <jvoss@inovex.de>",
-    "Pascal Fecht <pfecht@inovex.de>"
-  ],
   "dependencies": {
-    "@inovex.de/elements-vue": "^8.0.0",
-    "vue": "^3.2.31",
-    "vue-router": "^4.0.14"
+    "@code-hike/mdx": "^0.7.4",
+    "@inovex.de/elements-react": "^8.0.0",
+    "@mdx-js/loader": "^2.1.4",
+    "@mdx-js/react": "^2.1.4",
+    "@next/mdx": "^12.3.1",
+    "@types/chart.js": "^2.9.37",
+    "chart.js": "^4.0.1",
+    "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
+    "lodash": "^4.17.21",
+    "next": "13.0.3",
+    "next-mdx-remote": "^4.2.0",
+    "react": "18.2.0",
+    "react-chartjs-2": "^5.0.1",
+    "react-dom": "18.2.0",
+    "react-use": "^17.4.0",
+    "rehype-highlight": "^6.0.0",
+    "remark-gfm": "^3.0.1",
+    "sharp": "^0.31.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.3",
-    "eslint-plugin-vue": "7.19.1",
-    "sass": "^1.54.8",
-    "shx": "^0.3.2",
-    "vite": "^3.0.9"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "@types/node": "18.8.3",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.24.0",
+    "eslint-config-next": "12.3.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "next-images": "^1.8.4",
+    "sass": "^1.55.0",
+    "typescript": "4.8.4"
+  }
 }
