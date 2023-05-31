@@ -1,0 +1,16 @@
+image: eeacms/rsync
+
+pages:
+  tags:
+    - shared
+  stage: deploy
+  script:
+    - mkdir .public
+    - rsync -a --exclude=gitlab-ci.yml * .public
+    - mv .public public
+
+  artifacts:
+    paths:
+      - public
+  only:
+    - pages
