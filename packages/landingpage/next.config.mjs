@@ -44,6 +44,15 @@ const nextConfiguration = {
 
     return config;
   },
+  redirects: async () => {
+    return [
+      {
+        source: '/',
+        destination: '/en',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = nextMdx({
