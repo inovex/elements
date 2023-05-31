@@ -1,11 +1,11 @@
 {
   "name": "elements-react-example",
   "description": "Example App for using elements react wrapper",
-  "version": "8.1.0",
+  "version": "8.1.1",
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "@inovex.de/elements-react": "^8.1.0",
+    "@inovex.de/elements-react": "^8.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2",
