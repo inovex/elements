@@ -1,10 +1,12 @@
 name: Deploy Landingpage
 
 on:
-  workflow_dispatch:
   push:
-    branches: master
-    paths: packages/landingpage
+    branches:
+      - master
+    paths:
+      - packages/landingpage/**
+  workflow_dispatch:
 
 jobs:
   build:
@@ -30,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: gh-pages
+          ref: pages
 
       - uses: actions/download-artifact@v2
         with:
@@ -40,7 +42,7 @@ jobs:
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
-          branch: gh-pages # The branch the action should deploy to.
+          branch: pages # The branch the action should deploy to.
           folder: ./artifact # The folder the action should deploy.
           commit-message: Deploying landingpage
           clean-exclude: |
