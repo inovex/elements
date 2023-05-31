@@ -2,37 +2,31 @@ name: Deploy Landingpage
 
 on:
   workflow_dispatch:
+  push:
+    branches: master
+    paths: packages/landingpage
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/dependencies-install
-      - run: yarn lint
-      - run: yarn test
-
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/dependencies-install
-      - run: yarn build
+      - name: Build landingpage ⚒️
+        run: yarn build:landingpage
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Storybook Artifact
+      - name: Upload build output ⬆️
         uses: actions/upload-artifact@v2
         with:
           name: landingpage
           path:
-            packages/landingpage/dist/
+            packages/landingpage/out/
 
   deploy-landingpage:
     runs-on: ubuntu-latest
-    needs:
-      - test
-      - build
+    needs: build
     steps:
       - uses: actions/checkout@v2
         with:
@@ -42,11 +36,6 @@ jobs:
         with:
           name: landingpage
           path: ./artifact
-
-      # Crawls the version dir on current gh-pages branch HEAD.
-      # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
-      - run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./artifact/hosted-versions.json
-        name: Update Hosted Versions
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
