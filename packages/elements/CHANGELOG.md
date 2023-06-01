@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.1.2](https://github.com/inovex/elements/compare/v8.1.1...v8.1.2) (2023-06-01)
+
+
+### Bug Fixes
+
+* **elements:** include dependencies in output ([7ee0635](https://github.com/inovex/elements/commit/7ee063564691d30e6bd424f30fa3cd919f73e341))
+
 ### [8.1.1](https://github.com/inovex/elements/compare/v8.1.0...v8.1.1) (2023-05-31)
 
 ## [8.1.0](https://github.com/inovex/elements/compare/v8.0.0...v8.1.0) (2023-05-17)
