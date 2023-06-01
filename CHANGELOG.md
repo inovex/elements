@@ -1,4 +1,6 @@
 # Changelog
+### [8.1.3](https://github.com/inovex/elements/compare/v8.1.2...v8.1.3) (2023-06-01)
+
 ### [8.1.2](https://github.com/inovex/elements/compare/v8.1.1...v8.1.2) (2023-06-01)
 
 
