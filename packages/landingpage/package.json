@@ -11,6 +11,7 @@
     "@types/chart.js": "^2.9.37",
     "chart.js": "^4.0.1",
     "classnames": "^2.3.2",
+    "countup.js": "^2.6.0",
     "date-fns": "^2.29.3",
     "lodash": "^4.17.21",
     "next": "13.0.3",
