@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-angular-builder",
-  "version": "8.1.0",
+  "version": "8.1.2",
   "description": "This is the angular package of the integration layer for  @inovex.de/elements.",
   "author": "Sven Lindauer <slindauer@inovex.de>",
   "contributors": [

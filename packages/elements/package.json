@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "8.1.1",
+  "version": "8.1.2",
   "description": "A web components library implementing the corporate identity of the inovex GmbH",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",

@@ -1,6 +1,9 @@
 {
-  "packages": ["packages/*", "packages/elements-angular/elements"],
-  "version": "8.1.1",
+  "packages": [
+    "packages/*",
+    "packages/elements-angular/elements"
+  ],
+  "version": "8.1.2",
   "npmClient": "yarn",
   "useNx": true,
   "useWorkspaces": true,
@@ -9,7 +12,9 @@
       "yes": true,
       "push": false,
       "message": "chore: publish %s",
-      "allowBranch": ["master"]
+      "allowBranch": [
+        "master"
+      ]
     }
   }
 }
