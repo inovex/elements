@@ -22,13 +22,13 @@
 .col {
   display: flex;
   flex-direction: column;
-  row-gap: 1.214rem;
+  row-gap: 1.2rem;
   min-width: 10rem;
 }
 
 .empty {
   height: 0;
-  
+
   @media only screen and (max-width: 700px) {
     display: none;
   }
