@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
@@ -366,19 +366,19 @@ export namespace Components {
         /**
           * Adds a button with the given text to proceed with an action`
          */
-        "actionbutton"?: string;
+        "actionText"?: string;
         /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
         /**
-          * Adds a button with the given text to close the `ino-dialog`
-         */
-        "cancelbutton"?: string;
-        /**
           * Adds a text to the body of the `ino-dialog`
          */
-        "description"?: string;
+        "bodyText"?: string;
+        /**
+          * Adds a button with the given text to close the `ino-dialog`
+         */
+        "cancelText"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -390,7 +390,7 @@ export namespace Components {
         /**
           * Adds a headline to the `ino-dialog`
          */
-        "headline"?: string;
+        "headerText"?: string;
         /**
           * Adds a `ino-icon` besides the headline
          */
@@ -2191,19 +2191,19 @@ declare namespace LocalJSX {
         /**
           * Adds a button with the given text to proceed with an action`
          */
-        "actionbutton"?: string;
+        "actionText"?: string;
         /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
         /**
-          * Adds a button with the given text to close the `ino-dialog`
-         */
-        "cancelbutton"?: string;
-        /**
           * Adds a text to the body of the `ino-dialog`
          */
-        "description"?: string;
+        "bodyText"?: string;
+        /**
+          * Adds a button with the given text to close the `ino-dialog`
+         */
+        "cancelText"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -2215,11 +2215,15 @@ declare namespace LocalJSX {
         /**
           * Adds a headline to the `ino-dialog`
          */
-        "headline"?: string;
+        "headerText"?: string;
         /**
           * Adds a `ino-icon` besides the headline
          */
         "icon"?: string;
+        /**
+          * Emits an event upon clicking the action button of the dialog
+         */
+        "onAction"?: (event: InoDialogCustomEvent<DialogSubmitAction>) => void;
         /**
           * Emits an event upon closing the dialog
          */

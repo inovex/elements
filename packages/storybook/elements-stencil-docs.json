@@ -2013,6 +2013,18 @@
         {
           "name": "slot",
           "text": "default - content of the dialog"
+        },
+        {
+          "name": "slot",
+          "text": "header - content to replace default header of dialog"
+        },
+        {
+          "name": "slot",
+          "text": "body - content to replace default body of dialog"
+        },
+        {
+          "name": "slot",
+          "text": "footer - content to replace default footer of dialog"
         }
       ],
       "encapsulation": "shadow",
@@ -2032,10 +2044,10 @@
       },
       "props": [
         {
-          "name": "actionbutton",
+          "name": "actionText",
           "type": "string",
           "mutable": false,
-          "attr": "actionbutton",
+          "attr": "action-text",
           "reflectToAttr": false,
           "docs": "Adds a button with the given text to proceed with an action`",
           "docsTags": [],
@@ -2064,12 +2076,12 @@
           "required": false
         },
         {
-          "name": "cancelbutton",
+          "name": "bodyText",
           "type": "string",
           "mutable": false,
-          "attr": "cancelbutton",
+          "attr": "body-text",
           "reflectToAttr": false,
-          "docs": "Adds a button with the given text to close the `ino-dialog`",
+          "docs": "Adds a text to the body of the `ino-dialog`",
           "docsTags": [],
           "values": [
             {
@@ -2080,12 +2092,12 @@
           "required": false
         },
         {
-          "name": "description",
+          "name": "cancelText",
           "type": "string",
           "mutable": false,
-          "attr": "description",
+          "attr": "cancel-text",
           "reflectToAttr": false,
-          "docs": "Adds a text to the body of the `ino-dialog`",
+          "docs": "Adds a button with the given text to close the `ino-dialog`",
           "docsTags": [],
           "values": [
             {
@@ -2128,10 +2140,10 @@
           "required": false
         },
         {
-          "name": "headline",
+          "name": "headerText",
           "type": "string",
           "mutable": false,
-          "attr": "headline",
+          "attr": "header-text",
           "reflectToAttr": false,
           "docs": "Adds a headline to the `ino-dialog`",
           "docsTags": [],
@@ -2180,6 +2192,15 @@
       "methods": [],
       "events": [
         {
+          "event": "action",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits an event upon clicking the action button of the dialog",
+          "docsTags": []
+        },
+        {
           "event": "close",
           "detail": "string",
           "bubbles": true,
@@ -2189,11 +2210,59 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-dialog-background-color",
+          "annotation": "prop",
+          "docs": "background color of the dialog"
+        },
+        {
+          "name": "--ino-dialog-border",
+          "annotation": "prop",
+          "docs": "border shorthand of the dialog"
+        },
+        {
+          "name": "--ino-dialog-border-radius",
+          "annotation": "prop",
+          "docs": "border-radius of the dialog"
+        },
+        {
+          "name": "--ino-dialog-box-shadow",
+          "annotation": "prop",
+          "docs": "box-shadow of the dialog"
+        },
+        {
+          "name": "--ino-dialog-height",
+          "annotation": "prop",
+          "docs": "height of the dialog"
+        },
+        {
+          "name": "--ino-dialog-overlay-background-color",
+          "annotation": "prop",
+          "docs": "background color of the overlay"
+        },
+        {
+          "name": "--ino-dialog-width",
+          "annotation": "prop",
+          "docs": "width of the dialog"
+        }
+      ],
       "slots": [
+        {
+          "name": "body",
+          "docs": "content to replace default body of dialog"
+        },
         {
           "name": "default",
           "docs": "content of the dialog"
+        },
+        {
+          "name": "footer",
+          "docs": "content to replace default footer of dialog"
+        },
+        {
+          "name": "header",
+          "docs": "content to replace default header of dialog"
         }
       ],
       "parts": [],

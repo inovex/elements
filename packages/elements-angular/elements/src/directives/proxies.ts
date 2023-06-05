@@ -309,30 +309,35 @@ export class InoDatepicker {
 }
 
 import type { DialogCloseAction as IDialogDialogCloseAction } from '@inovex.de/elements';
+import type { DialogSubmitAction as IDialogDialogSubmitAction } from '@inovex.de/elements';
 export declare interface InoDialog extends Components.InoDialog {
   /**
    * Emits an event upon closing the dialog 
    */
   close: EventEmitter<CustomEvent<IDialogDialogCloseAction>>;
+  /**
+   * Emits an event upon clicking the action button of the dialog 
+   */
+  action: EventEmitter<CustomEvent<IDialogDialogSubmitAction>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['actionbutton', 'attachTo', 'cancelbutton', 'description', 'dismissible', 'fullwidth', 'headline', 'icon', 'open']
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
 })
 @Component({
   selector: 'ino-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['actionbutton', 'attachTo', 'cancelbutton', 'description', 'dismissible', 'fullwidth', 'headline', 'icon', 'open']
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
 })
 export class InoDialog {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['close']);
+    proxyOutputs(this, this.el, ['close', 'action']);
   }
 }
 
