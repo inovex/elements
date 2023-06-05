@@ -15,7 +15,9 @@ const Components = () => {
 
   useMount(() => {
     push(
-      `${asPath}/${SubRoutes.LIBRARY_COMPONENTS}?element=${WELCOME_PAGE_PLACEHOLDER}`
+      `${asPath}/${SubRoutes.LIBRARY_COMPONENTS}?element=${WELCOME_PAGE_PLACEHOLDER}`,
+      undefined,
+      { scroll: false }
     );
   });
 

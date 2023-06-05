@@ -1,10 +1,13 @@
 import Head from 'next/head';
-import { ReactNode } from 'react';
+import { ReactNode, useContext } from 'react';
 import styles from './layout.module.scss';
 import Footer from './layout/footer/footer';
 import Header from './layout/header/header';
+import { UiContext, UiContextType } from '../utils/context/UiContext';
 
 export default function Layout({ children }: { children: ReactNode }) {
+  const { hideFooter } = useContext(UiContext) as UiContextType;
+
   return (
     <div className="inovex-elements-typo inovex-elements-theme">
       <Head>
@@ -16,7 +19,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <Header></Header>
       <div className={styles.body}>
         <main className={styles.main}>{children}</main>
-        <Footer></Footer>
+        {!hideFooter && <Footer></Footer>}
       </div>
     </div>
   );

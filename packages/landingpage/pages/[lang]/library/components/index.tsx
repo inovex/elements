@@ -10,10 +10,25 @@ import { LangContext } from '../../../../types/langContext';
 import { Locale_File } from '../../../../translations/types';
 import { merge } from 'lodash';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
+import { useContext, useEffect } from 'react';
+import { UiContext, UiContextType } from '../../../../utils/context/UiContext';
 
 const StoryBookPage: NextPage<void> = () => {
+  const { setHideFooter } = useContext(UiContext) as UiContextType;
+
   const initialStorybookUrl = useInitialStorybookUrl();
   useStorybookUrlSyncer();
+
+  // prevent scrolling of body while in storybook
+  useEffect(() => {
+    document.body.style.overflow = 'clip';
+    setHideFooter(true);
+
+    return () => {
+      document.body.style.overflow = 'initial';
+      setHideFooter(false);
+    };
+  }, []);
 
   return (
     <div className={styles.container}>
