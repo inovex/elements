@@ -12,8 +12,11 @@ import { merge } from 'lodash';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 import { useContext, useEffect } from 'react';
 import { UiContext, UiContextType } from '../../../../utils/context/UiContext';
+import Page from '../../../../components/layout/page';
+import useTranslation from "../../../../utils/hooks/useTranslation";
 
 const StoryBookPage: NextPage<void> = () => {
+  const { t } = useTranslation();
   const { setHideFooter } = useContext(UiContext) as UiContextType;
 
   const initialStorybookUrl = useInitialStorybookUrl();
@@ -31,22 +34,24 @@ const StoryBookPage: NextPage<void> = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      {!initialStorybookUrl && <InoSpinner type="circle"></InoSpinner>}
-      {initialStorybookUrl && (
-        <iframe
-          src={initialStorybookUrl}
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 120,
-            height: 'calc(100vh - 120px)', // 120px = Navbar height
-            width: '100%',
-            border: 'none',
-          }}
-        ></iframe>
-      )}
-    </div>
+    <Page title={[t('common.meta.library')]}>
+      <div className={styles.container}>
+        {!initialStorybookUrl && <InoSpinner type="circle"></InoSpinner>}
+        {initialStorybookUrl && (
+          <iframe
+            src={initialStorybookUrl}
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: 120,
+              height: 'calc(100vh - 120px)', // 120px = Navbar height
+              width: '100%',
+              border: 'none',
+            }}
+          ></iframe>
+        )}
+      </div>
+    </Page>
   );
 };
 
