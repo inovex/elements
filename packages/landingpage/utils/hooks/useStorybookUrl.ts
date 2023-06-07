@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 export const WELCOME_PAGE_PLACEHOLDER = 'welcome';
 
-export const useInitialStorybookUrl = () => {
+export const useStorybookUrl = () => {
   const storybookUrl = process.env.NEXT_PUBLIC_STORYBOOK_URL;
 
   const { query, isReady } = useRouter();
@@ -22,5 +22,5 @@ export const useInitialStorybookUrl = () => {
     setIFrameStartURl(fromLandingpageToStorybookUrl(query.element as string));
   }, [isReady, query.element]);
 
-  return iFrameStartURl;
+  return { initialUrl: iFrameStartURl, fromLandingpageToStorybookUrl };
 };
