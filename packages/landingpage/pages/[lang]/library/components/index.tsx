@@ -13,7 +13,7 @@ import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSy
 import { useContext, useEffect } from 'react';
 import { UiContext, UiContextType } from '../../../../utils/context/UiContext';
 import Page from '../../../../components/layout/page';
-import useTranslation from "../../../../utils/hooks/useTranslation";
+import useTranslation from '../../../../utils/hooks/useTranslation';
 
 const StoryBookPage: NextPage<void> = () => {
   const { t } = useTranslation();
