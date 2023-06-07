@@ -1,23 +1,21 @@
-@use '../base/mdc-customize';
-@use '../ino-tooltip/mixins' as tooltip-mixins;
-@use '../base/theme';
-@import '~tippy.js/animations/scale-subtle.css';
+@use '../base/tooltip-base';
 
-$color-schemes: 'primary', 'secondary', 'light';
 
-.ino-popover > * {
-  border-radius: 6px;
-}
+// $color-schemes: 'primary', 'secondary', 'light';
 
-@each $color in $color-schemes {
-  .ino-popover.ino-popover--color-scheme-#{$color} > * {
-    @include tooltip-mixins.tooltip(
-      theme.color($color, light),
-      theme.color($color, contrast)
-    );
-  }
-}
+// .ino-popover > * {
+//   border-radius: 6px;
+// }
 
-.ino-popover.ino-popover--color-scheme-transparent > * {
-  @include tooltip-mixins.tooltip(#fff, theme.color(dark));
-}
+// @each $color in $color-schemes {
+//   .ino-popover.ino-popover--color-scheme-#{$color} > * {
+//     @include tooltip-mixins.tooltip(
+//       theme.color($color, light),
+//       theme.color($color, contrast)
+//     );
+//   }
+// }
+
+// .ino-popover.ino-popover--color-scheme-transparent > * {
+//   @include tooltip-mixins.tooltip(#fff, theme.color(dark));
+// }

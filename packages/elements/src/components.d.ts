@@ -853,7 +853,7 @@ export namespace Components {
         /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
          */
-        "colorScheme": 'primary' | 'transparent';
+        "colorScheme": 'light' | 'dark' | 'primary';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
@@ -2697,7 +2697,7 @@ declare namespace LocalJSX {
         /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
          */
-        "colorScheme"?: 'primary' | 'transparent';
+        "colorScheme"?: 'light' | 'dark' | 'primary';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */

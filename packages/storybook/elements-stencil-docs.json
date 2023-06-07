@@ -5396,7 +5396,7 @@
         },
         {
           "name": "colorScheme",
-          "type": "\"primary\" | \"transparent\"",
+          "type": "\"dark\" | \"light\" | \"primary\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
@@ -5405,11 +5405,15 @@
           "default": "'primary'",
           "values": [
             {
-              "value": "primary",
+              "value": "dark",
               "type": "string"
             },
             {
-              "value": "transparent",
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
               "type": "string"
             }
           ],

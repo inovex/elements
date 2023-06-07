@@ -39,7 +39,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['primary', 'secondary', 'light', 'transparent'],
+      options: ['light', 'dark', 'primary'],
     },
     delay: {
       control: {
@@ -54,7 +54,7 @@ export default {
     interactive: false,
     placement: 'top',
     trigger: 'mouseenter focus',
-    colorScheme: 'transparent',
+    colorScheme: 'primary',
     visible: false,
     hideOnEsc: false,
     hideOnBlur: false,
