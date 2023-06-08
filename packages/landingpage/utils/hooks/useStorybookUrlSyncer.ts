@@ -38,4 +38,6 @@ export const useStorybookUrlSyncer = () => {
       shallow: true,
     });
   }, [storyId]);
+
+  return storyId;
 }
