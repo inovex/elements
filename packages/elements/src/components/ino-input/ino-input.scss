@@ -4,6 +4,7 @@
 @use '@material/textfield/icon';
 @use '@material/textfield/helper-text';
 @use '@material/floating-label/mdc-floating-label';
+@use '@material/floating-label';
 @use '@material/notched-outline/mdc-notched-outline';
 @use '../base/theme';
 @use '../base/typography';
@@ -14,6 +15,10 @@ $padding-top: 24px;
 
 $icon-padding-to-text: 12px;
 $icon-padding-to-border: 6px;
+
+$outline-input-height: 40px;
+$outline-shape-radius: $outline-input-height / 2;
+$outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius $outline-shape-radius 0;
 
 @mixin setIconColors($color) {
   .mdc-text-field__icon {
@@ -69,6 +74,7 @@ ino-input {
 
   .mdc-text-field {
     @include textfield.ink-color(var(--input-color));
+    @include textfield.height(56px);
   }
 
   & * {
@@ -93,6 +99,10 @@ ino-input {
   .mdc-text-field--focused {
     @include textfield.label-color(var(--input-label-color));
     @include setIconColors(var(--input-icon-color));
+
+    & .mdc-floating-label.mdc-floating-label--float-above {
+      font-weight: bold;
+    }
   }
 
   .mdc-text-field--invalid {
@@ -114,7 +124,7 @@ ino-input .mdc-text-field--filled {
   @include textfield.fill-color(transparent);
   @include textfield.disabled-fill-color(transparent);
   @include textfield.line-ripple-color(var(--input-line-color));
-
+  
   &.mdc-text-field--invalid {
     @include textfield.line-ripple-color(theme.color(error));
   }
@@ -160,6 +170,21 @@ ino-input .mdc-text-field--filled {
 // Outlined textfield specific
 ino-input .mdc-text-field--outlined {
   @include textfield.focused-outline-color(var(--input-line-color));
+  @include textfield.outline-shape-radius(20px);
+  @include textfield.outlined-height($outline-input-height);
+  
+  // style outline with corner for helpertext
+  &.mdc-text-field--has-helpertext.mdc-text-field--focused, &.mdc-text-field--has-helpertext.mdc-text-field--has-helpertext-persistent{
+    @include textfield.outline-shape-radius($outline-shape-radius-corner);
+
+    &+.mdc-text-field-helper-line {
+      padding-left: 0;
+    }
+  }
+  
+  &.mdc-text-field--disabled {
+    @include textfield.outline-shape-radius($outline-shape-radius);
+  }
 
   &.mdc-text-field--invalid {
     @include textfield.focused-outline-color(theme.color(error));
