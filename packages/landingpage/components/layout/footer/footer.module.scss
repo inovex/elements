@@ -18,9 +18,11 @@
   flex-wrap: wrap;
   gap: 28px;
 
-  &::after {
-    content: "";
-    flex: auto;
+  @media only screen and (max-width: 920px) {
+    &::after {
+      content: "";
+      flex: auto;
+    }
   }
 }
 
