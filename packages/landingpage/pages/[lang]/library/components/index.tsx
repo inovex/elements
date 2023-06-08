@@ -17,7 +17,7 @@ import useTranslation from '../../../../utils/hooks/useTranslation';
 
 const StoryBookPage: NextPage<void> = () => {
   const { t } = useTranslation();
-  const { setHideFooter } = useContext(UiContext) as UiContextType;
+  const { hideFooter } = useContext(UiContext) as UiContextType;
 
   const initialStorybookUrl = useInitialStorybookUrl();
   useStorybookUrlSyncer();
@@ -25,11 +25,11 @@ const StoryBookPage: NextPage<void> = () => {
   // prevent scrolling of body while in storybook
   useEffect(() => {
     document.body.style.overflow = 'clip';
-    setHideFooter(true);
+    hideFooter(true);
 
     return () => {
       document.body.style.overflow = 'initial';
-      setHideFooter(false);
+      hideFooter(false);
     };
   }, []);
 
