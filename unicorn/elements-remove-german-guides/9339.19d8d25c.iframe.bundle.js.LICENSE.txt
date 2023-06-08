@@ -1,0 +1,11 @@
+/*!
+  	autosize 4.0.4
+  	license: MIT
+  	http://www.jacklmoore.com/autosize
+  */
+
+/*!
+ * Crafted with ❤ by inovex GmbH
+ */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
