@@ -17,6 +17,11 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 28px;
+
+  &::after {
+    content: "";
+    flex: auto;
+  }
 }
 
 .col {
