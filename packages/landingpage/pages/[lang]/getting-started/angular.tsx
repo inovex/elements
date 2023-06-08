@@ -1,21 +1,15 @@
-import React from 'react';
 import Layout from 'components/getting-started/layout';
-import { Framework } from 'utils/frameworks';
+import AngularGuide from 'mdx/getting-started/angular-guide.mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { Locale_File } from 'translations/types';
+import { LangContext } from 'types/langContext';
 import {
   getStaticLanguagePaths,
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
-import { LangContext } from 'types/langContext';
-import { Locale_File } from 'translations/types';
-import AngularGuideEN from 'mdx/getting-started/angular-guide.en.mdx';
-import AngularGuideDE from 'mdx/getting-started/angular-guide.de.mdx';
-import useTranslation from 'utils/hooks/useTranslation';
-import { Supported_Locales } from 'translations/config';
+import { Framework } from 'utils/frameworks';
 
 const AngularGuidePage = () => {
-  const { locale } = useTranslation();
-
   return (
     <Layout
       framework={Framework.ANGULAR}
@@ -23,11 +17,7 @@ const AngularGuidePage = () => {
         'https://codesandbox.io/s/github/inovex/elements-example-angular'
       }
     >
-      {locale === Supported_Locales.EN ? (
-        <AngularGuideEN />
-      ) : (
-        <AngularGuideDE />
-      )}
+      <AngularGuide />
     </Layout>
   );
 };
