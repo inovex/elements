@@ -138,6 +138,7 @@ export class Tooltip implements ComponentInterface {
       delay: this.delay,
       placement: this.placement,
       trigger: this.trigger,
+      arrow: true,
     };
 
     this.tooltipInstance = TippyJS(this.target, options);

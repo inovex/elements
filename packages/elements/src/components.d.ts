@@ -847,6 +847,10 @@ export namespace Components {
     }
     interface InoPopover {
         /**
+          * Shows an arrow
+         */
+        "arrow": boolean;
+        /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
          */
         "attachToBody": boolean;
@@ -2690,6 +2694,10 @@ declare namespace LocalJSX {
         "label"?: string;
     }
     interface InoPopover {
+        /**
+          * Shows an arrow
+         */
+        "arrow"?: boolean;
         /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
          */

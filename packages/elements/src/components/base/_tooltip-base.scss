@@ -1,41 +1,64 @@
 @use '../base/mdc-customize';
 @use './new-theme' as theme;
 @import '~tippy.js/animations/scale-subtle.css';
+@import '~tippy.js/dist/svg-arrow.css';
+@import '~tippy.js/dist/tippy.css';
 @import '../base/typography';
 
 @mixin tooltip($background-color, $font-color) {
-    @include font(sans-serif, m, regular);
-
-    // position: absolute;
     z-index: 9999;
     background: $background-color;
     color: $font-color;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+
+    & .tippy-content {
+        background-color: $background-color;
+    }
+
+    & > .tippy-svg-arrow {
+        fill: $background-color;
+        svg {
+            filter: drop-shadow(0 -3px 4px rgba(0, 0, 0, 0.3));
+            fill: $background-color;
+        }
+      }
 }
 
 .ino-popover > * {
   border-radius: 6px;
 }
 
-.ino-popover.ino-popover--color-scheme-light > * {
+.tippy-box {
+    @include font(sans-serif, m, regular);    
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+
+    & > .tippy-svg-arrow svg {
+        filter: drop-shadow(0 -3px 4px rgba(0, 0, 0, 0.3));
+     }
+      
+}
+
+// offical way to set up custom theme for tippy.js
+.tippy-box[data-theme~='light'] {
     @include tooltip(theme.$white, theme.$black);
 }
-.ino-popover.ino-popover--color-scheme-dark > * {
+
+.tippy-box[data-theme~='dark'] {
     @include tooltip(theme.$n-9, theme.$white);
 }
-.ino-popover.ino-popover--color-scheme-primary > * {
+
+.tippy-box[data-theme~='primary'] {
     @include tooltip(theme.$p-3, theme.$p-6);
 }
 
 // ino-tooltip
 
-ino-tooltip .ino-tooltip__composer {
-  font-size: 0.8rem;
-  text-align: center;
-  letter-spacing: 0;
-  padding: 4px 8px;
-  border-radius: 6px;
-}
+// ino-tooltip .ino-tooltip__composer {
+//   font-size: 0.8rem;
+//   text-align: center;
+//   letter-spacing: 0;
+//   padding: 4px 8px;
+//   border-radius: 6px;
+// }
 
 
 // ino-tooltip.ino-tooltip--color-scheme-primary {

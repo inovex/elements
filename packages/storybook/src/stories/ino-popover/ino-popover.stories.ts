@@ -53,12 +53,13 @@ export default {
     for: 'popover-target',
     interactive: false,
     placement: 'top',
-    trigger: 'mouseenter focus',
-    colorScheme: 'primary',
+    trigger: 'click',
+    colorScheme: 'light',
     visible: false,
     hideOnEsc: false,
     hideOnBlur: false,
     delay: 0,
+    arrow: true,
   },
 } as Meta;
 
@@ -84,6 +85,7 @@ const template = new TemplateGenerator<Components.InoPopover>(
         hide-on-blur="${args.hideOnBlur}"
         hide-on-esc="${args.hideOnEsc}"
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
       >
         <div class="styled-popover">
           <ino-icon icon="user"></ino-icon>

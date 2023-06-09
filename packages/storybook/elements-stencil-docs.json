@@ -5378,6 +5378,23 @@
       },
       "props": [
         {
+          "name": "arrow",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "arrow",
+          "reflectToAttr": false,
+          "docs": "Shows an arrow",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "attachToBody",
           "type": "boolean",
           "mutable": false,

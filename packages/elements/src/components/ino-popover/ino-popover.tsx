@@ -16,6 +16,7 @@ import TippyJS, {
   Placement,
   Props,
   followCursor,
+  roundArrow,
 } from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
 import { TooltipTrigger } from '../types';
@@ -52,6 +53,21 @@ export class Popover implements ComponentInterface {
       placement: this.placement,
     });
   }
+
+  /**
+   * Shows an arrow
+   */
+  @Prop() arrow = true;
+
+  @Watch('arrow')
+  arrowChanged() {
+    this.tippyInstance?.setProps({
+      arrow: this.arrow? roundArrow : false
+    });
+  }
+
+
+
 
   /**
    * If set, attaches the popover element to the body.
@@ -242,8 +258,10 @@ export class Popover implements ComponentInterface {
 
     const options: Partial<Props> = {
       allowHTML: true,
+      theme: this.colorScheme,
       animation: 'scale-subtle',
       appendTo: this.attachToBody ? document.body : this.popoverContainer,
+      arrow: roundArrow,
       content: this.popoverContent,
       duration: 100,
       delay: this.delay,
