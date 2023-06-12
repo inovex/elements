@@ -59,7 +59,7 @@ export default {
     hideOnEsc: false,
     hideOnBlur: false,
     delay: 0,
-    arrow: true,
+    arrow: false,
     placementClass: "",
   },
 } as Meta;
@@ -99,6 +99,7 @@ const template = new TemplateGenerator<InoPopoverExtended>(
 );
 
 export const Playground = template.generatePlaygroundStory();
+export const Arrow = template.generateStoryForProp('arrow', true);
 
 const templateStyled = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
@@ -146,11 +147,9 @@ StyledPopover.args = {
   interactive: true,
 }
 
-export const Placement = template.generateStoryForProp('placement', 'right');
-Placement.args = {
-  placement: "right",
+export const Placement = template.generateStoryForProp('placement', 'right', {
   placementClass: "styled-placement"
-}
+});
 
 export const AttachToBody = template.generateStoryForProp('attachToBody', true);
 

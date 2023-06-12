@@ -57,16 +57,7 @@ export class Popover implements ComponentInterface {
   /**
    * Shows an arrow
    */
-  @Prop() arrow = true;
-
-  @Watch('arrow')
-  arrowChanged() {
-    this.tippyInstance?.setProps({
-      arrow: this.arrow? roundArrow : false
-    });
-  }
-
-
+  @Prop() arrow = false;
 
 
   /**
@@ -261,7 +252,7 @@ export class Popover implements ComponentInterface {
       theme: this.colorScheme,
       animation: 'scale-subtle',
       appendTo: this.attachToBody ? document.body : this.popoverContainer,
-      arrow: roundArrow,
+      arrow: this.arrow? roundArrow : false,
       content: this.popoverContent,
       duration: 100,
       delay: this.delay,
@@ -355,7 +346,6 @@ export class Popover implements ComponentInterface {
   render() {
     const popoverClasses = classNames(
       'ino-popover',
-      `ino-popover--color-scheme-${this.colorScheme}`,
       'ino-popover__content'
     );
 

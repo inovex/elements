@@ -5385,7 +5385,7 @@
           "reflectToAttr": false,
           "docs": "Shows an arrow",
           "docsTags": [],
-          "default": "true",
+          "default": "false",
           "values": [
             {
               "type": "boolean"
