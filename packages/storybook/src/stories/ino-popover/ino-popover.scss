@@ -1,36 +1,37 @@
 .story-ino-popover {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  padding: 80px;
+  gap: 1rem;
+  height: 130px;
 
-  ino-button {
-    margin: 0 12px 12px 0;
+  &:has(ino-button.styled-placement) {
+    align-items: center;
+    justify-content: flex-start;
   }
 
-  ino-popover p {
-    padding-left: 8px;
-    padding-right: 8px;
+  &:has(ino-button.big-space) {
+    height: 250px;
+  }
+}
+
+.styled-popover {
+  padding: 1rem 1.5rem;
+
+  header {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
   }
 
-  .popover-content {
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
+  section {
+    margin-bottom: 1rem;
   }
+}
 
-  .styled-popover {
-    padding: 24px;
-    display: flex;
-    justify-content: space-between;
-    column-gap: 10px;
-  }
-
-  .interactive-popover {
-    width: 300px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 5px;
-  }
+.interactive-popover {
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
 }

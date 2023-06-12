@@ -49,29 +49,64 @@ export default {
   },
   args: {
     controlled: false,
-    distance: 10,
+    distance: 15,
     for: 'popover-target',
     interactive: false,
     placement: 'top',
-    trigger: 'click',
+    trigger: 'mouseenter',
     colorScheme: 'light',
     visible: false,
     hideOnEsc: false,
     hideOnBlur: false,
     delay: 0,
     arrow: true,
+    placementClass: "",
   },
 } as Meta;
 
 let POPOVER_COUNTER = 1;
 
-const template = new TemplateGenerator<Components.InoPopover>(
+type InoPopoverExtended = Components.InoPopover & {
+  placementClass: string;
+}
+
+const template = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
   (args) => {
     const id = `popover-${POPOVER_COUNTER++}`;
 
     return html`
-      <ino-button id="${id}">Popover</ino-button>
+      <ino-button id="${id}" class="${args.placementClass}">Popover</ino-button>
+      <ino-popover
+        color-scheme="${args.colorScheme}"
+        controlled="${args.controlled}"
+        distance="${args.distance}"
+        for="${id}"
+        interactive="${args.interactive}"
+        followCursor="${args.followCursor}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        visible="${args.visible}"
+        hide-on-blur="${args.hideOnBlur}"
+        hide-on-esc="${args.hideOnEsc}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
+      </ino-popover>
+    `;
+  }
+);
+
+export const Playground = template.generatePlaygroundStory();
+
+const templateStyled = new TemplateGenerator<InoPopoverExtended>(
+  'ino-popover',
+  (args) => {
+    const id = 'popover-styled';
+
+    return html`
+      <ino-button id="${id}" class="big-space">Popover</ino-button>
       <ino-popover
         color-scheme="${args.colorScheme}"
         controlled="${args.controlled}"
@@ -88,24 +123,109 @@ const template = new TemplateGenerator<Components.InoPopover>(
         arrow="${args.arrow}"
       >
         <div class="styled-popover">
-          <ino-icon icon="user"></ino-icon>
-          This is a styled popover.
+          <header>Settings</header>
+          <section>
+            Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
+          </section>
+          <footer>
+            <a href="">Learn More</a>
+          </footer>
         </div>
       </ino-popover>
     `;
   }
 );
 
-export const Playground = template.generatePlaygroundStory();
+/**
+ * Using the default slot you can style the ino-popover to your liking. 
+ * 
+ * This example contains the elements: `<header>`, `<section>` and a `<footer>` containing a Link
+ */
+export const StyledPopover = templateStyled.generatePlaygroundStory();
+StyledPopover.args = {
+  interactive: true,
+}
+
 export const Placement = template.generateStoryForProp('placement', 'right');
+Placement.args = {
+  placement: "right",
+  placementClass: "styled-placement"
+}
+
 export const AttachToBody = template.generateStoryForProp('attachToBody', true);
 
 export const Distance = template.generateStoryForProp('distance', 30);
 
-export const ColorScheme = template.generateStoryForProp(
-  'colorScheme',
-  'transparent'
+
+const templateColors = new TemplateGenerator<InoPopoverExtended>(
+  'ino-popover',
+  (args) => {
+
+    const idLight = 'popover-light';
+    const idDark = 'popover-dark';
+    const idPrimary = 'popover-primary'
+
+    return html`
+      <ino-button id="${idLight}">Light</ino-button>
+      <ino-popover
+        color-scheme="light"
+        controlled="${args.controlled}"
+        distance="${args.distance}"
+        for="${idLight}"
+        interactive="${args.interactive}"
+        followCursor="${args.followCursor}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        visible="${args.visible}"
+        hide-on-blur="${args.hideOnBlur}"
+        hide-on-esc="${args.hideOnEsc}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do. 
+      </ino-popover>
+      <ino-button id="${idDark}">Dark</ino-button>
+      <ino-popover
+        color-scheme="dark"
+        controlled="${args.controlled}"
+        distance="${args.distance}"
+        for="${idDark}"
+        interactive="${args.interactive}"
+        followCursor="${args.followCursor}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        visible="${args.visible}"
+        hide-on-blur="${args.hideOnBlur}"
+        hide-on-esc="${args.hideOnEsc}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do. 
+      </ino-popover>
+      <ino-button id="${idPrimary}">Primary</ino-button>
+      <ino-popover
+        color-scheme="primary"
+        controlled="${args.controlled}"
+        distance="${args.distance}"
+        for="${idPrimary}"
+        interactive="${args.interactive}"
+        followCursor="${args.followCursor}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        visible="${args.visible}"
+        hide-on-blur="${args.hideOnBlur}"
+        hide-on-esc="${args.hideOnEsc}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do. 
+      </ino-popover>
+    `;
+  }
 );
+
+export const ColorSchemes = templateColors.generatePlaygroundStory();
+
 
 export const Trigger = template.generateStoryForProp('trigger', 'click');
 
@@ -114,21 +234,22 @@ export const FollowCursor = template.generateStoryForProp(
   'horizontal'
 );
 
-const templateInteractive = new TemplateGenerator<Components.InoPopover>(
+const templateInteractive = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
   () => html`
     <ino-popover
       trigger="click"
       for="popover-interactive-target"
+      distance="15"
       interactive
-      placement="left"
+      placement="top"
     >
       <div class="interactive-popover">
         <p>I'm interactive. You can click me without closing this popover!</p>
         <ino-button>Button not closing the popover</ino-button>
       </div>
     </ino-popover>
-    <ino-button class="placement-button" id="popover-interactive-target"
+    <ino-button class="placement-button big-space" id="popover-interactive-target"
       >Interactive Content
     </ino-button>
   `
@@ -139,7 +260,7 @@ export const Interactions = templateInteractive.generateStoryForProp(
   true
 );
 
-const templateControlledPopover = new TemplateGenerator<Components.InoPopover>(
+const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
   () => {
     const eventHandler = (e) => {
