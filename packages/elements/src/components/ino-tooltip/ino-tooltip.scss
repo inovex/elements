@@ -1,26 +1,25 @@
-@use './mixins' as tooltip-mixins;
-@use '../base/theme';
+@use "./../base/tooltip_base";
 
-ino-tooltip .ino-tooltip__composer {
-  font-size: 0.8rem;
-  text-align: center;
-  letter-spacing: 0;
-  padding: 4px 8px;
-  border-radius: 6px;
-}
+// ino-tooltip .ino-tooltip__composer {
+//   font-size: 0.8rem;
+//   text-align: center;
+//   letter-spacing: 0;
+//   padding: 4px 8px;
+//   border-radius: 6px;
+// }
 
 
-ino-tooltip.ino-tooltip--color-scheme-primary {
-  .ino-tooltip__composer {
-    @include tooltip-mixins.tooltip(
-        theme.color(primary, light),
-        theme.color(primary, contrast)
-    );
-  }
-}
+// ino-tooltip.ino-tooltip--color-scheme-primary {
+//   .ino-tooltip__composer {
+//     @include tooltip-mixins.tooltip(
+//         theme.color(primary, light),
+//         theme.color(primary, contrast)
+//     );
+//   }
+// }
 
-ino-tooltip.ino-tooltip--color-scheme-transparent {
-  .ino-tooltip__composer {
-    @include tooltip-mixins.tooltip(#fff, theme.color(dark));
-  }
-}
+// ino-tooltip.ino-tooltip--color-scheme-transparent {
+//   .ino-tooltip__composer {
+//     @include tooltip-mixins.tooltip(#fff, theme.color(dark));
+//   }
+// }

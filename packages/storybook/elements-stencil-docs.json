@@ -8108,21 +8108,42 @@
       },
       "props": [
         {
+          "name": "arrow",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "arrow",
+          "reflectToAttr": false,
+          "docs": "Shows an arrow",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "colorScheme",
-          "type": "\"primary\" | \"transparent\"",
+          "type": "\"dark\" | \"light\" | \"primary\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `transparent`",
+          "docs": "Sets the color scheme of the tooltip\nValid options include: `light`, `dark` or `primary`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "primary",
+              "value": "dark",
               "type": "string"
             },
             {
-              "value": "transparent",
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
               "type": "string"
             }
           ],

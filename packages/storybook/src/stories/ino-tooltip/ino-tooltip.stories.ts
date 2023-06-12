@@ -37,7 +37,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['primary', 'secondary', 'light', 'transparent'],
+      options: ['light', 'dark', 'primary'],
     },
     delay: {
       control: {
@@ -55,6 +55,7 @@ export default {
     colorScheme: 'primary',
     delay: 0,
     message: '',
+    arrow: false,
   },
 } as Meta;
 
@@ -68,7 +69,8 @@ const template = new TemplateGenerator<Components.InoTooltip>(
     trigger="${args.trigger}"
     color-scheme="${args.colorScheme}"
     delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
-  >This is a tooltip for</ino-tooltip>
+    arrow="${args.arrow}"
+  >This is a tooltip</ino-tooltip>
 `);
 
 export const Playground = template.generatePlaygroundStory();
@@ -76,6 +78,11 @@ export const Playground = template.generatePlaygroundStory();
 export const Placement = template.generateStoryForProp('placement', 'right', {
   for: 'tooltip-target-placement'
 });
+
+export const Arrow = template.generateStoryForProp('arrow', true, {
+  for: 'tooltip-target-arrow'
+});
+
 export const Trigger = template.generateStoryForProp('trigger', 'click', {
   for: 'tooltip-target-trigger',
 });

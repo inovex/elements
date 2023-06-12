@@ -1269,14 +1269,14 @@ export declare interface InoTooltip extends Components.InoTooltip {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'delay', 'for', 'label', 'placement', 'trigger'],
+  inputs: ['arrow', 'colorScheme', 'delay', 'for', 'label', 'placement', 'trigger'],
   methods: ['getTippyInstance']
 })
 @Component({
   selector: 'ino-tooltip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'delay', 'for', 'label', 'placement', 'trigger']
+  inputs: ['arrow', 'colorScheme', 'delay', 'for', 'label', 'placement', 'trigger']
 })
 export class InoTooltip {
   protected el: HTMLElement;

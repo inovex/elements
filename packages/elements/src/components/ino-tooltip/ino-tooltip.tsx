@@ -8,8 +8,7 @@ import {
   h,
   Method,
 } from '@stencil/core';
-import classNames from 'classnames';
-import TippyJS, { Instance, Placement } from 'tippy.js';
+import TippyJS, { Instance, Placement, roundArrow } from 'tippy.js';
 import { TooltipTrigger } from '../types';
 
 /**
@@ -28,9 +27,9 @@ export class Tooltip implements ComponentInterface {
 
   /**
    * Sets the color scheme of the tooltip
-   * Valid options include: `primary`, `transparent`
+   * Valid options include: `light`, `dark` or `primary`
    */
-  @Prop() colorScheme: 'primary' | 'transparent' =
+  @Prop() colorScheme: 'light' | 'dark' | 'primary' =
     'primary';
 
   /**
@@ -39,6 +38,11 @@ export class Tooltip implements ComponentInterface {
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
   @Prop() placement: Placement = 'auto';
+
+  /**
+   * Shows an arrow
+   */
+  @Prop() arrow = false; 
 
   @Watch('placement')
   async onPlacementChange() {
@@ -138,6 +142,8 @@ export class Tooltip implements ComponentInterface {
       delay: this.delay,
       placement: this.placement,
       trigger: this.trigger,
+      arrow: this.arrow? roundArrow : false,
+      theme: this.colorScheme,
     };
 
     this.tooltipInstance = TippyJS(this.target, options);
@@ -182,12 +188,8 @@ export class Tooltip implements ComponentInterface {
   }
 
   render() {
-    const hostClasses = classNames(
-      `ino-tooltip--color-scheme-${this.colorScheme}`
-    );
-
     return (
-      <Host class={hostClasses}>
+      <Host>
         <div class="ino-tooltip__composer" role="tooltip">
           <div class="ino-tooltip__inner">{this.label ? this.label : <slot />}</div>
         </div>

@@ -1,0 +1,56 @@
+@use '../base/mdc-customize';
+@use './new-theme' as theme;
+@import '~tippy.js/animations/scale-subtle.css';
+@import '~tippy.js/dist/svg-arrow.css';
+@import '~tippy.js/dist/tippy.css';
+@import '../base/typography';
+
+$border-radius: 10px;
+$shadow-color: rgba(93, 91, 105, 0.3);
+
+@mixin tooltip($background-color, $font-color) {
+    background: $background-color;
+    color: $font-color;
+
+    & .tippy-content {
+        background-color: $background-color;
+    }
+
+    & > .tippy-svg-arrow {
+        fill: $background-color;
+
+        svg {
+            fill: $background-color;
+        }
+      }
+}
+
+// global styles
+.tippy-box {
+    @include font(sans-serif, m, regular);    
+    border-radius: $border-radius;
+    padding: 0.2rem 0.5rem;
+    z-index: 9999;
+}
+
+.tippy-content {
+    border-radius: $border-radius;
+}
+
+// set up custom themes for tippy.js
+.tippy-box[data-theme~='light'] {
+    box-shadow: 0 0 15px 0 $shadow-color;
+    @include tooltip(theme.$white, theme.$black);
+
+    & > .tippy-svg-arrow svg {
+        filter: drop-shadow(0 -6px 3px $shadow-color);
+     }
+}
+
+.tippy-box[data-theme~='dark'] {
+    @include tooltip(theme.$n-9, theme.$white);
+}
+
+.tippy-box[data-theme~='primary'] {
+    @include tooltip(theme.$p-3, theme.$p-6);
+}
