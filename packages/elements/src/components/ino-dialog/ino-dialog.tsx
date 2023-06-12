@@ -83,8 +83,6 @@ export class Dialog implements ComponentInterface {
    */
   @Prop() icon?:string;
 
-  // @Prop() hideCancelButton?:boolean;
-
   @Watch('open')
   openChanged(open: boolean) {
     open ? this.mdcDialog?.open() : this.mdcDialog?.close();
@@ -148,16 +146,8 @@ export class Dialog implements ComponentInterface {
     if (!element) {
       return;
     }
-    console.log('element.getAttribute(DIALOG_ACTION_ATTRIBUTE)', element.getAttribute(DIALOG_ACTION_ATTRIBUTE))
     this.close.emit(element.getAttribute(DIALOG_ACTION_ATTRIBUTE));
   }
-
-  private handleAction = (e) => {
-    if(e === 'action') {
-      this.action.emit(e);
-    }
-    this.close.emit(e);
-  }; 
 
   render() {
     //const hasBodySlot = hasSlotContent(this.el, 'body');
@@ -193,8 +183,8 @@ export class Dialog implements ComponentInterface {
                     }
                     {hasFooterSlot ? <slot name="footer"></slot> :
                       <footer>
-                        {this.cancelText && <ino-button variant="outlined" onClick={() => this.handleAction('close')}>{this.cancelText}</ino-button>}
-                        {this.actionText && <ino-button type="submit" onClick={() => this.handleAction('submit')}>{this.actionText}</ino-button>}
+                        {this.cancelText && <ino-button variant="outlined" onClick={() => this.close.emit('close')}>{this.cancelText}</ino-button>}
+                        {this.actionText && <ino-button type="submit" onClick={() => this.action.emit('submit')}>{this.actionText}</ino-button>}
                     </footer>
                     }
                 </div>
