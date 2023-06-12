@@ -883,6 +883,10 @@ export namespace Components {
          */
         "getTippyInstance": () => Promise<any>;
         /**
+          * Adds a header test to the `ino-popover`
+         */
+        "headerText": string;
+        /**
           * If true, hides the popper on blur.
          */
         "hideOnBlur"?: boolean;
@@ -2726,6 +2730,10 @@ declare namespace LocalJSX {
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
         "for"?: string;
+        /**
+          * Adds a header test to the `ino-popover`
+         */
+        "headerText"?: string;
         /**
           * If true, hides the popper on blur.
          */

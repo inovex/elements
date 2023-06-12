@@ -41,6 +41,11 @@ export class Popover implements ComponentInterface {
   private popoverContent: HTMLDivElement;
 
   /**
+   * Adds a header test to the `ino-popover`
+   */
+  @Prop() headerText: string;
+
+  /**
    * The placement of this popover.
    * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
    * `bottom(-start, -end)`, `left(-start, -end)`
@@ -359,6 +364,7 @@ export class Popover implements ComponentInterface {
             ref={(ref) => (this.popoverContent = ref)}
             onClick={this.handlePopoverClick.bind(this)}
           >
+            {this.headerText && <header>{this.headerText}</header>}
             <slot></slot>
           </div>
         </div>

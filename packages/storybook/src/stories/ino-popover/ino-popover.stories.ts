@@ -61,6 +61,7 @@ export default {
     delay: 0,
     arrow: false,
     placementClass: "",
+    headerText: "",
   },
 } as Meta;
 
@@ -91,6 +92,7 @@ const template = new TemplateGenerator<InoPopoverExtended>(
         hide-on-esc="${args.hideOnEsc}"
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
+        header-text="${args.headerText}"
       >
         Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
       </ino-popover>
@@ -100,53 +102,9 @@ const template = new TemplateGenerator<InoPopoverExtended>(
 
 export const Playground = template.generatePlaygroundStory();
 export const Arrow = template.generateStoryForProp('arrow', true);
-
-const templateStyled = new TemplateGenerator<InoPopoverExtended>(
-  'ino-popover',
-  (args) => {
-    const id = 'popover-styled';
-
-    return html`
-      <ino-button id="${id}" class="big-space">Popover</ino-button>
-      <ino-popover
-        color-scheme="${args.colorScheme}"
-        controlled="${args.controlled}"
-        distance="${args.distance}"
-        for="${id}"
-        interactive="${args.interactive}"
-        followCursor="${args.followCursor}"
-        placement="${args.placement}"
-        trigger="${args.trigger}"
-        visible="${args.visible}"
-        hide-on-blur="${args.hideOnBlur}"
-        hide-on-esc="${args.hideOnEsc}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
-        arrow="${args.arrow}"
-      >
-        <div class="styled-popover">
-          <header>Settings</header>
-          <section>
-            Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
-          </section>
-          <footer>
-            <a href="">Learn More</a>
-          </footer>
-        </div>
-      </ino-popover>
-    `;
-  }
-);
-
-/**
- * Using the default slot you can style the ino-popover to your liking. 
- * 
- * This example contains the elements: `<header>`, `<section>` and a `<footer>` containing a Link
- */
-export const StyledPopover = templateStyled.generatePlaygroundStory();
-StyledPopover.args = {
-  interactive: true,
-}
-
+export const WithHeaderText = template.generateStoryForProp('headerText', "Headline", {
+  distance: 10
+});
 export const Placement = template.generateStoryForProp('placement', 'right', {
   placementClass: "styled-placement"
 });
@@ -154,7 +112,6 @@ export const Placement = template.generateStoryForProp('placement', 'right', {
 export const AttachToBody = template.generateStoryForProp('attachToBody', true);
 
 export const Distance = template.generateStoryForProp('distance', 30);
-
 
 const templateColors = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',

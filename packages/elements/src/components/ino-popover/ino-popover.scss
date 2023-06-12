@@ -1,2 +1,15 @@
 // ino-popover & ino-tooltip use the same base-design
 @use '../base/tooltip-base';
+
+ino-popover {
+    header {
+        font-weight: bold;
+        margin-bottom: 0.5rem;;
+    }
+}
+
+ino-popover:has(header) {
+    .tippy-box {
+        padding: 0.5rem;
+    }
+}

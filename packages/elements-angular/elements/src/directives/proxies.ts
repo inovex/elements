@@ -811,14 +811,14 @@ and emits with `false` when the target or the outside is clicked.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['arrow', 'attachToBody', 'colorScheme', 'controlled', 'delay', 'distance', 'followCursor', 'for', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible'],
+  inputs: ['arrow', 'attachToBody', 'colorScheme', 'controlled', 'delay', 'distance', 'followCursor', 'for', 'headerText', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible'],
   methods: ['getTippyInstance']
 })
 @Component({
   selector: 'ino-popover',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['arrow', 'attachToBody', 'colorScheme', 'controlled', 'delay', 'distance', 'followCursor', 'for', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible']
+  inputs: ['arrow', 'attachToBody', 'colorScheme', 'controlled', 'delay', 'distance', 'followCursor', 'for', 'headerText', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible']
 })
 export class InoPopover {
   protected el: HTMLElement;
