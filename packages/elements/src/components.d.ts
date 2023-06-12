@@ -863,7 +863,7 @@ export namespace Components {
          */
         "controlled": boolean;
         /**
-          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
         /**
@@ -2711,7 +2711,7 @@ declare namespace LocalJSX {
          */
         "controlled"?: boolean;
         /**
-          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
         /**

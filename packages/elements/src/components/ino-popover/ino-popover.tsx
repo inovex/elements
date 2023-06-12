@@ -166,7 +166,7 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * The delay in milliseconds before `ino-tooltip` shows up or hides.
+   * The delay in milliseconds before `ino-popover` shows up or hides.
    *
    * If only one number is given, the show and hide delay get the given delay duration.
    *

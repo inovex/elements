@@ -1,21 +1,2 @@
+// ino-popover & ino-tooltip use the same base-design
 @use '../base/tooltip-base';
-
-
-// $color-schemes: 'primary', 'secondary', 'light';
-
-// .ino-popover > * {
-//   border-radius: 6px;
-// }
-
-// @each $color in $color-schemes {
-//   .ino-popover.ino-popover--color-scheme-#{$color} > * {
-//     @include tooltip-mixins.tooltip(
-//       theme.color($color, light),
-//       theme.color($color, contrast)
-//     );
-//   }
-// }
-
-// .ino-popover.ino-popover--color-scheme-transparent > * {
-//   @include tooltip-mixins.tooltip(#fff, theme.color(dark));
-// }
