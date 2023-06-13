@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.openExternallyButton {
+  position: fixed;
+  bottom: 60px;
+  right: -215px;
+  z-index: 10;
+  transition: right 200ms;
+
+  &:hover {
+    right: 0;
+  }
+
+  &Icon {
+    --ino-icon-color-primary: white;
+  }
+}

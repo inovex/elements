@@ -1,9 +1,9 @@
 {
   "name": "elements-vue-example",
-  "version": "8.0.0",
+  "version": "8.1.3",
   "private": true,
   "dependencies": {
-    "@inovex.de/elements-vue": "^8.0.0",
+    "@inovex.de/elements-vue": "^8.1.3",
     "core-js": "^3.21.1",
     "vue": "^3.2.31"
   },

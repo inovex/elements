@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: gh-pages
+          ref: pages
       - uses: rlespinasse/github-slug-action@v3.x
       - name: Delete Unicorn from github
         uses: EndBug/add-and-commit@v9
         with:
-          branch: gh-pages
+          branch: pages
           message: Destroying unicorn ${{ env.GITHUB_REF_NAME_SLUG }} 🦄
           remove: -r unicorn/${{ env.GITHUB_REF_NAME_SLUG }}

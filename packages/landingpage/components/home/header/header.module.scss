@@ -1,0 +1,84 @@
+.container {
+  display: grid;
+  grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);
+  grid-template-rows: 1fr min-content 1fr;
+  grid-template-areas:
+    'header image'
+    'info image'
+    'installation image';
+    grid-row-gap: 40px;
+    margin-top: 75px;
+}
+
+.image {
+  grid-area: image;
+  opacity: 1;
+  transition: opacity 500ms ease;
+  overflow: visible;
+  z-index: -1;
+
+  @media screen and (max-width: 768px) {
+    opacity: 0.2;
+  }
+
+  @media screen and (max-width: 600px) {
+    opacity: 0;
+  }
+}
+
+.headerContainer {
+  grid-area: header;
+  align-self: end;
+  grid-column: 1 / span 2;
+
+  .header {
+    margin: 0;
+  }
+
+  .subheader {
+    margin: 0;
+    font-weight: 300;
+  }
+
+  mark {
+    padding: 0 5px 0 3px;
+    position: relative;
+    width: fit-content;
+    isolation: isolate;
+    background-color: var(--inovex-elements-transparent); // needed, else background defaults to yellow
+
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+      0,
+      var(--inovex-elements-p-3) 40%,
+      var(--inovex-elements-transparent) 40%,
+    );
+    opacity: 0.4;
+    }
+  }
+}
+
+.info {
+  grid-area: info;
+  max-width: 650px;
+  grid-column: 1 / span 2
+}
+
+.installation {
+  grid-area: installation;
+  align-self: start;
+  grid-column: 1 / span 2;
+
+  .link {
+    display: block;
+    width: fit-content;
+  }
+
+  .animation {
+    padding-top: 15px;
+  }
+}
