@@ -6,14 +6,13 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
+  Listen,
   Prop,
   Watch,
-  h,
-  Listen
 } from '@stencil/core';
-import { DialogCloseAction } from '../types';
-import { DialogSubmitAction } from '../types';
+import { DialogCloseAction, DialogSubmitAction } from '../types';
 import { hasSlotContent } from '../../util/component-utils';
 
 const DIALOG_ACTION_ATTRIBUTE = 'data-ino-dialog-action';
@@ -30,7 +29,6 @@ const DIALOG_ACTION_ATTRIBUTE = 'data-ino-dialog-action';
   shadow: true,
 })
 export class Dialog implements ComponentInterface {
-
   private mdcDialog: MDCDialog;
 
   @Element() el!: HTMLInoDialogElement;
@@ -60,28 +58,27 @@ export class Dialog implements ComponentInterface {
   /**
    * Adds a headline to the `ino-dialog`
    */
-  @Prop() headerText?:string;
+  @Prop() headerText?: string;
 
   /**
    * Adds a text to the body of the `ino-dialog`
    */
-  @Prop() bodyText?:string;
+  @Prop() bodyText?: string;
 
   /**
    * Adds a button with the given text to close the `ino-dialog`
    */
-  @Prop() cancelText?:string;
+  @Prop() cancelText?: string;
 
   /**
    * Adds a button with the given text to proceed with an action`
    */
-  @Prop() actionText?:string;
-
+  @Prop() actionText?: string;
 
   /**
    * Adds a `ino-icon` besides the headline
    */
-  @Prop() icon?:string;
+  @Prop() icon?: string;
 
   @Watch('open')
   openChanged(open: boolean) {
@@ -90,7 +87,7 @@ export class Dialog implements ComponentInterface {
 
   @Listen('keyup', { target: 'body' })
   handleKeyUp(event: KeyboardEvent) {
-    if(event.key === 'Escape' && this.open && this.dismissible) {
+    if (event.key === 'Escape' && this.open && this.dismissible) {
       this.close.emit('close');
     }
   }
@@ -106,24 +103,30 @@ export class Dialog implements ComponentInterface {
   @Event() action!: EventEmitter<DialogSubmitAction>;
 
   componentWillRender(): Promise<void> {
-    if(!this.mdcDialog || !this.open) {
+    if (!this.mdcDialog || !this.open) {
       return;
     }
 
     // Wait to render the content until the MDC Dialog itself is opened
     return new Promise((resolve) => {
-      this.mdcDialog.listen('MDCDialog:opened', () => resolve(), { once: true });
+      this.mdcDialog.listen('MDCDialog:opened', () => resolve(), {
+        once: true,
+      });
     });
   }
 
   componentWillLoad() {
     // During first initaliazation, attach the dialog to the target.
-    const target = this.attachTo ? document.querySelector(this.attachTo) : document.body;
+    const target = this.attachTo
+      ? document.querySelector(this.attachTo)
+      : document.body;
     target?.appendChild(this.el);
   }
 
   componentDidLoad() {
-    this.mdcDialog = new MDCDialog(this.el.shadowRoot.querySelector('.mdc-dialog'));
+    this.mdcDialog = new MDCDialog(
+      this.el.shadowRoot.querySelector('.mdc-dialog')
+    );
 
     // Prevent internal handling of escape and scrim click action (would close the dialog).
     // We want to manually close the dialog via our open property
@@ -142,7 +145,10 @@ export class Dialog implements ComponentInterface {
     if (!e.target) {
       return;
     }
-    const element = closest(e.target as Element, `[${DIALOG_ACTION_ATTRIBUTE}]`);
+    const element = closest(
+      e.target as Element,
+      `[${DIALOG_ACTION_ATTRIBUTE}]`
+    );
     if (!element) {
       return;
     }
@@ -159,7 +165,7 @@ export class Dialog implements ComponentInterface {
     const hasFooterSlot = hasSlotContent(this.el, 'footer');
 
     return (
-      <Host class={{'ino-dialog--fullwidth': this.fullwidth}}>
+      <Host class={{ 'ino-dialog--fullwidth': this.fullwidth }}>
         <div class="mdc-dialog">
           <div class="mdc-dialog__container">
             <div
@@ -168,30 +174,53 @@ export class Dialog implements ComponentInterface {
               aria-modal="true"
             >
               <div tabindex="0" />
-               {hasDefaultSlot ? <slot></slot> : 
-                  <div> 
-                    {hasHeaderSlot ? <slot name="header"></slot> :
-                      <header>
-                         {this.icon && <ino-icon icon={this.icon} />}
-                        <h1>{this.headerText}</h1>
-                      </header>
-                    }
-                    {hasBodySlot ? <slot name="body"></slot> :
-                      <section class="body">
-                        {this.bodyText}
-                      </section> 
-                    }
-                    {hasFooterSlot ? <slot name="footer"></slot> :
-                      <footer>
-                        {this.cancelText && <ino-button variant="outlined" onClick={() => this.close.emit('close')}>{this.cancelText}</ino-button>}
-                        {this.actionText && <ino-button type="submit" onClick={() => this.action.emit('submit')}>{this.actionText}</ino-button>}
+              {hasDefaultSlot ? (
+                <slot></slot>
+              ) : (
+                <div>
+                  {hasHeaderSlot ? (
+                    <slot name="header"></slot>
+                  ) : (
+                    <header>
+                      {this.icon && <ino-icon icon={this.icon} />}
+                      <h1>{this.headerText}</h1>
+                    </header>
+                  )}
+                  {hasBodySlot ? (
+                    <slot name="body"></slot>
+                  ) : (
+                    <section class="body">{this.bodyText}</section>
+                  )}
+                  {hasFooterSlot ? (
+                    <slot name="footer"></slot>
+                  ) : (
+                    <footer>
+                      {this.cancelText && (
+                        <ino-button
+                          variant="outlined"
+                          onClick={() => this.close.emit('close')}
+                        >
+                          {this.cancelText}
+                        </ino-button>
+                      )}
+                      {this.actionText && (
+                        <ino-button
+                          type="submit"
+                          onClick={() => this.action.emit('submit')}
+                        >
+                          {this.actionText}
+                        </ino-button>
+                      )}
                     </footer>
-                    }
+                  )}
                 </div>
-                }
+              )}
             </div>
           </div>
-          <div class="mdc-dialog__scrim" onClick={() => this.dismissible && this.close.emit('close')} />
+          <div
+            class="mdc-dialog__scrim"
+            onClick={() => this.dismissible && this.close.emit('close')}
+          />
         </div>
       </Host>
     );
