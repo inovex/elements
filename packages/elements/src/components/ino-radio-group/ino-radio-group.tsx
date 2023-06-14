@@ -48,6 +48,9 @@ export class RadioGroup implements ComponentInterface {
     radios.forEach((radio) => {
       radio.addEventListener('mouseover', () => this.addHoverAnimation(radio));
       radio.addEventListener('mouseout', () => this.removeHoverAnimation());
+      radio.addEventListener('checkedChange', () => {
+        this.valueChange.emit(radio.value);
+      });
     });
   }
 
@@ -58,6 +61,9 @@ export class RadioGroup implements ComponentInterface {
         this.addHoverAnimation(radio)
       );
       radio.removeEventListener('mouseout', () => this.removeHoverAnimation());
+      radio.removeEventListener('checkedChange', () =>
+        this.valueChange.emit(radio.value)
+      );
     });
   }
 
