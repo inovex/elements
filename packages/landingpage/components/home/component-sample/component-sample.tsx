@@ -119,13 +119,13 @@ export default function ComponentSample() {
           >
             <InoList two-lines="false">
               <InoControlItem
-                role="checkbox"
+                type="checkbox"
                 checked={checkboxValue}
                 text="Checkbox"
                 onCheckedChange={(value) => setCheckboxValue(value.detail)}
               ></InoControlItem>
               <InoControlItem
-                role="radio"
+                type="radio"
                 checked={radioboxValue}
                 text="Radio Button"
                 onCheckedChange={(value) => setRadioboxValue(value.detail)}
