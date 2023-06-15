@@ -25,7 +25,7 @@ export class InoControlItem implements ComponentInterface {
   /**
    * The type of control element
    */
-  @Prop() role!: 'checkbox' | 'radio';
+  @Prop() type!: 'checkbox' | 'radio';
 
   /**
    * The primary text of this list item (required).
@@ -136,7 +136,7 @@ export class InoControlItem implements ComponentInterface {
           disabled={this.disabled}
           onClick={this.clickHandler}
         >
-          {this.role === 'checkbox' ? (
+          {this.type === 'checkbox' ? (
             <ino-checkbox
               {...controlItemProps}
               indeterminate={this.indeterminate}
