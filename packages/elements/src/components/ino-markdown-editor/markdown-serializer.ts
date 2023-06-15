@@ -4,7 +4,7 @@ import {
   MarkdownSerializer,
 } from 'prosemirror-markdown';
 import { Node as ProsemirrorNode } from 'prosemirror-model';
-import taskLists from '@hedgedoc/markdown-it-task-lists'
+import taskLists from '@hedgedoc/markdown-it-task-lists';
 import Bold from '@tiptap/extension-bold';
 import Code from '@tiptap/extension-code';
 import Italic from '@tiptap/extension-italic';
@@ -19,8 +19,8 @@ import ListItem from '@tiptap/extension-list-item';
 import CodeBlock from '@tiptap/extension-code-block';
 import HardBreak from '@tiptap/extension-hard-break';
 import Link from '@tiptap/extension-link';
-import TaskItem from "./extensions/task_item";
-import TaskList from "./extensions/task_list";
+import TaskItem from './extensions/task_item';
+import TaskList from './extensions/task_list';
 
 // Source is partially taken from
 // https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/content_editor/services/markdown_serializer.js
@@ -35,7 +35,19 @@ const defaultSerializerConfig = {
       mixable: true,
       expelEnclosingWhitespace: true,
     },
-    [Link.name]: defaultMarkdownSerializer.marks.link,
+    [Link.name]: {
+      open(_state, link, parentNode, currentIndex) {
+        return isPlainTextUrl(link, parentNode, currentIndex, 1) ? '' : '[';
+      },
+      close(state, link, parentNode, currentIndex) {
+        return isPlainTextUrl(link, parentNode, currentIndex, -1)
+          ? ''
+          : `](${link.attrs.href}${
+              link.attrs.title ? ' ' + state.esc(link.attrs.title) : ''
+            })`;
+      },
+    },
+
     [Strike.name]: {
       open: '~~',
       close: '~~',
@@ -81,6 +93,15 @@ const markdownSerializer = new MarkdownSerializer(
   defaultSerializerConfig.nodes,
   defaultSerializerConfig.marks
 );
+
+function isPlainTextUrl(link, parentNode, currentIndex, direction) {
+  let adjacentNode = getAdjacentNode(parentNode, currentIndex, direction);
+  return adjacentNode.isText && adjacentNode.text === link.attrs.href;
+}
+
+function getAdjacentNode(parent, currentIndex, direction) {
+  return parent.child(currentIndex + (direction > 0 ? 0 : -1));
+}
 
 let markdownRenderer = null;
 
