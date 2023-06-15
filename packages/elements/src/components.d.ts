@@ -10,6 +10,11 @@ import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
+export { Alignment, ButtonType, ChipSurface, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+export { Variants } from "./components/ino-button/ino-button";
+export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
+export { Placement, Props } from "tippy.js";
+export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
         /**
@@ -206,10 +211,6 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * The type of control element
-         */
-        "role": 'checkbox' | 'radio';
-        /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
         "secondaryText"?: string;
@@ -225,6 +226,10 @@ export namespace Components {
           * Places the checkbox at the end of the item
          */
         "trailing"?: boolean;
+        /**
+          * The type of control element
+         */
+        "type": 'checkbox' | 'radio';
         /**
           * The value of this element.
          */
@@ -433,6 +438,9 @@ export namespace Components {
          */
         "topBottomLocation": VerticalLocation;
     }
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
@@ -777,6 +785,21 @@ export namespace Components {
          */
         "text"?: string;
     }
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface InoMarkdownEditor {
         /**
           * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
@@ -1543,6 +1566,9 @@ declare global {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
     };
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {
     }
     var HTMLInoIconElement: {
@@ -1603,6 +1629,21 @@ declare global {
         prototype: HTMLInoListItemElement;
         new (): HTMLInoListItemElement;
     };
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
     }
     var HTMLInoMarkdownEditorElement: {
@@ -2015,10 +2056,6 @@ declare namespace LocalJSX {
          */
         "onCheckedChange"?: (event: InoControlItemCustomEvent<any>) => void;
         /**
-          * The type of control element
-         */
-        "role": 'checkbox' | 'radio';
-        /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
         "secondaryText"?: string;
@@ -2034,6 +2071,10 @@ declare namespace LocalJSX {
           * Places the checkbox at the end of the item
          */
         "trailing"?: boolean;
+        /**
+          * The type of control element
+         */
+        "type": 'checkbox' | 'radio';
         /**
           * The value of this element.
          */
@@ -2242,6 +2283,9 @@ declare namespace LocalJSX {
          */
         "topBottomLocation"?: VerticalLocation;
     }
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
@@ -2601,6 +2645,21 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface InoMarkdownEditor {
         /**
           * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
@@ -3287,6 +3346,9 @@ declare module "@stencil/core" {
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
+            /**
+             * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+             */
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
             "ino-img": LocalJSX.InoImg & JSXBase.HTMLAttributes<HTMLInoImgElement>;
@@ -3297,6 +3359,21 @@ declare module "@stencil/core" {
             "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
+            /**
+             * The **Preview Mode** supports following actions:
+             * | Actions ||||
+             * |---|
+             * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+             * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+             * | Bold | Inline code | Task list |
+             * Additionally, there are a lot of predefined
+             * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+             * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+             * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+             *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+             *  * Support of task list syntax (`- [x] MyToDoTask`)
+             *  * No support of image syntax. __Images are not allowed!__
+             */
             "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;

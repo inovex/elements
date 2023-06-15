@@ -5,6 +5,26 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The **Preview Mode** supports following actions:
+
+| Actions ||||
+|---|
+| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+| Bold | Inline code | Task list |
+
+Additionally, there are a lot of predefined
+[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+provided by the underlying [tiptap](https://tiptap.dev/) editor.
+
+The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+
+ * Support of strikethrough syntax (`~~TextToStrike~~`)
+ * Support of task list syntax (`- [x] MyToDoTask`)
+ * No support of image syntax. __Images are not allowed!__
+
 ## Properties
 
 | Property       | Attribute       | Description                                                                                                                                                                            | Type                                    | Default     |

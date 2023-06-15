@@ -89,7 +89,7 @@ export const InoChip = /*@__PURE__*/ defineContainer<JSX.InoChip>('ino-chip', un
 
 
 export const InoControlItem = /*@__PURE__*/ defineContainer<JSX.InoControlItem, JSX.InoControlItem["checked"]>('ino-control-item', undefined, [
-  'inoRole',
+  'type',
   'text',
   'secondaryText',
   'selected',

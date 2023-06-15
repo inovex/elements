@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
+    //"skipLibCheck": true,
     "strict": false,
     "noImplicitReturns": false,
-    "declaration": false,
+    "declaration": true,
     "module": "commonjs",
     "experimentalDecorators": true,
     "lib": ["dom", "es2017"],
@@ -14,10 +15,10 @@
   },
   "references": [
     {
-      "path": "./tsconfig.lib.json"
+      "path": "./tsconfig.lib.json",
     },
     {
-      "path": "./tsconfig.eslint.json"
+      "path": "./tsconfig.eslint.json",
     }
   ]
 }

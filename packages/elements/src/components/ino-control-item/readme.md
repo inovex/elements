@@ -72,19 +72,19 @@ Please note that only text is supported as a trailing element. However, your ico
 
 ## Properties
 
-| Property               | Attribute        | Description                                                                                                                                      | Type                    | Default     |
-| ---------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- | ----------- |
-| `activated`            | `activated`      | Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.            | `boolean`               | `undefined` |
-| `checked`              | `checked`        | Marks this element as checked. (**unmanaged**)                                                                                                   | `boolean`               | `false`     |
-| `disabled`             | `disabled`       | Disables this element.                                                                                                                           | `boolean`               | `undefined` |
-| `indeterminate`        | `indeterminate`  | Marks this element as indeterminate (**unmanaged**) Checkbox only                                                                                | `boolean`               | `undefined` |
-| `inoRole` _(required)_ | `ino-role`       | The type of control element                                                                                                                      | `"checkbox" \| "radio"` | `undefined` |
-| `name`                 | `name`           | The name of this element.                                                                                                                        | `string`                | `undefined` |
-| `secondaryText`        | `secondary-text` | Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.                                               | `string`                | `undefined` |
-| `selected`             | `selected`       | Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon. | `boolean`               | `undefined` |
-| `text` _(required)_    | `text`           | The primary text of this list item (required).                                                                                                   | `string`                | `undefined` |
-| `trailing`             | `trailing`       | Places the checkbox at the end of the item                                                                                                       | `boolean`               | `undefined` |
-| `value`                | `value`          | The value of this element.                                                                                                                       | `string`                | `undefined` |
+| Property            | Attribute        | Description                                                                                                                                      | Type                    | Default     |
+| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- | ----------- |
+| `activated`         | `activated`      | Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.            | `boolean`               | `undefined` |
+| `checked`           | `checked`        | Marks this element as checked. (**unmanaged**)                                                                                                   | `boolean`               | `false`     |
+| `disabled`          | `disabled`       | Disables this element.                                                                                                                           | `boolean`               | `undefined` |
+| `indeterminate`     | `indeterminate`  | Marks this element as indeterminate (**unmanaged**) Checkbox only                                                                                | `boolean`               | `undefined` |
+| `name`              | `name`           | The name of this element.                                                                                                                        | `string`                | `undefined` |
+| `secondaryText`     | `secondary-text` | Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.                                               | `string`                | `undefined` |
+| `selected`          | `selected`       | Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon. | `boolean`               | `undefined` |
+| `text` _(required)_ | `text`           | The primary text of this list item (required).                                                                                                   | `string`                | `undefined` |
+| `trailing`          | `trailing`       | Places the checkbox at the end of the item                                                                                                       | `boolean`               | `undefined` |
+| `type` _(required)_ | `type`           | The type of control element                                                                                                                      | `"checkbox" \| "radio"` | `undefined` |
+| `value`             | `value`          | The value of this element.                                                                                                                       | `string`                | `undefined` |
 
 
 ## Events

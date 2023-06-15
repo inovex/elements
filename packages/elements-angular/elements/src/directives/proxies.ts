@@ -225,14 +225,14 @@ Listen to this event to hide or destroy this chip.
 
 
 @ProxyCmp({
-  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'inoRole', 'name', 'secondaryText', 'selected', 'text', 'trailing', 'value']
+  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'secondaryText', 'selected', 'text', 'trailing', 'type', 'value']
 })
 @Component({
   selector: 'ino-control-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'inoRole', 'name', 'secondaryText', 'selected', 'text', 'trailing', 'value'],
+  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'secondaryText', 'selected', 'text', 'trailing', 'type', 'value'],
 })
 export class InoControlItem {
   protected el: HTMLElement;
