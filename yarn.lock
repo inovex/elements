@@ -4897,6 +4897,14 @@
   resolved "https://registry.npmjs.org/@soda/get-current-script/-/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==
 
+"@stencil-community/eslint-plugin@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/@stencil-community/eslint-plugin/-/eslint-plugin-0.5.0.tgz#f0f212183b28ba16071ae1235ac675ecdd10b59a"
+  integrity sha512-KLn+//K7EalP5GvP1iu8ORMFEWRlLEkwPxQSuS84jkIALFZMa9fbJoNlqeg0St6xZudhRNHlC5iq+7/X6hLpLw==
+  dependencies:
+    eslint-utils "^3.0.0"
+    tsutils "3.0.0"
+
 "@stencil/angular-output-target@^0.4.0":
   version "0.4.0"
   resolved "https://registry.npmjs.org/@stencil/angular-output-target/-/angular-output-target-0.4.0.tgz#6724ed805d50e802f58212d74a71caf442e0b569"
@@ -4907,23 +4915,15 @@
   resolved "https://registry.npmjs.org/@stencil/core/-/core-2.17.1.tgz#c0fd74d2991c2ea9d7e382017726bfd01009a05c"
   integrity sha512-ErjQsNALgZQ9SYeBHhqwL1UO+Zbptwl3kwrRJC2tGlc3G/T6UvPuaKr+PGsqI+CZGia+0+R5EELQvFu74mYeIg==
 
-"@stencil/eslint-plugin@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/@stencil/eslint-plugin/-/eslint-plugin-0.4.0.tgz#93d70c903dc76a1d3a2478d5f3a5fc7fcd78c2fa"
-  integrity sha512-2tjDOjyh0DLt1NITII4s+rU1UwcomrbR/yei3fIU83l7PLNdZvBCSCopsXYyxaY/C37aYJQ0LR8edlLVEk6EUw==
-  dependencies:
-    eslint-utils "^3.0.0"
-    tsutils "3.0.0"
-
 "@stencil/react-output-target@^0.3.1":
   version "0.3.1"
   resolved "https://registry.npmjs.org/@stencil/react-output-target/-/react-output-target-0.3.1.tgz#dc9cc2fea32d0e30474a87fcb2a447f90ab78696"
   integrity sha512-6d9pPhyajFfdxkqU/pPP2SzI7wn+EklySQc4KXlI/xcdvC2H9BzLmhmR40fR1q2TQoJbJui/nvSWhbYqkE3OBQ==
 
-"@stencil/sass@^1.5.2":
-  version "1.5.2"
-  resolved "https://registry.npmjs.org/@stencil/sass/-/sass-1.5.2.tgz#861dffe90a8d911b6b2af4a36d8928b5264a8646"
-  integrity sha512-nJ93pUSylsGsMX0eLmhxh1oEljcUjj5mYjhB9ziCdoaydAdjukrUoqDCC7tdVbOcBo2hKptQyWqCtETnBGYsXQ==
+"@stencil/sass@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/@stencil/sass/-/sass-2.0.3.tgz#39da1488dd811ec523b4b59f2f0053693cc09145"
+  integrity sha512-ypS+0f6bJH2qXqrNAHirlYOWFax+qKKOIePLs7cu4LfKFr4ZVJSGRFBdgaeRrZMUhJWnhjV6io2uDldhrQhnMg==
 
 "@stencil/vue-output-target@^0.6.0":
   version "0.6.2"
