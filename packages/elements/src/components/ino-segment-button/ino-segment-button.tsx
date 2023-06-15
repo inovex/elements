@@ -1,7 +1,16 @@
-import {Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop,} from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core';
 import classNames from 'classnames';
 
-import {generateUniqueId} from '../../util/component-utils';
+import { generateUniqueId } from '../../util/component-utils';
 
 /**
  * @slot default - Label of the button

@@ -159,11 +159,12 @@ export class CurrencyInput {
   }
 
   private toCurrencyString(value: string | number): string {
-    if (!value  && value !== 0) return null;
+    if (!value && value !== 0) return null;
 
-    const locale = this.currencyLocale?.length > 0
-      ? this.currencyLocale
-      : config.get('currencyLocale', this.defaultLocale);
+    const locale =
+      this.currencyLocale?.length > 0
+        ? this.currencyLocale
+        : config.get('currencyLocale', this.defaultLocale);
 
     const opts = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
     return Intl.NumberFormat(locale, opts).format(Number(value));

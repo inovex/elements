@@ -13,8 +13,6 @@ import {
 import { Alignment } from '../types';
 import classNames from 'classnames';
 
-
-
 /**
  * @slot default - One or more `ino-radio`
  */

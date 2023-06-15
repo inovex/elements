@@ -96,7 +96,9 @@ export class Chip implements ComponentInterface {
 
   componentDidLoad() {
     if (this.label) {
-      console.warn('[ino-chip] The attribute "label" is deprecated, please use the default slot instead.');
+      console.warn(
+        '[ino-chip] The attribute "label" is deprecated, please use the default slot instead.'
+      );
     }
   }
 
@@ -104,7 +106,7 @@ export class Chip implements ComponentInterface {
     e.preventDefault();
     e.stopPropagation();
     this.chipRemoved.emit(this.value);
-  }
+  };
 
   private renderPrimaryAction(content: HTMLElement[]) {
     if (this.selectable) {

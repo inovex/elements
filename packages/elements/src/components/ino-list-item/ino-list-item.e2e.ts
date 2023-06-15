@@ -1,21 +1,20 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
-import {E2EElement, E2EPage} from "@stencil/core/testing";
+import { E2EElement, E2EPage } from '@stencil/core/testing';
 
 const LIST_ITEM = `<ino-list-item/>`;
 const LIST_ITEM_SELECTOR = 'ino-list-item';
 const LI_SELECTOR = 'ino-list-item li';
 
 describe('InoListItem', () => {
-
   let page: E2EPage;
   let inoListItem: E2EElement;
   let liElement: E2EElement;
 
-   beforeEach( async () => {
-     page = await setupPageWithContent(LIST_ITEM);
-     inoListItem = await page.find(LIST_ITEM_SELECTOR);
-     liElement = await page.find(LI_SELECTOR);
-   })
+  beforeEach(async () => {
+    page = await setupPageWithContent(LIST_ITEM);
+    inoListItem = await page.find(LIST_ITEM_SELECTOR);
+    liElement = await page.find(LI_SELECTOR);
+  });
 
   describe('Properties', () => {
     it('should disable the list-item if disabled property is set to true', async () => {

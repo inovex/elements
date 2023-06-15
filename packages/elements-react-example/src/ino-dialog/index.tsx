@@ -1,16 +1,20 @@
 import React from 'react';
 import './Dialog.scss';
 
-import { InoButton, InoDialog, InoIconButton, InoOption, InoSelect } from '../shared/InovexElements';
+import {
+  InoButton,
+  InoDialog,
+  InoIconButton,
+  InoOption,
+  InoSelect,
+} from '../shared/InovexElements';
 
 export const Dialog: React.FC = () => {
   const [selectedValue, setSelectedValue] = React.useState('');
   const [dialogOpen, setDialogOpen] = React.useState(false);
   return (
     <div className="App">
-      <InoButton onClick={() => setDialogOpen(true)}>
-        Open Dialog
-      </InoButton>
+      <InoButton onClick={() => setDialogOpen(true)}>Open Dialog</InoButton>
 
       <InoDialog dismissible open={dialogOpen}>
         <div className="ino-dialog-header">

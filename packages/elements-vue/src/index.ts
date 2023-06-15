@@ -1,2 +1,2 @@
 export * from './proxies';
-export { InoElementsVue  } from './elements-vue';
+export { InoElementsVue } from './elements-vue';

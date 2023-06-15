@@ -13,7 +13,7 @@ export type PickerOption =
   | (TimePicker & Datepicker)
   | MonthPicker;
 
-export type PickerTypeKeys = typeof PickerTypes[keyof typeof PickerTypes];
+export type PickerTypeKeys = (typeof PickerTypes)[keyof typeof PickerTypes];
 
 // Workaround until Stencil is using TS 4.1, use enum then
 // see => https://stackoverflow.com/questions/52393730/typescript-string-literal-union-type-from-enum

@@ -1,8 +1,8 @@
 import { Todo } from './shared/models/todo';
 import { TodoService } from './shared/services/todo.service';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { ViewModeUnion } from "@inovex.de/elements";
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ViewModeUnion } from '@inovex.de/elements';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +12,8 @@ import { ViewModeUnion } from "@inovex.de/elements";
 export class AppComponent {
   todos: Array<Todo>;
   form: FormGroup;
-  mode: ViewModeUnion = 'preview'
-  myText: string = '# Hello World\nI go to home!\n## Foo Bar Text'
+  mode: ViewModeUnion = 'preview';
+  myText: string = '# Hello World\nI go to home!\n## Foo Bar Text';
 
   constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todos = this.todoService.getRandomTodos();
@@ -25,8 +25,7 @@ export class AppComponent {
 
   toggleInputState(): void {
     const control = this.form.get('todoName');
-    if (control)
-      control.disabled ? control.enable() : control.disable();
+    if (control) control.disabled ? control.enable() : control.disable();
   }
 
   add() {

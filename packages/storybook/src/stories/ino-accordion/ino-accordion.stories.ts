@@ -12,7 +12,7 @@ const eventHandler = (e: CustomEvent<boolean>) => {
 export default {
   title: 'Structure/<ino-accordion>',
   component: 'ino-accordion',
-  decorators: [story => decorateStoryWithClass(story, 'story-accordion')],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-accordion')],
   // will be used as default props for all stories
   args: {
     expanded: false,
@@ -23,7 +23,7 @@ export default {
 // the basic template for the accordion component
 const template = new TemplateGenerator<Components.InoAccordion>(
   'ino-accordion',
-  args => html`
+  (args) => html`
     <ino-accordion
       expanded="${args.expanded}"
       accordion-title="${args.accordionTitle}"

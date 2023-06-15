@@ -6,7 +6,7 @@ export const hideOnPopperBlur = {
   fn(instance) {
     return {
       onCreate() {
-        instance.popper.addEventListener('focusout', event => {
+        instance.popper.addEventListener('focusout', (event) => {
           if (
             instance.props.hideOnPopperBlur &&
             event.relatedTarget &&
@@ -15,9 +15,9 @@ export const hideOnPopperBlur = {
             instance.hide();
           }
         });
-      }
+      },
     };
-  }
+  },
 };
 
 export const hideOnEsc = {
@@ -36,7 +36,7 @@ export const hideOnEsc = {
       },
       onHide() {
         document.removeEventListener('keydown', onKeyDown);
-      }
+      },
     };
-  }
+  },
 };

@@ -16,12 +16,12 @@ export class Config {
   }
 
   patch(key: keyof InoElementsConfig, value?: any) {
-    if(this.storage && this.storage[key]) {
+    if (this.storage && this.storage[key]) {
       this.storage[key] = value;
     }
   }
 
-  private get storage(): InoElementsConfig|null {
+  private get storage(): InoElementsConfig | null {
     if (typeof (window as any) !== 'undefined') {
       const configWrapper = (window as any as InoElementsWindow).inoElements;
       if (configWrapper && configWrapper.config) {
@@ -41,10 +41,14 @@ export const inoElementsConfig = new Config();
 export const setupConfig = (config: InoElementsConfig) => {
   const win = window as any as InoElementsWindow;
   const namespace = win.inoElements;
-  if (namespace && namespace.config && namespace.config.constructor.name !== 'Object') {
+  if (
+    namespace &&
+    namespace.config &&
+    namespace.config.constructor.name !== 'Object'
+  ) {
     console.error('inovex elements config was already initialized');
     return;
   }
   win.inoElements = win.inoElements || {};
-  win.inoElements.config = config
+  win.inoElements.config = config;
 };

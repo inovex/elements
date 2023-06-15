@@ -53,8 +53,8 @@ describe('InoCarousel', () => {
     </ino-carousel>
     `);
     inoCarousel = await page.find(CAROUSEL);
-    iconArrowLeft = await page.find(LEFT_ARROW_SELECTOR)
-    iconArrowRight = await page.find(RIGHT_ARROW_SELECTOR)
+    iconArrowLeft = await page.find(LEFT_ARROW_SELECTOR);
+    iconArrowRight = await page.find(RIGHT_ARROW_SELECTOR);
   });
 
   async function simulateIconClick(icon: 'Left' | 'Right'): Promise<void> {
@@ -77,7 +77,7 @@ describe('InoCarousel', () => {
 
   it('should show first slide in carousel upon clicking right arrow icon if last slide is showing', async () => {
     inoCarousel.setAttribute('value', 'c');
-    await page.waitForChanges()
+    await page.waitForChanges();
     const eventSpy = await page.spyOnEvent('valueChange');
     await simulateIconClick('Right');
     expect(eventSpy).toHaveReceivedEventDetail('a');
@@ -85,11 +85,10 @@ describe('InoCarousel', () => {
 
   it('should show last slide in carousel upon clicking left arrow icon if first slide is showing', async () => {
     inoCarousel.setAttribute('value', 'a');
-    await page.waitForChanges()
+    await page.waitForChanges();
 
     const eventSpy = await page.spyOnEvent('valueChange');
     await simulateIconClick('Left');
     expect(eventSpy).toHaveReceivedEventDetail('c');
   });
-
 });

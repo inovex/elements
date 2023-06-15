@@ -17,8 +17,8 @@ export default {
     },
   },
   decorators: [
-    story => decorateStoryWithClass(story, 'story-markdown-editor'),
-    story => {
+    (story) => decorateStoryWithClass(story, 'story-markdown-editor'),
+    (story) => {
       useEffect(() => {
         const viewModeChangeHandler = (e: CustomEvent<string>) => {
           const editor = document.getElementById(
@@ -38,12 +38,12 @@ export default {
   args: {
     initialValue: '',
     viewMode: 'preview',
-  }
+  },
 } as Meta;
 
 const template = new TemplateGenerator<Components.InoMarkdownEditor>(
   'ino-markdown-editor',
-  args => html`
+  (args) => html`
     <ino-markdown-editor
       id="${ID}"
       initial-value="${args.initialValue}"
@@ -52,4 +52,3 @@ const template = new TemplateGenerator<Components.InoMarkdownEditor>(
   `
 );
 export const Playground = template.generatePlaygroundStory();
-

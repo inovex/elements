@@ -21,6 +21,10 @@ export default TaskList.extend({
   },
 
   renderHTML({ HTMLAttributes: { numeric, ...HTMLAttributes } }) {
-    return [numeric ? 'ol' : 'ul', mergeAttributes(HTMLAttributes, { 'data-type': 'taskList' }), 0];
+    return [
+      numeric ? 'ol' : 'ul',
+      mergeAttributes(HTMLAttributes, { 'data-type': 'taskList' }),
+      0,
+    ];
   },
 });

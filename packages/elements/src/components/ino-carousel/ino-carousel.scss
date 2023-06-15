@@ -1,4 +1,4 @@
-@use "../base/new-theme";
+@use '../base/new-theme';
 
 ino-carousel {
   /**
@@ -12,7 +12,6 @@ ino-carousel {
 }
 
 .ino-carousel {
-
   &__container {
     position: relative;
     overflow: hidden;

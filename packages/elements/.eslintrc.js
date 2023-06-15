@@ -20,7 +20,7 @@ module.exports = {
     'react/jsx-no-bind': 'off',
     '@stencil/strict-boolean-conditions': 'off',
     '@stencil/dependency-suggestions': 'off',
-    '@stencil/prefer-vdom-listener': 'off'
+    '@stencil/prefer-vdom-listener': 'off',
   },
   ignorePatterns: ['stencil.config.ts'],
 };

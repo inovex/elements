@@ -52,7 +52,7 @@ describe('InoDialog', () => {
       await page.waitForChanges();
 
       expect(inoChangedEvent).toHaveReceivedEvent();
-      expect(inoChangedEvent).toHaveReceivedEventDetail("message");
+      expect(inoChangedEvent).toHaveReceivedEventDetail('message');
     });
   });
 });

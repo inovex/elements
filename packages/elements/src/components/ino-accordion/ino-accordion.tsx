@@ -51,7 +51,6 @@ export class Accordion implements ComponentInterface {
     const toggleButtonClasses = classNames({
       'toggle-button': true,
       'toggle-button--expanded': this.expanded,
-
     });
 
     const inoAccordionContent = classNames({
@@ -72,7 +71,7 @@ export class Accordion implements ComponentInterface {
     return (
       <div class={inoAccordionClasses}>
         <div class="ino-accordion__header" onClick={() => this.toggleExpand()}>
-        <button class={toggleButtonClasses}>
+          <button class={toggleButtonClasses}>
             <span class="toggle-icon toggle-icon--expanded"></span>
             <span class="toggle-icon toggle-icon--collapsed"></span>
           </button>

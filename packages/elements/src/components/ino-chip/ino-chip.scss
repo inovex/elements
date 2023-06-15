@@ -1,24 +1,24 @@
 @use '../base/mdc-customize';
 @use '@material/chips';
-@use "@material/chips/styles";
+@use '@material/chips/styles';
 @use '../base/new-theme' as theme;
 
 $border-focused: rgba(45, 93, 255, 0.3);
 
 $chip-outlined-color-enabled: transparent;
-$chip-outlined-color-hover: #E8EDFF;
+$chip-outlined-color-hover: #e8edff;
 
-$chip-solid-color-enabled: #E8EDFF;
-$chip-solid-color-hover: #D7E0FE;
+$chip-solid-color-enabled: #e8edff;
+$chip-solid-color-hover: #d7e0fe;
 
-$chip-color-focus: #2D5DFF4D;
+$chip-color-focus: #2d5dff4d;
 $chip-color-font: theme.$primary;
 
 $icon-size: 16px;
 
 ino-chip {
   height: 24px; // default height
- 
+
   &.ino-chip--not-clickable {
     pointer-events: none;
   }
@@ -50,7 +50,8 @@ ino-chip {
       font-size: 13px;
     }
 
-    &.mdc-evolution-chip.mdc-evolution-chip--with-trailing-action .mdc-evolution-chip__action--trailing {
+    &.mdc-evolution-chip.mdc-evolution-chip--with-trailing-action
+      .mdc-evolution-chip__action--trailing {
       padding-right: 5px;
     }
 
@@ -82,7 +83,8 @@ ino-chip {
       --icon-color: #{theme.$primary};
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       @include chips.container-color($chip-outlined-color-hover);
     }
   }
@@ -95,7 +97,8 @@ ino-chip {
       --icon-color: theme.$primary;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       @include chips.container-color($chip-solid-color-hover);
     }
   }
@@ -114,7 +117,8 @@ ino-chip {
 
   // focus styling
   &:focus-within {
-    &.ino-chip--solid .mdc-evolution-chip, &.ino-chip--outline .mdc-evolution-chip {
+    &.ino-chip--solid .mdc-evolution-chip,
+    &.ino-chip--outline .mdc-evolution-chip {
       box-shadow: 0 0 0 3px $border-focused;
     }
   }

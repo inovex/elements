@@ -16,7 +16,6 @@ $minmax: minmax(210px, 316px);
   }
 }
 
-
 .componentGrid {
   display: grid;
   grid-template-columns: repeat(4, $minmax);
@@ -30,7 +29,7 @@ $minmax: minmax(210px, 316px);
 
   @media only screen and (max-width: 1360px) {
     grid-template-columns: repeat(2, $minmax);
-    grid-template-rows: repeat(4, 258px);;
+    grid-template-rows: repeat(4, 258px);
     grid-template-areas:
       'chip slider'
       'snackbar input'

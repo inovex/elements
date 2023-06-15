@@ -5,7 +5,7 @@ import { TodoService } from './todo.service';
 describe('TodoService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TodoService]
+      providers: [TodoService],
     });
   });
 

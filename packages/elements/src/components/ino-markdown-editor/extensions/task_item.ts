@@ -1,7 +1,7 @@
-import {TaskItem} from '@tiptap/extension-task-item';
-import {wrappingInputRule} from "@tiptap/core";
+import { TaskItem } from '@tiptap/extension-task-item';
+import { wrappingInputRule } from '@tiptap/core';
 
-export const customInputRegex = /^\s*([-+*]\s\[([( |x])?])\s$/
+export const customInputRegex = /^\s*([-+*]\s\[([( |x])?])\s$/;
 
 export default TaskItem.extend({
   addOptions() {
@@ -17,7 +17,9 @@ export default TaskItem.extend({
         default: false,
         keepOnSplit: false,
         parseHTML: (element) => {
-          const checkbox = element.querySelector('input[type=checkbox].task-list-item-checkbox') as HTMLInputElement;
+          const checkbox = element.querySelector(
+            'input[type=checkbox].task-list-item-checkbox'
+          ) as HTMLInputElement;
           return checkbox?.checked;
         },
         renderHTML: (attributes) => ({
@@ -29,86 +31,87 @@ export default TaskItem.extend({
 
   addNodeView() {
     return ({ node, HTMLAttributes, getPos, editor }) => {
-      const listItem = document.createElement('li')
-      const checkboxWrapper = document.createElement('label')
-      const checkboxStyler = document.createElement('span')
-      const checkbox = document.createElement('input')
-      const content = document.createElement('div')
+      const listItem = document.createElement('li');
+      const checkboxWrapper = document.createElement('label');
+      const checkboxStyler = document.createElement('span');
+      const checkbox = document.createElement('input');
+      const content = document.createElement('div');
 
-      checkboxWrapper.contentEditable = 'false'
-      checkbox.type = 'checkbox'
-      checkbox.addEventListener('change', event => {
+      checkboxWrapper.contentEditable = 'false';
+      checkbox.type = 'checkbox';
+      checkbox.addEventListener('change', (event) => {
         // if the editor isn’t editable and we don't have a handler for
         // readonly checks we have to undo the latest change
         if (!editor.isEditable && !this.options.onReadOnlyChecked) {
-          checkbox.checked = !checkbox.checked
+          checkbox.checked = !checkbox.checked;
 
-          return
+          return;
         }
 
-        const {checked} = event.target as any
+        const { checked } = event.target as any;
 
         if (editor.isEditable && typeof getPos === 'function') {
           editor
             .chain()
-            .focus(undefined, {scrollIntoView: false})
-            .command(({tr}) => {
-              const position = getPos()
-              const currentNode = tr.doc.nodeAt(position)
+            .focus(undefined, { scrollIntoView: false })
+            .command(({ tr }) => {
+              const position = getPos();
+              const currentNode = tr.doc.nodeAt(position);
 
               tr.setNodeMarkup(position, undefined, {
                 ...currentNode?.attrs,
                 checked,
-              })
+              });
 
-              return true
+              return true;
             })
-            .run()
+            .run();
         }
         if (!editor.isEditable && this.options.onReadOnlyChecked) {
           // Reset state if onReadOnlyChecked returns false
           if (!this.options.onReadOnlyChecked(node, checked)) {
-            checkbox.checked = !checkbox.checked
+            checkbox.checked = !checkbox.checked;
           }
         }
-      })
+      });
 
       Object.entries(this.options.HTMLAttributes).forEach(([key, value]) => {
-        listItem.setAttribute(key, value)
-      })
+        listItem.setAttribute(key, value);
+      });
 
-      listItem.dataset.checked = node.attrs.checked
+      listItem.dataset.checked = node.attrs.checked;
       if (node.attrs.checked) {
-        checkbox.setAttribute('checked', 'checked')
+        checkbox.setAttribute('checked', 'checked');
       }
 
-      checkboxWrapper.append(checkbox, checkboxStyler)
-      listItem.append(checkboxWrapper, content)
+      checkboxWrapper.append(checkbox, checkboxStyler);
+      listItem.append(checkboxWrapper, content);
 
       Object.entries(HTMLAttributes).forEach(([key, value]) => {
-        listItem.setAttribute(key, value)
-      })
+        listItem.setAttribute(key, value);
+      });
 
       return {
         dom: listItem,
         contentDOM: content,
-        update: updatedNode => {
+        update: (updatedNode) => {
           if (updatedNode.type !== this.type) {
-            return false
+            return false;
           }
 
-          listItem.dataset.checked = updatedNode.attrs.checked
+          listItem.dataset.checked = updatedNode.attrs.checked;
           if (updatedNode.attrs.checked) {
-            checkbox.setAttribute('checked', 'checked')
+            checkbox.setAttribute('checked', 'checked');
           } else {
-            checkbox.removeAttribute('checked')
+            checkbox.removeAttribute('checked');
           }
 
-          return true
+          return true;
         },
-        ignoreMutation: (mr: MutationRecord) => mr.attributeName !== 'data-checked',
-      }
-    }
+        ignoreMutation: (mr: MutationRecord) =>
+          mr.attributeName !== 'data-checked',
+      };
+    };
   },
 
   parseHTML() {
@@ -127,11 +130,10 @@ export default TaskItem.extend({
       wrappingInputRule({
         find: customInputRegex,
         type: this.type,
-        getAttributes: match => ({
+        getAttributes: (match) => ({
           checked: match[match.length - 1] === 'x',
         }),
       }),
-    ]
+    ];
   },
 });
-

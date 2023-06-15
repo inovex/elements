@@ -6,7 +6,13 @@ import { PartialFlatpickrOptions } from '../picker-factory';
 
 export type MonthPicker = Pick<
   BaseOptions,
-  'defaultDate' | 'minDate' | 'maxDate' | 'plugins' | 'onReady' | 'onDestroy' | 'static'
+  | 'defaultDate'
+  | 'minDate'
+  | 'maxDate'
+  | 'plugins'
+  | 'onReady'
+  | 'onDestroy'
+  | 'static'
 >;
 
 type OnValueChangeFn = PartialFlatpickrOptions['onValueChange'];

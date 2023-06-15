@@ -81,7 +81,9 @@ export class Snackbar implements ComponentInterface {
     this.snackbarInstance.open();
 
     if (this.message) {
-      console.warn('[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.');
+      console.warn(
+        '[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.'
+      );
     }
   }
 

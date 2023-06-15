@@ -34,6 +34,4 @@ export default create({
 
   brandTitle: 'INOVEX ELEMENTS v' + version,
   brandUrl: '/',
-
-  
 });

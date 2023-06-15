@@ -48,7 +48,7 @@ export class InoSegmentGroup implements ComponentInterface {
 
   @Listen('checkedChange')
   handleCheckedChange(ev: CustomEvent) {
-    if((ev.target as HTMLElement).tagName === 'INO-SEGMENT-BUTTON') {
+    if ((ev.target as HTMLElement).tagName === 'INO-SEGMENT-BUTTON') {
       this.valueChange.emit((ev.target as HTMLInoSegmentButtonElement).value);
     }
   }

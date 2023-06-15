@@ -14,14 +14,14 @@ export default {
     },
   },
   decorators: [
-    story => decorateStoryWithClass(story),
-    story => {
+    (story) => decorateStoryWithClass(story),
+    (story) => {
       useEffect(() => {
         const radioGrp = document.querySelector('#radio-grp');
-        const eventHandler = e =>
+        const eventHandler = (e) =>
           radioGrp.setAttribute('value', e.target.getAttribute('value'));
         radioGrp.addEventListener('checkedChange', eventHandler);
-        const evtHandler = e => {
+        const evtHandler = (e) => {
           radioGrp.setAttribute('value', e.detail);
         };
         radioGrp.addEventListener('valueChange', evtHandler);
@@ -41,9 +41,9 @@ export default {
 
 const template = new TemplateGenerator<Components.InoRadioGroup>(
   'ino-radio-group',
-  args => html`
-    <ino-radio-group 
-      id="radio-grp" 
+  (args) => html`
+    <ino-radio-group
+      id="radio-grp"
       value="${args.value}"
       alignment="${args.alignment}"
     >
@@ -65,11 +65,7 @@ Playground.argTypes = {
 };
 
 export const VerticalAlignment = () => html`
-  <ino-radio-group
-    id="radio-grp"
-    value="opt-2"
-    alignment="vertical"
-  >
+  <ino-radio-group id="radio-grp" value="opt-2" alignment="vertical">
     <ino-radio value="opt-1">Opt 1</ino-radio>
     <ino-radio value="opt-2">Opt 2</ino-radio>
     <ino-radio value="opt-3">Opt 3</ino-radio>

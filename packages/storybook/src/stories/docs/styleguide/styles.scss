@@ -21,12 +21,12 @@ html {
 .transparent {
   position: relative;
   border: 1px solid black;
-  
+
   &::after {
     position: absolute;
     content: '';
     inset: 8px 8px -8px -8px;
-    background-color: #B6B4C4;
+    background-color: #b6b4c4;
     z-index: -1;
   }
 }
@@ -47,7 +47,6 @@ html {
   gap: 100px;
 
   p {
-
   }
 
   h2 {

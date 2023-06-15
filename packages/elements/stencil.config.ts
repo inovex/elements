@@ -4,16 +4,19 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 import { vueOutputTarget } from './output-targets/vue-output-target';
 import { JsonDocsOutputTarget } from './output-targets/json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
-import { join } from "path";
+import { join } from 'path';
 
-const angularDirectivesPath = join(__dirname, '../elements-angular/elements/src/directives');
-const reactProxyPath =  join(__dirname,'../elements-react/src/components');
+const angularDirectivesPath = join(
+  __dirname,
+  '../elements-angular/elements/src/directives'
+);
+const reactProxyPath = join(__dirname, '../elements-react/src/components');
 
 export const config: Config = {
   buildEs5: false,
   extras: {
     experimentalImportInjection: true,
-    initializeNextTick: true
+    initializeNextTick: true,
   },
   globalScript: join(__dirname, 'src/util/import-fonts.ts'),
   globalStyle: join(__dirname, 'src/global/styles.scss'),
@@ -31,7 +34,8 @@ export const config: Config = {
     {
       type: 'docs-vscode',
       file: 'dist/html.html-data.json',
-      sourceCodeBaseUrl: 'https://github.com/inovex/elements//tree/master/packages/elements',
+      sourceCodeBaseUrl:
+        'https://github.com/inovex/elements//tree/master/packages/elements',
     },
     JsonDocsOutputTarget,
     react({
@@ -97,7 +101,7 @@ export const config: Config = {
   ],
   plugins: [
     sass({
-      includePaths: [ '../../node_modules'] .map((d) => join(__dirname, d)),
+      includePaths: ['../../node_modules'].map((d) => join(__dirname, d)),
     }),
   ],
   preamble: 'Crafted with ❤ by inovex GmbH',

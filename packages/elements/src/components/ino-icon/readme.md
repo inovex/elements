@@ -90,6 +90,10 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+
 ## Properties
 
 | Property         | Attribute         | Description                                                           | Type      | Default     |

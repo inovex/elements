@@ -13,7 +13,7 @@ import {
 import autoComplete from '@tarekraafat/autocomplete.js';
 import { KeyValue } from '../types';
 
-type Selection = {value: string | KeyValue};
+type Selection = { value: string | KeyValue };
 
 /**
  * @slot input - An `<ino-input>` element that will be controlled by this component
@@ -64,14 +64,14 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-
     const val = Autocomplete.isKeyValue(value) ? value.value : value;
 
     // checken ob val mit einer der optionen übereinstimmt
     // grayInputText true setzen wenn nicht gleich
 
-    if(this.inoInputEl) this.inoInputEl.value = val;
-    if(this.inputEl) this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
+    if (this.inoInputEl) this.inoInputEl.value = val;
+    if (this.inputEl)
+      this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
     this.styleInputSelected();
   }
 
@@ -122,7 +122,10 @@ export class Autocomplete implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
+    this.inoInputEl?.removeEventListener(
+      'valueChange',
+      this.onInputValueChange
+    );
   }
 
   private onInputValueChange = (e: CustomEvent<string>) => {
@@ -131,8 +134,10 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private initComponents() {
-
-    this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
+    this.inoInputEl?.removeEventListener(
+      'valueChange',
+      this.onInputValueChange
+    );
 
     this.inoInputEl = this.el.querySelector('ino-input');
     this.inputEl = this.el.querySelector('input');
@@ -192,7 +197,10 @@ export class Autocomplete implements ComponentInterface {
 
   private createNoMatchMessage(query: string): HTMLDivElement {
     const message = document.createElement('div');
-    message.setAttribute('class', 'ino-autocomplete__list-item ino-autocomplete__list-item--no-match');
+    message.setAttribute(
+      'class',
+      'ino-autocomplete__list-item ino-autocomplete__list-item--no-match'
+    );
     // Add message text content
     message.innerHTML = `<span>${this.noOptionsText.replace(
       '$',
@@ -203,7 +211,7 @@ export class Autocomplete implements ComponentInterface {
   }
 
   private resetInput(): void {
-    if(this.inoInputEl) this.inoInputEl.value = '';
+    if (this.inoInputEl) this.inoInputEl.value = '';
   }
 
   private static isKeyValue(value: string | KeyValue): value is KeyValue {
@@ -212,8 +220,10 @@ export class Autocomplete implements ComponentInterface {
 
   private static UNSELECTED_INPUT_CLASS = 'ino-input--font-grey';
 
-  private styleInputSelected = () => this.inoInputEl?.classList.remove(Autocomplete.UNSELECTED_INPUT_CLASS);
-  private styleInputUnselected = () => this.inoInputEl?.classList.add(Autocomplete.UNSELECTED_INPUT_CLASS);
+  private styleInputSelected = () =>
+    this.inoInputEl?.classList.remove(Autocomplete.UNSELECTED_INPUT_CLASS);
+  private styleInputUnselected = () =>
+    this.inoInputEl?.classList.add(Autocomplete.UNSELECTED_INPUT_CLASS);
 
   render() {
     return (

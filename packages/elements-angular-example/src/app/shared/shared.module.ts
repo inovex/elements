@@ -6,4 +6,4 @@ import { TodoService } from './services/todo.service';
   imports: [CommonModule],
   providers: [TodoService],
 })
-export class SharedModule { }
+export class SharedModule {}

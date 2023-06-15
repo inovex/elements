@@ -19,9 +19,9 @@ ino-segment-button {
   .button {
     @include typography.font($size: m, $weight: medium);
     @include common.border-rounding-animation(
-        $round-border,
-        $edged-border,
-        0.15s,
+      $round-border,
+      $edged-border,
+      0.15s,
       $round-to-edged: true
     );
 

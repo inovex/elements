@@ -10,7 +10,7 @@ import {
   Prop,
   Watch,
   h,
-  Listen
+  Listen,
 } from '@stencil/core';
 import { DialogCloseAction } from '../types';
 
@@ -25,7 +25,6 @@ const DIALOG_ACTION_ATTRIBUTE = 'data-ino-dialog-action';
   shadow: true,
 })
 export class Dialog implements ComponentInterface {
-
   private mdcDialog: MDCDialog;
 
   @Element() el!: HTMLInoDialogElement;
@@ -59,7 +58,7 @@ export class Dialog implements ComponentInterface {
 
   @Listen('keyup', { target: 'body' })
   handleKeyUp(event: KeyboardEvent) {
-    if(event.key === 'Escape' && this.open && this.dismissible) {
+    if (event.key === 'Escape' && this.open && this.dismissible) {
       this.close.emit('close');
     }
   }
@@ -69,26 +68,31 @@ export class Dialog implements ComponentInterface {
    */
   @Event() close!: EventEmitter<DialogCloseAction>;
 
-
   componentWillRender(): Promise<void> {
-    if(!this.mdcDialog || !this.open) {
+    if (!this.mdcDialog || !this.open) {
       return;
     }
 
     // Wait to render the content until the MDC Dialog itself is opened
     return new Promise((resolve) => {
-      this.mdcDialog.listen('MDCDialog:opened', () => resolve(), { once: true });
+      this.mdcDialog.listen('MDCDialog:opened', () => resolve(), {
+        once: true,
+      });
     });
   }
 
   componentWillLoad() {
     // During first initaliazation, attach the dialog to the target.
-    const target = this.attachTo ? document.querySelector(this.attachTo) : document.body;
+    const target = this.attachTo
+      ? document.querySelector(this.attachTo)
+      : document.body;
     target?.appendChild(this.el);
   }
 
   componentDidLoad() {
-    this.mdcDialog = new MDCDialog(this.el.shadowRoot.querySelector('.mdc-dialog'));
+    this.mdcDialog = new MDCDialog(
+      this.el.shadowRoot.querySelector('.mdc-dialog')
+    );
 
     // Prevent internal handling of escape and scrim click action (would close the dialog).
     // We want to manually close the dialog via our open property
@@ -107,7 +111,10 @@ export class Dialog implements ComponentInterface {
     if (!e.target) {
       return;
     }
-    const element = closest(e.target as Element, `[${DIALOG_ACTION_ATTRIBUTE}]`);
+    const element = closest(
+      e.target as Element,
+      `[${DIALOG_ACTION_ATTRIBUTE}]`
+    );
     if (!element) {
       return;
     }
@@ -116,7 +123,7 @@ export class Dialog implements ComponentInterface {
 
   render() {
     return (
-      <Host class={{'ino-dialog--fullwidth': this.fullwidth}}>
+      <Host class={{ 'ino-dialog--fullwidth': this.fullwidth }}>
         <div class="mdc-dialog">
           <div class="mdc-dialog__container">
             <div
@@ -128,7 +135,10 @@ export class Dialog implements ComponentInterface {
               <slot />
             </div>
           </div>
-          <div class="mdc-dialog__scrim" onClick={() => this.dismissible && this.close.emit('close')} />
+          <div
+            class="mdc-dialog__scrim"
+            onClick={() => this.dismissible && this.close.emit('close')}
+          />
         </div>
       </Host>
     );

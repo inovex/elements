@@ -14,43 +14,52 @@
 
   /************ Displays ************/
 
-  h1.display, .header-d1 {
+  h1.display,
+  .header-d1 {
     @include typography-new.typo(display-1);
   }
 
-  h2.display, .header-d2 {
+  h2.display,
+  .header-d2 {
     @include typography-new.typo(display-2);
   }
 
-  h3.display, .header-d3 {
+  h3.display,
+  .header-d3 {
     @include typography-new.typo(display-3);
   }
 
   /************ Headers ************/
 
-  h1, .header-h1 {
+  h1,
+  .header-h1 {
     @include typography-new.typo(headline-1);
   }
 
-  h2, .header-h2 {
+  h2,
+  .header-h2 {
     @include typography-new.typo(headline-2);
   }
 
-  h3, .header-h3 {
+  h3,
+  .header-h3 {
     @include typography-new.typo(headline-3);
   }
 
   /************ Titles ************/
 
-  h4, .title-l {
+  h4,
+  .title-l {
     @include typography-new.typo(title-l);
   }
 
-  h5, .title-m {
+  h5,
+  .title-m {
     @include typography-new.typo(title-m);
   }
 
-  h6, .title-s {
+  h6,
+  .title-s {
     @include typography-new.typo(title-s);
   }
 
@@ -85,8 +94,9 @@
 
 .inovex-elements-theme {
   --inovex-elements-white: #{new-theme.$white};
-  --inovex-elements-black: #{new-theme.$black}; --inovex-elements-transparent: #{new-theme.$transparent};
-  
+  --inovex-elements-black: #{new-theme.$black};
+  --inovex-elements-transparent: #{new-theme.$transparent};
+
   // Neutrals
   --inovex-elements-n-1: #{new-theme.$n-1};
   --inovex-elements-n-2: #{new-theme.$n-2};
@@ -100,11 +110,11 @@
   --inovex-elements-n-10: #{new-theme.$n-10};
   --inovex-elements-n-11: #{new-theme.$n-11};
   --inovex-elements-n-12: #{new-theme.$n-12};
-  
+
   // Primary Blue
   --inovex-elements-primary: #{new-theme.$primary};
   --inovex-elements-primary-focus: #{new-theme.$primary-focus};
-  
+
   --inovex-elements-p-1: #{new-theme.$p-1};
   --inovex-elements-p-2: #{new-theme.$p-2};
   --inovex-elements-p-3: #{new-theme.$p-3};
@@ -117,7 +127,7 @@
   --inovex-elements-p-10: #{new-theme.$p-10};
   --inovex-elements-p-11: #{new-theme.$p-11};
   --inovex-elements-p-12: #{new-theme.$p-12};
-  
+
   //Alert Colors
   --inovex-elements-informational: #{new-theme.$informational};
   --inovex-elements-informational-light: #{new-theme.$informational-light};

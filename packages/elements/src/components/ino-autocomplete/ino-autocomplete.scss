@@ -9,7 +9,7 @@
   margin: 0.5rem 0 0 0;
   padding: 0;
   background-color: white;
-  box-shadow: 0 1px 5px #DBDBDB;
+  box-shadow: 0 1px 5px #dbdbdb;
   border-radius: 4px;
   overflow: auto;
 }
@@ -19,7 +19,8 @@
   font-size: 0.85rem;
   padding: 7px 0 7px 9px;
 
-  &--selected, &:hover {
+  &--selected,
+  &:hover {
     background-color: new-theme.$p-1;
     color: black;
   }
@@ -37,5 +38,5 @@
 }
 
 .ino-input--font-grey {
-  --ino-input-color: #{new-theme.$n-5};  //n-05
+  --ino-input-color: #{new-theme.$n-5}; //n-05
 }

@@ -9,12 +9,11 @@ ino-tooltip .ino-tooltip__composer {
   border-radius: 6px;
 }
 
-
 ino-tooltip.ino-tooltip--color-scheme-primary {
   .ino-tooltip__composer {
     @include tooltip-mixins.tooltip(
-        theme.color(primary, light),
-        theme.color(primary, contrast)
+      theme.color(primary, light),
+      theme.color(primary, contrast)
     );
   }
 }

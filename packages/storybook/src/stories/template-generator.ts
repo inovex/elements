@@ -33,7 +33,7 @@ export class TemplateGenerator<Component extends Object> {
     value: Component[Key],
     otherProps?: Partial<Omit<Component, Key>>
   ) {
-    let argument: Component = ({ [key]: value } as unknown) as Component;
+    let argument: Component = { [key]: value } as unknown as Component;
 
     if (otherProps) {
       argument = {
@@ -50,7 +50,6 @@ export class TemplateGenerator<Component extends Object> {
 
     if (args) {
       BoundTemplate.args = { ...args };
-
     }
 
     if (prop) {

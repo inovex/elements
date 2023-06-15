@@ -1,7 +1,17 @@
-import {Component, ComponentInterface, Event, EventEmitter, h, Host, Prop, State, Watch,} from '@stencil/core';
-import {SvgParser} from '../../util/svg-parser';
-import {getSvgContent, inoiconContent} from './request';
-import {getUrl} from './utils';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
+import { SvgParser } from '../../util/svg-parser';
+import { getSvgContent, inoiconContent } from './request';
+import { getUrl } from './utils';
 
 /**
  * This component is based on the ionicons (https://github.com/ionic-team/ionicons)

@@ -10,13 +10,13 @@ export default {
   component: 'ino-option-group',
   decorators: [(story) => decorateStoryWithClass(story, 'story-option-group')],
   args: {
-    label: 'My group Label'
-  }
+    label: 'My group Label',
+  },
 } as Meta<Components.InoOptionGroup>;
 
 const template = new TemplateGenerator<Components.InoOptionGroup>(
   'ino-option-group',
-  args => html`
+  (args) => html`
     <div class="story-option-group-customizable">
       <ino-select label="Select with Group">
         <ino-option-group label="${args.label}">

@@ -1,11 +1,11 @@
-import React, {ReactNode, useEffect} from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { isLocale, Locale_File, Localization } from 'translations/types';
 import defaultStrings from 'translations/locales/en';
 import locales from 'translations/locales';
 import { LangContext } from 'types/langContext';
 import { Supported_Locales } from 'translations/config';
-import {useDeepCompareEffect, useLocalStorage} from 'react-use';
+import { useDeepCompareEffect, useLocalStorage } from 'react-use';
 
 interface ContextProps {
   readonly localization: Localization;
@@ -16,7 +16,7 @@ const DEFAULT_LOCALE: Localization = {
   locale: Supported_Locales.DE,
   translations: defaultStrings[Locale_File.HOME],
   namespace: Locale_File.HOME,
-}
+};
 
 export const LanguageContext = React.createContext<ContextProps>({
   localization: DEFAULT_LOCALE,

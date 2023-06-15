@@ -26,24 +26,25 @@ export default {
 
 const template = new TemplateGenerator<Components.InoImg>(
   'ino-img',
-  args => html`
-  <ino-img
-    class="customizable-img"
-    alt="${args.alt}"
-    decoding="${args.decoding}"
-    height="${args.height}"
-    sizes="${args.sizes}"
-    src="${args.src}"
-    srcset="${args.srcset}"
-    width="${args.width}"
-    usemap="${args.usemap}"
-    ratio-width="${args.ratioWidth}"
-    ratio-height="${args.ratioHeight}"
-    rounded="${args.rounded}"
-    fallback-icon="${args.fallbackIcon}"
-  >
-  </ino-img>
-`);
+  (args) => html`
+    <ino-img
+      class="customizable-img"
+      alt="${args.alt}"
+      decoding="${args.decoding}"
+      height="${args.height}"
+      sizes="${args.sizes}"
+      src="${args.src}"
+      srcset="${args.srcset}"
+      width="${args.width}"
+      usemap="${args.usemap}"
+      ratio-width="${args.ratioWidth}"
+      ratio-height="${args.ratioHeight}"
+      rounded="${args.rounded}"
+      fallback-icon="${args.fallbackIcon}"
+    >
+    </ino-img>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'fallbackIcon', 'image_not_available');
