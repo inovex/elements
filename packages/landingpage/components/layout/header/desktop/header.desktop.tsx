@@ -39,8 +39,8 @@ export default function HeaderDesktop() {
           <Image
             src={ElementsLogo}
             alt="inovex-elements Logo"
-            width={68}
-            height={68}
+            width={60}
+            height={60}
           />
         </Link>
       </div>
