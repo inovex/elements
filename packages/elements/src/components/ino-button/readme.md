@@ -116,6 +116,7 @@ class MyComponent extends Component {
 
 ### Used by
 
+ - [ino-dialog](../ino-dialog)
  - [ino-input-file](../ino-input-file)
 
 ### Depends on
@@ -126,6 +127,7 @@ class MyComponent extends Component {
 ```mermaid
 graph TD;
   ino-button --> ino-spinner
+  ino-dialog --> ino-button
   ino-input-file --> ino-button
   style ino-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
