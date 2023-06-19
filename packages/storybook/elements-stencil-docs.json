@@ -5417,7 +5417,7 @@
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the popup\nValid options include: 'primary', 'transparent'",
+          "docs": "Sets the color scheme of the popup\nValid options include: `light`, `dark` and `primary`.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -5534,22 +5534,6 @@
             }
           ],
           "optional": true,
-          "required": false
-        },
-        {
-          "name": "headerText",
-          "type": "string",
-          "mutable": false,
-          "attr": "header-text",
-          "reflectToAttr": false,
-          "docs": "Adds a header test to the `ino-popover`",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
           "required": false
         },
         {

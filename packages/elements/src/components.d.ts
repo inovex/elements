@@ -855,7 +855,7 @@ export namespace Components {
          */
         "attachToBody": boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
+          * Sets the color scheme of the popup Valid options include: `light`, `dark` and `primary`.
          */
         "colorScheme": 'light' | 'dark' | 'primary';
         /**
@@ -882,10 +882,6 @@ export namespace Components {
           * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
-        /**
-          * Adds a header test to the `ino-popover`
-         */
-        "headerText": string;
         /**
           * If true, hides the popper on blur.
          */
@@ -2707,7 +2703,7 @@ declare namespace LocalJSX {
          */
         "attachToBody"?: boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
+          * Sets the color scheme of the popup Valid options include: `light`, `dark` and `primary`.
          */
         "colorScheme"?: 'light' | 'dark' | 'primary';
         /**
@@ -2730,10 +2726,6 @@ declare namespace LocalJSX {
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
         "for"?: string;
-        /**
-          * Adds a header test to the `ino-popover`
-         */
-        "headerText"?: string;
         /**
           * If true, hides the popper on blur.
          */
