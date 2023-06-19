@@ -92,7 +92,6 @@ const template = new TemplateGenerator<InoPopoverExtended>(
         hide-on-esc="${args.hideOnEsc}"
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
-        header-text="${args.headerText}"
       >
         Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
       </ino-popover>
@@ -102,9 +101,6 @@ const template = new TemplateGenerator<InoPopoverExtended>(
 
 export const Playground = template.generatePlaygroundStory();
 export const Arrow = template.generateStoryForProp('arrow', true);
-export const WithHeaderText = template.generateStoryForProp('headerText', "Headline", {
-  distance: 10
-});
 export const Placement = template.generateStoryForProp('placement', 'right', {
   placementClass: "styled-placement"
 });
@@ -180,7 +176,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
   }
 );
 
-export const ColorSchemes = templateColors.generatePlaygroundStory();
+export const ColorSchemes = templateColors.generateStoryForProp('colorScheme', 'light');
 
 
 export const Trigger = template.generateStoryForProp('trigger', 'click');
@@ -229,10 +225,11 @@ const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
     return html`
       <ino-popover
         id="controlled-popover"
-        placement="left"
+        placement="top"
         controlled="true"
         trigger="click"
         visible="false"
+        distance="15"
         @visibleChanged="${eventHandler}"
       >
         <ino-checkbox id="controlled-checkbox" slot="popover-trigger">
@@ -250,3 +247,43 @@ export const Visible = templateControlledPopover.generateStoryForProp(
 );
 
 export const Delay = template.generateStoryForProp('delay', [500, 200])
+
+const templateSlot = new TemplateGenerator<InoPopoverExtended>(
+  'ino-popover',
+  (args) => {
+    const id = `popover-${POPOVER_COUNTER++}`;
+
+    return html`
+      <ino-button id="${id}" class="${args.placementClass}">Popover</ino-button>
+      <ino-popover
+        color-scheme="${args.colorScheme}"
+        controlled="${args.controlled}"
+        distance="${args.distance}"
+        for="${id}"
+        interactive="${args.interactive}"
+        followCursor="${args.followCursor}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        visible="${args.visible}"
+        hide-on-blur="${args.hideOnBlur}"
+        hide-on-esc="${args.hideOnEsc}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        <header style="font-weight: bold;">Headline</header>
+        <p>Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.</p>
+        <footer><a href="#">Read more</a></footer>
+      </ino-popover>
+    `;
+  }
+);
+
+/**
+ * By using the default `slot` you can add your own content.
+ */
+export const UsingDefaultSlot = templateSlot.generatePlaygroundStory();
+UsingDefaultSlot.args = {
+  placementClass: "styled-placement",
+  placement: "left",
+  arrow: true,
+}
