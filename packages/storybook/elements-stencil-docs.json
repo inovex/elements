@@ -8130,7 +8130,7 @@
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\nValid options include: `light`, `dark` or `primary`",
+          "docs": "Sets the color scheme of the tooltip.\n\nValid options include: `light`, `dark` or `primary`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -8177,6 +8177,22 @@
           "attr": "for",
           "reflectToAttr": false,
           "docs": "The target id the tooltip belongs to.\nIf not given, the tooltip is attached to the parent component.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "headerText",
+          "type": "string",
+          "mutable": false,
+          "attr": "header-text",
+          "reflectToAttr": false,
+          "docs": "Adds a optional header text to the `ino-tooltip`",
           "docsTags": [],
           "values": [
             {

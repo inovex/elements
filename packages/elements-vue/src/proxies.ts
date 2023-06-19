@@ -531,6 +531,7 @@ export const InoTextarea = /*@__PURE__*/ defineContainer<JSX.InoTextarea>('ino-t
 
 
 export const InoTooltip = /*@__PURE__*/ defineContainer<JSX.InoTooltip>('ino-tooltip', undefined, [
+  'headerText',
   'colorScheme',
   'placement',
   'arrow',

@@ -26,7 +26,13 @@ export class Tooltip implements ComponentInterface {
   @Element() el!: HTMLInoTooltipElement;
 
   /**
-   * Sets the color scheme of the tooltip
+	* Adds a optional header text to the `ino-tooltip`
+	*/
+  @Prop() headerText?: string;
+
+  /**
+   * Sets the color scheme of the tooltip.
+   * 
    * Valid options include: `light`, `dark` or `primary`
    */
   @Prop() colorScheme: 'light' | 'dark' | 'primary' =
@@ -191,7 +197,15 @@ export class Tooltip implements ComponentInterface {
     return (
       <Host>
         <div class="ino-tooltip__composer" role="tooltip">
-          <div class="ino-tooltip__inner">{this.label ? this.label : <slot />}</div>
+          <div class="ino-tooltip__inner">
+            {this.label ? 
+              this.label 
+              : 
+              <div>
+                {this.headerText && <header>{this.headerText}</header>}
+                <slot />
+              </div>}
+            </div>
         </div>
       </Host>
     );

@@ -1308,7 +1308,7 @@ export namespace Components {
          */
         "arrow": boolean;
         /**
-          * Sets the color scheme of the tooltip Valid options include: `light`, `dark` or `primary`
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
          */
         "colorScheme": 'light' | 'dark' | 'primary';
         /**
@@ -1323,6 +1323,10 @@ export namespace Components {
           * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
+        /**
+          * Adds a optional header text to the `ino-tooltip`
+         */
+        "headerText"?: string;
         /**
           * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
           * @deprecated
@@ -3202,7 +3206,7 @@ declare namespace LocalJSX {
          */
         "arrow"?: boolean;
         /**
-          * Sets the color scheme of the tooltip Valid options include: `light`, `dark` or `primary`
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
          */
         "colorScheme"?: 'light' | 'dark' | 'primary';
         /**
@@ -3213,6 +3217,10 @@ declare namespace LocalJSX {
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "for"?: string;
+        /**
+          * Adds a optional header text to the `ino-tooltip`
+         */
+        "headerText"?: string;
         /**
           * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
           * @deprecated
