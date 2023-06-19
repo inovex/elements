@@ -27,10 +27,6 @@ export default function Footer() {
             ))}
           </div>
         ))}
-        <div className={`${styles.col} ${styles.empty}`}></div>
-        <div className={`${styles.col} ${styles.empty}`}></div>
-        <div className={`${styles.col} ${styles.empty}`}></div>
-        <div className={`${styles.col} ${styles.empty}`}></div>
       </div>
       <Attributions />
     </footer>
