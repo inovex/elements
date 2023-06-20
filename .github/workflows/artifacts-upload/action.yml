@@ -38,7 +38,7 @@ runs:
     uses: actions/upload-artifact@v3
     with:
       name: elements-angular
-      path: dist/packages/elements-angular/elements/
+      path: dist/packages/elements-angular/
 
   - if: inputs.upload-core-artifacts != 'false'
     name: Upload elements-vue artifact
