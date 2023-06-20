@@ -20,6 +20,7 @@ type InoNavItemExtended = Components.InoNavItem & {
 }
 
 const icon = html
+// eslint-disable-next-line no-unexpected-multiline
 `<ino-icon icon="onboarding"></ino-icon>`;
 
 

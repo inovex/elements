@@ -11,9 +11,15 @@ import { Locale_File } from '../../../../translations/types';
 import { merge } from 'lodash';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 import openInNew from '@assets/open-in-new.svg';
-import { useMemo } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
+import { UiContext, UiContextType } from '../../../../utils/context/UiContext';
+import Page from '../../../../components/layout/page';
+import useTranslation from '../../../../utils/hooks/useTranslation';
 
 const StoryBookPage: NextPage<void> = () => {
+  const { t } = useTranslation();
+  const { hideFooter } = useContext(UiContext) as UiContextType;
+
   const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
   const currentStory = useStorybookUrlSyncer();
   const url = useMemo(
@@ -21,40 +27,53 @@ const StoryBookPage: NextPage<void> = () => {
     [currentStory]
   );
 
+  // prevent scrolling of body while in storybook
+  useEffect(() => {
+    document.body.style.overflow = 'clip';
+    hideFooter(true);
+
+    return () => {
+      document.body.style.overflow = 'initial';
+      hideFooter(false);
+    };
+  }, []);
+
   return (
-    <div className={styles.container}>
-      {url && (
-        <a
-          className={styles.openExternallyButton}
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <InoButton>
-            <InoIcon
-              className={styles.openExternallyButtonIcon}
-              icon={openInNew}
-              slot="icon-leading"
-            ></InoIcon>
-            Open storybook in new tab
-          </InoButton>
-        </a>
-      )}
-      {!initialUrl && <InoSpinner type="circle"></InoSpinner>}
-      {initialUrl && (
-        <iframe
-          src={initialUrl}
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 120,
-            height: 'calc(100vh - 120px)', // 120px = Navbar height
-            width: '100%',
-            border: 'none',
-          }}
-        ></iframe>
-      )}
-    </div>
+    <Page title={[t('common.meta.library')]}>
+      <div className={styles.container}>
+        {url && (
+          <a
+            className={styles.openExternallyButton}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <InoButton>
+              <InoIcon
+                className={styles.openExternallyButtonIcon}
+                icon={openInNew}
+                slot="icon-leading"
+              ></InoIcon>
+              Open storybook in new tab
+            </InoButton>
+          </a>
+        )}
+        {!initialUrl && <InoSpinner type="circle"></InoSpinner>}
+        {initialUrl && (
+          <iframe
+            src={initialUrl}
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: 120,
+              height: 'calc(100vh - 120px)', // 120px = Navbar height
+              width: '100%',
+              border: 'none',
+            }}
+          ></iframe>
+        )}
+      </div>
+    </Page>
   );
 };
 

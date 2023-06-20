@@ -1,0 +1,7 @@
+{
+  "extends": ["../../.eslintrc.json", "plugin:vue/vue3-recommended"],
+  "ignorePatterns": ["!**/*"],
+  "rules": {
+    "vue/no-deprecated-slot-attribute": "warn"
+  }
+}

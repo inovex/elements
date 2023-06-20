@@ -92,7 +92,7 @@ function makeIndexEsmD(iconData: SvgMetadata[]) {
 const DST_JS = path.join(SRC_SVG_DIR, 'index.js');
 
 function makeIndexJs() {
-  const jsContent = `require.context('!!file-loader?name=[name].[ext]&outputPath=svg!./', false, /\.svg$/);`;
+  const jsContent = `require.context('!!file-loader?name=[name].[ext]&outputPath=svg!./', false, /.svg$/);`;
   fs.writeFileSync(DST_JS, jsContent);
 }
 

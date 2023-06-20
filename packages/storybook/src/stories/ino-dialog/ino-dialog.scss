@@ -4,45 +4,34 @@ ino-button {
   }
 }
 
-.ino-dialog-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 12px 24px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
-  --ino-icon-button-size: 32px;
-  --ino-icon-button-icon-size: 16px;
-  .ino-dialog-title {
-    display: flex;
-    flex-direction: row;
+#demo-custom-content-dialog {
+  .customizable-carousel {
+    display: block;
     width: 100%;
+    height: 20rem;
+  }
 
-    h2 {
-      padding: 0 10px 0 10px;
-    }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  header ino-icon {
+    --icon-width: 2rem;
+    --icon-height: 2rem;
+  }
+
+  header h3 {
+    margin: 0;
+  }
+
+  footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
-.ino-dialog-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100px;
-  height: 100%;
-  padding: 24px;
-}
 
-.ino-dialog-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  padding-bottom: 12px;
-
-  ino-button {
-    margin-right: 10px;
-  }
-}
