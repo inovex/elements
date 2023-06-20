@@ -1,0 +1,17 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "esnext",
+    "baseUrl": "./",
+    "paths": {
+      "@inovex.de/elements-angular": ["packages/elements-angular/src/index.ts"]
+    }
+  }
+}

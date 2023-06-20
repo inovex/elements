@@ -1,43 +1,82 @@
 {
   "name": "elements-angular-example",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "packages/elements-angular-example/src",
-  "tags": [],
+  "prefix": "app",
   "targets": {
     "build": {
-      "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/dist"],
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "cwd": "packages/elements-angular-example",
-        "command": "ng build --base-href /example-projects/angular/"
-      }
+        "outputPath": "dist/packages/elements-angular-example",
+        "index": "packages/elements-angular-example/src/index.html",
+        "main": "packages/elements-angular-example/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "packages/elements-angular-example/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "packages/elements-angular-example/src/favicon.ico",
+          "packages/elements-angular-example/src/assets",
+          {
+            "glob": "**/*.svg",
+            "input": "node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
+            "output": "ino-icon"
+          }
+        ],
+        "styles": ["packages/elements-angular-example/src/styles.scss"],
+        "scripts": [],
+        "baseHref": "/example-projects/angular/"
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
     },
     "start": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/elements-angular-example"
-      },
-      "defaultConfiguration": "dev",
+      "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
-        "dev": {
-          "commands": ["ng serve --open"]
+        "production": {
+          "browserTarget": "elements-angular-example:build:production"
         },
-        "prod": {
-          "commands": ["ng serve --hmr --open"]
+        "development": {
+          "browserTarget": "elements-angular-example:build:development"
         }
-      }
-    },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/elements-angular-example",
-        "command": "shx rm -rf dist"
       },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
-        }
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/elements-angular-example/**/*.ts",
+          "packages/elements-angular-example/**/*.html"
+        ]
       }
     }
-  }
+  },
+  "tags": []
 }
