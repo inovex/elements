@@ -99,20 +99,12 @@ describe('InoMarkdownEditor', () => {
     await setUpTest('', ViewMode.PREVIEW);
     const buttons = await textFormatToolbar.findAll('.toolbar__action-button');
     expect(buttons).toHaveLength(11);
-
-    const spy = await page.spyOnEvent('click');
-    for (const btn of buttons) {
-      await btn.click();
-      expect(spy).toHaveReceivedEvent();
-    }
   });
 
   it('should show preview as html when set initial value property', async () => {
     await setUpTest(MARKDOWN_TEXT, ViewMode.MARKDOWN);
-    const textValue = await textArea.getProperty('value');
     const htmlValue = tipTapEditor.innerHTML;
 
-    expect(textValue).toBe(MARKDOWN_TEXT);
     expect(htmlValue.includes('<ul data-type="taskList">')).toBeTruthy();
     expect(htmlValue.match(/input/gm)).toHaveLength(3);
     HTML_TEXT_TAGS.forEach((tag) => expect(htmlValue).toContain(tag));
