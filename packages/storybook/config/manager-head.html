@@ -12,23 +12,27 @@
 <!-- Custom styles for the main area -->
 <script>
   document.title = 'Showcase - inovex elements';
+  
+  document.body.classList.add("inovex-elements-typo");
+  document.body.classList.add("inovex-elements-theme");
+
 </script>
 <style type="text/css">
   div[role='menuitem'] {
-    color: #3d84f5;
+    color: var(--inovex-elements-p-4);
   }
 
   div[role='menuitem']:hover,
   a[class^='css-glamorous-routedlink']:hover {
-    color: #232527;
+    color: var(--inovex-elements-n-7);
   }
 
   a[class^='css-glamorous-routedlink'] {
-    color: #636477;
+    color: var(--inovex-elements-n-7);
   }
 
   a > h3 {
-    color: #2C02FF !important;
+    color: var(--inovex-elements-p-7) !important;
   }
 </style>
 
@@ -48,11 +52,12 @@
     display: none;
   }
 
+  
   .os-content .sidebar-subheading {
     /* Title Small */
     letter-spacing: 0.02px;
     font-weight: 600;
-    color: #CBD0E0; /* n-6 */
+    color: var(--inovex-elements-n-3);
     font-size: 14px;
     margin-top: 32px;
     margin-bottom: 6px;
@@ -70,56 +75,71 @@
     transition: 0.15s ease-in-out;
   }
   
+  .os-content .sidebar-item button[data-selected="true"] {
+    background-color: rgb(var(--inovex-elements-n-3)) !important;
+  }
+
   /* skip to canvas button*/
   .os-content .sidebar-item + a {
     margin-top: 3px;
     z-index: 50;
-    box-shadow: #2C02FF 0 0 0 1px inset;
-    color: #2C02FF;
+    background-color: var(--inovex-elements-white);
+    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset;
+    color: var(--inovex-elements-primary);
   }
 
   .os-content .sidebar-item + a:hover {
-    box-shadow: #2C02FF 0 0 0 1px inset;
+    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset;
   }
 
   .os-content .sidebar-item + a:active {
-    background-color: #2C02FF;
-    color: white;
+    background-color: var(--inovex-elements-primary);
+    color: var(--inovex-elements-white);
   }
 
   .os-content .sidebar-item + a:focus {
-    background-color: white;
-    box-shadow: #2C02FF 0 0 0 1px inset, rgb(#2C02FF / 40%) 0 1px 9px 2px;
-    color: #2C02FF;
+    background-color: var(--inovex-elements-white);
+    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset, rgb(var(--inovex-elements-primary) / 40%) 0 1px 9px 2px;
+    color: var(--inovex-elements-primary);
     z-index: 50;
   } 
 
+  /** Sidebar items */
+  .os-content .sidebar-item:focus {
+    color: var(--inovex-elements-primary);
+  }
+
+  .os-content .sidebar-item:focus svg {
+    color: var(--inovex-elements-primary);
+  }
+
   .os-content .sidebar-item:hover {
-    background-color: #F8F9FB; /* n-8 */
+    background-color: var(--inovex-elements-n-1);
   }
 
   .os-content .sidebar-item[data-selected="false"]:focus {
-    color: #2C02FF;
-    background-color: #E8EDFF; /*light blue*/
+    color: var(--inovex-elements-primary);
+    background-color: var(--inovex-elements-p-2);
   }
   
   .os-content .sidebar-item[data-selected="true"],
   .os-content .sidebar-item[data-selected="true"]:focus  {
-    color: #2C02FF;
-    background-color: #D7E0FF; /* middle blue*/
-  }
-
-
-  .os-content svg {
-    color: #ABB1CC; /* n-5  */
+    color: var(--inovex-elements-primary);
+    background-color: var(--inovex-elements-p-3);
   }
 
   .os-content .sidebar-item[data-selected="true"] svg {
-    color: #2C02FF;
+    color: var(--inovex-elements-primary);
+  }
+
+
+  /** all sidebar svgs  */
+  .os-content svg {
+    color: var(--inovex-elements-n-5);
   }
 
   .os-content .sidebar-header > div > a {
-    color: #2C02FF;
+    color: var(--inovex-elements-primary);
     font-size: 20px;
     letter-spacing: -.0083333333em;
   }
@@ -128,10 +148,5 @@
     bottom: 0 !important;
     z-index: 10 !important;
     top:initial;
-  }
-
-  /** Custom Border radius on the main wrapper */
-  /* #root > div > div:last-child > div {
-    border-radius: 20px 20px 10px 10px;
   }
 </style>

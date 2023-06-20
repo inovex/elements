@@ -1,11 +1,12 @@
 import { create } from '@storybook/theming';
+import '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
 const version = require('../package.json').version;
 
 export default create({
   base: 'light',
 
   colorPrimary: '#9ccd00',
-  colorSecondary: '#2C02FF',
+  colorSecondary: '#B6B4C4', 
 
   // UI
   appBg: 'white',
@@ -23,7 +24,7 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: 'rgba(0, 0, 0, 0.87)',
-  barSelectedColor: '#2C02FF',
+  barSelectedColor: '#B6B4C4',
   barBg: '#EDEFF5',
 
   // Form colors
@@ -34,6 +35,4 @@ export default create({
 
   brandTitle: 'INOVEX ELEMENTS v' + version,
   brandUrl: '/',
-
-  
 });
