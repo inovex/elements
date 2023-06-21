@@ -61,7 +61,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish @inovex.de/elements-angular to NPM
         run: npm publish
-        working-directory: dist/packages/elements-angular
+        working-directory: packages/elements-angular
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish @inovex.de/elements-react to NPM

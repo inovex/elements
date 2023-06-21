@@ -60,7 +60,7 @@ runs:
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-angular
-        path: dist/packages/elements-angular/
+        path: ${{ inputs.core-artifacts-base-path }}/elements-angular/dist/
         check_artifacts: ${{ inputs.check-artifacts }}
         workflow_conclusion: ${{ inputs.workflow-conclusion }}
 

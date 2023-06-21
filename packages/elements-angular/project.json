@@ -7,7 +7,6 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "commands": [
           "nx run elements-angular:compile",
@@ -18,7 +17,6 @@
     },
     "compile": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "packages/elements-angular/ng-package.json",
         "tsConfig": "packages/elements-angular/tsconfig.lib.prod.json"
@@ -31,7 +29,6 @@
     },
     "start": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "packages/elements-angular/ng-package.json",
         "tsConfig": "packages/elements-angular/tsconfig.lib.json",
@@ -40,11 +37,11 @@
     },
     "schematics": {
       "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/elements/dist/schematics"],
+      "outputs": ["packages/elements-angular/dist/schematics"],
       "options": {
         "commands": [
-          "tsc -p packages/elements-angular/tsconfig.schematics.json --outDir dist/packages/elements-angular/schematics",
-          "shx cp packages/elements-angular/src/schematics/collection.json dist/packages/elements-angular/schematics"
+          "tsc -p packages/elements-angular/tsconfig.schematics.json --outDir packages/elements-angular/dist/schematics",
+          "shx cp packages/elements-angular/src/schematics/collection.json packages/elements-angular/dist/schematics"
         ],
         "parallel": false
       }
@@ -54,8 +51,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "packages/elements-angular/**/*.ts",
-          "packages/elements-angular/**/*.html"
+          "packages/elements-angular/src/**/*.ts",
+          "packages/elements-angular/src/**/*.html"
         ]
       }
     }

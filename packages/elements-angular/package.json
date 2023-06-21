@@ -15,10 +15,10 @@
   },
   "peerDependencies": {
     "@angular/common": "^15.1.0",
-    "@angular/core": "^15.1.0",
-    "@inovex.de/elements": "^8.0.0"
+    "@angular/core": "^15.1.0"
   },
   "dependencies": {
+    "@inovex.de/elements": "^8.1.3",
     "tslib": "^2.3.0"
   },
   "schematics": "./schematics/collection.json",
