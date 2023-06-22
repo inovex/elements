@@ -1,25 +1,27 @@
 {
-  "extends": "../../tsconfig",
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "target": "es2015",
-    "lib": ["es2018", "dom"],
-    "types": [],
-    "experimentalDecorators": true,
-    "downlevelIteration": true,
-    "noUnusedLocals": false,
-    "noImplicitAny": false,
-    "paths": {
-      "@inovex.de/elements-angular": [
-        "dist/inovex/elements-angular"
-      ],
-      "@inovex.de/elements-angular/*": [
-        "dist/inovex/elements-angular/*"
-      ]
-    }
+    "target": "es2022",
+    "useDefineForClassFields": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
   },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }

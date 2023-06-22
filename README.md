@@ -1,7 +1,7 @@
 <div align="center">
 
   <a href="https://elements.inovex.de/">
-    <img width="300" src="assets/logo/elements.svg">
+    <img width="300" src="assets/logo/elements_dark.svg">
   </a>
 
 # inovex elements

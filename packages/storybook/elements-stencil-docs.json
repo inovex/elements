@@ -222,6 +222,7 @@
       ],
       "encapsulation": "none",
       "dependents": [
+        "ino-dialog",
         "ino-input-file"
       ],
       "dependencies": [
@@ -230,6 +231,9 @@
       "dependencyGraph": {
         "ino-button": [
           "ino-spinner"
+        ],
+        "ino-dialog": [
+          "ino-button"
         ],
         "ino-input-file": [
           "ino-button"
@@ -2009,13 +2013,52 @@
         {
           "name": "slot",
           "text": "default - content of the dialog"
+        },
+        {
+          "name": "slot",
+          "text": "header - content to replace default header of dialog"
+        },
+        {
+          "name": "slot",
+          "text": "body - content to replace default body of dialog"
+        },
+        {
+          "name": "slot",
+          "text": "footer - content to replace default footer of dialog"
         }
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "dependencies": [
+        "ino-icon",
+        "ino-button"
+      ],
+      "dependencyGraph": {
+        "ino-dialog": [
+          "ino-icon",
+          "ino-button"
+        ],
+        "ino-button": [
+          "ino-spinner"
+        ]
+      },
       "props": [
+        {
+          "name": "actionText",
+          "type": "string",
+          "mutable": false,
+          "attr": "action-text",
+          "reflectToAttr": false,
+          "docs": "Adds a button with the given text to proceed with an action`",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "attachTo",
           "type": "string",
@@ -2023,6 +2066,38 @@
           "attr": "attach-to",
           "reflectToAttr": false,
           "docs": "The target element the dialog should be attached to.\nIf not given, the dialog is a child of the documents body.\nNote: This property is immutable after initialization.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "bodyText",
+          "type": "string",
+          "mutable": false,
+          "attr": "body-text",
+          "reflectToAttr": false,
+          "docs": "Adds a text to the body of the `ino-dialog`",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "cancelText",
+          "type": "string",
+          "mutable": false,
+          "attr": "cancel-text",
+          "reflectToAttr": false,
+          "docs": "Adds a button with the given text to close the `ino-dialog`",
           "docsTags": [],
           "values": [
             {
@@ -2065,6 +2140,38 @@
           "required": false
         },
         {
+          "name": "headerText",
+          "type": "string",
+          "mutable": false,
+          "attr": "header-text",
+          "reflectToAttr": false,
+          "docs": "Adds a headline to the `ino-dialog`",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "Adds a `ino-icon` besides the headline",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "open",
           "type": "boolean",
           "mutable": false,
@@ -2084,6 +2191,15 @@
       ],
       "methods": [],
       "events": [
+        {
+          "event": "action",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits an event upon clicking the action button of the dialog",
+          "docsTags": []
+        },
         {
           "event": "close",
           "detail": "string",
@@ -2133,8 +2249,20 @@
       ],
       "slots": [
         {
+          "name": "body",
+          "docs": "content to replace default body of dialog"
+        },
+        {
           "name": "default",
           "docs": "content of the dialog"
+        },
+        {
+          "name": "footer",
+          "docs": "content to replace default footer of dialog"
+        },
+        {
+          "name": "header",
+          "docs": "content to replace default header of dialog"
         }
       ],
       "parts": [],
@@ -2602,6 +2730,7 @@
         "ino-card",
         "ino-chip",
         "ino-datepicker",
+        "ino-dialog",
         "ino-fab",
         "ino-fab-set",
         "ino-icon-button",
@@ -2622,6 +2751,9 @@
           "ino-icon"
         ],
         "ino-datepicker": [
+          "ino-icon"
+        ],
+        "ino-dialog": [
           "ino-icon"
         ],
         "ino-fab": [
