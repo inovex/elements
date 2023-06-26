@@ -25,7 +25,7 @@ function Contact() {
     <div className={styles.contact_section}>
       <div className={styles.image1}>
         <Image
-          src={`/contact-image1.png`}
+          src={`/contact-image-1.svg`}
           alt="contact image1"
           fill
           style={{ objectFit: 'contain' }}
@@ -62,7 +62,7 @@ function Contact() {
       </div>
       <div className={styles.image2}>
         <Image
-          src={`/contact-image2.png`}
+          src={`/contact-image-2.svg`}
           alt="contact image2"
           fill
           style={{ objectFit: 'contain' }}
