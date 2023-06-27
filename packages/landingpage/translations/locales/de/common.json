@@ -101,5 +101,19 @@
   "404": {
     "description": "Dies ist wahrscheinlich nicht die Seite, nach der Sie suchen.",
     "button": "Zurück zur Startseite"
+  },
+  "attributions": {
+    "legalNotice": {
+      "label": "Impressum",
+      "url": "https://www.inovex.de/de/impressum/"
+    },
+    "exclusionOfLiability": {
+      "label": "Haftungsausschluss",
+      "url": "https://www.inovex.de/de/haftungsausschluss/"
+    },
+    "dataProtection": {
+      "label": "Datenschutz",
+      "url": "https://www.inovex.de/de/datenschutz/"
+    }
   }
 }

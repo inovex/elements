@@ -101,5 +101,19 @@
   "404": {
     "description": "This is probably not the page you are looking for.",
     "button": "Take me back"
+  },
+  "attributions": {
+    "legalNotice": {
+      "label": "Legal Notice",
+      "url": "https://www.inovex.de/en/legal-notice/"
+    },
+    "exclusionOfLiability": {
+      "label": "Exclusion of Liability",
+      "url": "https://www.inovex.de/en/exclusion-of-liability/"
+    },
+    "dataProtection": {
+      "label": "Data Protection",
+      "url": "https://www.inovex.de/en/data-protection/"
+    }
   }
 }
