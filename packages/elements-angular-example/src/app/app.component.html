@@ -99,5 +99,9 @@
   <div *ngIf="activeTab === 2" id="tabpanel-2" role="tabpanel">Settings Content</div>
   <div *ngIf="activeTab === 3" id="tabpanel-3" role="tabpanel">Download Content</div>
 </section>
+<section>
+  <ino-accordion [expanded]="accordionExpanded" (expandedChange)="toggleAccordion($event)" accordion-title="Accordion Title">
+    Accordion Content
+  </ino-accordion></section>
     </main>
 </ino-nav-drawer>

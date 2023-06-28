@@ -16,7 +16,8 @@ export class AppComponent {
   myText = '# Hello World\nI go to home!\n## Foo Bar Text'
   isClosed = false;
   activeTab = 0;
-  
+  accordionExpanded = false;
+
   constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todos = this.todoService.getRandomTodos();
     this.form = this.fb.group({
@@ -33,6 +34,10 @@ export class AppComponent {
 
   toggleNavigation(event: Event) {
     this.isClosed = !(event as CustomEvent<boolean>).detail;
+  }
+
+  toggleAccordion(event: Event) {
+    this.accordionExpanded = (event as CustomEvent<boolean>).detail
   }
 
   switchTab(event: Event) {
