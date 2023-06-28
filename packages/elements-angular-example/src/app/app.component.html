@@ -38,52 +38,66 @@
     <main slot="app" style="height: '100vh'">
 
       <h1 class="header-h1">Simple ToDo</h1>
-      
-      <div class="app-wrapper" [formGroup]="form">
-        <div class="action-box">
-          <ino-input
-            formControlName="todoName"
-            type="text"
-            placeholder="What needs to be done..."
-            (keyup.enter)="add()"
-          >
-            <ino-icon
-              clickable="true"
-              (clickEl)="add()"
-              slot="icon-trailing"
-              icon="add"
-            ></ino-icon>
-          </ino-input>
-        </div>
-      
-        <ino-list>
-          <ino-list-item *ngFor="let todo of todos; index as i" [text]="todo.name">
-            <ino-checkbox slot="leading" (click)="delete(todo)"></ino-checkbox>
-            <ino-button
-              variant="outlined"
-              dense="true"
-              slot="trailing"
-              (click)="delete(todo)"
-            >Delete</ino-button
-            >
-          </ino-list-item>
-        </ino-list>
-      
-        <ino-markdown-editor
-          formControlName="todoText"
-          (viewModeChange)="onViewModeChange($event)"
-          [viewMode]="mode"
-          [initialValue]="myText"
-        ></ino-markdown-editor>
-      </div>
-      
-      <div class="btn-box">
-        <ino-button (click)="toggleInputState()"
-        >{{
-          this.form.controls['todoName'].disabled ? 'Enable' : 'Disable'
-          }}
-          Input</ino-button
+<section>
+
+  <div class="app-wrapper" [formGroup]="form">
+    <div class="action-box">
+      <ino-input
+        formControlName="todoName"
+        type="text"
+        placeholder="What needs to be done..."
+        (keyup.enter)="add()"
+      >
+        <ino-icon
+          clickable="true"
+          (clickEl)="add()"
+          slot="icon-trailing"
+          icon="add"
+        ></ino-icon>
+      </ino-input>
+    </div>
+  
+    <ino-list>
+      <ino-list-item *ngFor="let todo of todos; index as i" [text]="todo.name">
+        <ino-checkbox slot="leading" (click)="delete(todo)"></ino-checkbox>
+        <ino-button
+          variant="outlined"
+          dense="true"
+          slot="trailing"
+          (click)="delete(todo)"
+        >Delete</ino-button
         >
-      </div>
+      </ino-list-item>
+    </ino-list>
+  
+    <ino-markdown-editor
+      formControlName="todoText"
+      (viewModeChange)="onViewModeChange($event)"
+      [viewMode]="mode"
+      [initialValue]="myText"
+    ></ino-markdown-editor>
+  </div>
+  
+  <div class="btn-box">
+    <ino-button (click)="toggleInputState()"
+    >{{
+      this.form.controls['todoName'].disabled ? 'Enable' : 'Disable'
+      }}
+      Input</ino-button
+    >
+  </div>
+</section>
+<section>
+  <ino-tab-bar id="customizable-tabbar" (activeTabChange)="switchTab($event)" [activeTab]="activeTab" auto-focus="${args.autoFocus}">
+    <ino-tab label="User" icon="user" aria-controls="tabpanel-0" ></ino-tab>
+    <ino-tab label="Messages" icon="message" aria-controls="tabpanel-1"></ino-tab>
+    <ino-tab label="Settings" icon="settings" aria-controls="tabpanel-2"></ino-tab>
+    <ino-tab label="Download" icon="download" aria-controls="tabpanel-3"></ino-tab>
+  </ino-tab-bar>
+  <div *ngIf="activeTab === 0" id="tabpanel-0" role="tabpanel">User Content</div>
+  <div *ngIf="activeTab === 1" id="tabpanel-1" role="tabpanel">Messages Content</div>
+  <div *ngIf="activeTab === 2" id="tabpanel-2" role="tabpanel">Settings Content</div>
+  <div *ngIf="activeTab === 3" id="tabpanel-3" role="tabpanel">Download Content</div>
+</section>
     </main>
 </ino-nav-drawer>

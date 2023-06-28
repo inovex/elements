@@ -15,6 +15,8 @@ export class AppComponent {
   mode: ViewModeUnion = 'preview'
   myText = '# Hello World\nI go to home!\n## Foo Bar Text'
   isClosed = false;
+  activeTab = 0;
+  
   constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todos = this.todoService.getRandomTodos();
     this.form = this.fb.group({
@@ -31,6 +33,10 @@ export class AppComponent {
 
   toggleNavigation(event: Event) {
     this.isClosed = !(event as CustomEvent<boolean>).detail;
+  }
+
+  switchTab(event: Event) {
+    this.activeTab = (event as CustomEvent<number>).detail
   }
 
   add() {

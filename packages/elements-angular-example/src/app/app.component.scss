@@ -2,6 +2,14 @@ h2 {
   text-align: center;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  margin: 2rem;
+}
 .app-wrapper {
   background: white;
   width: 60%;
