@@ -1,3 +1,41 @@
+
+<ino-nav-drawer  [open]="true">
+    <ino-list slot="header">
+      Simple ToDo
+    </ino-list>
+    <ino-list 
+    slot="content"
+    [attr.role]="'menubar'"
+    [attr.aria-orientation]="'vertical'"
+    [attr.aria-label]="'Main links'">
+      <ino-nav-item  
+        role="menuitem"
+        text="Report"
+        tabindex="0"
+        ariaCurrentWhenActive="page"
+        tabindex="0">
+        <ino-icon icon="report"></ino-icon>
+      </ino-nav-item>
+      <ino-nav-item  
+        role="menuitem"
+        text="Partner"
+        tabindex="-1"
+        ariaCurrentWhenActive="page"
+        tabindex="0">
+        <ino-icon icon="partner"></ino-icon>
+      </ino-nav-item>
+    </ino-list>
+    <ino-list slot="footer" role="menubar" aria-orientation="vertical">
+      <ino-nav-item
+      role="menuitem"
+      tabindex="-1"
+      text="About"
+      ariaCurrentWhenActive="page"
+    >
+      <ino-icon icon="info"></ino-icon>
+    </ino-nav-item>
+    </ino-list>
+</ino-nav-drawer>
 <div class="header-h1">Simple ToDo</div>
 
 <div class="app-wrapper" [formGroup]="form">
