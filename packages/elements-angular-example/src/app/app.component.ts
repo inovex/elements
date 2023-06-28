@@ -14,7 +14,7 @@ export class AppComponent {
   form: FormGroup;
   mode: ViewModeUnion = 'preview'
   myText = '# Hello World\nI go to home!\n## Foo Bar Text'
-
+  isClosed = false;
   constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todos = this.todoService.getRandomTodos();
     this.form = this.fb.group({
@@ -27,6 +27,10 @@ export class AppComponent {
     const control = this.form.get('todoName');
     if (control)
       control.disabled ? control.enable() : control.disable();
+  }
+
+  toggleNavigation(event: Event) {
+    this.isClosed = !(event as CustomEvent<boolean>).detail;
   }
 
   add() {

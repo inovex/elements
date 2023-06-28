@@ -1,5 +1,5 @@
 
-<ino-nav-drawer  [open]="true">
+<ino-nav-drawer  [open]="!isClosed" (openChange)="toggleNavigation($event)">
     <ino-list slot="header">
       Simple ToDo
     </ino-list>
@@ -28,59 +28,62 @@
     <ino-list slot="footer" role="menubar" aria-orientation="vertical">
       <ino-nav-item
       role="menuitem"
-      tabindex="-1"
+      tabindex="0"
       text="About"
       ariaCurrentWhenActive="page"
     >
       <ino-icon icon="info"></ino-icon>
     </ino-nav-item>
     </ino-list>
+    <main slot="app" style="height: '100vh'">
+
+      <h1 class="header-h1">Simple ToDo</h1>
+      
+      <div class="app-wrapper" [formGroup]="form">
+        <div class="action-box">
+          <ino-input
+            formControlName="todoName"
+            type="text"
+            placeholder="What needs to be done..."
+            (keyup.enter)="add()"
+          >
+            <ino-icon
+              clickable="true"
+              (clickEl)="add()"
+              slot="icon-trailing"
+              icon="add"
+            ></ino-icon>
+          </ino-input>
+        </div>
+      
+        <ino-list>
+          <ino-list-item *ngFor="let todo of todos; index as i" [text]="todo.name">
+            <ino-checkbox slot="leading" (click)="delete(todo)"></ino-checkbox>
+            <ino-button
+              variant="outlined"
+              dense="true"
+              slot="trailing"
+              (click)="delete(todo)"
+            >Delete</ino-button
+            >
+          </ino-list-item>
+        </ino-list>
+      
+        <ino-markdown-editor
+          formControlName="todoText"
+          (viewModeChange)="onViewModeChange($event)"
+          [viewMode]="mode"
+          [initialValue]="myText"
+        ></ino-markdown-editor>
+      </div>
+      
+      <div class="btn-box">
+        <ino-button (click)="toggleInputState()"
+        >{{
+          this.form.controls['todoName'].disabled ? 'Enable' : 'Disable'
+          }}
+          Input</ino-button
+        >
+      </div>
+    </main>
 </ino-nav-drawer>
-<div class="header-h1">Simple ToDo</div>
-
-<div class="app-wrapper" [formGroup]="form">
-  <div class="action-box">
-    <ino-input
-      formControlName="todoName"
-      type="text"
-      placeholder="What needs to be done..."
-      (keyup.enter)="add()"
-    >
-      <ino-icon
-        clickable="true"
-        (clickEl)="add()"
-        slot="icon-trailing"
-        icon="add"
-      ></ino-icon>
-    </ino-input>
-  </div>
-
-  <ino-list>
-    <ino-list-item *ngFor="let todo of todos; index as i" [text]="todo.name">
-      <ino-checkbox slot="leading" (click)="delete(todo)"></ino-checkbox>
-      <ino-button
-        variant="outlined"
-        dense="true"
-        slot="trailing"
-        (click)="delete(todo)"
-      >Delete</ino-button
-      >
-    </ino-list-item>
-  </ino-list>
-
-  <ino-markdown-editor
-    formControlName="todoText"
-    (viewModeChange)="onViewModeChange($event)"
-    [viewMode]="mode"
-    [initialValue]="myText"
-  ></ino-markdown-editor>
-</div>
-
-<div class="btn-box">
-  <ino-button (click)="toggleInputState()"
-  >{{
-    this.form.controls['todoName'].disabled ? 'Enable' : 'Disable'
-    }}
-    Input</ino-button
-  >
-</div>
