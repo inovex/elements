@@ -34,7 +34,14 @@ export function handleToolbarBtnClick(editor: Editor, action: Actions): void {
       focusChain(editor).toggleStrike().run();
       break;
     case Actions.LINK:
-      focusChain(editor).unsetLink().run();
+      if (isToolbarBtnActive(editor, Actions.LINK)) {
+        focusChain(editor).unsetLink().run();
+        break;
+      }
+      const url = prompt('Enter the URL');
+      if (url) {
+        focusChain(editor).setLink({ href: url }).run();
+      }
       break;
     case Actions.OL:
       focusChain(editor).toggleOrderedList().run();
