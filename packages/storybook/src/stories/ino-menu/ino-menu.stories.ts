@@ -6,7 +6,7 @@ import { TemplateGenerator } from '../template-generator';
 import './ino-menu.scss';
 
 export default {
-  title: `Structure/ino-menu`,
+  title: 'Structure/ino-menu',
   component: 'ino-menu',
   decorators: [(story) => decorateStoryWithClass(story, 'story-ino-menu')],
   args: {
