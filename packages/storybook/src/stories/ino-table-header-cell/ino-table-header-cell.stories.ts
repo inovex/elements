@@ -8,7 +8,7 @@ import './ino-table-header-cell.scss';
 import { registerInlineDatepickerHandler } from '../ino-datepicker/utils';
 
 export default {
-  title: `Structure/ino-table-header-cell`,
+  title: 'Structure/ino-table-header-cell',
   component: 'ino-table-header-cell',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-ino-table-header-cell'),

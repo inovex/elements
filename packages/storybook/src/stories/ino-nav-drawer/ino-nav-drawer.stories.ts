@@ -45,7 +45,7 @@ const clickHandler = (e) => {
 };
 
 export default {
-  title: `Structure/ino-nav-drawer`,
+  title: 'Structure/ino-nav-drawer',
   component: 'ino-nav-drawer',
   parameters: {
     actions: {

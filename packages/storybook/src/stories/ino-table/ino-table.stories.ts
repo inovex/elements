@@ -7,7 +7,7 @@ import { TemplateGenerator } from '../template-generator';
 import './ino-table.scss';
 
 export default {
-  title: `Structure/ino-table`,
+  title: 'Structure/ino-table',
   component: 'ino-table',
   inline: true,
   decorators: [
