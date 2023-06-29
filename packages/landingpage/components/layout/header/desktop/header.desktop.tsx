@@ -1,10 +1,10 @@
-import styles from './header.desktop.module.scss';
-import Navbar from './navbar';
-import Image from 'next/image';
 import ElementsLogo from '@assets/elements.svg';
-import LocaleSwitcher from './localeSwitcher';
+import Image from 'next/image';
 import Link from 'next/link';
 import useTranslation from '../../../../utils/hooks/useTranslation';
+import styles from './header.desktop.module.scss';
+import LocaleSwitcher from './localeSwitcher';
+import Navbar from './navbar';
 
 export default function HeaderDesktop() {
   const { locale } = useTranslation();
