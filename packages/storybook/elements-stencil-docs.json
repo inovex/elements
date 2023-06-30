@@ -2028,7 +2028,9 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "ino-markdown-editor"
+      ],
       "dependencies": [
         "ino-icon",
         "ino-button"
@@ -2040,6 +2042,9 @@
         ],
         "ino-button": [
           "ino-spinner"
+        ],
+        "ino-markdown-editor": [
+          "ino-dialog"
         ]
       },
       "props": [
@@ -3473,7 +3478,8 @@
       ],
       "encapsulation": "none",
       "dependents": [
-        "ino-datepicker"
+        "ino-datepicker",
+        "ino-markdown-editor"
       ],
       "dependencies": [
         "ino-label",
@@ -3485,6 +3491,9 @@
           "ino-icon"
         ],
         "ino-datepicker": [
+          "ino-input"
+        ],
+        "ino-markdown-editor": [
           "ino-input"
         ]
       },
@@ -4739,15 +4748,30 @@
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
+        "ino-dialog",
+        "ino-input",
         "ino-icon",
         "ino-popover",
         "ino-textarea"
       ],
       "dependencyGraph": {
         "ino-markdown-editor": [
+          "ino-dialog",
+          "ino-input",
           "ino-icon",
           "ino-popover",
           "ino-textarea"
+        ],
+        "ino-dialog": [
+          "ino-icon",
+          "ino-button"
+        ],
+        "ino-button": [
+          "ino-spinner"
+        ],
+        "ino-input": [
+          "ino-label",
+          "ino-icon"
         ],
         "ino-textarea": [
           "ino-label"
@@ -4827,18 +4851,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-markdown-editor-max-height",
-          "annotation": "prop",
-          "docs": "max-height of text editor Default value is `none`."
-        },
-        {
-          "name": "--ino-markdown-editor-min-height",
-          "annotation": "prop",
-          "docs": "min-height of text editor. Default value is `100px`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": []

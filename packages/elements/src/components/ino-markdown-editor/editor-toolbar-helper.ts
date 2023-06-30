@@ -16,7 +16,11 @@ export enum Actions {
 
 const focusChain = (editor: Editor): ChainedCommands => editor.chain().focus();
 
-export function handleToolbarBtnClick(editor: Editor, action: Actions): void {
+export function handleToolbarBtnClick(
+  editor: Editor,
+  action: Actions,
+  url?
+): void {
   switch (action) {
     case Actions.H1:
       focusChain(editor).toggleHeading({ level: 1 }).run();
@@ -38,7 +42,6 @@ export function handleToolbarBtnClick(editor: Editor, action: Actions): void {
         focusChain(editor).unsetLink().run();
         break;
       }
-      const url = prompt('Enter the URL');
       if (url) {
         focusChain(editor).setLink({ href: url }).run();
       }

@@ -84,6 +84,8 @@ export class MarkdownEditor implements ComponentInterface {
 
   @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
   @State() private errorMessage = '';
+  @State() private showLinkDialog = false;
+  @State() private url = '';
 
   /**
    * Emits when one of the view mode buttons was clicked.
@@ -203,6 +205,11 @@ export class MarkdownEditor implements ComponentInterface {
     handleToolbarBtnClick(this.editor, action);
   }
 
+  private handleToolbarLinkClick(): void {
+    this.showLinkDialog = true;
+    // handleToolbarBtnClick(this.editor, Actions.LINK, this.url);
+  }
+
   render() {
     const isReadonlyMode = this.viewMode === ViewMode.READONLY;
     const isPreviewMode = isReadonlyMode || this.viewMode === ViewMode.PREVIEW;
@@ -242,8 +249,50 @@ export class MarkdownEditor implements ComponentInterface {
         'toolbar__action-button--active': this.toolbarActionsState.has(action),
       });
 
+    const isValidUrl = (url: string): boolean => {
+      try {
+        new URL(url);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    };
+
+    const urlDialog = (
+      <ino-dialog
+        data-testt
+        class="link-dialog"
+        open={this.showLinkDialog}
+        dismissible={true}
+        headerText="Insert Link"
+        actionText="Insert"
+        cancelText="Cancel"
+        onClose={() => (this.showLinkDialog = false)}
+        onSubmit={() => {
+          this.handleToolbarActionClick(Actions.LINK);
+          this.showLinkDialog = false;
+        }}
+      >
+        <section slot="body">
+          <ino-input
+            label="URL"
+            type="url"
+            helper="Please enter a valid URL"
+            error={!this.url || !isValidUrl(this.url)}
+            onValueChange={(e) => (this.url = e.detail)}
+            disabled={false}
+            autoFocus={true}
+            placeholder="https://example.com"
+          ></ino-input>
+          <ino-input type="text"></ino-input>
+          <input type="text" />
+        </section>
+      </ino-dialog>
+    );
+
     return (
       <div class={editorClasses}>
+        {this.showLinkDialog && urlDialog}
         <div class="markdown-editor__toolbar">
           <div>
             <button
@@ -292,7 +341,7 @@ export class MarkdownEditor implements ComponentInterface {
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.LINK)}
-              onClick={() => this.handleToolbarActionClick(Actions.LINK)}
+              onClick={() => this.handleToolbarLinkClick()}
             >
               <ino-icon icon="link" />
             </button>

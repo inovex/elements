@@ -123,6 +123,10 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 ## Dependencies
 
+### Used by
+
+ - [ino-markdown-editor](../ino-markdown-editor)
+
 ### Depends on
 
 - [ino-icon](../ino-icon)
@@ -134,6 +138,7 @@ graph TD;
   ino-dialog --> ino-icon
   ino-dialog --> ino-button
   ino-button --> ino-spinner
+  ino-markdown-editor --> ino-dialog
   style ino-dialog fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
