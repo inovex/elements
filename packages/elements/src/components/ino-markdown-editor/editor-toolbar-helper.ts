@@ -9,6 +9,7 @@ export enum Actions {
   OL,
   UL,
   LINK,
+  UNLINK,
   CODE_BLOCK,
   BLOCKQUOTE,
   TASK_LIST,
@@ -38,13 +39,12 @@ export function handleToolbarBtnClick(
       focusChain(editor).toggleStrike().run();
       break;
     case Actions.LINK:
-      if (isToolbarBtnActive(editor, Actions.LINK)) {
-        focusChain(editor).unsetLink().run();
-        break;
-      }
       if (url) {
         focusChain(editor).setLink({ href: url }).run();
       }
+      break;
+    case Actions.UNLINK:
+      focusChain(editor).unsetLink().run();
       break;
     case Actions.OL:
       focusChain(editor).toggleOrderedList().run();
@@ -95,4 +95,15 @@ export function isToolbarBtnActive(editor: Editor, action: Actions): boolean {
     default:
       console.warn('case missing:', action);
   }
+}
+
+export function getActiveLink(editor: Editor): string | null {
+  if (!editor) return null;
+
+  if (editor.isActive('link')) {
+    const href = editor.getAttributes('link').href;
+    return href || null;
+  }
+
+  return null;
 }

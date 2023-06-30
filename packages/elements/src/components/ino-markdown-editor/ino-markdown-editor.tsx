@@ -85,7 +85,7 @@ export class MarkdownEditor implements ComponentInterface {
   @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
   @State() private errorMessage = '';
   @State() private showLinkDialog = false;
-  @State() private url = '';
+  @State() private lastURL = '';
 
   /**
    * Emits when one of the view mode buttons was clicked.
@@ -201,13 +201,21 @@ export class MarkdownEditor implements ComponentInterface {
     if (!this.errorMessage) this.viewModeChange.emit(viewMode);
   }
 
-  private handleToolbarActionClick(action: Actions): void {
-    handleToolbarBtnClick(this.editor, action);
+  private handleToolbarActionClick(action: Actions, url?: string): void {
+    handleToolbarBtnClick(this.editor, action, url);
   }
 
   private handleToolbarLinkClick(): void {
+    if (isToolbarBtnActive(this.editor, Actions.LINK)) {
+      this.handleToolbarActionClick(Actions.UNLINK);
+      return;
+    }
     this.showLinkDialog = true;
-    // handleToolbarBtnClick(this.editor, Actions.LINK, this.url);
+  }
+
+  private submitLink(): void {
+    this.handleToolbarActionClick(Actions.LINK, this.lastURL);
+    this.showLinkDialog = false;
   }
 
   render() {
@@ -258,34 +266,37 @@ export class MarkdownEditor implements ComponentInterface {
       }
     };
 
+    // TODO: Implement behavior for editing existing links. Currently clicking the active link button simply removes the link.
+
+    // TODO: Auto submit on enter
+
+    // TODO: Extract dialog component
+
+    // TODO: Fix/enable autofocus
+
     const urlDialog = (
       <ino-dialog
-        data-testt
-        class="link-dialog"
+        id="url-dialog"
         open={this.showLinkDialog}
         dismissible={true}
         headerText="Insert Link"
         actionText="Insert"
         cancelText="Cancel"
         onClose={() => (this.showLinkDialog = false)}
-        onSubmit={() => {
-          this.handleToolbarActionClick(Actions.LINK);
-          this.showLinkDialog = false;
-        }}
+        onAction={() => this.submitLink()}
       >
         <section slot="body">
           <ino-input
             label="URL"
-            type="url"
-            helper="Please enter a valid URL"
-            error={!this.url || !isValidUrl(this.url)}
-            onValueChange={(e) => (this.url = e.detail)}
-            disabled={false}
+            type="text"
+            required={true}
             autoFocus={true}
-            placeholder="https://example.com"
+            helper="Please enter a valid URL"
+            error={!this.lastURL}
+            value={this.lastURL}
+            onValueChange={(e) => (this.lastURL = e.detail)}
+            placeholder="https://example.org"
           ></ino-input>
-          <ino-input type="text"></ino-input>
-          <input type="text" />
         </section>
       </ino-dialog>
     );
