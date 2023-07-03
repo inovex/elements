@@ -1,16 +1,17 @@
-// main point of configuration for storybook
-const path = require('path');
-module.exports = {
+import path from 'path';
+import sass from 'sass';
+
+/** @type { import('@storybook/web-components').StorybookConfig } */
+const config = {
   staticDirs: ['../static', '../../elements/src/assets', '../../../assets/logo'],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
   addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil', "@storybook/addon-mdx-gfm"],
-  // managerEntries: ['./addons/post-current-story'], could not resolve
   typescript: {
     compilerOptions: {
       "typeRoots": ["node_modules/@types", "../src/types"]
     }
   },
-  webpackFinal: config => {
+  webpackFinal: async (config, { configType }) => {
     config.devServer = {
       watchContentBase: true,
       contentBase: path.join(__dirname, 'src'),
@@ -23,7 +24,7 @@ module.exports = {
       use: ['style-loader', 'css-loader', {
         loader: 'sass-loader',
         options: {
-          implementation: require('sass'),
+          implementation: sass,
           sassOptions: {
             includePaths: [path.resolve(__dirname, '../src/stories'), path.resolve(__dirname, '../../elements/src/components'), path.resolve(__dirname, '../../../node_modules')]
           }
@@ -51,3 +52,5 @@ module.exports = {
     autodocs: true
   }
 };
+
+export default config;

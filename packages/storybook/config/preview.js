@@ -28,34 +28,38 @@ setStencilDocJson(docsJson);
 applyPolyfills().then(() => defineCustomElements(window));
 
 // Explicit order for the docs section
-export const parameters = {
-  viewMode: 'docs',
-  controls: {
-    hideNoControlsWarning: true,
-  },
-  docs: {
-    extractArgTypes,
-    extractComponentDescription,
-    theme,
-    // NEW: HIDE DECORATORS FROM STORY OUTPUT,
-    // FIXME: disabled all decorator functions which are currently used for event handling
-    source: {
-      // excludeDecorators: true,
+// migrated to export default preview as suggested from the migration guide
+/** @type { import('@storybook/web-components').Preview } */
+const preview = {
+  parameters: {
+    viewMode: 'docs',
+    controls: {
+      hideNoControlsWarning: true,
     },
-  },
-  options: {
-    panelPosition: 'bottom',
-    storySort: {
-      order: [
-        'Docs',
-        [
-          'Welcome',
-          'Changelog',
-          'Framework Integration',
-          'Styleguide',
-          'Contributing',
+    docs: {
+      extractArgTypes,
+      extractComponentDescription,
+      theme,
+      source: {
+        // excludeDecorators: true,
+      },
+    },
+    options: {
+      panelPosition: 'bottom',
+      storySort: {
+        order: [
+          'Docs',
+          [
+            'Welcome',
+            'Changelog',
+            'Framework Integration',
+            'Styleguide',
+            'Contributing',
+          ],
         ],
-      ],
+      },
     },
   },
 };
+
+export default preview;
