@@ -1,6 +1,6 @@
 import { Story } from '@storybook/web-components';
 import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
-import { html } from 'lit-html';
+import { html } from 'lit';
 import ICONS from '../../../elements/src/components/ino-icon/icons';
 
 export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
