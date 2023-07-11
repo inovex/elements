@@ -110,7 +110,7 @@ export class ListItem implements ComponentInterface {
 
     return (
       <Host>
-        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses}>
+        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses} tabIndex={0}>
           <span class="mdc-deprecated-list-item__ripple"></span>
           {leadingSlotHasContent && (
             <span class="mdc-deprecated-list-item__graphic" role="presentation">
