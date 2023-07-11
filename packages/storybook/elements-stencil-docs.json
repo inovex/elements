@@ -5081,43 +5081,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-nav-drawer-background",
-          "annotation": "prop",
-          "docs": "Background of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-height",
-          "annotation": "prop",
-          "docs": "Height of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-text-color",
-          "annotation": "prop",
-          "docs": "Color of text inside the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-timing-function",
-          "annotation": "prop",
-          "docs": "Timing function of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-transition-duration",
-          "annotation": "prop",
-          "docs": "Duration of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-closed",
-          "annotation": "prop",
-          "docs": "Docked variant only! The width of the collapsed drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-open",
-          "annotation": "prop",
-          "docs": "The width of the open drawer."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "app",
@@ -5145,7 +5109,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "clickEl",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-nav-item/ino-nav-item.tsx",
@@ -5240,28 +5210,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--ino-nav-item-background-color",
-          "annotation": "prop",
-          "docs": "Inactive color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-background-color-active",
-          "annotation": "prop",
-          "docs": "Active color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-color",
-          "annotation": "prop",
-          "docs": "Inactive color of icon."
-        },
-        {
-          "name": "--ino-nav-item-color-active",
-          "annotation": "prop",
-          "docs": "Active color of icon."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
