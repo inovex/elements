@@ -69,6 +69,27 @@ export class InoAutocomplete {
 }
 
 
+export declare interface InoAvatar extends Components.InoAvatar {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['initials', 'interactive', 'variant']
+})
+@Component({
+  selector: 'ino-avatar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['initials', 'interactive', 'variant']
+})
+export class InoAvatar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface InoButton extends Components.InoButton {}
 
 @ProxyCmp({

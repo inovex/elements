@@ -204,6 +204,83 @@
       ]
     },
     {
+      "filePath": "./src/components/ino-avatar/ino-avatar.tsx",
+      "fileName": "ino-avatar.tsx",
+      "tag": "ino-avatar",
+      "readme": "# ino-avatar\n\n\n",
+      "usage": {},
+      "docs": "",
+      "docsTags": [],
+      "encapsulation": "none",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "initials",
+          "type": "string",
+          "mutable": false,
+          "attr": "initials",
+          "reflectToAttr": false,
+          "docs": "The initials of the avatar.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "interactive",
+          "reflectToAttr": false,
+          "docs": "Flag to enable hover effect.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"dashed\" | \"solid\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The style variant of the avatar.\nCan be 'dashed' or 'solid'.",
+          "docsTags": [],
+          "default": "'solid'",
+          "values": [
+            {
+              "value": "dashed",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": []
+    },
+    {
       "filePath": "./src/components/ino-button/ino-button.tsx",
       "fileName": "ino-button.tsx",
       "tag": "ino-button",

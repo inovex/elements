@@ -10,6 +10,7 @@ import { defineCustomElements } from '@inovex.de/elements/dist/loader';
 defineCustomElements();
 export const InoAccordion = /*@__PURE__*/createReactComponent<JSX.InoAccordion, HTMLInoAccordionElement>('ino-accordion');
 export const InoAutocomplete = /*@__PURE__*/createReactComponent<JSX.InoAutocomplete, HTMLInoAutocompleteElement>('ino-autocomplete');
+export const InoAvatar = /*@__PURE__*/createReactComponent<JSX.InoAvatar, HTMLInoAvatarElement>('ino-avatar');
 export const InoButton = /*@__PURE__*/createReactComponent<JSX.InoButton, HTMLInoButtonElement>('ino-button');
 export const InoCard = /*@__PURE__*/createReactComponent<JSX.InoCard, HTMLInoCardElement>('ino-card');
 export const InoCarousel = /*@__PURE__*/createReactComponent<JSX.InoCarousel, HTMLInoCarouselElement>('ino-carousel');

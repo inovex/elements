@@ -39,6 +39,20 @@ export namespace Components {
          */
         "value": string | KeyValue | null;
     }
+    interface InoAvatar {
+        /**
+          * The initials of the avatar.
+         */
+        "initials": string;
+        /**
+          * Flag to enable hover effect.
+         */
+        "interactive": boolean;
+        /**
+          * The style variant of the avatar. Can be 'dashed' or 'solid'.
+         */
+        "variant": 'dashed' | 'solid';
+    }
     interface InoButton {
         /**
           * Sets the autofocus for this element.
@@ -1491,6 +1505,12 @@ declare global {
         prototype: HTMLInoAutocompleteElement;
         new (): HTMLInoAutocompleteElement;
     };
+    interface HTMLInoAvatarElement extends Components.InoAvatar, HTMLStencilElement {
+    }
+    var HTMLInoAvatarElement: {
+        prototype: HTMLInoAvatarElement;
+        new (): HTMLInoAvatarElement;
+    };
     interface HTMLInoButtonElement extends Components.InoButton, HTMLStencilElement {
     }
     var HTMLInoButtonElement: {
@@ -1764,6 +1784,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ino-accordion": HTMLInoAccordionElement;
         "ino-autocomplete": HTMLInoAutocompleteElement;
+        "ino-avatar": HTMLInoAvatarElement;
         "ino-button": HTMLInoButtonElement;
         "ino-card": HTMLInoCardElement;
         "ino-carousel": HTMLInoCarouselElement;
@@ -1847,6 +1868,20 @@ declare namespace LocalJSX {
           * The selected value.
          */
         "value"?: string | KeyValue | null;
+    }
+    interface InoAvatar {
+        /**
+          * The initials of the avatar.
+         */
+        "initials"?: string;
+        /**
+          * Flag to enable hover effect.
+         */
+        "interactive"?: boolean;
+        /**
+          * The style variant of the avatar. Can be 'dashed' or 'solid'.
+         */
+        "variant"?: 'dashed' | 'solid';
     }
     interface InoButton {
         /**
@@ -3266,6 +3301,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ino-accordion": InoAccordion;
         "ino-autocomplete": InoAutocomplete;
+        "ino-avatar": InoAvatar;
         "ino-button": InoButton;
         "ino-card": InoCard;
         "ino-carousel": InoCarousel;
@@ -3319,6 +3355,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ino-accordion": LocalJSX.InoAccordion & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
             "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
+            "ino-avatar": LocalJSX.InoAvatar & JSXBase.HTMLAttributes<HTMLInoAvatarElement>;
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
             "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;

@@ -32,7 +32,9 @@ jobs:
             revert
           # Configure which scopes are allowed.
           scopes: |
+            elements|ino-accordion
             elements|ino-autocomplete
+            elements|ino-avatar
             elements|ino-button
             elements|ino-card
             elements|ino-carousel
