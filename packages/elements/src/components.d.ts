@@ -49,6 +49,10 @@ export namespace Components {
          */
         "interactive": boolean;
         /**
+          * The img of the avatar.
+         */
+        "src": string;
+        /**
           * The style variant of the avatar. Can be 'dashed' or 'solid'.
          */
         "variant": 'dashed' | 'solid';
@@ -1878,6 +1882,10 @@ declare namespace LocalJSX {
           * Flag to enable hover effect.
          */
         "interactive"?: boolean;
+        /**
+          * The img of the avatar.
+         */
+        "src"?: string;
         /**
           * The style variant of the avatar. Can be 'dashed' or 'solid'.
          */

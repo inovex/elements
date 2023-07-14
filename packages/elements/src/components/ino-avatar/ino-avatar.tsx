@@ -15,6 +15,11 @@ export class Avatar implements ComponentInterface {
   @Prop() initials: string = '';
 
   /**
+   * The img of the avatar.
+   */
+  @Prop() src: string = '';
+
+  /**
    * Flag to enable hover effect.
    */
   @Prop() interactive: boolean = false;
@@ -33,6 +38,17 @@ export class Avatar implements ComponentInterface {
       'ino-avatar--solid': this.variant === 'solid',
     });
 
-    return <div class={avatarClasses}>{this.initials}</div>;
+    return (
+      <div class={avatarClasses}>
+        {this.src ? (
+          <div
+            class="ino-avatar__image"
+            style={{ backgroundImage: `url(${this.src})` }}
+          ></div>
+        ) : (
+          <div class="ino-avatar__image">{this.initials}</div>
+        )}
+      </div>
+    );
   }
 }

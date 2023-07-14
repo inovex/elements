@@ -5,6 +5,8 @@ import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-avatar.scss';
 
+import avatarImg from '../../assets/images/avatar.jpg'
+
 export default {
   title: 'Graphic/<ino-avatar>',
   component: 'ino-avatar',
@@ -13,6 +15,7 @@ export default {
     initials: 'JD',
     interactive: false,
     variant: 'solid',
+    src: avatarImg,
   },
 } as Meta<Components.InoAvatar>;
 
@@ -24,6 +27,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       initials="${args.initials}"
       interactive="${args.interactive}"
       variant="${args.variant}"
+      src="${args.src}"
     >
     </ino-avatar>
   `
@@ -34,3 +38,4 @@ export const Playground = template.generatePlaygroundStory();
 export const Interactive = template.generateStoryForProp('interactive', true);
 export const VariantDashed = template.generateStoryForProp('variant', 'dashed');
 export const VariantSolid = template.generateStoryForProp('variant', 'solid');
+export const Initials = template.generateStoryForProp('src', '');

@@ -251,6 +251,23 @@
           "required": false
         },
         {
+          "name": "src",
+          "type": "string",
+          "mutable": false,
+          "attr": "src",
+          "reflectToAttr": false,
+          "docs": "The img of the avatar.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "variant",
           "type": "\"dashed\" | \"solid\"",
           "mutable": false,

@@ -73,13 +73,13 @@ export declare interface InoAvatar extends Components.InoAvatar {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['initials', 'interactive', 'variant']
+  inputs: ['initials', 'interactive', 'src', 'variant']
 })
 @Component({
   selector: 'ino-avatar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['initials', 'interactive', 'variant']
+  inputs: ['initials', 'interactive', 'src', 'variant']
 })
 export class InoAvatar {
   protected el: HTMLElement;

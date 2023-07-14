@@ -27,6 +27,7 @@ export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete
 
 export const InoAvatar = /*@__PURE__*/ defineContainer<JSX.InoAvatar>('ino-avatar', undefined, [
   'initials',
+  'src',
   'interactive',
   'variant'
 ]);
