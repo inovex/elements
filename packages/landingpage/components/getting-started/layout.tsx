@@ -40,9 +40,10 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
         <article>{children}</article>
         <NavigationMenu title={frameworkName.toUpperCase() + ' GUIDE'} />
         <div className={styles.sandbox}>
-          <h1>Looking for more resources?</h1>
-          <p className="title-s">Make sure to check out the example projects</p>
-          <iframe src={sandboxUrl} className={styles.sandbox}></iframe>
+          <h2>Looking for more resources?</h2>
+          <p className="title-s">
+            Make sure to check out the <a href={sandboxUrl}>example projects</a>
+          </p>
         </div>
       </div>
     </Page>
