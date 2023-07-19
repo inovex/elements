@@ -53,7 +53,7 @@ export namespace Components {
          */
         "src": string;
         /**
-          * The style variant of the avatar. Can be 'dashed' or 'solid'.
+          * The style variant of the avatar. Can be 'dashed' | 'solid'.
          */
         "variant": 'dashed' | 'solid';
     }
@@ -1887,7 +1887,7 @@ declare namespace LocalJSX {
          */
         "src"?: string;
         /**
-          * The style variant of the avatar. Can be 'dashed' or 'solid'.
+          * The style variant of the avatar. Can be 'dashed' | 'solid'.
          */
         "variant"?: 'dashed' | 'solid';
     }

@@ -273,7 +273,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "The style variant of the avatar.\nCan be 'dashed' or 'solid'.",
+          "docs": "The style variant of the avatar.\nCan be 'dashed' | 'solid'.",
           "docsTags": [],
           "default": "'solid'",
           "values": [
@@ -292,7 +292,13 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-avatar-size",
+          "annotation": "prop",
+          "docs": "Width and height of the ino-avatar"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": []
