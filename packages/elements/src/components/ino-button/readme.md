@@ -118,6 +118,7 @@ class MyComponent extends Component {
 
  - [ino-dialog](../ino-dialog)
  - [ino-input-file](../ino-input-file)
+ - [ino-markdown-editor](../ino-markdown-editor)
 
 ### Depends on
 
@@ -129,6 +130,7 @@ graph TD;
   ino-button --> ino-spinner
   ino-dialog --> ino-button
   ino-input-file --> ino-button
+  ino-markdown-editor --> ino-button
   style ino-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

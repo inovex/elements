@@ -6,6 +6,23 @@
   @prop --ino-markdown-editor-max-height: max-height of text editor Default value is `none`.
 */
 
+// specific styles for the markdown editor dialog window that opens when having text selected and clicking the "create link" button
+[data-ino-dialog-section] {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+[data-ino-dialog-input] {
+  width: 100%;
+}
+
+[data-ino-dialog-delete] > .button {
+  color: red;
+  border-color: red;
+}
+
+// general styles
 $border-radius: 10px;
 
 ino-markdown-editor {

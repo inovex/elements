@@ -205,12 +205,9 @@ export class MarkdownEditor implements ComponentInterface {
     handleToolbarBtnClick(this.editor, action, url);
   }
 
-  private handleToolbarLinkClick(): void {
-    if (isToolbarBtnActive(this.editor, Actions.LINK)) {
-      this.handleToolbarActionClick(Actions.UNLINK);
-      return;
-    }
-    this.showLinkDialog = true;
+  private handleDeleteLink(): void {
+    this.handleToolbarActionClick(Actions.UNLINK);
+    this.showLinkDialog = false;
   }
 
   private submitLink(): void {
@@ -257,36 +254,26 @@ export class MarkdownEditor implements ComponentInterface {
         'toolbar__action-button--active': this.toolbarActionsState.has(action),
       });
 
-    const isValidUrl = (url: string): boolean => {
-      try {
-        new URL(url);
-        return true;
-      } catch (_) {
-        return false;
-      }
-    };
+    // const isValidUrl = (url: string): boolean => {
+    //   try {
+    //     new URL(url);
+    //     return true;
+    //   } catch (_) {
+    //     return false;
+    //   }
+    // };
 
-    // TODO: Implement behavior for editing existing links. Currently clicking the active link button simply removes the link.
-
-    // TODO: Auto submit on enter
-
-    // TODO: Extract dialog component
-
-    // TODO: Fix/enable autofocus
-
-    const urlDialog = (
+    const editLinkDialog = (
       <ino-dialog
         id="url-dialog"
         open={this.showLinkDialog}
         dismissible={true}
         headerText="Insert Link"
-        actionText="Insert"
-        cancelText="Cancel"
         onClose={() => (this.showLinkDialog = false)}
-        onAction={() => this.submitLink()}
       >
-        <section slot="body">
+        <section data-ino-dialog-section slot="body">
           <ino-input
+            data-ino-dialog-input
             label="URL"
             type="text"
             required={true}
@@ -298,12 +285,31 @@ export class MarkdownEditor implements ComponentInterface {
             placeholder="https://example.org"
           ></ino-input>
         </section>
+        <section data-ino-dialog-section slot="footer">
+          <ino-button
+            variant="outlined"
+            onClick={() => (this.showLinkDialog = false)}
+          >
+            Cancel
+          </ino-button>
+          <ino-button
+            data-ino-dialog-delete
+            variant="outlined"
+            onClick={() => this.handleDeleteLink()}
+            type="reset"
+          >
+            Delete
+          </ino-button>
+          <ino-button onClick={() => this.submitLink()} type="submit">
+            Insert
+          </ino-button>
+        </section>
       </ino-dialog>
     );
 
     return (
       <div class={editorClasses}>
-        {this.showLinkDialog && urlDialog}
+        {this.showLinkDialog && editLinkDialog}
         <div class="markdown-editor__toolbar">
           <div>
             <button
@@ -352,7 +358,7 @@ export class MarkdownEditor implements ComponentInterface {
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.LINK)}
-              onClick={() => this.handleToolbarLinkClick()}
+              onClick={() => (this.showLinkDialog = true)}
             >
               <ino-icon icon="link" />
             </button>

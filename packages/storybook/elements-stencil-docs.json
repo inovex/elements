@@ -223,7 +223,8 @@
       "encapsulation": "none",
       "dependents": [
         "ino-dialog",
-        "ino-input-file"
+        "ino-input-file",
+        "ino-markdown-editor"
       ],
       "dependencies": [
         "ino-spinner"
@@ -236,6 +237,9 @@
           "ino-button"
         ],
         "ino-input-file": [
+          "ino-button"
+        ],
+        "ino-markdown-editor": [
           "ino-button"
         ]
       },
@@ -4750,6 +4754,7 @@
       "dependencies": [
         "ino-dialog",
         "ino-input",
+        "ino-button",
         "ino-icon",
         "ino-popover",
         "ino-textarea"
@@ -4758,6 +4763,7 @@
         "ino-markdown-editor": [
           "ino-dialog",
           "ino-input",
+          "ino-button",
           "ino-icon",
           "ino-popover",
           "ino-textarea"
