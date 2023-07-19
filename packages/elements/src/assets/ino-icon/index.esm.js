@@ -23,7 +23,9 @@ import code from './code.svg';
 import codeBlock from './code_block.svg';
 import company from './company.svg';
 import copy from './copy.svg';
+import dashboard from './dashboard.svg';
 import developer from './developer.svg';
+import discover from './discover.svg';
 import display from './display.svg';
 import download from './download.svg';
 import edit from './edit.svg';
@@ -31,13 +33,16 @@ import editText from './edit_text.svg';
 import employee from './employee.svg';
 import favorite from './favorite.svg';
 import filter from './filter.svg';
+import firstSteps from './first_steps.svg';
 import folder from './folder.svg';
 import headlineOne from './headline_one.svg';
 import headlineTwo from './headline_two.svg';
 import help from './help.svg';
+import home from './home.svg';
 import imageNotAvailable from './image_not_available.svg';
 import info from './info.svg';
 import italic from './italic.svg';
+import library from './library.svg';
 import link from './link.svg';
 import location from './location.svg';
 import logout from './logout.svg';
@@ -113,7 +118,9 @@ export var ICON_PATHS = {
 	'code_block': codeBlock,
 	'company': company,
 	'copy': copy,
+	'dashboard': dashboard,
 	'developer': developer,
+	'discover': discover,
 	'display': display,
 	'download': download,
 	'edit': edit,
@@ -121,13 +128,16 @@ export var ICON_PATHS = {
 	'employee': employee,
 	'favorite': favorite,
 	'filter': filter,
+	'first_steps': firstSteps,
 	'folder': folder,
 	'headline_one': headlineOne,
 	'headline_two': headlineTwo,
 	'help': help,
+	'home': home,
 	'image_not_available': imageNotAvailable,
 	'info': info,
 	'italic': italic,
+	'library': library,
 	'link': link,
 	'location': location,
 	'logout': logout,
@@ -204,7 +214,9 @@ export {
   codeBlock,
   company,
   copy,
+  dashboard,
   developer,
+  discover,
   display,
   download,
   edit,
@@ -212,13 +224,16 @@ export {
   employee,
   favorite,
   filter,
+  firstSteps,
   folder,
   headlineOne,
   headlineTwo,
   help,
+  home,
   imageNotAvailable,
   info,
   italic,
+  library,
   link,
   location,
   logout,
