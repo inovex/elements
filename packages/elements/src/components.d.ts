@@ -1098,6 +1098,56 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface InoSelection {
+        /**
+          * Number of ms the search function should be delayed after the user typed something.
+         */
+        "debounce": number;
+        /**
+          * Disables this element.
+         */
+        "disabled"?: boolean;
+        /**
+          * Displays a add new option item button
+         */
+        "displayAddOption": boolean;
+        /**
+          * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
+         */
+        "error"?: boolean;
+        /**
+          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
+         */
+        "for"?: string;
+        /**
+          * The label of this element.
+         */
+        "label"?: string;
+        /**
+          * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
+         */
+        "noOptionsText": string;
+        /**
+          * marks the state of the selection as open.  Initial value is `false`
+         */
+        "open": boolean;
+        /**
+          * All options either as a string array or as an array of `{key: string; value: string}` objects.
+         */
+        "options": string[] | KeyValue[];
+        /**
+          * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+         */
+        "placement": Placement;
+        /**
+          * The selection stays open, after selecting a option  default `stayOpen = false`
+         */
+        "stayOpen": boolean;
+        /**
+          * The value of this element. (**unmanaged**)
+         */
+        "value": string | KeyValue | null;
+    }
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -1450,6 +1500,10 @@ export interface InoSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSelectElement;
 }
+export interface InoSelectionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoSelectionElement;
+}
 export interface InoSnackbarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSnackbarElement;
@@ -1707,6 +1761,12 @@ declare global {
         prototype: HTMLInoSelectElement;
         new (): HTMLInoSelectElement;
     };
+    interface HTMLInoSelectionElement extends Components.InoSelection, HTMLStencilElement {
+    }
+    var HTMLInoSelectionElement: {
+        prototype: HTMLInoSelectionElement;
+        new (): HTMLInoSelectionElement;
+    };
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
     }
     var HTMLInoSnackbarElement: {
@@ -1800,6 +1860,7 @@ declare global {
         "ino-segment-button": HTMLInoSegmentButtonElement;
         "ino-segment-group": HTMLInoSegmentGroupElement;
         "ino-select": HTMLInoSelectElement;
+        "ino-selection": HTMLInoSelectionElement;
         "ino-snackbar": HTMLInoSnackbarElement;
         "ino-spinner": HTMLInoSpinnerElement;
         "ino-switch": HTMLInoSwitchElement;
@@ -2993,6 +3054,64 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface InoSelection {
+        /**
+          * Number of ms the search function should be delayed after the user typed something.
+         */
+        "debounce"?: number;
+        /**
+          * Disables this element.
+         */
+        "disabled"?: boolean;
+        /**
+          * Displays a add new option item button
+         */
+        "displayAddOption"?: boolean;
+        /**
+          * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
+         */
+        "error"?: boolean;
+        /**
+          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
+         */
+        "for"?: string;
+        /**
+          * The label of this element.
+         */
+        "label"?: string;
+        /**
+          * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
+         */
+        "noOptionsText"?: string;
+        /**
+          * Emits when the string of the added option. Contains new value in `event.detail`.
+         */
+        "onOptionAdded"?: (event: InoSelectionCustomEvent<string>) => void;
+        /**
+          * Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input
+         */
+        "onValueChange"?: (event: InoSelectionCustomEvent<string | { key: string; value: string }>) => void;
+        /**
+          * marks the state of the selection as open.  Initial value is `false`
+         */
+        "open"?: boolean;
+        /**
+          * All options either as a string array or as an array of `{key: string; value: string}` objects.
+         */
+        "options"?: string[] | KeyValue[];
+        /**
+          * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+         */
+        "placement"?: Placement;
+        /**
+          * The selection stays open, after selecting a option  default `stayOpen = false`
+         */
+        "stayOpen"?: boolean;
+        /**
+          * The value of this element. (**unmanaged**)
+         */
+        "value"?: string | KeyValue | null;
+    }
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -3302,6 +3421,7 @@ declare namespace LocalJSX {
         "ino-segment-button": InoSegmentButton;
         "ino-segment-group": InoSegmentGroup;
         "ino-select": InoSelect;
+        "ino-selection": InoSelection;
         "ino-snackbar": InoSnackbar;
         "ino-spinner": InoSpinner;
         "ino-switch": InoSwitch;
@@ -3355,6 +3475,7 @@ declare module "@stencil/core" {
             "ino-segment-button": LocalJSX.InoSegmentButton & JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement>;
             "ino-segment-group": LocalJSX.InoSegmentGroup & JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement>;
             "ino-select": LocalJSX.InoSelect & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
+            "ino-selection": LocalJSX.InoSelection & JSXBase.HTMLAttributes<HTMLInoSelectionElement>;
             "ino-snackbar": LocalJSX.InoSnackbar & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
             "ino-spinner": LocalJSX.InoSpinner & JSXBase.HTMLAttributes<HTMLInoSpinnerElement>;
             "ino-switch": LocalJSX.InoSwitch & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;

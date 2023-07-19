@@ -5806,6 +5806,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tanstack/virtual-core@beta@^3.0.0-beta.9":
+  version "3.0.0-beta.54"
+  resolved "https://registry.npmjs.org/@tanstack/virtual-core/-/virtual-core-3.0.0-beta.54.tgz#12259d007911ad9fce1388385c54a9141f4ecdc4"
+  integrity sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==
+
 "@tarekraafat/autocomplete.js@^10.2.7":
   version "10.2.7"
   resolved "https://registry.npmjs.org/@tarekraafat/autocomplete.js/-/autocomplete.js-10.2.7.tgz#dca809890cec322379a2b430632d46a14f9f2f91"

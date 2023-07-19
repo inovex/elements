@@ -132,6 +132,7 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
  - [ino-input](../ino-input)
  - [ino-input-file](../ino-input-file)
  - [ino-markdown-editor](../ino-markdown-editor)
+ - [ino-selection](../ino-selection)
  - [ino-snackbar](../ino-snackbar)
  - [ino-tab](../ino-tab)
  - [ino-table-header-cell](../ino-table-header-cell)
@@ -150,6 +151,7 @@ graph TD;
   ino-input --> ino-icon
   ino-input-file --> ino-icon
   ino-markdown-editor --> ino-icon
+  ino-selection --> ino-icon
   ino-snackbar --> ino-icon
   ino-tab --> ino-icon
   ino-table-header-cell --> ino-icon

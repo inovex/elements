@@ -63,12 +63,7 @@ export class Autocomplete implements ComponentInterface {
       this.styleInputUnselected();
       return;
     }
-
-
     const val = Autocomplete.isKeyValue(value) ? value.value : value;
-
-    // checken ob val mit einer der optionen übereinstimmt
-    // grayInputText true setzen wenn nicht gleich
 
     if(this.inoInputEl) this.inoInputEl.value = val;
     if(this.inputEl) this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end

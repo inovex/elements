@@ -1,0 +1,23 @@
+.popover-content {
+    padding: 0.5rem;
+}
+
+#parent {
+    height: 200px;
+    width: 100%;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+.ino-autocomplete__list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    
+    // li {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    // }
+}

@@ -223,7 +223,8 @@
       "encapsulation": "none",
       "dependents": [
         "ino-dialog",
-        "ino-input-file"
+        "ino-input-file",
+        "ino-selection"
       ],
       "dependencies": [
         "ino-spinner"
@@ -236,6 +237,9 @@
           "ino-button"
         ],
         "ino-input-file": [
+          "ino-button"
+        ],
+        "ino-selection": [
           "ino-button"
         ]
       },
@@ -931,13 +935,18 @@
         }
       ],
       "encapsulation": "none",
-      "dependents": [],
+      "dependents": [
+        "ino-selection"
+      ],
       "dependencies": [
         "ino-icon"
       ],
       "dependencyGraph": {
         "ino-chip": [
           "ino-icon"
+        ],
+        "ino-selection": [
+          "ino-chip"
         ]
       },
       "props": [
@@ -2738,6 +2747,7 @@
         "ino-input",
         "ino-input-file",
         "ino-markdown-editor",
+        "ino-selection",
         "ino-snackbar",
         "ino-tab",
         "ino-table-header-cell"
@@ -2775,6 +2785,9 @@
           "ino-icon"
         ],
         "ino-markdown-editor": [
+          "ino-icon"
+        ],
+        "ino-selection": [
           "ino-icon"
         ],
         "ino-snackbar": [
@@ -3473,7 +3486,8 @@
       ],
       "encapsulation": "none",
       "dependents": [
-        "ino-datepicker"
+        "ino-datepicker",
+        "ino-selection"
       ],
       "dependencies": [
         "ino-label",
@@ -3485,6 +3499,9 @@
           "ino-icon"
         ],
         "ino-datepicker": [
+          "ino-input"
+        ],
+        "ino-selection": [
           "ino-input"
         ]
       },
@@ -5494,6 +5511,7 @@
       "dependents": [
         "ino-markdown-editor",
         "ino-menu",
+        "ino-selection",
         "ino-table-header-cell"
       ],
       "dependencies": [],
@@ -5502,6 +5520,9 @@
           "ino-popover"
         ],
         "ino-menu": [
+          "ino-popover"
+        ],
+        "ino-selection": [
           "ino-popover"
         ],
         "ino-table-header-cell": [
@@ -6886,6 +6907,357 @@
       ],
       "parts": [],
       "listeners": [
+        {
+          "event": "MDCSelect:change",
+          "capture": false,
+          "passive": false
+        }
+      ]
+    },
+    {
+      "filePath": "./src/components/ino-selection/ino-selection.tsx",
+      "fileName": "ino-selection.tsx",
+      "tag": "ino-selection",
+      "readme": "# ino-selection\n\n\n",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "popover-trigger - The target element to attach the triggers to"
+        }
+      ],
+      "encapsulation": "none",
+      "dependents": [],
+      "dependencies": [
+        "ino-popover",
+        "ino-chip",
+        "ino-input",
+        "ino-button",
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-selection": [
+          "ino-popover",
+          "ino-chip",
+          "ino-input",
+          "ino-button",
+          "ino-icon"
+        ],
+        "ino-chip": [
+          "ino-icon"
+        ],
+        "ino-input": [
+          "ino-label",
+          "ino-icon"
+        ],
+        "ino-button": [
+          "ino-spinner"
+        ]
+      },
+      "props": [
+        {
+          "name": "debounce",
+          "type": "number",
+          "mutable": false,
+          "attr": "debounce",
+          "reflectToAttr": false,
+          "docs": "Number of ms the search function should be delayed after the user typed something.",
+          "docsTags": [],
+          "default": "100",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Disables this element.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "displayAddOption",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "display-add-option",
+          "reflectToAttr": false,
+          "docs": "Displays a add new option item button",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "error",
+          "reflectToAttr": false,
+          "docs": "Displays the select as invalid if set to true.\nIf the property is not set or set to false,\nthe validation is handled by the default validation.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "for",
+          "type": "string",
+          "mutable": false,
+          "attr": "for",
+          "reflectToAttr": false,
+          "docs": "The target id the popover belongs to.\nIf not given, the popover is attached to the element provided in the named slot (`popover-trigger`)\nor the parent component if a slot element does not exist.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label of this element.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "noOptionsText",
+          "type": "string",
+          "mutable": false,
+          "attr": "no-options-text",
+          "reflectToAttr": false,
+          "docs": "Text to display when there are no options found, where `$` is the placeholder for the input of the user.",
+          "docsTags": [],
+          "default": "'Found No Results for \"$\"'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "open",
+          "reflectToAttr": false,
+          "docs": "marks the state of the selection as open.\n\nInitial value is `false`",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "KeyValue[] | string[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "All options either as a string array or as an array of `{key: string; value: string}` objects.",
+          "docsTags": [],
+          "default": "['G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ']",
+          "values": [
+            {
+              "type": "KeyValue[]"
+            },
+            {
+              "type": "string[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "mutable": false,
+          "attr": "placement",
+          "reflectToAttr": false,
+          "docs": "The placement of this popover.\nAccepted values: `top(-start, -end)`, `right(-start, -end)`,\n`bottom(-start, -end)`, `left(-start, -end)`",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "auto-end",
+              "type": "string"
+            },
+            {
+              "value": "auto-start",
+              "type": "string"
+            },
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "bottom-end",
+              "type": "string"
+            },
+            {
+              "value": "bottom-start",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "left-end",
+              "type": "string"
+            },
+            {
+              "value": "left-start",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "right-end",
+              "type": "string"
+            },
+            {
+              "value": "right-start",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            },
+            {
+              "value": "top-end",
+              "type": "string"
+            },
+            {
+              "value": "top-start",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "stayOpen",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "stay-open",
+          "reflectToAttr": false,
+          "docs": "The selection stays open, after selecting a option\n\ndefault `stayOpen = false`",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | { key: string; value: string; }",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of this element. (**unmanaged**)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "{ key: string; value: string; }"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "optionAdded",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the string of the added option. Contains new value in `event.detail`.",
+          "docsTags": []
+        },
+        {
+          "event": "valueChange",
+          "detail": "string | { key: string; value: string; }",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits the list item the user clicked on either as a string or\na `{key: string; value: string}` object depending on the provided options.\n\nTrigger on two occasions:\n1. The user clicked on a list-item.\n2. The user types in a string that matches an option and blurs the input",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [
+        {
+          "name": "popover-trigger",
+          "docs": "The target element to attach the triggers to"
+        }
+      ],
+      "parts": [],
+      "listeners": [
+        {
+          "event": "selection",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "close",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "MDCSelect:change",
           "capture": false,
