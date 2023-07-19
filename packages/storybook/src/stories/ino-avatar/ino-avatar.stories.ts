@@ -3,9 +3,8 @@ import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
-import './ino-avatar.scss';
 
-import avatarImg from '../../assets/images/avatar.jpg'
+import avatarImg from '../../assets/images/avatar.jpg';
 
 export default {
   title: 'Graphic/<ino-avatar>',
@@ -37,5 +36,20 @@ export const Playground = template.generatePlaygroundStory();
 
 export const Interactive = template.generateStoryForProp('interactive', true);
 export const VariantDashed = template.generateStoryForProp('variant', 'dashed');
-export const VariantSolid = template.generateStoryForProp('variant', 'solid');
-export const Initials = template.generateStoryForProp('src', '');
+export const VariantDashedInteractive = template.generateStoryForProp(
+  'variant',
+  'dashed',
+  { interactive: true }
+);
+/*
+ The initials of the avatar, if there is no image.
+ */
+export const LeadingAndTrailingIcon = () => html`
+  <ino-avatar
+    initials="JD"
+    interactive="false"
+    variant="solid"
+    src=""
+  >
+  </ino-avatar>
+`;
