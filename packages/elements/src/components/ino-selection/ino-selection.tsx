@@ -205,16 +205,15 @@ export class Selection implements ComponentInterface {
 
     private initComponents = () => {
         this.inoPopoverEl = this.el.querySelector('ino-popover');
-
     }
 
-    private initVirtualScroll = () => {
-        console.log('initVirtualScroll')
+    private initVirtualScroll = (length: number) => {
+        console.log(`initVirtualScroll with ${length} elements`)
         this.parentEl = this.inoPopoverEl.querySelector('#parent');
-        //this.optionList = this.inoPopoverEl.querySelector('.ino-autocomplete__list')        
-    
+        this.optionList = this.inoPopoverEl.querySelector('.ino-autocomplete__list')        
+
         const virtualizer = new Virtualizer({
-            count: this.resultItems.length,
+            count: length,
             getScrollElement: () => this.parentEl,
             estimateSize: () => 20,
             initialRect: {
@@ -226,9 +225,9 @@ export class Selection implements ComponentInterface {
             scrollToFn: elementScroll,
             onChange: (instance) => {
               const list = this.optionList;
-              //list.style.height = `${instance.getTotalSize()}px`;
+              list.style.height = `${instance.getTotalSize()}px`;
               instance.getVirtualItems().map((element, index) => {
-                //result items from autocomplete render through index of resultItems
+                //result items from autocomplete render through index of resultItems    
                 if(this.resultItems[index] !== undefined){
                     const listItem = document.createElement('div');
                     listItem.style.height = `${instance.measureElement}px`;
@@ -238,6 +237,7 @@ export class Selection implements ComponentInterface {
                 }
               });
             },
+            debug: true,
         })
         virtualizer._willUpdate();
     }    
@@ -253,6 +253,12 @@ export class Selection implements ComponentInterface {
 
         this.inoInputEl?.addEventListener('valueChange', this.onInputValueChange);
         
+        this.inoInputEl?.addEventListener('results', (e: any) => {
+            e.detail.results.forEach(result => this.resultItems.push(result.value))
+            console.log('this.resultsItems.length', this.resultItems.length)
+            this.initVirtualScroll(this.resultItems.length)
+        })
+
         const config = {
           selector: () => this.inputEl,
           threshold: 0,
@@ -266,7 +272,7 @@ export class Selection implements ComponentInterface {
             class: 'mdc-deprecated-list ino-autocomplete__list optionList',
             destination: () => this.optionList,
             element: (list, data) => {
-                this.resultItems = [];
+                //this.resultItems = [];
                 const info = document.createElement("p");
                 if (data.results.length > 0) {
                     info.innerHTML = `Displaying <strong>${data.results.length}</strong> out of <strong>${data.matches.length}</strong> results`;
@@ -275,7 +281,6 @@ export class Selection implements ComponentInterface {
                 }
                 list.prepend(info);
                 
-                //data.results.forEach(result => this.resultItems.push(result.value))
                 if (data.results.length > 0) return;
                 list.appendChild(this.createNoMatchMessage(data.query));
             },
@@ -283,18 +288,13 @@ export class Selection implements ComponentInterface {
           },
           resultItem: {
             class: 'mdc-deprecated-list-item ino-autocomplete__list-item',
-            element: (_item, data) => {
-                this.resultItems.push(data.value)
-
-            },
             highlight: 'ino-autocomplete__list-item--highlight',
             selected:
               'mdc-deprecated-list-item--selected ino-autocomplete__list-item--selected',
           },
           events: {
             input: {
-                focus: () => this.autocomplete.start(), //open menu on focus
-                results: () => this.initVirtualScroll(),
+                focus: () =>this.autocomplete.start() //open menu on focus
             },
           },
         };
@@ -304,7 +304,7 @@ export class Selection implements ComponentInterface {
         }
     
         this.autocomplete = new autoComplete(config);
-        
+
         //if (this.value) this.onValueChange(this.value);
       }
 
