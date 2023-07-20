@@ -1,5 +1,11 @@
 import { useStorybookUrl } from '../../../../utils/hooks/useStorybookUrl';
-import { InoButton, InoIcon, InoSpinner } from '@elements';
+import {
+  InoSelect,
+  InoOption,
+  InoButton,
+  InoIcon,
+  InoSpinner,
+} from '@elements';
 import styles from './index.module.scss';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import {
@@ -11,7 +17,7 @@ import { Locale_File } from '../../../../translations/types';
 import { merge } from 'lodash';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 import openInNew from '@assets/open-in-new.svg';
-import { useContext, useEffect, useMemo } from 'react';
+import { useContext, useEffect, useState, useMemo } from 'react';
 import { UiContext, UiContextType } from '../../../../utils/context/UiContext';
 import Page from '../../../../components/layout/page';
 import useTranslation from '../../../../utils/hooks/useTranslation';
@@ -19,6 +25,8 @@ import useTranslation from '../../../../utils/hooks/useTranslation';
 const StoryBookPage: NextPage<void> = () => {
   const { t } = useTranslation();
   const { hideFooter } = useContext(UiContext) as UiContextType;
+  const [versions, setVersions] = useState<string[]>([]);
+  const [selectedVersion, setSelectedVersion] = useState('');
 
   const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
   const currentStory = useStorybookUrlSyncer();
@@ -27,8 +35,14 @@ const StoryBookPage: NextPage<void> = () => {
     [currentStory]
   );
 
-  // prevent scrolling of body while in storybook
   useEffect(() => {
+    fetch(
+      'https://raw.githubusercontent.com/inovex/elements/pages/hosted-versions.json'
+    )
+      .then((response) => response.json())
+      .then((data) => setVersions(data));
+
+    // prevent scrolling of body while in storybook
     document.body.style.overflow = 'clip';
     hideFooter(true);
 
@@ -38,9 +52,33 @@ const StoryBookPage: NextPage<void> = () => {
     };
   }, []);
 
+  const handleVersionChange = (e: CustomEvent) => {
+    setSelectedVersion(e.detail);
+  };
+
+  const iframeUrl = selectedVersion
+    ? `https://elements.inovex.de/version/${selectedVersion}/?path=/story/docs-welcome--page`
+    : initialUrl;
+
   return (
     <Page title={[t('common.meta.library')]}>
       <div className={styles.container}>
+        <InoButton className={styles.openExternallySelect} variant='outlined'>
+          <InoIcon slot="icon-leading" icon="status_future"></InoIcon>
+          <InoSelect
+            name="select-version"
+            value={selectedVersion}
+            onValueChange={handleVersionChange}
+            label='Select version'
+          >
+            {versions.map((version, i) => (
+              <InoOption key={i} value={version}>
+                {version}
+              </InoOption>
+            ))}
+          </InoSelect>
+        </InoButton>
+
         {url && (
           <a
             className={styles.openExternallyButton}
@@ -59,9 +97,9 @@ const StoryBookPage: NextPage<void> = () => {
           </a>
         )}
         {!initialUrl && <InoSpinner type="circle"></InoSpinner>}
-        {initialUrl && (
+        {iframeUrl && (
           <iframe
-            src={initialUrl}
+            src={iframeUrl}
             style={{
               position: 'absolute',
               left: 0,
