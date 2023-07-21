@@ -793,6 +793,10 @@ export namespace Components {
          */
         "selected"?: boolean;
         /**
+          * Specifies the tabindex of the list item.
+         */
+        "tabIndex": number;
+        /**
           * The primary text of this list item.
          */
         "text"?: string;
@@ -2640,6 +2644,10 @@ declare namespace LocalJSX {
           * Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon.
          */
         "selected"?: boolean;
+        /**
+          * Specifies the tabindex of the list item.
+         */
+        "tabIndex"?: number;
         /**
           * The primary text of this list item.
          */

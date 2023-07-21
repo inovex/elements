@@ -625,13 +625,13 @@ Contains the element itself in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text']
+  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'tabIndex', 'text']
 })
 @Component({
   selector: 'ino-list-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text']
+  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'tabIndex', 'text']
 })
 export class InoListItem {
   protected el: HTMLElement;

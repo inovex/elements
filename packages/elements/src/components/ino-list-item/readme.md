@@ -52,6 +52,7 @@ document
 | `disabled`      | `disabled`       | Styles the row in a disabled style.                                                                                                              | `boolean` | `undefined` |
 | `secondaryText` | `secondary-text` | Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.                                               | `string`  | `undefined` |
 | `selected`      | `selected`       | Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon. | `boolean` | `undefined` |
+| `tabIndex`      | `tab-index`      | Specifies the tabindex of the list item.                                                                                                         | `number`  | `-1`        |
 | `text`          | `text`           | The primary text of this list item.                                                                                                              | `string`  | `undefined` |
 
 
@@ -70,22 +71,6 @@ document
 | `"primary"`   | For the (text) element                             |
 | `"secondary"` | For the secondary text element in a two-lined list |
 | `"trailing"`  | For the element to be appended                     |
-
-
-## CSS Custom Properties
-
-| Name                                                 | Description                                           |
-| ---------------------------------------------------- | ----------------------------------------------------- |
-| `--ino-list-item-deselected-background-color`        | Background color of a deselected list item            |
-| `--ino-list-item-deselected-background-color-active` | Background color of a deselected list item if active  |
-| `--ino-list-item-deselected-background-color-focus`  | Background color of a deselected list item if focused |
-| `--ino-list-item-deselected-background-color-hover`  | Background color of a deselected list item on hover   |
-| `--ino-list-item-deselected-color`                   | Text color of a deselected list item                  |
-| `--ino-list-item-selected-background-color`          | Background color of a selected list item              |
-| `--ino-list-item-selected-background-color-active`   | Background color of a selected list item if active    |
-| `--ino-list-item-selected-background-color-focus`    | Background color of a selected list item if focused   |
-| `--ino-list-item-selected-background-color-hover`    | Background color of a selected list item on hover     |
-| `--ino-list-item-selected-color`                     | Text color of a selected list item                    |
 
 
 ## Dependencies
