@@ -62,6 +62,11 @@ export class ListItem implements ComponentInterface {
    */
   @Prop() disabled?: boolean;
 
+ /**
+   * Specifies the tabindex of the list item.
+   */
+  @Prop() tabIndex: number = -1;
+
   /**
    * Emits when the list item is clicked or
    * the enter/space key if pressed while the item is in focus.
@@ -110,7 +115,7 @@ export class ListItem implements ComponentInterface {
 
     return (
       <Host>
-        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses} tabIndex={0}>
+        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses} tabindex={this.tabIndex}>
           <span class="mdc-deprecated-list-item__ripple"></span>
           {leadingSlotHasContent && (
             <span class="mdc-deprecated-list-item__graphic" role="presentation">

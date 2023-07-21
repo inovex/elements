@@ -70,6 +70,10 @@ export class NavDrawer implements ComponentInterface {
     }
 
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
+
+    // make all nav-items focusable
+    const listItems = this.el.querySelectorAll('ino-list-item');
+    listItems.forEach((item) => (item.tabIndex = 0));
   }
 
   disconnectedCallback() {
@@ -93,8 +97,9 @@ export class NavDrawer implements ComponentInterface {
   }
 
   private deactivateAllItems() {
-    const allItems: NodeListOf<HTMLInoListItemElement> = this.el.querySelectorAll('ino-list-item');
-    allItems.forEach(item => item.activated = false);
+    const allItems: NodeListOf<HTMLInoListItemElement> =
+      this.el.querySelectorAll('ino-list-item');
+    allItems.forEach((item) => (item.activated = false));
   }
 
   private closeDrawer = (e: Event) => {
