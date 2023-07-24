@@ -6190,6 +6190,21 @@
       "parts": [],
       "listeners": [
         {
+          "event": "checkedChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "mouseover",
+          "capture": false,
+          "passive": true
+        },
+        {
+          "event": "mouseout",
+          "capture": false,
+          "passive": true
+        },
+        {
           "event": "keydown",
           "capture": false,
           "passive": false
