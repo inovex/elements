@@ -49,10 +49,16 @@ export default {
       },
       options: ['opt-1', 'opt-2', 'opt-3'],
     },
+    alignment: {
+      control: {
+        type: 'select',
+      },
+      options: ['horizontal', 'vertical'],
+    },
   },
   args: {
     value: 'opt-2',
-    alignments: 'horizontal',
+    alignment: 'horizontal',
   },
 } as Meta<Components.InoRadioGroup>;
 
