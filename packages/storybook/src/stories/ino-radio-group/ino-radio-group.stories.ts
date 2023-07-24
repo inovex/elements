@@ -13,35 +13,54 @@ export default {
       handles: ['checkedChange ino-radio'],
     },
   },
-  decorators: [ story => decorateStoryWithClass(story) ],
+  decorators: [
+    story => decorateStoryWithClass(story),
+    story => {
+      useEffect(() => {
+        const checkedChangeHandler = e => {
+          e.currentTarget.setAttribute('value', e.target.getAttribute('value'));
+        };
+
+        const valueChangeHandler = e => {
+          e.currentTarget.setAttribute('value', e.detail);
+        };
+
+        const radioGrps = document.querySelectorAll('ino-radio-group');
+        radioGrps.forEach(radioGrp => {
+          radioGrp.addEventListener('checkedChange', checkedChangeHandler);
+          radioGrp.addEventListener('valueChange', valueChangeHandler);
+        });
+
+        return () => {
+          radioGrps.forEach(radioGrp => {
+            radioGrp.removeEventListener('checkedChange', checkedChangeHandler);
+            radioGrp.removeEventListener('valueChange', valueChangeHandler);
+          });
+        };
+      });
+
+      return story();
+    },
+  ],
+  argTypes: {
+    value: {
+      control: {
+        type: 'select',
+      },
+      options: ['opt-1', 'opt-2', 'opt-3'],
+    },
+  },
   args: {
     value: 'opt-2',
-    alignment: 'horizontal',
+    alignments: 'horizontal',
   },
 } as Meta<Components.InoRadioGroup>;
-
-const updateValueOnChange = (id) => {
-  useEffect(() => {
-    const radioGrp = document.querySelector(id);
-    const eventHandler = e =>
-      radioGrp.setAttribute('value', e.target.getAttribute('value'));
-    radioGrp.addEventListener('checkedChange', eventHandler);
-    const evtHandler = e => {
-      radioGrp.setAttribute('value', e.detail);
-    };
-    radioGrp.addEventListener('valueChange', evtHandler);
-    return () => {
-      radioGrp.removeEventListener('checkedChange', eventHandler);
-      radioGrp.removeEventListener('valueChange', evtHandler);
-    };
-  });
-}
 
 const template = new TemplateGenerator<Components.InoRadioGroup>(
   'ino-radio-group',
   args => html`
-    <ino-radio-group 
-      id="radio-grp1" 
+    <ino-radio-group
+      id="radio-grp"
       value="${args.value}"
       alignment="${args.alignment}"
     >
@@ -49,45 +68,8 @@ const template = new TemplateGenerator<Components.InoRadioGroup>(
       <ino-radio value="opt-2">Opt 2</ino-radio>
       <ino-radio value="opt-3">Opt 3</ino-radio>
     </ino-radio-group>
-  `
-);
+`);
 
 export const Playground = template.generatePlaygroundStory();
 
-Playground.decorators = [story => {
-  updateValueOnChange('#radio-grp1');
-  return story();
-}];
-
-Playground.argTypes = {
-  value: {
-    control: { type: 'select' },
-    options: ['opt-1', 'opt-2', 'opt-3'],
-  },
-  alignment: {
-    control: { type: 'radio' },
-    options: ['horizontal', 'vertical'],
-  },
-};
-
-const verticalTemplate = new TemplateGenerator<Components.InoRadioGroup>(
-  'ino-radio-group',
-  args => html`
-    <ino-radio-group 
-      id="radio-grp2" 
-      value="${args.value}"
-      alignment="vertical"
-    >
-      <ino-radio value="opt-1">Opt 1</ino-radio>
-      <ino-radio value="opt-2">Opt 2</ino-radio>
-      <ino-radio value="opt-3">Opt 3</ino-radio>
-    </ino-radio-group>
-  `
-);
-
-export const VerticalAlignment = verticalTemplate.generatePlaygroundStory();
-
-VerticalAlignment.decorators = [story => {
-  updateValueOnChange('#radio-grp2');
-  return story();
-}];
+export const VerticalAlignment = template.generateStoryForProp('alignment', 'vertical');
