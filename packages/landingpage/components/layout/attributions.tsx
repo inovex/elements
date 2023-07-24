@@ -12,7 +12,7 @@ export default function Attributions() {
       <div className={styles.company}>
         <Image
           src={inovexLogo}
-          alt="Inovex Logo"
+          alt="inovex Logo"
           width={30}
           height={30}
           style={{

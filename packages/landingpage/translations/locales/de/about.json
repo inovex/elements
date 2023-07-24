@@ -1,7 +1,7 @@
 {
   "contributors": {
     "title_1": "Team",
-    "title_2": "@ inovex elements",
+    "title_2": "@ inovex Elements",
     "not_found": "Keine aktuellen Teammitglieder gefunden.",
     "roles": {
       "product_owner": "Product Owner",
@@ -16,7 +16,7 @@
       "proof_of_concept": {
         "title": "Machbarkeitsstudie 🔎",
         "date": "Februar 2018",
-        "description": "Im Jahr 2018 haben wir unsere Reise begonnen. Wir haben Wochen damit verbracht zu evaluieren, welches Framework zu unseren Bedürfnissen passt und welche Entscheidung für die nächsten Jahre Bestand haben könnte. In der Frontend-Welt ist es immer eine Wette auf Zeit und nie einfach, die richtige Wahl zu treffen. Wir begannen elements als Nebenprojekt und evaluierten, welche Bibliothek und welche Tools am besten geeignet sind, um uns beim Schreiben von standardbasierten Webkomponenten zu helfen. Wir haben viel ausprobiert und uns die verfügbaren Bibliotheken Polymer, SkateJS, SlimJS, Switzerland und Stencil angesehen. Wir wägten die Funktionen gegeneinander ab und entschieden uns für Stencil."
+        "description": "Im Jahr 2018 haben wir unsere Reise begonnen. Wir haben Wochen damit verbracht zu evaluieren, welches Framework zu unseren Bedürfnissen passt und welche Entscheidung für die nächsten Jahre Bestand haben könnte. In der Frontend-Welt ist es immer eine Wette auf Zeit und nie einfach, die richtige Wahl zu treffen. Wir begannen inovex Elements als Nebenprojekt und evaluierten, welche Bibliothek und welche Tools am besten geeignet sind, um uns beim Schreiben von standardbasierten Webkomponenten zu helfen. Wir haben viel ausprobiert und uns die verfügbaren Bibliotheken Polymer, SkateJS, SlimJS, Switzerland und Stencil angesehen. Wir wägten die Funktionen gegeneinander ab und entschieden uns für Stencil."
       },
       "getting_started": {
         "title": "Es geht los 🛫",
@@ -27,7 +27,7 @@
       "first_internal": {
         "title": "Erste interne Verwendungen 💙",
         "date": "September 2018",
-        "description": "Unsere Motivation und unser Enthusiasmus brachten schnelle Erfolge. So war es möglich, dass bereits im September eines unserer internen Projekte die elements nutzen konnte und dadurch einen enormen Mehrwert erhielt."
+        "description": "Unsere Motivation und unser Enthusiasmus brachten schnelle Erfolge. So war es möglich, dass bereits im September eines unserer internen Projekte die inovex Elements nutzen konnte und dadurch einen enormen Mehrwert erhielt."
       },
       "learning": {
         "title": "Stetig weiter lernen 💪🏻",
@@ -37,7 +37,7 @@
       "first_external": {
         "title": "Erste externe Verwendungen 🤝🏻",
         "date": "in 2020",
-        "description": "Die elements werden bekannter. Auch unsere Kunden waren überzeugt. Das führte dazu, dass einige von ihnen die Komponentenbibliothek auch in ihren eigenen Projekten verwendeten."
+        "description": "Die inovex Elements werden bekannter. Auch unsere Kunden waren überzeugt. Das führte dazu, dass einige von ihnen die Komponentenbibliothek auch in ihren eigenen Projekten verwendeten."
       },
       "open_source": {
         "title": "Open Source 🌍",
@@ -50,9 +50,9 @@
       "optimizing": {
         "title": "Immer weiter optimieren 🚀",
         "date": "laufend",
-        "description_1": "Mit einem internen Team entwickeln und optimieren wir ständig die elements weiter. Es ist uns wichtig, Ihnen ein tolles Erlebnis zu bieten. Auch Sie können uns dabei unterstützen, es noch besser zu machen. Jetzt",
+        "description_1": "Mit einem internen Team entwickeln und optimieren wir ständig die inovex Elements weiter. Es ist uns wichtig, Ihnen ein tolles Erlebnis zu bieten. Auch Sie können uns dabei unterstützen, es noch besser zu machen. Jetzt",
         "description_2": "mitgestalten",
-        "description_3": "und die elements voranbringen."
+        "description_3": "und die inovex Elements voranbringen."
       }
     }
   },

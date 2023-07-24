@@ -1,8 +1,8 @@
 # @inovex.de/elements
 
-This is the core package containing all the inovex elements as pure Web Components.
+This is the core package containing all the inovex Elements as pure Web Components.
 
-> You can integrate the elements into Angular, React, Vue or JavaScript projects. See below for instructions.
+> You can integrate the Elements into Angular, React, Vue or JavaScript projects. See below for instructions.
 
 ## Installation
 
@@ -25,7 +25,7 @@ Stencil components are just Web Components, so they work in any major framework 
 
 ### Storybook
 
-[Storybook](https://github.com/storybooks/storybook) is a development environment for UI components. It allows us to browse the inovex elements, view the different states of each component, and interactively develop and test inovex components.
+[Storybook](https://github.com/storybooks/storybook) is a development environment for UI components. It allows us to browse the inovex Elements, view the different states of each component, and interactively develop and test inovex components.
 
 The Storybook is part of the development process and used to test the components as well as to show the most common use cases. We work with it and provide it as our documentation for consuming developers.
 

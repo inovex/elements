@@ -7,7 +7,7 @@ import {CH} from '@code-hike/mdx/components';
 
 ## Installieren Sie das Paket `@inovex.de/elements-angular`
 
-Wir stellen ein Integration Layer Package für Angular zur Verfügung, damit Sie die elements als Angular-Bibliothek in Dein Angular-Projekt integrieren können.
+Wir stellen ein Integration Layer Package für Angular zur Verfügung, damit Sie die inovex Elements als Angular-Bibliothek in Dein Angular-Projekt integrieren können.
 Um es zu installieren, haben Sie folgenden Optionen:
 <CH.Code>
   ```bash angular-cli
@@ -23,7 +23,7 @@ Um es zu installieren, haben Sie folgenden Optionen:
 
 Die `ino-icons` werden automatisch zum Projekt hinzugefügt, wenn Sie angular-cli nutzen.
 
-Wenn Sie npm oder yarn zum Installieren der elements nutzen, müssen Sie die `angular.json` manuell anpassen.
+Wenn Sie npm oder yarn zum Installieren der inovex Elements nutzen, müssen Sie die `angular.json` manuell anpassen.
 Fügen Sie Folgendes zu Ihren Build-Assets hinzu (`projects.<your-project-name>.architect.build.options.assets`) und zum Testen (`projects.<your-project-name>.architect.test.options.assets`).
 
 ```json angular.json
@@ -42,10 +42,10 @@ Die Komponenten, die wir im Angular-Projekt bereitstellen, sind in Angular-Direk
 Alle `@Input` Eigenschaften und `@Output` Events unserer Komponenten sind enthalten.
 Dies ermöglicht es der IDE und dem Compiler, alle Typinformationen aus den gegebenen Schnittstellen abzuleiten, was für eine ordnungsgemäße Code-Vervollständigung zwingend erforderlich ist.
 
-Um die elements zu nutzen, müssen Sie das `InoElementsModule` in eines deiner App Module integrieren. Führen Sie dazu die folgenden Schritte aus:
+Um die inovex Elements zu nutzen, müssen Sie das `InoElementsModule` in eines deiner App Module integrieren. Führen Sie dazu die folgenden Schritte aus:
 
 <CH.Section>
-1. [Importieren Sie das elements Modul](focus://3)
+1. [Importieren Sie das inovex Elements Modul](focus://3)
 2. [Fügen Sie unser Modul zu den Imports hinzu (Sie können hierfür auch eine InoElementsConfig erstellen)](focus://10)
 3. [Fügen Sie das CUSTOM_ELEMENTS_SCHEMA hinzu](focus://14)
 
@@ -69,7 +69,7 @@ export class AppModule {}
 ```
 </CH.Section>
 
-Wenn Sie mehr als ein Modul haben, sollten Sie das `InoElementsModule` in jedes Modul integrieren, das die inovex-elements verwenden soll.
+Wenn Sie mehr als ein Modul haben, sollten Sie das `InoElementsModule` in jedes Modul integrieren, das die inovex Elements verwenden soll.
 Alternativ dazu können Sie die Komponenten auch in ein gemeinsames Modul integrieren.
 Auf diese Weise brauchen Sie die Komponenten nur einmal zu importieren (empfohlen).
 
