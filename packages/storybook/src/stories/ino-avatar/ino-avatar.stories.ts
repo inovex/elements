@@ -29,8 +29,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       src="${args.src}"
     >
     </ino-avatar>
-  `
-);
+`);
 
 export const Playground = template.generatePlaygroundStory();
 
@@ -44,7 +43,7 @@ export const VariantDashedInteractive = template.generateStoryForProp(
 /*
  The initials of the avatar, if there is no image.
  */
-export const LeadingAndTrailingIcon = () => html`
+export const Initials = () => html`
   <ino-avatar
     initials="JD"
     interactive="false"
