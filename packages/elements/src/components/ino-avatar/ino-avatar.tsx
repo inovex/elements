@@ -30,24 +30,6 @@ export class Avatar implements ComponentInterface {
    */
   @Prop() variant: 'dashed' | 'solid' = 'solid';
 
-  componentDidLoad() {
-    if (this.interactive && this.variant === 'dashed') {
-      const avatarImageElement = this.el.querySelector('.ino-avatar__image');
-      avatarImageElement.addEventListener('mouseenter', () =>
-        this.startAnimation()
-      );
-    }
-  }
-
-  startAnimation() {
-    const avatarBorderElement = this.el.querySelector('.ino-avatar__border');
-    avatarBorderElement.classList.add('animate');
-    // animation is done after 850ms
-    setTimeout(() => {
-      avatarBorderElement.classList.remove('animate');
-    }, 850);
-  }
-
   render() {
     const avatarClasses = classNames({
       'ino-avatar': true,
