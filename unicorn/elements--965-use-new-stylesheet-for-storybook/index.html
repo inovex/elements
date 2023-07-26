@@ -61,6 +61,15 @@
     font-weight: 500;
   }
 
+  /** overwrite toolbar icon color & hover */
+  .os-content button svg path {
+    fill: var(--inovex-elements-n-11);
+  }
+
+  .os-content button:hover svg path {
+    fill: var(--inovex-elements-primary);
+  }
+
   .os-content .search-field {
     margin-top: 0px;
   }
@@ -74,7 +83,7 @@
     /* Title Small */
     letter-spacing: 0.02px;
     font-weight: 600;
-    color: var(--inovex-elements-n-3);
+    color: var(--inovex-elements-n-6);
     font-size: 14px;
     margin-top: 32px;
     margin-bottom: 6px;
@@ -90,10 +99,6 @@
     font-weight: 500;
     letter-spacing: 0.5px;
     transition: 0.15s ease-in-out;
-  }
-  
-  .os-content .sidebar-item button[data-selected="true"] {
-    background-color: rgb(var(--inovex-elements-n-3)) !important;
   }
 
   /* skip to canvas button*/
