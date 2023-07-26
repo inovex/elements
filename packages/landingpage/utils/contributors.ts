@@ -50,7 +50,6 @@ export const CONTRIBUTORS: inovexContributor[] = [
     login: 'TobiasHeimGalindo',
     name: 'Tobias',
     roles: [Role.DEV],
-    isInactive: true,
   },
   {
     login: 'BingeCode',
