@@ -13,12 +13,6 @@ import {
     Watch,
   } from '@stencil/core';
 import {
-    Virtualizer,
-    observeElementRect,
-    observeElementOffset,
-    elementScroll,    
-} from '@tanstack/virtual-core';
-import {
     Placement,
   } from 'tippy.js';
 import autoComplete from '@tarekraafat/autocomplete.js';
@@ -39,9 +33,7 @@ export class Selection implements ComponentInterface {
     private optionsObserver: MutationObserver;
     private inoInputEl: HTMLInoInputElement;
     private inputEl: HTMLInputElement;
-    private parentEl: HTMLElement;
     private optionList: HTMLElement;
-    private resultItems: string[] | KeyValue [] = [];
     private inoPopoverEl: HTMLInoPopoverElement;
     private autocomplete: any; // no typings for this library yet https://tarekraafat.github.io/autoComplete.js/#/
 
@@ -198,66 +190,38 @@ export class Selection implements ComponentInterface {
     }
 
     private onInputValueChange = (e: CustomEvent<string>) => {
-        this.resultItems = [];
         this.inoInputEl.value = e.detail;
         e.stopPropagation();
     };
 
     private initComponents = () => {
+        this.inoPopoverEl?.removeEventListener('visibleChanged', this.initSelection) 
+    
         this.inoPopoverEl = this.el.querySelector('ino-popover');
+       
+        this.inoPopoverEl?.addEventListener('visibleChanged', this.initSelection) 
     }
 
-    private initVirtualScroll = (length: number) => {
-        console.log(`initVirtualScroll with ${length} elements`)
-        this.parentEl = this.inoPopoverEl.querySelector('#parent');
-        this.optionList = this.inoPopoverEl.querySelector('.ino-autocomplete__list')        
+    private initSelection = (e: CustomEvent<boolean>) => {
+        this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
+        if (e.detail === false) {
+            this.inoPopoverEl.visible = false;
+            return
+        }
+        this.inoPopoverEl.visible = true;
+        
+        // init Components inside of popover only if visible
+        this.inoInputEl = this.inoPopoverEl.querySelector('ino-input');
+        this.inputEl = this.inoPopoverEl.querySelector('input');
+        this.optionList = this.inoPopoverEl.querySelector('header') 
 
-        const virtualizer = new Virtualizer({
-            count: length,
-            getScrollElement: () => this.parentEl,
-            estimateSize: () => 20,
-            initialRect: {
-              height: 250,
-              width: 250,
-            },
-            observeElementRect: observeElementRect,
-            observeElementOffset: observeElementOffset,
-            scrollToFn: elementScroll,
-            onChange: (instance) => {
-              const list = this.optionList;
-              list.style.height = `${instance.getTotalSize()}px`;
-              instance.getVirtualItems().map((element, index) => {
-                //result items from autocomplete render through index of resultItems    
-                if(this.resultItems[index] !== undefined){
-                    const listItem = document.createElement('div');
-                    listItem.style.height = `${instance.measureElement}px`;
-                    listItem.style.transform = `translateY(${element.start}px)`;
-                    listItem.textContent = `${this.resultItems[index]}`;
-                    list.append(listItem);
-                }
-              });
-            },
-            debug: true,
-        })
-        virtualizer._willUpdate();
-    }    
+        this.inoInputEl?.addEventListener('valueChange', this.onInputValueChange);
+
+        this.initAutocomplete();
+    }
 
     private initAutocomplete() {
         this.autocomplete?.unInit();
-
-        this.inoInputEl = this.inoPopoverEl.querySelector('ino-input');
-        this.inputEl = this.inoPopoverEl.querySelector('input');
-        //this.optionList = this.inoPopoverEl.querySelector('.ino-autocomplete__list')  
-
-        this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
-
-        this.inoInputEl?.addEventListener('valueChange', this.onInputValueChange);
-        
-        this.inoInputEl?.addEventListener('results', (e: any) => {
-            e.detail.results.forEach(result => this.resultItems.push(result.value))
-            console.log('this.resultsItems.length', this.resultItems.length)
-            this.initVirtualScroll(this.resultItems.length)
-        })
 
         const config = {
           selector: () => this.inputEl,
@@ -271,16 +235,7 @@ export class Selection implements ComponentInterface {
             noResults: true,
             class: 'mdc-deprecated-list ino-autocomplete__list optionList',
             destination: () => this.optionList,
-            element: (list, data) => {
-                //this.resultItems = [];
-                const info = document.createElement("p");
-                if (data.results.length > 0) {
-                    info.innerHTML = `Displaying <strong>${data.results.length}</strong> out of <strong>${data.matches.length}</strong> results`;
-                } else {
-                    info.innerHTML = `Found <strong>${data.matches.length}</strong> matching results for <strong>"${data.query}"</strong>`;
-                }
-                list.prepend(info);
-                
+            element: (list, data) => {            
                 if (data.results.length > 0) return;
                 list.appendChild(this.createNoMatchMessage(data.query));
             },
@@ -294,18 +249,22 @@ export class Selection implements ComponentInterface {
           },
           events: {
             input: {
-                focus: () =>this.autocomplete.start() //open menu on focus
+                focus: () => {
+                    this.autocomplete.start() //open menu on focus
+                } 
             },
           },
-        };
-    
+        };        
+
         if (this.options?.length > 0 && Selection.isKeyValue(this.options[0])) {
           config['data']['keys'] = ['value'];
         }
-    
-        this.autocomplete = new autoComplete(config);
 
-        //if (this.value) this.onValueChange(this.value);
+        this.autocomplete = new autoComplete(config);
+        //set automatic focus on input
+        this.inoInputEl.focus();
+
+        if (this.value) this.onValueChange(this.value);
       }
 
     private createNoMatchMessage(query: string): HTMLDivElement {
@@ -319,11 +278,9 @@ export class Selection implements ComponentInterface {
 
         return message;
     }
-    
 
     private resetInput(): void {
         if(this.inoInputEl) this.inoInputEl.value = '';
-        this.resultItems = [];
     }
     
     @Listen('MDCSelect:change')
@@ -345,18 +302,7 @@ export class Selection implements ComponentInterface {
     private styleInputSelected = () => this.inoInputEl?.classList.remove(Selection.UNSELECTED_INPUT_CLASS);
     private styleInputUnselected = () => this.inoInputEl?.classList.add(Selection.UNSELECTED_INPUT_CLASS);
 
-    render() {  
-    
-        const handleVisibleChanged = (e: any) => {
-            if(e.detail) {
-                this.inoPopoverEl.visible = true;
-                this.initAutocomplete();
-                //this.initVirtualScroll()
-                return
-            }
-            this.inoPopoverEl.visible = false;
-        }
-    
+    render() {      
         return (
             <Host>
                 <ino-popover
@@ -368,24 +314,26 @@ export class Selection implements ComponentInterface {
                     interactive={true}
                     for={this.for}
                     controlled={true}
-                    onVisibleChanged={handleVisibleChanged}
                 >
                     <ino-chip id={this.for} slot="popover-trigger">Trigger</ino-chip>
                     <div class="popover-content">
-                        <ino-input 
-                            placeholder={this.label}
-                            outline={true}>
-                        </ino-input>
-                
-                        <div id="parent">
-                            <div class="optionList" ref={(el) => (this.optionList = el)}> 
-                            </div>  
-                        </div>
+                        <header>
+                            <ino-input 
+                                placeholder={this.label}
+                                outline={true}>
+                            </ino-input>
+                        </header>
+
+                        <div ref={(el) => (this.optionList = el)}> 
+                        </div>  
+                        
+                        <footer>
                         {this.displayAddOption && 
                             <ino-button variant='text'>
                                 <ino-icon icon="add" slot="icon-leading"></ino-icon>
                                 Add option
                             </ino-button>}
+                        </footer>
                     </div>
                 </ino-popover>
             </Host>
