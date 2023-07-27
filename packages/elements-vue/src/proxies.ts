@@ -300,7 +300,7 @@ export const InoListItem = /*@__PURE__*/ defineContainer<JSX.InoListItem>('ino-l
   'selected',
   'activated',
   'disabled',
-  'tabIndex',
+  'attrs',
   'clickEl'
 ]);
 

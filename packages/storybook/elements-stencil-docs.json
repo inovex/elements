@@ -4426,7 +4426,13 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-list-item-border-radius",
+          "annotation": "prop",
+          "docs": "Border radius of the list container, also effects the first and last list item"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -4562,6 +4568,21 @@
           "required": false
         },
         {
+          "name": "attrs",
+          "type": "HTMLAttributes<HTMLLIElement>",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Allows the specification of native HTML attributes on the underlying HTML element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "HTMLAttributes<HTMLLIElement>"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
@@ -4610,23 +4631,6 @@
           "required": false
         },
         {
-          "name": "tabIndex",
-          "type": "number",
-          "mutable": false,
-          "attr": "tab-index",
-          "reflectToAttr": false,
-          "docs": "Specifies the tabindex of the list item.",
-          "docsTags": [],
-          "default": "-1",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "text",
           "type": "string",
           "mutable": false,
@@ -4655,7 +4659,58 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-list-item-deselected-background-color",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item if active"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item if focused"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item on hover"
+        },
+        {
+          "name": "--ino-list-item-deselected-color",
+          "annotation": "prop",
+          "docs": "Text color of a deselected list item"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item if active"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item if focused"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item on hover"
+        },
+        {
+          "name": "--ino-list-item-selected-color",
+          "annotation": "prop",
+          "docs": "Text color of a selected list item"
+        }
+      ],
       "slots": [
         {
           "name": "leading",
@@ -5069,13 +5124,7 @@
         }
       ],
       "parts": [],
-      "listeners": [
-        {
-          "event": "clickEl",
-          "capture": false,
-          "passive": false
-        }
-      ]
+      "listeners": []
     },
     {
       "filePath": "./src/components/ino-nav-item/ino-nav-item.tsx",
