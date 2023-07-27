@@ -9,6 +9,7 @@ import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitActi
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
+import { JSXBase } from "@stencil/core/internal";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -781,6 +782,10 @@ export namespace Components {
          */
         "activated"?: boolean;
         /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs": JSXBase.HTMLAttributes<HTMLLIElement>;
+        /**
           * Styles the row in a disabled style.
          */
         "disabled"?: boolean;
@@ -792,10 +797,6 @@ export namespace Components {
           * Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon.
          */
         "selected"?: boolean;
-        /**
-          * Specifies the tabindex of the list item.
-         */
-        "tabIndex": number;
         /**
           * The primary text of this list item.
          */
@@ -2629,6 +2630,10 @@ declare namespace LocalJSX {
          */
         "activated"?: boolean;
         /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs"?: JSXBase.HTMLAttributes<HTMLLIElement>;
+        /**
           * Styles the row in a disabled style.
          */
         "disabled"?: boolean;
@@ -2644,10 +2649,6 @@ declare namespace LocalJSX {
           * Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon.
          */
         "selected"?: boolean;
-        /**
-          * Specifies the tabindex of the list item.
-         */
-        "tabIndex"?: number;
         /**
           * The primary text of this list item.
          */
