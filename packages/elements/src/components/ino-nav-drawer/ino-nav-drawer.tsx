@@ -9,6 +9,7 @@ import {
   Event,
   EventEmitter,
   h,
+  Listen,
 } from '@stencil/core';
 import { NavDrawerAnchor, NavDrawerVariant } from '../types';
 import classNames from 'classnames';
@@ -24,7 +25,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-nav-drawer',
   styleUrl: 'ino-nav-drawer.scss',
-  shadow: {delegatesFocus: true},
+  shadow: { delegatesFocus: true },
 })
 export class NavDrawer implements ComponentInterface {
   /**
@@ -69,12 +70,30 @@ export class NavDrawer implements ComponentInterface {
     }
 
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
-
   }
 
   disconnectedCallback() {
     this.drawerEl.removeEventListener('MDCDrawer:closed', this.closeDrawer);
     this.drawerInstance?.destroy();
+  }
+
+  // This listener ensures that only the most recently clicked/selected list item appears as "activated"
+  @Listen('clickEl')
+  handleListItemClick(event: CustomEvent) {
+    const listItem: HTMLInoListItemElement = event.detail;
+
+    if (!listItem || listItem.tagName !== 'INO-LIST-ITEM') {
+      return;
+    }
+
+    this.deactivateAllItems();
+    listItem.activated = true;
+  }
+
+  private deactivateAllItems() {
+    const allItems: NodeListOf<HTMLInoListItemElement> =
+      this.el.querySelectorAll('ino-list-item');
+    allItems.forEach((item) => (item.activated = false));
   }
 
   /**

@@ -5124,7 +5124,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "clickEl",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-nav-item/ino-nav-item.tsx",
