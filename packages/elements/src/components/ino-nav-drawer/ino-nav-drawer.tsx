@@ -9,7 +9,6 @@ import {
   Event,
   EventEmitter,
   h,
-  Listen,
 } from '@stencil/core';
 import { NavDrawerAnchor, NavDrawerVariant } from '../types';
 import classNames from 'classnames';
@@ -71,9 +70,6 @@ export class NavDrawer implements ComponentInterface {
 
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
 
-    // make all nav-items focusable
-    const listItems = this.el.querySelectorAll('ino-list-item');
-    listItems.forEach((item) => (item.tabIndex = 0));
   }
 
   disconnectedCallback() {
@@ -85,22 +81,6 @@ export class NavDrawer implements ComponentInterface {
    * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
    */
   @Event() openChange!: EventEmitter<boolean>;
-
-  
-  // This listener ensures that only the most recently clicked/selected list item appears as "activated"
-  @Listen('clickEl')
-  handleListItemClick(event: CustomEvent) {
-    const listItem: HTMLInoListItemElement = event.detail;
-
-    this.deactivateAllItems();
-    listItem.activated = true;
-  }
-
-  private deactivateAllItems() {
-    const allItems: NodeListOf<HTMLInoListItemElement> =
-      this.el.querySelectorAll('ino-list-item');
-    allItems.forEach((item) => (item.activated = false));
-  }
 
   private closeDrawer = (e: Event) => {
     e.preventDefault();
