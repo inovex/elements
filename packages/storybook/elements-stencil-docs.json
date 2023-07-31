@@ -4568,6 +4568,21 @@
           "required": false
         },
         {
+          "name": "attrs",
+          "type": "HTMLAttributes<HTMLLIElement>",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Allows the specification of native HTML attributes on the underlying HTML element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "HTMLAttributes<HTMLLIElement>"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
@@ -5081,43 +5096,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-nav-drawer-background",
-          "annotation": "prop",
-          "docs": "Background of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-height",
-          "annotation": "prop",
-          "docs": "Height of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-text-color",
-          "annotation": "prop",
-          "docs": "Color of text inside the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-timing-function",
-          "annotation": "prop",
-          "docs": "Timing function of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-transition-duration",
-          "annotation": "prop",
-          "docs": "Duration of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-closed",
-          "annotation": "prop",
-          "docs": "Docked variant only! The width of the collapsed drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-open",
-          "annotation": "prop",
-          "docs": "The width of the open drawer."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "app",
@@ -5145,7 +5124,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "clickEl",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-nav-item/ino-nav-item.tsx",

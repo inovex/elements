@@ -9,6 +9,7 @@ import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitActi
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
+import { JSXBase } from "@stencil/core/internal";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -780,6 +781,10 @@ export namespace Components {
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs": JSXBase.HTMLAttributes<HTMLLIElement>;
         /**
           * Styles the row in a disabled style.
          */
@@ -2624,6 +2629,10 @@ declare namespace LocalJSX {
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs"?: JSXBase.HTMLAttributes<HTMLLIElement>;
         /**
           * Styles the row in a disabled style.
          */

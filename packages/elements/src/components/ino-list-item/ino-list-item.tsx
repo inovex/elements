@@ -12,6 +12,7 @@ import {
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 import { MDCRipple } from '@material/ripple';
+import { JSXBase } from '@stencil/core/internal';
 
 /**
  * @slot leading - For the element to be prepended
@@ -63,6 +64,11 @@ export class ListItem implements ComponentInterface {
   @Prop() disabled?: boolean;
 
   /**
+   * Allows the specification of native HTML attributes on the underlying HTML element
+   */
+  @Prop() attrs: JSXBase.HTMLAttributes<HTMLLIElement>;
+
+  /**
    * Emits when the list item is clicked or
    * the enter/space key if pressed while the item is in focus.
    * Contains the element itself in `event.detail`
@@ -110,7 +116,7 @@ export class ListItem implements ComponentInterface {
 
     return (
       <Host>
-        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses}>
+        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses} {...this.attrs}>
           <span class="mdc-deprecated-list-item__ripple"></span>
           {leadingSlotHasContent && (
             <span class="mdc-deprecated-list-item__graphic" role="presentation">

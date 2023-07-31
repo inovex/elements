@@ -43,6 +43,7 @@ export default {
     activated: false,
     disabled: false,
     text: 'List item',
+    attrs: {},
   },
 } as Meta;
 
@@ -63,6 +64,7 @@ const template = new TemplateGenerator<Components.InoListItem>(
         activated="${args.activated}"
         disabled="${args.disabled}"
         text="${args.text}"
+        attrs="${args.attrs}"
       >
       </ino-list-item>
     </ino-list>
