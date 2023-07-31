@@ -63,12 +63,9 @@
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
-    // rotate dashed border
-    &.ino-avatar--dashed:hover {
-      .ino-avatar__border {
-        transform: rotate(60deg);
-      }
 
+    &.ino-avatar--solid:hover,
+    &.ino-avatar--dashed:hover {
       .ino-avatar__border path,
       .ino-avatar__border circle {
         stroke-width: 4%;
@@ -76,6 +73,13 @@
 
       .ino-avatar__image-inner::after {
         opacity: 1;
+      }
+    }
+
+    // rotate dashed border
+    &.ino-avatar--dashed:hover {
+      .ino-avatar__border {
+        transform: rotate(60deg);
       }
     }
   }
