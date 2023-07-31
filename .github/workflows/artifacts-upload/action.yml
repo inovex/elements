@@ -59,7 +59,7 @@ runs:
     uses: actions/upload-artifact@v3
     with:
       name: elements-angular-example
-      path: dist/packages/elements-angular-example/
+      path: packages/elements-angular-example/dist/
 
   - if: inputs.upload-example-artifacts != 'false'
     name: Upload elements-react-example artifact
