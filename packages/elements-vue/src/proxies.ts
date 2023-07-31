@@ -190,6 +190,7 @@ export const InoIcon = /*@__PURE__*/ defineContainer<JSX.InoIcon>('ino-icon', un
 
 
 export const InoIconButton = /*@__PURE__*/ defineContainer<JSX.InoIconButton>('ino-icon-button', undefined, [
+  'attrs',
   'autoFocus',
   'disabled',
   'activated',

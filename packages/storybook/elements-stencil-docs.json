@@ -2960,6 +2960,21 @@
           "required": false
         },
         {
+          "name": "attrs",
+          "type": "HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Allows the specification of native HTML attributes on the underlying HTML element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "autoFocus",
           "type": "boolean",
           "mutable": false,
@@ -3062,48 +3077,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-icon-button-background-active-color",
-          "annotation": "prop",
-          "docs": "base color of the active background"
-        },
-        {
-          "name": "--ino-icon-button-background-color",
-          "annotation": "prop",
-          "docs": "default color of the background"
-        },
-        {
-          "name": "--ino-icon-button-background-disabled-color",
-          "annotation": "prop",
-          "docs": "base color of the background in disabled state"
-        },
-        {
-          "name": "--ino-icon-button-icon-active-color",
-          "annotation": "prop",
-          "docs": "color of the active icon itself"
-        },
-        {
-          "name": "--ino-icon-button-icon-color",
-          "annotation": "prop",
-          "docs": "default color of the icon itself"
-        },
-        {
-          "name": "--ino-icon-button-icon-disabled-color",
-          "annotation": "prop",
-          "docs": "color of the icon itself in disabled state"
-        },
-        {
-          "name": "--ino-icon-button-icon-size",
-          "annotation": "prop",
-          "docs": "size of the icon itself"
-        },
-        {
-          "name": "--ino-icon-button-size",
-          "annotation": "prop",
-          "docs": "size of the entire button"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",

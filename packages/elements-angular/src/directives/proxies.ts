@@ -424,13 +424,13 @@ The event only emits if the property `clickable` is true.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['activated', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
+  inputs: ['activated', 'attrs', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
 })
 @Component({
   selector: 'ino-icon-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
+  inputs: ['activated', 'attrs', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
 })
 export class InoIconButton {
   protected el: HTMLElement;

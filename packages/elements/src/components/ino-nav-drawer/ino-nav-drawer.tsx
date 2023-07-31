@@ -155,14 +155,18 @@ export class NavDrawer implements ComponentInterface {
           <slot name="content"></slot>
         </nav>
 
-        <div class="mdc-drawer__footer">
+        <nav class="mdc-drawer__footer">
           <slot name="footer"></slot>
           <ino-icon-button
             class="mdc-drawer__toggle"
             icon="arrow_right"
             onClick={this.toggleDrawer}
+            attrs={{
+              ariaLabel: "Toggle Navigation Sidebar"
+            }
+            }
           />
-        </div>
+        </nav>
       </aside>
     );
 

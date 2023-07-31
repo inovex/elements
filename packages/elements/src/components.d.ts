@@ -482,6 +482,10 @@ export namespace Components {
          */
         "activated"?: boolean;
         /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs": JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
+        /**
           * Sets the autofocus for this element.
          */
         "autoFocus"?: boolean;
@@ -2322,6 +2326,10 @@ declare namespace LocalJSX {
           * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs"?: JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
         /**
           * Sets the autofocus for this element.
          */
