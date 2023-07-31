@@ -70,8 +70,8 @@ export class NavDrawer implements ComponentInterface {
     }
 
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
-    this.setTabindex('content');
-    this.setTabindex('footer');
+    this.initTabindex('content');
+    this.initTabindex('footer');
   }
 
   disconnectedCallback() {
@@ -114,7 +114,7 @@ export class NavDrawer implements ComponentInterface {
     e.stopPropagation();
   };
 
-  private setTabindex(slotName: string) {
+  private initTabindex(slotName: string) {
     const contentElements = this.el.querySelector(`[slot="${slotName}"]`);
     const contenListItems = contentElements.querySelectorAll('ino-list-item');
     contenListItems[0].attrs = {tabIndex:0}
