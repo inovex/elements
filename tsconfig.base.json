@@ -10,8 +10,5 @@
     "target": "es2017",
     "module": "esnext",
     "baseUrl": "./",
-    "paths": {
-      "@inovex.de/elements-angular": ["packages/elements-angular/src/index.ts"]
-    }
   }
 }
