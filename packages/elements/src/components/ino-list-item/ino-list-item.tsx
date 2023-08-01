@@ -116,7 +116,7 @@ export class ListItem implements ComponentInterface {
 
     return (
       <Host>
-        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses} {...this.attrs}>
+        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses} aria-disabled={this.disabled} {...this.attrs}>
           <span class="mdc-deprecated-list-item__ripple"></span>
           {leadingSlotHasContent && (
             <span class="mdc-deprecated-list-item__graphic" role="presentation">
