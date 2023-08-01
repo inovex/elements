@@ -151,11 +151,11 @@ export class NavDrawer implements ComponentInterface {
           </slot>
         </div>
 
-        <nav class="mdc-drawer__content">
+        <nav class="mdc-drawer__content" aria-label="Main Navigation">
           <slot name="content"></slot>
         </nav>
 
-        <nav class="mdc-drawer__footer">
+        <nav class="mdc-drawer__footer" aria-label="Footer Navigation">
           <slot name="footer"></slot>
           <ino-icon-button
             class="mdc-drawer__toggle"
