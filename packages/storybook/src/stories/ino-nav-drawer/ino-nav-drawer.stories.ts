@@ -98,7 +98,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
         ></ino-img>
         <p>inovex</p>
       </div>
-      <ino-list role="menu" slot="content" aria-label="Main Navigation">
+      <ino-list role="menubar" slot="content" aria-label="Main Navigation">
         <ino-nav-item role="menuitem" text="Some Link" activated>
           <ino-icon icon="onboarding"></ino-icon>
         </ino-nav-item>
@@ -106,7 +106,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
           <ino-icon icon="employee"></ino-icon>
         </ino-nav-item>
       </ino-list>
-      <ino-list role="menu" slot="footer" aria-label="Footer Navigation">
+      <ino-list role="menubar" slot="footer" aria-label="Footer Navigation">
         <ino-nav-item role="menuitem" text="My Profile">
           <ino-icon icon="employee"></ino-icon>
         </ino-nav-item>
