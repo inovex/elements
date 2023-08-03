@@ -79,7 +79,7 @@ export class NavDrawer implements ComponentInterface {
     if (this.drawerInstance) {
       this.drawerInstance.open = this.open || false;
     }
-
+    this.setDrawerWidth(this.isMobile);
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
     this.initTabindex('content');
     this.initTabindex('footer');
@@ -142,6 +142,7 @@ export class NavDrawer implements ComponentInterface {
       'mdc-drawer--modal': variant === 'modal',
       'mdc-drawer--anchor-left': anchor === 'left',
       'mdc-drawer--anchor-right': anchor === 'right',
+      'mobile-drawer': this.isMobile, // custom class for mobile drawer
     });
 
     const classAppContent = classNames({

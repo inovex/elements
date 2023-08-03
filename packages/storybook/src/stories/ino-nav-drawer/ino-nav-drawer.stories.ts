@@ -92,6 +92,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
       open=${args.open}
       anchor="${args.anchor}"
       variant="${args.variant}"
+      is-mobile="${args.isMobile}"
       class="customizable-drawer"
     >
       <div slot="header">
@@ -134,3 +135,4 @@ export const Playground = template.generatePlaygroundStory();
 export const AnchorRight = template.generateStoryForProp('anchor', 'right');
 export const Modal = template.generateStoryForProp('variant', 'modal', {open: false});
 export const Dismissible = template.generateStoryForProp('variant', 'dismissible');
+export const Mobile = template.generateStoryForProp('isMobile', true);
