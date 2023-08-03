@@ -832,6 +832,10 @@ export namespace Components {
          */
         "anchor"?: NavDrawerAnchor;
         /**
+          * If true, the mobile drawer will be shown.
+         */
+        "isMobile"?: boolean;
+        /**
           * Marks this element as open. (**unmanaged**)
          */
         "open"?: boolean;
@@ -2703,6 +2707,10 @@ declare namespace LocalJSX {
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
         "anchor"?: NavDrawerAnchor;
+        /**
+          * If true, the mobile drawer will be shown.
+         */
+        "isMobile"?: boolean;
         /**
           * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
          */

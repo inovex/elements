@@ -4980,6 +4980,23 @@
           "required": false
         },
         {
+          "name": "isMobile",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "is-mobile",
+          "reflectToAttr": false,
+          "docs": "If true, the mobile drawer will be shown.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "open",
           "type": "boolean",
           "mutable": false,
@@ -5035,7 +5052,43 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-nav-drawer-background",
+          "annotation": "prop",
+          "docs": "Background of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-height",
+          "annotation": "prop",
+          "docs": "Height of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-text-color",
+          "annotation": "prop",
+          "docs": "Color of text inside the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-timing-function",
+          "annotation": "prop",
+          "docs": "Timing function of the slide animation of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-transition-duration",
+          "annotation": "prop",
+          "docs": "Duration of the slide animation of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-width-closed",
+          "annotation": "prop",
+          "docs": "Docked variant only! The width of the collapsed drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-width-open",
+          "annotation": "prop",
+          "docs": "The width of the open drawer."
+        }
+      ],
       "slots": [
         {
           "name": "app",
