@@ -1100,6 +1100,10 @@ export namespace Components {
     }
     interface InoSelection {
         /**
+          * The label for creating a new option button
+         */
+        "createOptionLabel": string;
+        /**
           * Number of ms the search function should be delayed after the user typed something.
          */
         "debounce": number;
@@ -1108,9 +1112,13 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Displays a add new option item button
+          * Displays a "add new option item" button
          */
         "displayAddOption": boolean;
+        /**
+          * A message to show consumer how to add a new option. Shows up if `ino-input` is empty
+         */
+        "emptyInputMessage": string;
         /**
           * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
          */
@@ -1140,7 +1148,7 @@ export namespace Components {
          */
         "placement": Placement;
         /**
-          * The selection stays open, after selecting a option  default `stayOpen = false`
+          * If true, keeps selection open, after selecting a option  default `stayOpen = false`
          */
         "stayOpen": boolean;
         /**
@@ -3056,6 +3064,10 @@ declare namespace LocalJSX {
     }
     interface InoSelection {
         /**
+          * The label for creating a new option button
+         */
+        "createOptionLabel"?: string;
+        /**
           * Number of ms the search function should be delayed after the user typed something.
          */
         "debounce"?: number;
@@ -3064,9 +3076,13 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Displays a add new option item button
+          * Displays a "add new option item" button
          */
         "displayAddOption"?: boolean;
+        /**
+          * A message to show consumer how to add a new option. Shows up if `ino-input` is empty
+         */
+        "emptyInputMessage"?: string;
         /**
           * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
          */
@@ -3084,9 +3100,9 @@ declare namespace LocalJSX {
          */
         "noOptionsText"?: string;
         /**
-          * Emits when the string of the added option. Contains new value in `event.detail`.
+          * Emits string of the added option. Contains new value in `event.detail`.
          */
-        "onOptionAdded"?: (event: InoSelectionCustomEvent<string>) => void;
+        "onOptionCreated"?: (event: InoSelectionCustomEvent<string | KeyValue>) => void;
         /**
           * Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input
          */
@@ -3098,13 +3114,13 @@ declare namespace LocalJSX {
         /**
           * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
-        "options"?: string[] | KeyValue[];
+        "options": string[] | KeyValue[];
         /**
           * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
          */
         "placement"?: Placement;
         /**
-          * The selection stays open, after selecting a option  default `stayOpen = false`
+          * If true, keeps selection open, after selecting a option  default `stayOpen = false`
          */
         "stayOpen"?: boolean;
         /**

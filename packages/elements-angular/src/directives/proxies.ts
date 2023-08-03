@@ -1035,12 +1035,12 @@ export class InoSelect {
   }
 }
 
-
+import type { KeyValue as ISelectionKeyValue } from '@inovex.de/elements';
 export declare interface InoSelection extends Components.InoSelection {
   /**
-   * Emits when the string of the added option. Contains new value in `event.detail`. 
+   * Emits string of the added option. Contains new value in `event.detail`. 
    */
-  optionAdded: EventEmitter<CustomEvent<string>>;
+  optionCreated: EventEmitter<CustomEvent<string | KeyValue>>;
   /**
    * Emits the list item the user clicked on either as a string or
 a `{key: string; value: string}` object depending on the provided options.
@@ -1055,20 +1055,20 @@ Trigger on two occasions:
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['debounce', 'disabled', 'displayAddOption', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value']
+  inputs: ['createOptionLabel', 'debounce', 'disabled', 'displayAddOption', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value']
 })
 @Component({
   selector: 'ino-selection',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['debounce', 'disabled', 'displayAddOption', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value']
+  inputs: ['createOptionLabel', 'debounce', 'disabled', 'displayAddOption', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value']
 })
 export class InoSelection {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['optionAdded', 'valueChange']);
+    proxyOutputs(this, this.el, ['optionCreated', 'valueChange']);
   }
 }
 

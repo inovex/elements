@@ -11,6 +11,7 @@ import {
     Listen,
     Prop,
     Watch,
+    State
   } from '@stencil/core';
 import {
     Placement,
@@ -31,10 +32,10 @@ type SelectionOption = {value: string | KeyValue};
 export class Selection implements ComponentInterface {
 
     private optionsObserver: MutationObserver;
+    private inoPopoverEl: HTMLInoPopoverElement;
     private inoInputEl: HTMLInoInputElement;
     private inputEl: HTMLInputElement;
-    private optionList: HTMLElement;
-    private inoPopoverEl: HTMLInoPopoverElement;
+    private optionListAnchor: HTMLElement;
     private autocomplete: any; // no typings for this library yet https://tarekraafat.github.io/autoComplete.js/#/
 
     @Element() el!: HTMLInoSelectionElement;
@@ -74,7 +75,7 @@ export class Selection implements ComponentInterface {
     @Prop() label?: string;
 
     /**
-     * The selection stays open, after selecting a option
+     * If true, keeps selection open, after selecting a option
      * 
      * default `stayOpen = false`
      */
@@ -90,22 +91,44 @@ export class Selection implements ComponentInterface {
     /**
      * All options either as a string array or as an array of `{key: string; value: string}` objects.
      */
-    @Prop() options: string[] | KeyValue[] = ['G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ']
+    @Prop() options!: string[] | KeyValue[];
 
     @Watch('options')
     onOptionsChange() {
-        // TODO: emit option change event
+        this.initAutocomplete();
     }
 
     /**
-     * Displays a add new option item button
+     * Displays a "add new option item" button
      */
     @Prop() displayAddOption: boolean = true;
 
     /**
-     * Emits when the string of the added option. Contains new value in `event.detail`.
+     * A message to show consumer how to add a new option.
+     * Shows up if `ino-input` is empty
      */
-    @Event() optionAdded: EventEmitter<string>;
+    @Prop() emptyInputMessage: string = "Type to add new option";
+
+    /**
+     * The label for creating a new option button
+     */
+    @Prop() createOptionLabel: string = "Add option";
+
+    /**
+     * Emits string of the added option. Contains new value in `event.detail`.
+     */
+    @Event() optionCreated: EventEmitter<string | KeyValue>;
+
+    @Listen('optionCreated')
+    onOptionCreated() {
+        // empty label after event was emitted
+        this.searchTerm = '';
+    }
+
+    /**
+     * Displays the searchterm as a new option to be created in the source option List
+     */
+    @State() searchTerm: string = "";
 
     /**
      * The value of this element. (**unmanaged**)
@@ -191,6 +214,7 @@ export class Selection implements ComponentInterface {
 
     private onInputValueChange = (e: CustomEvent<string>) => {
         this.inoInputEl.value = e.detail;
+        this.searchTerm = e.detail;
         e.stopPropagation();
     };
 
@@ -203,8 +227,9 @@ export class Selection implements ComponentInterface {
     }
 
     private initSelection = (e: CustomEvent<boolean>) => {
+        const popoverVisibility = e.detail;
         this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
-        if (e.detail === false) {
+        if (popoverVisibility === false) {
             this.inoPopoverEl.visible = false;
             return
         }
@@ -213,7 +238,7 @@ export class Selection implements ComponentInterface {
         // init Components inside of popover only if visible
         this.inoInputEl = this.inoPopoverEl.querySelector('ino-input');
         this.inputEl = this.inoPopoverEl.querySelector('input');
-        this.optionList = this.inoPopoverEl.querySelector('header') 
+        this.optionListAnchor = this.inoPopoverEl.querySelector('header') 
 
         this.inoInputEl?.addEventListener('valueChange', this.onInputValueChange);
 
@@ -234,7 +259,7 @@ export class Selection implements ComponentInterface {
           resultsList: {
             noResults: true,
             class: 'mdc-deprecated-list ino-autocomplete__list optionList',
-            destination: () => this.optionList,
+            destination: () => this.optionListAnchor,
             element: (list, data) => {            
                 if (data.results.length > 0) return;
                 list.appendChild(this.createNoMatchMessage(data.query));
@@ -302,7 +327,15 @@ export class Selection implements ComponentInterface {
     private styleInputSelected = () => this.inoInputEl?.classList.remove(Selection.UNSELECTED_INPUT_CLASS);
     private styleInputUnselected = () => this.inoInputEl?.classList.add(Selection.UNSELECTED_INPUT_CLASS);
 
-    render() {      
+    render() { 
+
+        const addOptionBtnText = (searchTerm: string) => {
+            if (this.searchTerm.length > 0) {
+                return `${this.createOptionLabel} "${searchTerm}"`
+            }
+            return this.emptyInputMessage
+        }
+
         return (
             <Host>
                 <ino-popover
@@ -317,21 +350,18 @@ export class Selection implements ComponentInterface {
                 >
                     <ino-chip id={this.for} slot="popover-trigger">Trigger</ino-chip>
                     <div class="popover-content">
-                        <header>
+                        <header ref={(el) => (this.optionListAnchor = el)}>
                             <ino-input 
                                 placeholder={this.label}
                                 outline={true}>
                             </ino-input>
                         </header>
-
-                        <div ref={(el) => (this.optionList = el)}> 
-                        </div>  
-                        
                         <footer>
                         {this.displayAddOption && 
-                            <ino-button variant='text'>
+                            <ino-button variant='text' onClick={() => {
+                                this.optionCreated.emit(this.searchTerm)}}>
                                 <ino-icon icon="add" slot="icon-leading"></ino-icon>
-                                Add option
+                                {addOptionBtnText(this.searchTerm)}
                             </ino-button>}
                         </footer>
                     </div>

@@ -6957,6 +6957,23 @@
       },
       "props": [
         {
+          "name": "createOptionLabel",
+          "type": "string",
+          "mutable": false,
+          "attr": "create-option-label",
+          "reflectToAttr": false,
+          "docs": "The label for creating a new option button",
+          "docsTags": [],
+          "default": "\"Add option\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "debounce",
           "type": "number",
           "mutable": false,
@@ -6995,12 +7012,29 @@
           "mutable": false,
           "attr": "display-add-option",
           "reflectToAttr": false,
-          "docs": "Displays a add new option item button",
+          "docs": "Displays a \"add new option item\" button",
           "docsTags": [],
           "default": "true",
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "emptyInputMessage",
+          "type": "string",
+          "mutable": false,
+          "attr": "empty-input-message",
+          "reflectToAttr": false,
+          "docs": "A message to show consumer how to add a new option.\nShows up if `ino-input` is empty",
+          "docsTags": [],
+          "default": "\"Type to add new option\"",
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
@@ -7095,7 +7129,6 @@
           "reflectToAttr": false,
           "docs": "All options either as a string array or as an array of `{key: string; value: string}` objects.",
           "docsTags": [],
-          "default": "['G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ']",
           "values": [
             {
               "type": "KeyValue[]"
@@ -7105,7 +7138,7 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "placement",
@@ -7187,7 +7220,7 @@
           "mutable": false,
           "attr": "stay-open",
           "reflectToAttr": false,
-          "docs": "The selection stays open, after selecting a option\n\ndefault `stayOpen = false`",
+          "docs": "If true, keeps selection open, after selecting a option\n\ndefault `stayOpen = false`",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -7221,12 +7254,12 @@
       "methods": [],
       "events": [
         {
-          "event": "optionAdded",
-          "detail": "string",
+          "event": "optionCreated",
+          "detail": "string | { key: string; value: string; }",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits when the string of the added option. Contains new value in `event.detail`.",
+          "docs": "Emits string of the added option. Contains new value in `event.detail`.",
           "docsTags": []
         },
         {
@@ -7248,6 +7281,11 @@
       ],
       "parts": [],
       "listeners": [
+        {
+          "event": "optionCreated",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "selection",
           "capture": false,
