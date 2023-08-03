@@ -4942,6 +4942,22 @@
       },
       "props": [
         {
+          "name": "a11yLabels",
+          "type": "{ content: string; footer: string; toggleBtn: string; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The aria-labels used for content and fotter nav elements.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.",
+          "docsTags": [],
+          "default": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation'\n  }",
+          "values": [
+            {
+              "type": "{ content: string; footer: string; toggleBtn: string; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "anchor",
           "type": "\"left\" | \"right\"",
           "mutable": false,
@@ -5148,28 +5164,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--ino-nav-item-background-color",
-          "annotation": "prop",
-          "docs": "Inactive color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-background-color-active",
-          "annotation": "prop",
-          "docs": "Active color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-color",
-          "annotation": "prop",
-          "docs": "Inactive color of icon."
-        },
-        {
-          "name": "--ino-nav-item-color-active",
-          "annotation": "prop",
-          "docs": "Active color of icon."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",

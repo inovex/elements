@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
@@ -823,6 +823,10 @@ export namespace Components {
         "placement": Placement;
     }
     interface InoNavDrawer {
+        /**
+          * The aria-labels used for content and fotter nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+         */
+        "a11yLabels"?: NavDrawerLabels;
         /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
@@ -2691,6 +2695,10 @@ declare namespace LocalJSX {
         "placement"?: Placement;
     }
     interface InoNavDrawer {
+        /**
+          * The aria-labels used for content and fotter nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+         */
+        "a11yLabels"?: NavDrawerLabels;
         /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
