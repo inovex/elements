@@ -70,7 +70,7 @@ export class Selection implements ComponentInterface {
     @Prop() for?: string;
 
     /**
-     * The label of this element.
+     * The placeholder text of the input.
      */
     @Prop() label?: string;
 
@@ -89,7 +89,7 @@ export class Selection implements ComponentInterface {
     @Prop() open: boolean = false;
 
     /**
-     * All options either as a string array or as an array of `{key: string; value: string}` objects.
+     * All options either as string array or as array of `{key: string; value: string}` objects.
      */
     @Prop() options!: string[] | KeyValue[];
 
@@ -258,7 +258,7 @@ export class Selection implements ComponentInterface {
           wrapper: false,
           resultsList: {
             noResults: true,
-            class: 'mdc-deprecated-list ino-autocomplete__list optionList',
+            class: 'mdc-deprecated-list ino-selection__list optionList',
             destination: () => this.optionListAnchor,
             element: (list, data) => {            
                 if (data.results.length > 0) return;
@@ -267,10 +267,10 @@ export class Selection implements ComponentInterface {
             maxResults: undefined,
           },
           resultItem: {
-            class: 'mdc-deprecated-list-item ino-autocomplete__list-item',
-            highlight: 'ino-autocomplete__list-item--highlight',
+            class: 'mdc-deprecated-list-item ino-selection__list-item',
+            highlight: 'ino-selection__list-item--highlight',
             selected:
-              'mdc-deprecated-list-item--selected ino-autocomplete__list-item--selected',
+              'mdc-deprecated-list-item--selected ino-selection__list-item--selected',
           },
           events: {
             input: {
@@ -294,7 +294,7 @@ export class Selection implements ComponentInterface {
 
     private createNoMatchMessage(query: string): HTMLDivElement {
         const message = document.createElement('div');
-        message.setAttribute('class', 'ino-autocomplete__list-item ino-autocomplete__list-item--no-match');
+        message.setAttribute('class', 'ino-selection__list-item ino-selection__list-item--no-match');
            //Add message text content
         message.innerHTML = `<span>${this.noOptionsText.replace(
             '$',
@@ -354,6 +354,7 @@ export class Selection implements ComponentInterface {
                             <ino-input 
                                 placeholder={this.label}
                                 outline={true}>
+                                    <ino-icon slot="icon-leading" icon="search"></ino-icon>
                             </ino-input>
                         </header>
                         <footer>

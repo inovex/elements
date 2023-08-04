@@ -16,10 +16,10 @@
 | `emptyInputMessage`    | `empty-input-message` | A message to show consumer how to add a new option. Shows up if `ino-input` is empty                                                                                                                | `string`                                                                                                                                                                                                     | `"Type to add new option"`   |
 | `error`                | `error`               | Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.                                                     | `boolean`                                                                                                                                                                                                    | `undefined`                  |
 | `for`                  | `for`                 | The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist. | `string`                                                                                                                                                                                                     | `undefined`                  |
-| `label`                | `label`               | The label of this element.                                                                                                                                                                          | `string`                                                                                                                                                                                                     | `undefined`                  |
+| `label`                | `label`               | The placeholder text of the input.                                                                                                                                                                  | `string`                                                                                                                                                                                                     | `undefined`                  |
 | `noOptionsText`        | `no-options-text`     | Text to display when there are no options found, where `$` is the placeholder for the input of the user.                                                                                            | `string`                                                                                                                                                                                                     | `'Found No Results for "$"'` |
 | `open`                 | `open`                | marks the state of the selection as open.  Initial value is `false`                                                                                                                                 | `boolean`                                                                                                                                                                                                    | `false`                      |
-| `options` _(required)_ | --                    | All options either as a string array or as an array of `{key: string; value: string}` objects.                                                                                                      | `KeyValue[] \| string[]`                                                                                                                                                                                     | `undefined`                  |
+| `options` _(required)_ | --                    | All options either as string array or as array of `{key: string; value: string}` objects.                                                                                                           | `KeyValue[] \| string[]`                                                                                                                                                                                     | `undefined`                  |
 | `placement`            | `placement`           | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`                                                            | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'auto'`                     |
 | `stayOpen`             | `stay-open`           | If true, keeps selection open, after selecting a option  default `stayOpen = false`                                                                                                                 | `boolean`                                                                                                                                                                                                    | `false`                      |
 | `value`                | `value`               | The value of this element. (**unmanaged**)                                                                                                                                                          | `string \| { key: string; value: string; }`                                                                                                                                                                  | `undefined`                  |
@@ -47,8 +47,8 @@
 - [ino-popover](../ino-popover)
 - [ino-chip](../ino-chip)
 - [ino-input](../ino-input)
-- [ino-button](../ino-button)
 - [ino-icon](../ino-icon)
+- [ino-button](../ino-button)
 
 ### Graph
 ```mermaid
@@ -56,8 +56,8 @@ graph TD;
   ino-selection --> ino-popover
   ino-selection --> ino-chip
   ino-selection --> ino-input
-  ino-selection --> ino-button
   ino-selection --> ino-icon
+  ino-selection --> ino-button
   ino-chip --> ino-icon
   ino-input --> ino-label
   ino-input --> ino-icon

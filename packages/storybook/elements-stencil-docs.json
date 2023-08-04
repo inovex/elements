@@ -6933,16 +6933,16 @@
         "ino-popover",
         "ino-chip",
         "ino-input",
-        "ino-button",
-        "ino-icon"
+        "ino-icon",
+        "ino-button"
       ],
       "dependencyGraph": {
         "ino-selection": [
           "ino-popover",
           "ino-chip",
           "ino-input",
-          "ino-button",
-          "ino-icon"
+          "ino-icon",
+          "ino-button"
         ],
         "ino-chip": [
           "ino-icon"
@@ -7078,7 +7078,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label of this element.",
+          "docs": "The placeholder text of the input.",
           "docsTags": [],
           "values": [
             {
@@ -7127,7 +7127,7 @@
           "type": "KeyValue[] | string[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "All options either as a string array or as an array of `{key: string; value: string}` objects.",
+          "docs": "All options either as string array or as array of `{key: string; value: string}` objects.",
           "docsTags": [],
           "values": [
             {

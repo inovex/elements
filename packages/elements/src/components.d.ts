@@ -1128,7 +1128,7 @@ export namespace Components {
          */
         "for"?: string;
         /**
-          * The label of this element.
+          * The placeholder text of the input.
          */
         "label"?: string;
         /**
@@ -1140,7 +1140,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * All options either as a string array or as an array of `{key: string; value: string}` objects.
+          * All options either as string array or as array of `{key: string; value: string}` objects.
          */
         "options": string[] | KeyValue[];
         /**
@@ -3092,7 +3092,7 @@ declare namespace LocalJSX {
          */
         "for"?: string;
         /**
-          * The label of this element.
+          * The placeholder text of the input.
          */
         "label"?: string;
         /**
@@ -3112,7 +3112,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * All options either as a string array or as an array of `{key: string; value: string}` objects.
+          * All options either as string array or as array of `{key: string; value: string}` objects.
          */
         "options": string[] | KeyValue[];
         /**
