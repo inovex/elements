@@ -935,18 +935,13 @@
         }
       ],
       "encapsulation": "none",
-      "dependents": [
-        "ino-selection"
-      ],
+      "dependents": [],
       "dependencies": [
         "ino-icon"
       ],
       "dependencyGraph": {
         "ino-chip": [
           "ino-icon"
-        ],
-        "ino-selection": [
-          "ino-chip"
         ]
       },
       "props": [
@@ -6931,7 +6926,6 @@
       "dependents": [],
       "dependencies": [
         "ino-popover",
-        "ino-chip",
         "ino-input",
         "ino-icon",
         "ino-button"
@@ -6939,13 +6933,9 @@
       "dependencyGraph": {
         "ino-selection": [
           "ino-popover",
-          "ino-chip",
           "ino-input",
           "ino-icon",
           "ino-button"
-        ],
-        "ino-chip": [
-          "ino-icon"
         ],
         "ino-input": [
           "ino-label",

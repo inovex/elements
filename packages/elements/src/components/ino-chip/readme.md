@@ -143,10 +143,6 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 ## Dependencies
 
-### Used by
-
- - [ino-selection](../ino-selection)
-
 ### Depends on
 
 - [ino-icon](../ino-icon)
@@ -155,7 +151,6 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 ```mermaid
 graph TD;
   ino-chip --> ino-icon
-  ino-selection --> ino-chip
   style ino-chip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

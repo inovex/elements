@@ -45,7 +45,6 @@
 ### Depends on
 
 - [ino-popover](../ino-popover)
-- [ino-chip](../ino-chip)
 - [ino-input](../ino-input)
 - [ino-icon](../ino-icon)
 - [ino-button](../ino-button)
@@ -54,11 +53,9 @@
 ```mermaid
 graph TD;
   ino-selection --> ino-popover
-  ino-selection --> ino-chip
   ino-selection --> ino-input
   ino-selection --> ino-icon
   ino-selection --> ino-button
-  ino-chip --> ino-icon
   ino-input --> ino-label
   ino-input --> ino-icon
   ino-button --> ino-spinner

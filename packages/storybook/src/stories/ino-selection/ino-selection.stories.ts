@@ -56,6 +56,7 @@ const template = new TemplateGenerator<Components.InoSelection>(
   return html`
     <ino-selection
       disabled="${args.disabled}"
+      placement="${args.placement}"
       label="${args.label}"
       value="${args.value}"
       error="${args.error}"
@@ -64,6 +65,7 @@ const template = new TemplateGenerator<Components.InoSelection>(
       empty-input-message="${args.emptyInputMessage}"
       create-option-label="${args.createOptionLabel}"
     >
+      <ino-chip slot="popover-trigger">Trigger</ino-chip>
     </ino-selection>
 `});
 

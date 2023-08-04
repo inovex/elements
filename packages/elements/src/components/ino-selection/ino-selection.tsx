@@ -340,15 +340,14 @@ export class Selection implements ComponentInterface {
             <Host>
                 <ino-popover
                     color-scheme="light"
-                    distance={10}
+                    distance={14}
                     placement={this.placement}
                     trigger="click"
                     visible={false}
                     interactive={true}
-                    for={this.for}
                     controlled={true}
                 >
-                    <ino-chip id={this.for} slot="popover-trigger">Trigger</ino-chip>
+                    <slot name="popover-trigger"></slot>
                     <div class="popover-content">
                         <header ref={(el) => (this.optionListAnchor = el)}>
                             <ino-input 
