@@ -128,7 +128,7 @@ export class NavDrawer implements ComponentInterface {
   private initTabindex(slotName: string) {
     const contentElements = this.el.querySelector(`[slot="${slotName}"]`);
     const contenListItems = contentElements.querySelectorAll('ino-list-item');
-    contenListItems[0].attrs = {tabIndex:0}
+    contenListItems[0].attrs = { tabIndex: 0 };
   }
 
   render() {
@@ -170,8 +170,13 @@ export class NavDrawer implements ComponentInterface {
         <nav class="mdc-drawer__footer" aria-label={this.a11yLabels.footer}>
           <slot name="footer"></slot>
           <ino-icon-button
-            class="mdc-drawer__toggle"
+            class={{
+              'mdc-drawer__toggle': true,
+              'visually-hidden': this.isMobile, // Hide visually on mobile, but remains in DOM to meet focus-trap requirements
+            }}
             icon="arrow_right"
+            tabIndex={this.isMobile ? -1 : null} // Exclude from tab navigation on mobile drawer
+            aria-hidden={this.isMobile} // Hide from screen readers on mobile as it's only used to prevent focus-trap error and has no functional use
             onClick={this.toggleDrawer}
             attrs={{
               ariaLabel: this.a11yLabels.toggleBtn

@@ -1,8 +1,9 @@
 @use '../base/mdc-customize';
 @use '@material/drawer/mdc-drawer';
-@use "@material/drawer";
-@use "@material/list";
-@use '../base/theme';
+@use '@material/drawer';
+@use '@material/list';
+@use '../base/theme' as theme;
+@use '../base/new-theme' as new-theme;
 
 @include drawer.core-styles;
 @include drawer.dismissible-core-styles;
@@ -225,6 +226,19 @@
   }
 
   // Styles for mobile nav drawer
-  .mobile-drawer.mdc-drawer  {
+  .mobile-drawer {
+    & + .mdc-drawer-app-content {
+      box-shadow: none;
+    }
+
+  }
+  .visually-hidden {
+    position: absolute ;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 ;
+    border: 0 ;
+    height: 1px ;
+    width: 1px ;
+    overflow: hidden;
   }
 }
