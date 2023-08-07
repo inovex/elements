@@ -554,13 +554,13 @@ export declare interface InoLabel extends Components.InoLabel {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['disabled', 'outline', 'required', 'showHint', 'text']
+  inputs: ['disabled', 'for', 'outline', 'required', 'showHint', 'text']
 })
 @Component({
   selector: 'ino-label',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'outline', 'required', 'showHint', 'text']
+  inputs: ['disabled', 'for', 'outline', 'required', 'showHint', 'text']
 })
 export class InoLabel {
   protected el: HTMLElement;

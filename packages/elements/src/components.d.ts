@@ -732,6 +732,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Id of the associated form control
+         */
+        "for": string;
+        /**
           * Styles the label in an outlined style
          */
         "outline": boolean;
@@ -2579,6 +2583,10 @@ declare namespace LocalJSX {
           * Colors the label in an light grey to indicate the disabled status for this element
          */
         "disabled"?: boolean;
+        /**
+          * Id of the associated form control
+         */
+        "for"?: string;
         /**
           * Styles the label in an outlined style
          */

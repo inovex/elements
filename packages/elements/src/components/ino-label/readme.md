@@ -20,6 +20,7 @@ This is an internally used component for various sorts of inputs like `ino-input
 | Property   | Attribute   | Description                                                                        | Type      | Default     |
 | ---------- | ----------- | ---------------------------------------------------------------------------------- | --------- | ----------- |
 | `disabled` | `disabled`  | Colors the label in an light grey to indicate the disabled status for this element | `boolean` | `undefined` |
+| `for`      | `for`       | Id of the associated form control                                                  | `string`  | `undefined` |
 | `outline`  | `outline`   | Styles the label in an outlined style                                              | `boolean` | `undefined` |
 | `required` | `required`  | Appends * to the label to make it appear as an required input in a form            | `boolean` | `undefined` |
 | `showHint` | `show-hint` | Shows a "optional" message, when not `required`; Shows a * mark, when `required`   | `boolean` | `undefined` |

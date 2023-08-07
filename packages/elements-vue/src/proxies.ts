@@ -276,7 +276,8 @@ export const InoLabel = /*@__PURE__*/ defineContainer<JSX.InoLabel>('ino-label',
   'text',
   'required',
   'showHint',
-  'disabled'
+  'disabled',
+  'for'
 ]);
 
 
