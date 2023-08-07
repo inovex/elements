@@ -13,7 +13,7 @@ describe('InoInput', () => {
     page = await setupPageWithContent(`<ino-input></ino-input>`);
     inoInputEl = await page.find('ino-input');
     nativeInputEl = await page.find('input');
-    labelEl = await page.find('label');
+    labelEl = await page.find('.mdc-text-field');
   });
 
   async function applyToNativeHtmlElement(
