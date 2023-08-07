@@ -69,6 +69,7 @@ const template = new TemplateGenerator<Components.InoSelection>(
       disabled="${args.disabled}"
       placement="${args.placement}"
       label="${args.label}"
+      stay-open="${args.stayOpen}"
       value="${args.value}"
       error="${args.error}"
       display-add-option="${args.displayAddOption}"

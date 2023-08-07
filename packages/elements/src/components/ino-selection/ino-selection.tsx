@@ -167,8 +167,13 @@ export class Selection implements ComponentInterface {
     onItemSelect(ev: CustomEvent<{ selection: SelectionOption }>) {
         const value = ev.detail.selection.value;
         this.valueChange.emit(value);
-         // set focus on autocomplete to keep resultList from closing
-        this.inoInputEl.focus();
+
+        if(this.stayOpen){
+           // set focus on autocomplete to keep resultList from closing
+            this.inoInputEl.focus();
+            return
+        }
+        this.inoPopoverEl.visible = false;
     }
 
     @Listen('close')
