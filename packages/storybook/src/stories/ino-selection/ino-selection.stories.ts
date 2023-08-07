@@ -18,12 +18,24 @@ export default {
           selection.options.push(e.detail);
         }
 
+        const handleValueChange = (e: any) => {
+          const parentEl = (e.target as HTMLElement).closest('.story-ino-selection')
+    
+          if(e.detail){
+            const chip = document.createElement("ino-chip") as HTMLInoChipElement;
+            chip.innerText = `${e.detail}`;
+            parentEl?.appendChild(chip);
+          }
+        }
+
         const selectionEls = document.querySelectorAll('ino-selection');
         selectionEls.forEach(el => {
           el.addEventListener('optionCreated', optionCreatedHandler);
+          el.addEventListener('valueChange', handleValueChange);
 
           return () => {
             el.removeEventListener('optionCreated', optionCreatedHandler);
+            el.removeEventListener('valueChange', handleValueChange)
           };
         })
         
@@ -48,7 +60,6 @@ export default {
     createOptionLabel: '',
   },
 } as Meta<Components.InoSelection>;
-
 
 const template = new TemplateGenerator<Components.InoSelection>(
 'ino-select',
