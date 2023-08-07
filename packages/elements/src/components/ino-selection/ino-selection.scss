@@ -38,9 +38,20 @@ ino-selection {
     .popover-content .ino-selection__list-item {
         font-size: 0.85rem;
         padding: $padding-list-item;
+        cursor: pointer;
 
-        &--selected, &:hover {
+        &:hover {
             background-color: new-theme.$p-1;
+            color: new-theme.$black;
+        }
+
+        &:active {
+            background-color: new-theme.$p-2;
+            color: new-theme.$black;
+        }
+
+        &--selected {
+            background-color: new-theme.$p-2;
             color: new-theme.$black;
         }
     
