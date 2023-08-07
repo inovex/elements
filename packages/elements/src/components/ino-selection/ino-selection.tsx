@@ -123,6 +123,9 @@ export class Selection implements ComponentInterface {
     onOptionCreated() {
         // empty label after event was emitted
         this.searchTerm = '';
+        this.inoInputEl.value = '';
+        // set focus on autocomplete to keep resultList from closing
+        this.inoInputEl.focus();
     }
 
     /**
@@ -164,6 +167,8 @@ export class Selection implements ComponentInterface {
     onItemSelect(ev: CustomEvent<{ selection: SelectionOption }>) {
         const value = ev.detail.selection.value;
         this.valueChange.emit(value);
+         // set focus on autocomplete to keep resultList from closing
+        this.inoInputEl.focus();
     }
 
     @Listen('close')
@@ -286,7 +291,7 @@ export class Selection implements ComponentInterface {
         }
 
         this.autocomplete = new autoComplete(config);
-        //set automatic focus on input
+        //set automatic focus on input to show resultList
         this.inoInputEl.focus();
 
         if (this.value) this.onValueChange(this.value);
