@@ -206,9 +206,9 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * The type of control element
+          * The type of control element  Valid options are 'checkbox' or 'radio'
          */
-        "role": 'checkbox' | 'radio';
+        "role": HTMLElement['role'];
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
@@ -2035,9 +2035,9 @@ declare namespace LocalJSX {
          */
         "onCheckedChange"?: (event: InoControlItemCustomEvent<any>) => void;
         /**
-          * The type of control element
+          * The type of control element  Valid options are 'checkbox' or 'radio'
          */
-        "role": 'checkbox' | 'radio';
+        "role": HTMLElement['role'];
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */

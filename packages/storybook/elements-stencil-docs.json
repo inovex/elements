@@ -1242,20 +1242,15 @@
         },
         {
           "name": "role",
-          "type": "\"checkbox\" | \"radio\"",
+          "type": "any",
           "mutable": false,
           "attr": "role",
           "reflectToAttr": false,
-          "docs": "The type of control element",
+          "docs": "The type of control element\n\nValid options are 'checkbox' or 'radio'",
           "docsTags": [],
           "values": [
             {
-              "value": "checkbox",
-              "type": "string"
-            },
-            {
-              "value": "radio",
-              "type": "string"
+              "type": "any"
             }
           ],
           "optional": false,
