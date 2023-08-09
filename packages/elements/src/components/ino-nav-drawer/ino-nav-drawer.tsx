@@ -33,7 +33,6 @@ export class NavDrawer implements ComponentInterface {
    */
   private drawerInstance: MDCDrawer;
   private drawerEl: HTMLElement;
-
   @Element() el!: HTMLInoNavDrawerElement;
 
   /**
@@ -67,9 +66,21 @@ export class NavDrawer implements ComponentInterface {
   @Prop() a11yLabels?: NavDrawerLabels = {
     content: 'Main Navigation',
     footer: 'Footer Navigation',
-    toggleBtn: 'Toggle Navigation'
+    toggleBtn: 'Toggle Navigation',
   };
 
+  /**
+   * If true, the mobile drawer will be shown. Automatically sets the variant to `modal`.
+   */
+  @Prop() isMobile?: boolean = false;
+
+  // set the variant based on the isMobile prop
+  get programmaticVariant(): NavDrawerVariant {
+    if (this.isMobile) {
+      return 'modal';
+    }
+    return this.variant;
+  }
 
   componentDidLoad() {
     this.drawerInstance = new MDCDrawer(
@@ -79,15 +90,26 @@ export class NavDrawer implements ComponentInterface {
     if (this.drawerInstance) {
       this.drawerInstance.open = this.open || false;
     }
-    this.setDrawerWidth(this.isMobile);
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
     this.initTabindex('content');
     this.initTabindex('footer');
+
+    this.modifyMobileItems();
   }
 
   disconnectedCallback() {
     this.drawerEl.removeEventListener('MDCDrawer:closed', this.closeDrawer);
     this.drawerInstance?.destroy();
+  }
+
+  private modifyMobileItems() {
+    if (!this.isMobile) return;
+
+    const navItems = this.el.querySelectorAll('ino-nav-item');
+
+    navItems.forEach((item) => {
+      item.classList.add('mobile-nav-item');
+    });
   }
 
   // This listener ensures that only the most recently clicked/selected list item appears as "activated"
@@ -136,10 +158,14 @@ export class NavDrawer implements ComponentInterface {
 
     const classDrawer = classNames({
       'mdc-drawer': true,
-      'mdc-drawer--docked': variant === 'docked',
+      'mdc-drawer--docked':
+        !this.isMobile && this.programmaticVariant === 'docked',
       'mdc-drawer--dismissible':
-        variant === 'dismissible' || variant === 'docked', // docked is a modifier of MDC's dismissible inoVariant
-      'mdc-drawer--modal': variant === 'modal',
+        !this.isMobile &&
+        (this.programmaticVariant === 'dismissible' ||
+          this.programmaticVariant === 'docked'), // docked is a modifier of MDC's dismissible inoVariant
+      'mdc-drawer--modal':
+        this.isMobile || this.programmaticVariant === 'modal',
       'mdc-drawer--anchor-left': anchor === 'left',
       'mdc-drawer--anchor-right': anchor === 'right',
       'mobile-drawer': this.isMobile, // custom class for mobile drawer
@@ -179,7 +205,7 @@ export class NavDrawer implements ComponentInterface {
             aria-hidden={this.isMobile} // Hide from screen readers on mobile as it's only used to prevent focus-trap error and has no functional use
             onClick={this.toggleDrawer}
             attrs={{
-              ariaLabel: this.a11yLabels.toggleBtn
+              ariaLabel: this.a11yLabels.toggleBtn,
             }}
           />
         </nav>
@@ -195,7 +221,9 @@ export class NavDrawer implements ComponentInterface {
     return (
       <Host>
         {nav}
-        {variant === 'modal' && <div class="mdc-drawer-scrim"></div>}
+        {(this.isMobile || variant === 'modal') && (
+          <div class="mdc-drawer-scrim"></div>
+        )}
         {main}
       </Host>
     );
