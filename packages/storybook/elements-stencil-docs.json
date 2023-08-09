@@ -4985,7 +4985,7 @@
           "mutable": false,
           "attr": "is-mobile",
           "reflectToAttr": false,
-          "docs": "If true, the mobile drawer will be shown.",
+          "docs": "If true, the mobile drawer will be shown. Automatically sets the variant to `modal`.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5062,6 +5062,11 @@
           "name": "--ino-nav-drawer-height",
           "annotation": "prop",
           "docs": "Height of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-mobile-width-open",
+          "annotation": "prop",
+          "docs": "Mobile variant only! The width of the open drawer."
         },
         {
           "name": "--ino-nav-drawer-text-color",

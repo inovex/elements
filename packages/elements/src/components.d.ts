@@ -832,7 +832,7 @@ export namespace Components {
          */
         "anchor"?: NavDrawerAnchor;
         /**
-          * If true, the mobile drawer will be shown.
+          * If true, the mobile drawer will be shown. Automatically sets the variant to `modal`.
          */
         "isMobile"?: boolean;
         /**
@@ -2708,7 +2708,7 @@ declare namespace LocalJSX {
          */
         "anchor"?: NavDrawerAnchor;
         /**
-          * If true, the mobile drawer will be shown.
+          * If true, the mobile drawer will be shown. Automatically sets the variant to `modal`.
          */
         "isMobile"?: boolean;
         /**

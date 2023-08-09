@@ -151,6 +151,7 @@ class MyComponent extends Component {
 | -------------------------------------- | ------------------------------------------------------- |
 | `--ino-nav-drawer-background`          | Background of the drawer.                               |
 | `--ino-nav-drawer-height`              | Height of the drawer.                                   |
+| `--ino-nav-drawer-mobile-width-open`   | Mobile variant only! The width of the open drawer.      |
 | `--ino-nav-drawer-text-color`          | Color of text inside the drawer.                        |
 | `--ino-nav-drawer-timing-function`     | Timing function of the slide animation of the drawer.   |
 | `--ino-nav-drawer-transition-duration` | Duration of the slide animation of the drawer.          |
