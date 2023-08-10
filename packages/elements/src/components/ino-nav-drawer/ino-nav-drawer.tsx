@@ -61,7 +61,7 @@ export class NavDrawer implements ComponentInterface {
   @Prop() variant?: NavDrawerVariant = 'docked';
 
   /**
-   * The aria-labels used for content and fotter nav elements.
+   * The aria-labels used for content and footer nav elements.
    * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
    */
   @Prop() a11yLabels?: NavDrawerLabels = {
