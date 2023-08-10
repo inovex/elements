@@ -76,7 +76,12 @@ export default {
     open: true,
     anchor: 'left',
     variant: 'docked',
-  }
+    a11yLabels: {
+      content: 'Main Navigation',
+      footer: 'Footer Navigation',
+      toggleBtn: 'Toggle Navigation',
+    },
+  },
 } as Meta<Components.InoNavDrawer>;
 
 const template = new TemplateGenerator<Components.InoNavDrawer>(
@@ -98,7 +103,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
         ></ino-img>
         <p>inovex</p>
       </div>
-      <ino-list role="menubar" slot="content" aria-label="Main Navigation">
+      <ino-list role="menubar" slot="content" aria-label=${args.a11yLabels?.content}>
         <ino-nav-item role="menuitem" text="Some Link" activated>
           <ino-icon icon="onboarding"></ino-icon>
         </ino-nav-item>
@@ -106,7 +111,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
           <ino-icon icon="employee"></ino-icon>
         </ino-nav-item>
       </ino-list>
-      <ino-list role="menubar" slot="footer" aria-label="Footer Navigation">
+      <ino-list role="menubar" slot="footer" aria-label=${args.a11yLabels?.footer}>
         <ino-nav-item role="menuitem" text="My Profile">
           <ino-icon icon="employee"></ino-icon>
         </ino-nav-item>
@@ -114,7 +119,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
 
       <main slot="app" class="main-content">
         <ino-button fill="outline" dense class="toggle-nav"
-          >Toggle Navigation</ino-button
+          >${args.a11yLabels?.toggleBtn}</ino-button
         >
         <br />
         <br />
