@@ -68,11 +68,10 @@ export class InoOption {
     });
 
     return (
-      <Host>
+      <Host role="option">
         <li
           class={classSelect}
           data-value={this.value}
-          aria-selected={this.selected}
         >
           <span class="mdc-deprecated-list-item__text">
             <slot />
