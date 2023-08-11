@@ -325,6 +325,7 @@ export const InoNavDrawer = /*@__PURE__*/ defineContainer<JSX.InoNavDrawer>('ino
   'anchor',
   'variant',
   'a11yLabels',
+  'isMobile',
   'openChange'
 ]);
 
