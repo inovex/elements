@@ -123,14 +123,15 @@ The component bubbles the native `click`-Event to the user.
 
 ## Properties
 
-| Property    | Attribute   | Description                                                                                                                                        | Type                              | Default     |
-| ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------- |
-| `activated` | `activated` | Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**. | `boolean`                         | `undefined` |
-| `autoFocus` | `autofocus` | Sets the autofocus for this element.                                                                                                               | `boolean`                         | `undefined` |
-| `disabled`  | `disabled`  | Disables this element.                                                                                                                             | `boolean`                         | `undefined` |
-| `filled`    | `filled`    | Styles this element as filled icon button with the `ino-color-scheme` as background color.                                                         | `boolean`                         | `undefined` |
-| `icon`      | `icon`      | The name of the icon of this element.                                                                                                              | `string`                          | `undefined` |
-| `type`      | `type`      | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                               | `"button" \| "reset" \| "submit"` | `'button'`  |
+| Property    | Attribute   | Description                                                                                                                                        | Type                                                     | Default     |
+| ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------- |
+| `activated` | `activated` | Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**. | `boolean`                                                | `undefined` |
+| `attrs`     | --          | Allows the specification of native HTML attributes on the underlying HTML element                                                                  | `HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>` | `undefined` |
+| `autoFocus` | `autofocus` | Sets the autofocus for this element.                                                                                                               | `boolean`                                                | `undefined` |
+| `disabled`  | `disabled`  | Disables this element.                                                                                                                             | `boolean`                                                | `undefined` |
+| `filled`    | `filled`    | Styles this element as filled icon button with the `ino-color-scheme` as background color.                                                         | `boolean`                                                | `undefined` |
+| `icon`      | `icon`      | The name of the icon of this element.                                                                                                              | `string`                                                 | `undefined` |
+| `type`      | `type`      | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                               | `"button" \| "reset" \| "submit"`                        | `'button'`  |
 
 
 ## Events
@@ -145,20 +146,6 @@ The component bubbles the native `click`-Event to the user.
 | Slot        | Description  |
 | ----------- | ------------ |
 | `"default"` | `<ino-icon>` |
-
-
-## CSS Custom Properties
-
-| Name                                          | Description                                    |
-| --------------------------------------------- | ---------------------------------------------- |
-| `--ino-icon-button-background-active-color`   | base color of the active background            |
-| `--ino-icon-button-background-color`          | default color of the background                |
-| `--ino-icon-button-background-disabled-color` | base color of the background in disabled state |
-| `--ino-icon-button-icon-active-color`         | color of the active icon itself                |
-| `--ino-icon-button-icon-color`                | default color of the icon itself               |
-| `--ino-icon-button-icon-disabled-color`       | color of the icon itself in disabled state     |
-| `--ino-icon-button-icon-size`                 | size of the icon itself                        |
-| `--ino-icon-button-size`                      | size of the entire button                      |
 
 
 ## Dependencies

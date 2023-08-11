@@ -11,7 +11,7 @@ import {
   h,
   Listen,
 } from '@stencil/core';
-import { NavDrawerAnchor, NavDrawerVariant } from '../types';
+import { NavDrawerAnchor, NavDrawerVariant, NavDrawerLabels } from '../types';
 import classNames from 'classnames';
 
 /**
@@ -59,6 +59,17 @@ export class NavDrawer implements ComponentInterface {
    * Possible values: `docked` (default), `dismissible`, `modal`.
    */
   @Prop() variant?: NavDrawerVariant = 'docked';
+
+  /**
+   * The aria-labels used for content and footer nav elements.
+   * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+   */
+  @Prop() a11yLabels?: NavDrawerLabels = {
+    content: 'Main Navigation',
+    footer: 'Footer Navigation',
+    toggleBtn: 'Toggle Navigation'
+  };
+
 
   componentDidLoad() {
     this.drawerInstance = new MDCDrawer(
@@ -151,18 +162,21 @@ export class NavDrawer implements ComponentInterface {
           </slot>
         </div>
 
-        <nav class="mdc-drawer__content">
+        <nav class="mdc-drawer__content" aria-label={this.a11yLabels.content}>
           <slot name="content"></slot>
         </nav>
 
-        <div class="mdc-drawer__footer">
+        <nav class="mdc-drawer__footer" aria-label={this.a11yLabels.footer}>
           <slot name="footer"></slot>
           <ino-icon-button
             class="mdc-drawer__toggle"
             icon="arrow_right"
             onClick={this.toggleDrawer}
+            attrs={{
+              ariaLabel: this.a11yLabels.toggleBtn
+            }}
           />
-        </div>
+        </nav>
       </aside>
     );
 
