@@ -322,6 +322,7 @@ export class Selection implements ComponentInterface {
             src: this.options,
           },
           wrapper: false,
+          diacritics: true,
           resultsList: {
             noResults: true,
             class: 'mdc-deprecated-list ino-selection__list optionList',
