@@ -138,6 +138,45 @@ export class Selection implements ComponentInterface {
      */
     @Prop() value: string | KeyValue | null;
 
+    /**
+     * Used to indicate if the visibility of the ino-selection should be controlled by itself (`false`) or manually by the `visible` property (`true`) of the popover
+     */
+    @Prop() controlled = false;
+
+    /**
+     * Programmatically show or hide ino-selection.
+     * Can only be used in controlled mode (see property `controlled`).
+     * Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
+     */
+    @Prop() visible?: boolean = false;
+
+    @Watch('visible')
+    visibleChangeHandler(show: boolean) {
+        if (!this.controlled) {
+            return;
+        }
+
+        if(show){
+            this.inoPopoverEl.visible = true;
+            // Components inside of popover only get init if visible
+            this.initSelection();
+            return;
+        } 
+      
+        this.inoPopoverEl.visible = false;
+    }
+
+    /**
+     * Emits when the ino-selection wants to show (`true`) or hide (`false`) itself.
+     * This is depended on the `trigger` property.
+     * Use this event in controlled-mode (see `controlled`).
+     *
+     * e.g.: `trigger = 'click'` - This events emits with `true`
+     * when the user clicks on the target (slot/`for`/parent-element)
+     * and emits with `false` when the target or the outside is clicked.
+     */
+    @Event() selectionVisibleChanged: EventEmitter<boolean>;
+
     @Watch('value')
     onValueChange(value: string | KeyValue | null) {
         if (value === null) {
@@ -166,13 +205,20 @@ export class Selection implements ComponentInterface {
     @Listen('selection')
     onItemSelect(ev: CustomEvent<{ selection: SelectionOption }>) {
         const value = ev.detail.selection.value;
+ 
         this.valueChange.emit(value);
 
-        if(this.stayOpen){
-           // set focus on autocomplete to keep resultList from closing
-            this.inoInputEl.focus();
-            return
+        if(this.controlled){
+            // visibility gets handled by consumer
+            return;
         }
+
+        if(this.stayOpen){
+            // set focus on autocomplete to keep resultList from closing
+            this.inoInputEl.focus();
+            return;
+        }
+
         this.inoPopoverEl.visible = false;
     }
 
@@ -203,8 +249,6 @@ export class Selection implements ComponentInterface {
      * the validation is handled by the default validation.
      */
     @Prop() error?: boolean;
-
-    @Watch('error')
     
     componentDidLoad() {
        this.initComponents(); 
@@ -229,23 +273,35 @@ export class Selection implements ComponentInterface {
     };
 
     private initComponents = () => {
-        this.inoPopoverEl?.removeEventListener('visibleChanged', this.initSelection) 
-    
+        this.inoPopoverEl?.removeEventListener('visibleChanged', this.initSelection);
+
         this.inoPopoverEl = this.el.querySelector('ino-popover');
-       
-        this.inoPopoverEl?.addEventListener('visibleChanged', this.initSelection) 
+    
+        this.inoPopoverEl?.addEventListener('visibleChanged', this.handleVisibleChanged); 
     }
 
-    private initSelection = (e: CustomEvent<boolean>) => {
-        const popoverVisibility = e.detail;
+    private handleVisibleChanged = (e: CustomEvent<boolean>) => {
+        // handles visibility of controlled ino-popover
+        const popoverIsVisible = e.detail;
         this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
-        if (popoverVisibility === false) {
-            this.inoPopoverEl.visible = false;
+    
+        if(this.controlled){
+            this.selectionVisibleChanged.emit(popoverIsVisible);
             return
+        } else {
+            if (popoverIsVisible) {
+                this.inoPopoverEl.visible = true;
+                this.initSelection();
+            } else {
+                this.inoPopoverEl.visible = false;
+            }
         }
-        this.inoPopoverEl.visible = true;
-        
-        // init Components inside of popover only if visible
+
+    }
+
+    private initSelection = () => {
+        this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
+
         this.inoInputEl = this.inoPopoverEl.querySelector('ino-input');
         this.inputEl = this.inoPopoverEl.querySelector('input');
         this.optionListAnchor = this.inoPopoverEl.querySelector('header') 
@@ -368,8 +424,7 @@ export class Selection implements ComponentInterface {
                         </header>
                         <footer>
                         {this.displayAddOption && 
-                            <ino-button variant='text' onClick={() => {
-                                this.optionCreated.emit(this.searchTerm)}}>
+                            <ino-button variant='text' onClick={() => this.optionCreated.emit(this.searchTerm)}>
                                 <ino-icon icon="add" slot="icon-leading"></ino-icon>
                                 {addOptionBtnText(this.searchTerm)}
                             </ino-button>}

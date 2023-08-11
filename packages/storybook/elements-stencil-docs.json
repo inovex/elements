@@ -6947,6 +6947,23 @@
       },
       "props": [
         {
+          "name": "controlled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "controlled",
+          "reflectToAttr": false,
+          "docs": "Used to indicate if the visibility of the ino-selection should be controlled by itself (`false`) or manually by the `visible` property (`true`) of the popover",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "createOptionLabel",
           "type": "string",
           "mutable": false,
@@ -7239,6 +7256,23 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "visible",
+          "reflectToAttr": false,
+          "docs": "Programmatically show or hide ino-selection.\nCan only be used in controlled mode (see property `controlled`).\nUse the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
@@ -7250,6 +7284,15 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emits string of the added option. Contains new value in `event.detail`.",
+          "docsTags": []
+        },
+        {
+          "event": "selectionVisibleChanged",
+          "detail": "boolean",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the ino-selection wants to show (`true`) or hide (`false`) itself.\nThis is depended on the `trigger` property.\nUse this event in controlled-mode (see `controlled`).\n\ne.g.: `trigger = 'click'` - This events emits with `true`\nwhen the user clicks on the target (slot/`for`/parent-element)\nand emits with `false` when the target or the outside is clicked.",
           "docsTags": []
         },
         {

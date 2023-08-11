@@ -1100,6 +1100,10 @@ export namespace Components {
     }
     interface InoSelection {
         /**
+          * Used to indicate if the visibility of the ino-selection should be controlled by itself (`false`) or manually by the `visible` property (`true`) of the popover
+         */
+        "controlled": boolean;
+        /**
           * The label for creating a new option button
          */
         "createOptionLabel": string;
@@ -1155,6 +1159,10 @@ export namespace Components {
           * The value of this element. (**unmanaged**)
          */
         "value": string | KeyValue | null;
+        /**
+          * Programmatically show or hide ino-selection. Can only be used in controlled mode (see property `controlled`). Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
+         */
+        "visible"?: boolean;
     }
     interface InoSnackbar {
         /**
@@ -3064,6 +3072,10 @@ declare namespace LocalJSX {
     }
     interface InoSelection {
         /**
+          * Used to indicate if the visibility of the ino-selection should be controlled by itself (`false`) or manually by the `visible` property (`true`) of the popover
+         */
+        "controlled"?: boolean;
+        /**
           * The label for creating a new option button
          */
         "createOptionLabel"?: string;
@@ -3104,6 +3116,10 @@ declare namespace LocalJSX {
          */
         "onOptionCreated"?: (event: InoSelectionCustomEvent<string | KeyValue>) => void;
         /**
+          * Emits when the ino-selection wants to show (`true`) or hide (`false`) itself. This is depended on the `trigger` property. Use this event in controlled-mode (see `controlled`).  e.g.: `trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`for`/parent-element) and emits with `false` when the target or the outside is clicked.
+         */
+        "onSelectionVisibleChanged"?: (event: InoSelectionCustomEvent<boolean>) => void;
+        /**
           * Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input
          */
         "onValueChange"?: (event: InoSelectionCustomEvent<string | { key: string; value: string }>) => void;
@@ -3127,6 +3143,10 @@ declare namespace LocalJSX {
           * The value of this element. (**unmanaged**)
          */
         "value"?: string | KeyValue | null;
+        /**
+          * Programmatically show or hide ino-selection. Can only be used in controlled mode (see property `controlled`). Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
+         */
+        "visible"?: boolean;
     }
     interface InoSnackbar {
         /**

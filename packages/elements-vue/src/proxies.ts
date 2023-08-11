@@ -460,8 +460,11 @@ export const InoSelection = /*@__PURE__*/ defineContainer<JSX.InoSelection>('ino
   'emptyInputMessage',
   'createOptionLabel',
   'value',
+  'controlled',
+  'visible',
   'error',
   'optionCreated',
+  'selectionVisibleChanged',
   'valueChange'
 ]);
 

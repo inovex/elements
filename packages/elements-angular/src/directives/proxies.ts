@@ -1042,6 +1042,16 @@ export declare interface InoSelection extends Components.InoSelection {
    */
   optionCreated: EventEmitter<CustomEvent<string | KeyValue>>;
   /**
+   * Emits when the ino-selection wants to show (`true`) or hide (`false`) itself.
+This is depended on the `trigger` property.
+Use this event in controlled-mode (see `controlled`).
+
+e.g.: `trigger = 'click'` - This events emits with `true`
+when the user clicks on the target (slot/`for`/parent-element)
+and emits with `false` when the target or the outside is clicked. 
+   */
+  selectionVisibleChanged: EventEmitter<CustomEvent<boolean>>;
+  /**
    * Emits the list item the user clicked on either as a string or
 a `{key: string; value: string}` object depending on the provided options.
 
@@ -1055,20 +1065,20 @@ Trigger on two occasions:
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['createOptionLabel', 'debounce', 'disabled', 'displayAddOption', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value']
+  inputs: ['controlled', 'createOptionLabel', 'debounce', 'disabled', 'displayAddOption', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value', 'visible']
 })
 @Component({
   selector: 'ino-selection',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['createOptionLabel', 'debounce', 'disabled', 'displayAddOption', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value']
+  inputs: ['controlled', 'createOptionLabel', 'debounce', 'disabled', 'displayAddOption', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value', 'visible']
 })
 export class InoSelection {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['optionCreated', 'valueChange']);
+    proxyOutputs(this, this.el, ['optionCreated', 'selectionVisibleChanged', 'valueChange']);
   }
 }
 
