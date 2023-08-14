@@ -57,13 +57,12 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
             <div
               className={styles.sandboxImageContainer}
               onClick={handleImageClick}
-              role="button"
               tabIndex={0}
-              aria-label={`Open CodeSandbox for ${frameworkName}`}
+              aria-label={t('sandbox.aria-label') + ` ${frameworkName}`}
             >
               <Image
                 src={SANDBOX_MAP[framework] || ''}
-                alt={`CodeSandbox for ${frameworkName}`}
+                alt={t('sandbox.alt') + ` ${frameworkName}`}
                 width={0}
                 height={0}
                 sizes="100vw"

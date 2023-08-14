@@ -2,6 +2,8 @@
   "sandbox": {
     "title": "Looking for more resources?",
     "description": "Make sure to check out the example projects",
-    "goto": "Go to the sandbox"
+    "goto": "Go to the sandbox",
+    "alt": "Sandbox for",
+    "aria-label": "Open Sandbox for"
   }
 }
