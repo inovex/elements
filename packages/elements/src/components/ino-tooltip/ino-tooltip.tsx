@@ -9,7 +9,7 @@ import {
   Method,
 } from '@stencil/core';
 import TippyJS, { Instance, Placement, roundArrow } from 'tippy.js';
-import { TooltipTrigger } from '../types';
+import { TooltipTrigger, TippyThemes } from '../types';
 
 /**
  * @slot default The text shown in the tooltip.
@@ -35,7 +35,7 @@ export class Tooltip implements ComponentInterface {
    * 
    * Valid options include: `light`, `dark` or `primary`
    */
-  @Prop() colorScheme: 'light' | 'dark' | 'primary' =
+  @Prop() colorScheme: TippyThemes =
     'primary';
 
   /**
