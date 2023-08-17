@@ -1,9 +1,6 @@
 {
   "sandbox": {
     "title": "Suchen Sie nach weiteren Ressourcen?",
-    "description": "Sehen Sie sich gerne auch unsere Beispielprojekte an",
-    "goto": "Zum Sandbox-Projekt",
-    "alt": "Sandbox-Projekt für",
-    "aria-label": "Öffnen Sie das Sandbox-Projekt für"
+    "description": "Sehen Sie sich gerne auch unsere Beispielprojekte an"
   }
 }

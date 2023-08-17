@@ -25,10 +25,6 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
   const frameworkName = NameByFramework[framework];
   const { t, locale } = useTranslation();
 
-  function handleImageClick() {
-    window.open(sandboxUrl, '_blank');
-  }
-
   return (
     <Page title={[t('common.meta.getting_started'), frameworkName]}>
       <div className={styles.segmentGroup}>
@@ -54,15 +50,16 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
             <h1>{t('sandbox.title')}</h1>
             <p className="title-s">{t('sandbox.description')}</p>
 
-            <div
+            <a
+              href={sandboxUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={'Open Sandbox for' + ` ${frameworkName}`}
               className={styles.sandboxImageContainer}
-              onClick={handleImageClick}
-              tabIndex={0}
-              aria-label={t('sandbox.aria-label') + ` ${frameworkName}`}
             >
               <Image
                 src={SANDBOX_MAP[framework] || ''}
-                alt={t('sandbox.alt') + ` ${frameworkName}`}
+                alt={'Sandbox for' + ` ${frameworkName}`}
                 width={0}
                 height={0}
                 sizes="100vw"
@@ -71,11 +68,12 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
               <InoButton
                 variant="filled"
                 type="button"
+                aria-hidden="true"
                 className={styles.overlayButton}
               >
-                {t('sandbox.goto')}
+                {'Go to the' + ` ${frameworkName}` + ' Sandbox'}
               </InoButton>
-            </div>
+            </a>
           </div>
         )}
       </div>
