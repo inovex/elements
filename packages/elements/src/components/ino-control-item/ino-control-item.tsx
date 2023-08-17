@@ -24,8 +24,10 @@ export class InoControlItem implements ComponentInterface {
 
   /**
    * The type of control element
+   *
+   * Valid options are 'checkbox' or 'radio'
    */
-  @Prop({ attribute: 'role' }) type!: 'checkbox' | 'radio';
+  @Prop() role!: string | null;
 
   /**
    * The primary text of this list item (required).

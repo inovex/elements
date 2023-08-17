@@ -206,6 +206,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * The type of control element  Valid options are 'checkbox' or 'radio'
+         */
+        "role": string | null;
+        /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
         "secondaryText"?: string;
@@ -221,10 +225,6 @@ export namespace Components {
           * Places the checkbox at the end of the item
          */
         "trailing"?: boolean;
-        /**
-          * The type of control element
-         */
-        "type": 'checkbox' | 'radio';
         /**
           * The value of this element.
          */
@@ -2035,6 +2035,10 @@ declare namespace LocalJSX {
          */
         "onCheckedChange"?: (event: InoControlItemCustomEvent<any>) => void;
         /**
+          * The type of control element  Valid options are 'checkbox' or 'radio'
+         */
+        "role": string | null;
+        /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
         "secondaryText"?: string;
@@ -2050,10 +2054,6 @@ declare namespace LocalJSX {
           * Places the checkbox at the end of the item
          */
         "trailing"?: boolean;
-        /**
-          * The type of control element
-         */
-        "type": 'checkbox' | 'radio';
         /**
           * The value of this element.
          */

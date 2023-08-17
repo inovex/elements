@@ -232,13 +232,13 @@ export declare interface InoControlItem extends Components.InoControlItem {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'secondaryText', 'selected', 'text', 'trailing', 'type', 'value']
+  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'role', 'secondaryText', 'selected', 'text', 'trailing', 'value']
 })
 @Component({
   selector: 'ino-control-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'secondaryText', 'selected', 'text', 'trailing', 'type', 'value']
+  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'role', 'secondaryText', 'selected', 'text', 'trailing', 'value']
 })
 export class InoControlItem {
   protected el: HTMLElement;
