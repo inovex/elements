@@ -42,7 +42,7 @@ export default function HeaderDesktop() {
         >
           <Image
             className={styles.githubImage}
-            src={`/github-logo.png`}
+            src={`/github-logo.svg`}
             alt="Github Logo"
             width={30}
             height={30}

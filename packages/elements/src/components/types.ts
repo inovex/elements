@@ -65,5 +65,5 @@ export type KeyValue = {
     value: string;
 };
 export type HeaderSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-
+export type NavDrawerLabels = {content: string, footer: string, toggleBtn: string}
 export type TippyThemes = 'light' | 'dark' | 'primary';
