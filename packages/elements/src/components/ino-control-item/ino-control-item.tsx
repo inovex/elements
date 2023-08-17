@@ -110,8 +110,8 @@ export class InoControlItem implements ComponentInterface {
   };
 
   componentDidLoad() {
-    if (!['checkbox', 'radio'].includes(this.type))
-      console.warn(`Given role ${this.type}is not valid, fallbacks to role radio`)
+    if (!['checkbox', 'radio'].includes(this.role))
+      console.warn(`Given role ${this.role}is not valid, fallbacks to role radio`)
   }
 
   render() {
@@ -143,7 +143,7 @@ export class InoControlItem implements ComponentInterface {
           disabled={this.disabled}
           onClick={this.clickHandler}
         >
-          {this.type === 'checkbox' ? (
+          {this.role === 'checkbox' ? (
             <ino-checkbox
               {...controlItemProps}
               indeterminate={this.indeterminate}
