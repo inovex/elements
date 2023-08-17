@@ -24,10 +24,8 @@ export class InoControlItem implements ComponentInterface {
 
   /**
    * The type of control element
-   *
-   * Valid options are 'checkbox' or 'radio'
    */
-  @Prop() role: HTMLElement['role'];
+  @Prop({ attribute: 'role' }) type!: 'checkbox' | 'radio';
 
   /**
    * The primary text of this list item (required).
@@ -110,8 +108,8 @@ export class InoControlItem implements ComponentInterface {
   };
 
   componentDidLoad() {
-    if (!['checkbox', 'radio'].includes(this.role))
-      console.warn(`Given role ${this.role}is not valid, fallbacks to role radio`)
+    if (!['checkbox', 'radio'].includes(this.type))
+      console.warn(`Given role ${this.type}is not valid, fallbacks to role radio`)
   }
 
   render() {
@@ -143,7 +141,7 @@ export class InoControlItem implements ComponentInterface {
           disabled={this.disabled}
           onClick={this.clickHandler}
         >
-          {this.role === 'checkbox' ? (
+          {this.type === 'checkbox' ? (
             <ino-checkbox
               {...controlItemProps}
               indeterminate={this.indeterminate}

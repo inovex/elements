@@ -1241,22 +1241,6 @@
           "required": false
         },
         {
-          "name": "role",
-          "type": "any",
-          "mutable": false,
-          "attr": "role",
-          "reflectToAttr": false,
-          "docs": "The type of control element\n\nValid options are 'checkbox' or 'radio'",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "any"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "secondaryText",
           "type": "string",
           "mutable": false,
@@ -1319,6 +1303,27 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"checkbox\" | \"radio\"",
+          "mutable": false,
+          "attr": "role",
+          "reflectToAttr": false,
+          "docs": "The type of control element",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "checkbox",
+              "type": "string"
+            },
+            {
+              "value": "radio",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
         },
         {
           "name": "value",
