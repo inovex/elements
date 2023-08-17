@@ -4568,6 +4568,21 @@
           "required": false
         },
         {
+          "name": "attrs",
+          "type": "HTMLAttributes<HTMLLIElement>",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Allows the specification of native HTML attributes on the underlying HTML element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "HTMLAttributes<HTMLLIElement>"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
@@ -4644,58 +4659,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-list-item-deselected-background-color",
-          "annotation": "prop",
-          "docs": "Background color of a deselected list item"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-active",
-          "annotation": "prop",
-          "docs": "Background color of a deselected list item if active"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-focus",
-          "annotation": "prop",
-          "docs": "Background color of a deselected list item if focused"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-hover",
-          "annotation": "prop",
-          "docs": "Background color of a deselected list item on hover"
-        },
-        {
-          "name": "--ino-list-item-deselected-color",
-          "annotation": "prop",
-          "docs": "Text color of a deselected list item"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color",
-          "annotation": "prop",
-          "docs": "Background color of a selected list item"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-active",
-          "annotation": "prop",
-          "docs": "Background color of a selected list item if active"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-focus",
-          "annotation": "prop",
-          "docs": "Background color of a selected list item if focused"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-hover",
-          "annotation": "prop",
-          "docs": "Background color of a selected list item on hover"
-        },
-        {
-          "name": "--ino-list-item-selected-color",
-          "annotation": "prop",
-          "docs": "Text color of a selected list item"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "leading",
@@ -5081,43 +5045,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-nav-drawer-background",
-          "annotation": "prop",
-          "docs": "Background of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-height",
-          "annotation": "prop",
-          "docs": "Height of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-text-color",
-          "annotation": "prop",
-          "docs": "Color of text inside the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-timing-function",
-          "annotation": "prop",
-          "docs": "Timing function of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-transition-duration",
-          "annotation": "prop",
-          "docs": "Duration of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-closed",
-          "annotation": "prop",
-          "docs": "Docked variant only! The width of the collapsed drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-open",
-          "annotation": "prop",
-          "docs": "The width of the open drawer."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "app",
@@ -5145,7 +5073,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "clickEl",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-nav-item/ino-nav-item.tsx",
@@ -6189,6 +6123,21 @@
       ],
       "parts": [],
       "listeners": [
+        {
+          "event": "checkedChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "mouseover",
+          "capture": false,
+          "passive": true
+        },
+        {
+          "event": "mouseout",
+          "capture": false,
+          "passive": true
+        },
         {
           "event": "keydown",
           "capture": false,

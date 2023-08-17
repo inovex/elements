@@ -144,19 +144,6 @@ class MyComponent extends Component {
 | `"subtitle"` | For the element just below the logo (cannot be used with the `header` slot)             |
 
 
-## CSS Custom Properties
-
-| Name                                   | Description                                             |
-| -------------------------------------- | ------------------------------------------------------- |
-| `--ino-nav-drawer-background`          | Background of the drawer.                               |
-| `--ino-nav-drawer-height`              | Height of the drawer.                                   |
-| `--ino-nav-drawer-text-color`          | Color of text inside the drawer.                        |
-| `--ino-nav-drawer-timing-function`     | Timing function of the slide animation of the drawer.   |
-| `--ino-nav-drawer-transition-duration` | Duration of the slide animation of the drawer.          |
-| `--ino-nav-drawer-width-closed`        | Docked variant only! The width of the collapsed drawer. |
-| `--ino-nav-drawer-width-open`          | The width of the open drawer.                           |
-
-
 ## Dependencies
 
 ### Depends on

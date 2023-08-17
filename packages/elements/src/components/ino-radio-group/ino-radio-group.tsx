@@ -13,8 +13,6 @@ import {
 import { Alignment } from '../types';
 import classNames from 'classnames';
 
-
-
 /**
  * @slot default - One or more `ino-radio`
  */
@@ -41,24 +39,25 @@ export class RadioGroup implements ComponentInterface {
     this.updateRadios(value);
   }
 
-  async componentDidLoad() {
-    this.updateRadios(this.value);
-
-    const radios = await this.getRadios();
-    radios.forEach((radio) => {
-      radio.addEventListener('mouseover', () => this.addHoverAnimation(radio));
-      radio.addEventListener('mouseout', () => this.removeHoverAnimation());
-    });
+  @Listen('checkedChange')
+  handleCheckedChange(ev: CustomEvent) {
+    const target = ev.target as HTMLInoRadioElement;
+    this.valueChange.emit(target.value);
   }
 
-  async disconnectedCallback() {
-    const radios = await this.getRadios();
-    radios.forEach((radio) => {
-      radio.removeEventListener('mouseover', () =>
-        this.addHoverAnimation(radio)
-      );
-      radio.removeEventListener('mouseout', () => this.removeHoverAnimation());
-    });
+  @Listen('mouseover')
+  handleMouseOver(ev: Event) {
+    const target = ev.target as HTMLInoRadioElement;
+    this.addHoverAnimation(target);
+  }
+
+  @Listen('mouseout')
+  handleMouseOut() {
+    this.removeHoverAnimation();
+  }
+
+  async componentDidLoad() {
+    this.updateRadios(this.value);
   }
 
   /**

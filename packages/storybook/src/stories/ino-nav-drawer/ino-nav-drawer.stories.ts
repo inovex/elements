@@ -101,6 +101,9 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
         <ino-nav-item text="Some Link" activated>
           <ino-icon icon="onboarding"></ino-icon>
         </ino-nav-item>
+        <ino-nav-item text="Another Link">
+          <ino-icon icon="employee"></ino-icon>
+        </ino-nav-item>
       </ino-list>
       <ino-list slot="footer">
         <ino-nav-item text="My Profile">
