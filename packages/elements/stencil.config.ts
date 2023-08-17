@@ -11,6 +11,7 @@ const reactProxyPath =  join(__dirname,'../elements-react/src/components');
 
 export const config: Config = {
   buildEs5: false,
+  enableCache: false,
   extras: {
     experimentalImportInjection: true,
     initializeNextTick: true
