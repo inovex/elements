@@ -5,9 +5,13 @@ import ElementsLogo from '@assets/elements.svg';
 import LocaleSwitcher from './localeSwitcher';
 import Link from 'next/link';
 import useTranslation from '../../../../utils/hooks/useTranslation';
+import VersionSelect from 'components/shared/versionSelect';
+import { useRouter } from 'next/router';
 
 export default function HeaderDesktop() {
   const { locale } = useTranslation();
+  const router = useRouter();
+  const isLibraryPage = router.pathname.endsWith('/library/components');
 
   return (
     <header className={styles.header}>
@@ -28,6 +32,11 @@ export default function HeaderDesktop() {
             />
           </Link>
         </div>
+        {isLibraryPage && (
+          <div className={styles.versionContainer}>
+            <VersionSelect />
+          </div>
+        )}
         <div className={styles.language}>
           <LocaleSwitcher />
         </div>

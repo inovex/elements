@@ -17,16 +17,16 @@ import { Locale_File } from '../../../../translations/types';
 import { merge } from 'lodash';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 import openInNew from '@assets/open-in-new.svg';
-import { useContext, useEffect, useState, useMemo } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { UiContext, UiContextType } from '../../../../utils/context/UiContext';
 import Page from '../../../../components/layout/page';
 import useTranslation from '../../../../utils/hooks/useTranslation';
+import { useVersion } from '../../../../utils/context/VersionContext';
 
 const StoryBookPage: NextPage<void> = () => {
   const { t } = useTranslation();
   const { hideFooter } = useContext(UiContext) as UiContextType;
-  const [versions, setVersions] = useState<string[]>([]);
-  const [selectedVersion, setSelectedVersion] = useState('');
+  const {selectedVersion} = useVersion();
 
   const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
   const currentStory = useStorybookUrlSyncer();
@@ -36,12 +36,6 @@ const StoryBookPage: NextPage<void> = () => {
   );
 
   useEffect(() => {
-    fetch(
-      'https://raw.githubusercontent.com/inovex/elements/pages/hosted-versions.json'
-    )
-      .then((response) => response.json())
-      .then((data) => setVersions(data));
-
     // prevent scrolling of body while in storybook
     document.body.style.overflow = 'clip';
     hideFooter(true);
@@ -52,10 +46,6 @@ const StoryBookPage: NextPage<void> = () => {
     };
   }, []);
 
-  const handleVersionChange = (e: CustomEvent) => {
-    setSelectedVersion(e.detail);
-  };
-
   const iframeUrl = selectedVersion
     ? `https://elements.inovex.de/version/${selectedVersion}/?path=/story/docs-welcome--page`
     : initialUrl;
@@ -63,22 +53,6 @@ const StoryBookPage: NextPage<void> = () => {
   return (
     <Page title={[t('common.meta.library')]}>
       <div className={styles.container}>
-        <InoButton className={styles.versionSelect} variant='outlined'>
-          <InoIcon slot="icon-leading" icon="status_future"></InoIcon>
-          <InoSelect
-            name="select-version"
-            value={selectedVersion}
-            onValueChange={handleVersionChange}
-            label='Select version'
-          >
-            {versions.map((version, i) => (
-              <InoOption key={i} value={version}>
-                {version}
-              </InoOption>
-            ))}
-          </InoSelect>
-        </InoButton>
-
         {url && (
           <a
             className={styles.openExternallyButton}
