@@ -1242,7 +1242,7 @@
         },
         {
           "name": "role",
-          "type": "string",
+          "type": "any",
           "mutable": false,
           "attr": "role",
           "reflectToAttr": false,
@@ -1250,11 +1250,11 @@
           "docsTags": [],
           "values": [
             {
-              "type": "string"
+              "type": "any"
             }
           ],
           "optional": false,
-          "required": true
+          "required": false
         },
         {
           "name": "secondaryText",

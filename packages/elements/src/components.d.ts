@@ -208,7 +208,7 @@ export namespace Components {
         /**
           * The type of control element  Valid options are 'checkbox' or 'radio'
          */
-        "role": string | null;
+        "role": HTMLElement['role'];
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
@@ -2037,7 +2037,7 @@ declare namespace LocalJSX {
         /**
           * The type of control element  Valid options are 'checkbox' or 'radio'
          */
-        "role": string | null;
+        "role"?: HTMLElement['role'];
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
