@@ -63,7 +63,7 @@ const StoryBookPage: NextPage<void> = () => {
   return (
     <Page title={[t('common.meta.library')]}>
       <div className={styles.container}>
-        <InoButton className={styles.openExternallySelect} variant='outlined'>
+        <InoButton className={styles.versionSelect} variant='outlined'>
           <InoIcon slot="icon-leading" icon="status_future"></InoIcon>
           <InoSelect
             name="select-version"
