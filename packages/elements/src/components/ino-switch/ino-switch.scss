@@ -167,7 +167,7 @@ ino-switch.ino-switch__icon-toggle .mdc-switch {
         unselected-track-color: theme.$n-2,
         unselected-focus-track-color: theme.$n-2,
         unselected-hover-track-color: theme.$n-2,
-        disabled-selected-track-color: transparent,
+        disabled-selected-track-color: $disabled-color,
         disabled-selected-handle-color: white,
         disabled-unselected-handle-color: white,
         disabled-unselected-track-color: $disabled-color,
