@@ -5,10 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
+import { JSXBase } from "@stencil/core/internal";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -364,9 +365,21 @@ export namespace Components {
     }
     interface InoDialog {
         /**
+          * Adds a button with the given text to proceed with an action`
+         */
+        "actionText"?: string;
+        /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
+        /**
+          * Adds a text to the body of the `ino-dialog`
+         */
+        "bodyText"?: string;
+        /**
+          * Adds a button with the given text to close the `ino-dialog`
+         */
+        "cancelText"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -375,6 +388,14 @@ export namespace Components {
           * Defines a full width dialog sliding up from the bottom of the page.
          */
         "fullwidth"?: boolean;
+        /**
+          * Adds a headline to the `ino-dialog`
+         */
+        "headerText"?: string;
+        /**
+          * Adds a `ino-icon` besides the headline
+         */
+        "icon"?: string;
         /**
           * Opens the dialog if set to true
          */
@@ -760,6 +781,10 @@ export namespace Components {
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs": JSXBase.HTMLAttributes<HTMLLIElement>;
         /**
           * Styles the row in a disabled style.
          */
@@ -2177,9 +2202,21 @@ declare namespace LocalJSX {
     }
     interface InoDialog {
         /**
+          * Adds a button with the given text to proceed with an action`
+         */
+        "actionText"?: string;
+        /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
+        /**
+          * Adds a text to the body of the `ino-dialog`
+         */
+        "bodyText"?: string;
+        /**
+          * Adds a button with the given text to close the `ino-dialog`
+         */
+        "cancelText"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -2188,6 +2225,18 @@ declare namespace LocalJSX {
           * Defines a full width dialog sliding up from the bottom of the page.
          */
         "fullwidth"?: boolean;
+        /**
+          * Adds a headline to the `ino-dialog`
+         */
+        "headerText"?: string;
+        /**
+          * Adds a `ino-icon` besides the headline
+         */
+        "icon"?: string;
+        /**
+          * Emits an event upon clicking the action button of the dialog
+         */
+        "onAction"?: (event: InoDialogCustomEvent<DialogSubmitAction>) => void;
         /**
           * Emits an event upon closing the dialog
          */
@@ -2588,6 +2637,10 @@ declare namespace LocalJSX {
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs"?: JSXBase.HTMLAttributes<HTMLLIElement>;
         /**
           * Styles the row in a disabled style.
          */

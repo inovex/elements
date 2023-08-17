@@ -1,30 +1,39 @@
 <template>
   <div>
-    <div class="header-h1">My Pictures</div>
-    <ino-img-list enclose-label :key="Date.now()">
+    <div class="header-h1">
+      My Pictures
+    </div>
+    <ino-img-list
+      :key="Date.now()"
+      enclose-label
+    >
       <ino-img
-          v-for="(img, i) in images" :key="i"
-          :src="img.url"
-          :alt="img.label"
-          :label="img.label"
-          img-list-item
-          rounded
-      >
-      </ino-img>
+        v-for="(img, i) in images"
+        :key="i"
+        :src="img.url"
+        :alt="img.label"
+        :label="img.label"
+        img-list-item
+        rounded
+      />
     </ino-img-list>
-    <div class="header-h1">My Pictures in a carousel</div>
+    <div class="header-h1">
+      My Pictures in a carousel
+    </div>
     <ino-carousel
-        class="my-carousel"
-        value="0"
-        autoplay
-        animated
-        infinite
-        intermission="5000"
-        hide-buttons
+      class="my-carousel"
+      value="0"
+      autoplay
+      animated
+      infinite
+      intermission="5000"
+      hide-buttons
     >
       <ino-carousel-slide
-          v-for="(img, i) in images" :key="i"
-          :value="i" :src="img.url"
+        v-for="(img, i) in images"
+        :key="i"
+        :value="i"
+        :src="img.url"
       />
     </ino-carousel>
   </div>

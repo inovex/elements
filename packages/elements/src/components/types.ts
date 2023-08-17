@@ -56,6 +56,8 @@ export type UserInputInterceptor = (value: string) => string;
  */
 export type DialogCloseAction = 'close'|string;
 
+export type DialogSubmitAction = 'submit'|string;
+
 export type Alignment = 'horizontal' | 'vertical';
 
 export type KeyValue = {

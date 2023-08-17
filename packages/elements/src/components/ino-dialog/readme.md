@@ -79,24 +79,33 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 | Property      | Attribute     | Description                                                                                                                                                            | Type      | Default     |
 | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `actionText`  | `action-text` | Adds a button with the given text to proceed with an action`                                                                                                           | `string`  | `undefined` |
 | `attachTo`    | `attach-to`   | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`  | `undefined` |
+| `bodyText`    | `body-text`   | Adds a text to the body of the `ino-dialog`                                                                                                                            | `string`  | `undefined` |
+| `cancelText`  | `cancel-text` | Adds a button with the given text to close the `ino-dialog`                                                                                                            | `string`  | `undefined` |
 | `dismissible` | `dismissible` | Close the dialog on pressing the ESC key or clicking outside of the dialog.                                                                                            | `boolean` | `undefined` |
 | `fullwidth`   | `fullwidth`   | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean` | `undefined` |
+| `headerText`  | `header-text` | Adds a headline to the `ino-dialog`                                                                                                                                    | `string`  | `undefined` |
+| `icon`        | `icon`        | Adds a `ino-icon` besides the headline                                                                                                                                 | `string`  | `undefined` |
 | `open`        | `open`        | Opens the dialog if set to true                                                                                                                                        | `boolean` | `false`     |
 
 
 ## Events
 
-| Event   | Description                            | Type                  |
-| ------- | -------------------------------------- | --------------------- |
-| `close` | Emits an event upon closing the dialog | `CustomEvent<string>` |
+| Event    | Description                                                  | Type                  |
+| -------- | ------------------------------------------------------------ | --------------------- |
+| `action` | Emits an event upon clicking the action button of the dialog | `CustomEvent<string>` |
+| `close`  | Emits an event upon closing the dialog                       | `CustomEvent<string>` |
 
 
 ## Slots
 
-| Slot        | Description           |
-| ----------- | --------------------- |
-| `"default"` | content of the dialog |
+| Slot        | Description                                 |
+| ----------- | ------------------------------------------- |
+| `"body"`    | content to replace default body of dialog   |
+| `"default"` | content of the dialog                       |
+| `"footer"`  | content to replace default footer of dialog |
+| `"header"`  | content to replace default header of dialog |
 
 
 ## CSS Custom Properties
@@ -111,6 +120,22 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 | `--ino-dialog-overlay-background-color` | background color of the overlay |
 | `--ino-dialog-width`                    | width of the dialog             |
 
+
+## Dependencies
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+- [ino-button](../ino-button)
+
+### Graph
+```mermaid
+graph TD;
+  ino-dialog --> ino-icon
+  ino-dialog --> ino-button
+  ino-button --> ino-spinner
+  style ino-dialog fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

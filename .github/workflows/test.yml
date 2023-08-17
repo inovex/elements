@@ -39,7 +39,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/dependencies-install
-      - run: npm config set scripts-prepend-node-path true
       - run: yarn nx run-many --target=build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

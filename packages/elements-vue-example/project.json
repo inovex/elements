@@ -27,10 +27,12 @@
       }
     },
     "lint": {
-      "executor": "nx:run-commands",
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "cwd": "packages/elements-vue-example",
-        "command": "vue-cli-service lint"
+        "lintFilePatterns": [
+          "packages/elements-vue-example/src/**/*.{ts,tsx,vue,js}"
+        ]
       }
     },
     "clean": {

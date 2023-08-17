@@ -1,7 +1,6 @@
 {
   "packages": [
-    "packages/*",
-    "packages/elements-angular/elements"
+    "packages/*"
   ],
   "version": "8.1.3",
   "npmClient": "yarn",

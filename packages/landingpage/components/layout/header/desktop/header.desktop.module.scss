@@ -1,14 +1,24 @@
 $header-height: 120px;
+$header-height--shrunk: 70px;
 
+// inspired by https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/
 .header {
-  margin: 0 45px;
-  top: 0;
+  top: $header-height--shrunk - $header-height;
   position: sticky;
   background-color: white;
   z-index: 999;
-  min-height: 70px;
-  height: calc($header-height - var(--factor) * 1px);
-  max-height: $header-height;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+}
+
+.headerInner {
+  position: sticky;
+  top: 0;
+  margin: 0 45px;
+  height: $header-height--shrunk;
+  width: 100%;
+
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   grid-template-rows: 1fr;
@@ -16,7 +26,6 @@ $header-height: 120px;
   grid-template-areas:
     "logo navbar github language";
   align-items: center;
-  transition: height 50ms linear;
 }
 
 .logo {
