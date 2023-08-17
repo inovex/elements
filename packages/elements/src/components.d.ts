@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
@@ -857,7 +857,7 @@ export namespace Components {
         /**
           * Sets the color scheme of the popup Valid options include: `light`, `dark` and `primary`.
          */
-        "colorScheme": 'light' | 'dark' | 'primary';
+        "colorScheme": TippyThemes;
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
@@ -2705,7 +2705,7 @@ declare namespace LocalJSX {
         /**
           * Sets the color scheme of the popup Valid options include: `light`, `dark` and `primary`.
          */
-        "colorScheme"?: 'light' | 'dark' | 'primary';
+        "colorScheme"?: TippyThemes;
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */

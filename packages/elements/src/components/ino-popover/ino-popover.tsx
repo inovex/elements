@@ -22,6 +22,7 @@ import { getSlotContent } from '../../util/component-utils';
 import { TooltipTrigger } from '../types';
 import { closest } from '@material/dom/ponyfill';
 import { hideOnEsc, hideOnPopperBlur } from './plugins';
+import { TippyThemes } from '../types';
 
 const POPOVER_CLOSE_ATTRIBUTE = 'data-ino-close';
 
@@ -120,7 +121,7 @@ export class Popover implements ComponentInterface {
    * Sets the color scheme of the popup
    * Valid options include: `light`, `dark` and `primary`.
    */
-  @Prop() colorScheme: 'light' | 'dark' | 'primary' =
+  @Prop() colorScheme: TippyThemes =
     'primary';
 
   /**
