@@ -7,6 +7,8 @@ import { TemplateGenerator } from '../template-generator';
 
 const options = ['G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ'];
 
+const KeyValueOptions: KeyValue[] = [{key: 'a', value: 'Anton'}, {key: 'b', value: 'Berta'}, {key: 'c', value: 'Cäsar'}, {key: 'd', value: 'Dora'}, {key: 'e', value: 'Emil'}, {key: 'f', value: 'Friedrich'}, {key: 'g', value: 'Gustav'}, {key: 'h', value: 'Heinrich'}, {key: 'i', value: 'Ida'}];
+
 export default {
   title: 'Input/ino-selection',
   component: 'ino-selection',
@@ -33,10 +35,14 @@ export default {
   },
 } as Meta<Components.InoSelection>;
 
-const createChip = (content: string, parentEl: Element | null) => {
+const createChip = (content: string | KeyValue, parentEl: Element | null) => {
   if(parentEl && content) {
     const chip = document.createElement("ino-chip") as HTMLInoChipElement;
-    chip.innerText = `${content}`;
+    if (typeof content === 'string'){
+      chip.innerText = `${content}`;
+    } else {
+      chip.innerText = `${content.value}`;
+    } 
     parentEl?.appendChild(chip);
     return;
   }
@@ -48,7 +54,7 @@ const optionCreatedHandler = (e: {target: HTMLInoSelectElement, detail: string &
   const parentEl = (e.target as HTMLElement).closest('.story-ino-selection');
   options.push(e.detail)
   selection.setAttribute('options', `${options}`);
-  createChip(e.detail as string, parentEl);
+  createChip(e.detail as string | KeyValue, parentEl);
 }
 
 const handleValueChange = (e: any) => {
@@ -82,12 +88,111 @@ const template = new TemplateGenerator<Components.InoSelection>(
       @valueChange="${e => handleValueChange(e)}"
       @optionCreated="${e => optionCreatedHandler(e)}"
       >
-      <ino-chip slot="popover-trigger">Trigger</ino-chip>
+      <ino-chip slot="popover-trigger">open selection</ino-chip>
     </ino-selection>
 `});
 
 export const Playground = template.generatePlaygroundStory();
 
+const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
+  'ino-selection',
+  (args) => {
+
+    // state of the new Option
+    let key: string;
+    let value: string;
+
+    const setKey = (e) => {
+      const inputEl = e.target;
+      inputEl.setAttribute('value', e.detail)
+      key = e.detail;
+    }
+
+    const setValue = (e) => {
+      const inputEl = e.target;
+      inputEl.setAttribute('value', e.detail)
+      value = e.detail;
+    }
+
+    const openDialog = () => {
+      const selection = document.querySelector('#ino-selection-key-value');
+      const dialogEl = document.querySelector('#create-option-dialog');
+      dialogEl?.setAttribute('open', `${true}`);
+      // handle visible because popover overlaps ino-dialog 
+      // close popover, so ino-dialog is visible
+      selection?.setAttribute('visible', `${false}`);
+    }
+
+    const createKeyValueOption = (e) => {
+      const selection = document.querySelector('#ino-selection-key-value');
+      const dialogEl = document.querySelector('#create-option-dialog');
+      // Create new source List with added option
+      KeyValueOptions.push({key: key, value: value})
+      selection?.setAttribute('options', `${KeyValueOptions}`)
+      dialogEl?.setAttribute('open', `${false}`)
+
+      const parentEl = selection?.closest('.story-ino-selection');
+      if(parentEl){
+        createChip(value, parentEl);
+      }
+    }
+
+    return html`
+      <ino-selection
+        id="ino-selection-key-value"
+        placement="${args.placement}"
+        label="${args.label}"
+        value="${args.value}"
+        display-add-option="${args.displayAddOption}"
+        .options="${args.options}"
+        empty-input-message="${args.emptyInputMessage}"
+        create-option-label="${args.createOptionLabel}"
+        controlled="true"
+        visible="false"
+        @selectionVisibleChanged="${(e) => {e.target.visible = e.detail}}"
+        @valueChange="${e => handleValueChange(e)}"
+        @optionCreated="${e => openDialog(e)}"
+        >
+        <ino-chip slot="popover-trigger">open selection</ino-chip>
+      </ino-selection>
+      <ino-dialog 
+        id="create-option-dialog"
+        header-text="Add an option"
+        @close="${e => e.target.setAttribute('open', false)}"
+        >
+        <section slot="body">
+          <p>You have to provide a key and a value to add an option</p>
+          <ino-input 
+            outline id="input-key" 
+            label="key"
+            @valueChange="${e => setKey(e)}"
+            >
+          </ino-input> 
+          <ino-input 
+            outline id="input-value" 
+            label="value"
+            @valueChange="${e => setValue(e)}"
+            >
+          </ino-input> 
+        </section>
+        <footer slot="footer">
+            <ino-button 
+              variant="outlined"
+              @click="${e => {e.target.closest('ino-dialog ').open = false}}"
+              >
+              cancel
+            </ino-button>
+            <ino-button 
+              @click="${e => createKeyValueOption(e)}"
+              >
+              Add option
+            </ino-button>
+          </footer>
+      </ino-dialog>
+  `});
+  
+
+export const KeyValueOption = templateKeyValue.generateStoryForProp('options', KeyValueOptions);
 
 const controlledTemplate = new TemplateGenerator<Components.InoSelection>(
 'ino-selection',

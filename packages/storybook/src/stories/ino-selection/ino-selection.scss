@@ -3,3 +3,33 @@
     display: flex;
     gap: 5px;
 }
+
+#create-option-dialog {
+    section {
+        margin: 1rem 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        grid-template-areas: 
+            "text text text text"
+            "key value value value";
+    }
+
+    p {
+        grid-area: text;
+    }
+
+    #input-key {
+        grid-area: key;
+    }
+
+    #input-value {
+        grid-area: value;
+    }
+    
+    footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+}
