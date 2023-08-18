@@ -126,10 +126,15 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
     const createKeyValueOption = (e) => {
       const selection = document.querySelector('#ino-selection-key-value');
       const dialogEl = document.querySelector('#create-option-dialog');
+      const inputKey = document.querySelector('#input-key');
+      const inputValue = document.querySelector('#input-value');
       // Create new source List with added option
       KeyValueOptions.push({key: key, value: value})
       selection?.setAttribute('options', `${KeyValueOptions}`)
       dialogEl?.setAttribute('open', `${false}`)
+      // empty inputs after closing dialog
+      inputKey?.setAttribute('value', "");
+      inputValue?.setAttribute('value', "");
 
       const parentEl = selection?.closest('.story-ino-selection');
       if(parentEl){
