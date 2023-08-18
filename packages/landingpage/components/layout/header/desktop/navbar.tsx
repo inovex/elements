@@ -48,6 +48,7 @@ export default function Navbar() {
                     `common.navigation.${key}.subroutes.${subRouteName}.name`
                   )}
                   isDense={true}
+                  isSubItem={true}
                 />
               ))}
             </div>

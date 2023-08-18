@@ -10,6 +10,18 @@ p.link {
 
 p.linkActive {
   color: var(--inovex-elements-n-10);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--inovex-elements-p-5);
+    box-shadow: 0 8px 17px 0 var(--inovex-elements-p-5);
+  }
 }
 
 p.noMargin {
@@ -20,6 +32,17 @@ p.linkDense {
   font-weight: lighter !important;
   font-size: large !important;
   margin: 0;
+  padding: 10px 15px;
+  transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+}
+
+p.linkSubItem {
+  @extend .linkDense;
+
+  &:hover {
+    color: white;
+    background-color: var(--inovex-elements-p-7);
+  }
 }
 
 @media only screen and (max-width: 600px) {
