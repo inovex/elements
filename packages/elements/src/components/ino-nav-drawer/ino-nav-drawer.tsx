@@ -75,11 +75,11 @@ export class NavDrawer implements ComponentInterface {
   @Prop() isMobile?: boolean = false;
 
   // set the variant based on the isMobile prop
-  get programmaticVariant(): NavDrawerVariant {
+  @Watch('isMobile')
+  handleIsMobileChange() {
     if (this.isMobile) {
-      return 'modal';
+      this.variant = 'modal';
     }
-    return this.variant;
   }
 
   componentDidLoad() {
@@ -149,8 +149,8 @@ export class NavDrawer implements ComponentInterface {
 
   private initTabindex(slotName: string) {
     const contentElements = this.el.querySelector(`[slot="${slotName}"]`);
-    const contenListItems = contentElements.querySelectorAll('ino-list-item');
-    contenListItems[0].attrs = { tabIndex: 0 };
+    const contentListItems = contentElements.querySelectorAll('ino-list-item');
+    contentListItems[0].attrs = { tabIndex: 0 };
   }
 
   render() {
@@ -158,14 +158,11 @@ export class NavDrawer implements ComponentInterface {
 
     const classDrawer = classNames({
       'mdc-drawer': true,
-      'mdc-drawer--docked':
-        !this.isMobile && this.programmaticVariant === 'docked',
+      'mdc-drawer--docked': !this.isMobile && this.variant === 'docked',
       'mdc-drawer--dismissible':
         !this.isMobile &&
-        (this.programmaticVariant === 'dismissible' ||
-          this.programmaticVariant === 'docked'), // docked is a modifier of MDC's dismissible inoVariant
-      'mdc-drawer--modal':
-        this.isMobile || this.programmaticVariant === 'modal',
+        (this.variant === 'dismissible' || this.variant === 'docked'), // docked is a modifier of MDC's dismissible inoVariant
+      'mdc-drawer--modal': this.isMobile || this.variant === 'modal',
       'mdc-drawer--anchor-left': anchor === 'left',
       'mdc-drawer--anchor-right': anchor === 'right',
       'mobile-drawer': this.isMobile, // custom class for mobile drawer
