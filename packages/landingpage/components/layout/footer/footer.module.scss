@@ -2,8 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 150px;
+  row-gap: 100px;
   margin-bottom: 120px;
+  background-color: var(--inovex-elements-n-1);
+  border-radius: 25px;
+  padding: 25px;
 
   @media only screen and (max-width: 700px) {
     row-gap: 4rem;
@@ -11,16 +14,14 @@
 }
 
 .sublinks {
-  width: 100%;
-  max-width: 1400px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 28px;
 
-  @media only screen and (max-width: 920px) {
+  @media only screen and (max-width: 970px) {
     &::after {
-      content: "";
+      content: '';
       flex: auto;
     }
   }
@@ -29,8 +30,17 @@
 .col {
   display: flex;
   flex-direction: column;
-  row-gap: 1.2rem;
+  row-gap: 1rem;
   min-width: 10rem;
+
+  .mainRouteName {
+    color: var(--inovex-elements-n-10);
+    font-size: 1.2rem;
+  }
+
+  .subRouteName {
+    color: var(--inovex-elements-n-9);
+  }
 }
 
 .empty {

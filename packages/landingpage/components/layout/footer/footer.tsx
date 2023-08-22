@@ -14,6 +14,8 @@ export default function Footer() {
             <LinkItem
               url={mainRouteUrl}
               name={t(`common.navigation.${mainRouteName}.name`)}
+              className={styles.mainRouteName}
+              noMargin={true}
             />
             {subRoutes.map(({ key: subRouteName, url: subRouteUrl }) => (
               <LinkItem
@@ -23,6 +25,7 @@ export default function Footer() {
                   `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name`
                 )}
                 isDense={true}
+                className={styles.subRouteName}
               />
             ))}
           </div>
