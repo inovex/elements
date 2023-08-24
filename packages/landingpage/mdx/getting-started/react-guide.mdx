@@ -178,7 +178,7 @@ import MenuSection from "components/getting-started/menuSection";
       label="email"
       outline
       value={email}
-      valueChange={value => setEmail(value.detail)}
+      onValueChange={value => setEmail(value.detail)}
   ></InoInput>
 
   <InoInput
@@ -186,11 +186,11 @@ import MenuSection from "components/getting-started/menuSection";
       label="password"
       outline
       value={password}
-      valueChange={value => setPassword(value.detail)}
+      onValueChange={value => setPassword(value.detail)}
   ></InoInput>
   ```
 
-  <Hint>Hint: while in our Playground the Event is called `valueChange`, we name it `valueChange` inside of our `<InoInput>`. The reason for this is that we want to accomodate our naming similar to the react-way of naming events (e.g. onClick)</Hint>
+  <Hint>Hint: while in our Playground the Event is called `valueChange`, we name it `onValueChange` inside of our `<InoInput>`. The reason for this is that we want to accomodate our naming similar to the react-way of naming events (e.g. onClick)</Hint>
 
   ## Slots
 
@@ -213,7 +213,7 @@ import MenuSection from "components/getting-started/menuSection";
     label="password"
     outline
     value={password}
-    valueChange={(value) => setPassword(value.detail)}
+    onValueChange={(value) => setPassword(value.detail)}
   >
     <InoIcon slot="icon-trailing" icon="password"></InoIcon>
   </InoInput>
@@ -292,7 +292,7 @@ import MenuSection from "components/getting-started/menuSection";
     label="password"
     outline
     value={password}
-    valueChange={(value) => setPassword(value.detail)}
+    onValueChange={(value) => setPassword(value.detail)}
   >
     <InoIcon
       slot="icon-trailing"
