@@ -9,32 +9,6 @@ const options = ['G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV
 
 const KeyValueOptions: KeyValue[] = [{key: 'a', value: 'Anton'}, {key: 'b', value: 'Berta'}, {key: 'c', value: 'Cäsar'}, {key: 'd', value: 'Dora'}, {key: 'e', value: 'Emil'}, {key: 'f', value: 'Friedrich'}, {key: 'g', value: 'Gustav'}, {key: 'h', value: 'Heinrich'}, {key: 'i', value: 'Ida'}];
 
-export default {
-  title: 'Input/ino-selection',
-  component: 'ino-selection',
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-ino-selection'),
-  ],
-  args: {
-    debounce: 100,
-    noOptionsText: 'Found No Results',
-    disabled: false,
-    placement: 'bottom',
-    for: '',
-    label: 'Select label',
-    stayOpen: false,
-    value: '',
-    error: false,
-    open: false,
-    options: options,
-    displayAddOption: true,
-    emptyInputMessage: 'Type to add new option',
-    createOptionLabel: 'Add Option',
-    controlled: false,
-    visible: false,
-  },
-} as Meta<Components.InoSelection>;
-
 const createChip = (content: string | KeyValue, parentEl: Element | null) => {
   if(parentEl && content) {
     const chip = document.createElement("ino-chip") as HTMLInoChipElement;
@@ -68,12 +42,45 @@ const handleValueChange = (e: any) => {
   }
 }
 
-const template = new TemplateGenerator<Components.InoSelection>(
+export default {
+  title: 'Input/ino-selection',
+  component: 'ino-selection',
+  decorators: [
+    (story) => decorateStoryWithClass(story, 'story-ino-selection'),
+  ],
+  args: {
+    debounce: 100,
+    noOptionsText: 'Found No Results',
+    disabled: false,
+    placement: 'bottom',
+    for: '',
+    label: 'Select label',
+    stayOpen: false,
+    value: '',
+    error: false,
+    open: false,
+    options: options,
+    displayAddOption: true,
+    emptyInputMessage: 'Type to add new option',
+    createOptionLabel: 'Add Option',
+    controlled: false,
+    visible: false,
+  },
+} as Meta<Components.InoSelection>;
+
+type InoSelectionExtended = Components.InoSelection & {
+  styleID: string;
+}
+
+const template = new TemplateGenerator<InoSelectionExtended>(
 'ino-selection',
 (args) => {
   return html`
     <ino-selection
+      id="${args.styleID}"
       disabled="${args.disabled}"
+      debounce="${args.debounce}"
+      no-options-text="${args.noOptionsText}"
       placement="${args.placement}"
       label="${args.label}"
       stay-open="${args.stayOpen}"
@@ -93,6 +100,39 @@ const template = new TemplateGenerator<Components.InoSelection>(
 `});
 
 export const Playground = template.generatePlaygroundStory();
+export const Debounce = template.generateStoryForProp('debounce', 1000);
+export const noOptionsText = template.generateStoryForProp('noOptionsText', 'Ups, nothing found!');
+export const Disabled = template.generateStoryForProp('disabled', true);
+export const Placement = template.generateStoryForProp('placement', 'top', {styleID: 'ino-selection-placement'});
+
+const templateFor = new TemplateGenerator<Components.InoSelection>(
+  'ino-selection',
+  (args) => {
+    return html`
+      <ino-selection
+        id="${args.for}"
+        placement="${args.placement}"
+        label="${args.label}"
+        value="${args.value}"
+        for="${args.for}"
+        display-add-option="${args.displayAddOption}"
+        .options="${args.options}"
+        empty-input-message="${args.emptyInputMessage}"
+        create-option-label="${args.createOptionLabel}"
+        visible="${args.visible}"
+        @valueChange="${e => handleValueChange(e)}"
+        @optionCreated="${e => optionCreatedHandler(e)}"
+        >
+        <ino-button>open selection</ino-button>
+      </ino-selection>
+  `});
+
+export const For = templateFor.generateStoryForProp('for', 'ino-selection-for');
+export const Label = template.generateStoryForProp('label', 'type something to search selection');
+export const StayOpen = template.generateStoryForProp('stayOpen', true);
+export const Value = template.generateStoryForProp('value', 'first selection');
+
+
 
 const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
   'ino-selection',
