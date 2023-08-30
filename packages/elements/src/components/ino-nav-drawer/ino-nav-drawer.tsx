@@ -9,8 +9,9 @@ import {
   Event,
   EventEmitter,
   h,
+  Listen,
 } from '@stencil/core';
-import { NavDrawerAnchor, NavDrawerVariant } from '../types';
+import { NavDrawerAnchor, NavDrawerVariant, NavDrawerLabels } from '../types';
 import classNames from 'classnames';
 
 /**
@@ -24,7 +25,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-nav-drawer',
   styleUrl: 'ino-nav-drawer.scss',
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class NavDrawer implements ComponentInterface {
   /**
@@ -59,6 +60,17 @@ export class NavDrawer implements ComponentInterface {
    */
   @Prop() variant?: NavDrawerVariant = 'docked';
 
+  /**
+   * The aria-labels used for content and footer nav elements.
+   * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+   */
+  @Prop() a11yLabels?: NavDrawerLabels = {
+    content: 'Main Navigation',
+    footer: 'Footer Navigation',
+    toggleBtn: 'Toggle Navigation'
+  };
+
+
   componentDidLoad() {
     this.drawerInstance = new MDCDrawer(
       this.el.shadowRoot.querySelector('.mdc-drawer')
@@ -69,11 +81,32 @@ export class NavDrawer implements ComponentInterface {
     }
 
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
+    this.initTabindex('content');
+    this.initTabindex('footer');
   }
 
   disconnectedCallback() {
     this.drawerEl.removeEventListener('MDCDrawer:closed', this.closeDrawer);
     this.drawerInstance?.destroy();
+  }
+
+  // This listener ensures that only the most recently clicked/selected list item appears as "activated"
+  @Listen('clickEl')
+  handleListItemClick(event: CustomEvent) {
+    const listItem: HTMLInoListItemElement = event.detail;
+
+    if (!listItem || listItem.tagName !== 'INO-LIST-ITEM') {
+      return;
+    }
+
+    this.deactivateAllItems();
+    listItem.activated = true;
+  }
+
+  private deactivateAllItems() {
+    const allItems: NodeListOf<HTMLInoListItemElement> =
+      this.el.querySelectorAll('ino-list-item');
+    allItems.forEach((item) => (item.activated = false));
   }
 
   /**
@@ -91,6 +124,12 @@ export class NavDrawer implements ComponentInterface {
     this.openChange.emit(newOpenState);
     e.stopPropagation();
   };
+
+  private initTabindex(slotName: string) {
+    const contentElements = this.el.querySelector(`[slot="${slotName}"]`);
+    const contenListItems = contentElements.querySelectorAll('ino-list-item');
+    contenListItems[0].attrs = {tabIndex:0}
+  }
 
   render() {
     const { anchor, variant } = this;
@@ -123,18 +162,21 @@ export class NavDrawer implements ComponentInterface {
           </slot>
         </div>
 
-        <nav class="mdc-drawer__content">
+        <nav class="mdc-drawer__content" aria-label={this.a11yLabels.content}>
           <slot name="content"></slot>
         </nav>
 
-        <div class="mdc-drawer__footer">
+        <nav class="mdc-drawer__footer" aria-label={this.a11yLabels.footer}>
           <slot name="footer"></slot>
           <ino-icon-button
             class="mdc-drawer__toggle"
             icon="arrow_right"
             onClick={this.toggleDrawer}
+            attrs={{
+              ariaLabel: this.a11yLabels.toggleBtn
+            }}
           />
-        </div>
+        </nav>
       </aside>
     );
 

@@ -49,3 +49,4 @@ jobs:
             .gitlab-ci.yml
             version
             unicorn
+            hosted-versions.json

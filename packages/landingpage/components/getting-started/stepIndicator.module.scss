@@ -1,3 +1,5 @@
+$step-indicator-size: 2.5rem;
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -5,13 +7,13 @@
 
 .step {
   flex: none;
-  height: 30px;
-  width: 30px;
+  height: $step-indicator-size;
+  width: $step-indicator-size;
   background-color: var(--inovex-elements-p-6);
   border-radius: 50%;
-  color: white;
-  font-size: 20px;
-  line-height: 30px;
+  color: var(--inovex-elements-white);
+  font-size: 1.25rem;
+  line-height: $step-indicator-size;
   text-align: center;
   margin-right: 16px;
 }
