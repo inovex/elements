@@ -17,11 +17,13 @@ export default function VersionSelect() {
       onValueChange={handleVersionChange}
       outline
     >
-      {versions.map((version, i) => (
-        <InoOption key={i} value={version}>
-          {version}
-        </InoOption>
-      ))}
+      <div style={{ maxHeight: '200px' }}>
+        {versions.map((version, i) => (
+          <InoOption key={i} value={version}>
+            {version}
+          </InoOption>
+        ))}
+      </div>
     </InoSelect>
   );
 }
