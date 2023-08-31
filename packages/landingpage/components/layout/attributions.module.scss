@@ -4,6 +4,8 @@
   justify-content: space-between;
   border-top: 1px solid var(--inovex-elements-n-3);
   padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .company {
@@ -15,5 +17,5 @@
   display: flex;
   align-items: center;
   column-gap: 10px;
-  color: var(--inovex-elements-n-8) !important;
+  color: var(--inovex-elements-n-10) !important;
 }

@@ -8,45 +8,8 @@
   border-radius: 25px;
   padding: 25px;
 
-  @media only screen and (max-width: 700px) {
-    row-gap: 4rem;
-  }
-}
-
-.sublinks {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 28px;
-
-  @media only screen and (max-width: 970px) {
-    &::after {
-      content: '';
-      flex: auto;
-    }
-  }
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  min-width: 10rem;
-
-  .mainRouteName {
-    color: var(--inovex-elements-n-10);
-    font-size: 1.2rem;
-  }
-
-  .subRouteName {
-    color: var(--inovex-elements-n-9);
-  }
-}
-
-.empty {
-  height: 0;
-
-  @media only screen and (max-width: 700px) {
-    display: none;
+  @media only screen and (max-width: 599px) {
+    align-items: stretch;
+    padding: 0;
   }
 }
