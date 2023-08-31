@@ -9,12 +9,8 @@
       grid-template-columns: repeat(4, 1fr);
     }
   
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 850px) {
       grid-template-columns: repeat(2, 1fr);
-    }
-  
-    @media only screen and (max-width: 500px) {
-      grid-template-columns: 1fr;
     }
   }
   
