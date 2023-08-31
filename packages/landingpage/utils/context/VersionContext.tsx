@@ -16,13 +16,14 @@ export const VersionProvider = ({ children }: { children: ReactNode }) => {
     fetch('https://raw.githubusercontent.com/inovex/elements/pages/hosted-versions.json')
       .then((response) => response.json())
       .then((data) => {
-        setVersions(data);
+        const reversedVersions = data.reverse();
+        setVersions(reversedVersions);
         
-        if (data.length > 0) {
-          setSelectedVersion(data[data.length - 1]);
+        if (reversedVersions.length > 0) {
+          setSelectedVersion(reversedVersions[0]);
         }
       });
-  }, []);
+  }, []);  
 
   return (
     <VersionContext.Provider value={{ selectedVersion, setSelectedVersion, versions }}>
