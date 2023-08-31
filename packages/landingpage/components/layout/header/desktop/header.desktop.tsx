@@ -1,12 +1,12 @@
-import styles from './header.desktop.module.scss';
-import Navbar from './navbar';
-import Image from 'next/image';
 import ElementsLogo from '@assets/elements.svg';
-import LocaleSwitcher from './localeSwitcher';
+import Image from 'next/image';
 import Link from 'next/link';
 import useTranslation from '../../../../utils/hooks/useTranslation';
 import VersionSelect from 'components/shared/versionSelect';
 import { useRouter } from 'next/router';
+import styles from './header.desktop.module.scss';
+import LocaleSwitcher from './localeSwitcher';
+import Navbar from './navbar';
 
 export default function HeaderDesktop() {
   const { locale } = useTranslation();
@@ -51,7 +51,7 @@ export default function HeaderDesktop() {
         >
           <Image
             className={styles.githubImage}
-            src={`/github-logo.png`}
+            src={`/github-logo.svg`}
             alt="Github Logo"
             width={30}
             height={30}

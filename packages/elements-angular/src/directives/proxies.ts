@@ -424,13 +424,13 @@ The event only emits if the property `clickable` is true.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['activated', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
+  inputs: ['activated', 'attrs', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
 })
 @Component({
   selector: 'ino-icon-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
+  inputs: ['activated', 'attrs', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
 })
 export class InoIconButton {
   protected el: HTMLElement;
@@ -625,13 +625,13 @@ Contains the element itself in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text']
+  inputs: ['activated', 'attrs', 'disabled', 'secondaryText', 'selected', 'text']
 })
 @Component({
   selector: 'ino-list-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text']
+  inputs: ['activated', 'attrs', 'disabled', 'secondaryText', 'selected', 'text']
 })
 export class InoListItem {
   protected el: HTMLElement;
@@ -712,13 +712,13 @@ export declare interface InoNavDrawer extends Components.InoNavDrawer {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['anchor', 'open', 'variant']
+  inputs: ['a11yLabels', 'anchor', 'open', 'variant']
 })
 @Component({
   selector: 'ino-nav-drawer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['anchor', 'open', 'variant']
+  inputs: ['a11yLabels', 'anchor', 'open', 'variant']
 })
 export class InoNavDrawer {
   protected el: HTMLElement;
