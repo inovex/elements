@@ -115,6 +115,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
               src=${inovexElementsLogo}
               width="22"
               height="31"
+              alt="inovex Elements Logo"
             ></ino-img>
             <p>inovex Elements</p>
           </div>
