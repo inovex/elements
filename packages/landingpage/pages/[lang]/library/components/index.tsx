@@ -14,11 +14,13 @@ import {
 import { useStorybookUrl } from '../../../../utils/hooks/useStorybookUrl';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 import useTranslation from '../../../../utils/hooks/useTranslation';
+import { useVersion } from '../../../../utils/context/VersionContext';
 import styles from './index.module.scss';
 
 const StoryBookPage: NextPage<void> = () => {
   const { t } = useTranslation();
   const { hideFooter } = useContext(UiContext) as UiContextType;
+  const {selectedVersion} = useVersion();
 
   const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
   const currentStory = useStorybookUrlSyncer();
@@ -27,8 +29,8 @@ const StoryBookPage: NextPage<void> = () => {
     [currentStory]
   );
 
-  // prevent scrolling of body while in storybook
   useEffect(() => {
+    // prevent scrolling of body while in storybook
     document.body.style.overflow = 'clip';
     hideFooter(true);
 
@@ -37,6 +39,10 @@ const StoryBookPage: NextPage<void> = () => {
       hideFooter(false);
     };
   }, []);
+
+  const iframeUrl = selectedVersion
+    ? `https://elements.inovex.de/version/${selectedVersion}/?path=/story/docs-welcome--page`
+    : initialUrl;
 
   return (
     <Page title={[t('common.meta.library')]}>
@@ -59,9 +65,9 @@ const StoryBookPage: NextPage<void> = () => {
           </a>
         )}
         {!initialUrl && <InoSpinner type="circle"></InoSpinner>}
-        {initialUrl && (
+        {iframeUrl && (
           <iframe
-            src={initialUrl}
+            src={iframeUrl}
             style={{
               position: 'absolute',
               left: 0,
