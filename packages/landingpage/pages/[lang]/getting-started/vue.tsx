@@ -13,7 +13,7 @@ const VueGuidePage = () => {
   return (
     <Layout
       framework={Framework.VUE}
-      sandboxUrl={'https://codesandbox.io/s/github/inovex/elements-vue-example'}
+      sandboxUrl={'https://codesandbox.io/s/github/inovex/elements-example-vue'}
     >
       <VueGuide />
     </Layout>
