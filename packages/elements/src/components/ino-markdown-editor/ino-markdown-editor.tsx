@@ -212,7 +212,6 @@ export class MarkdownEditor implements ComponentInterface {
 
   private handleDeleteLink(): void {
     this.handleToolbarActionClick(Actions.UNLINK);
-    this.currentURL = '';
     this.showLinkDialog = false;
   }
 
