@@ -12,9 +12,12 @@ import { Editor } from '@tiptap/core';
 import Link from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
 import classNames from 'classnames';
+import { InoInputCustomEvent } from '../..';
+import { hasValue } from '../../util/helpers';
 import { ViewMode, ViewModeUnion } from '../types';
 import {
   Actions,
+  getActiveLink,
   handleToolbarBtnClick,
   isToolbarBtnActive,
 } from './editor-toolbar-helper';
@@ -85,7 +88,9 @@ export class MarkdownEditor implements ComponentInterface {
   @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
   @State() private errorMessage = '';
   @State() private showLinkDialog = false;
-  @State() private lastURL = '';
+  @State() private currentURL = '';
+  @State() private isCreationDialog = true;
+  @State() private hasValueChanged = false;
 
   /**
    * Emits when one of the view mode buttons was clicked.
@@ -207,11 +212,31 @@ export class MarkdownEditor implements ComponentInterface {
 
   private handleDeleteLink(): void {
     this.handleToolbarActionClick(Actions.UNLINK);
+    this.currentURL = '';
     this.showLinkDialog = false;
   }
 
+  private handleTextInputChange(e: InoInputCustomEvent<string>): void {
+    this.currentURL = e.detail;
+    this.hasValueChanged = true;
+  }
+
+  private handleLinkButtonClick(): void {
+    const url = getActiveLink(this.editor);
+    if (url) {
+      this.currentURL = url;
+      this.isCreationDialog = false;
+    } else {
+      this.currentURL = '';
+      this.isCreationDialog = true;
+    }
+
+    this.hasValueChanged = false;
+    this.showLinkDialog = true;
+  }
+
   private submitLink(): void {
-    this.handleToolbarActionClick(Actions.LINK, this.lastURL);
+    this.handleToolbarActionClick(Actions.LINK, this.currentURL);
     this.showLinkDialog = false;
   }
 
@@ -254,19 +279,11 @@ export class MarkdownEditor implements ComponentInterface {
         'toolbar__action-button--active': this.toolbarActionsState.has(action),
       });
 
-    // const isValidUrl = (url: string): boolean => {
-    //   try {
-    //     new URL(url);
-    //     return true;
-    //   } catch (_) {
-    //     return false;
-    //   }
-    // };
-
     const editLinkDialog = (
       <ino-dialog
-        id="url-dialog"
+        id="link-dialog"
         open={this.showLinkDialog}
+        attach-to=".markdown-editor__content"
         dismissible={true}
         headerText="Insert Link"
         onClose={() => (this.showLinkDialog = false)}
@@ -278,10 +295,9 @@ export class MarkdownEditor implements ComponentInterface {
             type="text"
             required={true}
             autoFocus={true}
-            helper="Please enter a valid URL"
-            error={!this.lastURL}
-            value={this.lastURL}
-            onValueChange={(e) => (this.lastURL = e.detail)}
+            helper="Enter a valid URL"
+            value={this.currentURL}
+            onValueChange={(e) => this.handleTextInputChange(e)}
             placeholder="https://example.org"
           ></ino-input>
         </section>
@@ -295,12 +311,17 @@ export class MarkdownEditor implements ComponentInterface {
           <ino-button
             data-ino-dialog-delete
             variant="outlined"
+            disabled={this.isCreationDialog}
             onClick={() => this.handleDeleteLink()}
             type="reset"
           >
             Delete
           </ino-button>
-          <ino-button onClick={() => this.submitLink()} type="submit">
+          <ino-button
+            disabled={!hasValue(this.currentURL) || !this.hasValueChanged}
+            onClick={() => this.submitLink()}
+            type="submit"
+          >
             Insert
           </ino-button>
         </section>
@@ -358,7 +379,7 @@ export class MarkdownEditor implements ComponentInterface {
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.LINK)}
-              onClick={() => (this.showLinkDialog = true)}
+              onClick={() => this.handleLinkButtonClick()}
             >
               <ino-icon icon="link" />
             </button>
