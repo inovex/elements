@@ -11,6 +11,7 @@ import LinkItem from '../../linkItem';
 import useTranslation from '../../../../utils/hooks/useTranslation';
 import { useRouter } from 'next/router';
 import { ContactButton } from '../../../shared/contactButton';
+import VersionSelect from 'components/shared/versionSelect';
 
 const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -49,7 +50,10 @@ export default function HeaderMobile() {
 
   return (
     <>
-      <MenuIcon className={styles.icon} onClick={toggleMenu} />
+      <div className={styles.menuIconContainer}>
+        <MenuIcon className={styles.icon} onClick={toggleMenu} />
+        <VersionSelect />
+      </div>
       <div
         ref={ref}
         className={classNames({

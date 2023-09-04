@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import 'utils/stringExtensions';
 import styles from './navigationMenu.module.scss';
 
 // We use Record<string, string> instead of enum because we can iterate over it AND use it as a type
@@ -24,13 +23,13 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
       { rootMargin: '-30% 0px -70% 0px' } // top, right, bottom, left margins around the root element's bounding box
     );
 
-    const DomSectionElements = document.querySelectorAll(
+    const domSectionElements = document.querySelectorAll(
       'section[data-menu-section]'
     );
 
     const sectionsTemp: Sections = {};
 
-    DomSectionElements.forEach((section) => {
+    domSectionElements.forEach((section) => {
       const headingElement = section.querySelector('h2');
       if (headingElement) {
         const headingText = headingElement.innerHTML.trim();
@@ -70,8 +69,11 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
     });
   }
 
+  // Return null if there are no sections
+  if (!sections || Object.values(sections).length === 0) return null;
+
   return (
-    <aside className={styles.aside + ' menu'}>
+    <aside className={styles.aside}>
       <nav className={styles.navigationMenu}>
         <h5>{title}</h5>
         <ul className={styles.sections}>
