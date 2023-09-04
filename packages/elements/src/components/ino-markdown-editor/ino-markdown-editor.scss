@@ -1,5 +1,5 @@
 @use '../base/theme';
-@use '../base/new-theme';
+@use '../base/new-theme' as new_theme;
 @use '@material/textfield';
 
 /**
@@ -19,8 +19,8 @@
 }
 
 [data-ino-dialog-delete] > .button {
-  color: $error;
-  border-color: $error;
+  color: new_theme.$error;
+  border-color: new_theme.$error;
 }
 
 // general styles
