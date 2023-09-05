@@ -19,8 +19,8 @@ export default function Layout({ children }: { children: ReactNode }) {
       <Header />
       <div className={styles.body}>
         <main className={styles.main}>{children}</main>
-        {!isFooterHidden && <Footer />}
       </div>
+      {!isFooterHidden && <Footer />}
     </div>
   );
 }

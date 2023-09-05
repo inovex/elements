@@ -3,9 +3,7 @@
   flex-direction: column;
   align-items: center;
   row-gap: 100px;
-  margin-bottom: 120px;
-  background-color: var(--inovex-elements-n-1);
-  border-radius: 25px;
+  background: linear-gradient(180deg, var(--inovex-elements-p-6) 0%, var(--inovex-elements-p-8) 25%, var(--inovex-elements-p-10) 85%);
   padding: 25px;
 
   @media only screen and (max-width: 599px) {

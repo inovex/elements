@@ -2,6 +2,7 @@ p.link {
   cursor: pointer;
   color: var(--inovex-elements-n-6);
   overflow-wrap: break-word;
+  width: fit-content;
 
   &:hover {
     color: var(--inovex-elements-primary);
