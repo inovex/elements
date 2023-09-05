@@ -1,11 +1,16 @@
 .coreAspectsContainer {
   display: flex;
   justify-content: center;
-  height: 448px;
+  height: 500px;
   width: 100%;
   background-color: var(--inovex-elements-p-2);
   border-radius: 267px 0px;
   column-gap: 40px;
+  padding: 0 100px;
+
+  @media only screen and (max-width: 1600px) {
+    height: 550px;
+  }
 
   .coreAspect {
     height: 350px;
@@ -47,14 +52,9 @@
 
 @media only screen and (max-width: 800px) {
   .coreAspectsContainer {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .coreAspectsContainer {
     .coreAspect {
       height: 350px;
     }
+    width: 100%;
   }
 }
