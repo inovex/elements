@@ -20,11 +20,10 @@ $header-height--shrunk: 70px;
   width: 100%;
 
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto auto 1fr auto auto;
   grid-template-rows: 1fr;
   column-gap: 30px;
-  grid-template-areas:
-    "logo navbar github language";
+  grid-template-areas: 'logo versionSelect navbar github language';
   align-items: center;
 }
 
@@ -51,15 +50,19 @@ $header-height--shrunk: 70px;
     text-transform: uppercase;
     padding: 5px;
 
-    &:hover, &.selected {
+    &:hover,
+    &.selected {
       text-decoration-line: underline;
       text-underline-offset: 5px;
     }
 
     &.selected {
-      color: #2C02FF;
+      color: #2c02ff;
     }
   }
+}
+.versionContainer {
+  grid-area: versionSelect;
 }
 
 .navbar {
