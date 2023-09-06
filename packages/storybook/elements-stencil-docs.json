@@ -7005,6 +7005,7 @@
           "reflectToAttr": false,
           "docs": "Disables this element.",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -7103,7 +7104,7 @@
           "reflectToAttr": false,
           "docs": "Text to display when there are no options found, where `$` is the placeholder for the input of the user.",
           "docsTags": [],
-          "default": "'Found No Results for \"$\"'",
+          "default": "'Found No Results'",
           "values": [
             {
               "type": "string"

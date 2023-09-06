@@ -48,12 +48,12 @@ export class Selection implements ComponentInterface {
     /**
      * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
      */
-    @Prop() noOptionsText = 'Found No Results for "$"';
+    @Prop() noOptionsText = 'Found No Results';
 
     /**
      * Disables this element.
      */
-    @Prop() disabled?: boolean;
+    @Prop() disabled?: boolean = false;
 
     /**
      * The placement of this popover.
@@ -413,6 +413,7 @@ export class Selection implements ComponentInterface {
                     visible={false}
                     interactive={true}
                     controlled={true}
+                    for={this.for}
                 >
                     <slot name="popover-trigger"></slot>
                     <div class="popover-content">

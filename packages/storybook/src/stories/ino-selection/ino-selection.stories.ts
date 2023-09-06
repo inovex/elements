@@ -2,10 +2,11 @@ import { Components, KeyValue } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { decorateStoryWithClass } from '../utils';
 import { html } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import './ino-selection.scss';
 import { TemplateGenerator } from '../template-generator';
 
-const options = ['G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ'];
+const options = ['G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQR☺i', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ'];
 
 const KeyValueOptions: KeyValue[] = [{key: 'a', value: 'Anton'}, {key: 'b', value: 'Berta'}, {key: 'c', value: 'Cäsar'}, {key: 'd', value: 'Dora'}, {key: 'e', value: 'Emil'}, {key: 'f', value: 'Friedrich'}, {key: 'g', value: 'Gustav'}, {key: 'h', value: 'Heinrich'}, {key: 'i', value: 'Ida'}];
 
@@ -49,22 +50,11 @@ export default {
     (story) => decorateStoryWithClass(story, 'story-ino-selection'),
   ],
   args: {
-    debounce: 100,
-    noOptionsText: 'Found No Results',
-    disabled: false,
+    // not used props get hid in code snippet and can be shown if needed via `ifDefined(args.[prop])`
+    id: '',
     placement: 'bottom',
-    for: '',
     label: 'Select label',
-    stayOpen: false,
-    value: '',
-    error: false,
-    open: false,
     options: options,
-    displayAddOption: true,
-    emptyInputMessage: 'Type to add new option',
-    createOptionLabel: 'Add Option',
-    controlled: false,
-    visible: false,
   },
 } as Meta<Components.InoSelection>;
 
@@ -76,63 +66,61 @@ const template = new TemplateGenerator<InoSelectionExtended>(
 'ino-selection',
 (args) => {
   return html`
-    <ino-selection
-      id="${args.styleID}"
-      disabled="${args.disabled}"
-      debounce="${args.debounce}"
-      no-options-text="${args.noOptionsText}"
-      placement="${args.placement}"
-      label="${args.label}"
-      stay-open="${args.stayOpen}"
-      value="${args.value}"
-      error="${args.error}"
-      display-add-option="${args.displayAddOption}"
-      .options="${args.options}"
-      empty-input-message="${args.emptyInputMessage}"
-      create-option-label="${args.createOptionLabel}"
-      controlled="${args.controlled}"
-      visible="${args.visible}"
-      @valueChange="${e => handleValueChange(e)}"
-      @optionCreated="${e => optionCreatedHandler(e)}"
-      >
-      <ino-chip slot="popover-trigger">open selection</ino-chip>
-    </ino-selection>
+  <ino-selection
+    ?id="${args.styleID}"
+    debounce="${ifDefined(args.debounce)}"
+    no-options-text="${ifDefined(args.noOptionsText)}"
+    disabled=${ifDefined(args.disabled)}
+    placement="${ifDefined(args.placement)}"
+    for="${ifDefined(args.for)}"
+    label="${args.label}"
+    stay-open="${ifDefined(args.stayOpen)}"
+    value="${ifDefined(args.value)}"
+    error="${ifDefined(args.error)}"
+    open="${ifDefined(args.open)}"
+    .options="${args.options}"
+    display-add-option="${ifDefined(args.displayAddOption)}"
+    empty-input-message="${ifDefined(args.emptyInputMessage)}"
+    create-option-label="${ifDefined(args.createOptionLabel)}"
+    controlled="${ifDefined(args.controlled)}"
+    visible="${ifDefined(args.visible)}"
+    @valueChange="${e => handleValueChange(e)}"
+    @optionCreated="${e => optionCreatedHandler(e)}"
+    >
+    <ino-chip id="${ifDefined(args.for)}" slot="popover-trigger">open selection</ino-chip>
+  </ino-selection>
 `});
 
 export const Playground = template.generatePlaygroundStory();
-export const Debounce = template.generateStoryForProp('debounce', 1000);
-export const noOptionsText = template.generateStoryForProp('noOptionsText', 'Ups, nothing found!');
+export const Debounce = template.generateStoryForProp('debounce', 1000, {
+  label: 'type to see debounce acting',
+});
+export const noOptionsText = template.generateStoryForProp('noOptionsText', 'Ups, nothing found!', {
+  options: [],
+});
 export const Disabled = template.generateStoryForProp('disabled', true);
 export const Placement = template.generateStoryForProp('placement', 'top', {styleID: 'ino-selection-placement'});
 
-const templateFor = new TemplateGenerator<Components.InoSelection>(
+// For-trigger cannot be child of ino-selection
+const templateFor = new TemplateGenerator<InoSelectionExtended>(
   'ino-selection',
   (args) => {
     return html`
-      <ino-selection
-        id="${args.for}"
-        placement="${args.placement}"
-        label="${args.label}"
-        value="${args.value}"
-        for="${args.for}"
-        display-add-option="${args.displayAddOption}"
-        .options="${args.options}"
-        empty-input-message="${args.emptyInputMessage}"
-        create-option-label="${args.createOptionLabel}"
-        visible="${args.visible}"
-        @valueChange="${e => handleValueChange(e)}"
-        @optionCreated="${e => optionCreatedHandler(e)}"
-        >
-        <ino-button>open selection</ino-button>
-      </ino-selection>
+    <ino-selection
+      placement="${ifDefined(args.placement)}"
+      for="${ifDefined(args.for)}"
+      label="${args.label}"
+      .options="${args.options}"
+      @valueChange="${e => handleValueChange(e)}"
+      @optionCreated="${e => optionCreatedHandler(e)}"
+      ></ino-selection>
+    <ino-chip id="${ifDefined(args.for)}">open selection</ino-chip>
   `});
-
+  
 export const For = templateFor.generateStoryForProp('for', 'ino-selection-for');
 export const Label = template.generateStoryForProp('label', 'type something to search selection');
 export const StayOpen = template.generateStoryForProp('stayOpen', true);
 export const Value = template.generateStoryForProp('value', 'first selection');
-
-
 
 const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
   'ino-selection',
@@ -183,61 +171,61 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
     }
 
     return html`
-      <ino-selection
-        id="ino-selection-key-value"
-        placement="${args.placement}"
-        label="${args.label}"
-        value="${args.value}"
-        display-add-option="${args.displayAddOption}"
-        .options="${args.options}"
-        empty-input-message="${args.emptyInputMessage}"
-        create-option-label="${args.createOptionLabel}"
-        controlled="true"
-        visible="false"
-        @selectionVisibleChanged="${(e) => {e.target.visible = e.detail}}"
-        @valueChange="${e => handleValueChange(e)}"
-        @optionCreated="${e => openDialog(e)}"
-        >
-        <ino-chip slot="popover-trigger">open selection</ino-chip>
-      </ino-selection>
-      <ino-dialog 
-        id="create-option-dialog"
-        header-text="Add an option"
-        @close="${e => e.target.setAttribute('open', false)}"
-        >
-        <section slot="body">
-          <p>You have to provide a key and a value to add an option</p>
-          <ino-input 
-            outline id="input-key" 
-            label="key"
-            @valueChange="${e => setKey(e)}"
+    <ino-selection
+      id="ino-selection-key-value"
+      placement="${args.placement}"
+      label="${args.label}"
+      value="${ifDefined(args.value)}"
+      .options="${args.options}"
+      controlled="${ifDefined(args.controlled)}"
+      visible="${ifDefined(args.visible)}"
+      @selectionVisibleChanged="${(e) => {e.target.visible = e.detail}}"
+      @valueChange="${e => handleValueChange(e)}"
+      @optionCreated="${e => openDialog(e)}"
+      >
+      <ino-chip slot="popover-trigger">open selection</ino-chip>
+    </ino-selection>
+    <ino-dialog 
+      id="create-option-dialog"
+      header-text="Add an option"
+      @close="${e => e.target.setAttribute('open', false)}"
+      >
+      <section slot="body">
+        <p>You have to provide a key and a value to add an option</p>
+        <ino-input 
+          outline id="input-key" 
+          label="key"
+          @valueChange="${e => setKey(e)}"
+          >
+        </ino-input> 
+        <ino-input 
+          outline id="input-value" 
+          label="value"
+          @valueChange="${e => setValue(e)}"
+          >
+        </ino-input> 
+      </section>
+      <footer slot="footer">
+          <ino-button 
+            variant="outlined"
+            @click="${e => {e.target.closest('ino-dialog ').open = false}}"
             >
-          </ino-input> 
-          <ino-input 
-            outline id="input-value" 
-            label="value"
-            @valueChange="${e => setValue(e)}"
+            cancel
+          </ino-button>
+          <ino-button 
+            @click="${e => createKeyValueOption(e)}"
             >
-          </ino-input> 
-        </section>
-        <footer slot="footer">
-            <ino-button 
-              variant="outlined"
-              @click="${e => {e.target.closest('ino-dialog ').open = false}}"
-              >
-              cancel
-            </ino-button>
-            <ino-button 
-              @click="${e => createKeyValueOption(e)}"
-              >
-              Add option
-            </ino-button>
-          </footer>
-      </ino-dialog>
+            Add option
+          </ino-button>
+        </footer>
+    </ino-dialog>
   `});
   
 
-export const KeyValueOption = templateKeyValue.generateStoryForProp('options', KeyValueOptions);
+export const KeyValueOption = templateKeyValue.generateStoryForProp('options', KeyValueOptions, {
+  controlled: true,
+  visible: false,
+});
 
 const controlledTemplate = new TemplateGenerator<Components.InoSelection>(
 'ino-selection',
@@ -248,21 +236,20 @@ const controlledTemplate = new TemplateGenerator<Components.InoSelection>(
   }
 
   return html`
-    <ino-selection
-      id="controlled-selection"
-      placement="${args.placement}"
-      label="${args.label}"
-      value="${args.value}"
-      display-add-option="${args.displayAddOption}"
-      .options="${args.options}"
-      controlled="${args.controlled}"
-      visible="${args.visible}"
-      @selectionVisibleChanged="${(e) => handleVisible(e)}"
-      @valueChange="${e => handleValueChange(e)}"
-      @optionCreated="${e => optionCreatedHandler(e)}"
-      >
-      <ino-chip slot="popover-trigger">Trigger</ino-chip>
-    </ino-selection>
+  <ino-selection
+    id="controlled-selection"
+    placement="${args.placement}"
+    label="${args.label}"
+    value="${ifDefined(args.value)}"
+    .options="${args.options}"
+    controlled="${ifDefined(args.controlled)}"
+    visible="${ifDefined(args.visible)}"
+    @selectionVisibleChanged="${(e) => handleVisible(e)}"
+    @valueChange="${e => handleValueChange(e)}"
+    @optionCreated="${e => optionCreatedHandler(e)}"
+    >
+    <ino-chip slot="popover-trigger">Trigger</ino-chip>
+  </ino-selection>
 `});
 
 export const Controlled = controlledTemplate.generateStoryForProp('controlled', true);
