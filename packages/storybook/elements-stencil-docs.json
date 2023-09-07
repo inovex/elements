@@ -4294,6 +4294,22 @@
           "required": false
         },
         {
+          "name": "for",
+          "type": "string",
+          "mutable": false,
+          "attr": "for",
+          "reflectToAttr": false,
+          "docs": "Id of the associated form control",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "outline",
           "type": "boolean",
           "mutable": false,

@@ -14,6 +14,7 @@ import {
 } from '@stencil/core';
 import autosize from 'autosize';
 import classNames from 'classnames';
+import { generateUniqueId } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-textarea',
@@ -200,6 +201,8 @@ export class Textarea implements ComponentInterface {
     e.preventDefault();
   }
 
+  private inputID: string;
+
   private initAutogrow() {
     autosize(this.nativeTextareaElement);
   }
@@ -223,6 +226,12 @@ export class Textarea implements ComponentInterface {
     this.valueChange.emit(value);
   }
 
+
+  
+  componentWillLoad() {
+    this.inputID = generateUniqueId();
+  }
+
   render() {
     const hostClasses = classNames({
       'ino-textarea--outline': this.outline,
@@ -243,6 +252,7 @@ export class Textarea implements ComponentInterface {
         <div class={classes}>
           <textarea
             ref={(el) => (this.nativeTextareaElement = el)}
+            id={this.inputID}
             class="mdc-text-field__input"
             autofocus={this.autoFocus}
             cols={this.cols}
@@ -264,6 +274,7 @@ export class Textarea implements ComponentInterface {
           )}
           <ino-label
             outline={this.outline}
+            for={this.inputID}
             text={this.label}
             required={this.required}
             disabled={this.disabled}
