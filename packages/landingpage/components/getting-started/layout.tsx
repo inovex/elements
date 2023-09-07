@@ -1,6 +1,7 @@
-import { InoSegmentButton, InoSegmentGroup } from '@elements';
+import { InoSegmentButton, InoSegmentGroup, InoButton } from '@elements';
 import Page from 'components/layout/page';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { Supported_Locales } from 'translations/config';
 import { Framework, NameByFramework } from 'utils/frameworks';
 import { MainRoutes } from 'utils/routes';
@@ -12,6 +13,12 @@ interface Props {
   sandboxUrl: string;
   framework: Framework;
 }
+
+const SANDBOX_MAP: { [key in Framework]?: string } = {
+  [Framework.REACT]: '/codesandbox-react.png',
+  [Framework.ANGULAR]: '/codesandbox-angular.png',
+  [Framework.VUE]: '/codesandbox-vue.png',
+};
 
 const Layout = ({ children, framework, sandboxUrl }: Props) => {
   const { push } = useRouter();
@@ -44,6 +51,32 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
           <p className="title-s">
             Make sure to check out the <a href={sandboxUrl}>example projects</a>
           </p>
+          {SANDBOX_MAP[framework] && (
+            <a
+              href={sandboxUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={'Open Sandbox for' + ` ${frameworkName}`}
+              className={styles.sandboxImageContainer}
+            >
+              <Image
+                src={SANDBOX_MAP[framework] || ''}
+                alt={'Sandbox for' + ` ${frameworkName}`}
+                width={0}
+                height={0}
+                sizes="100vw"
+                className={styles.sandboxImage}
+              />
+              <InoButton
+                variant="filled"
+                type="button"
+                aria-hidden="true"
+                className={styles.overlayButton}
+              >
+                {'Go to the' + ` ${frameworkName}` + ' Sandbox'}
+              </InoButton>
+            </a>
+        )}
         </div>
       </div>
     </Page>

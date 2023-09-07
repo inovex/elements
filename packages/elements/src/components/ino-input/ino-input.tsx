@@ -15,7 +15,7 @@ import {
   Method,
 } from '@stencil/core';
 import classNames from 'classnames';
-import { hasSlotContent } from '../../util/component-utils';
+import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 import { InputType, UserInputInterceptor } from '../types';
 
@@ -357,6 +357,12 @@ export class Input implements ComponentInterface {
    */
   @Prop() resetOnChange = true;
 
+
+  private inputID: string;
+
+  componentWillLoad() {
+    this.inputID = generateUniqueId();
+  }
   // ----
   // Native input event handler
   // ----
@@ -475,8 +481,9 @@ export class Input implements ComponentInterface {
 
     return (
       <Host>
-        <label class={classTextfield}>
+        <span class={classTextfield}>
           <ino-label
+            for={this.inputID}
             outline={this.outline}
             text={this.label}
             required={this.required}
@@ -489,6 +496,7 @@ export class Input implements ComponentInterface {
             </span>
           )}
           <input
+            id={this.inputID}
             ref={(el) => (this.nativeInputEl = el)}
             class="mdc-text-field__input"
             autocomplete={this.autocomplete}
@@ -535,7 +543,7 @@ export class Input implements ComponentInterface {
               <slot name={'icon-trailing'} />
             </span>
           )}
-        </label>
+        </span>
         <div class="mdc-text-field-helper-line">
           {hasHelperText && this.helperTextTemplate()}
           {hasCharacterCounter && this.characterCounterTemplate()}
