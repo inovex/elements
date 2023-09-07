@@ -51,11 +51,6 @@ export class Selection implements ComponentInterface {
     @Prop() noOptionsText = 'Found No Results';
 
     /**
-     * Disables this element.
-     */
-    @Prop() disabled?: boolean = false;
-
-    /**
      * The placement of this popover.
      * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
      * `bottom(-start, -end)`, `left(-start, -end)`

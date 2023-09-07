@@ -67,10 +67,9 @@ const template = new TemplateGenerator<InoSelectionExtended>(
 (args) => {
   return html`
   <ino-selection
-    ?id="${args.styleID}"
+    id="${ifDefined(args.styleID)}"
     debounce="${ifDefined(args.debounce)}"
     no-options-text="${ifDefined(args.noOptionsText)}"
-    disabled=${ifDefined(args.disabled)}
     placement="${ifDefined(args.placement)}"
     for="${ifDefined(args.for)}"
     label="${args.label}"
@@ -98,7 +97,6 @@ export const Debounce = template.generateStoryForProp('debounce', 1000, {
 export const noOptionsText = template.generateStoryForProp('noOptionsText', 'Ups, nothing found!', {
   options: [],
 });
-export const Disabled = template.generateStoryForProp('disabled', true);
 export const Placement = template.generateStoryForProp('placement', 'top', {styleID: 'ino-selection-placement'});
 
 // For-trigger cannot be child of ino-selection

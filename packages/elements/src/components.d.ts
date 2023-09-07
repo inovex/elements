@@ -1112,10 +1112,6 @@ export namespace Components {
          */
         "debounce": number;
         /**
-          * Disables this element.
-         */
-        "disabled"?: boolean;
-        /**
           * Displays a "add new option item" button
          */
         "displayAddOption": boolean;
@@ -3083,10 +3079,6 @@ declare namespace LocalJSX {
           * Number of ms the search function should be delayed after the user typed something.
          */
         "debounce"?: number;
-        /**
-          * Disables this element.
-         */
-        "disabled"?: boolean;
         /**
           * Displays a "add new option item" button
          */

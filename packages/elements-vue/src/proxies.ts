@@ -449,7 +449,6 @@ export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect>('ino-selec
 export const InoSelection = /*@__PURE__*/ defineContainer<JSX.InoSelection>('ino-selection', undefined, [
   'debounce',
   'noOptionsText',
-  'disabled',
   'placement',
   'for',
   'label',

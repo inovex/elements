@@ -6998,23 +6998,6 @@
           "required": false
         },
         {
-          "name": "disabled",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "disabled",
-          "reflectToAttr": false,
-          "docs": "Disables this element.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "displayAddOption",
           "type": "boolean",
           "mutable": false,
