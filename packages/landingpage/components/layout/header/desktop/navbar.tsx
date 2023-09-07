@@ -29,29 +29,33 @@ export default function Navbar() {
               isActive={isRouteActive(mainRouteUrl, key)}
             />
           </div>
-          <InoPopover
-            for={key}
-            interactive
-            placement="bottom"
-            trigger="mouseenter"
-            controlled={false}
-            visible={false}
-            distance={POPOVER_OFFSET}
-            colorScheme="light"
-          >
-            <div className={styles.popover}>
-              {subRoutes.map(({ key: subRouteName, url: subRouteUrl }) => (
-                <LinkItem
-                  key={subRouteUrl}
-                  url={subRouteUrl}
-                  name={t(
-                    `common.navigation.${key}.subroutes.${subRouteName}.name`
-                  )}
-                  isDense={true}
-                />
-              ))}
-            </div>
-          </InoPopover>
+          {subRoutes.length > 1 && (
+            <InoPopover
+              for={key}
+              interactive
+              placement="bottom"
+              trigger="mouseenter"
+              controlled={false}
+              visible={false}
+              distance={POPOVER_OFFSET}
+              colorScheme="light"
+              arrow={true}
+            >
+              <div className={styles.popover}>
+                {subRoutes.map(({ key: subRouteName, url: subRouteUrl }) => (
+                  <LinkItem
+                    key={subRouteUrl}
+                    url={subRouteUrl}
+                    name={t(
+                      `common.navigation.${key}.subroutes.${subRouteName}.name`
+                    )}
+                    isDense={true}
+                    isSubItem={true}
+                  />
+                ))}
+              </div>
+            </InoPopover>
+          )}
         </div>
       ))}
       <ContactButton />
