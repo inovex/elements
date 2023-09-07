@@ -99,7 +99,13 @@ const template = new TemplateGenerator<InoPopoverExtended>(
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem">
+          <p>Popovers are complex tooltips.</p>
+          <ino-chip>
+            Able to contain other HTML-Elements?
+            <ino-icon slot="icon-trailing" icon="checkmark"></ino-icon>
+          </ino-chip>
+        </div>
       </ino-popover>
     `;
   }
@@ -123,6 +129,8 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
     const idDark = 'popover-dark';
     const idPrimary = 'popover-primary'
 
+    const content = html`<p style="padding: 0.5rem">Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.</p>`
+
     return html`
       <ino-button id="${idLight}">Light</ino-button>
       <ino-popover
@@ -140,7 +148,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
+        ${content}
       </ino-popover>
       <ino-button id="${idDark}">Dark</ino-button>
       <ino-popover
@@ -158,7 +166,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
+        ${content}
       </ino-popover>
       <ino-button id="${idPrimary}">Primary</ino-button>
       <ino-popover
@@ -176,7 +184,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
+        ${content}
       </ino-popover>
     `;
   }
@@ -241,7 +249,12 @@ const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
         <ino-checkbox id="controlled-checkbox" slot="popover-trigger">
           Uncheck to hide / check to show
         </ino-checkbox>
-        <div class="popover-content">I'm a controlled popover</div>
+        <div style="padding: 0.5rem">
+          <ino-chip >
+            Programmatically shown?
+            <ino-icon slot="icon-trailing" icon="checkmark"></ino-icon>
+          </ino-chip>
+        </div>
       </ino-popover>
     `;
   }
@@ -253,43 +266,3 @@ export const Visible = templateControlledPopover.generateStoryForProp(
 );
 
 export const Delay = template.generateStoryForProp('delay', [500, 200])
-
-const templateSlot = new TemplateGenerator<InoPopoverExtended>(
-  'ino-popover',
-  (args) => {
-    const id = `popover-${POPOVER_COUNTER++}`;
-
-    return html`
-      <ino-button id="${id}" class="${args.placementClass}">Popover</ino-button>
-      <ino-popover
-        color-scheme="${args.colorScheme}"
-        controlled="${args.controlled}"
-        distance="${args.distance}"
-        for="${id}"
-        interactive="${args.interactive}"
-        followCursor="${args.followCursor}"
-        placement="${args.placement}"
-        trigger="${args.trigger}"
-        visible="${args.visible}"
-        hide-on-blur="${args.hideOnBlur}"
-        hide-on-esc="${args.hideOnEsc}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
-        arrow="${args.arrow}"
-      >
-        <header style="font-weight: bold;">Headline</header>
-        <p>Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.</p>
-        <footer><a href="#">Read more</a></footer>
-      </ino-popover>
-    `;
-  }
-);
-
-/**
- * By using the default `slot` you can add your own content.
- */
-export const UsingDefaultSlot = templateSlot.generatePlaygroundStory();
-UsingDefaultSlot.args = {
-  placementClass: "styled-placement",
-  placement: "left",
-  arrow: true,
-}
