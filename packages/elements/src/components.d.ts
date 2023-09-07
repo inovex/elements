@@ -5,10 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
+import { JSXBase } from "@stencil/core/internal";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -364,9 +365,21 @@ export namespace Components {
     }
     interface InoDialog {
         /**
+          * Adds a button with the given text to proceed with an action`
+         */
+        "actionText"?: string;
+        /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
+        /**
+          * Adds a text to the body of the `ino-dialog`
+         */
+        "bodyText"?: string;
+        /**
+          * Adds a button with the given text to close the `ino-dialog`
+         */
+        "cancelText"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -375,6 +388,14 @@ export namespace Components {
           * Defines a full width dialog sliding up from the bottom of the page.
          */
         "fullwidth"?: boolean;
+        /**
+          * Adds a headline to the `ino-dialog`
+         */
+        "headerText"?: string;
+        /**
+          * Adds a `ino-icon` besides the headline
+         */
+        "icon"?: string;
         /**
           * Opens the dialog if set to true
          */
@@ -460,6 +481,10 @@ export namespace Components {
           * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs": JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
         /**
           * Sets the autofocus for this element.
          */
@@ -761,6 +786,10 @@ export namespace Components {
          */
         "activated"?: boolean;
         /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs": JSXBase.HTMLAttributes<HTMLLIElement>;
+        /**
           * Styles the row in a disabled style.
          */
         "disabled"?: boolean;
@@ -794,6 +823,10 @@ export namespace Components {
         "placement": Placement;
     }
     interface InoNavDrawer {
+        /**
+          * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+         */
+        "a11yLabels"?: NavDrawerLabels;
         /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
@@ -847,23 +880,19 @@ export namespace Components {
     }
     interface InoPopover {
         /**
-          * Shows an arrow pointing towards its trigger-element
-         */
-        "arrow": boolean;
-        /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
          */
         "attachToBody": boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: `light`, `dark` and `primary`.
+          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
          */
-        "colorScheme": TippyThemes;
+        "colorScheme": 'primary' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled": boolean;
         /**
-          * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
         /**
@@ -2173,9 +2202,21 @@ declare namespace LocalJSX {
     }
     interface InoDialog {
         /**
+          * Adds a button with the given text to proceed with an action`
+         */
+        "actionText"?: string;
+        /**
           * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
         "attachTo"?: string;
+        /**
+          * Adds a text to the body of the `ino-dialog`
+         */
+        "bodyText"?: string;
+        /**
+          * Adds a button with the given text to close the `ino-dialog`
+         */
+        "cancelText"?: string;
         /**
           * Close the dialog on pressing the ESC key or clicking outside of the dialog.
          */
@@ -2184,6 +2225,18 @@ declare namespace LocalJSX {
           * Defines a full width dialog sliding up from the bottom of the page.
          */
         "fullwidth"?: boolean;
+        /**
+          * Adds a headline to the `ino-dialog`
+         */
+        "headerText"?: string;
+        /**
+          * Adds a `ino-icon` besides the headline
+         */
+        "icon"?: string;
+        /**
+          * Emits an event upon clicking the action button of the dialog
+         */
+        "onAction"?: (event: InoDialogCustomEvent<DialogSubmitAction>) => void;
         /**
           * Emits an event upon closing the dialog
          */
@@ -2277,6 +2330,10 @@ declare namespace LocalJSX {
           * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs"?: JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
         /**
           * Sets the autofocus for this element.
          */
@@ -2585,6 +2642,10 @@ declare namespace LocalJSX {
          */
         "activated"?: boolean;
         /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs"?: JSXBase.HTMLAttributes<HTMLLIElement>;
+        /**
           * Styles the row in a disabled style.
          */
         "disabled"?: boolean;
@@ -2634,6 +2695,10 @@ declare namespace LocalJSX {
         "placement"?: Placement;
     }
     interface InoNavDrawer {
+        /**
+          * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+         */
+        "a11yLabels"?: NavDrawerLabels;
         /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
@@ -2695,23 +2760,19 @@ declare namespace LocalJSX {
     }
     interface InoPopover {
         /**
-          * Shows an arrow pointing towards its trigger-element
-         */
-        "arrow"?: boolean;
-        /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
          */
         "attachToBody"?: boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: `light`, `dark` and `primary`.
+          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
          */
-        "colorScheme"?: TippyThemes;
+        "colorScheme"?: 'primary' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled"?: boolean;
         /**
-          * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
         /**

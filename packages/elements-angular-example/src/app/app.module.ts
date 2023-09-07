@@ -1,20 +1,17 @@
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { InoElementsModule } from '@inovex.de/elements-angular';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+    ReactiveFormsModule,
     SharedModule,
     InoElementsModule.forRoot(),
-    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

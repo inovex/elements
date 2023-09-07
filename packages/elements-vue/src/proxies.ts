@@ -150,7 +150,13 @@ export const InoDialog = /*@__PURE__*/ defineContainer<JSX.InoDialog>('ino-dialo
   'fullwidth',
   'dismissible',
   'open',
-  'close'
+  'headerText',
+  'bodyText',
+  'cancelText',
+  'actionText',
+  'icon',
+  'close',
+  'action'
 ]);
 
 
@@ -184,6 +190,7 @@ export const InoIcon = /*@__PURE__*/ defineContainer<JSX.InoIcon>('ino-icon', un
 
 
 export const InoIconButton = /*@__PURE__*/ defineContainer<JSX.InoIconButton>('ino-icon-button', undefined, [
+  'attrs',
   'autoFocus',
   'disabled',
   'activated',
@@ -294,6 +301,7 @@ export const InoListItem = /*@__PURE__*/ defineContainer<JSX.InoListItem>('ino-l
   'selected',
   'activated',
   'disabled',
+  'attrs',
   'clickEl'
 ]);
 
@@ -316,6 +324,7 @@ export const InoNavDrawer = /*@__PURE__*/ defineContainer<JSX.InoNavDrawer>('ino
   'open',
   'anchor',
   'variant',
+  'a11yLabels',
   'openChange'
 ]);
 

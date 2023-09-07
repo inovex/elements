@@ -29,7 +29,7 @@ const template = new TemplateGenerator<Components.InoAccordion>(
       accordion-title="${args.accordionTitle}"
       @expandedChange="${eventHandler}"
     >
-      Accordion Content
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi enim, venenatis non facilisis sed, finibus in enim. Sed auctor enim nisl, sit amet feugiat risus blandit vitae.
     </ino-accordion>
   `
 );

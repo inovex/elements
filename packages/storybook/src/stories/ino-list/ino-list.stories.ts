@@ -14,6 +14,7 @@ export default {
 } as Meta<Components.InoList>;
 
 const exampleImg = html
+// eslint-disable-next-line no-unexpected-multiline
 `
       <ino-img
       slot="leading"

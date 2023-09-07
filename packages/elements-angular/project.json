@@ -1,0 +1,61 @@
+{
+  "name": "elements-angular",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/elements-angular/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx run elements-angular:compile",
+          "nx run elements-angular:schematics"
+        ],
+        "parallel": false
+      }
+    },
+    "compile": {
+      "executor": "@nrwl/angular:package",
+      "options": {
+        "project": "packages/elements-angular/ng-package.json",
+        "tsConfig": "packages/elements-angular/tsconfig.lib.prod.json"
+      },
+      "configurations": {
+        "development": {
+          "tsConfig": "packages/elements-angular/tsconfig.lib.json"
+        }
+      }
+    },
+    "start": {
+      "executor": "@nrwl/angular:package",
+      "options": {
+        "project": "packages/elements-angular/ng-package.json",
+        "tsConfig": "packages/elements-angular/tsconfig.lib.json",
+        "watch": true
+      }
+    },
+    "schematics": {
+      "executor": "nx:run-commands",
+      "outputs": ["packages/elements-angular/dist/schematics"],
+      "options": {
+        "commands": [
+          "tsc -p packages/elements-angular/tsconfig.schematics.json --outDir packages/elements-angular/dist/schematics",
+          "shx cp packages/elements-angular/src/schematics/collection.json packages/elements-angular/dist/schematics"
+        ],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/elements-angular/src/**/*.ts",
+          "packages/elements-angular/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

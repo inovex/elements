@@ -73,7 +73,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: gh-pages
+          ref: pages
 
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4

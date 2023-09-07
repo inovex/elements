@@ -86,9 +86,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        name: Checkout to gh-pages branch
+        name: Checkout pages branch
         with:
-          ref: gh-pages
+          ref: pages
       - name: Download Storybook artifact
         uses: dawidd6/action-download-artifact@v2
         with:
@@ -100,7 +100,7 @@ jobs:
         run: cd version && rm -f latest && ln -s ${{ needs.publish.outputs.newTag }} latest
         shell: bash
 
-      # Crawls the version dir on current gh-pages branch HEAD.
+      # Crawls the version dir on current pages branch HEAD.
       # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
       - name: Update Hosted Versions
         run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./hosted-versions.json
@@ -108,7 +108,7 @@ jobs:
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
-          branch: gh-pages
+          branch: pages
           commit-message: Deploying version ${{ needs.publish.outputs.newTag }} 🚀
           folder: '.'
           clean: false # Important to keep other versions.

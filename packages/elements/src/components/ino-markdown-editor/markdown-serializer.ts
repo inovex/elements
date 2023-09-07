@@ -2,8 +2,9 @@ import {
   defaultMarkdownParser,
   defaultMarkdownSerializer,
   MarkdownSerializer,
-} from 'prosemirror-markdown';
-import { Node as ProsemirrorNode } from 'prosemirror-model';
+  MarkdownSerializerState,
+} from '@tiptap/pm/markdown';
+import { Node } from '@tiptap/pm/model';
 import taskLists from '@hedgedoc/markdown-it-task-lists'
 import Bold from '@tiptap/extension-bold';
 import Code from '@tiptap/extension-code';
@@ -70,9 +71,9 @@ const defaultSerializerConfig = {
       state.write(`[${node.attrs.checked ? 'x' : ' '}] `);
       state.renderContent(node);
     },
-    [TaskList.name]: (state, node) => {
-      if (node.attrs.numeric) defaultMarkdownSerializer.nodes.ordered_list(state, node);
-      else defaultMarkdownSerializer.nodes.bullet_list(state, node);
+    [TaskList.name]: (state: MarkdownSerializerState, node: Node, parent: Node, index: number) => {
+      if (node.attrs.numeric) defaultMarkdownSerializer.nodes.ordered_list(state, node, parent, index);
+      else defaultMarkdownSerializer.nodes.bullet_list(state, node, parent, index);
     },
   },
 };
@@ -85,7 +86,7 @@ const markdownSerializer = new MarkdownSerializer(
 let markdownRenderer = null;
 
 export default {
-  serialize: (content: ProsemirrorNode): string =>
+  serialize: (content: Node): string =>
     markdownSerializer.serialize(content, { tightLists: true }),
   parse: (markdownText: string): string => {
     if (!markdownRenderer) {

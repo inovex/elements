@@ -1,0 +1,84 @@
+$header-height: 120px;
+$header-height--shrunk: 70px;
+
+// inspired by https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/
+.header {
+  top: $header-height--shrunk - $header-height;
+  position: sticky;
+  background-color: white;
+  z-index: 999;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+}
+
+.headerInner {
+  position: sticky;
+  top: 0;
+  margin: 0 45px;
+  height: $header-height--shrunk;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto;
+  grid-template-rows: 1fr;
+  column-gap: 30px;
+  grid-template-areas: 'logo versionSelect navbar github language';
+  align-items: center;
+}
+
+.logo {
+  grid-area: logo;
+
+  a {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  p {
+    color: #003c7e;
+  }
+}
+
+.language {
+  grid-area: language;
+
+  div b {
+    color: #003c7e;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 5px;
+
+    &:hover,
+    &.selected {
+      text-decoration-line: underline;
+      text-underline-offset: 5px;
+    }
+
+    &.selected {
+      color: #2c02ff;
+    }
+  }
+}
+.versionContainer {
+  grid-area: versionSelect;
+}
+
+.navbar {
+  grid-area: navbar;
+  justify-self: flex-end;
+}
+
+.github {
+  grid-area: github;
+}
+
+.githubImage {
+  transition: filter 300ms;
+  filter: opacity(0.5);
+
+  &:hover {
+    filter: opacity(1);
+  }
+}

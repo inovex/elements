@@ -1,15 +1,17 @@
 {
   "name": "landingpage",
+  "sourceRoot": "/pages",
   "projectType": "application",
-  "sourceRoot": "packages/landingpage/src",
   "tags": [],
   "targets": {
     "build": {
-      "outputs": ["{projectRoot}/dist"],
+      "outputs": ["{projectRoot}/out"],
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/landingpage",
-        "command": "vite build"
+        "commands": ["next build", "next export"],
+        "parallel": false,
+        "color": true
       }
     },
     "start": {
@@ -20,22 +22,10 @@
       "defaultConfiguration": "dev",
       "configurations": {
         "dev": {
-          "command": "vite --port 4500"
+          "command": "next dev -p 4600"
         },
         "prod": {
-          "command": "vite preview --port 4500"
-        }
-      }
-    },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/landingpage",
-        "command": "shx rm -rf dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
+          "command": "next start -p 4600"
         }
       }
     },
@@ -43,11 +33,23 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/landingpage",
-        "command": "eslint --ext .js,.vue --ignore-path .gitignore src"
+        "command": "next lint"
       },
       "configurations": {
         "fix": {
-          "command": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
+          "command": "next lint --fix"
+        }
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/landingpage",
+        "commands": ["shx rm -rf out", "shx rm -rf .next"]
+      },
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
         }
       }
     }

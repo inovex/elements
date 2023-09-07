@@ -1,5 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*", "output-targets", "scripts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "output-targets/*.ts",
+    "output-targets/*.tsx",
+    "scripts/*.ts",
+    "scripts/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }

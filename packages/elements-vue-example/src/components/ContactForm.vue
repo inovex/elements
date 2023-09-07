@@ -1,9 +1,27 @@
 <template>
-  <form id="contact-form" @submit="showFormData">
+  <form
+    id="contact-form"
+    @submit="showFormData"
+  >
     <ino-radio-group :value="gender">
-      <ino-radio value="m" @checkedChange="() => this.gender = 'm'">male</ino-radio>
-      <ino-radio value="f" @checkedChange="() => this.gender = 'f'">female</ino-radio>
-      <ino-radio value="o" @checkedChange="() => this.gender = 'o'">other</ino-radio>
+      <ino-radio
+        value="m"
+        @checkedChange="() => gender = 'm'"
+      >
+        male
+      </ino-radio>
+      <ino-radio
+        value="f"
+        @checkedChange="() => gender = 'f'"
+      >
+        female
+      </ino-radio>
+      <ino-radio
+        value="o"
+        @checkedChange="() => gender = 'o'"
+      >
+        other
+      </ino-radio>
     </ino-radio-group>
     <ino-select
       :ino-outline="outlineStyle"
@@ -11,29 +29,34 @@
       label="Select your title"
       name="title"
       required
-      @valueChange="({detail}) => this.selectedTitle = detail"
+      @valueChange="({detail}) => selectedTitle = detail"
     >
-      <ino-option v-for="(title, i) in availableTitles" :key="i" :value="title">
+      <ino-option
+        v-for="(title, i) in availableTitles"
+        :key="i"
+        :value="title"
+      >
         {{ title }}
       </ino-option>
     </ino-select>
     <ino-input
-      :outline="outlineStyle"
       v-model="name"
+      :outline="outlineStyle"
       autofocus
       name="firstname"
       placeholder="Enter your name"
       required
       type="text"
-      @valueChange="({detail}) => this.name = detail"
+      @valueChange="({detail}) => name = detail"
     >
       <ino-icon
         slot="icon-leading"
-        icon="user"></ino-icon>
+        icon="user"
+      />
     </ino-input>
     <ino-datepicker
-      :outline="outlineStyle"
       v-model="birthday"
+      :outline="outlineStyle"
       helper="Select your birthday"
       helper-persistent
       helper-validation
@@ -42,11 +65,11 @@
       type="date"
       name="birthday"
       required
-      @valueChange="({detail}) => this.birthday = detail"
+      @valueChange="({detail}) => birthday = detail"
     />
     <ino-textarea
-      :outline="outlineStyle"
       v-model="message"
+      :outline="outlineStyle"
       autogrow
       cols="100"
       label="Your message"
@@ -60,14 +83,14 @@
       <ino-switch
         v-model="outlineStyle"
         name="outline-style"
-        @checkedChange="({detail}) => this.outlineStyle = detail"
+        @checkedChange="({detail}) => outlineStyle = detail"
       >
         Use outline style
       </ino-switch>
       <ino-button type="submit">
-        <ino-icon icon="onboarding"/>
+        <ino-icon icon="onboarding" />
         Send message
-        <ino-icon icon="offboarding"/>
+        <ino-icon icon="offboarding" />
       </ino-button>
     </div>
   </form>
@@ -89,15 +112,6 @@ import {
 
 export default {
   name: "ContactForm",
-  data: () => ({
-    name: 'ssss',
-    gender: 'm',
-    birthday: '',
-    message: 'Hallo Welt',
-    outlineStyle: false,
-    selectedTitle: null,
-    availableTitles: ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'Jr.'],
-  }),
   components: {
     InoSwitch,
     InoButton,
@@ -110,6 +124,15 @@ export default {
     InoRadio,
     InoOption,
   },
+  data: () => ({
+    name: 'ssss',
+    gender: 'm',
+    birthday: '',
+    message: 'Hallo Welt',
+    outlineStyle: false,
+    selectedTitle: null,
+    availableTitles: ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'Jr.'],
+  }),
   methods: {
     showFormData(e) {
       e.stopImmediatePropagation();

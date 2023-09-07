@@ -1,26 +1,17 @@
 {
-  "compileOnSave": false,
   "buildOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "target": "es2017",
-    "module": "esnext",
-    "moduleResolution": "node",
     "jsx": "react",
     "strict": true,
-    "sourceMap": true,
     "allowUnreachableCode": false,
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
     "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
     "inlineSources": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "removeComments": false
-  }
+  },
+  "extends": "./tsconfig.base.json"
 }

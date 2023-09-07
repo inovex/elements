@@ -1,0 +1,19 @@
+$step-indicator-size: 2.5rem;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.step {
+  flex: none;
+  height: $step-indicator-size;
+  width: $step-indicator-size;
+  background-color: var(--inovex-elements-p-6);
+  border-radius: 50%;
+  color: var(--inovex-elements-white);
+  font-size: 1.25rem;
+  line-height: $step-indicator-size;
+  text-align: center;
+  margin-right: 16px;
+}

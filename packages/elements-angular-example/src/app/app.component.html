@@ -19,13 +19,13 @@
 
   <ino-list>
     <ino-list-item *ngFor="let todo of todos; index as i" [text]="todo.name">
-      <ino-checkbox slot="leading" (click)="delete(i, todo)"></ino-checkbox>
+      <ino-checkbox slot="leading" (click)="delete(todo)"></ino-checkbox>
       <ino-button
         variant="outlined"
         dense="true"
         slot="trailing"
-        (click)="delete(i, todo)"
-        >Delete</ino-button
+        (click)="delete(todo)"
+      >Delete</ino-button
       >
     </ino-list-item>
   </ino-list>
@@ -40,8 +40,8 @@
 
 <div class="btn-box">
   <ino-button (click)="toggleInputState()"
-    >{{
-      this.form.controls['todoName']?.disabled ? 'Enable' : 'Disable'
+  >{{
+    this.form.controls['todoName'].disabled ? 'Enable' : 'Disable'
     }}
     Input</ino-button
   >

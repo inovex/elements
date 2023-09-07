@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.company {
+  display: flex;
+  gap: 5px
+}
+
+.attribution {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  color: var(--inovex-elements-n-7) !important;
+}

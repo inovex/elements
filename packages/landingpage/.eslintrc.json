@@ -1,0 +1,29 @@
+{
+  "extends": ["next/core-web-vitals", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": [
+              "@inovex.de/elements-react",
+              "@inovex.de/elements-react/*"
+            ],
+            "message": "Import the elements from @elements instead."
+          }
+        ]
+      }
+    ],
+    "@typescript-eslint/quotes": [
+      "warn",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+}
