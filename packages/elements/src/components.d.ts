@@ -888,7 +888,7 @@ export namespace Components {
          */
         "attachToBody": boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: `light`, `dark` and `primary`.
+          * Sets the color scheme of the popup.  Valid options include: `primary`, `light` and `dark`.
          */
         "colorScheme": TippyThemes;
         /**
@@ -2772,7 +2772,7 @@ declare namespace LocalJSX {
          */
         "attachToBody"?: boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: `light`, `dark` and `primary`.
+          * Sets the color scheme of the popup.  Valid options include: `primary`, `light` and `dark`.
          */
         "colorScheme"?: TippyThemes;
         /**

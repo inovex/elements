@@ -5601,7 +5601,7 @@
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the popup\nValid options include: `light`, `dark` and `primary`.",
+          "docs": "Sets the color scheme of the popup.\n\nValid options include: `primary`, `light` and `dark`.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
