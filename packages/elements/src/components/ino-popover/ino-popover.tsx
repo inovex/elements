@@ -241,8 +241,10 @@ export class Popover implements ComponentInterface {
       plugins.push(hideOnEsc);
     }
 
-    // in HTML to check if "false" was provided
-    const shouldFollowCursor = this.followCursor && (this.followCursor as any) !== "false";
+    const shouldFollowCursor =
+      ((typeof this.followCursor == 'boolean') && this.followCursor) ||
+      ['horizontal', 'vertical', 'initial'].includes(this.followCursor as string);
+
 
     if(shouldFollowCursor) {
       plugins.push(followCursor)

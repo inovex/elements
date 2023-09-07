@@ -46,6 +46,12 @@ export default {
         type: 'object',
       },
     },
+    followCursor: {
+      control: {
+        type: 'radio',
+      },
+      options: [true, false, 'initial', 'horizontal', 'vertical'],
+    },
   },
   args: {
     controlled: false,
@@ -60,8 +66,8 @@ export default {
     hideOnBlur: false,
     delay: 0,
     arrow: false,
-    placementClass: "",
-    headerText: "",
+    placementClass: '',
+    headerText: '',
   },
 } as Meta;
 
@@ -84,7 +90,7 @@ const template = new TemplateGenerator<InoPopoverExtended>(
         distance="${args.distance}"
         for="${id}"
         interactive="${args.interactive}"
-        followCursor="${args.followCursor}"
+        .followCursor="${args.followCursor}"
         placement="${args.placement}"
         trigger="${args.trigger}"
         visible="${args.visible}"
@@ -134,7 +140,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do. 
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
       </ino-popover>
       <ino-button id="${idDark}">Dark</ino-button>
       <ino-popover
@@ -152,7 +158,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do. 
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
       </ino-popover>
       <ino-button id="${idPrimary}">Primary</ino-button>
       <ino-popover
@@ -170,7 +176,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do. 
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
       </ino-popover>
     `;
   }
@@ -215,7 +221,7 @@ export const Interactions = templateInteractive.generateStoryForProp(
 const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
   () => {
-    const eventHandler = (e) => {
+    const eventHandler = (e: any) => {
       e.target?.setAttribute('visible', e.detail);
       (document.querySelector(
         '#controlled-checkbox'
