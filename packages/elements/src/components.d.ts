@@ -824,7 +824,7 @@ export namespace Components {
     }
     interface InoNavDrawer {
         /**
-          * The aria-labels used for content and fotter nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+          * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
          */
         "a11yLabels"?: NavDrawerLabels;
         /**
@@ -2769,7 +2769,7 @@ declare namespace LocalJSX {
     }
     interface InoNavDrawer {
         /**
-          * The aria-labels used for content and fotter nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+          * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
          */
         "a11yLabels"?: NavDrawerLabels;
         /**
