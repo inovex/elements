@@ -116,8 +116,9 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * Sets the color scheme of the popup
-   * Valid options include: `light`, `dark` and `primary`.
+   * Sets the color scheme of the popup.
+   *
+   * Valid options include: `primary`, `light` and `dark`.
    */
   @Prop() colorScheme: TippyThemes = 'primary';
 
