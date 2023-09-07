@@ -5383,7 +5383,7 @@
           "mutable": false,
           "attr": "arrow",
           "reflectToAttr": false,
-          "docs": "Shows an arrow",
+          "docs": "Shows an arrow pointing towards its trigger-element",
           "docsTags": [],
           "default": "false",
           "values": [

@@ -847,7 +847,7 @@ export namespace Components {
     }
     interface InoPopover {
         /**
-          * Shows an arrow
+          * Shows an arrow pointing towards its trigger-element
          */
         "arrow": boolean;
         /**
@@ -2695,7 +2695,7 @@ declare namespace LocalJSX {
     }
     interface InoPopover {
         /**
-          * Shows an arrow
+          * Shows an arrow pointing towards its trigger-element
          */
         "arrow"?: boolean;
         /**

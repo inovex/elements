@@ -12,17 +12,16 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 import TippyJS, {
+  followCursor,
   Instance as Tippy,
   Placement,
   Props,
-  followCursor,
   roundArrow,
 } from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
-import { TooltipTrigger } from '../types';
+import { TippyThemes, TooltipTrigger } from '../types';
 import { closest } from '@material/dom/ponyfill';
 import { hideOnEsc, hideOnPopperBlur } from './plugins';
-import { TippyThemes } from '../types';
 
 const POPOVER_CLOSE_ATTRIBUTE = 'data-ino-close';
 
@@ -56,10 +55,9 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * Shows an arrow
+   * Shows an arrow pointing towards its trigger-element
    */
   @Prop() arrow = false;
-
 
   /**
    * If set, attaches the popover element to the body.
@@ -121,8 +119,7 @@ export class Popover implements ComponentInterface {
    * Sets the color scheme of the popup
    * Valid options include: `light`, `dark` and `primary`.
    */
-  @Prop() colorScheme: TippyThemes =
-    'primary';
+  @Prop() colorScheme: TippyThemes = 'primary';
 
   /**
    * Use this if you want to interact with the popover content (e.g. button clicks)
@@ -172,8 +169,8 @@ export class Popover implements ComponentInterface {
   @Watch('delay')
   onDelayChange() {
     this.tippyInstance?.setProps({
-      delay: this.delay
-    })
+      delay: this.delay,
+    });
   }
 
   /**
@@ -242,12 +239,13 @@ export class Popover implements ComponentInterface {
     }
 
     const shouldFollowCursor =
-      ((typeof this.followCursor == 'boolean') && this.followCursor) ||
-      ['horizontal', 'vertical', 'initial'].includes(this.followCursor as string);
+      (typeof this.followCursor == 'boolean' && this.followCursor) ||
+      ['horizontal', 'vertical', 'initial'].includes(
+        this.followCursor as string
+      );
 
-
-    if(shouldFollowCursor) {
-      plugins.push(followCursor)
+    if (shouldFollowCursor) {
+      plugins.push(followCursor);
     }
 
     const options: Partial<Props> = {
@@ -255,7 +253,7 @@ export class Popover implements ComponentInterface {
       theme: this.colorScheme,
       animation: 'scale-subtle',
       appendTo: this.attachToBody ? document.body : this.popoverContainer,
-      arrow: this.arrow? roundArrow : false,
+      arrow: this.arrow ? roundArrow : false,
       content: this.popoverContent,
       duration: 100,
       delay: this.delay,
@@ -347,10 +345,7 @@ export class Popover implements ComponentInterface {
   }
 
   render() {
-    const popoverClasses = classNames(
-      'ino-popover',
-      'ino-popover__content'
-    );
+    const popoverClasses = classNames('ino-popover', 'ino-popover__content');
 
     return (
       <Host>
