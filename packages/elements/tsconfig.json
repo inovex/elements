@@ -10,7 +10,8 @@
     "target": "es2017",
     "noImplicitAny": false,
     "jsxFactory": "h",
-    "types": ["jest"]
+    "types": ["jest"],
+    "skipLibCheck": true,
   },
   "references": [
     {

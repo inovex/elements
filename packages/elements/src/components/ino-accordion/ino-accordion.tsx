@@ -54,11 +54,6 @@ export class Accordion implements ComponentInterface {
 
     });
 
-    const inoAccordionContent = classNames({
-      'ino-accordion__content': true,
-      'ino-accordion__content--visible': this.expanded,
-    });
-
     const titleClasses = classNames({
       'ino-accordion__title': true,
       'ino-accordion__title--expanded': this.expanded,
@@ -79,7 +74,7 @@ export class Accordion implements ComponentInterface {
           <span class={titleClasses}>{this.accordionTitle}</span>
         </div>
         <div class={contentWrapperClasses}>
-          <div class={inoAccordionContent}>
+          <div class="ino-accordion__content">
             <slot />
           </div>
         </div>

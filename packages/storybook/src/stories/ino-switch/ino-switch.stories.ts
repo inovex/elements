@@ -2,7 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass, withIconControl } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-switch.scss';
 
 const eventHandler = (e: CustomEvent<boolean>) =>

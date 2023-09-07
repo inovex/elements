@@ -19,13 +19,9 @@ $animation-time: 200ms;
 
   &__content {
     @include typography.typo(body-m);
-    padding: 0 56px 32px 52px;
+    padding: 0 56px 0 52px;
     color: theme.$n-10;
-    opacity: 0;
-    transition: opacity $animation-time ease-in-out;
-    &--visible {
-      opacity: 1;
-    }
+    overflow: hidden;
   }
 
   &__title {
@@ -43,12 +39,13 @@ $animation-time: 200ms;
   }
 
   .ino-accordion__content-wrapper {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height $animation-time ease-in-out;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 350ms ease-out;
 
     &--expanded {
-      max-height: 1000px;
+      grid-template-rows: 1fr;
+      padding-bottom: 32px;
     }
   }
 }
