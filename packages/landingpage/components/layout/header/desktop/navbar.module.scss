@@ -10,28 +10,4 @@ div.popover {
   padding: 15px 8px;
   border-radius: 5px;
   min-width: 160px;
-
-  //arrow/caret
-  &::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-  }
-  //shadow of the arrow/caret imitating the popover shadow
-  &::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 14px;
-    height: 14px;
-    z-index: -1;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
-  }
 }

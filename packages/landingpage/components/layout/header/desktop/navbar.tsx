@@ -38,7 +38,8 @@ export default function Navbar() {
               controlled={false}
               visible={false}
               distance={POPOVER_OFFSET}
-              colorScheme="transparent"
+              colorScheme="light"
+              arrow={true}
             >
               <div className={styles.popover}>
                 {subRoutes.map(({ key: subRouteName, url: subRouteUrl }) => (
