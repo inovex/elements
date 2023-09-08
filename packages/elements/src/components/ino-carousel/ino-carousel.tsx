@@ -35,11 +35,13 @@ export class InoCarousel implements ComponentInterface {
   @Watch('value')
   valueChanged(newVal: string | number) {
     const nextSlide = this.allSlides.find(
-      (slide: HTMLInoCarouselSlideElement) =>  slide.value === newVal
+      (slide: HTMLInoCarouselSlideElement) => slide.value === newVal
     );
 
-    if(!nextSlide) {
-      throw new Error(`<ino-carousel-slide> with value '${newVal}' could not be found in the children of <ino-carousel>`)
+    if (!nextSlide) {
+      throw new Error(
+        `<ino-carousel-slide> with value '${newVal}' could not be found in the children of <ino-carousel>`
+      );
     }
 
     if (this.currentSlideEl) this.currentSlideEl.selected = false;
@@ -114,10 +116,11 @@ export class InoCarousel implements ComponentInterface {
   }
 
   private emitNextSlide(direction: 'next' | 'previous' = 'next') {
-    let nextSlide = (direction === 'next'
-      ? this.currentSlideEl.nextElementSibling
-      : this.currentSlideEl
-          .previousElementSibling) as HTMLInoCarouselSlideElement;
+    let nextSlide = (
+      direction === 'next'
+        ? this.currentSlideEl.nextElementSibling
+        : this.currentSlideEl.previousElementSibling
+    ) as HTMLInoCarouselSlideElement;
 
     if (!this.infinite) {
       this.valueChange.emit(nextSlide?.value ?? this.currentSlideEl.value);

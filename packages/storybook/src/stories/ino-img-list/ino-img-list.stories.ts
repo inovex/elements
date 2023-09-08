@@ -21,15 +21,20 @@ export default {
 
 const template = new TemplateGenerator<Components.InoImgList>(
   'ino-img-list',
-  args => html`
-  <ino-img-list enclose-label="${args.encloseLabel}" masonry="${args.masonry}">
-    ${sampleImg} ${sampleImg2} ${sampleImg3} ${sampleImg4} ${sampleImg5} ${sampleImg6}
-  </ino-img-list>
-`);
+  (args) => html`
+    <ino-img-list
+      enclose-label="${args.encloseLabel}"
+      masonry="${args.masonry}"
+    >
+      ${sampleImg} ${sampleImg2} ${sampleImg3} ${sampleImg4} ${sampleImg5}
+      ${sampleImg6}
+    </ino-img-list>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 export const Masonry = template.generateStoryForProp('masonry', true);
-export const EncloseLabel  = template.generateStoryForProp('encloseLabel', true);
+export const EncloseLabel = template.generateStoryForProp('encloseLabel', true);
 
 const sampleImg = html`
   <ino-img src=${beachImg} alt="beach" label="Label" img-list-item></ino-img>

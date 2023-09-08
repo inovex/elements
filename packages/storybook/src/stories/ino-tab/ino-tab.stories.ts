@@ -17,19 +17,22 @@ export default {
 
 const template = new TemplateGenerator<Components.InoTab>(
   'ino-tab',
-  args => html`
-  <ino-tab
-    icon="${args.icon}"
-    indicator-content-width="${args.indicatorContentWidth}"
-    stacked="${args.stacked}"
-  >
-    Label
-  </ino-tab>
-`);
+  (args) => html`
+    <ino-tab
+      icon="${args.icon}"
+      indicator-content-width="${args.indicatorContentWidth}"
+      stacked="${args.stacked}"
+    >
+      Label
+    </ino-tab>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'info');
 
 export const Stacked = template.generateStoryForProp('stacked', true);
-export const IndicatorContentWidth = template.generateStoryForProp('indicatorContentWidth', true);
-
+export const IndicatorContentWidth = template.generateStoryForProp(
+  'indicatorContentWidth',
+  true
+);

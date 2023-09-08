@@ -8,12 +8,9 @@ import {
   Listen,
   EventEmitter,
   Prop,
-  Watch
+  Watch,
 } from '@stencil/core';
-import {
-  SortDirectionChangeDetails,
-  SortDirection
-} from '../../interface';
+import { SortDirectionChangeDetails, SortDirection } from '../../interface';
 import classNames from 'classnames';
 
 /**
@@ -24,7 +21,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-table',
   styleUrl: 'ino-table.scss',
-  shadow: false
+  shadow: false,
 })
 export class InoTable implements ComponentInterface {
   @Element() el: HTMLInoTableElement;
@@ -101,14 +98,14 @@ export class InoTable implements ComponentInterface {
     if (headerCells.length < 1) {
       return;
     }
-    const columnIds = headerCells.map(e => e.columnId);
+    const columnIds = headerCells.map((e) => e.columnId);
     if (columnIds.indexOf(newColumnId) < 0) {
       console.warn(`${newColumnId} is no sortable column-id`);
     }
 
     // Reset old value
     if (oldColumnId && columnIds.indexOf(oldColumnId) >= 0) {
-      const oldColumnCell = headerCells.find(e => e.columnId == oldColumnId);
+      const oldColumnCell = headerCells.find((e) => e.columnId == oldColumnId);
       oldColumnCell?.removeAttribute('sort-direction');
     }
 
@@ -122,7 +119,7 @@ export class InoTable implements ComponentInterface {
       return;
     }
     const newColumnCell = headerCells.find(
-      e => e.columnId == this.sortColumnId
+      (e) => e.columnId == this.sortColumnId
     );
     if (newSortDirection) {
       newColumnCell?.setAttribute('sort-direction', newSortDirection);
@@ -145,7 +142,7 @@ export class InoTable implements ComponentInterface {
       'mdc-data-table--in-progress': this.loading,
       'ino-table--no-header': !hasHeaderSlot,
       'ino-table--no-hover': this.noHover,
-      'mdc-data-table--sticky-header': this.stickyHeader
+      'mdc-data-table--sticky-header': this.stickyHeader,
     });
 
     return (

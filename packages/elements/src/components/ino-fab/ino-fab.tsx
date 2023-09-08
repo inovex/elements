@@ -25,7 +25,6 @@ export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
   private tooltip?: HTMLInoTooltipElement;
 
-
   @Element() el!: HTMLInoFabElement;
 
   /**
@@ -109,7 +108,7 @@ export class Fab implements ComponentInterface {
         this.tooltipPlacement === 'none' ? undefined : this.tooltipPlacement,
       trigger: 'mouseenter focus',
     };
-  
+
     const tooltip = document.createElement('ino-tooltip');
     Object.keys(attributes).forEach((key) =>
       tooltip.setAttribute(key, attributes[key])

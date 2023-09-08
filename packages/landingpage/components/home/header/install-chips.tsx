@@ -19,16 +19,13 @@ const CommandByFrameworks: Record<Framework, string> = {
 const COMMAND_CHIP_ID = 'command-chip';
 
 export default function InstallChips() {
-  const [
-    manuallySelectedFramework,
-    setManuallySelectedFramework,
-  ] = useState<Framework | null>(null);
+  const [manuallySelectedFramework, setManuallySelectedFramework] =
+    useState<Framework | null>(null);
   const [carouselFramework, setCarouselFramework] = useState<Framework>(
     Framework.VUE
   );
-  const [currentFramework, setCurrentFramework] = useState<Framework>(
-    carouselFramework
-  );
+  const [currentFramework, setCurrentFramework] =
+    useState<Framework>(carouselFramework);
 
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);

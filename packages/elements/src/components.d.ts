@@ -3131,7 +3131,7 @@ declare namespace LocalJSX {
         /**
           * Emits string of the added option. Contains new value in `event.detail`.
          */
-        "onOptionCreated"?: (event: InoSelectionCustomEvent<string | KeyValue>) => void;
+        "onOptionCreated"?: (event: InoSelectionCustomEvent<string | { key: string; value: string }>) => void;
         /**
           * Emits when the ino-selection wants to show (`true`) or hide (`false`) itself. This is depended on the `trigger` property. Use this event in controlled-mode (see `controlled`).  e.g.: `trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`for`/parent-element) and emits with `false` when the target or the outside is clicked.
          */

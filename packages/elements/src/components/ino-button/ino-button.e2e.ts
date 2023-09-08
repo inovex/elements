@@ -26,10 +26,8 @@ describe('InoButton', () => {
     await page.waitForChanges();
 
     const newBtn = await inoButtonEl.find('button');
-    const {
-      height: newHeight,
-      width: newWidth,
-    } = await newBtn.getComputedStyle();
+    const { height: newHeight, width: newWidth } =
+      await newBtn.getComputedStyle();
 
     expect(
       Math.abs(pxStrToNumber(newWidth) - pxStrToNumber(width))

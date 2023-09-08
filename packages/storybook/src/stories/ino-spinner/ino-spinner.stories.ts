@@ -19,15 +19,16 @@ export default {
 
 const template = new TemplateGenerator<Components.InoSpinner>(
   'ino-spinner',
-  args => html`
-  <ino-spinner
-    height="${args.height}"
-    modal="${args.modal}"
-    type="${args.type}"
-    width="${args.width}"
-  >
-  </ino-spinner>
-`);
+  (args) => html`
+    <ino-spinner
+      height="${args.height}"
+      modal="${args.modal}"
+      type="${args.type}"
+      width="${args.width}"
+    >
+    </ino-spinner>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 export const Type = template.generateStoryForProp('type', 'bounce');

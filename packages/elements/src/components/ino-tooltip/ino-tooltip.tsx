@@ -30,8 +30,7 @@ export class Tooltip implements ComponentInterface {
    * Sets the color scheme of the tooltip
    * Valid options include: `primary`, `transparent`
    */
-  @Prop() colorScheme: 'primary' | 'transparent' =
-    'primary';
+  @Prop() colorScheme: 'primary' | 'transparent' = 'primary';
 
   /**
    * The placement of the tooltip.
@@ -43,8 +42,8 @@ export class Tooltip implements ComponentInterface {
   @Watch('placement')
   async onPlacementChange() {
     this.tooltipInstance?.setProps({
-      placement: this.placement
-    })
+      placement: this.placement,
+    });
   }
 
   /**
@@ -79,8 +78,8 @@ export class Tooltip implements ComponentInterface {
   @Watch('delay')
   onDelayChange() {
     this.tooltipInstance?.setProps({
-      delay: this.delay
-    })
+      delay: this.delay,
+    });
   }
 
   @Watch('trigger')
@@ -95,7 +94,6 @@ export class Tooltip implements ComponentInterface {
    * @deprecated
    */
   @Prop() label?: string;
-
 
   /**
    * Returns the internally used tippy.js instance
@@ -189,7 +187,9 @@ export class Tooltip implements ComponentInterface {
     return (
       <Host class={hostClasses}>
         <div class="ino-tooltip__composer" role="tooltip">
-          <div class="ino-tooltip__inner">{this.label ? this.label : <slot />}</div>
+          <div class="ino-tooltip__inner">
+            {this.label ? this.label : <slot />}
+          </div>
         </div>
       </Host>
     );

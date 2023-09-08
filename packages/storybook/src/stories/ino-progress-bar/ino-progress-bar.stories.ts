@@ -19,28 +19,32 @@ export default {
   },
   args: {
     indeterminate: false,
-  }
+  },
 } as Meta;
 
 const template = new TemplateGenerator<Components.InoProgressBar>(
   'ino-progress-bar',
-  args => html`
-  <ino-progress-bar
+  (args) => html`
+    <ino-progress-bar
       buffer="${args.buffer}"
       progress="${args.progress}"
       indeterminate="${args.indeterminate}"
-  >
-  </ino-progress-bar>
-`);
+    >
+    </ino-progress-bar>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 Playground.args = {
   buffer: 0.9,
   progress: 0.4,
-}
+};
 
 export const Progress = template.generateStoryForProp('progress', 0.5);
 
 export const Buffer = template.generateStoryForProp('buffer', 0.5);
 
-export const Indeterminate = template.generateStoryForProp('indeterminate', true);
+export const Indeterminate = template.generateStoryForProp(
+  'indeterminate',
+  true
+);

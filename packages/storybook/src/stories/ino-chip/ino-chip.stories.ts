@@ -23,7 +23,7 @@ export default {
     selected: false,
     clickable: true,
     value: '',
-  }
+  },
 } as Meta<Components.InoChip>;
 
 const template = new TemplateGenerator<Components.InoChip>(
@@ -65,7 +65,6 @@ const templateFill = new TemplateGenerator<Components.InoChip>(
 );
 
 export const Fill = templateFill.generatePlaygroundStory();
-
 
 const templateIcons = new TemplateGenerator<Components.InoChip>(
   'ino-chip',

@@ -46,10 +46,7 @@ export const HomeTodoApp: React.FC = () => {
     <InoList>
       {todos.map((todo) => (
         <InoListItem key={todo} text={todo}>
-          <InoCheckbox
-            slot="leading"
-            onCheckedChange={() => doTodo(todo)}
-          />
+          <InoCheckbox slot="leading" onCheckedChange={() => doTodo(todo)} />
         </InoListItem>
       ))}
     </InoList>

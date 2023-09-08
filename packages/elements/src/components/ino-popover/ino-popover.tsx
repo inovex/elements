@@ -113,8 +113,7 @@ export class Popover implements ComponentInterface {
    * Sets the color scheme of the popup
    * Valid options include: 'primary', 'transparent'
    */
-  @Prop() colorScheme: 'primary' | 'transparent' =
-    'primary';
+  @Prop() colorScheme: 'primary' | 'transparent' = 'primary';
 
   /**
    * Use this if you want to interact with the popover content (e.g. button clicks)
@@ -164,8 +163,8 @@ export class Popover implements ComponentInterface {
   @Watch('delay')
   onDelayChange() {
     this.tippyInstance?.setProps({
-      delay: this.delay
-    })
+      delay: this.delay,
+    });
   }
 
   /**
@@ -234,10 +233,11 @@ export class Popover implements ComponentInterface {
     }
 
     // in HTML to check if "false" was provided
-    const shouldFollowCursor = this.followCursor && (this.followCursor as any) !== "false";
+    const shouldFollowCursor =
+      this.followCursor && (this.followCursor as any) !== 'false';
 
-    if(shouldFollowCursor) {
-      plugins.push(followCursor)
+    if (shouldFollowCursor) {
+      plugins.push(followCursor);
     }
 
     const options: Partial<Props> = {

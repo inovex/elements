@@ -43,14 +43,19 @@ export default {
 
 const template = new TemplateGenerator<Components.InoTabBar>(
   'ino-tab-bar',
-  args => html`
-  <ino-tab-bar id="customizable-tabbar" active-tab="${args.activeTab}" auto-focus="${args.autoFocus}">
-    <ino-tab label="User" icon="user"></ino-tab>
-    <ino-tab label="Messages" icon="message"></ino-tab>
-    <ino-tab label="Settings" icon="settings"></ino-tab>
-    <ino-tab label="Download" icon="download"></ino-tab>
-  </ino-tab-bar>
-`);
+  (args) => html`
+    <ino-tab-bar
+      id="customizable-tabbar"
+      active-tab="${args.activeTab}"
+      auto-focus="${args.autoFocus}"
+    >
+      <ino-tab label="User" icon="user"></ino-tab>
+      <ino-tab label="Messages" icon="message"></ino-tab>
+      <ino-tab label="Settings" icon="settings"></ino-tab>
+      <ino-tab label="Download" icon="download"></ino-tab>
+    </ino-tab-bar>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 export const ActiveTab = template.generateStoryForProp('activeTab', 1);

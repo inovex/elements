@@ -15,14 +15,16 @@ export default {
     },
   },
   decorators: [
-    story => decorateStoryWithClass(story, 'story-radio'),
-    story => {
+    (story) => decorateStoryWithClass(story, 'story-radio'),
+    (story) => {
       useEffect(() => {
-        const eventHandler = e => e.target.setAttribute('checked', e.detail);
+        const eventHandler = (e) => e.target.setAttribute('checked', e.detail);
         const radios = document.querySelectorAll('ino-radio');
-        radios.forEach(r => r.addEventListener('checkedChange', eventHandler));
+        radios.forEach((r) =>
+          r.addEventListener('checkedChange', eventHandler)
+        );
         return () =>
-          radios.forEach(r =>
+          radios.forEach((r) =>
             r.removeEventListener('checkedChange', eventHandler)
           );
       });
@@ -39,22 +41,23 @@ export default {
 
 const template = new TemplateGenerator<Components.InoRadio>(
   'ino-radio',
-  args => html`
-  <ino-radio
-    checked="${args.checked}"
-    disabled="${args.disabled}"
-    name="${args.name}"
-    value="${args.value}"
-  >
-    Radio Button Label
-  </ino-radio>
-`);
+  (args) => html`
+    <ino-radio
+      checked="${args.checked}"
+      disabled="${args.disabled}"
+      name="${args.name}"
+      value="${args.value}"
+    >
+      Radio Button Label
+    </ino-radio>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 
 /**
  * Default unchecked state of this element.
  */
-export const Unchecked = template.generatePlaygroundStory()
+export const Unchecked = template.generatePlaygroundStory();
 export const Checked = template.generateStoryForProp('checked', true);
 export const Disabled = template.generateStoryForProp('disabled', true);

@@ -9,7 +9,7 @@ import {
   Event,
   State,
   Watch,
-  Method
+  Method,
 } from '@stencil/core';
 import { generateUniqueId } from '../../util/component-utils';
 import classNames from 'classnames';
@@ -21,7 +21,7 @@ import { SortDirection, SortDirectionChangeDetails } from '../../interface';
 @Component({
   tag: 'ino-table-header-cell',
   styleUrl: 'ino-table-header-cell.scss',
-  shadow: false
+  shadow: false,
 })
 export class InoTableHeaderCell implements ComponentInterface {
   private tableHeaderCellId = `ino-table-header-cell-id_${generateUniqueId()}`;
@@ -122,7 +122,7 @@ export class InoTableHeaderCell implements ComponentInterface {
   @Method()
   async setFocus() {
     this.el.focus();
-    this.popoverElement?.getTippyInstance().then(tippy => tippy.show());
+    this.popoverElement?.getTippyInstance().then((tippy) => tippy.show());
   }
 
   /**
@@ -131,7 +131,7 @@ export class InoTableHeaderCell implements ComponentInterface {
   @Method()
   async setBlur() {
     this.el.blur();
-    this.popoverElement?.getTippyInstance().then(tippy => tippy.hide());
+    this.popoverElement?.getTippyInstance().then((tippy) => tippy.hide());
   }
 
   private sortButtonClickHandler() {
@@ -146,7 +146,7 @@ export class InoTableHeaderCell implements ComponentInterface {
 
     this.sortDirectionChange.emit({
       columnId: this.columnId,
-      sortDirection: sortDirection
+      sortDirection: sortDirection,
     } as SortDirectionChangeDetails);
   }
 
@@ -162,14 +162,14 @@ export class InoTableHeaderCell implements ComponentInterface {
 
   private create() {
     this.maybeSetMaxWidth();
-    this.popoverElement?.getTippyInstance().then(tippy => {
+    this.popoverElement?.getTippyInstance().then((tippy) => {
       if (!tippy) {
         return;
       }
       tippy.setProps({
         onMount: () => this.searchFocusChange.emit(true),
         onHidden: () => this.searchFocusChange.emit(false),
-        popperOptions: { ...tippy.popperOptions, strategy: 'fixed' }
+        popperOptions: { ...tippy.popperOptions, strategy: 'fixed' },
       });
       this.autofocus && tippy.show();
     });
@@ -201,7 +201,7 @@ export class InoTableHeaderCell implements ComponentInterface {
       'ino-table-header-cell--searchable': this.searchable,
       'ino-table-header-cell--sortable': !this.notSortable,
       'ino-table-header-cell--active': this.searchActivated,
-      'ino-table-header-cell--searched': this.searched
+      'ino-table-header-cell--searched': this.searched,
     });
 
     return (
@@ -219,8 +219,8 @@ export class InoTableHeaderCell implements ComponentInterface {
             controlled
             color-scheme="transparent"
             visible={this.searchActivated}
-            onVisibleChanged={e => (this.searchActivated = e.detail)}
-            ref={popover =>
+            onVisibleChanged={(e) => (this.searchActivated = e.detail)}
+            ref={(popover) =>
               (this.popoverElement = popover as HTMLInoPopoverElement)
             }
             interactive
@@ -253,8 +253,8 @@ export class InoTableHeaderCell implements ComponentInterface {
           <ino-icon-button
             class={`sort-${this.sortDirection || 'none'}`}
             icon={this.sortIcon}
-            onFocus={e => e.stopPropagation()}
-            onClick={e => e.stopPropagation()}
+            onFocus={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
             onClickEl={this.sortButtonClickHandler.bind(this)}
           />
         )}
@@ -262,9 +262,8 @@ export class InoTableHeaderCell implements ComponentInterface {
     );
   }
 
-
   get sortIcon() {
-    if(!this.sortDirection) return 'sort';
+    if (!this.sortDirection) return 'sort';
     return this.sortDirection == 'asc' ? 'sort_az' : 'sort_za';
   }
 }

@@ -1,6 +1,6 @@
 export enum Supported_Locales {
   DE = 'de',
-  EN = 'en'
+  EN = 'en',
 }
 
 export const defaultLocale = Supported_Locales.EN;

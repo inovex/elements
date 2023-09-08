@@ -83,7 +83,7 @@ const template = new TemplateGenerator<Components.InoPopover>(
         visible="${args.visible}"
         hide-on-blur="${args.hideOnBlur}"
         hide-on-esc="${args.hideOnEsc}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
       >
         <div class="styled-popover">
           <ino-icon icon="user"></ino-icon>
@@ -142,9 +142,9 @@ const templateControlledPopover = new TemplateGenerator<Components.InoPopover>(
   () => {
     const eventHandler = (e) => {
       e.target?.setAttribute('visible', e.detail);
-      (document.querySelector(
-        '#controlled-checkbox'
-      ) as HTMLInputElement).checked = e.detail;
+      (
+        document.querySelector('#controlled-checkbox') as HTMLInputElement
+      ).checked = e.detail;
     };
 
     return html`
@@ -170,4 +170,4 @@ export const Visible = templateControlledPopover.generateStoryForProp(
   true
 );
 
-export const Delay = template.generateStoryForProp('delay', [500, 200])
+export const Delay = template.generateStoryForProp('delay', [500, 200]);

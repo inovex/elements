@@ -159,7 +159,6 @@ describe('InoInput', () => {
   });
 
   describe('Events', () => {
-
     it('should trigger inoFocus-Event when focused', async () => {
       const spyOnFocusEvent = await inoInputEl.spyOnEvent('inoFocus');
       await nativeInputEl.focus();

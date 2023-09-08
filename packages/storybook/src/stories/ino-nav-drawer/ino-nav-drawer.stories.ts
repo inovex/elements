@@ -86,51 +86,60 @@ export default {
 
 const template = new TemplateGenerator<Components.InoNavDrawer>(
   'ino-nav-drawer',
-  args => html`
-  <div class="story-nav-drawer__default">
-    <ino-nav-drawer
-      open=${args.open}
-      anchor="${args.anchor}"
-      variant="${args.variant}"
-      class="customizable-drawer"
-    >
-      <div slot="header">
-        <ino-img
-          slot="logo"
-          src=${jamesLogo}
-          width="50"
-          alt=""
-        ></ino-img>
-        <p>inovex</p>
-      </div>
-      <ino-list role="menubar" slot="content" aria-label=${args.a11yLabels?.content}>
-        <ino-nav-item role="menuitem" text="Some Link" activated>
-          <ino-icon icon="onboarding"></ino-icon>
-        </ino-nav-item>
-        <ino-nav-item role="menuitem" text="Another Link">
-          <ino-icon icon="employee"></ino-icon>
-        </ino-nav-item>
-      </ino-list>
-      <ino-list role="menubar" slot="footer" aria-label=${args.a11yLabels?.footer}>
-        <ino-nav-item role="menuitem" text="My Profile">
-          <ino-icon icon="employee"></ino-icon>
-        </ino-nav-item>
-      </ino-list>
-
-      <main slot="app" class="main-content">
-        <ino-button fill="outline" dense class="toggle-nav"
-          >${args.a11yLabels?.toggleBtn}</ino-button
+  (args) => html`
+    <div class="story-nav-drawer__default">
+      <ino-nav-drawer
+        open=${args.open}
+        anchor="${args.anchor}"
+        variant="${args.variant}"
+        class="customizable-drawer"
+      >
+        <div slot="header">
+          <ino-img slot="logo" src=${jamesLogo} width="50" alt=""></ino-img>
+          <p>inovex</p>
+        </div>
+        <ino-list
+          role="menubar"
+          slot="content"
+          aria-label=${args.a11yLabels?.content}
         >
-        <br />
-        <br />
-        Your App goes here 🤘
-        <br /><br />
-      </main>
-    </ino-nav-drawer>
-  </div>
-`);
+          <ino-nav-item role="menuitem" text="Some Link" activated>
+            <ino-icon icon="onboarding"></ino-icon>
+          </ino-nav-item>
+          <ino-nav-item role="menuitem" text="Another Link">
+            <ino-icon icon="employee"></ino-icon>
+          </ino-nav-item>
+        </ino-list>
+        <ino-list
+          role="menubar"
+          slot="footer"
+          aria-label=${args.a11yLabels?.footer}
+        >
+          <ino-nav-item role="menuitem" text="My Profile">
+            <ino-icon icon="employee"></ino-icon>
+          </ino-nav-item>
+        </ino-list>
+
+        <main slot="app" class="main-content">
+          <ino-button fill="outline" dense class="toggle-nav"
+            >${args.a11yLabels?.toggleBtn}</ino-button
+          >
+          <br />
+          <br />
+          Your App goes here 🤘
+          <br /><br />
+        </main>
+      </ino-nav-drawer>
+    </div>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 export const AnchorRight = template.generateStoryForProp('anchor', 'right');
-export const Modal = template.generateStoryForProp('variant', 'modal', {open: false});
-export const Dismissible = template.generateStoryForProp('variant', 'dismissible');
+export const Modal = template.generateStoryForProp('variant', 'modal', {
+  open: false,
+});
+export const Dismissible = template.generateStoryForProp(
+  'variant',
+  'dismissible'
+);

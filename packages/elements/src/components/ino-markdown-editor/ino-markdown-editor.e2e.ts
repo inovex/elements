@@ -10,7 +10,7 @@ const MARKDOWN_TEXT = [
     '**bold**',
     '~~strikethrough~~',
     '[elements](https://github.com/inovex/elements)',
-    '`inline code`'
+    '`inline code`',
   ].join(' '),
   '',
   '> Blockquote\n',

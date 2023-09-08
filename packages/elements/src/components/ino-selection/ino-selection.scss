@@ -8,74 +8,71 @@ $padding-layout: $padding-vertical $padding-horizontal;
 $padding-list-item: 0.7rem $padding-horizontal;
 
 ino-selection {
-    .popover-content {
-        padding: 0;
-        display: flex;
-        width: 20rem;
-        max-height: 20rem;
-        min-height: 11.5rem;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius: 1.21429rem;
-        background: #FFF !important; // new ino-popover & ino-tooltp design takes care of this design issue
-        box-shadow: 0px 0px 22px 0px rgba(93, 91, 105, 0.35);
+  .popover-content {
+    padding: 0;
+    display: flex;
+    width: 20rem;
+    max-height: 20rem;
+    min-height: 11.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1.21429rem;
+    background: #fff !important; // new ino-popover & ino-tooltp design takes care of this design issue
+    box-shadow: 0px 0px 22px 0px rgba(93, 91, 105, 0.35);
+  }
 
+  .popover-content header {
+    padding: $padding-layout;
+    border-bottom: $border-styling;
+  }
+
+  .popover-content .ino-selection__list {
+    list-style-type: none;
+    overflow: scroll;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .popover-content .ino-selection__list-item {
+    font-size: 0.85rem;
+    padding: $padding-list-item;
+    cursor: pointer;
+
+    &:hover {
+      background-color: new-theme.$p-1;
+      color: new-theme.$black;
     }
 
-    .popover-content header {
-        padding: $padding-layout;
-        border-bottom: $border-styling;
+    &:active {
+      background-color: new-theme.$p-2;
+      color: new-theme.$black;
     }
 
-    .popover-content .ino-selection__list {
-        list-style-type: none;
-        overflow: scroll;
-        height: 100%;
-        margin: 0;
-        padding: 0;
+    &--selected {
+      background-color: new-theme.$p-2;
+      color: new-theme.$black;
     }
 
-    .popover-content .ino-selection__list-item {
-        font-size: 0.85rem;
-        padding: $padding-list-item;
-        cursor: pointer;
-
-        &:hover {
-            background-color: new-theme.$p-1;
-            color: new-theme.$black;
-        }
-
-        &:active {
-            background-color: new-theme.$p-2;
-            color: new-theme.$black;
-        }
-
-        &--selected {
-            background-color: new-theme.$p-2;
-            color: new-theme.$black;
-        }
-    
-        &--highlight {
-            color: new-theme.$p-7;
-            background-color: transparent;
-            font-weight: bold;
-        }
-    
-        &--no-match {
-            color: new-theme.$n-5;
-            pointer-events: none;
-        }
+    &--highlight {
+      color: new-theme.$p-7;
+      background-color: transparent;
+      font-weight: bold;
     }
 
-    .popover-content footer {
-        // padding will be decreased by the addOptionButton padding to achive visual alignment with remaining padding
-        padding: ($padding-vertical - 0.571rem) ($padding-horizontal - 0.571rem);
-        border-top: $border-styling;
+    &--no-match {
+      color: new-theme.$n-5;
+      pointer-events: none;
     }
+  }
 
-    .popover-content .ino-input--font-grey {
-        --ino-input-color: #{new-theme.$n-5};
-    }
+  .popover-content footer {
+    // padding will be decreased by the addOptionButton padding to achive visual alignment with remaining padding
+    padding: ($padding-vertical - 0.571rem) ($padding-horizontal - 0.571rem);
+    border-top: $border-styling;
+  }
+
+  .popover-content .ino-input--font-grey {
+    --ino-input-color: #{new-theme.$n-5};
+  }
 }
-
-

@@ -1,41 +1,41 @@
-.story-ino-selection{
-    height: 400px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 5px;
+.story-ino-selection {
+  height: 400px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
 
-    &:has(#ino-selection-placement){
-        align-items: flex-end;
-    }
+  &:has(#ino-selection-placement) {
+    align-items: flex-end;
+  }
 }
 
 #create-option-dialog {
-    section {
-        margin: 1rem 0 2rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        grid-template-areas: 
-            "text text text text"
-            "key value value value";
-    }
+  section {
+    margin: 1rem 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-template-areas:
+      'text text text text'
+      'key value value value';
+  }
 
-    p {
-        grid-area: text;
-    }
+  p {
+    grid-area: text;
+  }
 
-    #input-key {
-        grid-area: key;
-    }
+  #input-key {
+    grid-area: key;
+  }
 
-    #input-value {
-        grid-area: value;
-    }
-    
-    footer {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-    }
+  #input-value {
+    grid-area: value;
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
 }

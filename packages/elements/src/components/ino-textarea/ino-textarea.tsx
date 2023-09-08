@@ -154,9 +154,9 @@ export class Textarea implements ComponentInterface {
   }
 
   /**
-  * Sets blur on the native `textarea`.
-  * Use this method instead of the global `textarea.blur()`.
-  */
+   * Sets blur on the native `textarea`.
+   * Use this method instead of the global `textarea.blur()`.
+   */
   @Method()
   async setBlur() {
     this.nativeTextareaElement?.blur();

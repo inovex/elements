@@ -20,7 +20,7 @@ export const createTimePickerOptions = ({
   minuteIncrement,
   hourIncrement,
   noCalendar,
-  static: staticVal
+  static: staticVal,
 }: Partial<BaseOptions>): TimePicker => ({
   defaultHour,
   defaultMinute,
@@ -29,5 +29,5 @@ export const createTimePickerOptions = ({
   minuteIncrement,
   hourIncrement,
   noCalendar,
-  'static': staticVal
+  static: staticVal,
 });

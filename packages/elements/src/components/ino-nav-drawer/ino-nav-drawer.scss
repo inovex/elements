@@ -1,7 +1,7 @@
 @use '../base/mdc-customize';
 @use '@material/drawer/mdc-drawer';
-@use "@material/drawer";
-@use "@material/list";
+@use '@material/drawer';
+@use '@material/list';
 @use '../base/theme';
 
 @include drawer.core-styles;

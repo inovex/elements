@@ -5,7 +5,7 @@ import {
   MarkdownSerializerState,
 } from '@tiptap/pm/markdown';
 import { Node } from '@tiptap/pm/model';
-import taskLists from '@hedgedoc/markdown-it-task-lists'
+import taskLists from '@hedgedoc/markdown-it-task-lists';
 import Bold from '@tiptap/extension-bold';
 import Code from '@tiptap/extension-code';
 import Italic from '@tiptap/extension-italic';
@@ -20,8 +20,8 @@ import ListItem from '@tiptap/extension-list-item';
 import CodeBlock from '@tiptap/extension-code-block';
 import HardBreak from '@tiptap/extension-hard-break';
 import Link from '@tiptap/extension-link';
-import TaskItem from "./extensions/task_item";
-import TaskList from "./extensions/task_list";
+import TaskItem from './extensions/task_item';
+import TaskList from './extensions/task_list';
 
 // Source is partially taken from
 // https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/content_editor/services/markdown_serializer.js
@@ -71,9 +71,21 @@ const defaultSerializerConfig = {
       state.write(`[${node.attrs.checked ? 'x' : ' '}] `);
       state.renderContent(node);
     },
-    [TaskList.name]: (state: MarkdownSerializerState, node: Node, parent: Node, index: number) => {
-      if (node.attrs.numeric) defaultMarkdownSerializer.nodes.ordered_list(state, node, parent, index);
-      else defaultMarkdownSerializer.nodes.bullet_list(state, node, parent, index);
+    [TaskList.name]: (
+      state: MarkdownSerializerState,
+      node: Node,
+      parent: Node,
+      index: number
+    ) => {
+      if (node.attrs.numeric)
+        defaultMarkdownSerializer.nodes.ordered_list(
+          state,
+          node,
+          parent,
+          index
+        );
+      else
+        defaultMarkdownSerializer.nodes.bullet_list(state, node, parent, index);
     },
   },
 };
