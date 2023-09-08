@@ -59,6 +59,7 @@ export const config: Config = {
             'ino-switch',
             'ino-segment-button',
             'ino-control-item',
+            'ino-selection'
           ],
           targetAttr: 'checked',
           event: 'v-checked-change',

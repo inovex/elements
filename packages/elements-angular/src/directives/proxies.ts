@@ -1035,12 +1035,12 @@ export class InoSelect {
   }
 }
 
-import type { KeyValue as ISelectionKeyValue } from '@inovex.de/elements';
+
 export declare interface InoSelection extends Components.InoSelection {
   /**
    * Emits string of the added option. Contains new value in `event.detail`. 
    */
-  optionCreated: EventEmitter<CustomEvent<string | KeyValue>>;
+  optionCreated: EventEmitter<CustomEvent<string | { key: string; value: string }>>;
   /**
    * Emits when the ino-selection wants to show (`true`) or hide (`false`) itself.
 This is depended on the `trigger` property.
