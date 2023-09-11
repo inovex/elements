@@ -5426,7 +5426,48 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-option-deselected-background-color",
+          "annotation": "prop",
+          "docs": "Background color if deselected"
+        },
+        {
+          "name": "--ino-option-deselected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color if active and deselected"
+        },
+        {
+          "name": "--ino-option-deselected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color on focus if deselected"
+        },
+        {
+          "name": "--ino-option-deselected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color on hover if deselected"
+        },
+        {
+          "name": "--ino-option-selected-background-color",
+          "annotation": "prop",
+          "docs": "Background color if selected"
+        },
+        {
+          "name": "--ino-option-selected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color if active and selected"
+        },
+        {
+          "name": "--ino-option-selected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color on focus if selected"
+        },
+        {
+          "name": "--ino-option-selected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color on hover if selected"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -6925,7 +6966,18 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-select-height",
+          "annotation": "prop",
+          "docs": "Height of the open select menu"
+        },
+        {
+          "name": "--ino-select-icon-color",
+          "annotation": "prop",
+          "docs": "Icon color"
+        }
+      ],
       "slots": [
         {
           "name": "default",

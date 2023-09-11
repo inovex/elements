@@ -56,7 +56,7 @@ export default {
 } as Meta<Components.InoSelect>;
 
 const optionsTemplate = html`
-      <ino-option  value="Option 1">Option 1</ino-option>
+      <ino-option value="Option 1">Option 1</ino-option>
       <ino-option value="Option 2">Option 2</ino-option>
       <ino-option value="Option 3">Option 3</ino-option>
 `;
@@ -77,7 +77,7 @@ const template = new TemplateGenerator<Components.InoSelect>(
     helper-persistent="${args.helperPersistent}"
     helper-validation="${args.helperValidation}"
   >
-    <ino-option id="active#1" value="Option 1">Option 1</ino-option>
+    <ino-option value="Option 1">Option 1</ino-option>
     <ino-option value="Option 2">Option 2</ino-option>
     <ino-option value="Option 3">Option 3</ino-option>
   </ino-select>
