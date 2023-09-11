@@ -13,7 +13,7 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
+import {  generateUniqueId, hasSlotContent } from '../../util/component-utils';
 
 /**
  * @slot icon-leading - For the icon to be prepended
@@ -31,10 +31,17 @@ export class Select implements ComponentInterface {
   private mdcOptionsListEl?: HTMLUListElement;
   private nativeInputElement?: HTMLInputElement;
   private optionsObserver: MutationObserver;
- /**
+   /**
    * An internal auto generated id for the helper field.
    */
- private selectElId = generateUniqueId();
+
+
+  /**
+     * An internal auto generated id for the helper field.
+     */
+  private selectElId = generateUniqueId();
+
+
 
   @Element() el!: HTMLInoSelectElement;
 
@@ -137,9 +144,6 @@ export class Select implements ComponentInterface {
 
   componentDidLoad() {
     this.create();
-    (Array.from(this.mdcOptionsListEl.children) as HTMLOptionElement[]).forEach(el => {
-      el.id = `option-${this.selectElId}-${el.value}`;
-    })
     this.optionsObserver.observe(this.mdcOptionsListEl, { childList: true });
   }
 
@@ -249,11 +253,8 @@ export class Select implements ComponentInterface {
         <div class={classSelect} ref={(el) => (this.mdcSelectContainerEl = el)}>
           {hiddenInput}
           <div 
-            class="mdc-select__anchor mdc-select__selected-text"
-            aria-controls={`listbox-${this.selectElId}`}
+            class="mdc-select__anchor"
             aria-labelledby={`label-${this.selectElId}`}
-            role="combobox"
-            aria-activedescendant={`option-${this.selectElId}-${this.value}`}
             aria-required={this.required}>
             {leadingSlotHasContent && (
               <span class="mdc-select__icon">
@@ -273,10 +274,6 @@ export class Select implements ComponentInterface {
           </div>
           <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul
-              role="listbox"
-              id={`listbox-${this.selectElId}`}
-              tabindex="-1"
-              aria-labelledby="combo1-label"
               class="mdc-deprecated-list"
               ref={(el) => (this.mdcOptionsListEl = el)}
             >
