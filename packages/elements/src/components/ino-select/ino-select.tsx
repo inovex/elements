@@ -254,6 +254,8 @@ export class Select implements ComponentInterface {
           {hiddenInput}
           <div 
             class="mdc-select__anchor"
+            role="combobox"
+            tabindex="0"
             aria-labelledby={`label-${this.selectElId}`}
             aria-required={this.required}>
             {leadingSlotHasContent && (
@@ -272,9 +274,11 @@ export class Select implements ComponentInterface {
               show-hint={this.showLabelHint}
             />
           </div>
-          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+          <div 
+            class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul
               role="listbox"
+              tabindex="-1"
               class="mdc-deprecated-list"
               ref={(el) => (this.mdcOptionsListEl = el)}
             >
