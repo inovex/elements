@@ -274,6 +274,7 @@ export class Select implements ComponentInterface {
           </div>
           <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul
+              role="listbox"
               class="mdc-deprecated-list"
               ref={(el) => (this.mdcOptionsListEl = el)}
             >
