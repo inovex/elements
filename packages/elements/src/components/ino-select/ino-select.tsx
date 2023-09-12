@@ -31,10 +31,6 @@ export class Select implements ComponentInterface {
   private mdcOptionsListEl?: HTMLUListElement;
   private nativeInputElement?: HTMLInputElement;
   private optionsObserver: MutationObserver;
-   /**
-   * An internal auto generated id for the helper field.
-   */
-
 
   /**
      * An internal auto generated id for the helper field.
