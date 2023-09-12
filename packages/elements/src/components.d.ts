@@ -1129,6 +1129,10 @@ export namespace Components {
          */
         "displayAddOption": boolean;
         /**
+          * Displaces the ino-selection away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
+         */
+        "distance"?: number;
+        /**
           * A message to show consumer how to add a new option. Shows up if `ino-input` is empty
          */
         "emptyInputMessage": string;
@@ -1159,11 +1163,11 @@ export namespace Components {
         /**
           * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
          */
-        "placement": Placement;
+        "placement"?: Placement;
         /**
           * If true, keeps selection open, after selecting a option  default `stayOpen = false`
          */
-        "stayOpen": boolean;
+        "stayOpen"?: boolean;
         /**
           * The value of this element. (**unmanaged**)
          */
@@ -3108,6 +3112,10 @@ declare namespace LocalJSX {
           * Displays a "add new option item" button
          */
         "displayAddOption"?: boolean;
+        /**
+          * Displaces the ino-selection away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
+         */
+        "distance"?: number;
         /**
           * A message to show consumer how to add a new option. Shows up if `ino-input` is empty
          */

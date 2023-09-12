@@ -51,7 +51,13 @@ export class Selection implements ComponentInterface {
    * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
-  @Prop() placement: Placement = 'auto';
+  @Prop() placement?: Placement = 'auto';
+
+  /**
+   * Displaces the ino-selection away from, or toward, the anchor element in the direction of its placement.
+   * A positive number displaces it further away, while a negative number lets it overlap the anchor.
+   */
+  @Prop() distance?: number = 14;
 
   /**
    * The target id the popover belongs to.
@@ -70,7 +76,7 @@ export class Selection implements ComponentInterface {
    *
    * default `stayOpen = false`
    */
-  @Prop() stayOpen: boolean = false;
+  @Prop() stayOpen?: boolean = false;
 
   /**
    * marks the state of the selection as open.
@@ -414,7 +420,7 @@ export class Selection implements ComponentInterface {
       <Host>
         <ino-popover
           color-scheme="light"
-          distance={14}
+          distance={this.distance}
           placement={this.placement}
           trigger="click"
           visible={false}

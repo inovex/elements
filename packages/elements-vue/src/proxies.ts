@@ -453,6 +453,7 @@ export const InoSelection = /*@__PURE__*/ defineContainer<JSX.InoSelection, JSX.
   'debounce',
   'noOptionsText',
   'placement',
+  'distance',
   'for',
   'label',
   'stayOpen',

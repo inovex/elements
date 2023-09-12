@@ -1065,13 +1065,13 @@ Trigger on two occasions:
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['controlled', 'createOptionLabel', 'debounce', 'displayAddOption', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value', 'visible']
+  inputs: ['controlled', 'createOptionLabel', 'debounce', 'displayAddOption', 'distance', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value', 'visible']
 })
 @Component({
   selector: 'ino-selection',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['controlled', 'createOptionLabel', 'debounce', 'displayAddOption', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value', 'visible']
+  inputs: ['controlled', 'createOptionLabel', 'debounce', 'displayAddOption', 'distance', 'emptyInputMessage', 'error', 'for', 'label', 'noOptionsText', 'open', 'options', 'placement', 'stayOpen', 'value', 'visible']
 })
 export class InoSelection {
   protected el: HTMLElement;

@@ -303,6 +303,7 @@ const template = new TemplateGenerator<InoSelectionExtended>(
         debounce="${ifDefined(args.debounce)}"
         no-options-text="${ifDefined(args.noOptionsText)}"
         placement="${ifDefined(args.placement)}"
+        distance="${ifDefined(args.distance)}"
         for="${ifDefined(args.for)}"
         label="${args.label}"
         stay-open="${ifDefined(args.stayOpen)}"
@@ -340,6 +341,8 @@ export const noOptionsText = template.generateStoryForProp(
 export const Placement = template.generateStoryForProp('placement', 'top', {
   styleID: 'ino-selection-placement',
 });
+
+export const Distance = template.generateStoryForProp('distance', 40);
 
 // For-trigger cannot be child of ino-selection
 const templateFor = new TemplateGenerator<InoSelectionExtended>(
