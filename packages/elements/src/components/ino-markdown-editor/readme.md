@@ -22,14 +22,6 @@
 | `viewModeChange` | Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail` | `CustomEvent<"markdown" \| "preview" \| "readonly">` |
 
 
-## CSS Custom Properties
-
-| Name                               | Description                                          |
-| ---------------------------------- | ---------------------------------------------------- |
-| `--ino-markdown-editor-max-height` | max-height of text editor Default value is `none`.   |
-| `--ino-markdown-editor-min-height` | min-height of text editor. Default value is `100px`. |
-
-
 ## Dependencies
 
 ### Depends on

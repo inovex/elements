@@ -137,7 +137,9 @@ export class MarkdownEditor implements ComponentInterface {
       extensions: [
         StarterKit.configure({ bulletList: false }),
         BulletList,
-        Link,
+        Link.extend({
+          inclusive: false,
+        }),
         TaskItem,
         TaskList,
       ],
