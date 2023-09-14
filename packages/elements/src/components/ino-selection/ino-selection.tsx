@@ -430,17 +430,17 @@ export class Selection implements ComponentInterface {
                 <ino-icon slot="icon-leading" icon="search"></ino-icon>
               </ino-input>
             </header>
-            <footer>
               {this.displayAddOption && (
-                <ino-button
-                  variant="text"
-                  onClick={() => this.optionCreated.emit(this.searchTerm)}
-                >
-                  <ino-icon icon="add" slot="icon-leading"></ino-icon>
-                  {addOptionBtnText(this.searchTerm)}
-                </ino-button>
+                <footer>
+                  <ino-button
+                    variant="text"
+                    onClick={() => this.optionCreated.emit(this.searchTerm)}
+                  >
+                    <ino-icon icon="add" slot="icon-leading"></ino-icon>
+                    {addOptionBtnText(this.searchTerm)}
+                  </ino-button>
+                </footer>
               )}
-            </footer>
           </div>
         </ino-popover>
       </Host>

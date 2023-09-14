@@ -483,6 +483,8 @@ export const KeyValueOption = templateKeyValue.generateStoryForProp(
   }
 );
 
+export const DisplayAddOptions = template.generateStoryForProp('displayAddOption', false);
+
 const controlledTemplate = new TemplateGenerator<Components.InoSelection>(
   'ino-selection',
   (args) => {
