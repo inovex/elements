@@ -256,7 +256,7 @@ const createChip = (content: string | KeyValue, parentEl: Element | null) => {
 };
 
 const optionCreatedHandler = (e: {
-  target: HTMLInoSelectElement;
+  target: HTMLInoSelectionElement;
   detail: string & KeyValue;
 }) => {
   const selection = e.target;

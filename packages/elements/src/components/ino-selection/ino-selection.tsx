@@ -90,11 +90,6 @@ export class Selection implements ComponentInterface {
    */
   @Prop() options!: string[] | KeyValue[];
 
-  @Watch('options')
-  onOptionsChange() {
-    this.initAutocomplete();
-  }
-
   /**
    * Displays a "add new option item" button
    */
