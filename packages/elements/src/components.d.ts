@@ -1125,17 +1125,9 @@ export namespace Components {
          */
         "debounce": number;
         /**
-          * Displays a "add new option item" button
-         */
-        "displayAddOption": boolean;
-        /**
           * Displaces the ino-selection away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
-        /**
-          * A message to show consumer how to add a new option. Shows up if `ino-input` is empty
-         */
-        "emptyInputMessage": string;
         /**
           * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
          */
@@ -1145,6 +1137,10 @@ export namespace Components {
          */
         "for"?: string;
         /**
+          * Hides the footer with the "add new Option" button
+         */
+        "hideCreateOption": boolean;
+        /**
           * The placeholder text of the input.
          */
         "label"?: string;
@@ -1152,10 +1148,6 @@ export namespace Components {
           * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
          */
         "noOptionsText": string;
-        /**
-          * marks the state of the selection as open.  Initial value is `false`
-         */
-        "open": boolean;
         /**
           * All options either as string array or as array of `{key: string; value: string}` objects.
          */
@@ -1173,7 +1165,7 @@ export namespace Components {
          */
         "value": string | KeyValue | null;
         /**
-          * Programmatically show or hide ino-selection. Can only be used in controlled mode (see property `controlled`). Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
+          * Shows visibility of ino-selection.   Use with controlled mode (see property `controlled`) to programmatically show or hide ino-selection- Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
          */
         "visible"?: boolean;
     }
@@ -3109,17 +3101,9 @@ declare namespace LocalJSX {
          */
         "debounce"?: number;
         /**
-          * Displays a "add new option item" button
-         */
-        "displayAddOption"?: boolean;
-        /**
           * Displaces the ino-selection away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
-        /**
-          * A message to show consumer how to add a new option. Shows up if `ino-input` is empty
-         */
-        "emptyInputMessage"?: string;
         /**
           * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
          */
@@ -3128,6 +3112,10 @@ declare namespace LocalJSX {
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
         "for"?: string;
+        /**
+          * Hides the footer with the "add new Option" button
+         */
+        "hideCreateOption"?: boolean;
         /**
           * The placeholder text of the input.
          */
@@ -3149,10 +3137,6 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: InoSelectionCustomEvent<string | { key: string; value: string }>) => void;
         /**
-          * marks the state of the selection as open.  Initial value is `false`
-         */
-        "open"?: boolean;
-        /**
           * All options either as string array or as array of `{key: string; value: string}` objects.
          */
         "options": string[] | KeyValue[];
@@ -3169,7 +3153,7 @@ declare namespace LocalJSX {
          */
         "value"?: string | KeyValue | null;
         /**
-          * Programmatically show or hide ino-selection. Can only be used in controlled mode (see property `controlled`). Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
+          * Shows visibility of ino-selection.   Use with controlled mode (see property `controlled`) to programmatically show or hide ino-selection- Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
          */
         "visible"?: boolean;
     }

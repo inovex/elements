@@ -309,11 +309,9 @@ const template = new TemplateGenerator<InoSelectionExtended>(
         stay-open="${ifDefined(args.stayOpen)}"
         value="${ifDefined(args.value)}"
         error="${ifDefined(args.error)}"
-        open="${ifDefined(args.open)}"
         .options="${args.options}"
-        display-add-option="${ifDefined(args.displayAddOption)}"
-        empty-input-message="${ifDefined(args.emptyInputMessage)}"
         create-option-label="${ifDefined(args.createOptionLabel)}"
+        hide-create-option="${ifDefined(args.hideCreateOption)}"
         controlled="${ifDefined(args.controlled)}"
         visible="${ifDefined(args.visible)}"
         @valueChange="${(e) => handleValueChange(e)}"
@@ -483,7 +481,57 @@ export const KeyValueOption = templateKeyValue.generateStoryForProp(
   }
 );
 
-export const DisplayAddOptions = template.generateStoryForProp('displayAddOption', false);
+const createOptionLabelTemplate = new TemplateGenerator<Components.InoSelection>(
+  'ino-selection',
+  (args) => {
+    let inputEl: any;
+
+    const handleInputValueChange = (e: any) => {
+      const inoSelectionEl = document.querySelector('#create-option-label-selection')
+      if(e.detail === ''){
+        inoSelectionEl?.setAttribute('create-option-label', 'Type to add new option');
+      } else {
+        inoSelectionEl?.setAttribute('create-option-label', `Add option '${e.detail}'`);
+      }
+    }
+   
+    const handleVisible = (e) => {
+      // check ino-selection visibility to init a input listener
+      e.target.setAttribute('visible', e.detail);
+      if(e.detail) {
+        inputEl = document.querySelector('ino-input');
+        inputEl?.addEventListener('valueChange', handleInputValueChange);
+      } else {
+        inputEl?.removeEventListener('valueChange', handleInputValueChange);
+      }
+    };
+
+    return html`
+      <ino-selection
+        id="create-option-label-selection"
+        placement="${args.placement}"
+        label="${args.label}"
+        value="${ifDefined(args.value)}"
+        .options="${args.options}"
+        controlled="${ifDefined(args.controlled)}"
+        visible="false"
+        create-option-label="${ifDefined(args.createOptionLabel)}"
+        @selectionVisibleChanged="${(e) => handleVisible(e)}"
+        @valueChange="${(e) => handleValueChange(e)}"
+        @optionCreated="${(e) => optionCreatedHandler(e)}"
+      >
+        <ino-chip slot="popover-trigger">Trigger</ino-chip>
+      </ino-selection>
+    `;
+  }
+);
+
+export const CreateOptionLabel = createOptionLabelTemplate.generateStoryForProp('createOptionLabel', 'Type to add new Option', {
+  controlled: true,
+  label: 'type to see dynamic label',
+});
+
+export const HideCreateOption = template.generateStoryForProp('hideCreateOption', true);
 
 const controlledTemplate = new TemplateGenerator<Components.InoSelection>(
   'ino-selection',

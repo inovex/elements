@@ -79,27 +79,14 @@ export class Selection implements ComponentInterface {
   @Prop() stayOpen?: boolean = false;
 
   /**
-   * marks the state of the selection as open.
-   *
-   * Initial value is `false`
-   */
-  @Prop() open: boolean = false;
-
-  /**
    * All options either as string array or as array of `{key: string; value: string}` objects.
    */
   @Prop() options!: string[] | KeyValue[];
 
   /**
-   * Displays a "add new option item" button
+   * Hides the footer with the "add new Option" button
    */
-  @Prop() displayAddOption: boolean = true;
-
-  /**
-   * A message to show consumer how to add a new option.
-   * Shows up if `ino-input` is empty
-   */
-  @Prop() emptyInputMessage: string = 'Type to add new option';
+  @Prop() hideCreateOption: boolean = false;
 
   /**
    * The label for creating a new option button
@@ -121,7 +108,7 @@ export class Selection implements ComponentInterface {
   }
 
   /**
-   * Displays the searchterm as a new option to be created in the source option List
+   * Updates the state of the inoInputEl in the template to create the optionCreated Event detail
    */
   @State() searchTerm: string = '';
 
@@ -136,8 +123,9 @@ export class Selection implements ComponentInterface {
   @Prop() controlled = false;
 
   /**
-   * Programmatically show or hide ino-selection.
-   * Can only be used in controlled mode (see property `controlled`).
+   * Shows visibility of ino-selection. 
+   * 
+   * Use with controlled mode (see property `controlled`) to programmatically show or hide ino-selection-
    * Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
    */
   @Prop() visible?: boolean = false;
@@ -403,14 +391,8 @@ export class Selection implements ComponentInterface {
   private styleInputUnselected = () =>
     this.inoInputEl?.classList.add(Selection.UNSELECTED_INPUT_CLASS);
 
+  
   render() {
-    const addOptionBtnText = (searchTerm: string) => {
-      if (this.searchTerm.length > 0) {
-        return `${this.createOptionLabel} "${searchTerm}"`;
-      }
-      return this.emptyInputMessage;
-    };
-
     return (
       <Host>
         <ino-popover
@@ -430,14 +412,14 @@ export class Selection implements ComponentInterface {
                 <ino-icon slot="icon-leading" icon="search"></ino-icon>
               </ino-input>
             </header>
-              {this.displayAddOption && (
+              {!this.hideCreateOption && (
                 <footer>
                   <ino-button
                     variant="text"
-                    onClick={() => this.optionCreated.emit(this.searchTerm)}
+                    onClick={() => this.optionCreated.emit(this.searchTerm)} 
                   >
                     <ino-icon icon="add" slot="icon-leading"></ino-icon>
-                    {addOptionBtnText(this.searchTerm)}
+                    {this.createOptionLabel}
                   </ino-button>
                 </footer>
               )}
