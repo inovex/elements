@@ -72,8 +72,4 @@ ino-selection {
     padding: ($padding-vertical - 0.571rem) ($padding-horizontal - 0.571rem);
     border-top: $border-styling;
   }
-
-  .popover-content .ino-input--font-grey {
-    --ino-input-color: #{new-theme.$n-5};
-  }
 }

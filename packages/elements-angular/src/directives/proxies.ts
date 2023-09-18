@@ -1053,11 +1053,7 @@ and emits with `false` when the target or the outside is clicked.
   selectionVisibleChanged: EventEmitter<CustomEvent<boolean>>;
   /**
    * Emits the list item the user clicked on either as a string or
-a `{key: string; value: string}` object depending on the provided options.
-
-Trigger on two occasions:
-1. The user clicked on a list-item.
-2. The user types in a string that matches an option and blurs the input 
+a `{key: string; value: string}` object depending on the provided options. 
    */
   valueChange: EventEmitter<CustomEvent<string | { key: string; value: string }>>;
 

@@ -3,6 +3,7 @@ import { Meta } from '@storybook/web-components';
 import { decorateStoryWithClass } from '../utils';
 import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { repeat } from 'lit-html/directives/repeat.js';
 import './ino-selection.scss';
 import { TemplateGenerator } from '../template-generator';
 
@@ -241,6 +242,8 @@ const KeyValueOptions: KeyValue[] = [
   { key: 'i', value: 'Ida' },
 ];
 
+const valueList: string[] = [];
+
 const createChip = (content: string | KeyValue, parentEl: Element | null) => {
   if (parentEl && content) {
     const chip = document.createElement('ino-chip') as HTMLInoChipElement;
@@ -255,25 +258,26 @@ const createChip = (content: string | KeyValue, parentEl: Element | null) => {
   console.log('could not add ino-chip. No container found');
 };
 
-const optionCreatedHandler = (e: {
-  target: HTMLInoSelectionElement;
-  detail: string & KeyValue;
-}) => {
-  const selection = e.target;
+const optionCreatedHandler = (e: CustomEvent) => {
+  const selection = e.target as HTMLInoSelectionElement;
   const parentEl = (e.target as HTMLElement).closest('.story-ino-selection');
   options.push(e.detail);
   selection.setAttribute('options', `${options}`);
   createChip(e.detail as string | KeyValue, parentEl);
 };
 
-const handleValueChange = (e: any) => {
+const handleValueChange = (e: CustomEvent) => {
   const parentEl = (e.target as HTMLElement).closest('.story-ino-selection');
   if (e.detail === null) {
     return;
   }
+  const inoSelectionEl = e.target as HTMLInoSelectionElement;
+  valueList.push(e.detail);
+  inoSelectionEl.setAttribute('value', `${valueList}`);
   createChip(e.detail, parentEl);
-  if (e.target.controlled) {
-    e.target.setAttribute('visible', false);
+
+  if (inoSelectionEl.controlled) {
+    inoSelectionEl.setAttribute('visible', `${false}`);
   }
 };
 
@@ -287,6 +291,7 @@ export default {
     placement: 'bottom',
     label: 'Select label',
     options: options,
+    value: valueList,
   },
 } as Meta<Components.InoSelection>;
 
@@ -305,17 +310,17 @@ const template = new TemplateGenerator<InoSelectionExtended>(
         placement="${ifDefined(args.placement)}"
         distance="${ifDefined(args.distance)}"
         for="${ifDefined(args.for)}"
-        label="${args.label}"
+        label="${ifDefined(args.label)}"
         stay-open="${ifDefined(args.stayOpen)}"
-        value="${ifDefined(args.value)}"
+        .value="${valueList}"
         error="${ifDefined(args.error)}"
         .options="${args.options}"
         create-option-label="${ifDefined(args.createOptionLabel)}"
         hide-create-option="${ifDefined(args.hideCreateOption)}"
         controlled="${ifDefined(args.controlled)}"
         visible="${ifDefined(args.visible)}"
-        @valueChange="${(e) => handleValueChange(e)}"
-        @optionCreated="${(e) => optionCreatedHandler(e)}"
+        @valueChange="${(e: CustomEvent) => handleValueChange(e)}"
+        @optionCreated="${(e: CustomEvent) => optionCreatedHandler(e)}"
       >
         <ino-chip id="${ifDefined(args.for)}" slot="popover-trigger"
           >open selection</ino-chip
@@ -352,8 +357,8 @@ const templateFor = new TemplateGenerator<InoSelectionExtended>(
         for="${ifDefined(args.for)}"
         label="${args.label}"
         .options="${args.options}"
-        @valueChange="${(e) => handleValueChange(e)}"
-        @optionCreated="${(e) => optionCreatedHandler(e)}"
+        @valueChange="${(e: CustomEvent) => handleValueChange(e)}"
+        @optionCreated="${(e: CustomEvent) => optionCreatedHandler(e)}"
       ></ino-selection>
       <ino-chip id="${ifDefined(args.for)}">open selection</ino-chip>
     `;
@@ -366,7 +371,32 @@ export const Label = template.generateStoryForProp(
   'type something to search selection'
 );
 export const StayOpen = template.generateStoryForProp('stayOpen', true);
-export const Value = template.generateStoryForProp('value', 'first selection');
+
+const exampleValue = ['first-selection'];
+
+const templateValue = new TemplateGenerator<Components.InoSelection>(
+  'ino-selection',
+  (args) => {
+    return html`
+      <ino-selection
+        placement="${ifDefined(args.placement)}"
+        value="${args.value}"
+        .options="${args.options}"
+        @valueChange="${(e: CustomEvent) => handleValueChange(e)}"
+        @optionCreated="${(e: CustomEvent) => optionCreatedHandler(e)}"
+      >
+        <ino-chip id="${ifDefined(args.for)}" slot="popover-trigger"
+          >open selection</ino-chip
+        >
+      </ino-selection>
+      ${repeat(
+        args.value as string[],
+        (value, index) => html`<ino-chip>${value}</ino-chip>`
+      )}
+    `
+  }
+)
+export const Value = templateValue.generateStoryForProp('value', exampleValue);
 
 const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
   'ino-selection',
@@ -375,19 +405,25 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
     let key: string;
     let value: string;
 
-    const setKey = (e) => {
-      const inputEl = e.target;
-      inputEl.setAttribute('value', e.detail);
+    const setKey = (e: CustomEvent) => {
+      const inputEl = e.target as HTMLElement;
+      inputEl?.setAttribute('value', e.detail);
       key = e.detail;
     };
 
-    const setValue = (e) => {
-      const inputEl = e.target;
-      inputEl.setAttribute('value', e.detail);
+    const setValue = (e: CustomEvent) => {
+      const inputEl = e.target as HTMLElement;;
+      inputEl?.setAttribute('value', e.detail);
       value = e.detail;
     };
 
-    const openDialog = () => {
+    const handleVisible = (e: CustomEvent) => {
+      const inoSectionEl = e.target as HTMLInoSelectionElement;
+      inoSectionEl?.setAttribute('visible', e.detail)
+    }
+
+    const openDialog = (e: CustomEvent) => {
+      if(e.detail === "") return
       const selection = document.querySelector('#ino-selection-key-value');
       const dialogEl = document.querySelector('#create-option-dialog');
       dialogEl?.setAttribute('open', `${true}`);
@@ -396,7 +432,12 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
       selection?.setAttribute('visible', `${false}`);
     };
 
-    const createKeyValueOption = (e) => {
+    const closeDialog = () => {
+      const dialogEl = document.querySelector('#create-option-dialog');
+      dialogEl?.setAttribute('open', `${false}`);
+    }
+
+    const createKeyValueOption = () => {
       const selection = document.querySelector('#ino-selection-key-value');
       const dialogEl = document.querySelector('#create-option-dialog');
       const inputKey = document.querySelector('#input-key');
@@ -420,22 +461,20 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
         id="ino-selection-key-value"
         placement="${args.placement}"
         label="${args.label}"
-        value="${ifDefined(args.value)}"
+        .value="${args.value}"
         .options="${args.options}"
         controlled="${ifDefined(args.controlled)}"
         visible="${ifDefined(args.visible)}"
-        @selectionVisibleChanged="${(e) => {
-          e.target.visible = e.detail;
-        }}"
-        @valueChange="${(e) => handleValueChange(e)}"
-        @optionCreated="${(e) => openDialog(e)}"
+        @selectionVisibleChanged="${(e: CustomEvent) => handleVisible(e)}"
+        @valueChange="${(e: CustomEvent) => handleValueChange(e)}"
+        @optionCreated="${(e: CustomEvent) => openDialog(e)}"
       >
         <ino-chip slot="popover-trigger">open selection</ino-chip>
       </ino-selection>
       <ino-dialog
         id="create-option-dialog"
         header-text="Add an option"
-        @close="${(e) => e.target.setAttribute('open', false)}"
+        @close="${() => closeDialog()}"
       >
         <section slot="body">
           <p>You have to provide a key and a value to add an option</p>
@@ -443,27 +482,25 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
             outline
             id="input-key"
             label="key"
-            @valueChange="${(e) => setKey(e)}"
+            @valueChange="${(e: CustomEvent) => setKey(e)}"
           >
           </ino-input>
           <ino-input
             outline
             id="input-value"
             label="value"
-            @valueChange="${(e) => setValue(e)}"
+            @valueChange="${(e: CustomEvent) => setValue(e)}"
           >
           </ino-input>
         </section>
         <footer slot="footer">
           <ino-button
             variant="outlined"
-            @click="${(e) => {
-              e.target.closest('ino-dialog ').open = false;
-            }}"
+            @click="${() => closeDialog()}"
           >
             cancel
           </ino-button>
-          <ino-button @click="${(e) => createKeyValueOption(e)}">
+          <ino-button @click="${() => createKeyValueOption()}">
             Add option
           </ino-button>
         </footer>
@@ -484,22 +521,24 @@ export const KeyValueOption = templateKeyValue.generateStoryForProp(
 const createOptionLabelTemplate = new TemplateGenerator<Components.InoSelection>(
   'ino-selection',
   (args) => {
-    let inputEl: any;
+    let inputEl: HTMLInoInputElement | null;
 
-    const handleInputValueChange = (e: any) => {
+    const handleInputValueChange = (e: Event | CustomEvent) => {
       const inoSelectionEl = document.querySelector('#create-option-label-selection')
-      if(e.detail === ''){
+      if(!(e instanceof CustomEvent)) return
+      if(e.detail === ""){
         inoSelectionEl?.setAttribute('create-option-label', 'Type to add new option');
       } else {
         inoSelectionEl?.setAttribute('create-option-label', `Add option '${e.detail}'`);
       }
     }
    
-    const handleVisible = (e) => {
+    const handleVisible = (e: CustomEvent) => {
       // check ino-selection visibility to init a input listener
-      e.target.setAttribute('visible', e.detail);
+      const inoSelectionEl = e.target as HTMLInoSelectionElement;
+      inoSelectionEl.setAttribute('visible', e.detail);
       if(e.detail) {
-        inputEl = document.querySelector('ino-input');
+        inputEl = document.querySelector('ino-input') as HTMLInoInputElement;
         inputEl?.addEventListener('valueChange', handleInputValueChange);
       } else {
         inputEl?.removeEventListener('valueChange', handleInputValueChange);
@@ -516,9 +555,9 @@ const createOptionLabelTemplate = new TemplateGenerator<Components.InoSelection>
         controlled="${ifDefined(args.controlled)}"
         visible="false"
         create-option-label="${ifDefined(args.createOptionLabel)}"
-        @selectionVisibleChanged="${(e) => handleVisible(e)}"
-        @valueChange="${(e) => handleValueChange(e)}"
-        @optionCreated="${(e) => optionCreatedHandler(e)}"
+        @selectionVisibleChanged="${(e: CustomEvent) => handleVisible(e)}"
+        @valueChange="${(e: CustomEvent) => handleValueChange(e)}"
+        @optionCreated="${(e: CustomEvent) => optionCreatedHandler(e)}"
       >
         <ino-chip slot="popover-trigger">Trigger</ino-chip>
       </ino-selection>
@@ -536,8 +575,9 @@ export const HideCreateOption = template.generateStoryForProp('hideCreateOption'
 const controlledTemplate = new TemplateGenerator<Components.InoSelection>(
   'ino-selection',
   (args) => {
-    const handleVisible = (e) => {
-      e.target.setAttribute('visible', e.detail);
+    const handleVisible = (e: CustomEvent) => {
+      const inoSelectionEl = e.target as HTMLInoSelectionElement;
+      inoSelectionEl.setAttribute('visible', e.detail);
     };
 
     return html`
@@ -549,9 +589,9 @@ const controlledTemplate = new TemplateGenerator<Components.InoSelection>(
         .options="${args.options}"
         controlled="${ifDefined(args.controlled)}"
         visible="${ifDefined(args.visible)}"
-        @selectionVisibleChanged="${(e) => handleVisible(e)}"
-        @valueChange="${(e) => handleValueChange(e)}"
-        @optionCreated="${(e) => optionCreatedHandler(e)}"
+        @selectionVisibleChanged="${(e: CustomEvent) => handleVisible(e)}"
+        @valueChange="${(e: CustomEvent) => handleValueChange(e)}"
+        @optionCreated="${(e: CustomEvent) => optionCreatedHandler(e)}"
       >
         <ino-chip slot="popover-trigger">Trigger</ino-chip>
       </ino-selection>

@@ -1161,9 +1161,9 @@ export namespace Components {
          */
         "stayOpen"?: boolean;
         /**
-          * The value of this element. (**unmanaged**)
+          * List of selected items. (**unmanaged**)
          */
-        "value": string | KeyValue | null;
+        "value": string[] | KeyValue[] | null;
         /**
           * Shows visibility of ino-selection.   Use with controlled mode (see property `controlled`) to programmatically show or hide ino-selection- Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
          */
@@ -3133,7 +3133,7 @@ declare namespace LocalJSX {
          */
         "onSelectionVisibleChanged"?: (event: InoSelectionCustomEvent<boolean>) => void;
         /**
-          * Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input
+          * Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.
          */
         "onValueChange"?: (event: InoSelectionCustomEvent<string | { key: string; value: string }>) => void;
         /**
@@ -3149,9 +3149,9 @@ declare namespace LocalJSX {
          */
         "stayOpen"?: boolean;
         /**
-          * The value of this element. (**unmanaged**)
+          * List of selected items. (**unmanaged**)
          */
-        "value"?: string | KeyValue | null;
+        "value"?: string[] | KeyValue[] | null;
         /**
           * Shows visibility of ino-selection.   Use with controlled mode (see property `controlled`) to programmatically show or hide ino-selection- Use the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.
          */

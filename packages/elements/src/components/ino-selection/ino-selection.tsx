@@ -113,9 +113,9 @@ export class Selection implements ComponentInterface {
   @State() searchTerm: string = '';
 
   /**
-   * The value of this element. (**unmanaged**)
+   * List of selected items. (**unmanaged**)
    */
-  @Prop() value: string | KeyValue | null;
+  @Prop() value: string[] | KeyValue[] | null;
 
   /**
    * Used to indicate if the visibility of the ino-selection should be controlled by itself (`false`) or manually by the `visible` property (`true`) of the popover
@@ -157,29 +157,9 @@ export class Selection implements ComponentInterface {
    */
   @Event() selectionVisibleChanged: EventEmitter<boolean>;
 
-  @Watch('value')
-  onValueChange(value: string | KeyValue | null) {
-    if (value === null) {
-      this.resetInput();
-      this.styleInputUnselected();
-      return;
-    }
-
-    const val = Selection.isKeyValue(value) ? value.value : value;
-
-    if (this.inoInputEl) this.inoInputEl.value = val;
-    if (this.inputEl)
-      this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
-    this.styleInputSelected();
-  }
-
   /**
    * Emits the list item the user clicked on either as a string or
    * a `{key: string; value: string}` object depending on the provided options.
-   *
-   * Trigger on two occasions:
-   * 1. The user clicked on a list-item.
-   * 2. The user types in a string that matches an option and blurs the input
    */
   @Event() valueChange!: EventEmitter<string | { key: string; value: string }>;
 
@@ -201,27 +181,6 @@ export class Selection implements ComponentInterface {
     }
 
     this.inoPopoverEl.visible = false;
-  }
-
-  @Listen('close')
-  onClose(ev: CustomEvent<any>) {
-    if (ev.detail.event) return; // contains pointer event if closed by selection
-
-    const { query, matches } = ev.detail;
-
-    const exactMatch: Selection = matches.find(
-      (match) =>
-        (Selection.isKeyValue(match.value)
-          ? match.value.value
-          : match.value) === query
-    );
-
-    if (exactMatch) {
-      this.valueChange.emit(exactMatch.value);
-    } else {
-      this.valueChange.emit(null);
-      this.resetInput();
-    }
   }
 
   /**
@@ -348,7 +307,7 @@ export class Selection implements ComponentInterface {
     //set automatic focus on input to show resultList
     this.inoInputEl.focus();
 
-    if (this.value) this.onValueChange(this.value);
+    this.resetInput();
   }
 
   private createNoMatchMessage(query: string): HTMLDivElement {
@@ -373,9 +332,9 @@ export class Selection implements ComponentInterface {
   @Listen('MDCSelect:change')
   handleInput(e: CustomEvent<MDCSelectEventDetail>) {
     e.preventDefault();
-    const detailValue = e.detail?.value;
+    const detailValue = e.detail?.value as string & KeyValue;
 
-    if (detailValue !== this.value) {
+    if (!this.value.includes(detailValue)) {
       this.valueChange.emit(detailValue);
     }
   }
@@ -383,14 +342,6 @@ export class Selection implements ComponentInterface {
   private static isKeyValue(value: string | KeyValue): value is KeyValue {
     return (value as KeyValue).value !== undefined;
   }
-
-  private static UNSELECTED_INPUT_CLASS = 'ino-input--font-grey';
-
-  private styleInputSelected = () =>
-    this.inoInputEl?.classList.remove(Selection.UNSELECTED_INPUT_CLASS);
-  private styleInputUnselected = () =>
-    this.inoInputEl?.classList.add(Selection.UNSELECTED_INPUT_CLASS);
-
   
   render() {
     return (

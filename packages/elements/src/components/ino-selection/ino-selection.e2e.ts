@@ -94,7 +94,7 @@ describe('InoSelection', () => {
       expect(optionList).toBeNull();
     })
 
-    it('should show an addOption button on render with default string "Type to add new option"', async () => {
+    it('should show an addOption button on render with default string "Add option"', async () => {
       openSelection();
       // check if button exists on selection
       await page.waitForSelector('ino-button');
@@ -105,7 +105,7 @@ describe('InoSelection', () => {
       // check if label is correct
       const addOptionTextContent = await page.$eval('ino-button', (e: any) => e.textContent);
       await page.waitForChanges();
-      expect(addOptionTextContent).toEqualText('Type to add new option');
+      expect(addOptionTextContent).toEqualText('Add option');
     })
 
     it('should hide addOption button if displayAddOption is false', async () => {
@@ -249,23 +249,6 @@ describe('InoSelection', () => {
       const inputValue = await page.$eval('input', (e: any) => e.blur());
       await page.waitForChanges();
       expect(inputValue).not.toBeDefined();
-    });
-
-    it('should emit null on blur if its a non-matched option', async () => {
-      openSelection();
-      const spy = await page.spyOnEvent('valueChange');
-      // Input something with will trigger a no match
-      await page.waitForSelector('input');
-      const inputEl = await page.$('input');
-      await inputEl.press('KeyC');
-      await page.waitForChanges();
-
-      // blur input 
-      await page.$eval('input', (e: HTMLInputElement) => e.blur());
-      await page.waitForChanges();
-      // check for empty input
-      expect(spy).toHaveReceivedEvent();
-      expect(spy).toHaveReceivedEventDetail(null);
     });
 
     it('should be able to select option that was added afterwards', async () => {
