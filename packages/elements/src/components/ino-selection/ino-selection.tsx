@@ -181,6 +181,7 @@ export class Selection implements ComponentInterface {
     }
 
     this.inoPopoverEl.visible = false;
+    this.resetInput();
   }
 
   /**
@@ -243,6 +244,7 @@ export class Selection implements ComponentInterface {
         this.initSelection();
       } else {
         this.inoPopoverEl.visible = false;
+        this.resetInput();
       }
     }
   };
@@ -306,6 +308,7 @@ export class Selection implements ComponentInterface {
     this.autocomplete = new autoComplete(config);
     //set automatic focus on input to show resultList
     this.inoInputEl.focus();
+
 
     this.resetInput();
   }
