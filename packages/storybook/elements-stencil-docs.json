@@ -6980,9 +6980,9 @@
       "filePath": "./src/components/ino-selection/ino-selection.tsx",
       "fileName": "ino-selection.tsx",
       "tag": "ino-selection",
-      "readme": "# ino-selection\n\n\n",
+      "readme": "# ino-selection\n\nA component providing a searchable and expandable selection menu inside a popover.\n\n### Usage\n\nThe component can be used as follows\n\n```js\ndocument\n  .querySelector('ino-selection')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new select value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-selection\n  \n  value=\"<string>\"\n  \n>\n  <ino-chip slot=\"popover-trigger\">open selection</ino-chip>\n</ino-selection>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSelect, InoOption } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoSelect; inoLabel=\"Form select\"; required>\n        <InoOption; value=\"Test\">Test</InoOption>\n      </InoSelect>;;\n    )\n  }\n}\n```\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSelect, InoOption } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Select: React.FunctionComponent<Components.InoSelectAttributes> = props => {\n  const { inoLabel, required } = props;\n\n  return (\n    <InoSelect;\n      inoLabel={inoLabel};\n      required={required}\n    >\n      {props.children}\n    </InoSelect>;;\n  )\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Select; inoLabel=\"Form select\"; required>\n        <InoOption; value=\"Test\">Test</InoOption>\n      </Select>;;\n    )\n  }\n}\n```\n## Additional Hints\n\nBy clicking the `+`-button, the current search term will be emitted as `optionCreated` Event. To give the user an immediate overview of which option they will add, use the current search term of `input` in `addOptionLabel`.\n \n### Control flow\n\nThe selection has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of select.\n\n```js\ndocument\n  .querySelector('ino-select')\n  .addEventListener('valueChange', (e) => (this.state.value = e.detail));\n```\n\n### Event Behavior\n\nThe component behaves like a native select with additional features. The native `input'` is not bubbled. The component will emit a `valueChange` event if the value of the group changes.\n\n",
       "usage": {},
-      "docs": "",
+      "docs": "A component providing a searchable and expandable selection menu inside a popover.",
       "docsTags": [
         {
           "name": "slot",
@@ -7065,37 +7065,20 @@
           "required": false
         },
         {
-          "name": "displayAddOption",
-          "type": "boolean",
+          "name": "distance",
+          "type": "number",
           "mutable": false,
-          "attr": "display-add-option",
+          "attr": "distance",
           "reflectToAttr": false,
-          "docs": "Displays a \"add new option item\" button",
+          "docs": "Displaces the ino-selection away from, or toward, the anchor element in the direction of its placement.\nA positive number displaces it further away, while a negative number lets it overlap the anchor.",
           "docsTags": [],
-          "default": "true",
+          "default": "14",
           "values": [
             {
-              "type": "boolean"
+              "type": "number"
             }
           ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "emptyInputMessage",
-          "type": "string",
-          "mutable": false,
-          "attr": "empty-input-message",
-          "reflectToAttr": false,
-          "docs": "A message to show consumer how to add a new option.\nShows up if `ino-input` is empty",
-          "docsTags": [],
-          "default": "'Type to add new option'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7131,6 +7114,23 @@
           "required": false
         },
         {
+          "name": "hideCreateOption",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-create-option",
+          "reflectToAttr": false,
+          "docs": "Hides the footer with the \"add new Option\" button",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "label",
           "type": "string",
           "mutable": false,
@@ -7158,23 +7158,6 @@
           "values": [
             {
               "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "open",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "open",
-          "reflectToAttr": false,
-          "docs": "marks the state of the selection as open.\n\nInitial value is `false`",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": false,
@@ -7269,7 +7252,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7286,23 +7269,22 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
           "name": "value",
-          "type": "string | { key: string; value: string; }",
+          "type": "KeyValue[] | string[]",
           "mutable": false,
-          "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of this element. (**unmanaged**)",
+          "docs": "List of selected items. (**unmanaged**)",
           "docsTags": [],
           "values": [
             {
-              "type": "string"
+              "type": "KeyValue[]"
             },
             {
-              "type": "{ key: string; value: string; }"
+              "type": "string[]"
             }
           ],
           "optional": false,
@@ -7314,7 +7296,7 @@
           "mutable": false,
           "attr": "visible",
           "reflectToAttr": false,
-          "docs": "Programmatically show or hide ino-selection.\nCan only be used in controlled mode (see property `controlled`).\nUse the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.",
+          "docs": "Shows visibility of ino-selection. \n\nUse with controlled mode (see property `controlled`) to programmatically show or hide ino-selection-\nUse the `selectionVisibleChanged` to sync the ino-selections' visibility state with yours.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -7352,7 +7334,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits the list item the user clicked on either as a string or\na `{key: string; value: string}` object depending on the provided options.\n\nTrigger on two occasions:\n1. The user clicked on a list-item.\n2. The user types in a string that matches an option and blurs the input",
+          "docs": "Emits the list item the user clicked on either as a string or\na `{key: string; value: string}` object depending on the provided options.",
           "docsTags": []
         }
       ],
@@ -7372,11 +7354,6 @@
         },
         {
           "event": "selection",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "close",
           "capture": false,
           "passive": false
         },
