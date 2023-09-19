@@ -216,16 +216,16 @@ export class InoTableHeaderCell implements ComponentInterface {
           <ino-popover
             trigger="focus click"
             placement="bottom-start"
-            controlled
-            color-scheme="transparent"
+            controlled={true}
+            colorScheme="light"
             visible={this.searchActivated}
             onVisibleChanged={(e) => (this.searchActivated = e.detail)}
             ref={(popover) =>
               (this.popoverElement = popover as HTMLInoPopoverElement)
             }
-            interactive
+            interactive={true}
             distance={8}
-            hideOnBlur
+            hideOnBlur={true}
           >
             <div
               class="mdc-data-table__header-cell-wrapper"

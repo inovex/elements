@@ -679,18 +679,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-carousel-animation-duration",
-          "annotation": "prop",
-          "docs": "sets the duration of the slide animation"
-        },
-        {
-          "name": "--ino-carousel-icon-color",
-          "annotation": "prop",
-          "docs": "sets the color of the navigation buttons"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -4306,6 +4295,22 @@
           "required": false
         },
         {
+          "name": "for",
+          "type": "string",
+          "mutable": false,
+          "attr": "for",
+          "reflectToAttr": false,
+          "docs": "Id of the associated form control",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "outline",
           "type": "boolean",
           "mutable": false,
@@ -4869,18 +4874,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-markdown-editor-max-height",
-          "annotation": "prop",
-          "docs": "max-height of text editor Default value is `none`."
-        },
-        {
-          "name": "--ino-markdown-editor-min-height",
-          "annotation": "prop",
-          "docs": "min-height of text editor. Default value is `100px`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": []
@@ -5139,43 +5133,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-nav-drawer-background",
-          "annotation": "prop",
-          "docs": "Background of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-height",
-          "annotation": "prop",
-          "docs": "Height of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-text-color",
-          "annotation": "prop",
-          "docs": "Color of text inside the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-timing-function",
-          "annotation": "prop",
-          "docs": "Timing function of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-transition-duration",
-          "annotation": "prop",
-          "docs": "Duration of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-closed",
-          "annotation": "prop",
-          "docs": "Docked variant only! The width of the collapsed drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-open",
-          "annotation": "prop",
-          "docs": "The width of the open drawer."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "app",
@@ -5578,6 +5536,23 @@
       },
       "props": [
         {
+          "name": "arrow",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "arrow",
+          "reflectToAttr": false,
+          "docs": "Shows an arrow pointing towards its trigger-element",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "attachToBody",
           "type": "boolean",
           "mutable": false,
@@ -5596,20 +5571,24 @@
         },
         {
           "name": "colorScheme",
-          "type": "\"primary\" | \"transparent\"",
+          "type": "\"dark\" | \"light\" | \"primary\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the popup\nValid options include: 'primary', 'transparent'",
+          "docs": "Sets the color scheme of the popup.\n\nValid options include: `primary`, `light` and `dark`.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "primary",
+              "value": "dark",
               "type": "string"
             },
             {
-              "value": "transparent",
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
               "type": "string"
             }
           ],
@@ -5639,7 +5618,7 @@
           "mutable": false,
           "attr": "delay",
           "reflectToAttr": false,
-          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
+          "docs": "The delay in milliseconds before `ino-popover` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -6945,18 +6924,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-select-height",
-          "annotation": "prop",
-          "docs": "Height of the open select menu"
-        },
-        {
-          "name": "--ino-select-icon-color",
-          "annotation": "prop",
-          "docs": "Icon color"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6980,9 +6948,9 @@
       "filePath": "./src/components/ino-selection/ino-selection.tsx",
       "fileName": "ino-selection.tsx",
       "tag": "ino-selection",
-      "readme": "# ino-selection\n\nA component providing a searchable and expandable selection menu inside a popover.\n\n### Usage\n\nThe component can be used as follows\n\n```js\ndocument\n  .querySelector('ino-selection')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new select value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-selection\n  \n  value=\"<string>\"\n  \n>\n  <ino-chip slot=\"popover-trigger\">open selection</ino-chip>\n</ino-selection>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSelect, InoOption } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoSelect; inoLabel=\"Form select\"; required>\n        <InoOption; value=\"Test\">Test</InoOption>\n      </InoSelect>;;\n    )\n  }\n}\n```\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSelect, InoOption } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Select: React.FunctionComponent<Components.InoSelectAttributes> = props => {\n  const { inoLabel, required } = props;\n\n  return (\n    <InoSelect;\n      inoLabel={inoLabel};\n      required={required}\n    >\n      {props.children}\n    </InoSelect>;;\n  )\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Select; inoLabel=\"Form select\"; required>\n        <InoOption; value=\"Test\">Test</InoOption>\n      </Select>;;\n    )\n  }\n}\n```\n## Additional Hints\n\nBy clicking the `+`-button, the current search term will be emitted as `optionCreated` Event. To give the user an immediate overview of which option they will add, use the current search term of `input` in `addOptionLabel`.\n \n### Control flow\n\nThe selection has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of select.\n\n```js\ndocument\n  .querySelector('ino-select')\n  .addEventListener('valueChange', (e) => (this.state.value = e.detail));\n```\n\n### Event Behavior\n\nThe component behaves like a native select with additional features. The native `input'` is not bubbled. The component will emit a `valueChange` event if the value of the group changes.\n\n",
+      "readme": "# ino-selection\n\nA component providing a searchable and expandable selection menu inside a [<ino-popover>](https://elements.inovex.de/de/library/components?element=notification-ino-popover--playground).\n\nThis component handles the following tasks:\n\n- Management of the `value` property of the [<ino-input>](https://elements.inovex.de/de/library/components?element=input-ino-input--playground) element\n- Management of showing and hiding the different options filtered on the basis of the input\n- Keyboard navigation on the options\n- Renders content of `<ino-popover>` only on opening\n\n### Usage\n\nThe component can be used as follows\n\n```html\n<ino-selection \n  id=\"<string>\"\n  debounce=\"<number>\"\n  no-options-text=\"<string>\"\n  placement=\"<string>\"\n  distance=\"<number>\"\n  for=\"<string>\"\n  label=\"<string>\"\n  stay-open=\"<boolean>\"\n  value=\"<string[] | {key: <string>, value: <string>}[]>\"\n  error=\"<string>\"\n  options=\"<string[] | {key: <string>, value: <string>}[]>\"\n  create-option-label=\"<string>\"\n  hide-create-option=\"<boolean>\"\n  controlled=\"<boolean>\"\n  visible=\"<boolean>\"\n  onValueChange=\"handleValueChange()\"\n  onOptionCreated=\"handleOptionCreated()\"\n  onSelectionVisibleChanged=\"handleSelectionVisibleChanged()\"\n>\n  <ino-chip slot=\"popover-trigger\" ...>open selection</ino-chip> // use clickable element of your choice ino-button, ino-chip ...\n</ino-selection>\n```\n\n```js\ndocument\n  .querySelector('ino-selection');\n  .addEventListener('valueChange', (e) => alert(`The new select value is: ${e.detail}`));\n\n```\n\n### React\n\n#### Example #1 - Basic\n<!-- Weird indentations because of render in Storybook -->\n```jsx\nimport { Component } from 'react';\nimport { InoSelection, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoSelection \n                    id={id}\n                    debounce={debounce}\n                    noOptionsText={noOptionText}\n                    placement={placement}\n                    distance={number}\n                    for={for}\n                    label={label}\n                    stayOpen\n                    value={value}\n                    error={error}\n                    options={options}\n                    createOptionLabel={createOptionLabel}\n                    hideCreateOption\n                    controlled\n                    visible\n                    onValueChange={handleValueChange}\n                    onOptionCreated={handleOptionCreated}\n                    onSelectionVisibleChanged={handleSelectionVisibleChanged}\n            >\n              <ino-chip slot=\"popover-trigger\">open selection</ino-chip>\n            </InoSelection>\n    )\n  }\n}\n```\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoSelection, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Selection: React.FunctionComponent<Components.InoSelectionAttributes> = props => {\n  const { id, debounce, noOptionsText, placement, distance, for, label, stayOpen, value, error, options, createOptionLabel, hideCreateOption, controlled, visible, onValueChange, onOptionCreated, onSelectionVisibleChanged } = props;\n\n  return (\n    <InoSelection \n            id={id}\n            debounce={debounce}\n            noOptionsText={noOptionText}\n            placement={placement}\n            distance={number}\n            for={for}\n            label={label}\n            stayOpen\n            value={value}\n            error={error}\n            options={options}\n            createOptionLabel={createOptionLabel}\n            hideCreateOption\n            controlled\n            visible\n            onValueChange={handleValueChange}\n            onOptionCreated={handleOptionCreated}\n            onSelectionVisibleChanged={handleSelectionVisibleChanged}\n        >\n          <ino-chip slot=\"popover-trigger\">open selection</ino-chip>\n        </InoSelection>\n  )\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Selection\n                id={id}\n                debounce={debounce}\n                noOptionsText={noOptionText}\n                placement={placement}\n                distance={number}\n                for={for}\n                label={label}\n                stayOpen\n                value={value}\n                error={error}\n                options={options}\n                createOptionLabel={createOptionLabel}\n                hideCreateOption\n                controlled\n                visible\n                onValueChange={handleValueChange}\n                onOptionCreated={handleOptionCreated}\n                onSelectionVisibleChanged={handleSelectionVisibleChanged}\n            >\n              <ino-chip slot=\"popover-trigger\">open selection</ino-chip>\n            </Selection>\n    )\n  }\n}\n```\n## Additional Hints\n\nBy clicking the `+`-button, the current search term will be emitted as `optionCreated` Event. To give the user an immediate overview of which option they will add, use the current search term of `input` in `addOptionLabel`. See visual example [Create Option Label](https://elements.inovex.de/de/library/components?element=input-ino-selection--create-option-label)\n\n```js\ndocument\n  .querySelector('ino-selection')\n  .addEventListener('selectionVisibleChanged', (e) => {\n    // ino-input only renders on visible ino-selection\n    if(this.state.visible) {\n      document\n        .querySelector('ino-input')\n        .addEventListener('valueChange', (e) => {\n          this.state.createOptionLabel = `Add Option \"${e.detail}\"`\n          }\n        );\n    }\n  })\n```\n \n### Control flow\n\nThe selection has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of selection.\n\n```js\ndocument\n  .querySelector('ino-selection')\n  .addEventListener('valueChange', (e) => (this.state.value = e.detail));\n```\n\nThe option list can be extended in a similar behavior. Listen to `optionCreated` and add the received value to the `options` attribute.\n\n```js\ndocument\n  .querySelector('ino-selection')\n  .addEventListener('optionCreated', (e) => (this.state.options = [...this.state.options, e.detail]));\n```\n\n\n### Event Behavior\n\nThe component behaves like a native select with additional features. The native `input'` is not bubbled. The component will emit a `valueChange` event if the value of the group changes, a `optionCreated` event if a new option is created and a `selectionVisibleChanged` in controlled mode if `ino-selection` wants to open.\n\n",
       "usage": {},
-      "docs": "A component providing a searchable and expandable selection menu inside a popover.",
+      "docs": "A component providing a searchable and expandable selection menu inside a [<ino-popover>](https://elements.inovex.de/de/library/components?element=notification-ino-popover--playground).\n\nThis component handles the following tasks:\n\n- Management of the `value` property of the [<ino-input>](https://elements.inovex.de/de/library/components?element=input-ino-input--playground) element\n- Management of showing and hiding the different options filtered on the basis of the input\n- Keyboard navigation on the options\n- Renders content of `<ino-popover>` only on opening",
       "docsTags": [
         {
           "name": "slot",
@@ -8068,13 +8036,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-table-row-height",
-          "annotation": "prop",
-          "docs": "height of a table row"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -8654,23 +8616,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-textarea-caret-color",
-          "annotation": "prop",
-          "docs": "color of the caret"
-        },
-        {
-          "name": "--ino-textarea-label-color",
-          "annotation": "prop",
-          "docs": "color of the label"
-        },
-        {
-          "name": "--ino-textarea-outline-color",
-          "annotation": "prop",
-          "docs": "outline color of the textarea"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [

@@ -12,13 +12,14 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 import TippyJS, {
+  followCursor,
   Instance as Tippy,
   Placement,
   Props,
-  followCursor,
+  roundArrow,
 } from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
-import { TooltipTrigger } from '../types';
+import { TippyThemes, TooltipTrigger } from '../types';
 import { closest } from '@material/dom/ponyfill';
 import { hideOnEsc, hideOnPopperBlur } from './plugins';
 
@@ -52,6 +53,11 @@ export class Popover implements ComponentInterface {
       placement: this.placement,
     });
   }
+
+  /**
+   * Shows an arrow pointing towards its trigger-element
+   */
+  @Prop() arrow = false;
 
   /**
    * If set, attaches the popover element to the body.
@@ -110,10 +116,11 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * Sets the color scheme of the popup
-   * Valid options include: 'primary', 'transparent'
+   * Sets the color scheme of the popup.
+   *
+   * Valid options include: `primary`, `light` and `dark`.
    */
-  @Prop() colorScheme: 'primary' | 'transparent' = 'primary';
+  @Prop() colorScheme: TippyThemes = 'primary';
 
   /**
    * Use this if you want to interact with the popover content (e.g. button clicks)
@@ -149,7 +156,7 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * The delay in milliseconds before `ino-tooltip` shows up or hides.
+   * The delay in milliseconds before `ino-popover` shows up or hides.
    *
    * If only one number is given, the show and hide delay get the given delay duration.
    *
@@ -163,8 +170,8 @@ export class Popover implements ComponentInterface {
   @Watch('delay')
   onDelayChange() {
     this.tippyInstance?.setProps({
-      delay: this.delay,
-    });
+      delay: this.delay
+    })
   }
 
   /**
@@ -232,9 +239,11 @@ export class Popover implements ComponentInterface {
       plugins.push(hideOnEsc);
     }
 
-    // in HTML to check if "false" was provided
     const shouldFollowCursor =
-      this.followCursor && (this.followCursor as any) !== 'false';
+      (typeof this.followCursor == 'boolean' && this.followCursor) ||
+      ['horizontal', 'vertical', 'initial'].includes(
+        this.followCursor as string
+      );
 
     if (shouldFollowCursor) {
       plugins.push(followCursor);
@@ -242,8 +251,10 @@ export class Popover implements ComponentInterface {
 
     const options: Partial<Props> = {
       allowHTML: true,
+      theme: this.colorScheme,
       animation: 'scale-subtle',
       appendTo: this.attachToBody ? document.body : this.popoverContainer,
+      arrow: this.arrow ? roundArrow : false,
       content: this.popoverContent,
       duration: 100,
       delay: this.delay,
@@ -335,11 +346,7 @@ export class Popover implements ComponentInterface {
   }
 
   render() {
-    const popoverClasses = classNames(
-      'ino-popover',
-      `ino-popover--color-scheme-${this.colorScheme}`,
-      'ino-popover__content'
-    );
+    const popoverClasses = classNames('ino-popover', 'ino-popover__content');
 
     return (
       <Host>

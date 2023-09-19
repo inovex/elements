@@ -1,20 +1,15 @@
-import React from 'react';
 import Layout from 'components/getting-started/layout';
-import { Framework } from 'utils/frameworks';
+import ReactGuide from 'mdx/getting-started/react-guide.mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { Locale_File } from 'translations/types';
+import { LangContext } from 'types/langContext';
 import {
   getStaticLanguagePaths,
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
-import { LangContext } from 'types/langContext';
-import { Locale_File } from 'translations/types';
-import ReactGuideEN from 'mdx/getting-started/react-guide.en.mdx';
-import ReactGuideDE from 'mdx/getting-started/react-guide.de.mdx';
-import { Supported_Locales } from 'translations/config';
-import useTranslation from 'utils/hooks/useTranslation';
+import { Framework } from 'utils/frameworks';
 
 const ReactGuidePage = () => {
-  const { locale } = useTranslation();
   return (
     <Layout
       framework={Framework.REACT}
@@ -22,7 +17,7 @@ const ReactGuidePage = () => {
         'https://codesandbox.io/embed/github/inovex/elements-example-react/tree/master/?fontsize=14&hidenavigation=1&theme=dark'
       }
     >
-      {locale === Supported_Locales.EN ? <ReactGuideEN /> : <ReactGuideDE />}
+      <ReactGuide />
     </Layout>
   );
 };

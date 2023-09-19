@@ -9,6 +9,7 @@ type Props = {
   isActive?: boolean;
   isDense?: boolean;
   noMargin?: boolean;
+  isSubItem?: boolean;
 };
 
 export default function LinkItem({
@@ -17,6 +18,7 @@ export default function LinkItem({
   isActive = false,
   isDense = false,
   noMargin = false,
+  isSubItem = false,
 }: Props) {
   const { locale } = useTranslation();
 
@@ -28,6 +30,7 @@ export default function LinkItem({
           isActive && styles.linkActive,
           noMargin && styles.noMargin,
           isDense && styles.linkDense,
+          isSubItem && styles.linkSubItem,
           isDense ? 'title-m' : 'title-l'
         )}
       >

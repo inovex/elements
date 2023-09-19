@@ -20,10 +20,10 @@ $header-height--shrunk: 70px;
   width: 100%;
 
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto auto 1fr auto auto;
   grid-template-rows: 1fr;
   column-gap: 30px;
-  grid-template-areas: 'logo navbar github language';
+  grid-template-areas: 'logo versionSelect navbar github language';
   align-items: center;
 }
 
@@ -60,6 +60,9 @@ $header-height--shrunk: 70px;
       color: #2c02ff;
     }
   }
+}
+.versionContainer {
+  grid-area: versionSelect;
 }
 
 .navbar {

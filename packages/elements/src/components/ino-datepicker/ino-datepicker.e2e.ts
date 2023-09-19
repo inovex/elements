@@ -18,9 +18,7 @@ describe('InoDatepicker', () => {
       const inputEl = await page.find(INPUT);
       expect(inputEl).toBeDefined();
 
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
       expect(flatpickrInputEl).toBeDefined();
 
       const flatpickrCalEl = await page.find('.flatpickr-calendar');
@@ -36,9 +34,7 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       expect(inoDatepickerEl).toBeDefined();
 
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--focused');
 
       inoDatepickerEl.setAttribute('autofocus', 'true');
@@ -165,9 +161,7 @@ describe('InoDatepicker', () => {
       const page = await setupPageWithContent(INO_DATEPICKER_WITH_SIBLING);
       const inoDatepickerEl = await page.find(DATEPICKER);
       const buttonEl = await page.find('button');
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('required', true);
       await page.waitForChanges();
@@ -233,9 +227,7 @@ describe('InoDatepicker', () => {
     it('should be invalid if wrong date format provided', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER_WITH_FORMAT);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('value', '01-1970-01');
       await page.waitForChanges();
@@ -251,9 +243,7 @@ describe('InoDatepicker', () => {
     it('should be valid if not required and empty value', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('required', false);
       inoDatepickerEl.setAttribute('value', '');
@@ -265,9 +255,7 @@ describe('InoDatepicker', () => {
     it('should be invalid if value is set before min date', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('min', '10-10-2020');
@@ -280,9 +268,7 @@ describe('InoDatepicker', () => {
     it('should be valid if value is set to min date', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('min', '10-10-2020');
@@ -295,9 +281,7 @@ describe('InoDatepicker', () => {
     it('should be validated after min date is set', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('value', '09-10-2020');
@@ -310,9 +294,7 @@ describe('InoDatepicker', () => {
     it('should be invalid if value is set after max date', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('max', '10-10-2020');
@@ -325,9 +307,7 @@ describe('InoDatepicker', () => {
     it('should be valid if value is set to max date', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('max', '10-10-2020');
@@ -340,9 +320,7 @@ describe('InoDatepicker', () => {
     it('should be validated after max date is set', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('value', '11-10-2020');
@@ -355,9 +333,7 @@ describe('InoDatepicker', () => {
     it('should be valid with min and max date set', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('min', '09-10-2020');
@@ -371,9 +347,7 @@ describe('InoDatepicker', () => {
     it('should be invalid if wrong date format is used inside range', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('date-format', 'd.m.Y');
       inoDatepickerEl.setAttribute('range', 'true');
@@ -386,9 +360,7 @@ describe('InoDatepicker', () => {
     it('should be invalid if incorrectly formatted value is provided in month-picker', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('type', 'month');
       inoDatepickerEl.setAttribute('date-format', 'm.Y');
@@ -401,9 +373,7 @@ describe('InoDatepicker', () => {
     it('should be valid if correctly formatted value is provided in month-picker', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
-      const flatpickrInputEl = await page.find(
-        'ino-input > label.mdc-text-field'
-      );
+      const flatpickrInputEl = await page.find('ino-input > span.mdc-text-field');
 
       inoDatepickerEl.setAttribute('type', 'month');
       inoDatepickerEl.setAttribute('date-format', 'm.Y');

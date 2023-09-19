@@ -1,7 +1,14 @@
-.icon {
+.menuIconContainer {
+  display: flex;
+  align-items: center;
   position: fixed;
   top: 25px;
   left: 25px;
+  gap: 25px;
+  z-index: 1;
+}
+
+.icon {
   cursor: pointer;
   color: var(--inovex-elements-n-7);
   transition: color 300ms;
