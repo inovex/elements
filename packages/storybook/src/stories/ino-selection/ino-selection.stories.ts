@@ -348,6 +348,7 @@ export const Placement = template.generateStoryForProp('placement', 'top', {
 export const Distance = template.generateStoryForProp('distance', 40);
 
 // For-trigger cannot be child of ino-selection
+// Therefore a new template is needed
 const templateFor = new TemplateGenerator<InoSelectionExtended>(
   'ino-selection',
   (args) => {
@@ -372,7 +373,7 @@ export const Label = template.generateStoryForProp(
 );
 export const StayOpen = template.generateStoryForProp('stayOpen', true);
 
-const exampleValue = ['first-selection'];
+const exampleValue = ['first-selection', 'second-selection'];
 
 const templateValue = new TemplateGenerator<Components.InoSelection>(
   'ino-selection',
@@ -380,6 +381,7 @@ const templateValue = new TemplateGenerator<Components.InoSelection>(
     return html`
       <ino-selection
         placement="${ifDefined(args.placement)}"
+        label="${ifDefined(args.label)}"
         value="${args.value}"
         .options="${args.options}"
         @valueChange="${(e: CustomEvent) => handleValueChange(e)}"
