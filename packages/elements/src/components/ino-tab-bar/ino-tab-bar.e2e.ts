@@ -28,8 +28,9 @@ describe('InoTabBar', () => {
       const emptyElement = {};
 
       const pageWithDefaultTabBar = await setupPageWithContent(INO_TAB_BAR);
-      const focusedElementWithoutAutofocus =
-        await pageWithDefaultTabBar.evaluate(() => document.activeElement);
+      const focusedElementWithoutAutofocus = await pageWithDefaultTabBar.evaluate(
+        () => document.activeElement
+      );
       expect(focusedElementWithoutAutofocus).toEqual(emptyElement);
 
       const pageWithFocusedTabBar = await setupPageWithContent(

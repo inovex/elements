@@ -51,3 +51,4 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
     </ino-autocomplete>
   </div>
 `;
+

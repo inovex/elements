@@ -31,10 +31,10 @@ export class IconButton implements ComponentInterface {
 
   @Element() el!: HTMLInoIconButtonElement;
 
-  /**
+   /**
    * Allows the specification of native HTML attributes on the underlying HTML element
    */
-  @Prop() attrs: JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
+   @Prop() attrs: JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
 
   /**
    * Sets the autofocus for this element.
@@ -66,7 +66,7 @@ export class IconButton implements ComponentInterface {
 
   /**
    * The name of the icon of this element.
-   */
+    */
   @Prop() icon?: string;
 
   /**
@@ -114,9 +114,11 @@ export class IconButton implements ComponentInterface {
   }
 
   render() {
-    const hostClasses = classNames({
-      'ino-icon-button--filled': this.filled,
-    });
+    const hostClasses = classNames(
+      {
+        'ino-icon-button--filled': this.filled,
+      }
+    );
 
     const iconButtonClasses = classNames({
       'mdc-icon-button': true,
@@ -124,7 +126,7 @@ export class IconButton implements ComponentInterface {
       'ino-icon-button-filled': this.filled,
       'ino-icon-button--disabled': this.disabled,
     });
-
+    
     return (
       <Host class={hostClasses}>
         <button
@@ -134,7 +136,7 @@ export class IconButton implements ComponentInterface {
           type={this.type}
           {...this.attrs}
         >
-          <div class="mdc-icon-button__ripple" />
+          <div class="mdc-icon-button__ripple"/>
           <span class="mdc-icon-button__icon">
             {this.icon ? <ino-icon icon={this.icon} /> : <slot />}
           </span>

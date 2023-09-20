@@ -170,8 +170,8 @@ export class Popover implements ComponentInterface {
   @Watch('delay')
   onDelayChange() {
     this.tippyInstance?.setProps({
-      delay: this.delay
-    })
+      delay: this.delay,
+    });
   }
 
   /**

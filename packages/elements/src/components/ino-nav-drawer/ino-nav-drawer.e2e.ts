@@ -32,8 +32,9 @@ describe('InoNavDrawer', () => {
     );
     expect(elWithDrawerClass).not.toBeNull();
 
-    const elDrawerScrim =
-      inoNavDrawerEl.shadowRoot.querySelector('mdc-drawer-scrim');
+    const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
+      'mdc-drawer-scrim'
+    );
     expect(elDrawerScrim).toBeNull();
 
     const elToggleDrawerBtn = inoNavDrawerEl.shadowRoot.querySelector(
@@ -92,8 +93,9 @@ describe('InoNavDrawer', () => {
     );
     expect(elWithDrawerClass).not.toBeNull();
 
-    const elDrawerScrim =
-      inoNavDrawerEl.shadowRoot.querySelector('mdc-drawer-scrim');
+    const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
+      'mdc-drawer-scrim'
+    );
     expect(elDrawerScrim).toBeNull();
 
     const elToggleDrawerBtn = inoNavDrawerEl.shadowRoot.querySelector(
@@ -137,8 +139,9 @@ describe('InoNavDrawer', () => {
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
-      const mdcDrawerEl =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer');
+      const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer'
+      );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--docked',
@@ -153,8 +156,9 @@ describe('InoNavDrawer', () => {
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
-      const mdcDrawerEl =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer');
+      const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer'
+      );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--docked',
@@ -172,8 +176,9 @@ describe('InoNavDrawer', () => {
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
-      const mdcDrawerEl =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer');
+      const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer'
+      );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--docked',
@@ -186,8 +191,9 @@ describe('InoNavDrawer', () => {
       );
       expect(elWithDrawerClass).not.toBeNull();
 
-      const elDrawerScrim =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer-scrim');
+      const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer-scrim'
+      );
       expect(elDrawerScrim).toBeNull();
     });
 
@@ -199,8 +205,9 @@ describe('InoNavDrawer', () => {
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
-      const mdcDrawerEl =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer');
+      const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer'
+      );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--dismissible',
@@ -212,8 +219,9 @@ describe('InoNavDrawer', () => {
       );
       expect(elWithDrawerClass).not.toBeNull();
 
-      const elDrawerScrim =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer-scrim');
+      const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer-scrim'
+      );
       expect(elDrawerScrim).toBeNull();
     });
 
@@ -223,8 +231,9 @@ describe('InoNavDrawer', () => {
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
-      const mdcDrawerEl =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer');
+      const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer'
+      );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--modal',
@@ -236,8 +245,9 @@ describe('InoNavDrawer', () => {
       );
       expect(elWithDrawerClass).toBeNull();
 
-      const elDrawerScrim =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer-scrim');
+      const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer-scrim'
+      );
       expect(elDrawerScrim).not.toBeNull();
     });
   });
@@ -249,8 +259,9 @@ describe('InoNavDrawer', () => {
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
-      const mdcDrawerEl =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer');
+      const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer'
+      );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--docked',
@@ -265,8 +276,9 @@ describe('InoNavDrawer', () => {
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
-      const mdcDrawerEl =
-        inoNavDrawerEl.shadowRoot.querySelector('.mdc-drawer');
+      const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
+        '.mdc-drawer'
+      );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--docked',

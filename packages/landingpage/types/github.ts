@@ -1,3 +1,5 @@
+
+
 export type GithubParticipation = {
   all: number[];
   owner: number[];

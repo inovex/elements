@@ -32,16 +32,11 @@ export class InoCarouselSlide implements ComponentInterface {
 
   render() {
     return (
-      <Host
-        class={classNames({
-          'ino-carousel-slide': true,
-          'ino-carousel-slide--selected': this.selected,
-        })}
-      >
-        <div
-          class="ino-carousel-slide__image"
-          style={{ 'background-image': `url(${this.src})` }}
-        />
+      <Host class={classNames({
+        'ino-carousel-slide': true,
+        'ino-carousel-slide--selected': this.selected,
+      })}>
+        <div class="ino-carousel-slide__image" style={{ 'background-image': `url(${this.src})` }} />
       </Host>
     );
   }

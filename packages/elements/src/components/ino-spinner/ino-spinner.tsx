@@ -65,9 +65,12 @@ export class Spinner implements ComponentInterface {
   }
 
   render() {
-    const hostClasses = classNames(`ino-spinner--type-${this.type}`, {
-      'ino-spinner--modal': this.modal,
-    });
+    const hostClasses = classNames(
+      `ino-spinner--type-${this.type}`,
+      {
+        'ino-spinner--modal': this.modal,
+      }
+    );
 
     let spinnerTemplate;
     if (this.type === 'tile') {

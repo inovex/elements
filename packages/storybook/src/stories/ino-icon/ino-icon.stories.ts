@@ -18,8 +18,9 @@ const ICONS_WITHOUT_INTERNALS = ICONS.filter(
 ]);
 
 function copyToClipboard(text) {
-  const snackbar: HTMLInoSnackbarElement =
-    document.createElement('ino-snackbar');
+  const snackbar: HTMLInoSnackbarElement = document.createElement(
+    'ino-snackbar'
+  );
 
   navigator.clipboard
     .writeText(text)
@@ -144,3 +145,4 @@ const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
   `
 );
 export const AllIcons = templateAllIcons.generatePlaygroundStory();
+

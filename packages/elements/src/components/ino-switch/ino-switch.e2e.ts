@@ -1,7 +1,8 @@
-import { setupPageWithContent } from '../../util/e2etests-setup';
-import { E2EElement, E2EPage } from '@stencil/core/testing';
+import {setupPageWithContent} from '../../util/e2etests-setup';
+import {E2EElement, E2EPage} from "@stencil/core/testing";
 
 describe('InoSwitch', () => {
+
   let page: E2EPage;
   let inoSwitch: E2EElement;
 

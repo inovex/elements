@@ -24,8 +24,9 @@ export default {
           (template) => template.id === triggerId
         );
 
-        const currentSnackbars =
-          document.body.getElementsByTagName('ino-snackbar');
+        const currentSnackbars = document.body.getElementsByTagName(
+          'ino-snackbar'
+        );
 
         const snackbarWithIdExists = Array.from(currentSnackbars).some(
           (snackbar) => snackbar.id === triggerId
@@ -88,8 +89,7 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.argTypes = {
-  // hide custom attributes from table
+Playground.argTypes = { // hide custom attributes from table
   id: {
     table: {
       disable: true,

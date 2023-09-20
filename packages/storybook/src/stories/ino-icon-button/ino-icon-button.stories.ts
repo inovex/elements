@@ -2,7 +2,10 @@ import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass, withIconControl } from '../utils';
+import {
+  decorateStoryWithClass,
+  withIconControl,
+} from '../utils';
 import './ino-icon-button.scss';
 
 export default {

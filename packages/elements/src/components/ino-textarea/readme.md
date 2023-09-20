@@ -161,6 +161,15 @@ Type: `Promise<void>`
 
 
 
+## CSS Custom Properties
+
+| Name                           | Description                   |
+| ------------------------------ | ----------------------------- |
+| `--ino-textarea-caret-color`   | color of the caret            |
+| `--ino-textarea-label-color`   | color of the label            |
+| `--ino-textarea-outline-color` | outline color of the textarea |
+
+
 ## Dependencies
 
 ### Used by

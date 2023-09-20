@@ -7,228 +7,7 @@ import { repeat } from 'lit-html/directives/repeat.js';
 import './ino-selection.scss';
 import { TemplateGenerator } from '../template-generator';
 
-const options = [
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQR☺i',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-  'G19rtWZ',
-  'hS4H39n',
-  'ExjSww5',
-  'd4TCQRi',
-  'o3TzSar',
-  '236kaJV',
-  'sa6b1eN',
-  'z0lIC65',
-  'kYK8f9W',
-  'iudHeJO',
-  'MZwVQcY',
-  'vycnbCg',
-  'xtcTPee',
-  '6ap8Drh',
-  '5357cWY',
-  'gECnm4K',
-  'EoxR3p0',
-  'lWDWdb0',
-  '5d0k2EY',
-  'jrnu5pJ',
-];
+const options = ['G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQR☺i', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ', 'G19rtWZ', 'hS4H39n', 'ExjSww5', 'd4TCQRi', 'o3TzSar', '236kaJV', 'sa6b1eN', 'z0lIC65', 'kYK8f9W', 'iudHeJO', 'MZwVQcY', 'vycnbCg', 'xtcTPee', '6ap8Drh', '5357cWY', 'gECnm4K', 'EoxR3p0', 'lWDWdb0', '5d0k2EY', 'jrnu5pJ'];
 
 const KeyValueOptions: KeyValue[] = [
   { key: 'a', value: 'Anton' },
@@ -245,30 +24,30 @@ const KeyValueOptions: KeyValue[] = [
 const valueList: string[] = [];
 
 const createChip = (content: string | KeyValue, parentEl: Element | null) => {
-  if (parentEl && content) {
-    const chip = document.createElement('ino-chip') as HTMLInoChipElement;
-    if (typeof content === 'string') {
+  if(parentEl && content) {
+    const chip = document.createElement("ino-chip") as HTMLInoChipElement;
+    if (typeof content === 'string'){
       chip.innerText = `${content}`;
     } else {
       chip.innerText = `${content.value}`;
-    }
+    } 
     parentEl?.appendChild(chip);
     return;
   }
   console.log('could not add ino-chip. No container found');
-};
+}
 
 const optionCreatedHandler = (e: CustomEvent) => {
   const selection = e.target as HTMLInoSelectionElement;
   const parentEl = (e.target as HTMLElement).closest('.story-ino-selection');
-  options.push(e.detail);
+  options.push(e.detail)
   selection.setAttribute('options', `${options}`);
   createChip(e.detail as string | KeyValue, parentEl);
-};
+}
 
 const handleValueChange = (e: CustomEvent) => {
   const parentEl = (e.target as HTMLElement).closest('.story-ino-selection');
-  if (e.detail === null) {
+  if(e.detail === null){
     return;
   }
   const inoSelectionEl = e.target as HTMLInoSelectionElement;
@@ -279,12 +58,14 @@ const handleValueChange = (e: CustomEvent) => {
   if (inoSelectionEl.controlled) {
     inoSelectionEl.setAttribute('visible', `${false}`);
   }
-};
+}
 
 export default {
   title: 'Input/ino-selection',
   component: 'ino-selection',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-selection')],
+  decorators: [
+    (story) => decorateStoryWithClass(story, 'story-ino-selection'),
+  ],
   args: {
     // not used props get hid in code snippet and can be shown if needed via `ifDefined(args.[prop])`
     id: '',
@@ -297,7 +78,7 @@ export default {
 
 type InoSelectionExtended = Components.InoSelection & {
   styleID: string;
-};
+}
 
 const template = new TemplateGenerator<InoSelectionExtended>(
   'ino-selection',
@@ -334,15 +115,13 @@ export const Playground = template.generatePlaygroundStory();
 export const Debounce = template.generateStoryForProp('debounce', 1000, {
   label: 'type to see debounce acting',
 });
-export const noOptionsText = template.generateStoryForProp(
-  'noOptionsText',
-  'Ups, nothing found!',
-  {
-    options: [],
-  }
-);
+
 export const Placement = template.generateStoryForProp('placement', 'top', {
   styleID: 'ino-selection-placement',
+});
+
+export const noOptionsText = template.generateStoryForProp('noOptionsText', 'Ups, nothing found!', {
+  options: [],
 });
 
 export const Distance = template.generateStoryForProp('distance', 40);
@@ -361,16 +140,12 @@ const templateFor = new TemplateGenerator<InoSelectionExtended>(
         @valueChange="${(e: CustomEvent) => handleValueChange(e)}"
         @optionCreated="${(e: CustomEvent) => optionCreatedHandler(e)}"
       ></ino-selection>
-      <ino-chip id="${ifDefined(args.for)}">open selection</ino-chip>
-    `;
-  }
+    <ino-chip id="${ifDefined(args.for)}">open selection</ino-chip>
+  `}
 );
-
+  
 export const For = templateFor.generateStoryForProp('for', 'ino-selection-for');
-export const Label = template.generateStoryForProp(
-  'label',
-  'type something to search selection'
-);
+export const Label = template.generateStoryForProp('label', 'type something to search selection');
 export const StayOpen = template.generateStoryForProp('stayOpen', true);
 
 const exampleValue = ['first-selection', 'second-selection'];
@@ -411,13 +186,13 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
       const inputEl = e.target as HTMLElement;
       inputEl?.setAttribute('value', e.detail);
       key = e.detail;
-    };
+    }
 
     const setValue = (e: CustomEvent) => {
       const inputEl = e.target as HTMLElement;;
       inputEl?.setAttribute('value', e.detail);
       value = e.detail;
-    };
+    }
 
     const handleVisible = (e: CustomEvent) => {
       const inoSectionEl = e.target as HTMLInoSelectionElement;
@@ -432,7 +207,7 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
       // handle visible because popover overlaps ino-dialog
       // close popover, so ino-dialog is visible
       selection?.setAttribute('visible', `${false}`);
-    };
+    }
 
     const closeDialog = () => {
       const dialogEl = document.querySelector('#create-option-dialog');
@@ -445,18 +220,18 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
       const inputKey = document.querySelector('#input-key');
       const inputValue = document.querySelector('#input-value');
       // Create new source List with added option
-      KeyValueOptions.push({ key: key, value: value });
-      selection?.setAttribute('options', `${KeyValueOptions}`);
-      dialogEl?.setAttribute('open', `${false}`);
+      KeyValueOptions.push({ key: key, value: value })
+      selection?.setAttribute('options', `${KeyValueOptions}`)
+      dialogEl?.setAttribute('open', `${false}`)
       // empty inputs after closing dialog
-      inputKey?.setAttribute('value', '');
-      inputValue?.setAttribute('value', '');
+      inputKey?.setAttribute('value', "");
+      inputValue?.setAttribute('value', "");
 
       const parentEl = selection?.closest('.story-ino-selection');
-      if (parentEl) {
+      if(parentEl){
         createChip(value, parentEl);
       }
-    };
+    }
 
     return html`
       <ino-selection
@@ -493,10 +268,10 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
             label="value"
             @valueChange="${(e: CustomEvent) => setValue(e)}"
           >
-          </ino-input>
-        </section>
-        <footer slot="footer">
-          <ino-button
+        </ino-input> 
+      </section>
+      <footer slot="footer">
+          <ino-button 
             variant="outlined"
             @click="${() => closeDialog()}"
           >
@@ -506,10 +281,9 @@ const templateKeyValue = new TemplateGenerator<Components.InoSelection>(
             Add option
           </ino-button>
         </footer>
-      </ino-dialog>
-    `;
-  }
-);
+    </ino-dialog>
+  `});
+  
 
 export const KeyValueOption = templateKeyValue.generateStoryForProp(
   'options',
@@ -601,7 +375,4 @@ const controlledTemplate = new TemplateGenerator<Components.InoSelection>(
   }
 );
 
-export const Controlled = controlledTemplate.generateStoryForProp(
-  'controlled',
-  true
-);
+export const Controlled = controlledTemplate.generateStoryForProp('controlled', true);

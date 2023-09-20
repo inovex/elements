@@ -1,4 +1,4 @@
-import { MDCSelect, MDCSelectEventDetail } from '@material/select';
+import {MDCSelect, MDCSelectEventDetail} from '@material/select';
 import {
   Component,
   ComponentInterface,
@@ -213,8 +213,8 @@ export class Select implements ComponentInterface {
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
 
     const inoSelectClasses = classNames({
-      'ino-select-outlined': this.outline,
-    });
+      'ino-select-outlined': this.outline
+    })
 
     const classSelect = classNames({
       'mdc-select': true,
@@ -227,8 +227,8 @@ export class Select implements ComponentInterface {
 
     const helperTextClasses = classNames({
       'mdc-select-helper-text': true,
-      'mdc-select-helper-text--validation-msg-persistent':
-        this.helperPersistent,
+      'mdc-select-helper-text--validation-msg-persistent': this
+        .helperPersistent,
       'mdc-select-helper-text--validation-msg': this.helperValidation,
     });
 

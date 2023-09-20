@@ -7,12 +7,6 @@ addons.setConfig({
   theme,
   sidebar: {
     showRoots: true,
-    collapsedRoots: [
-      'input',
-      'buttons',
-      'structure',
-      'graphic',
-      'notification',
-    ],
+    collapsedRoots: ['input', 'buttons', 'structure', 'graphic', 'notification'],
   },
 });

@@ -57,8 +57,7 @@ export class InoOption {
   }
 
   componentDidLoad() {
-    if (this.value === undefined)
-      console.error('[ino-option]: A value is required.');
+    if (this.value === undefined) console.error('[ino-option]: A value is required.');
   }
 
   render() {

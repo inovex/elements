@@ -77,9 +77,7 @@ function publishAngular() {
   }
 
   // explicitly push @inovex.de/elements-angular due to angular library project structure
-  shell.exec(
-    'yalc publish --no-sig --push ./packages/elements-angular/elements/dist/'
-  );
+  shell.exec('yalc publish --no-sig --push ./packages/elements-angular/elements/dist/');
 }
 
 async function main() {

@@ -679,7 +679,18 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-carousel-animation-duration",
+          "annotation": "prop",
+          "docs": "sets the duration of the slide animation"
+        },
+        {
+          "name": "--ino-carousel-icon-color",
+          "annotation": "prop",
+          "docs": "sets the color of the navigation buttons"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -4874,7 +4885,18 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-markdown-editor-max-height",
+          "annotation": "prop",
+          "docs": "max-height of text editor Default value is `none`."
+        },
+        {
+          "name": "--ino-markdown-editor-min-height",
+          "annotation": "prop",
+          "docs": "min-height of text editor. Default value is `100px`."
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": []
@@ -5046,7 +5068,7 @@
           "reflectToAttr": false,
           "docs": "The aria-labels used for content and footer nav elements.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.",
           "docsTags": [],
-          "default": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation',\n  }",
+          "default": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation'\n  }",
           "values": [
             {
               "type": "{ content: string; footer: string; toggleBtn: string; }"
@@ -5133,7 +5155,43 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-nav-drawer-background",
+          "annotation": "prop",
+          "docs": "Background of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-height",
+          "annotation": "prop",
+          "docs": "Height of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-text-color",
+          "annotation": "prop",
+          "docs": "Color of text inside the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-timing-function",
+          "annotation": "prop",
+          "docs": "Timing function of the slide animation of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-transition-duration",
+          "annotation": "prop",
+          "docs": "Duration of the slide animation of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-width-closed",
+          "annotation": "prop",
+          "docs": "Docked variant only! The width of the collapsed drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-width-open",
+          "annotation": "prop",
+          "docs": "The width of the open drawer."
+        }
+      ],
       "slots": [
         {
           "name": "app",
@@ -6924,7 +6982,18 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-select-height",
+          "annotation": "prop",
+          "docs": "Height of the open select menu"
+        },
+        {
+          "name": "--ino-select-icon-color",
+          "annotation": "prop",
+          "docs": "Icon color"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -8036,7 +8105,13 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-table-row-height",
+          "annotation": "prop",
+          "docs": "height of a table row"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -8616,7 +8691,23 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-textarea-caret-color",
+          "annotation": "prop",
+          "docs": "color of the caret"
+        },
+        {
+          "name": "--ino-textarea-label-color",
+          "annotation": "prop",
+          "docs": "color of the label"
+        },
+        {
+          "name": "--ino-textarea-outline-color",
+          "annotation": "prop",
+          "docs": "outline color of the textarea"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [

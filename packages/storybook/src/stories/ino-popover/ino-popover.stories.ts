@@ -231,9 +231,9 @@ const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
   () => {
     const eventHandler = (e: any) => {
       e.target?.setAttribute('visible', e.detail);
-      (
-        document.querySelector('#controlled-checkbox') as HTMLInputElement
-      ).checked = e.detail;
+      (document.querySelector(
+        '#controlled-checkbox'
+      ) as HTMLInputElement).checked = e.detail;
     };
 
     return html`
@@ -265,4 +265,4 @@ export const Visible = templateControlledPopover.generateStoryForProp(
   true
 );
 
-export const Delay = template.generateStoryForProp('delay', [500, 200]);
+export const Delay = template.generateStoryForProp('delay', [500, 200])

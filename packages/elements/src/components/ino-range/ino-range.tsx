@@ -181,6 +181,7 @@ export class Range implements ComponentInterface {
   }
 
   render() {
+
     const sliderClasses = classNames({
       'mdc-slider': true,
       'mdc-slider--discrete': this.discrete,

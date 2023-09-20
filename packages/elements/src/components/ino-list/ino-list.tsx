@@ -57,7 +57,10 @@ export class List implements ComponentInterface {
 
     return (
       <Host>
-        <ul ref={(el) => (this.listEl = el)} class={listClasses}>
+        <ul
+          ref={(el) => (this.listEl = el)}
+          class={listClasses}
+        >
           <slot />
         </ul>
       </Host>

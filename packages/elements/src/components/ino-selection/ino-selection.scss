@@ -19,50 +19,50 @@ ino-selection {
     overflow: hidden;
   }
 
-  .popover-content header {
-    padding: $padding-layout;
-    border-bottom: $border-styling;
-  }
-
-  .popover-content .ino-selection__list {
-    list-style-type: none;
-    overflow: scroll;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .popover-content .ino-selection__list-item {
-    font-size: 0.85rem;
-    padding: $padding-list-item;
-    cursor: pointer;
-
-    &:hover {
-      background-color: new-theme.$p-1;
-      color: new-theme.$black;
+    .popover-content header {
+        padding: $padding-layout;
+        border-bottom: $border-styling;
     }
 
-    &:active {
-      background-color: new-theme.$p-2;
-      color: new-theme.$black;
+    .popover-content .ino-selection__list {
+        list-style-type: none;
+        overflow: scroll;
+        height: 100%;
+        margin: 0;
+        padding: 0;
     }
 
-    &--selected {
-      background-color: new-theme.$p-2;
-      color: new-theme.$black;
-    }
+    .popover-content .ino-selection__list-item {
+        font-size: 0.85rem;
+        padding: $padding-list-item;
+        cursor: pointer;
 
-    &--highlight {
-      color: new-theme.$p-7;
-      background-color: transparent;
-      font-weight: bold;
-    }
+        &:hover {
+            background-color: new-theme.$p-1;
+            color: new-theme.$black;
+        }
 
-    &--no-match {
-      color: new-theme.$n-5;
-      pointer-events: none;
+        &:active {
+            background-color: new-theme.$p-2;
+            color: new-theme.$black;
+        }
+
+        &--selected {
+            background-color: new-theme.$p-2;
+            color: new-theme.$black;
+        }
+    
+        &--highlight {
+            color: new-theme.$p-7;
+            background-color: transparent;
+            font-weight: bold;
+        }
+    
+        &--no-match {
+            color: new-theme.$n-5;
+            pointer-events: none;
+        }
     }
-  }
 
   .popover-content footer {
     // padding will be decreased by the addOptionButton padding to achive visual alignment with remaining padding
@@ -70,3 +70,5 @@ ino-selection {
     border-top: $border-styling;
   }
 }
+
+

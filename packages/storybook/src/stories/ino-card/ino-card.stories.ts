@@ -15,8 +15,9 @@ export default {
     (story) => {
       useEffect(() => {
         const handleClick = function (e) {
-          const maybeCard: HTMLInoCardElement | undefined =
-            e.target?.closest('ino-card');
+          const maybeCard: HTMLInoCardElement | undefined = e.target?.closest(
+            'ino-card'
+          );
 
           if (!maybeCard) return;
 

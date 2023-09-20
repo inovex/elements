@@ -57,6 +57,7 @@ describe('InoSelect', () => {
       await page.waitForChanges();
 
       expect(valueChangeEvent).toHaveReceivedEventDetail('HH');
+
     });
 
     it('should emit a valueChange event only one time', async () => {

@@ -49,8 +49,7 @@
   position: relative;
   cursor: pointer;
 
-  &:hover,
-  &Active {
+  &:hover, &Active {
     opacity: 1;
   }
 }
