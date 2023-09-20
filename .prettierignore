@@ -17,5 +17,6 @@ proxies-list.ts
 proxies.ts
 utils.ts
 CHANGELOG.md
+packages/elements-react/src/components/**
 
 assets/
