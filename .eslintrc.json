@@ -4,7 +4,8 @@
     "**/*"
   ],
   "plugins": [
-    "@nrwl/nx"
+    "@nrwl/nx",
+    "prettier"
   ],
   "env": {
     "browser": true,
