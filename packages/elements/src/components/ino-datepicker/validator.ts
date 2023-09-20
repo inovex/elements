@@ -105,7 +105,7 @@ export class Validator {
       const parsedDate: Date = this.parseDate(value);
       const formattedDate: string = flatpickr.formatDate(
         parsedDate,
-        this._dateFormat
+        this._dateFormat,
       );
       return formattedDate == value;
     } catch (_) {
@@ -131,7 +131,7 @@ export class Validator {
 
   private validateRange = (value: string): boolean => {
     const dates = Validator.convertToRangeArray(value).map((date) =>
-      this.parseDate(date)
+      this.parseDate(date),
     );
     if (dates.length <= 1) {
       return true;
@@ -157,7 +157,7 @@ export class Validator {
       this._minDate = this.parseDate(value);
     } catch (_) {
       throw new Error(
-        `Minimum date (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`
+        `Minimum date (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`,
       );
     }
   }
@@ -172,7 +172,7 @@ export class Validator {
       this._maxDate = this.parseDate(value);
     } catch (_) {
       throw new Error(
-        `Maximum date (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`
+        `Maximum date (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`,
       );
     }
   }

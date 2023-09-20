@@ -10,7 +10,7 @@ import * as path from 'path';
 import { vueOutputTarget as stencilVueOutputTarget } from '@stencil/vue-output-target';
 
 export const vueOutputTarget = (
-  outputTarget: OutputTargetVue
+  outputTarget: OutputTargetVue,
 ): OutputTargetCustom => {
   const stencilOutputTarget = stencilVueOutputTarget(outputTarget);
 
@@ -21,7 +21,7 @@ export const vueOutputTarget = (
       _config: Config,
       compilerCtx: CompilerCtx,
       buildCtx: BuildCtx,
-      docs: any
+      docs: any,
     ) => {
       await stencilOutputTarget.generator(_config, compilerCtx, buildCtx, docs);
       await runFix(outputTarget.proxiesFile);
@@ -35,7 +35,7 @@ async function runFix(proxyPath: string) {
   const elementsVueUtilsPath = path.resolve(
     path.dirname(fullProxyPath),
     'vue-component-lib',
-    'utils.ts'
+    'utils.ts',
   );
 
   // provide v-model bindings for elements components
@@ -45,7 +45,7 @@ async function runFix(proxyPath: string) {
   });
   utilsString = utilsString.replace(
     'modelPropValue = (e?.target as any)[modelProp];',
-    'modelPropValue = (e as CustomEvent).detail;'
+    'modelPropValue = (e as CustomEvent).detail;',
   );
 
   await fs.promises.writeFile(elementsVueUtilsPath, utilsString);

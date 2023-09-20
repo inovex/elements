@@ -67,13 +67,12 @@ export class NavDrawer implements ComponentInterface {
   @Prop() a11yLabels?: NavDrawerLabels = {
     content: 'Main Navigation',
     footer: 'Footer Navigation',
-    toggleBtn: 'Toggle Navigation'
+    toggleBtn: 'Toggle Navigation',
   };
-
 
   componentDidLoad() {
     this.drawerInstance = new MDCDrawer(
-      this.el.shadowRoot.querySelector('.mdc-drawer')
+      this.el.shadowRoot.querySelector('.mdc-drawer'),
     );
     // set initial value of open state
     if (this.drawerInstance) {
@@ -128,7 +127,7 @@ export class NavDrawer implements ComponentInterface {
   private initTabindex(slotName: string) {
     const contentElements = this.el.querySelector(`[slot="${slotName}"]`);
     const contenListItems = contentElements.querySelectorAll('ino-list-item');
-    contenListItems[0].attrs = {tabIndex:0}
+    contenListItems[0].attrs = { tabIndex: 0 };
   }
 
   render() {
@@ -173,7 +172,7 @@ export class NavDrawer implements ComponentInterface {
             icon="arrow_right"
             onClick={this.toggleDrawer}
             attrs={{
-              ariaLabel: this.a11yLabels.toggleBtn
+              ariaLabel: this.a11yLabels.toggleBtn,
             }}
           />
         </nav>

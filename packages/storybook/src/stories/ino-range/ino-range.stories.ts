@@ -69,7 +69,7 @@ const template = new TemplateGenerator<Components.InoRange>(
       value-end="${args.valueEnd}"
     >
     </ino-range>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();

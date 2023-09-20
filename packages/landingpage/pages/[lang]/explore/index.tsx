@@ -39,7 +39,7 @@ const Explore = () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { localization } = getStaticLanguageProps(
     ctx as LangContext,
-    Locale_File.EXPLORE
+    Locale_File.EXPLORE,
   ).props;
 
   return { props: { localization } };

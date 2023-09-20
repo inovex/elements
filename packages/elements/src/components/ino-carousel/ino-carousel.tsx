@@ -35,11 +35,13 @@ export class InoCarousel implements ComponentInterface {
   @Watch('value')
   valueChanged(newVal: string | number) {
     const nextSlide = this.allSlides.find(
-      (slide: HTMLInoCarouselSlideElement) =>  slide.value === newVal
+      (slide: HTMLInoCarouselSlideElement) => slide.value === newVal,
     );
 
-    if(!nextSlide) {
-      throw new Error(`<ino-carousel-slide> with value '${newVal}' could not be found in the children of <ino-carousel>`)
+    if (!nextSlide) {
+      throw new Error(
+        `<ino-carousel-slide> with value '${newVal}' could not be found in the children of <ino-carousel>`,
+      );
     }
 
     if (this.currentSlideEl) this.currentSlideEl.selected = false;
@@ -109,15 +111,16 @@ export class InoCarousel implements ComponentInterface {
     if (!this.autoplay) return;
     this.timer = setInterval(
       () => this.emitNextSlide(this.reverse ? 'previous' : 'next'),
-      this.intermission
+      this.intermission,
     );
   }
 
   private emitNextSlide(direction: 'next' | 'previous' = 'next') {
-    let nextSlide = (direction === 'next'
-      ? this.currentSlideEl.nextElementSibling
-      : this.currentSlideEl
-          .previousElementSibling) as HTMLInoCarouselSlideElement;
+    let nextSlide = (
+      direction === 'next'
+        ? this.currentSlideEl.nextElementSibling
+        : this.currentSlideEl.previousElementSibling
+    ) as HTMLInoCarouselSlideElement;
 
     if (!this.infinite) {
       this.valueChange.emit(nextSlide?.value ?? this.currentSlideEl.value);
@@ -135,12 +138,12 @@ export class InoCarousel implements ComponentInterface {
 
   private onSlotChanged = () => {
     this.allSlides = Array.from(
-      this.el.getElementsByTagName('ino-carousel-slide')
+      this.el.getElementsByTagName('ino-carousel-slide'),
     );
 
     if (this.allSlides.length === 0)
       console.warn(
-        'ino-carousel: No ino-carousel-slide elements have been found. Make sure to provide them via the default slot.'
+        'ino-carousel: No ino-carousel-slide elements have been found. Make sure to provide them via the default slot.',
       );
   };
 

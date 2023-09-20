@@ -31,7 +31,7 @@ export default function LinkItem({
           noMargin && styles.noMargin,
           isDense && styles.linkDense,
           isSubItem && styles.linkSubItem,
-          isDense ? 'title-m' : 'title-l'
+          isDense ? 'title-m' : 'title-l',
         )}
       >
         {name.toLowerCase()}

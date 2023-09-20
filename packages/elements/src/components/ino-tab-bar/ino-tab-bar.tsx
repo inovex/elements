@@ -62,7 +62,7 @@ export class TabBar implements ComponentInterface {
   async interactionHandler(e) {
     e.stopPropagation();
     const allTabs = await Promise.all(
-      Array.from(this.el.querySelectorAll('ino-tab'))
+      Array.from(this.el.querySelectorAll('ino-tab')),
     );
     const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
     this.activeTabChange.emit(indexOfActivatedTab);

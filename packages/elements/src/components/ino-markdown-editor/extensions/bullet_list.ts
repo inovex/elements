@@ -1,7 +1,7 @@
-import {wrappingInputRule} from "@tiptap/core";
-import BulletList from "@tiptap/extension-bullet-list";
+import { wrappingInputRule } from '@tiptap/core';
+import BulletList from '@tiptap/extension-bullet-list';
 
-export const customInputRegex = /^\s*([-+*]\s[^\[])$/
+export const customInputRegex = /^\s*([-+*]\s[^\[])$/;
 
 export default BulletList.extend({
   addInputRules() {
@@ -10,7 +10,6 @@ export default BulletList.extend({
         find: customInputRegex,
         type: this.type,
       }),
-    ]
+    ];
   },
 });
-

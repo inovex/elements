@@ -10,7 +10,7 @@ import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter(
-  (icon) => !icon.startsWith('_')
+  (icon) => !icon.startsWith('_'),
 ).concat([
   'status_zukuenftige',
   'status_abwesend',
@@ -18,9 +18,8 @@ const ICONS_WITHOUT_INTERNALS = ICONS.filter(
 ]);
 
 function copyToClipboard(text) {
-  const snackbar: HTMLInoSnackbarElement = document.createElement(
-    'ino-snackbar'
-  );
+  const snackbar: HTMLInoSnackbarElement =
+    document.createElement('ino-snackbar');
 
   navigator.clipboard
     .writeText(text)
@@ -36,7 +35,7 @@ function copyToClipboard(text) {
 }
 
 const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
-  (name) => name.length >= 1
+  (name) => name.length >= 1,
 );
 
 const iconChips = ICON_IDS.map(
@@ -49,7 +48,7 @@ const iconChips = ICON_IDS.map(
       <ino-icon class="chip-icon" slot="icon-leading" icon="${name}"></ino-icon>
       ${name}
     </ino-chip>
-  `
+  `,
 );
 
 export default {
@@ -76,7 +75,7 @@ export default {
 
           const value: string = e.detail;
           const chips: HTMLInoChipElement[] = Array.from(
-            document.getElementsByTagName('ino-chip')
+            document.getElementsByTagName('ino-chip'),
           );
 
           // Hide not matching icons
@@ -124,7 +123,7 @@ const template = new TemplateGenerator<Components.InoIcon>(
       style="--icon-width: 30px; --icon-height: 30px;"
     >
     </ino-icon>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();
@@ -142,7 +141,6 @@ const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
         <div class="icon-collection">${iconChips}</div>
       </div>
     </div>
-  `
+  `,
 );
 export const AllIcons = templateAllIcons.generatePlaygroundStory();
-

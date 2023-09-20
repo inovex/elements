@@ -22,7 +22,7 @@ $material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
   $border-radius: var(--ino-dialog-border-radius, 17px);
   $box-shadow: var(--ino-dialog-box-shadow, #{$material-dialog-box-shadow});
   $border: var(--ino-dialog-border, 1px solid theme.$primary);
- 
+
   @include dialog.max-width(552px, 16px);
   @include dialog.min-width(480px);
   @include dialog.container-fill-color($background-color);
@@ -53,7 +53,7 @@ $material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
     display: flex;
     align-items: center;
     gap: 2rem;
-    
+
     ino-icon {
       --icon-width: 2rem;
       --icon-height: 2rem;

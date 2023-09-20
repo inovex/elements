@@ -31,9 +31,9 @@ export class TemplateGenerator<Component extends Object> {
   public generateStoryForProp<Key extends keyof Component>(
     key: Key,
     value: Component[Key],
-    otherProps?: Partial<Omit<Component, Key>>
+    otherProps?: Partial<Omit<Component, Key>>,
   ) {
-    let argument: Component = ({ [key]: value } as unknown) as Component;
+    let argument: Component = { [key]: value } as unknown as Component;
 
     if (otherProps) {
       argument = {
@@ -50,7 +50,6 @@ export class TemplateGenerator<Component extends Object> {
 
     if (args) {
       BoundTemplate.args = { ...args };
-
     }
 
     if (prop) {
@@ -80,7 +79,7 @@ export class TemplateGenerator<Component extends Object> {
         .props.find((p) => p.name === prop).docs;
     } catch (e) {
       throw new Error(
-        `Could not find a description for property "${prop}" of the component "${this.tagName}" in the "elements-stencil-docs.json". Make sure that the property exists. (${e})`
+        `Could not find a description for property "${prop}" of the component "${this.tagName}" in the "elements-stencil-docs.json". Make sure that the property exists. (${e})`,
       );
     }
 

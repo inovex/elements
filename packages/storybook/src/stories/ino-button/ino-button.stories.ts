@@ -30,7 +30,7 @@ const template = new TemplateGenerator<Components.InoButton>(
     >
       Label
     </ino-button>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();

@@ -97,7 +97,7 @@ export default function HeaderMobile() {
                         key={route.url}
                         url={route.url}
                         name={t(
-                          `common.navigation.${mainRouteName}.subroutes.${route.key}.name`
+                          `common.navigation.${mainRouteName}.subroutes.${route.key}.name`,
                         )}
                         isDense={true}
                       />
@@ -105,7 +105,7 @@ export default function HeaderMobile() {
                   </div>
                 </div>
               );
-            }
+            },
           )}
         </div>
         <ContactButton />
