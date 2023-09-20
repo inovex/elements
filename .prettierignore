@@ -18,5 +18,6 @@ proxies.ts
 utils.ts
 CHANGELOG.md
 packages/elements-react/src/components/**
+elements-stencil-docs.json
 
 assets/
