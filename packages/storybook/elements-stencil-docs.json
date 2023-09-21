@@ -5072,23 +5072,6 @@
           "required": false
         },
         {
-          "name": "isMobile",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "is-mobile",
-          "reflectToAttr": false,
-          "docs": "If true, the mobile drawer will be shown. Automatically sets the variant to `modal`.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "open",
           "type": "boolean",
           "mutable": false,
@@ -5107,11 +5090,11 @@
         },
         {
           "name": "variant",
-          "type": "\"dismissible\" | \"docked\" | \"modal\"",
+          "type": "\"dismissible\" | \"docked\" | \"mobile\" | \"modal\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "The variant to use for the drawer\nPossible values: `docked` (default), `dismissible`, `modal`.",
+          "docs": "The variant to use for the drawer.",
           "docsTags": [],
           "default": "'docked'",
           "values": [
@@ -5121,6 +5104,10 @@
             },
             {
               "value": "docked",
+              "type": "string"
+            },
+            {
+              "value": "mobile",
               "type": "string"
             },
             {
@@ -5144,48 +5131,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-nav-drawer-background",
-          "annotation": "prop",
-          "docs": "Background of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-height",
-          "annotation": "prop",
-          "docs": "Height of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-mobile-width-open",
-          "annotation": "prop",
-          "docs": "Mobile variant only! The width of the open drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-text-color",
-          "annotation": "prop",
-          "docs": "Color of text inside the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-timing-function",
-          "annotation": "prop",
-          "docs": "Timing function of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-transition-duration",
-          "annotation": "prop",
-          "docs": "Duration of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-closed",
-          "annotation": "prop",
-          "docs": "Docked variant only! The width of the collapsed drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-open",
-          "annotation": "prop",
-          "docs": "The width of the open drawer."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "app",

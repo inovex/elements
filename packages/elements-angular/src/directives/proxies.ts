@@ -712,13 +712,13 @@ export declare interface InoNavDrawer extends Components.InoNavDrawer {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['a11yLabels', 'anchor', 'isMobile', 'open', 'variant']
+  inputs: ['a11yLabels', 'anchor', 'open', 'variant']
 })
 @Component({
   selector: 'ino-nav-drawer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['a11yLabels', 'anchor', 'isMobile', 'open', 'variant']
+  inputs: ['a11yLabels', 'anchor', 'open', 'variant']
 })
 export class InoNavDrawer {
   protected el: HTMLElement;
