@@ -832,15 +832,11 @@ export namespace Components {
          */
         "anchor"?: NavDrawerAnchor;
         /**
-          * If true, the mobile drawer will be shown. Automatically sets the variant to `modal`.
-         */
-        "isMobile"?: boolean;
-        /**
           * Marks this element as open. (**unmanaged**)
          */
         "open"?: boolean;
         /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+          * The variant to use for the drawer.
          */
         "variant"?: NavDrawerVariant;
     }
@@ -2708,10 +2704,6 @@ declare namespace LocalJSX {
          */
         "anchor"?: NavDrawerAnchor;
         /**
-          * If true, the mobile drawer will be shown. Automatically sets the variant to `modal`.
-         */
-        "isMobile"?: boolean;
-        /**
           * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
          */
         "onOpenChange"?: (event: InoNavDrawerCustomEvent<boolean>) => void;
@@ -2720,7 +2712,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+          * The variant to use for the drawer.
          */
         "variant"?: NavDrawerVariant;
     }

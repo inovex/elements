@@ -54,8 +54,7 @@ export class NavDrawer implements ComponentInterface {
   @Prop() anchor?: NavDrawerAnchor = 'left';
 
   /**
-   * The variant to use for the drawer
-   * Possible values: `docked` (default), `dismissible`, `modal`.
+   * The variant to use for the drawer.
    */
   @Prop() variant?: NavDrawerVariant = 'docked';
 
@@ -69,16 +68,12 @@ export class NavDrawer implements ComponentInterface {
     toggleBtn: 'Toggle Navigation',
   };
 
-  /**
-   * If true, the mobile drawer will be shown. Automatically sets the variant to `modal`.
-   */
-  @Prop() isMobile?: boolean = false;
-
-  // set the variant based on the isMobile prop
-  @Watch('isMobile')
-  handleIsMobileChange() {
-    if (this.isMobile) {
-      this.variant = 'modal';
+  @Watch('variant')
+  variantChanged(newVariant: NavDrawerVariant) {
+    if (newVariant === 'mobile') {
+      this.activateMobileMode();
+    } else {
+      this.deactivateMobileMode();
     }
   }
 
@@ -94,7 +89,12 @@ export class NavDrawer implements ComponentInterface {
     this.initTabindex('content');
     this.initTabindex('footer');
 
-    this.modifyMobileItems();
+    // set initial mobile or desktop mode
+    if (this.variant === 'mobile') {
+      this.activateMobileMode();
+    } else {
+      this.deactivateMobileMode();
+    }
   }
 
   disconnectedCallback() {
@@ -102,16 +102,19 @@ export class NavDrawer implements ComponentInterface {
     this.drawerInstance?.destroy();
   }
 
-  private modifyMobileItems() {
-    if (!this.isMobile) return;
-
+  private activateMobileMode() {
     const navItems = this.el.querySelectorAll('ino-nav-item');
-
     navItems.forEach((item) => {
       item.classList.add('mobile-nav-item');
     });
   }
 
+  private deactivateMobileMode() {
+    const navItems = this.el.querySelectorAll('ino-nav-item');
+    navItems.forEach((item) => {
+      item.classList.remove('mobile-nav-item');
+    });
+  }
   // This listener ensures that only the most recently clicked/selected list item appears as "activated"
   @Listen('clickEl')
   handleListItemClick(event: CustomEvent) {
@@ -156,16 +159,17 @@ export class NavDrawer implements ComponentInterface {
   render() {
     const { anchor, variant } = this;
 
+    const isMobile = variant === 'mobile';
+
     const classDrawer = classNames({
       'mdc-drawer': true,
-      'mdc-drawer--docked': !this.isMobile && this.variant === 'docked',
+      'mdc-drawer--docked': variant === 'docked',
       'mdc-drawer--dismissible':
-        !this.isMobile &&
-        (this.variant === 'dismissible' || this.variant === 'docked'), // docked is a modifier of MDC's dismissible inoVariant
-      'mdc-drawer--modal': this.isMobile || this.variant === 'modal',
+        variant === 'dismissible' || variant === 'docked', // docked is a modifier of MDC's dismissible inoVariant
+      'mdc-drawer--modal': variant === 'modal' || isMobile,
       'mdc-drawer--anchor-left': anchor === 'left',
       'mdc-drawer--anchor-right': anchor === 'right',
-      'mobile-drawer': this.isMobile, // custom class for mobile drawer
+      'mobile-drawer': isMobile, // custom class for mobile drawer
     });
 
     const classAppContent = classNames({
@@ -195,11 +199,11 @@ export class NavDrawer implements ComponentInterface {
           <ino-icon-button
             class={{
               'mdc-drawer__toggle': true,
-              'visually-hidden': this.isMobile, // Hide visually on mobile, but remains in DOM to meet focus-trap requirements
+              'visually-hidden': isMobile, // Hide visually on mobile, but remains in DOM to meet focus-trap requirements
             }}
             icon="arrow_right"
-            tabIndex={this.isMobile ? -1 : null} // Exclude from tab navigation on mobile drawer
-            aria-hidden={this.isMobile} // Hide from screen readers on mobile as it's only used to prevent focus-trap error and has no functional use
+            tabIndex={isMobile ? -1 : null} // Exclude from tab navigation on mobile drawer
+            aria-hidden={isMobile} // Hide from screen readers on mobile as it's only used to prevent focus-trap error and has no functional use
             onClick={this.toggleDrawer}
             attrs={{
               ariaLabel: this.a11yLabels.toggleBtn,
@@ -218,7 +222,7 @@ export class NavDrawer implements ComponentInterface {
     return (
       <Host>
         {nav}
-        {(this.isMobile || variant === 'modal') && (
+        {(isMobile || variant === 'modal') && (
           <div class="mdc-drawer-scrim"></div>
         )}
         {main}

@@ -76,11 +76,8 @@ export default {
     variant: {
       control: {
         type: 'select',
-        options: ['docked', 'dismissible', 'modal'],
+        options: ['docked', 'dismissible', 'modal', 'mobile'],
       },
-    },
-    isMobile: {
-      control: 'boolean',
     },
   },
   args: {
@@ -92,21 +89,18 @@ export default {
       footer: 'Footer Navigation',
       toggleBtn: 'Toggle Navigation',
     },
-    isMobile: false,
   },
 } as Meta<Components.InoNavDrawer>;
 
 const template = new TemplateGenerator<Components.InoNavDrawer>(
   'ino-nav-drawer',
   args => {
-    const variant = args.isMobile ? 'modal' : args.variant;
     return html`
       <div class="story-nav-drawer__default">
         <ino-nav-drawer
           ?open=${args.open}
           anchor="${args.anchor}"
-          variant="${variant}"
-          ?is-mobile="${args.isMobile}"
+          variant="${args.variant}"
           class="customizable-drawer"
         >
           <div slot="header">
@@ -174,7 +168,6 @@ export const Dismissible = template.generateStoryForProp(
   'variant',
   'dismissible'
 );
-export const Mobile = template.generateStoryForProp('isMobile', true, {
-  variant: 'modal',
+export const Mobile = template.generateStoryForProp('variant', 'mobile', {
   open: false,
 });
