@@ -210,12 +210,34 @@
       "readme": "# ino-avatar\n\n\n",
       "usage": {},
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon-slot - For the icon to be displayed in the avatar."
+        }
+      ],
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
+        {
+          "name": "colorSecondary",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "color-secondary",
+          "reflectToAttr": false,
+          "docs": "Colors the border of the avatar in the secondary color.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "initials",
           "type": "string",
@@ -292,14 +314,13 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
+      "styles": [],
+      "slots": [
         {
-          "name": "--ino-avatar-size",
-          "annotation": "prop",
-          "docs": "Width and height of the ino-avatar"
+          "name": "icon-slot",
+          "docs": "For the icon to be displayed in the avatar."
         }
       ],
-      "slots": [],
       "parts": [],
       "listeners": []
     },

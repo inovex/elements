@@ -41,6 +41,10 @@ export namespace Components {
     }
     interface InoAvatar {
         /**
+          * Colors the border of the avatar in the secondary color.
+         */
+        "colorSecondary": boolean;
+        /**
           * The initials of the avatar.
          */
         "initials": string;
@@ -1874,6 +1878,10 @@ declare namespace LocalJSX {
         "value"?: string | KeyValue | null;
     }
     interface InoAvatar {
+        /**
+          * Colors the border of the avatar in the secondary color.
+         */
+        "colorSecondary"?: boolean;
         /**
           * The initials of the avatar.
          */
