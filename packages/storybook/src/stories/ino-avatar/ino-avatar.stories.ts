@@ -15,6 +15,7 @@ export default {
     interactive: false,
     variant: 'solid',
     src: avatarImg,
+    colorSecondary: false,
   },
 } as Meta<Components.InoAvatar>;
 
@@ -27,6 +28,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       interactive="${args.interactive}"
       variant="${args.variant}"
       src="${args.src}"
+      color-secondary="${args.colorSecondary}"
     >
     </ino-avatar>
 `);
@@ -34,6 +36,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
 export const Playground = template.generatePlaygroundStory();
 
 export const Interactive = template.generateStoryForProp('interactive', true);
+export const ColorSedonary = template.generateStoryForProp('colorSecondary', true);
 export const VariantDashed = template.generateStoryForProp('variant', 'dashed');
 export const VariantDashedInteractive = template.generateStoryForProp(
   'variant',
@@ -52,3 +55,26 @@ export const Initials = () => html`
   >
   </ino-avatar>
 `;
+
+/*
+ Add icons to the ino-avatar element by adding a `slot` and an `icon`.
+ */
+export const WithIcon = () => {
+  const args = {
+    initials: 'JD',
+    interactive: false,
+    variant: 'solid',
+    src: avatarImg,
+  };
+  
+  return html`
+    <ino-avatar
+      initials="${args.initials}"
+      interactive="${args.interactive}"
+      variant="${args.variant}"
+      src="${args.src}"
+    >
+      <ino-icon slot="icon-slot" style="--ino-icon-color: #6CF070;" icon="checkmark"></ino-icon>
+    </ino-avatar>
+`;
+};
