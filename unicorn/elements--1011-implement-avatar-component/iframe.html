@@ -340,6 +340,7 @@
     );
   };</script><script>setTimeout(function () {
   document.body.classList.add("inovex-elements-typo");
+  document.body.classList.add("inovex-elements-theme");
 }, 0);</script><style>#root > div > div:nth-child(2),
   .markdown-body,
   .ino-playground {
@@ -355,7 +356,41 @@
   .contrast-background {
     padding: 10px 0;
     background-color: darkgray;
-  }</style><style>#root[hidden],
+  }
+
+  /** overwrite toolbar icon color & hover */
+  .os-content button svg path {
+    fill: var(--inovex-elements-n-11);
+  }
+
+  .os-content button:hover svg path {
+    fill: var(--inovex-elements-primary);
+  }
+
+  /** disable scroll on toolbar */
+  .os-content {
+    overflow-y: hidden;
+  }
+
+  .os-content a {
+    display: block;
+    max-height: 12px;
+    max-width: 28px;
+  }
+
+  /** Style open-in-new-tap button same way as the other buttons */
+  .os-content a svg path {
+    fill: var(--inovex-elements-n-11) !important;
+  }
+
+  .os-content a:hover svg path {
+    fill: var(--inovex-elements-primary) !important;
+  }
+
+  /* .os-content .os-viewport button {
+    background-color: green;
+    color: var(--inovex-elements-primary);
+  } */</style><style>#root[hidden],
       #docs-root[hidden] {
         display: none !important;
       }</style></head><body><style>html {
@@ -384,4 +419,4 @@
           
       
           
-            window['STORIES'] = [{"titlePrefix":"","directory":"./src","files":"**/*.stories.ts","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.ts)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.mdx","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.mdx)$"}];</script><script src="runtime~main.714744ef.iframe.bundle.js"></script><script src="2847.3e466088.iframe.bundle.js"></script><script src="main.e6aed02e.iframe.bundle.js"></script></body></html>
+            window['STORIES'] = [{"titlePrefix":"","directory":"./src","files":"**/*.stories.ts","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.ts)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.mdx","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.mdx)$"}];</script><script src="runtime~main.f3a67c4b.iframe.bundle.js"></script><script src="4585.51c71a92.iframe.bundle.js"></script><script src="main.32dac664.iframe.bundle.js"></script></body></html>
