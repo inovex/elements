@@ -12,10 +12,10 @@ export default {
   decorators: [story => decorateStoryWithClass(story, 'story-avatar')],
   args: {
     initials: 'JD',
-    interactive: false,
+    interactive: false, // setting this to true via the Playroung does NOT set all substories to true!
     variant: 'solid',
     src: avatarImg,
-    colorSecondary: false,
+    colorSecondary: false, // setting this to true via the Playground sets all substories to true???
   },
 } as Meta<Components.InoAvatar>;
 
@@ -31,12 +31,16 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       color-secondary="${args.colorSecondary}"
     >
     </ino-avatar>
-`);
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 
 export const Interactive = template.generateStoryForProp('interactive', true);
-export const ColorSedonary = template.generateStoryForProp('colorSecondary', true);
+export const ColorSecondary = template.generateStoryForProp(
+  'colorSecondary',
+  true
+); // this doesnt work?
 export const VariantDashed = template.generateStoryForProp('variant', 'dashed');
 export const VariantDashedInteractive = template.generateStoryForProp(
   'variant',
@@ -47,12 +51,7 @@ export const VariantDashedInteractive = template.generateStoryForProp(
  The initials of the avatar, if there is no image.
  */
 export const Initials = () => html`
-  <ino-avatar
-    initials="JD"
-    interactive="false"
-    variant="solid"
-    src=""
-  >
+  <ino-avatar initials="JD" interactive="false" variant="solid" src="">
   </ino-avatar>
 `;
 
@@ -66,7 +65,7 @@ export const WithIcon = () => {
     variant: 'solid',
     src: avatarImg,
   };
-  
+
   return html`
     <ino-avatar
       initials="${args.initials}"
@@ -74,7 +73,11 @@ export const WithIcon = () => {
       variant="${args.variant}"
       src="${args.src}"
     >
-      <ino-icon slot="icon-slot" style="--ino-icon-color: #6CF070;" icon="checkmark"></ino-icon>
+      <ino-icon
+        slot="icon-slot"
+        style="--ino-icon-color: #6CF070;"
+        icon="checkmark"
+      ></ino-icon>
     </ino-avatar>
-`;
+  `;
 };
