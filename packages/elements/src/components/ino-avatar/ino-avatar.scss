@@ -140,6 +140,10 @@
   transform: rotate(0deg);
   transition: transform 250ms ease-in-out;
 
+  svg {
+    overflow: visible;
+  }
+
   path,
   circle {
     stroke-width: 2%;

@@ -12,10 +12,10 @@ export default {
   decorators: [story => decorateStoryWithClass(story, 'story-avatar')],
   args: {
     initials: 'JD',
-    interactive: false, // setting this to true via the Playroung does NOT set all substories to true!
+    interactive: false, 
     variant: 'solid',
     src: avatarImg,
-    colorSecondary: false, // setting this to true via the Playground sets all substories to true???
+    colorSecondary: false, 
   },
 } as Meta<Components.InoAvatar>;
 
@@ -31,7 +31,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       color-secondary="${args.colorSecondary}"
     >
     </ino-avatar>
-  `
+`
 );
 
 export const Playground = template.generatePlaygroundStory();
@@ -79,5 +79,5 @@ export const WithIcon = () => {
         icon="checkmark"
       ></ino-icon>
     </ino-avatar>
-  `;
+`;
 };
