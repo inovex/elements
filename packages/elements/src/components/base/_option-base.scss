@@ -1,0 +1,37 @@
+@mixin style-mdc-list-item-selected-states($background, $hover, $focus, $active) {
+    background-color: #{$background};
+
+    &::before,
+    &::after {
+        display: none;
+    }
+
+    &:hover {
+        background-color: #{$hover};
+    }
+
+    &:focus {
+        background-color: #{$focus};
+    }
+
+    &:active {
+        background-color: #{$active};
+    }
+}
+
+@mixin style-mdc-list-item-deselected-states($background, $hover, $focus, $active) {
+    background-color: #{$background};
+
+    &:hover {
+        background-color: #{$hover};
+    }
+
+    &:focus {
+        background-color: #{$focus};
+    }
+
+    &:active {
+        background-color: #{$active};
+    }
+    
+}

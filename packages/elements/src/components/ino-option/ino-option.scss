@@ -1,10 +1,11 @@
 @use '../base/mdc-customize';
 @use "@material/list";
 @use '../base/new-theme' as theme;
+@use '../base/option-base' as base;
 
 @include list.deprecated-core-styles;
 
-$height: auto;
+$height: 2.85rem;
 
 ino-option {
   /**
@@ -41,7 +42,8 @@ ino-option {
   // the following CSS variables do not have a default value as the component uses the default colors set
   // by the MDC library if the value of the variable is empty
   --option-deselected-background-color: var(
-    --ino-option-deselected-background-color
+    --ino-option-deselected-background-color,
+    #{theme.$white}
   );
   --option-deselected-background-color-hover: var(
     --ino-option-deselected-background-color-hover,
@@ -60,49 +62,28 @@ ino-option {
 ino-option {
   @include list.deprecated-item-disabled-text-opacity(0.5);
 
-  .mdc-deprecated-list-item--disabled {
-    pointer-events: none;
-  }
-
   .mdc-deprecated-list-item {
-    // padding-top: 6px;
-    // padding-bottom: 6px;
     height: var(--height);
 
-    background-color: var(--option-deselected-background-color);
-
-    &:hover {
-      background-color: var(--option-deselected-background-color-hover);
-    }
-
-    &:focus {
-      background-color: var(--option-deselected-background-color-focus);
-    }
-
-    &:active {
-      background-color: var(--option-deselected-background-color-active);
-    }
+    @include base.style-mdc-list-item-deselected-states(
+      var(--option-deselected-background-color),
+      var(--option-deselected-background-color-hover),
+      var(--option-deselected-background-color-focus),
+      var(--option-deselected-background-color-active)
+    );
 
     &.mdc-deprecated-list-item--selected,
     &.mdc-deprecated-list-item--activated {
-      background-color: var(--option-selected-background-color);
-
-      &::before,
-      &::after {
-        display: none;
-      }
-
-      &:hover {
-        background-color: var(--option-selected-background-color-hover);
-      }
-
-      &:focus {
-        background-color: var(--option-selected-background-color-focus);
-      }
-
-      &:active {
-        background-color: var(--option-selected-background-color-active);
-      }
+      @include base.style-mdc-list-item-selected-states(
+        var(--option-selected-background-color),
+        var(--option-selected-background-color-hover),
+        var(--option-selected-background-color-focus),
+        var(--option-selected-background-color-active)
+      );
     }
+  }
+  
+  .mdc-deprecated-list-item--disabled {
+    pointer-events: none;
   }
 }
