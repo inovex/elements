@@ -33,6 +33,10 @@ ino-select {
 
   display: block;
 
+  ino-option {
+    --ino-option-height: 2.85rem;
+  }
+
   .ino-hidden-input {
     width: 0;
     height: 0;
@@ -45,6 +49,11 @@ ino-select {
     margin-top: 0.57rem;
     border-radius: $border-radius;
     height: var(--select-height);
+    box-shadow: 0px 0px 22px 0px rgba(93, 91, 105, 0.35);
+
+    ul {
+      padding: 0;
+    }
   }
 
   .mdc-select__anchor,
