@@ -5448,6 +5448,11 @@
           "docs": "Background color on hover if deselected"
         },
         {
+          "name": "--ino-option-height",
+          "annotation": "prop",
+          "docs": "Height of the option container"
+        },
+        {
           "name": "--ino-option-selected-background-color",
           "annotation": "prop",
           "docs": "Background color if selected"
