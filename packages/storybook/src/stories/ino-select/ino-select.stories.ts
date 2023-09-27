@@ -45,6 +45,7 @@ export default {
     label: 'Select label',
     name: 'select-1',
     outline: false,
+    dense: false,
     required: false,
     showLabelHint: false,
     value: 'Option 1',
@@ -68,6 +69,7 @@ const template = new TemplateGenerator<Components.InoSelect>(
     disabled="${args.disabled}"
     name="${args.name}"
     outline="${args.outline}"
+    dense="${args.dense}"
     label="${args.label}"
     required="${args.required}"
     show-label-hint="${args.showLabelHint}"
@@ -77,13 +79,12 @@ const template = new TemplateGenerator<Components.InoSelect>(
     helper-persistent="${args.helperPersistent}"
     helper-validation="${args.helperValidation}"
   >
-    <ino-option value="Option 1">Option 1</ino-option>
-    <ino-option value="Option 2">Option 2</ino-option>
-    <ino-option value="Option 3">Option 3</ino-option>
+    ${optionsTemplate}
   </ino-select>
 `);
 export const Playground = template.generatePlaygroundStory();
 export const Outlined = template.generateStoryForProp('outline', true);
+export const Dense = template.generateStoryForProp('dense', true);
 export const Disabled = template.generateStoryForProp('disabled', true);
 export const Error = template.generateStoryForProp('error', true);
 export const ShowLabelHint = template.generateStoryForProp(

@@ -6777,6 +6777,23 @@
       },
       "props": [
         {
+          "name": "dense",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "dense",
+          "reflectToAttr": false,
+          "docs": "Styles this selects text and container slightly smaller.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
@@ -6967,6 +6984,11 @@
         }
       ],
       "styles": [
+        {
+          "name": "--ino-border-radius",
+          "annotation": "prop",
+          "docs": "Border-radius of the open select menu"
+        },
         {
           "name": "--ino-select-height",
           "annotation": "prop",
