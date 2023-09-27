@@ -54,7 +54,7 @@ export class Avatar implements ComponentInterface {
     } else {
       svgContent = isDashed ? primary_dashed : primary;
     }
-    // Decode the base64 string, otherwise only the string valueis displayed
+    // Decode the base64 string, otherwise only the string value is displayed
     const decodedSvgContent = window.atob(svgContent.split(',')[1]);
 
     return <div class="ino-avatar__border" innerHTML={decodedSvgContent} />;

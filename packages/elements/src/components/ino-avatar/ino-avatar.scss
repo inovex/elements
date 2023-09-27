@@ -79,7 +79,7 @@
       }
     }
   }
-
+  // Avatar icon
   &__icon-slot {
     position: absolute;
     background: white;
@@ -135,7 +135,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: visible;
   will-change: transform, stroke-width;
   transform: rotate(0deg);
   transition: transform 250ms ease-in-out;
