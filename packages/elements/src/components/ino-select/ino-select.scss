@@ -11,6 +11,7 @@
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
+$border-radius: 0.7rem;
 
 @mixin setIconColors($color) {
   .mdc-select__icon {
@@ -24,9 +25,11 @@ ino-select {
   /**
   * @prop --ino-select-height: Height of the open select menu
   * @prop --ino-select-icon-color: Icon color
+  * @prop --ino-border-radius: Border-radius of the open select menu
   */
   --select-height: auto;
   --select-icon-color: var(--ino-select-icon-color, #{theme.color(primary)});
+  --border-radius: var(var(--ino-border-radius), $border-radius);
 
   display: block;
 
@@ -39,6 +42,8 @@ ino-select {
   }
 
   .mdc-select__menu {
+    margin-top: 0.57rem;
+    border-radius: $border-radius;
     height: var(--select-height);
   }
 
@@ -93,6 +98,11 @@ ino-select {
         --icon-width: 24px;
         --icon-height: 24px;
       }
+    }
+
+    .mdc-menu-surface--is-open-below {
+      border-top-right-radius: $border-radius;
+      border-top-left-radius: $border-radius;
     }
   }
 
