@@ -40,7 +40,7 @@ export const Interactive = template.generateStoryForProp('interactive', true);
 export const ColorSecondary = template.generateStoryForProp(
   'colorSecondary',
   true
-); // this doesnt work?
+);
 export const VariantDashed = template.generateStoryForProp('variant', 'dashed');
 export const VariantDashedInteractive = template.generateStoryForProp(
   'variant',
