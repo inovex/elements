@@ -197,20 +197,26 @@ export class Select implements ComponentInterface {
 
   private renderDropdownIcon = () => (
     <span class="mdc-select__dropdown-icon">
-      <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5">
-        <polygon
-          class="mdc-select__dropdown-icon-inactive"
-          stroke="none"
-          fill-rule="evenodd"
-          points="7 10 12 15 17 10"
-        ></polygon>
-        <polygon
+      <span class="mdc-select__dropdown-icon-graphic">
+        <svg 
+          class="mdc-select__dropdown-icon-inactive" 
+          xmlns="http://www.w3.org/2000/svg" 
+          height="24"
+          width="24"
+          viewBox="0 -960 960 960" 
+          >
+            <path d="M480-362q-8 0-15-2.5t-13-8.5L268-557q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-373q-6 6-13 8.5t-15 2.5Z"/>
+        </svg>
+        <svg 
           class="mdc-select__dropdown-icon-active"
-          stroke="none"
-          fill-rule="evenodd"
-          points="7 15 12 10 17 15"
-        ></polygon>
-      </svg>
+          xmlns="http://www.w3.org/2000/svg" 
+          height="24"
+          width="24"
+          viewBox="0 -960 960 960" 
+          >
+            <path d="M480-529 324-373q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q6-6 13-8.5t15-2.5q8 0 15 2.5t13 8.5l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-529Z"/>
+        </svg>
+      </span >
     </span>
   );
 

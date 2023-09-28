@@ -6988,23 +6988,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-border-radius",
-          "annotation": "prop",
-          "docs": "Border-radius of the open select menu"
-        },
-        {
-          "name": "--ino-select-height",
-          "annotation": "prop",
-          "docs": "Height of the open select menu"
-        },
-        {
-          "name": "--ino-select-icon-color",
-          "annotation": "prop",
-          "docs": "Icon color"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
