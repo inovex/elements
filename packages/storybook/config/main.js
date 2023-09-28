@@ -5,16 +5,26 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
-  staticDirs: ['../static', '../../elements/src/assets', '../../../assets/logo'],
+  staticDirs: [
+    '../static',
+    '../../elements/src/assets',
+    '../../../assets/logo',
+  ],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
-  addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil'],
-  managerEntries: ['./addons/post-current-story'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@pxtrn/storybook-addon-docs-stencil',
+  ],
+  managerEntries: [
+    './addons/post-current-story',
+    './addons/open-playground-automatically',
+  ],
   typescript: {
     compilerOptions: {
-      "typeRoots" : ["node_modules/@types", "../src/types"]
+      typeRoots: ['node_modules/@types', '../src/types'],
     },
   },
-  webpackFinal: (config) => {
+  webpackFinal: config => {
     config.devServer = {
       watchContentBase: true,
       contentBase: path.join(__dirname, 'src'),
@@ -46,7 +56,7 @@ module.exports = {
     // Story Description
     config.module.rules.push({
       test: /\.stories\.ts/,
-      use: [{ loader: "story-description-loader", options: { isTSX: true } }],
+      use: [{ loader: 'story-description-loader', options: { isTSX: true } }],
     });
 
     return config;
