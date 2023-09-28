@@ -16,6 +16,8 @@ export default {
     variant: 'solid',
     src: avatarImg,
     colorSecondary: false, 
+    a11yLabel: 'User avatar',
+    alt: 'Jane Doe',
   },
 } as Meta<Components.InoAvatar>;
 
@@ -29,6 +31,8 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       variant="${args.variant}"
       src="${args.src}"
       color-secondary="${args.colorSecondary}"
+      a11y-label="${args.a11yLabel}"
+      alt="${args.alt}"
     >
     </ino-avatar>
 `
@@ -48,7 +52,7 @@ export const VariantDashedInteractive = template.generateStoryForProp(
   { interactive: true }
 );
 /*
- The initials of the avatar, if there is no image.
+ The initials of the avatar if the `src` is not defined or `img` fails to load.
  */
 export const Initials = () => html`
   <ino-avatar initials="JD" interactive="false" variant="solid" src="">
