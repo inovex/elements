@@ -418,7 +418,7 @@ export class MarkdownEditor implements ComponentInterface {
           <ino-popover
             placement="top-start"
             controlled={true}
-            color-scheme="transparent"
+            colorScheme="light"
             visible={Boolean(this.errorMessage)}
           >
             <span class="markdown-editor__error-text">{this.errorMessage}</span>
