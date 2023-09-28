@@ -21,6 +21,16 @@ const LocaleSwitcher = () => {
     [router]
   );
 
+  const isChecked = (locale as string) === Supported_Locales.EN;
+
+  const leadingStyle = {
+    color: isChecked ? '#575464' : 'black',
+  };
+
+  const trailingStyle = {
+    color: isChecked ? 'black' : '#575464',
+  };
+
   useEffect(() => {
     if (router.route.startsWith('/[lang]/getting-started')) {
       setIsDisabled(true);
@@ -36,8 +46,12 @@ const LocaleSwitcher = () => {
         checked={(locale as string) === Supported_Locales.EN}
         onCheckedChange={(e) => handleLocaleChangeNew(e.detail)}
       >
-        <p slot="leading">DE</p>
-        <p slot="trailing">EN</p>
+        <p slot="leading" style={leadingStyle}>
+          DE
+        </p>
+        <p slot="trailing" style={trailingStyle}>
+          EN
+        </p>
       </InoSwitch>
     </div>
   );

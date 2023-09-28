@@ -4307,6 +4307,22 @@
           "required": false
         },
         {
+          "name": "for",
+          "type": "string",
+          "mutable": false,
+          "attr": "for",
+          "reflectToAttr": false,
+          "docs": "Id of the associated form control",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "outline",
           "type": "boolean",
           "mutable": false,
@@ -5070,7 +5086,7 @@
           "reflectToAttr": false,
           "docs": "The aria-labels used for content and footer nav elements.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.",
           "docsTags": [],
-          "default": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation'\n  }",
+          "default": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation',\n  }",
           "values": [
             {
               "type": "{ content: string; footer: string; toggleBtn: string; }"
@@ -5120,11 +5136,11 @@
         },
         {
           "name": "variant",
-          "type": "\"dismissible\" | \"docked\" | \"modal\"",
+          "type": "\"dismissible\" | \"docked\" | \"mobile\" | \"modal\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "The variant to use for the drawer\nPossible values: `docked` (default), `dismissible`, `modal`.",
+          "docs": "The variant to use for the drawer.",
           "docsTags": [],
           "default": "'docked'",
           "values": [
@@ -5134,6 +5150,10 @@
             },
             {
               "value": "docked",
+              "type": "string"
+            },
+            {
+              "value": "mobile",
               "type": "string"
             },
             {
@@ -5157,43 +5177,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-nav-drawer-background",
-          "annotation": "prop",
-          "docs": "Background of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-height",
-          "annotation": "prop",
-          "docs": "Height of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-text-color",
-          "annotation": "prop",
-          "docs": "Color of text inside the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-timing-function",
-          "annotation": "prop",
-          "docs": "Timing function of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-transition-duration",
-          "annotation": "prop",
-          "docs": "Duration of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-closed",
-          "annotation": "prop",
-          "docs": "Docked variant only! The width of the collapsed drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-open",
-          "annotation": "prop",
-          "docs": "The width of the open drawer."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "app",
@@ -5592,6 +5576,23 @@
       },
       "props": [
         {
+          "name": "arrow",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "arrow",
+          "reflectToAttr": false,
+          "docs": "Shows an arrow pointing towards its trigger-element",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "attachToBody",
           "type": "boolean",
           "mutable": false,
@@ -5610,20 +5611,24 @@
         },
         {
           "name": "colorScheme",
-          "type": "\"primary\" | \"transparent\"",
+          "type": "\"dark\" | \"light\" | \"primary\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the popup\nValid options include: 'primary', 'transparent'",
+          "docs": "Sets the color scheme of the popup.\n\nValid options include: `primary`, `light` and `dark`.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "primary",
+              "value": "dark",
               "type": "string"
             },
             {
-              "value": "transparent",
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
               "type": "string"
             }
           ],
@@ -5653,7 +5658,7 @@
           "mutable": false,
           "attr": "delay",
           "reflectToAttr": false,
-          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
+          "docs": "The delay in milliseconds before `ino-popover` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
           "docsTags": [],
           "default": "0",
           "values": [
