@@ -840,7 +840,7 @@ export namespace Components {
          */
         "open"?: boolean;
         /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+          * The variant to use for the drawer.
          */
         "variant"?: NavDrawerVariant;
     }
@@ -2724,7 +2724,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+          * The variant to use for the drawer.
          */
         "variant"?: NavDrawerVariant;
     }
