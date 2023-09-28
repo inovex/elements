@@ -26,11 +26,13 @@ export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete
 
 
 export const InoAvatar = /*@__PURE__*/ defineContainer<JSX.InoAvatar>('ino-avatar', undefined, [
+  'alt',
   'initials',
   'src',
   'interactive',
   'variant',
-  'colorSecondary'
+  'colorSecondary',
+  'a11yLabel'
 ]);
 
 

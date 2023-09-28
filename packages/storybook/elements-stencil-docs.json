@@ -222,6 +222,40 @@
       "dependencyGraph": {},
       "props": [
         {
+          "name": "a11yLabel",
+          "type": "string",
+          "mutable": false,
+          "attr": "a-1-1y-label",
+          "reflectToAttr": false,
+          "docs": "The aria-label used for the avatar element.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "mutable": false,
+          "attr": "alt",
+          "reflectToAttr": false,
+          "docs": "The alternative text of the avatar image.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "colorSecondary",
           "type": "boolean",
           "mutable": false,
@@ -244,7 +278,7 @@
           "mutable": false,
           "attr": "initials",
           "reflectToAttr": false,
-          "docs": "The initials of the avatar.",
+          "docs": "The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.",
           "docsTags": [],
           "default": "''",
           "values": [
@@ -314,13 +348,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--ino-avatar-size",
-          "annotation": "prop",
-          "docs": "Width and height of the ino-avatar"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-slot",

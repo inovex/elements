@@ -41,11 +41,19 @@ export namespace Components {
     }
     interface InoAvatar {
         /**
+          * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+         */
+        "a11yLabel"?: string;
+        /**
+          * The alternative text of the avatar image.
+         */
+        "alt"?: string;
+        /**
           * Colors the border of the avatar in the secondary color.
          */
         "colorSecondary": boolean;
         /**
-          * The initials of the avatar.
+          * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
          */
         "initials": string;
         /**
@@ -1879,11 +1887,19 @@ declare namespace LocalJSX {
     }
     interface InoAvatar {
         /**
+          * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+         */
+        "a11yLabel"?: string;
+        /**
+          * The alternative text of the avatar image.
+         */
+        "alt"?: string;
+        /**
           * Colors the border of the avatar in the secondary color.
          */
         "colorSecondary"?: boolean;
         /**
-          * The initials of the avatar.
+          * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
          */
         "initials"?: string;
         /**
