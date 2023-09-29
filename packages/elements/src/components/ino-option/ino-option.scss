@@ -33,7 +33,7 @@ ino-option {
   );
   --option-selected-background-color-focus: var(
     --ino-option-selected-background-color-focus,
-    #{theme.$p-3}
+    #{theme.$p-2}
   );
   --option-selected-background-color-active: var(
     --ino-option-selected-background-color-active,
@@ -51,11 +51,11 @@ ino-option {
   );
   --option-deselected-background-color-focus: var(
     --ino-option-deselected-background-color-focus,
-    #{theme.$n-2}
+    #{theme.$n-1}
   );
   --option-deselected-background-color-active: var(
     --ino-option-deselected-background-color-active,
-    #{theme.$n-3}
+    #{theme.$n-2}
   );
 }
 
