@@ -73,11 +73,6 @@ export class Select implements ComponentInterface {
   @Prop() outline?: boolean;
 
   /**
-   * Styles this selects text and container slightly smaller.
-   */
-  @Prop() dense?: boolean = false;
-
-  /**
    * The value of this element. (**unmanaged**)
    */
   @Prop() value?: string = '';
@@ -224,8 +219,7 @@ export class Select implements ComponentInterface {
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
 
     const inoSelectClasses = classNames({
-      'ino-select-outlined': this.outline,
-      'ino-select-dense': this.dense,
+      'ino-select-outlined': this.outline
     })
 
     const classSelect = classNames({
