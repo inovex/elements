@@ -6982,6 +6982,11 @@
       ],
       "styles": [
         {
+          "name": "--ino-border-radius",
+          "annotation": "prop",
+          "docs": "Border-radius of the open select menu"
+        },
+        {
           "name": "--ino-select-height",
           "annotation": "prop",
           "docs": "Height of the open select menu"
