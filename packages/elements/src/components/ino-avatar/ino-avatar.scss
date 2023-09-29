@@ -42,14 +42,8 @@
   &--interactive {
     cursor: pointer;
 
-    // border width transition
-    .ino-avatar__border path,
-    .ino-avatar__border circle {
-      stroke-width: 2%;
-      transition: stroke-width 0.3s ease-in-out;
-    }
     // background gradient fade-in-out
-    .ino-avatar__image-inner::after {
+    .ino-avatar__image::after {
       content: '';
       position: absolute;
       top: 0;
@@ -60,6 +54,18 @@
       border-radius: 50%;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
+    }
+
+    .ino-avatar__image:hover::after,
+    .ino-avatar__image:focus::after {
+      opacity: 1;
+    }
+
+    // border width transition
+    .ino-avatar__border path,
+    .ino-avatar__border circle {
+      stroke-width: 2%;
+      transition: stroke-width 0.3s ease-in-out;
     }
 
     &.ino-avatar--solid,
