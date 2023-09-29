@@ -1036,6 +1036,49 @@ export class InoSelect {
 }
 
 
+export declare interface InoSelection extends Components.InoSelection {
+  /**
+   * Emits string of the added option. Contains new value in `event.detail`. 
+   */
+  optionCreated: EventEmitter<CustomEvent<string | { key: string; value: string }>>;
+  /**
+   * Emits when the ino-selection wants to show (`true`) or hide (`false`) itself.
+This is depended on the `trigger` property.
+Use this event in controlled-mode (see `controlled`).
+
+e.g.: `trigger = 'click'` - This events emits with `true`
+when the user clicks on the target (slot/`for`/parent-element)
+and emits with `false` when the target or the outside is clicked. 
+   */
+  selectionVisibleChanged: EventEmitter<CustomEvent<boolean>>;
+  /**
+   * Emits the list item the user clicked on either as a string or
+a `{key: string; value: string}` object depending on the provided options. 
+   */
+  valueChange: EventEmitter<CustomEvent<string | { key: string; value: string }>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['controlled', 'createOptionLabel', 'debounce', 'distance', 'error', 'for', 'hideCreateOption', 'label', 'noOptionsText', 'options', 'placement', 'stayOpen', 'value', 'visible']
+})
+@Component({
+  selector: 'ino-selection',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['controlled', 'createOptionLabel', 'debounce', 'distance', 'error', 'for', 'hideCreateOption', 'label', 'noOptionsText', 'options', 'placement', 'stayOpen', 'value', 'visible']
+})
+export class InoSelection {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['optionCreated', 'selectionVisibleChanged', 'valueChange']);
+  }
+}
+
+
 export declare interface InoSnackbar extends Components.InoSnackbar {
   /**
    * Event that emits as soon as the action button is clicked. 

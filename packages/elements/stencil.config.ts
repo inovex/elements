@@ -74,6 +74,7 @@ export const config: Config = {
             'ino-range',
             'ino-segment-group',
             'ino-select',
+            'ino-selection',
             'ino-textarea',
           ],
           targetAttr: 'value',

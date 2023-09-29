@@ -28,6 +28,7 @@ $shadow-color: rgba(93, 91, 105, 0.3);
 // global styles
 .tippy-box {
     @include font(sans-serif, m, regular);
+    overflow: hidden;
     border-radius: $border-radius;
     z-index: 9999;
 }

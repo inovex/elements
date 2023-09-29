@@ -230,6 +230,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [ino-datepicker](../ino-datepicker)
+ - [ino-selection](../ino-selection)
 
 ### Depends on
 
@@ -242,6 +243,7 @@ graph TD;
   ino-input --> ino-label
   ino-input --> ino-icon
   ino-datepicker --> ino-input
+  ino-selection --> ino-input
   style ino-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

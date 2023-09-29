@@ -52,6 +52,7 @@ scopes:
   - elements|ino-segment-button
   - elements|ino-segment-group
   - elements|ino-select
+  - elements|ino-selection
   - elements|ino-snackbar
   - elements|ino-spinner
   - elements|ino-switch
@@ -100,6 +101,7 @@ scopes:
   - elements-angular|ino-segment-button
   - elements-angular|ino-segment-group
   - elements-angular|ino-select
+  - elements-angular|ino-selection
   - elements-angular|ino-snackbar
   - elements-angular|ino-spinner
   - elements-angular|ino-switch
@@ -148,6 +150,7 @@ scopes:
   - elements-react|ino-segment-button
   - elements-react|ino-segment-group
   - elements-react|ino-select
+  - elements-react|ino-selection
   - elements-react|ino-snackbar
   - elements-react|ino-spinner
   - elements-react|ino-switch
@@ -196,6 +199,7 @@ scopes:
   - elements-vue|ino-segment-button
   - elements-vue|ino-segment-group
   - elements-vue|ino-select
+  - elements-vue|ino-selection
   - elements-vue|ino-snackbar
   - elements-vue|ino-spinner
   - elements-vue|ino-switch
@@ -244,6 +248,7 @@ scopes:
   - storybook|ino-segment-button
   - storybook|ino-segment-group
   - storybook|ino-select
+  - storybook|ino-selection
   - storybook|ino-snackbar
   - storybook|ino-spinner
   - storybook|ino-switch
@@ -256,10 +261,12 @@ scopes:
   - storybook|ino-tooltip
   - elements
   - elements-angular
+  - elements-angular-example
   - elements-react
+  - elements-react-example
   - elements-vue
+  - elements-vue-example
   - storybook
   - landingpage
-  - elements-vue-example
   - '*'
   - deps

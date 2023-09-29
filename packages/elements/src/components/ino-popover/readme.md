@@ -255,6 +255,7 @@ Type: `Promise<any>`
 
  - [ino-markdown-editor](../ino-markdown-editor)
  - [ino-menu](../ino-menu)
+ - [ino-selection](../ino-selection)
  - [ino-table-header-cell](../ino-table-header-cell)
 
 ### Graph
@@ -262,6 +263,7 @@ Type: `Promise<any>`
 graph TD;
   ino-markdown-editor --> ino-popover
   ino-menu --> ino-popover
+  ino-selection --> ino-popover
   ino-table-header-cell --> ino-popover
   style ino-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

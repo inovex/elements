@@ -23,7 +23,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/elements",
-        "command": "stencil test --e2e --no-build"
+        "command": "stencil test --spec --e2e --no-build"
       },
       "configurations": {
         "ci": {

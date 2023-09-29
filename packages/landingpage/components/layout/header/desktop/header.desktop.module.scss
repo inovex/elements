@@ -50,14 +50,13 @@ $header-height--shrunk: 70px;
     text-transform: uppercase;
     padding: 5px;
 
-    &:hover,
-    &.selected {
+    &:hover, &.selected {
       text-decoration-line: underline;
       text-underline-offset: 5px;
     }
 
     &.selected {
-      color: #2c02ff;
+      color: #2C02FF;
     }
   }
 }

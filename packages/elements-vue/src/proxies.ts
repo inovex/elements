@@ -451,6 +451,28 @@ export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect>('ino-selec
 'value', 'v-value-change', 'valueChange');
 
 
+export const InoSelection = /*@__PURE__*/ defineContainer<JSX.InoSelection>('ino-selection', undefined, [
+  'debounce',
+  'noOptionsText',
+  'placement',
+  'distance',
+  'for',
+  'label',
+  'stayOpen',
+  'options',
+  'hideCreateOption',
+  'createOptionLabel',
+  'value',
+  'controlled',
+  'visible',
+  'error',
+  'optionCreated',
+  'selectionVisibleChanged',
+  'valueChange'
+],
+'value', 'v-value-change', 'valueChange');
+
+
 export const InoSnackbar = /*@__PURE__*/ defineContainer<JSX.InoSnackbar>('ino-snackbar', undefined, [
   'message',
   'actionText',
