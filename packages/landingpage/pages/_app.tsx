@@ -12,6 +12,7 @@ import { LanguageProvider } from 'utils/context/LanguageContext';
 import useDefaultLocale from '../translations/useDefaultLocale';
 import { useMount } from 'react-use';
 import UiContextProvider from '../utils/context/UiContext';
+import { VersionProvider } from '../utils/context/VersionContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -26,9 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <UiContextProvider>
       <LanguageProvider localization={pageProps.localization}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <VersionProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </VersionProvider>
       </LanguageProvider>
     </UiContextProvider>
   );

@@ -736,6 +736,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Id of the associated form control
+         */
+        "for": string;
+        /**
           * Styles the label in an outlined style
          */
         "outline": boolean;
@@ -836,7 +840,7 @@ export namespace Components {
          */
         "open"?: boolean;
         /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+          * The variant to use for the drawer.
          */
         "variant"?: NavDrawerVariant;
     }
@@ -880,19 +884,23 @@ export namespace Components {
     }
     interface InoPopover {
         /**
+          * Shows an arrow pointing towards its trigger-element
+         */
+        "arrow": boolean;
+        /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
          */
         "attachToBody": boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
+          * Sets the color scheme of the popup.  Valid options include: `primary`, `light` and `dark`.
          */
-        "colorScheme": 'primary' | 'transparent';
+        "colorScheme": TippyThemes;
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled": boolean;
         /**
-          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
         /**
@@ -2600,6 +2608,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Id of the associated form control
+         */
+        "for"?: string;
+        /**
           * Styles the label in an outlined style
          */
         "outline"?: boolean;
@@ -2720,7 +2732,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+          * The variant to use for the drawer.
          */
         "variant"?: NavDrawerVariant;
     }
@@ -2768,19 +2780,23 @@ declare namespace LocalJSX {
     }
     interface InoPopover {
         /**
+          * Shows an arrow pointing towards its trigger-element
+         */
+        "arrow"?: boolean;
+        /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
          */
         "attachToBody"?: boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
+          * Sets the color scheme of the popup.  Valid options include: `primary`, `light` and `dark`.
          */
-        "colorScheme"?: 'primary' | 'transparent';
+        "colorScheme"?: TippyThemes;
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled"?: boolean;
         /**
-          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
         /**

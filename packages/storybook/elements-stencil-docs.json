@@ -3077,7 +3077,48 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-icon-button-background-active-color",
+          "annotation": "prop",
+          "docs": "base color of the active background"
+        },
+        {
+          "name": "--ino-icon-button-background-color",
+          "annotation": "prop",
+          "docs": "default color of the background"
+        },
+        {
+          "name": "--ino-icon-button-background-disabled-color",
+          "annotation": "prop",
+          "docs": "base color of the background in disabled state"
+        },
+        {
+          "name": "--ino-icon-button-icon-active-color",
+          "annotation": "prop",
+          "docs": "color of the active icon itself"
+        },
+        {
+          "name": "--ino-icon-button-icon-color",
+          "annotation": "prop",
+          "docs": "default color of the icon itself"
+        },
+        {
+          "name": "--ino-icon-button-icon-disabled-color",
+          "annotation": "prop",
+          "docs": "color of the icon itself in disabled state"
+        },
+        {
+          "name": "--ino-icon-button-icon-size",
+          "annotation": "prop",
+          "docs": "size of the icon itself"
+        },
+        {
+          "name": "--ino-icon-button-size",
+          "annotation": "prop",
+          "docs": "size of the entire button"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -4253,6 +4294,22 @@
           "required": false
         },
         {
+          "name": "for",
+          "type": "string",
+          "mutable": false,
+          "attr": "for",
+          "reflectToAttr": false,
+          "docs": "Id of the associated form control",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "outline",
           "type": "boolean",
           "mutable": false,
@@ -4633,7 +4690,58 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-list-item-deselected-background-color",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item if active"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item if focused"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item on hover"
+        },
+        {
+          "name": "--ino-list-item-deselected-color",
+          "annotation": "prop",
+          "docs": "Text color of a deselected list item"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item if active"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item if focused"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item on hover"
+        },
+        {
+          "name": "--ino-list-item-selected-color",
+          "annotation": "prop",
+          "docs": "Text color of a selected list item"
+        }
+      ],
       "slots": [
         {
           "name": "leading",
@@ -4946,9 +5054,9 @@
           "type": "{ content: string; footer: string; toggleBtn: string; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "The aria-labels used for content and fotter nav elements.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.",
+          "docs": "The aria-labels used for content and footer nav elements.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.",
           "docsTags": [],
-          "default": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation'\n  }",
+          "default": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation',\n  }",
           "values": [
             {
               "type": "{ content: string; footer: string; toggleBtn: string; }"
@@ -4998,11 +5106,11 @@
         },
         {
           "name": "variant",
-          "type": "\"dismissible\" | \"docked\" | \"modal\"",
+          "type": "\"dismissible\" | \"docked\" | \"mobile\" | \"modal\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "The variant to use for the drawer\nPossible values: `docked` (default), `dismissible`, `modal`.",
+          "docs": "The variant to use for the drawer.",
           "docsTags": [],
           "default": "'docked'",
           "values": [
@@ -5012,6 +5120,10 @@
             },
             {
               "value": "docked",
+              "type": "string"
+            },
+            {
+              "value": "mobile",
               "type": "string"
             },
             {
@@ -5035,7 +5147,48 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-nav-drawer-background",
+          "annotation": "prop",
+          "docs": "Background of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-height",
+          "annotation": "prop",
+          "docs": "Height of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-mobile-width-open",
+          "annotation": "prop",
+          "docs": "Mobile variant only! The width of the open drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-text-color",
+          "annotation": "prop",
+          "docs": "Color of text inside the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-timing-function",
+          "annotation": "prop",
+          "docs": "Timing function of the slide animation of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-transition-duration",
+          "annotation": "prop",
+          "docs": "Duration of the slide animation of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-width-closed",
+          "annotation": "prop",
+          "docs": "Docked variant only! The width of the collapsed drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-width-open",
+          "annotation": "prop",
+          "docs": "The width of the open drawer."
+        }
+      ],
       "slots": [
         {
           "name": "app",
@@ -5164,7 +5317,28 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-nav-item-background-color",
+          "annotation": "prop",
+          "docs": "Inactive color of the background of one item."
+        },
+        {
+          "name": "--ino-nav-item-background-color-active",
+          "annotation": "prop",
+          "docs": "Active color of the background of one item."
+        },
+        {
+          "name": "--ino-nav-item-color",
+          "annotation": "prop",
+          "docs": "Inactive color of icon."
+        },
+        {
+          "name": "--ino-nav-item-color-active",
+          "annotation": "prop",
+          "docs": "Active color of icon."
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -5413,6 +5587,23 @@
       },
       "props": [
         {
+          "name": "arrow",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "arrow",
+          "reflectToAttr": false,
+          "docs": "Shows an arrow pointing towards its trigger-element",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "attachToBody",
           "type": "boolean",
           "mutable": false,
@@ -5431,20 +5622,24 @@
         },
         {
           "name": "colorScheme",
-          "type": "\"primary\" | \"transparent\"",
+          "type": "\"dark\" | \"light\" | \"primary\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the popup\nValid options include: 'primary', 'transparent'",
+          "docs": "Sets the color scheme of the popup.\n\nValid options include: `primary`, `light` and `dark`.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "primary",
+              "value": "dark",
               "type": "string"
             },
             {
-              "value": "transparent",
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
               "type": "string"
             }
           ],
@@ -5474,7 +5669,7 @@
           "mutable": false,
           "attr": "delay",
           "reflectToAttr": false,
-          "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
+          "docs": "The delay in milliseconds before `ino-popover` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
           "docsTags": [],
           "default": "0",
           "values": [
