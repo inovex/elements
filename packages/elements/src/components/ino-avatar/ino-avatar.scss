@@ -40,6 +40,8 @@
   position: relative;
 
   &--interactive {
+    cursor: pointer;
+
     // border width transition
     .ino-avatar__border path,
     .ino-avatar__border circle {

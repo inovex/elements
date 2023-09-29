@@ -295,7 +295,7 @@
           "mutable": false,
           "attr": "interactive",
           "reflectToAttr": false,
-          "docs": "Flag to enable hover effect.",
+          "docs": "Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -348,13 +348,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--ino-avatar-size",
-          "annotation": "prop",
-          "docs": "Width and height of the ino-avatar"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-slot",

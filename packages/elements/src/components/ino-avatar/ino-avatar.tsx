@@ -33,7 +33,7 @@ export class Avatar implements ComponentInterface {
   @Prop() src: string = '';
 
   /**
-   * Flag to enable hover effect.
+   * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
    */
   @Prop() interactive: boolean = false;
 
