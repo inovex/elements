@@ -198,14 +198,9 @@ export class Tooltip implements ComponentInterface {
       <Host>
         <div class="ino-tooltip__composer" role="tooltip">
           <div class="ino-tooltip__inner">
-            {this.label ? 
-              this.label 
-              : 
-              <div>
-                {this.headerText && <header>{this.headerText}</header>}
-                <slot />
-              </div>}
-            </div>
+            {this.headerText && <header>{this.headerText}</header>}
+            {this.label ?? <slot />}
+          </div>
         </div>
       </Host>
     );
