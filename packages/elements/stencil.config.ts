@@ -1,12 +1,12 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-import { angularOutputTarget } from '@stencil/angular-output-target';
+import angularOutputTarget from './output-targets/angular';
 import { vueOutputTarget } from './output-targets/vue-output-target';
 import { JsonDocsOutputTarget } from './output-targets/json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
 import { join } from "path";
 
-const angularDirectivesPath = join(__dirname, '../elements-angular/src/directives');
+
 const reactProxyPath =  join(__dirname,'../elements-react/src/components');
 
 export const config: Config = {
@@ -39,11 +39,7 @@ export const config: Config = {
       proxiesFile: `${reactProxyPath}/index.ts`,
       includeDefineCustomElements: true,
     }),
-    angularOutputTarget({
-      componentCorePackage: '@inovex.de/elements',
-      directivesProxyFile: `${angularDirectivesPath}/proxies.ts`,
-      directivesArrayFile: `${angularDirectivesPath}/proxies-list.ts`,
-    }),
+    angularOutputTarget,
     vueOutputTarget({
       componentCorePackage: '@inovex.de/elements',
       proxiesFile: join(__dirname, '../elements-vue/src/proxies.ts'),
