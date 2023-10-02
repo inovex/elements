@@ -4344,7 +4344,7 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
-"@nrwl/angular@^15.5.2":
+"@nrwl/angular@15.9.7":
   version "15.9.7"
   resolved "https://registry.npmjs.org/@nrwl/angular/-/angular-15.9.7.tgz#baf7a81c5a1642d3f6be047b34ec396931bde6e9"
   integrity sha512-FOvAfvYBzDTZiiylLfllM7Yki2OSx5QH+Ytt4YwUvEIiG6xbkfe/azTDdY77fFiQfakddL0LhtYzCF0dCNCKjQ==
@@ -4371,31 +4371,12 @@
     webpack "^5.75.0"
     webpack-merge "5.7.3"
 
-"@nrwl/cli@15.5.2":
-  version "15.5.2"
-  resolved "https://registry.npmjs.org/@nrwl/cli/-/cli-15.5.2.tgz#57bfec1d1dd9235754c38fedfdbdb39ca9b1088c"
-  integrity sha512-T0nN2hYDtkY9SsbtZqFwRSYC8Td2zPqQ7dj6FrwvjFGbHLAxN6rknVPPKN4S7Dt6feXX1Woe8XYwWouk9Cg6nw==
-  dependencies:
-    nx "15.5.2"
-
 "@nrwl/cli@15.9.7":
   version "15.9.7"
   resolved "https://registry.npmjs.org/@nrwl/cli/-/cli-15.9.7.tgz#1db113f5cb1cfe63213097be1ece041eef33da1f"
   integrity sha512-1jtHBDuJzA57My5nLzYiM372mJW0NY6rFKxlWt5a0RLsAZdPTHsd8lE3Gs9XinGC1jhXbruWmhhnKyYtZvX/zA==
   dependencies:
     nx "15.9.7"
-
-"@nrwl/cypress@15.5.2":
-  version "15.5.2"
-  resolved "https://registry.npmjs.org/@nrwl/cypress/-/cypress-15.5.2.tgz#34660a86fd7b143045c9af08469a45038146a114"
-  integrity sha512-VeUmEhEibBDBbqxSpWToTDD+PRugQ7n+u8+ATuGl/p0zWh7cbBld+HoPLMz+qoemkCLF/lD3v5fQPuyoWyHJ7g==
-  dependencies:
-    "@nrwl/devkit" "15.5.2"
-    "@nrwl/linter" "15.5.2"
-    "@nrwl/workspace" "15.5.2"
-    "@phenomnomnominal/tsquery" "4.1.1"
-    dotenv "~10.0.0"
-    semver "7.3.4"
 
 "@nrwl/cypress@15.9.7":
   version "15.9.7"
@@ -4411,17 +4392,6 @@
     dotenv "~10.0.0"
     semver "7.5.4"
 
-"@nrwl/devkit@15.5.2":
-  version "15.5.2"
-  resolved "https://registry.npmjs.org/@nrwl/devkit/-/devkit-15.5.2.tgz#bb7268d6b49450befdc0a7988c897900e3aa7f44"
-  integrity sha512-rvxuiYVpGDB9RzjOAWTNm7IBPwuYG6kL24LkJMUS8gCNqLBNNlYUsdkpa0PLRt5eNeGLKqpSDB8BpA+e1ty/zA==
-  dependencies:
-    "@phenomnomnominal/tsquery" "4.1.1"
-    ejs "^3.1.7"
-    ignore "^5.0.4"
-    semver "7.3.4"
-    tslib "^2.3.0"
-
 "@nrwl/devkit@15.9.7", "@nrwl/devkit@>=14.8.1 < 16":
   version "15.9.7"
   resolved "https://registry.npmjs.org/@nrwl/devkit/-/devkit-15.9.7.tgz#14d19ec82ff4209c12147a97f1cdea05d8f6c087"
@@ -4433,7 +4403,7 @@
     tmp "~0.2.1"
     tslib "^2.3.0"
 
-"@nrwl/eslint-plugin-nx@^15.5.2":
+"@nrwl/eslint-plugin-nx@15.9.7":
   version "15.9.7"
   resolved "https://registry.npmjs.org/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-15.9.7.tgz#fbb7791abcf048d8f03faa2b9228814afa0e70c6"
   integrity sha512-vbWayEFtTqIrpv32dc1cQeNpGeUATkQJc7It6SZDaJlp2JzNVe8kgFfSx4wbxfvzpRMIUmM/3s+J70/mABGsHw==
@@ -4489,16 +4459,6 @@
     minimatch "3.0.5"
     source-map-support "0.5.19"
     tree-kill "1.2.2"
-    tslib "^2.3.0"
-
-"@nrwl/linter@15.5.2":
-  version "15.5.2"
-  resolved "https://registry.npmjs.org/@nrwl/linter/-/linter-15.5.2.tgz#3cc2cfecd00db483a91c9b5a328b688c19a1fd52"
-  integrity sha512-9zboLfOJn3OEImclGVXhWIzNb6V+JeFN9MgajLJLQNjtKC3JMXkgeAIVSb52RUZe1xwohjOkPL6GyTxRV5TwVA==
-  dependencies:
-    "@nrwl/devkit" "15.5.2"
-    "@phenomnomnominal/tsquery" "4.1.1"
-    tmp "~0.2.1"
     tslib "^2.3.0"
 
 "@nrwl/linter@15.9.7":
@@ -4562,24 +4522,20 @@
   resolved "https://registry.npmjs.org/@nrwl/nx/-/nx-7.8.7.tgz#a85dc5ab30d33ac6cc2234bbc51e229ad85b9b9b"
   integrity sha512-a/pOozIT86IIWue6MSwN2EKO4grJ8My7QMl+g535/vrDg75riyBTkWF+nX6VM/JjGz40Y5nFZaX94924cZWt5g==
 
-"@nrwl/storybook@15.5.2":
-  version "15.5.2"
-  resolved "https://registry.npmjs.org/@nrwl/storybook/-/storybook-15.5.2.tgz#4d45496218def437c78cd2ec10a90624ae57fce8"
-  integrity sha512-/EY+kJhBEUTKLR1of/W9hSkeVkkZJ3GsR+YQir1nYox6TdsFxLdDb2OibdKLjF7/bvhm9yj7kjSc5OdnrHHLJA==
+"@nrwl/storybook@15.9.7":
+  version "15.9.7"
+  resolved "https://registry.npmjs.org/@nrwl/storybook/-/storybook-15.9.7.tgz#afc64b42912655f4e46982937071cc4d9c3dd321"
+  integrity sha512-b932J+VyaCEkJKfWVVEZUy/4OUfaTm335IuvXH5fIMiGnow/ymCDVH7S0B3R8j06xp5XQ0cUZVbqBA/PQhKW/A==
   dependencies:
-    "@nrwl/cypress" "15.5.2"
-    "@nrwl/devkit" "15.5.2"
-    "@nrwl/linter" "15.5.2"
-    "@nrwl/workspace" "15.5.2"
+    "@nrwl/cypress" "15.9.7"
+    "@nrwl/devkit" "15.9.7"
+    "@nrwl/js" "15.9.7"
+    "@nrwl/linter" "15.9.7"
+    "@nrwl/workspace" "15.9.7"
+    "@phenomnomnominal/tsquery" "4.1.1"
     dotenv "~10.0.0"
-    semver "7.3.4"
-
-"@nrwl/tao@15.5.2":
-  version "15.5.2"
-  resolved "https://registry.npmjs.org/@nrwl/tao/-/tao-15.5.2.tgz#b2c0657d5d2afc0b96a434acd319258c7951b1c5"
-  integrity sha512-1thpCNcdpHfTf+o3p+VB6v8TEj6to3YVhA9d+3VhDKN9mq/RVcoMQQRIAgNOKbYWYNo8eC8MvuNqxgRPz2ESyg==
-  dependencies:
-    nx "15.5.2"
+    enquirer "~2.3.6"
+    semver "7.5.4"
 
 "@nrwl/tao@15.9.7":
   version "15.9.7"
@@ -4632,37 +4588,6 @@
     webpack-dev-server "^4.9.3"
     webpack-node-externals "^3.0.0"
     webpack-subresource-integrity "^5.1.0"
-
-"@nrwl/workspace@15.5.2":
-  version "15.5.2"
-  resolved "https://registry.npmjs.org/@nrwl/workspace/-/workspace-15.5.2.tgz#fb388cbbca405481e85e38ef763ea6c1b7c5dbad"
-  integrity sha512-f1ln2dPSrBCY19oIa1aEjRijegaXEWw9tryjef1a8TH6d37IpbOZEH4YNn41jDDmsQvjsVmTVP85D/0zH7xu/Q==
-  dependencies:
-    "@nrwl/devkit" "15.5.2"
-    "@nrwl/linter" "15.5.2"
-    "@parcel/watcher" "2.0.4"
-    chalk "^4.1.0"
-    chokidar "^3.5.1"
-    cli-cursor "3.1.0"
-    cli-spinners "2.6.1"
-    dotenv "~10.0.0"
-    enquirer "~2.3.6"
-    figures "3.2.0"
-    flat "^5.0.2"
-    fs-extra "^11.1.0"
-    glob "7.1.4"
-    ignore "^5.0.4"
-    jsonc-parser "3.2.0"
-    minimatch "3.0.5"
-    npm-run-path "^4.0.1"
-    nx "15.5.2"
-    open "^8.4.0"
-    rxjs "^6.5.4"
-    semver "7.3.4"
-    tmp "~0.2.1"
-    tslib "^2.3.0"
-    yargs "^17.6.2"
-    yargs-parser "21.1.1"
 
 "@nrwl/workspace@15.9.7":
   version "15.9.7"
@@ -7765,14 +7690,6 @@
   version "3.0.0-rc.46"
   resolved "https://registry.npmjs.org/@yarnpkg/parsers/-/parsers-3.0.0-rc.46.tgz#03f8363111efc0ea670e53b0282cd3ef62de4e01"
   integrity sha512-aiATs7pSutzda/rq8fnuPwTglyVwjM22bNnK2ZgjrpAjQHSSl3lztd2f9evst1W/qnC58DRz7T7QndUDumAR4Q==
-  dependencies:
-    js-yaml "^3.10.0"
-    tslib "^2.4.0"
-
-"@yarnpkg/parsers@^3.0.0-rc.18":
-  version "3.0.0-rc.52"
-  resolved "https://registry.npmjs.org/@yarnpkg/parsers/-/parsers-3.0.0-rc.52.tgz#5afbb7a466f540689050ebefe8bbe8b99f13f518"
-  integrity sha512-b1V4J/tQ8Hj0NalU6EXcYhQcgJqVEz2CgKkoO3suZe7HJlZqrFD2Q9+1vBNbsXAaLqHGVcF0JwRyTRhMT3MJkg==
   dependencies:
     js-yaml "^3.10.0"
     tslib "^2.4.0"
@@ -18570,47 +18487,6 @@ nwsapi@^2.2.0:
   resolved "https://registry.npmjs.org/nwsapi/-/nwsapi-2.2.7.tgz#738e0707d3128cb750dddcfe90e4610482df0f30"
   integrity sha512-ub5E4+FBPKwAZx0UwIQOjYWGHTEq5sPqHQNRN8Z9e4A7u3Tj1weLJsL59yH9vmvqEtBHaOmT6cYQKIZOxp35FQ==
 
-nx@15.5.2:
-  version "15.5.2"
-  resolved "https://registry.npmjs.org/nx/-/nx-15.5.2.tgz#c7e45a8d2067c49e69b526770f4c1a0f605f8239"
-  integrity sha512-jo8DG7zt0EorKL6AihkoshaeiFkK25NOeGUEnF05BFCaqsIoS9s3uctrOumh2G9DhaGMEWzakc3kF4/LeLB9pg==
-  dependencies:
-    "@nrwl/cli" "15.5.2"
-    "@nrwl/tao" "15.5.2"
-    "@parcel/watcher" "2.0.4"
-    "@yarnpkg/lockfile" "^1.1.0"
-    "@yarnpkg/parsers" "^3.0.0-rc.18"
-    "@zkochan/js-yaml" "0.0.6"
-    axios "^1.0.0"
-    chalk "^4.1.0"
-    cli-cursor "3.1.0"
-    cli-spinners "2.6.1"
-    cliui "^7.0.2"
-    dotenv "~10.0.0"
-    enquirer "~2.3.6"
-    fast-glob "3.2.7"
-    figures "3.2.0"
-    flat "^5.0.2"
-    fs-extra "^11.1.0"
-    glob "7.1.4"
-    ignore "^5.0.4"
-    js-yaml "4.1.0"
-    jsonc-parser "3.2.0"
-    lines-and-columns "~2.0.3"
-    minimatch "3.0.5"
-    npm-run-path "^4.0.1"
-    open "^8.4.0"
-    semver "7.3.4"
-    string-width "^4.2.3"
-    strong-log-transformer "^2.1.0"
-    tar-stream "~2.2.0"
-    tmp "~0.2.1"
-    tsconfig-paths "^4.1.2"
-    tslib "^2.3.0"
-    v8-compile-cache "2.3.0"
-    yargs "^17.6.2"
-    yargs-parser "21.1.1"
-
 nx@15.9.7, "nx@>=14.8.1 < 16":
   version "15.9.7"
   resolved "https://registry.npmjs.org/nx/-/nx-15.9.7.tgz#f0e713cedb8637a517d9c4795c99afec4959a1b6"
@@ -22043,13 +21919,6 @@ semver-compare@^1.0.0:
   version "5.7.2"
   resolved "https://registry.npmjs.org/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
   integrity sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==
-
-semver@7.3.4:
-  version "7.3.4"
-  resolved "https://registry.npmjs.org/semver/-/semver-7.3.4.tgz#27aaa7d2e4ca76452f98d3add093a72c943edc97"
-  integrity sha512-tCfb2WLjqFAtXn4KEdxIhalnRtoKFN7nAwj0B3ZXCbQloV2tq5eDbcTmT68JJD3nRJq24/XgxtQKFIpQdtvmVw==
-  dependencies:
-    lru-cache "^6.0.0"
 
 semver@7.3.8:
   version "7.3.8"
