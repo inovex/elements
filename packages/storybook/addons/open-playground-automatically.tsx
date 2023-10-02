@@ -1,55 +1,116 @@
 import { addons } from '@storybook/addons';
 
-const ADDON_ID = 'open-playground-automatically';
+const customSections = [
+  'structure',
+  'input',
+  'buttons',
+  'graphic',
+  'notification',
+];
 
-addons.register(ADDON_ID, () => {
-  console.log('running');
-  // const addClickListenersToSidebarItems = () => {
-  const sidebarContainer = document.querySelector(
-    'nav.container.sidebar-container'
-  );
+addons.register('open-playground-automatically', () => {
+  // Function to set up the observer
+  function initializeExtension() {
+    console.log('running');
 
-  if (sidebarContainer) {
-    console.log('found sidebar');
-    const buttons = document.querySelectorAll('.sidebar-item');
+    const buttons = document.querySelectorAll('button.sidebar-item');
+
+    if (buttons.length === 0) {
+      // If no buttons are found, wait and try again
+      setTimeout(initializeExtension, 300);
+      return;
+    }
+
     console.log(buttons.length);
 
-    if (buttons.length === 0) return;
-
-    // observer.disconnect();
-
-    buttons.forEach(btn => {
-      const neighboringDiv = btn.nextElementSibling;
-      if (neighboringDiv) {
-        const anchorTag = neighboringDiv.querySelector(
+    buttons.forEach(button => {
+      const neighboringElement = button.nextElementSibling;
+      if (neighboringElement) {
+        const hasAnchorTag = neighboringElement.querySelector(
           'a[id*="--playground"]'
         ) as HTMLAnchorElement;
-        if (anchorTag) {
-          btn.addEventListener('click', () => {
+        if (hasAnchorTag) {
+          console.log(button);
+
+          button.addEventListener('click', () => {
             console.log('clicked');
-            window.location.href = anchorTag.href;
+            // window.location.href = hasAnchorTag.href;
           });
         }
       }
     });
+
+    const sectionObserver = new MutationObserver((mutations, observer) => {});
+
+    // Create an observer instance for the sidebar container
+    const sidebarObserver = new MutationObserver(function(mutations, observer) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList') {
+          console.log('sidebar changed');
+
+          const subheadings = document.querySelectorAll('.sidebar-subheading');
+          // mutation.addedNodes.forEach(addedNode => {
+          //   console.log('New sidebar-item added:', addedNode);
+          // });
+          console.log(subheadings);
+
+          if (subheadings) {
+            // subheadings.forEach(element => {
+            //   console.log(element);
+            //   const button = element.querySelector('button');
+            //   if (button) {
+            //     console.log(button);
+            //     button.addEventListener('click', () => {
+            //       console.log('clicked');
+            //     });
+            //   }
+            // });
+            // sidebarObserver.disconnect();
+          }
+
+          // mutation.removedNodes.forEach(removedNode => {
+          //   console.log('sidebar-item removed:', removedNode);
+          // });
+        }
+      });
+    });
+
+    // Configuration of the sidebarObserver:
+    const config = { childList: true, subtree: true };
+
+    const sidebarContainer = document.querySelector('sidebar-container');
+
+    if (sidebarContainer) {
+      // Pass in the sidebarContainer as the target node for the observer
+      sidebarObserver.observe(sidebarContainer, config);
+    }
+
+    // // Function to add event listeners to 'sidebar-item' elements
+    // function addEventListeners() {
+    //   const buttons = document.querySelectorAll('button.sidebar-item');
+
+    //   if (buttons.length === 0) return;
+
+    //   buttons.forEach(btn => {
+    //     const neighboringElement = btn.nextElementSibling;
+    //     if (neighboringElement) {
+    //       const hasAnchorTag = neighboringElement.querySelector(
+    //         'a[id*="--playground"]'
+    //       ) as HTMLAnchorElement;
+    //       if (hasAnchorTag) {
+    //         // btn.addEventListener('click', () => {
+    //         //   console.log('clicked');
+    //         //   // window.location.href = hasAnchorTag.href;
+    //         // });
+    //       }
+    //     }
+    //   });
+    // }
+
+    // // Call the addEventListeners function after a slight delay
+    // setTimeout(addEventListeners, 500); // You can adjust the delay as needed
   }
 
-  document.on;
-  // };
-
-  // // Instantiate the observer
-  // const observer = new MutationObserver((mutationsList, observer) => {
-  //   for (const mutation of mutationsList) {
-  //     if (mutation.type === 'childList') {
-  //       addClickListenersToSidebarItems();
-  //     }
-  //   }
-  // });
-
-  // // Start observing the entire body for changes in the child list
-  // observer.observe(document.body, { childList: true, subtree: true });
-
-  // // Optionally, disconnect the observer later if you no longer want to watch for mutations
-  // // observer.disconnect();
+  // Call the initialization function
+  initializeExtension();
 });
-``;
