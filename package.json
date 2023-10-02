@@ -11,7 +11,7 @@
     "start:angular": "nx run-many --target=start --projects=,elements,elements-angular --output-style=stream",
     "start:angular-example": "nx run elements-angular-example:start",
     "start:react-example": "nx run-many --target=start --projects=elements-react*,elements --output-style=stream",
-    "start:react-example:only": "nx run react-example:start",
+    "start:react-example:only": "nx run elements-react-example:start",
     "start:vue-example": "nx run-many --target=start --projects=elements-vue*,elements --output-style=stream",
     "start:vue-example:only": "nx run vue-example:start",
     "start:landingpage": "nx run-many --target=start --projects=landingpage,elements-react,elements --output-style=stream",
