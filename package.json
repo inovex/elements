@@ -66,6 +66,7 @@
     "@angular/language-service": "~15.1.0",
     "@nrwl/angular": "^15.5.2",
     "@nrwl/eslint-plugin-nx": "^15.5.2",
+    "@nrwl/nx": "^7.8.7",
     "@nrwl/storybook": "15.5.2",
     "@types/css-font-loading-module": "^0.0.7",
     "@types/fs-extra": "^9.0.13",

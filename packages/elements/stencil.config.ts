@@ -42,7 +42,6 @@ export const config: Config = {
     angularOutputTarget({
       componentCorePackage: '@inovex.de/elements',
       directivesProxyFile: `${angularDirectivesPath}/proxies.ts`,
-      directivesUtilsFile: angularDirectivesPath,
       directivesArrayFile: `${angularDirectivesPath}/proxies-list.ts`,
     }),
     vueOutputTarget({

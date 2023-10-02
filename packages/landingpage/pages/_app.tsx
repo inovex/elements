@@ -29,7 +29,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <LanguageProvider localization={pageProps.localization}>
         <VersionProvider>
           <Layout>
-            <Component {...pageProps} />
+            <Component {...pageProps}>
+              <p>Test</p>
+            </Component>
           </Layout>
         </VersionProvider>
       </LanguageProvider>

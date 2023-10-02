@@ -4557,6 +4557,11 @@
   resolved "https://registry.npmjs.org/@nrwl/nx-win32-x64-msvc/-/nx-win32-x64-msvc-15.9.7.tgz#1677ab1dcce921706b5677dc2844e3e0027f8bd5"
   integrity sha512-x6URof79RPd8AlapVbPefUD3ynJZpmah3tYaYZ9xZRMXojVtEHV8Qh5vysKXQ1rNYJiiB8Ah6evSKWLbAH60tw==
 
+"@nrwl/nx@^7.8.7":
+  version "7.8.7"
+  resolved "https://registry.npmjs.org/@nrwl/nx/-/nx-7.8.7.tgz#a85dc5ab30d33ac6cc2234bbc51e229ad85b9b9b"
+  integrity sha512-a/pOozIT86IIWue6MSwN2EKO4grJ8My7QMl+g535/vrDg75riyBTkWF+nX6VM/JjGz40Y5nFZaX94924cZWt5g==
+
 "@nrwl/storybook@15.5.2":
   version "15.5.2"
   resolved "https://registry.npmjs.org/@nrwl/storybook/-/storybook-15.5.2.tgz#4d45496218def437c78cd2ec10a90624ae57fce8"
@@ -4990,30 +4995,30 @@
     eslint-utils "^3.0.0"
     tsutils "3.0.0"
 
-"@stencil/angular-output-target@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/@stencil/angular-output-target/-/angular-output-target-0.4.0.tgz#6724ed805d50e802f58212d74a71caf442e0b569"
-  integrity sha512-zauaj0za46IWoPgv2IanDp3tiljwDRDNk4jB7WII6KeL66dkk7ffeqYZ0CgySTU5W2FjnKR6JEKbAnwUxjGIsA==
+"@stencil/angular-output-target@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.npmjs.org/@stencil/angular-output-target/-/angular-output-target-0.8.2.tgz#8e2635d9c9c4675f94aa5fef295659392306914b"
+  integrity sha512-i2Oxq2VPQTo1OoP3iDN39N2f/CDO9crS8oUfGEtjwzMgMNuYSMB2VprFoVDUTwqaCP6N409M8+/wJK3oApTDuQ==
 
-"@stencil/core@2.17.1":
-  version "2.17.1"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-2.17.1.tgz#c0fd74d2991c2ea9d7e382017726bfd01009a05c"
-  integrity sha512-ErjQsNALgZQ9SYeBHhqwL1UO+Zbptwl3kwrRJC2tGlc3G/T6UvPuaKr+PGsqI+CZGia+0+R5EELQvFu74mYeIg==
+"@stencil/core@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.npmjs.org/@stencil/core/-/core-4.3.0.tgz#ab7c4eedce1bd8947bfefdf6a0c19372f88c7fb6"
+  integrity sha512-WYjftKg5fuqO7mf3nTl1aCRurkeMmfEF38WcBG4VLF6UPQ+MA76/koedGR2LGhATGByx+pbxR4iRxAr2Bspc9A==
 
-"@stencil/react-output-target@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/@stencil/react-output-target/-/react-output-target-0.3.1.tgz#dc9cc2fea32d0e30474a87fcb2a447f90ab78696"
-  integrity sha512-6d9pPhyajFfdxkqU/pPP2SzI7wn+EklySQc4KXlI/xcdvC2H9BzLmhmR40fR1q2TQoJbJui/nvSWhbYqkE3OBQ==
+"@stencil/react-output-target@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.npmjs.org/@stencil/react-output-target/-/react-output-target-0.5.3.tgz#2a7186b7ba6c8721f92f4200e414b70854030d79"
+  integrity sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==
 
-"@stencil/sass@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/@stencil/sass/-/sass-2.0.3.tgz#39da1488dd811ec523b4b59f2f0053693cc09145"
-  integrity sha512-ypS+0f6bJH2qXqrNAHirlYOWFax+qKKOIePLs7cu4LfKFr4ZVJSGRFBdgaeRrZMUhJWnhjV6io2uDldhrQhnMg==
+"@stencil/sass@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@stencil/sass/-/sass-3.0.5.tgz#943c47bcf8215b9d2b877cafe189ba1cbb4bf313"
+  integrity sha512-9nyllMXOEvHywo6fP2iwXgnq32A+OOUE36Aq7iUjzwT3wdr04qsvupO1JNIyRvmvCDF15hOKXztrZH1/wDu2Zg==
 
-"@stencil/vue-output-target@^0.6.0":
-  version "0.6.2"
-  resolved "https://registry.npmjs.org/@stencil/vue-output-target/-/vue-output-target-0.6.2.tgz#4674cd391f7ae77e250f0159be85d535aacbbdde"
-  integrity sha512-Oh7SLFbOUchCSCbGe/Dqal2xSYPKCFQiVKnvzvS0dsHP/XS7rfHqp3qptW6JCp9lBoo3wmmBurHfldqxhLlnag==
+"@stencil/vue-output-target@^0.8.6":
+  version "0.8.6"
+  resolved "https://registry.npmjs.org/@stencil/vue-output-target/-/vue-output-target-0.8.6.tgz#74ab81faf640f83e2ef9ac465f3e61e15aa09662"
+  integrity sha512-B1gQW8FWeU7x/KBPm9R28jYFGN5NsZTZR4jwfDMhKBmU1Q2dIxFY52ARhbrfj5tJQxKoxr2tQJD2S14r9t1v7w==
 
 "@storybook/addon-actions@6.5.16", "@storybook/addon-actions@^6.5.8":
   version "6.5.16"
