@@ -1,18 +1,14 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-import angularOutputTarget from './output-targets/angular';
-import { vueOutputTarget } from './output-targets/vue-output-target';
-import { JsonDocsOutputTarget } from './output-targets/json-docs-output-target';
-import { reactOutputTarget as react } from '@stencil/react-output-target';
+import AngularOutputTarget from './output-targets/angular';
+import ReactOutputTarget from './output-targets/react';
+import VueOutputTarget from './output-targets/vue';
+import JsonDocsOutputTarget from './output-targets/json-docs';
 import { join } from "path";
-
-
-const reactProxyPath =  join(__dirname,'../elements-react/src/components');
 
 export const config: Config = {
   buildEs5: false,
   extras: {
-    experimentalImportInjection: true,
     initializeNextTick: true
   },
   globalScript: join(__dirname, 'src/util/import-fonts.ts'),
@@ -34,61 +30,9 @@ export const config: Config = {
       sourceCodeBaseUrl: 'https://github.com/inovex/elements//tree/master/packages/elements',
     },
     JsonDocsOutputTarget,
-    react({
-      componentCorePackage: '@inovex.de/elements',
-      proxiesFile: `${reactProxyPath}/index.ts`,
-      includeDefineCustomElements: true,
-    }),
-    angularOutputTarget,
-    vueOutputTarget({
-      componentCorePackage: '@inovex.de/elements',
-      proxiesFile: join(__dirname, '../elements-vue/src/proxies.ts'),
-      includeDefineCustomElements: false,
-      // external event names (valueChange, checkedChange, ...) have to be mapped to vue event names
-      // see elements-vue/src/index.ts
-      componentModels: [
-        {
-          elements: [
-            'ino-checkbox',
-            'ino-radio',
-            'ino-switch',
-            'ino-segment-button',
-            'ino-control-item',
-          ],
-          targetAttr: 'checked',
-          event: 'v-checked-change',
-          externalEvent: 'checkedChange',
-        },
-        {
-          elements: [
-            'ino-autocomplete',
-            'ino-carousel',
-            'ino-datepicker',
-            'ino-input',
-            'ino-radio-group',
-            'ino-range',
-            'ino-segment-group',
-            'ino-select',
-            'ino-textarea',
-          ],
-          targetAttr: 'value',
-          event: 'v-value-change',
-          externalEvent: 'valueChange',
-        },
-        {
-          elements: 'ino-range',
-          targetAttr: 'valueStart',
-          event: 'v-value-start-change',
-          externalEvent: 'valueStartChange',
-        },
-        {
-          elements: 'ino-range',
-          targetAttr: 'valueEnd',
-          event: 'v-value-end-change',
-          externalEvent: 'valueEndChange',
-        },
-      ],
-    }),
+    AngularOutputTarget,
+    ReactOutputTarget,
+    VueOutputTarget,
   ],
   plugins: [
     sass({
