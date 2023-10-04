@@ -86,6 +86,8 @@ export function isToolbarBtnActive(editor: Editor, action: Actions): boolean {
       return editor.isActive('bulletList');
     case Actions.LINK:
       return editor.isActive('link');
+    case Actions.UNLINK:
+      return false;
     case Actions.CODE_BLOCK:
       return editor.isActive('code');
     case Actions.BLOCKQUOTE:

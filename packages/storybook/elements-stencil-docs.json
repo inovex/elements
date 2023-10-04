@@ -223,8 +223,7 @@
       "encapsulation": "none",
       "dependents": [
         "ino-dialog",
-        "ino-input-file",
-        "ino-markdown-editor"
+        "ino-input-file"
       ],
       "dependencies": [
         "ino-spinner"
@@ -237,9 +236,6 @@
           "ino-button"
         ],
         "ino-input-file": [
-          "ino-button"
-        ],
-        "ino-markdown-editor": [
           "ino-button"
         ]
       },
@@ -2927,6 +2923,7 @@
       "encapsulation": "none",
       "dependents": [
         "ino-carousel",
+        "ino-markdown-editor",
         "ino-nav-drawer",
         "ino-snackbar",
         "ino-table-header-cell"
@@ -2939,6 +2936,9 @@
           "ino-icon"
         ],
         "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-markdown-editor": [
           "ino-icon-button"
         ],
         "ino-nav-drawer": [
@@ -4800,7 +4800,7 @@
       "dependencies": [
         "ino-dialog",
         "ino-input",
-        "ino-button",
+        "ino-icon-button",
         "ino-icon",
         "ino-popover",
         "ino-textarea"
@@ -4809,7 +4809,7 @@
         "ino-markdown-editor": [
           "ino-dialog",
           "ino-input",
-          "ino-button",
+          "ino-icon-button",
           "ino-icon",
           "ino-popover",
           "ino-textarea"
@@ -4823,6 +4823,9 @@
         ],
         "ino-input": [
           "ino-label",
+          "ino-icon"
+        ],
+        "ino-icon-button": [
           "ino-icon"
         ],
         "ino-textarea": [

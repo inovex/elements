@@ -28,7 +28,7 @@
 
 - [ino-dialog](../ino-dialog)
 - [ino-input](../ino-input)
-- [ino-button](../ino-button)
+- [ino-icon-button](../ino-icon-button)
 - [ino-icon](../ino-icon)
 - [ino-popover](../ino-popover)
 - [ino-textarea](../ino-textarea)
@@ -38,7 +38,7 @@
 graph TD;
   ino-markdown-editor --> ino-dialog
   ino-markdown-editor --> ino-input
-  ino-markdown-editor --> ino-button
+  ino-markdown-editor --> ino-icon-button
   ino-markdown-editor --> ino-icon
   ino-markdown-editor --> ino-popover
   ino-markdown-editor --> ino-textarea
@@ -47,6 +47,7 @@ graph TD;
   ino-button --> ino-spinner
   ino-input --> ino-label
   ino-input --> ino-icon
+  ino-icon-button --> ino-icon
   ino-textarea --> ino-label
   style ino-markdown-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```

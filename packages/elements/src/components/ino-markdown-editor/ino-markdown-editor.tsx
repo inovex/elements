@@ -303,28 +303,19 @@ export class MarkdownEditor implements ComponentInterface {
           ></ino-input>
         </section>
         <section data-ino-dialog-section slot="footer">
-          <ino-button
-            variant="outlined"
-            onClick={() => (this.showLinkDialog = false)}
-          >
-            Cancel
-          </ino-button>
-          <ino-button
+          <ino-icon-button
             data-ino-dialog-delete
-            variant="outlined"
+            icon="remove"
             disabled={this.isCreationDialog}
             onClick={() => this.handleDeleteLink()}
             type="reset"
-          >
-            Delete
-          </ino-button>
-          <ino-button
+          ></ino-icon-button>
+          <ino-icon-button
+            icon="add"
             disabled={!hasValue(this.currentURL) || !this.hasValueChanged}
             onClick={() => this.submitLink()}
             type="submit"
-          >
-            Insert
-          </ino-button>
+          ></ino-icon-button>
         </section>
       </ino-dialog>
     );
