@@ -13,7 +13,7 @@
     "start:react-example": "nx run-many --target=start --projects=elements-react*,elements --output-style=stream",
     "start:react-example:only": "nx run elements-react-example:start",
     "start:vue-example": "nx run-many --target=start --projects=elements-vue*,elements --output-style=stream",
-    "start:vue-example:only": "nx run vue-example:start",
+    "start:vue-example:only": "nx run elements-vue-example:start",
     "start:landingpage": "nx run-many --target=start --projects=landingpage,elements-react,elements --output-style=stream",
     "start:landingpage:only": "nx run landingpage:start",
     "---build---": "",
