@@ -3,5 +3,9 @@
   "ignorePatterns": ["!**/*"],
   "rules": {
     "vue/no-deprecated-slot-attribute": "warn"
+  },
+  "env": {
+    "node": true,
+    "es2022": true
   }
 }
