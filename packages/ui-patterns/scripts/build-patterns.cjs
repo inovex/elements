@@ -1,3 +1,4 @@
+//builds html snippets from patterns folder to dist folder
 const fs = require('fs-extra');
 const path = require('path');
 

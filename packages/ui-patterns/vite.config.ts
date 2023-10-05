@@ -1,18 +1,29 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { resolve } from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        { src: 'src/patterns/**/*.{html}', dest: 'dist', structured: true }
+      ]
+    })
+  ],
   build: {
-    outDir: 'dist',
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: 'Patterns',
+      fileName: (format) => `patterns.${format}.js`,
+    },
     rollupOptions: {
-      input: {
-        'my-pattern-a': 'src/patterns/my-pattern-a/MyPatternA.tsx',
-      },
+      external: ['react'],  // externalize react to avoid bundling it
       output: {
-        entryFileNames: `[name].js`, 
-        chunkFileNames: `[name].js`, 
+        globals: {
+          react: 'React',
+        },
       },
     },
   },
