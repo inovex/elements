@@ -2,8 +2,7 @@
   "extends": ["../../.eslintrc.json"],
   "ignorePatterns": [
     "!**/*",
-    "proxies*.ts",
-    "**/angular-component-lib/utils.ts"
+    "src/generated/**"
   ],
   "overrides": [
     {
