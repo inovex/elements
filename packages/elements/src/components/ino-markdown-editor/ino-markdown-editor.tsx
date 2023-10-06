@@ -236,7 +236,8 @@ export class MarkdownEditor implements ComponentInterface {
     this.showLinkDialog = true;
   }
 
-  private submitLink(): void {
+  private submitLink(e: Event): void {
+    e.preventDefault();
     this.handleToolbarActionClick(Actions.LINK, this.currentURL);
     this.showLinkDialog = false;
   }
@@ -293,22 +294,24 @@ export class MarkdownEditor implements ComponentInterface {
         headerText="Insert Link"
         onClose={() => (this.showLinkDialog = false)}
       >
-        <section data-ino-dialog-section slot="body">
-          <ino-input
-            data-ino-dialog-input
-            label="URL"
-            type="text"
-            required={true}
-            // autoFocus={true} // doesn't work because MUI Dialog traps focus
-            helper="Enter a valid URL"
-            value={this.currentURL}
-            onValueChange={(e) => this.handleTextInputChange(e)}
-            placeholder="https://example.org"
-          ></ino-input>
+        <section class={'ino-dialog-section'} slot="body">
+          <form class={'ino-dialog-form'} onSubmit={(e) => this.submitLink(e)}>
+            <ino-input
+              label="URL"
+              type="text"
+              required={true}
+              // autoFocus={true} // doesn't work because MUI Dialog traps focus
+              helper="Enter a valid URL"
+              value={this.currentURL}
+              onValueChange={(e) => this.handleTextInputChange(e)}
+              placeholder="https://example.org"
+            ></ino-input>
+            <button type="submit" style={{ display: 'none' }}></button>
+          </form>
         </section>
-        <section data-ino-dialog-section slot="footer">
+        <section class={'ino-dialog-section'} slot="footer">
           <ino-icon-button
-            data-ino-dialog-delete
+            class={'ino-dialog-delete'}
             icon="remove"
             disabled={this.isCreationDialog}
             onClick={() => {
@@ -319,8 +322,8 @@ export class MarkdownEditor implements ComponentInterface {
           <ino-icon-button
             icon="add"
             disabled={this.isDisabled()}
-            onClick={() => {
-              if (!this.isDisabled()) this.submitLink();
+            onClick={(e) => {
+              if (!this.isDisabled()) this.submitLink(e);
             }}
             type="submit"
           ></ino-icon-button>

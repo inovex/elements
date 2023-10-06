@@ -98,6 +98,7 @@ export class Button implements ComponentInterface {
     if (this.disabled) {
       e.preventDefault();
       e.stopPropagation();
+      return;
     }
 
     // this button wants to specifically submit a form
