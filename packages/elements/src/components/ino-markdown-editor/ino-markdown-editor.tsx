@@ -295,7 +295,7 @@ export class MarkdownEditor implements ComponentInterface {
             label="URL"
             type="text"
             required={true}
-            autoFocus={true}
+            // autoFocus={true} // doesn't work because MUI Dialog traps focus
             helper="Enter a valid URL"
             value={this.currentURL}
             onValueChange={(e) => this.handleTextInputChange(e)}
