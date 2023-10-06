@@ -241,6 +241,10 @@ export class MarkdownEditor implements ComponentInterface {
     this.showLinkDialog = false;
   }
 
+  private isDisabled(): boolean {
+    return !hasValue(this.currentURL) || !this.hasValueChanged;
+  }
+
   render() {
     const isReadonlyMode = this.viewMode === ViewMode.READONLY;
     const isPreviewMode = isReadonlyMode || this.viewMode === ViewMode.PREVIEW;
@@ -307,13 +311,17 @@ export class MarkdownEditor implements ComponentInterface {
             data-ino-dialog-delete
             icon="remove"
             disabled={this.isCreationDialog}
-            onClick={() => this.handleDeleteLink()}
+            onClick={() => {
+              if (!this.isCreationDialog) this.handleDeleteLink();
+            }}
             type="reset"
           ></ino-icon-button>
           <ino-icon-button
             icon="add"
-            disabled={!hasValue(this.currentURL) || !this.hasValueChanged}
-            onClick={() => this.submitLink()}
+            disabled={this.isDisabled()}
+            onClick={() => {
+              if (!this.isDisabled()) this.submitLink();
+            }}
             type="submit"
           ></ino-icon-button>
         </section>
