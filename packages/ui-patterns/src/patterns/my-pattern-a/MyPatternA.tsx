@@ -1,7 +1,7 @@
 import htmlContent from './my-pattern-a.html?raw';
 
-function MyPattern() {
+function MyPatternA() {
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
 
-export default MyPattern;
+export default MyPatternA;
