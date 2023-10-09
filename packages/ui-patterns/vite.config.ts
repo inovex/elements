@@ -18,8 +18,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'Patterns',
-      fileName: 'pattern',
+      name: 'Ui-Patterns',
+      fileName: 'ui-patterns',
     },
     rollupOptions: {
       external: ['react'],

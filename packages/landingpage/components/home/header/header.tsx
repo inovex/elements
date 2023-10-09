@@ -6,7 +6,7 @@ import useTranslation from 'utils/hooks/useTranslation';
 import { MainRoutes } from 'utils/routes';
 import styles from './header.module.scss';
 import InstallChips from './install-chips';
-import {MyPatternA} from 'ui-patterns';
+import { MyPatternA } from 'ui-patterns';
 
 export default function Header() {
   const { t, locale } = useTranslation();
