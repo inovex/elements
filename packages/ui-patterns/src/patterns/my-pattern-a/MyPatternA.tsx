@@ -1,7 +1,8 @@
 import htmlContent from './my-pattern-a.html?raw';
+import PatternWrapper from '../PatternWrapper';
 
 function MyPatternA() {
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+  return <PatternWrapper htmlContent={htmlContent} />;
 }
 
 export default MyPatternA;
