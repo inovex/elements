@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
-import packageJson from './package.json'
 
 export default defineConfig({
   plugins: [
@@ -23,17 +22,13 @@ export default defineConfig({
       fileName: 'ui-patterns',
     },
     rollupOptions: {
-      external: [...Object.keys(packageJson.peerDependencies)],
+      external: ['react', 'react-dom', '@inovex.de/elements-react', 'react/jsx-runtime'],
       output: {
-        globals: Object.keys(packageJson.peerDependencies).reduce((prev, current) => {
-          prev[current] = current
-          return prev
-        }, {} as Record<string, string>),
-        output: {
-          globals: Object.keys(packageJson.peerDependencies).reduce((prev, current) => {
-            prev[current] = current
-            return prev
-          }, {} as Record<string, string>),
+        globals: {
+          'react': 'React',
+          'react-dom': 'ReactDOM',
+          '@inovex.de/elements-react': '@inovex.de/elements-react' ,
+          'react/jsx-runtime': 'react/jsx-runtime'
         },
       },
     },
