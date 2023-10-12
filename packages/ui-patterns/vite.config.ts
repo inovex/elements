@@ -6,7 +6,7 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({ jsxRuntime: 'classic' }),
     viteStaticCopy({
       targets: [{ src: 'src/patterns/**/**/*.html', dest: 'patterns-html' }],
     }),
