@@ -18,14 +18,13 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'Ui-Patterns',
-      fileName: 'ui-patterns',
+      formats: ['es']
     },
     rollupOptions: {
       external: ['react', 'react-dom', '@inovex.de/elements-react', 'react/jsx-runtime'],
       output: {
         globals: {
-          'react': 'React',
+          react: 'React',
           'react-dom': 'ReactDOM',
           '@inovex.de/elements-react': '@inovex.de/elements-react' ,
           'react/jsx-runtime': 'react/jsx-runtime'

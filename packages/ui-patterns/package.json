@@ -4,19 +4,20 @@
   "version": "8.1.3",
   "type": "module",
   "types": "dist/types/index.d.ts",
-  "main": "dist/ui-patterns.umd.cjs",
+  "main": "dist/ui-patterns.js",
   "module": "dist/ui-patterns.js",
   "exports": {
-    ".": {
-      "import": "./dist/ui-patterns.js",
-      "require": "./dist/ui-patterns.umd.cjs"
-    },
+    ".": "./dist/ui-patterns.js",
     "./dist/style.css": "./dist/style.css",
     "./dist/patterns-html": "./dist/patterns-html"
   },
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
@@ -33,7 +34,7 @@
   },
   "peerDependencies": {
     "@inovex.de/elements-react": "^8.1.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "18.x",
+    "react-dom": "18.x"
   }
 }
