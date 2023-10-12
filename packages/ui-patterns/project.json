@@ -11,8 +11,7 @@
           "cwd": "packages/ui-patterns",
           "commands": [
             "tsc",
-            "vite build",
-            "tailwindcss -o dist/styles.css --minify"
+            "vite build"
           ]
         }
       },
@@ -57,4 +56,3 @@
       }
     }
   }
-  
