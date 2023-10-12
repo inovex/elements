@@ -37,7 +37,7 @@ const nextConfiguration = {
             globOptions: {
               ignore: ['**/*.{html,md}'],
             },
-          },
+          }
         ],
       })
     );

@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
+import packageJson from './package.json'
 
 export default defineConfig({
   plugins: [
@@ -22,10 +23,17 @@ export default defineConfig({
       fileName: 'ui-patterns',
     },
     rollupOptions: {
-      external: ['react'],
+      external: [...Object.keys(packageJson.peerDependencies)],
       output: {
-        globals: {
-          react: 'React',
+        globals: Object.keys(packageJson.peerDependencies).reduce((prev, current) => {
+          prev[current] = current
+          return prev
+        }, {} as Record<string, string>),
+        output: {
+          globals: Object.keys(packageJson.peerDependencies).reduce((prev, current) => {
+            prev[current] = current
+            return prev
+          }, {} as Record<string, string>),
         },
       },
     },

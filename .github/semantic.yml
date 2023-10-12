@@ -260,6 +260,7 @@ scopes:
   - elements-vue
   - storybook
   - landingpage
+  - ui-patterns
   - elements-vue-example
   - '*'
   - deps

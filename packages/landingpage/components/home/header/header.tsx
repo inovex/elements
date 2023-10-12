@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <>
       <div className={styles.container}>
-        <MyPatternA></MyPatternA>
+        <MyPatternA onHtmlLoad={console.log}></MyPatternA>
         <div className={styles.image}>
           <Image
             width={663}
