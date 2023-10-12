@@ -15,7 +15,7 @@
           ]
         }
       },
-      "start": {
+      "dev": {
         "executor": "nx:run-commands",
         "options": {
           "cwd": "packages/ui-patterns"

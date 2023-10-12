@@ -11,7 +11,7 @@
       "import": "./dist/ui-patterns.js",
       "require": "./dist/ui-patterns.umd.cjs"
     },
-    "./dist/styles.css": "./dist/styles.css"
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "dist"
