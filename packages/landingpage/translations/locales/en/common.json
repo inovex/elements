@@ -1,5 +1,5 @@
 {
-  "elements": "inovex elements",
+  "elements": "inovex Elements",
   "language": "Language",
   "navigation": {
     "home": {
@@ -94,7 +94,6 @@
   "meta": {
     "home": "Home",
     "explore": "Explore",
-    "getting_started": "Getting Started",
     "library": "Library",
     "about": "About"
   },

@@ -33,6 +33,12 @@ export class Label {
    */
   @Prop() disabled: boolean;
 
+
+  /**
+   * Id of the associated form control
+   */
+  @Prop() for: string;
+
   private filledTemplate = (label: HTMLElement) => [
     <div class="mdc-line-ripple" />,
     label,
@@ -55,7 +61,7 @@ export class Label {
     });
 
     const label = this.text ? (
-      <label class={'mdc-floating-label'}>{this.text}</label>
+      <label htmlFor={this.for} class={'mdc-floating-label'}>{this.text}</label>
     ) : (
       ''
     );

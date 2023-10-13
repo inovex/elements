@@ -4,7 +4,7 @@
     <img width="300" src="assets/logo/elements_dark.svg">
   </a>
 
-# inovex elements
+# inovex Elements
 
 ![GitHub](https://img.shields.io/github/license/inovex/elements?style=plastic)
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/inovex/elements/latest/master?style=plastic)

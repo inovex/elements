@@ -57,9 +57,9 @@ export class Menu implements ComponentInterface {
     return (
       <Host>
         <ino-popover
+          colorScheme="light"
           ref={(el) => (this.popoverEl = el)}
-          color-scheme="transparent"
-          interactive
+          interactive={true}
           for={this.el.parentElement.id}
           placement={this.placement}
           trigger={'click'}

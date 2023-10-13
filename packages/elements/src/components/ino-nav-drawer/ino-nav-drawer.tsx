@@ -9,8 +9,9 @@ import {
   Event,
   EventEmitter,
   h,
+  Listen,
 } from '@stencil/core';
-import { NavDrawerAnchor, NavDrawerVariant } from '../types';
+import { NavDrawerAnchor, NavDrawerVariant, NavDrawerLabels } from '../types';
 import classNames from 'classnames';
 
 /**
@@ -24,7 +25,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-nav-drawer',
   styleUrl: 'ino-nav-drawer.scss',
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class NavDrawer implements ComponentInterface {
   /**
@@ -32,7 +33,6 @@ export class NavDrawer implements ComponentInterface {
    */
   private drawerInstance: MDCDrawer;
   private drawerEl: HTMLElement;
-
   @Element() el!: HTMLInoNavDrawerElement;
 
   /**
@@ -54,10 +54,28 @@ export class NavDrawer implements ComponentInterface {
   @Prop() anchor?: NavDrawerAnchor = 'left';
 
   /**
-   * The variant to use for the drawer
-   * Possible values: `docked` (default), `dismissible`, `modal`.
+   * The variant to use for the drawer.
    */
   @Prop() variant?: NavDrawerVariant = 'docked';
+
+  /**
+   * The aria-labels used for content and footer nav elements.
+   * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+   */
+  @Prop() a11yLabels?: NavDrawerLabels = {
+    content: 'Main Navigation',
+    footer: 'Footer Navigation',
+    toggleBtn: 'Toggle Navigation',
+  };
+
+  @Watch('variant')
+  variantChanged(newVariant: NavDrawerVariant) {
+    if (newVariant === 'mobile') {
+      this.activateMobileMode();
+    } else {
+      this.deactivateMobileMode();
+    }
+  }
 
   componentDidLoad() {
     this.drawerInstance = new MDCDrawer(
@@ -67,13 +85,53 @@ export class NavDrawer implements ComponentInterface {
     if (this.drawerInstance) {
       this.drawerInstance.open = this.open || false;
     }
-
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
+    this.initTabindex('content');
+    this.initTabindex('footer');
+
+    // set initial mobile or desktop mode
+    if (this.variant === 'mobile') {
+      this.activateMobileMode();
+    } else {
+      this.deactivateMobileMode();
+    }
   }
 
   disconnectedCallback() {
     this.drawerEl.removeEventListener('MDCDrawer:closed', this.closeDrawer);
     this.drawerInstance?.destroy();
+  }
+
+  private activateMobileMode() {
+    const navItems = this.el.querySelectorAll('ino-nav-item');
+    navItems.forEach((item) => {
+      item.classList.add('mobile-nav-item');
+    });
+  }
+
+  private deactivateMobileMode() {
+    const navItems = this.el.querySelectorAll('ino-nav-item');
+    navItems.forEach((item) => {
+      item.classList.remove('mobile-nav-item');
+    });
+  }
+  // This listener ensures that only the most recently clicked/selected list item appears as "activated"
+  @Listen('clickEl')
+  handleListItemClick(event: CustomEvent) {
+    const listItem: HTMLInoListItemElement = event.detail;
+
+    if (!listItem || listItem.tagName !== 'INO-LIST-ITEM') {
+      return;
+    }
+
+    this.deactivateAllItems();
+    listItem.activated = true;
+  }
+
+  private deactivateAllItems() {
+    const allItems: NodeListOf<HTMLInoListItemElement> =
+      this.el.querySelectorAll('ino-list-item');
+    allItems.forEach((item) => (item.activated = false));
   }
 
   /**
@@ -92,17 +150,26 @@ export class NavDrawer implements ComponentInterface {
     e.stopPropagation();
   };
 
+  private initTabindex(slotName: string) {
+    const contentElements = this.el.querySelector(`[slot="${slotName}"]`);
+    const contentListItems = contentElements.querySelectorAll('ino-list-item');
+    contentListItems[0].attrs = { tabIndex: 0 };
+  }
+
   render() {
     const { anchor, variant } = this;
+
+    const isMobile = variant === 'mobile';
 
     const classDrawer = classNames({
       'mdc-drawer': true,
       'mdc-drawer--docked': variant === 'docked',
       'mdc-drawer--dismissible':
         variant === 'dismissible' || variant === 'docked', // docked is a modifier of MDC's dismissible inoVariant
-      'mdc-drawer--modal': variant === 'modal',
+      'mdc-drawer--modal': variant === 'modal' || isMobile,
       'mdc-drawer--anchor-left': anchor === 'left',
       'mdc-drawer--anchor-right': anchor === 'right',
+      'mobile-drawer': isMobile, // custom class for mobile drawer
     });
 
     const classAppContent = classNames({
@@ -123,18 +190,26 @@ export class NavDrawer implements ComponentInterface {
           </slot>
         </div>
 
-        <nav class="mdc-drawer__content">
+        <nav class="mdc-drawer__content" aria-label={this.a11yLabels.content}>
           <slot name="content"></slot>
         </nav>
 
-        <div class="mdc-drawer__footer">
+        <nav class="mdc-drawer__footer" aria-label={this.a11yLabels.footer}>
           <slot name="footer"></slot>
           <ino-icon-button
-            class="mdc-drawer__toggle"
+            class={{
+              'mdc-drawer__toggle': true,
+              'visually-hidden': isMobile, // Hide visually on mobile, but remains in DOM to meet focus-trap requirements
+            }}
             icon="arrow_right"
+            tabIndex={isMobile ? -1 : null} // Exclude from tab navigation on mobile drawer
+            aria-hidden={isMobile} // Hide from screen readers on mobile as it's only used to prevent focus-trap error and has no functional use
             onClick={this.toggleDrawer}
+            attrs={{
+              ariaLabel: this.a11yLabels.toggleBtn,
+            }}
           />
-        </div>
+        </nav>
       </aside>
     );
 
@@ -147,7 +222,9 @@ export class NavDrawer implements ComponentInterface {
     return (
       <Host>
         {nav}
-        {variant === 'modal' && <div class="mdc-drawer-scrim"></div>}
+        {(isMobile || variant === 'modal') && (
+          <div class="mdc-drawer-scrim"></div>
+        )}
         {main}
       </Host>
     );

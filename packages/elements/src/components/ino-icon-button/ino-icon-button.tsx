@@ -14,6 +14,7 @@ import {
 import classNames from 'classnames';
 
 import { ButtonType } from '../types';
+import { JSXBase } from '@stencil/core/internal';
 
 /**
  * @slot default - `<ino-icon>`
@@ -29,6 +30,11 @@ export class IconButton implements ComponentInterface {
   private mdcInstance: MDCRipple;
 
   @Element() el!: HTMLInoIconButtonElement;
+
+   /**
+   * Allows the specification of native HTML attributes on the underlying HTML element
+   */
+   @Prop() attrs: JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
 
   /**
    * Sets the autofocus for this element.
@@ -128,6 +134,7 @@ export class IconButton implements ComponentInterface {
           class={iconButtonClasses}
           disabled={this.disabled}
           type={this.type}
+          {...this.attrs}
         >
           <div class="mdc-icon-button__ripple"/>
           <span class="mdc-icon-button__icon">
