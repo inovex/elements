@@ -69,6 +69,28 @@ Trigger on two occasions:
 
 
 @ProxyCmp({
+  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'src', 'variant']
+})
+@Component({
+  selector: 'ino-avatar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'src', 'variant'],
+})
+export class InoAvatar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface InoAvatar extends Components.InoAvatar {}
+
+
+@ProxyCmp({
   inputs: ['autoFocus', 'dense', 'disabled', 'form', 'loading', 'name', 'type', 'variant']
 })
 @Component({
