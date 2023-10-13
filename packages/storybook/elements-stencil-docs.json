@@ -2549,7 +2549,9 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "ino-markdown-editor"
+      ],
       "dependencies": [
         "ino-icon",
         "ino-button"
@@ -2561,6 +2563,9 @@
         ],
         "ino-button": [
           "ino-spinner"
+        ],
+        "ino-markdown-editor": [
+          "ino-dialog"
         ]
       },
       "props": [
@@ -3619,6 +3624,7 @@
       "encapsulation": "none",
       "dependents": [
         "ino-carousel",
+        "ino-markdown-editor",
         "ino-nav-drawer",
         "ino-snackbar",
         "ino-table-header-cell"
@@ -3631,6 +3637,9 @@
           "ino-icon"
         ],
         "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-markdown-editor": [
           "ino-icon-button"
         ],
         "ino-nav-drawer": [
@@ -4342,7 +4351,8 @@
       ],
       "encapsulation": "none",
       "dependents": [
-        "ino-datepicker"
+        "ino-datepicker",
+        "ino-markdown-editor"
       ],
       "dependencies": [
         "ino-label",
@@ -4354,6 +4364,9 @@
           "ino-icon"
         ],
         "ino-datepicker": [
+          "ino-input"
+        ],
+        "ino-markdown-editor": [
           "ino-input"
         ]
       },
@@ -5983,15 +5996,35 @@
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
+        "ino-dialog",
+        "ino-input",
+        "ino-icon-button",
         "ino-icon",
         "ino-popover",
         "ino-textarea"
       ],
       "dependencyGraph": {
         "ino-markdown-editor": [
+          "ino-dialog",
+          "ino-input",
+          "ino-icon-button",
           "ino-icon",
           "ino-popover",
           "ino-textarea"
+        ],
+        "ino-dialog": [
+          "ino-icon",
+          "ino-button"
+        ],
+        "ino-button": [
+          "ino-spinner"
+        ],
+        "ino-input": [
+          "ino-label",
+          "ino-icon"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
         ],
         "ino-textarea": [
           "ino-label"
