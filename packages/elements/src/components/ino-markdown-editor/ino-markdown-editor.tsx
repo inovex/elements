@@ -320,7 +320,8 @@ export class MarkdownEditor implements ComponentInterface {
             type="reset"
           ></ino-icon-button>
           <ino-icon-button
-            icon="add"
+            icon="snackbar-checkmark"
+            filled={true}
             disabled={this.isDisabled()}
             onClick={(e) => {
               if (!this.isDisabled()) this.submitLink(e);
