@@ -1,7 +1,7 @@
 <div align="center">
 
   <a href="https://elements.inovex.de/">
-    <img src="assets/elements-preview.png">
+    <img width="300" src="assets/logo/elements_dark.svg">
   </a>
 
 # inovex Elements
@@ -18,7 +18,7 @@ Lovingly crafted UI components based on native Web Components <br>for Angular, R
 
 <br>
 
-
+<img src="assets/elements-preview.png">
 
 <h1 align="center">Installation</h1>
 
