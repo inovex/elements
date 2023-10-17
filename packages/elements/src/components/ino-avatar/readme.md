@@ -14,6 +14,7 @@
 | `colorSecondary` | `color-secondary` | Colors the border of the avatar in the secondary color.                                                                     | `boolean`             | `false`   |
 | `initials`       | `initials`        | The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.                                    | `string`              | `''`      |
 | `interactive`    | `interactive`     | Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.         | `boolean`             | `false`   |
+| `showLoading`    | `show-loading`    |                                                                                                                             | `boolean`             | `null`    |
 | `src`            | `src`             | The img of the avatar.                                                                                                      | `string`              | `''`      |
 | `variant`        | `variant`         | The style variant of the avatar. Can be 'dashed' \| 'solid'.                                                                | `"dashed" \| "solid"` | `'solid'` |
 
@@ -25,12 +26,18 @@
 | `"icon-slot"` | For the icon to be displayed in the avatar. |
 
 
-## CSS Custom Properties
+## Dependencies
 
-| Name                | Description                        |
-| ------------------- | ---------------------------------- |
-| `--ino-avatar-size` | Width and height of the ino-avatar |
+### Depends on
 
+- [ino-spinner](../ino-spinner)
+
+### Graph
+```mermaid
+graph TD;
+  ino-avatar --> ino-spinner
+  style ino-avatar fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

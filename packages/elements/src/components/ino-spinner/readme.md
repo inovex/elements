@@ -80,11 +80,13 @@ Use one of the provided types in `type` to give the spinner the shape. Adjust th
 
 ### Used by
 
+ - [ino-avatar](../ino-avatar)
  - [ino-button](../ino-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-avatar --> ino-spinner
   ino-button --> ino-spinner
   style ino-spinner fill:#f9f,stroke:#333,stroke-width:4px
 ```

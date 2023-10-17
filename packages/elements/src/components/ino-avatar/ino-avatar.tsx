@@ -1,4 +1,12 @@
-import { Component, ComponentInterface, Prop, h, Element } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Prop,
+  h,
+  Element,
+  State,
+  Watch,
+} from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 import primary from '../../assets/ino-avatar/primary.svg';
@@ -54,6 +62,23 @@ export class Avatar implements ComponentInterface {
    */
   @Prop() a11yLabel?: string = '';
 
+  @Prop() showLoading: boolean | null = null;
+
+  @State() isLoading: boolean = true;
+
+  @Watch('showLoading')
+  showLoadingHandler(newValue: boolean | null) {
+    if (newValue !== null) {
+      this.isLoading = newValue;
+    }
+  }
+
+  handleImageLoad() {
+    if (this.showLoading === null) {
+      this.isLoading = false;
+    }
+  }
+
   renderAvatarBorder() {
     const isDashed = this.variant === 'dashed';
     const isSecondary = this.colorSecondary;
@@ -68,7 +93,6 @@ export class Avatar implements ComponentInterface {
     // Decode the base64 string, otherwise only the string value is displayed
     const decodedSvgContent = window.atob(svgContent.split(',')[1]);
 
-
     return <div class="ino-avatar__border" innerHTML={decodedSvgContent} />;
   }
   render() {
@@ -78,6 +102,8 @@ export class Avatar implements ComponentInterface {
       'ino-avatar--dashed': this.variant === 'dashed',
       'ino-avatar--solid': this.variant === 'solid',
     });
+
+
 
     const hasIconSlot = hasSlotContent(this.el, 'icon-slot');
 
@@ -93,7 +119,18 @@ export class Avatar implements ComponentInterface {
         {avatarBorder}
         {this.src ? (
           <div class="ino-avatar__image image">
-            <img class="ino-avatar__image-inner" src={this.src} alt={this.alt}/>
+            {this.showLoading && this.isLoading && (
+              <div class="loading-wrapper">
+                <div style={{height: '40px'}}><ino-spinner type='tile'></ino-spinner></div>
+            
+              </div>
+            )}
+            <img
+              class="ino-avatar__image-inner"
+              src={this.src}
+              alt={this.alt}
+              onLoad={() => this.handleImageLoad()}
+            />
           </div>
         ) : (
           <div class="ino-avatar__image initials">{this.initials}</div>

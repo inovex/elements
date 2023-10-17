@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
+import { useEffect } from '@storybook/client-api';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
@@ -9,7 +10,33 @@ import avatarImg from '../../assets/images/avatar.jpg';
 export default {
   title: 'Graphic/<ino-avatar>',
   component: 'ino-avatar',
-  decorators: [story => decorateStoryWithClass(story, 'story-avatar')],
+  decorators: [
+    story => decorateStoryWithClass(story, 'story-avatar'),
+    (story) => {
+      useEffect(() => {
+        const handleCheckedChange = (e) => {
+          const checkbox: HTMLInoCheckboxElement = e.target;
+          const parentDiv = checkbox.closest('div');
+          const avatar: HTMLInoAvatarElement = parentDiv.querySelector('ino-avatar');
+          checkbox.checked = e.detail;
+          avatar.setAttribute('show-loading', checkbox.checked.toString());
+          if (checkbox.indeterminate) {
+            checkbox.indeterminate = false;
+          }
+        };
+
+        const checkboxes = document.querySelectorAll('ino-checkbox');
+        checkboxes.forEach((c) =>
+          c.addEventListener('checkedChange', handleCheckedChange)
+        );
+        return () =>
+          checkboxes.forEach((c) =>
+            c.removeEventListener('checkedChange', handleCheckedChange)
+          );
+      });
+      return story();
+    },
+  ],
   args: {
     initials: 'JD',
     interactive: false, 
@@ -18,6 +45,7 @@ export default {
     colorSecondary: false, 
     a11yLabel: 'User avatar',
     alt: 'Jane Doe',
+    showLoading: false,
   },
 } as Meta<Components.InoAvatar>;
 
@@ -33,6 +61,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       color-secondary="${args.colorSecondary}"
       a11y-label="${args.a11yLabel}"
       alt="${args.alt}"
+      show-loading="${args.showLoading}"
     >
     </ino-avatar>
 `
@@ -84,4 +113,31 @@ export const WithIcon = () => {
       ></ino-icon>
     </ino-avatar>
 `;
+};
+
+
+export const InfiniteLoading = (args: Components.InoAvatar) => {
+  let showLoading = args.showLoading; 
+ 
+  return html`
+    <div>
+      <ino-checkbox 
+        checked=${showLoading}
+        label="Show Loading" 
+        @checkedChange=${(e) => {
+          showLoading = e.detail;
+        }}
+      ></ino-checkbox>
+
+      <ino-avatar
+        initials="${args.initials}"
+        interactive="${args.interactive}"
+        variant="${args.variant}"
+        show-loading=${showLoading}
+        src="${args.src}"
+       
+      >
+      </ino-avatar>
+    </div>
+  `;
 };

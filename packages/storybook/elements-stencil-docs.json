@@ -273,8 +273,14 @@
       ],
       "encapsulation": "none",
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "dependencies": [
+        "ino-spinner"
+      ],
+      "dependencyGraph": {
+        "ino-avatar": [
+          "ino-spinner"
+        ]
+      },
       "props": [
         {
           "name": "a11yLabel",
@@ -387,6 +393,28 @@
           "required": false
         },
         {
+          "name": "showLoading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean | null",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-loading",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "src",
           "type": "string",
           "complexType": {
@@ -438,13 +466,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--ino-avatar-size",
-          "annotation": "prop",
-          "docs": "Width and height of the ino-avatar"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-slot",
@@ -9206,10 +9228,14 @@
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [
+        "ino-avatar",
         "ino-button"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ino-avatar": [
+          "ino-spinner"
+        ],
         "ino-button": [
           "ino-spinner"
         ]

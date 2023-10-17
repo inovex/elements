@@ -122,9 +122,28 @@
   border-radius: 50%;
   box-sizing: border-box;
   position: relative;
+  justify-content: center;
 
   &.initials {
     background: theme.$p-2;
+  }
+
+  .loading-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    background: white;
+  
+
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 }
 
