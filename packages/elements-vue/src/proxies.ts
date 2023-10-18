@@ -33,7 +33,7 @@ export const InoAvatar = /*@__PURE__*/ defineContainer<JSX.InoAvatar>('ino-avata
   'variant',
   'colorSecondary',
   'a11yLabel',
-  'showLoading'
+  'overrideLoading'
 ]);
 
 

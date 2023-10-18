@@ -387,25 +387,25 @@
           "required": false
         },
         {
-          "name": "showLoading",
+          "name": "overrideLoading",
           "type": "boolean",
           "complexType": {
-            "original": "boolean | undefined",
+            "original": "boolean",
             "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
-          "attr": "show-loading",
+          "attr": "override-loading",
           "reflectToAttr": false,
-          "docs": "Controls the display of a loading animation for the avatar. When set to true, the avatar will show its loading state. When false, the loading animation is hidden.",
+          "docs": "Overrides the avatar's loading animation behavior.\nWhen set to true, the loading animation is displayed indefinitely.\nWhen set to false, the avatar will not show any loading animations.\n\nBy not using this property or setting it to undefined, the loading animation will be shown only while the image is being loaded.",
           "docsTags": [],
-          "default": "undefined",
+          "default": "false",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {

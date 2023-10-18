@@ -22,7 +22,7 @@ export default {
             'ino-avatar'
           );
           checkbox.checked = e.detail;
-          avatar.setAttribute('show-loading', checkbox.checked);
+          avatar.setAttribute('override-loading', checkbox.checked);
           if (checkbox.indeterminate) {
             checkbox.indeterminate = false;
           }
@@ -48,7 +48,7 @@ export default {
     colorSecondary: false,
     a11yLabel: 'User avatar',
     alt: 'Jane Doe',
-    showLoading: undefined,
+    overrideLoading: false,
   },
 } as Meta<Components.InoAvatar>;
 
@@ -64,7 +64,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       color-secondary="${args.colorSecondary}"
       a11y-label="${args.a11yLabel}"
       alt="${args.alt}"
-      show-loading="${args.showLoading}"
+      override-loading="${args.overrideLoading}"
     >
     </ino-avatar>
 `
@@ -125,7 +125,7 @@ export const LoadingAvatar = (args: Components.InoAvatar) => {
         initials="${args.initials}"
         interactive="${args.interactive}"
         variant="${args.variant}"
-        show-loading="true"
+        override-loading="true"
         src="${args.src}"
       >
       </ino-avatar>

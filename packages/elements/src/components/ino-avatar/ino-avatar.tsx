@@ -62,21 +62,25 @@ export class Avatar implements ComponentInterface {
    */
   @Prop() a11yLabel?: string = '';
   /**
-   * Controls the display of a loading animation for the avatar. When set to true, the avatar will show its loading state. When false, the loading animation is hidden.
+   * Overrides the avatar's loading animation behavior.
+   * When set to true, the loading animation is displayed indefinitely.
+   * When set to false, the avatar will not show any loading animations.
+   * 
+   * By not using this property or setting it to undefined, the loading animation will be shown only while the image is being loaded.
    */
-  @Prop() showLoading: boolean | undefined = undefined;
+  @Prop() overrideLoading?: boolean = false;
 
   @State() isLoading: boolean = true;
 
   @Watch('showLoading')
-  showLoadingHandler(newValue: boolean | undefined) {
-    if (newValue !== undefined) {
-      this.isLoading = newValue;
-    }
+  showLoadingHandler(newValue: boolean) {
+    this.isLoading = newValue;
   }
 
   handleImageLoad() {
-    this.isLoading = false;
+    if (!this.overrideLoading) {
+      this.isLoading = false;
+    }
   }
 
   renderAvatarBorder() {
@@ -101,9 +105,8 @@ export class Avatar implements ComponentInterface {
       'ino-avatar--interactive': this.interactive,
       'ino-avatar--dashed': this.variant === 'dashed',
       'ino-avatar--solid': this.variant === 'solid',
-      'ino-avatar--loading': this.showLoading && this.isLoading,
+      'ino-avatar--loading': this.overrideLoading && this.isLoading,
     });
-
     const hasIconSlot = hasSlotContent(this.el, 'icon-slot');
 
     const avatarBorder = this.renderAvatarBorder();
@@ -118,7 +121,7 @@ export class Avatar implements ComponentInterface {
         {avatarBorder}
         {this.src ? (
           <div class="ino-avatar__image image">
-            {this.showLoading && this.isLoading && (
+            {this.overrideLoading && this.isLoading && (
               <div class="loading-wrapper">
                 <span class="loader"></span>
               </div>

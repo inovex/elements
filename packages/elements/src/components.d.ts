@@ -68,9 +68,9 @@ export namespace Components {
          */
         "interactive": boolean;
         /**
-          * Controls the display of a loading animation for the avatar. When set to true, the avatar will show its loading state. When false, the loading animation is hidden.
+          * Overrides the avatar's loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the avatar will not show any loading animations.  By not using this property or setting it to undefined, the loading animation will be shown only while the image is being loaded.
          */
-        "showLoading": boolean | undefined;
+        "overrideLoading"?: boolean;
         /**
           * The img of the avatar.
          */
@@ -1974,9 +1974,9 @@ declare namespace LocalJSX {
          */
         "interactive"?: boolean;
         /**
-          * Controls the display of a loading animation for the avatar. When set to true, the avatar will show its loading state. When false, the loading animation is hidden.
+          * Overrides the avatar's loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the avatar will not show any loading animations.  By not using this property or setting it to undefined, the loading animation will be shown only while the image is being loaded.
          */
-        "showLoading"?: boolean | undefined;
+        "overrideLoading"?: boolean;
         /**
           * The img of the avatar.
          */
