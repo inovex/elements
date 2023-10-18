@@ -61,22 +61,22 @@ export class Avatar implements ComponentInterface {
    * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
    */
   @Prop() a11yLabel?: string = '';
-
-  @Prop() showLoading: boolean | null = null;
+  /**
+   * Controls the display of a loading animation for the avatar. When set to true, the avatar will show its loading state. When false, the loading animation is hidden.
+   */
+  @Prop() showLoading: boolean | undefined = undefined;
 
   @State() isLoading: boolean = true;
 
   @Watch('showLoading')
-  showLoadingHandler(newValue: boolean | null) {
-    if (newValue !== null) {
+  showLoadingHandler(newValue: boolean | undefined) {
+    if (newValue !== undefined) {
       this.isLoading = newValue;
     }
   }
 
   handleImageLoad() {
-    if (this.showLoading === null) {
-      this.isLoading = false;
-    }
+    this.isLoading = false;
   }
 
   renderAvatarBorder() {
@@ -101,9 +101,8 @@ export class Avatar implements ComponentInterface {
       'ino-avatar--interactive': this.interactive,
       'ino-avatar--dashed': this.variant === 'dashed',
       'ino-avatar--solid': this.variant === 'solid',
+      'ino-avatar--loading': this.showLoading && this.isLoading,
     });
-
-
 
     const hasIconSlot = hasSlotContent(this.el, 'icon-slot');
 
@@ -121,8 +120,7 @@ export class Avatar implements ComponentInterface {
           <div class="ino-avatar__image image">
             {this.showLoading && this.isLoading && (
               <div class="loading-wrapper">
-                <div style={{height: '40px'}}><ino-spinner type='tile'></ino-spinner></div>
-            
+                <span class="loader"></span>
               </div>
             )}
             <img

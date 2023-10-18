@@ -4,6 +4,7 @@ import { useEffect } from '@storybook/client-api';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
+import './ino-avatar.scss';
 
 import avatarImg from '../../assets/images/avatar.jpg';
 
@@ -12,25 +13,27 @@ export default {
   component: 'ino-avatar',
   decorators: [
     story => decorateStoryWithClass(story, 'story-avatar'),
-    (story) => {
+    story => {
       useEffect(() => {
-        const handleCheckedChange = (e) => {
+        const handleCheckedChange = e => {
           const checkbox: HTMLInoCheckboxElement = e.target;
           const parentDiv = checkbox.closest('div');
-          const avatar: HTMLInoAvatarElement = parentDiv.querySelector('ino-avatar');
+          const avatar: HTMLInoAvatarElement = parentDiv.querySelector(
+            'ino-avatar'
+          );
           checkbox.checked = e.detail;
-          avatar.setAttribute('show-loading', checkbox.checked.toString());
+          avatar.setAttribute('show-loading', checkbox.checked);
           if (checkbox.indeterminate) {
             checkbox.indeterminate = false;
           }
         };
 
         const checkboxes = document.querySelectorAll('ino-checkbox');
-        checkboxes.forEach((c) =>
+        checkboxes.forEach(c =>
           c.addEventListener('checkedChange', handleCheckedChange)
         );
         return () =>
-          checkboxes.forEach((c) =>
+          checkboxes.forEach(c =>
             c.removeEventListener('checkedChange', handleCheckedChange)
           );
       });
@@ -39,13 +42,13 @@ export default {
   ],
   args: {
     initials: 'JD',
-    interactive: false, 
+    interactive: false,
     variant: 'solid',
     src: avatarImg,
-    colorSecondary: false, 
+    colorSecondary: false,
     a11yLabel: 'User avatar',
     alt: 'Jane Doe',
-    showLoading: false,
+    showLoading: undefined,
   },
 } as Meta<Components.InoAvatar>;
 
@@ -115,29 +118,23 @@ export const WithIcon = () => {
 `;
 };
 
-
-export const InfiniteLoading = (args: Components.InoAvatar) => {
-  let showLoading = args.showLoading; 
- 
+export const LoadingAvatar = (args: Components.InoAvatar) => {
   return html`
-    <div>
-      <ino-checkbox 
-        checked=${showLoading}
-        label="Show Loading" 
-        @checkedChange=${(e) => {
-          showLoading = e.detail;
-        }}
-      ></ino-checkbox>
-
+    <div class="avatar-loading-container">
       <ino-avatar
         initials="${args.initials}"
         interactive="${args.interactive}"
         variant="${args.variant}"
-        show-loading=${showLoading}
+        show-loading="true"
         src="${args.src}"
-       
       >
       </ino-avatar>
+      <ino-checkbox
+        checked="true"
+        selection="true"
+        name="toggle-loading-checkbox"
+        >Loading</ino-checkbox
+      >
     </div>
-  `;
+`;
 };

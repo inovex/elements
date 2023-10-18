@@ -29,6 +29,16 @@
   }
 }
 
+@keyframes strokePulse {
+  0%,
+  100% {
+    stroke-width: 2%;
+  }
+  50% {
+    stroke-width: 4%;
+  }
+}
+
 .ino-avatar {
   --avatar-size: var(--ino-avatar-size, 138px);
   @include flex-center;
@@ -136,14 +146,34 @@
     border-radius: 50%;
     height: 100%;
     width: 100%;
-    background: white;
-  
+    background: #FFF;
 
     z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    .loader {
+      width: calc(
+        var(--avatar-size) * (48 / 138)
+      ); // loaders width as a proportion of the avatar size
+      height: calc(var(--avatar-size) * (48 / 138));
+      border: calc(var(--avatar-size) * (5 / 138)) solid #fff;
+      border-bottom-color: theme.$primary;
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      animation: spinner 1s linear infinite;
+    }
+
+    @keyframes spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   }
 }
 
@@ -179,5 +209,9 @@
   circle {
     stroke-width: 2%;
     transition: stroke-width 0.3s ease-in-out;
+
+    .ino-avatar--loading & {
+      animation: strokePulse 2s infinite;
+    }
   }
 }

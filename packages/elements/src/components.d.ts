@@ -67,7 +67,10 @@ export namespace Components {
           * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
          */
         "interactive": boolean;
-        "showLoading": boolean | null;
+        /**
+          * Controls the display of a loading animation for the avatar. When set to true, the avatar will show its loading state. When false, the loading animation is hidden.
+         */
+        "showLoading": boolean | undefined;
         /**
           * The img of the avatar.
          */
@@ -1970,7 +1973,10 @@ declare namespace LocalJSX {
           * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
          */
         "interactive"?: boolean;
-        "showLoading"?: boolean | null;
+        /**
+          * Controls the display of a loading animation for the avatar. When set to true, the avatar will show its loading state. When false, the loading animation is hidden.
+         */
+        "showLoading"?: boolean | undefined;
         /**
           * The img of the avatar.
          */
