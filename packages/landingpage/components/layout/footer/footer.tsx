@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       {isWide ? <FooterDesktop /> : <FooterMobile />}
-      <Attributions />
+      <Attributions isWide={isWide}/>
     </footer>
   );
 }
