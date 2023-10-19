@@ -54,6 +54,9 @@ The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org
 
 ### Depends on
 
+- [ino-dialog](../ino-dialog)
+- [ino-input](../ino-input)
+- [ino-icon-button](../ino-icon-button)
 - [ino-icon](../ino-icon)
 - [ino-popover](../ino-popover)
 - [ino-textarea](../ino-textarea)
@@ -61,9 +64,18 @@ The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org
 ### Graph
 ```mermaid
 graph TD;
+  ino-markdown-editor --> ino-dialog
+  ino-markdown-editor --> ino-input
+  ino-markdown-editor --> ino-icon-button
   ino-markdown-editor --> ino-icon
   ino-markdown-editor --> ino-popover
   ino-markdown-editor --> ino-textarea
+  ino-dialog --> ino-icon
+  ino-dialog --> ino-button
+  ino-button --> ino-spinner
+  ino-input --> ino-label
+  ino-input --> ino-icon
+  ino-icon-button --> ino-icon
   ino-textarea --> ino-label
   style ino-markdown-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```

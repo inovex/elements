@@ -25,6 +25,17 @@ export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete
 'value', 'v-value-change', 'valueChange');
 
 
+export const InoAvatar = /*@__PURE__*/ defineContainer<JSX.InoAvatar>('ino-avatar', undefined, [
+  'alt',
+  'initials',
+  'src',
+  'interactive',
+  'variant',
+  'colorSecondary',
+  'a11yLabel'
+]);
+
+
 export const InoButton = /*@__PURE__*/ defineContainer<JSX.InoButton>('ino-button', undefined, [
   'autoFocus',
   'disabled',

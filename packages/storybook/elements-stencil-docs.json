@@ -258,6 +258,203 @@
       ]
     },
     {
+      "filePath": "src/components/ino-avatar/ino-avatar.tsx",
+      "fileName": "ino-avatar.tsx",
+      "tag": "ino-avatar",
+      "readme": "# ino-avatar\n\n\n",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon-slot - For the icon to be displayed in the avatar."
+        }
+      ],
+      "encapsulation": "none",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "a11yLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "a-1-1y-label",
+          "reflectToAttr": false,
+          "docs": "The aria-label used for the avatar element.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "alt",
+          "reflectToAttr": false,
+          "docs": "The alternative text of the avatar image.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "colorSecondary",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color-secondary",
+          "reflectToAttr": false,
+          "docs": "Colors the border of the avatar in the secondary color.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "initials",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "initials",
+          "reflectToAttr": false,
+          "docs": "The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "interactive",
+          "reflectToAttr": false,
+          "docs": "Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "src",
+          "reflectToAttr": false,
+          "docs": "The img of the avatar.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"dashed\" | \"solid\"",
+          "complexType": {
+            "original": "'dashed' | 'solid'",
+            "resolved": "\"dashed\" | \"solid\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The style variant of the avatar.\nCan be 'dashed' | 'solid'.",
+          "docsTags": [],
+          "default": "'solid'",
+          "values": [
+            {
+              "value": "dashed",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [
+        {
+          "name": "--ino-avatar-size",
+          "annotation": "prop",
+          "docs": "Width and height of the ino-avatar"
+        }
+      ],
+      "slots": [
+        {
+          "name": "icon-slot",
+          "docs": "For the icon to be displayed in the avatar."
+        }
+      ],
+      "parts": [],
+      "listeners": []
+    },
+    {
       "filePath": "src/components/ino-button/ino-button.tsx",
       "fileName": "ino-button.tsx",
       "tag": "ino-button",
@@ -2549,7 +2746,9 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "ino-markdown-editor"
+      ],
       "dependencies": [
         "ino-icon",
         "ino-button"
@@ -2561,6 +2760,9 @@
         ],
         "ino-button": [
           "ino-spinner"
+        ],
+        "ino-markdown-editor": [
+          "ino-dialog"
         ]
       },
       "props": [
@@ -2823,6 +3025,26 @@
           "name": "--ino-dialog-height",
           "annotation": "prop",
           "docs": "height of the dialog"
+        },
+        {
+          "name": "--ino-dialog-max-height",
+          "annotation": "prop",
+          "docs": "max-height of the dialog"
+        },
+        {
+          "name": "--ino-dialog-max-width",
+          "annotation": "prop",
+          "docs": "max-width of the dialog"
+        },
+        {
+          "name": "--ino-dialog-min-height",
+          "annotation": "prop",
+          "docs": "min-height of the dialog"
+        },
+        {
+          "name": "--ino-dialog-min-width",
+          "annotation": "prop",
+          "docs": "min-width of the dialog"
         },
         {
           "name": "--ino-dialog-overlay-background-color",
@@ -3619,6 +3841,7 @@
       "encapsulation": "none",
       "dependents": [
         "ino-carousel",
+        "ino-markdown-editor",
         "ino-nav-drawer",
         "ino-snackbar",
         "ino-table-header-cell"
@@ -3631,6 +3854,9 @@
           "ino-icon"
         ],
         "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-markdown-editor": [
           "ino-icon-button"
         ],
         "ino-nav-drawer": [
@@ -4342,7 +4568,8 @@
       ],
       "encapsulation": "none",
       "dependents": [
-        "ino-datepicker"
+        "ino-datepicker",
+        "ino-markdown-editor"
       ],
       "dependencies": [
         "ino-label",
@@ -4354,6 +4581,9 @@
           "ino-icon"
         ],
         "ino-datepicker": [
+          "ino-input"
+        ],
+        "ino-markdown-editor": [
           "ino-input"
         ]
       },
@@ -5983,15 +6213,35 @@
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
+        "ino-dialog",
+        "ino-input",
+        "ino-icon-button",
         "ino-icon",
         "ino-popover",
         "ino-textarea"
       ],
       "dependencyGraph": {
         "ino-markdown-editor": [
+          "ino-dialog",
+          "ino-input",
+          "ino-icon-button",
           "ino-icon",
           "ino-popover",
           "ino-textarea"
+        ],
+        "ino-dialog": [
+          "ino-icon",
+          "ino-button"
+        ],
+        "ino-button": [
+          "ino-spinner"
+        ],
+        "ino-input": [
+          "ino-label",
+          "ino-icon"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
         ],
         "ino-textarea": [
           "ino-label"

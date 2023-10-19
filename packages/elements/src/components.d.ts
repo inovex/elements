@@ -46,6 +46,36 @@ export namespace Components {
          */
         "value": string | KeyValue | null;
     }
+    interface InoAvatar {
+        /**
+          * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+         */
+        "a11yLabel"?: string;
+        /**
+          * The alternative text of the avatar image.
+         */
+        "alt"?: string;
+        /**
+          * Colors the border of the avatar in the secondary color.
+         */
+        "colorSecondary": boolean;
+        /**
+          * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
+         */
+        "initials": string;
+        /**
+          * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
+         */
+        "interactive": boolean;
+        /**
+          * The img of the avatar.
+         */
+        "src": string;
+        /**
+          * The style variant of the avatar. Can be 'dashed' | 'solid'.
+         */
+        "variant": 'dashed' | 'solid';
+    }
     interface InoButton {
         /**
           * Sets the autofocus for this element.
@@ -1536,6 +1566,12 @@ declare global {
         prototype: HTMLInoAutocompleteElement;
         new (): HTMLInoAutocompleteElement;
     };
+    interface HTMLInoAvatarElement extends Components.InoAvatar, HTMLStencilElement {
+    }
+    var HTMLInoAvatarElement: {
+        prototype: HTMLInoAvatarElement;
+        new (): HTMLInoAvatarElement;
+    };
     interface HTMLInoButtonElement extends Components.InoButton, HTMLStencilElement {
     }
     var HTMLInoButtonElement: {
@@ -1827,6 +1863,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ino-accordion": HTMLInoAccordionElement;
         "ino-autocomplete": HTMLInoAutocompleteElement;
+        "ino-avatar": HTMLInoAvatarElement;
         "ino-button": HTMLInoButtonElement;
         "ino-card": HTMLInoCardElement;
         "ino-carousel": HTMLInoCarouselElement;
@@ -1910,6 +1947,36 @@ declare namespace LocalJSX {
           * The selected value.
          */
         "value"?: string | KeyValue | null;
+    }
+    interface InoAvatar {
+        /**
+          * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+         */
+        "a11yLabel"?: string;
+        /**
+          * The alternative text of the avatar image.
+         */
+        "alt"?: string;
+        /**
+          * Colors the border of the avatar in the secondary color.
+         */
+        "colorSecondary"?: boolean;
+        /**
+          * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
+         */
+        "initials"?: string;
+        /**
+          * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
+         */
+        "interactive"?: boolean;
+        /**
+          * The img of the avatar.
+         */
+        "src"?: string;
+        /**
+          * The style variant of the avatar. Can be 'dashed' | 'solid'.
+         */
+        "variant"?: 'dashed' | 'solid';
     }
     interface InoButton {
         /**
@@ -3367,6 +3434,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ino-accordion": InoAccordion;
         "ino-autocomplete": InoAutocomplete;
+        "ino-avatar": InoAvatar;
         "ino-button": InoButton;
         "ino-card": InoCard;
         "ino-carousel": InoCarousel;
@@ -3420,6 +3488,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ino-accordion": LocalJSX.InoAccordion & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
             "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
+            "ino-avatar": LocalJSX.InoAvatar & JSXBase.HTMLAttributes<HTMLInoAvatarElement>;
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
             "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
