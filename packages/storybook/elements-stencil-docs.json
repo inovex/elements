@@ -468,7 +468,7 @@
             "references": {
               "Variants": {
                 "location": "local",
-                "path": "/Users/arbeit/Projects/elements/packages/elements/src/components/ino-button/ino-button.tsx",
+                "path": "/Users/bscheffbuch/dev/elements/packages/elements/src/components/ino-button/ino-button.tsx",
                 "id": "src/components/ino-button/ino-button.tsx::Variants"
               }
             }
