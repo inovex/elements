@@ -1,19 +1,34 @@
 import { addons } from '@storybook/addons';
 
+// This addon efficiently adds click event handlers that automatically open the Playground page when a component folder is clicked.
 addons.register('open-playground-automatically', () => {
-  // Function to add click event listener to eligible buttons
-  const attachClickEvent = (button: HTMLElement) => {
-    button.addEventListener('click', () => {
-      console.log('clicked');
-    });
-  };
   console.log('running');
 
-  // Function to initialize and attach the MutationObserver
-  const initializeObserver = () => {
-    const observer = new MutationObserver(mutationsList => {
-      console.log('mutated');
+  // Look for the nav element
+  const navObserver = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        const navElement = (mutation.target as HTMLElement).querySelector(
+          'nav.container.sidebar-container'
+        ) as HTMLElement;
+        if (navElement) {
+          console.log('found nav');
+          observer.disconnect();
+          listenForInoButtons(navElement);
+          break;
+        }
+      }
+    }
+  });
 
+  navObserver.observe(document.body, { childList: true, subtree: false });
+
+  // Continously look for "ino-" buttons in the navigation
+  function listenForInoButtons(target: HTMLElement) {
+    const buttonObserver = new MutationObserver(function(
+      mutationsList,
+      observer
+    ) {
       for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
           const addedNodes = Array.from(mutation.addedNodes);
@@ -27,14 +42,10 @@ addons.register('open-playground-automatically', () => {
           ) {
           }
 
-          // Attach click event to added buttons whose text starts with "ino-"
+          // Attach click event to all visible component folder buttons
           addedNodes.forEach(node => {
             if (node instanceof HTMLButtonElement) {
               if (node.innerText.startsWith('ino-')) {
-                console.log('added click listener');
-                console.log('target', mutation.target);
-                console.log('found', mutation.addedNodes);
-
                 attachClickEvent(node);
               }
             }
@@ -43,14 +54,19 @@ addons.register('open-playground-automatically', () => {
       }
     });
 
-    let nav = document.querySelector('nav.container.sidebar-container');
+    const observerConfig = {
+      attributes: true,
+      childList: true,
+      subtree: true,
+    };
 
-    if (nav) {
-      console.log(nav);
-      // Observe only for direct child list changes (added/removed elements)
-      observer.observe(nav, { childList: true, subtree: true });
-    }
+    buttonObserver.observe(target, observerConfig);
+  }
+
+  const attachClickEvent = (button: HTMLElement) => {
+    button.addEventListener('click', () => {
+      console.log('clicked');
+    });
+    console.log('added click listener');
   };
-
-  initializeObserver();
 });
