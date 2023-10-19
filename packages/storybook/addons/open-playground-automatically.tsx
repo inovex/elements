@@ -25,22 +25,10 @@ addons.register('open-playground-automatically', () => {
 
   // Continously look for "ino-" buttons in the navigation
   function listenForInoButtons(target: HTMLElement) {
-    const buttonObserver = new MutationObserver(function(
-      mutationsList,
-      observer
-    ) {
+    const buttonObserver = new MutationObserver(function(mutationsList) {
       for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
           const addedNodes = Array.from(mutation.addedNodes);
-
-          let target = mutation.target as HTMLElement;
-
-          if (
-            Array.from(target.classList).some(className =>
-              className.startsWith('sto-')
-            )
-          ) {
-          }
 
           // Attach click event to all visible component folder buttons
           addedNodes.forEach(node => {
@@ -65,8 +53,48 @@ addons.register('open-playground-automatically', () => {
 
   const attachClickEvent = (button: HTMLElement) => {
     button.addEventListener('click', () => {
-      console.log('clicked');
+      let href = '';
+
+      // Look for the corresponding URL for the playground
+      let anchorObserver = new MutationObserver((mutationsList, observer) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === 'childList') {
+            for (const node of mutation.addedNodes) {
+              if (node instanceof HTMLDivElement) {
+                let anchorTag = node.querySelector('a');
+                if (anchorTag && anchorTag.getAttribute('href')) {
+                  href = anchorTag.getAttribute('href') as string;
+                  break;
+                }
+              }
+              if (href) {
+                break;
+              }
+            }
+          }
+          if (href) {
+            break;
+          }
+        }
+        observer.disconnect();
+
+        console.log('clicked');
+
+        if (href) {
+          console.log(href);
+          // Reroute to href
+        }
+      });
+
+      if (button.parentElement) {
+        anchorObserver.observe(button.parentElement, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+        });
+      }
     });
+
     console.log('added click listener');
   };
 });
