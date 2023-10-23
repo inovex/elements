@@ -134,16 +134,16 @@ export const Routes: RouteTree = [
         fragment: SubRoutes.LIBRARY_COMPONENTS,
         url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_COMPONENTS}`,
       },
+      {
+        key: 'patterns',
+        fragment: SubRoutes.LIBRARY_PATTERNS,
+        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_PATTERNS}`,
+      },
       /*
       {
         key: 'styleguide',
         fragment: SubRoutes.LIBRARY_STYLEGUIDE,
         url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_STYLEGUIDE}`,
-      },
-      {
-        key: 'patterns',
-        fragment: SubRoutes.LIBRARY_PATTERNS,
-        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_PATTERNS}`,
       },
       {
         key: 'changelogs',
