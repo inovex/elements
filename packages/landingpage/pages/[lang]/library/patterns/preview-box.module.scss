@@ -1,0 +1,27 @@
+.patternsWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.segmentGroup {
+  justify-content: flex-end;
+  display: flex;
+  padding-bottom: 14px;
+  max-width: 100%;
+}
+
+.segmentButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 820px;
+  border-radius: 30px;
+  border: 2px solid var(--inovex-elements-n-2);
+  background: rgba(255, 255, 255, 0.5);
+}
