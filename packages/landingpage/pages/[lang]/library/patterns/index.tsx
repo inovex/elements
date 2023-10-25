@@ -12,7 +12,7 @@ const MockupComponent: React.FC = () => (
   <div>Hello, this is a mockup component!</div>
 );
 
-const mockupHTMLString = `<div>Hello, this is a mockup HTML!</div>`;
+const mockupHTMLString = `<div>Hello, this is a mockup component!</div>`;
 
 const PatternsPage: NextPage = () => {
   return (

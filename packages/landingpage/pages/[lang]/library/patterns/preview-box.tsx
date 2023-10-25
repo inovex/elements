@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InoSegmentGroup, InoSegmentButton, InoIcon } from '@elements';
 import styles from './preview-box.module.scss';
-
+import axios from 'axios';
 
 interface PreviewBoxProps {
   title: string;
@@ -17,6 +17,23 @@ export default function PreviewBox({
   codeString,
 }: PreviewBoxProps) {
   const [selectedValue, setSelectedValue] = useState<string>('preview');
+  const [highlightedCode, setHighlightedCode] = useState<string>('');
+
+  useEffect(() => {
+    async function fetchHighlightedCode() {
+      try {
+        const response = await axios.post('/api/highlight', {
+          code: codeString,
+          language: 'html',
+        });
+        setHighlightedCode(response.data.highlightedCode);
+      } catch (error) {
+        console.error('Error fetching highlighted code:', error);
+      }
+    }
+
+    fetchHighlightedCode();
+  }, [codeString]);
 
   return (
     <div className={styles.patternsWrapper}>
@@ -28,11 +45,11 @@ export default function PreviewBox({
           onValueChange={(event) => setSelectedValue(event.detail)}
         >
           <InoSegmentButton value="preview" className={styles.segmentButton}>
-            <InoIcon style={{ marginRight: '7.5px' }} icon="display"></InoIcon>{' '}
+            <InoIcon style={{ marginRight: '7.5px' }} icon="display"></InoIcon>
             Preview
           </InoSegmentButton>
           <InoSegmentButton value="Code" className={styles.segmentButton}>
-            <InoIcon style={{ marginRight: '7.5px' }} icon="code"></InoIcon>{' '}
+            <InoIcon style={{ marginRight: '7.5px' }} icon="code"></InoIcon>
             Code
           </InoSegmentButton>
         </InoSegmentGroup>
@@ -42,9 +59,11 @@ export default function PreviewBox({
           <div className={styles.pattern}>{previewComponent}</div>
         )}
         {selectedValue === 'Code' && (
-          <div className={styles.code}>{codeString}</div>
-
-          // TODO: use shiki highlighter which is closes to CodeHike (https://github.com/shikijs/next-shiki) and (https://github.com/shikijs/shiki)
+          <div
+            className={styles.code}
+            dangerouslySetInnerHTML={{ __html: highlightedCode }}
+            style={{ fontFamily: 'var(--font-mono)', fontSize: '2rem' }}
+          ></div>
         )}
       </div>
     </div>
