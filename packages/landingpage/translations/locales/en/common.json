@@ -40,7 +40,7 @@
       }
     },
     "getting_started": {
-      "name": "getting started",
+      "name": "guides",
       "subroutes": {
         "javascript": {
           "name": "javascript"
@@ -94,7 +94,7 @@
   "meta": {
     "home": "Home",
     "explore": "Explore",
-    "getting_started": "Getting Started",
+    "getting_started": "Guides",
     "library": "Library",
     "about": "About"
   },

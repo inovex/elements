@@ -89,11 +89,11 @@
 <script>
 
 import { InoIcon, InoList, InoNavDrawer, InoNavItem, InoSnackbar, InoTab, InoTabBar } from "@inovex.de/elements-vue";
-import ContactForm from "./components/ContactForm";
-import ImageGallery from "@/components/ImageGallery";
-import VCard from "@/components/VCard";
-import ToDoList from "@/components/ToDoList";
-import SampleDialog from "@/components/SampleDialog";
+import ContactForm from "./components/ContactForm.vue";
+import ImageGallery from "./components/ImageGallery.vue";
+import VCard from "./components/VCard.vue";
+import ToDoList from "./components/ToDoList.vue";
+import SampleDialog from "./components/SampleDialog.vue";
 
 export default {
   name: 'ExampleApp',

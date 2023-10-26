@@ -1,6 +1,8 @@
 .story-tooltip {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+  height: 110px;
 
   h4 {
     margin-top: 48px;

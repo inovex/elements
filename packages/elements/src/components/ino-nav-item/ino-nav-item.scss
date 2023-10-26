@@ -1,8 +1,9 @@
 @use '../base/mdc-customize';
 @use '@material/list/mdc-list';
 @use '../base/theme';
+@use '../base/typography-new' as typography;
 
-ino-nav-item  {
+ino-nav-item {
   /**
    * @prop --ino-nav-item-color: Inactive color of icon.
    * @prop --ino-nav-item-color-active: Active color of icon.
@@ -66,6 +67,26 @@ ino-nav-item  {
       ino-icon,
       .ino-list-item__icon {
         --icon-color: var(--nav-item-color-active);
+      }
+    }
+  }
+
+  // Styles for mobile-nav-item
+  &.mobile-nav-item {
+    .mdc-deprecated-list-item,
+    ino-list-item .mdc-deprecated-list-item {
+      @include typography.typo(label-s);
+
+      &__graphic {
+        margin-right: 0px;
+      }
+
+      // icon
+      ::slotted(ino-icon),
+      ino-icon,
+      .ino-list-item__icon {
+        --icon-width: 16px;
+        --icon-height: 16px;
       }
     }
   }

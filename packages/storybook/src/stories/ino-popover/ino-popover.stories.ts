@@ -39,43 +39,105 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['primary', 'secondary', 'light', 'transparent'],
+      options: ['light', 'dark', 'primary'],
     },
     delay: {
       control: {
         type: 'object',
       },
     },
+    followCursor: {
+      control: {
+        type: 'radio',
+      },
+      options: [true, false, 'initial', 'horizontal', 'vertical'],
+    },
   },
   args: {
     controlled: false,
-    distance: 10,
+    distance: 15,
     for: 'popover-target',
     interactive: false,
     placement: 'top',
-    trigger: 'mouseenter focus',
-    colorScheme: 'transparent',
+    trigger: 'mouseenter',
+    colorScheme: 'light',
     visible: false,
     hideOnEsc: false,
     hideOnBlur: false,
     delay: 0,
+    arrow: false,
+    placementClass: '',
+    headerText: '',
   },
 } as Meta;
 
 let POPOVER_COUNTER = 1;
 
-const template = new TemplateGenerator<Components.InoPopover>(
+type InoPopoverExtended = Components.InoPopover & {
+  placementClass: string;
+}
+
+const template = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
   (args) => {
     const id = `popover-${POPOVER_COUNTER++}`;
 
     return html`
-      <ino-button id="${id}">Popover</ino-button>
+      <ino-button id="${id}" class="${args.placementClass}">Popover</ino-button>
       <ino-popover
         color-scheme="${args.colorScheme}"
         controlled="${args.controlled}"
         distance="${args.distance}"
         for="${id}"
+        interactive="${args.interactive}"
+        .followCursor="${args.followCursor}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        visible="${args.visible}"
+        hide-on-blur="${args.hideOnBlur}"
+        hide-on-esc="${args.hideOnEsc}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem">
+          <p>Popovers are complex tooltips.</p>
+          <ino-chip>
+            Able to contain other HTML-Elements?
+            <ino-icon slot="icon-trailing" icon="checkmark"></ino-icon>
+          </ino-chip>
+        </div>
+      </ino-popover>
+    `;
+  }
+);
+
+export const Playground = template.generatePlaygroundStory();
+export const Arrow = template.generateStoryForProp('arrow', true);
+export const Placement = template.generateStoryForProp('placement', 'right', {
+  placementClass: "styled-placement"
+});
+
+export const AttachToBody = template.generateStoryForProp('attachToBody', true);
+
+export const Distance = template.generateStoryForProp('distance', 30);
+
+const templateColors = new TemplateGenerator<InoPopoverExtended>(
+  'ino-popover',
+  (args) => {
+
+    const idLight = 'popover-light';
+    const idDark = 'popover-dark';
+    const idPrimary = 'popover-primary'
+
+    const content = html`<p style="padding: 0.5rem">Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.</p>`
+
+    return html`
+      <ino-button id="${idLight}">Light</ino-button>
+      <ino-popover
+        color-scheme="light"
+        controlled="${args.controlled}"
+        distance="${args.distance}"
+        for="${idLight}"
         interactive="${args.interactive}"
         followCursor="${args.followCursor}"
         placement="${args.placement}"
@@ -84,26 +146,52 @@ const template = new TemplateGenerator<Components.InoPopover>(
         hide-on-blur="${args.hideOnBlur}"
         hide-on-esc="${args.hideOnEsc}"
         delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
       >
-        <div class="styled-popover">
-          <ino-icon icon="user"></ino-icon>
-          This is a styled popover.
-        </div>
+        ${content}
+      </ino-popover>
+      <ino-button id="${idDark}">Dark</ino-button>
+      <ino-popover
+        color-scheme="dark"
+        controlled="${args.controlled}"
+        distance="${args.distance}"
+        for="${idDark}"
+        interactive="${args.interactive}"
+        followCursor="${args.followCursor}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        visible="${args.visible}"
+        hide-on-blur="${args.hideOnBlur}"
+        hide-on-esc="${args.hideOnEsc}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        ${content}
+      </ino-popover>
+      <ino-button id="${idPrimary}">Primary</ino-button>
+      <ino-popover
+        color-scheme="primary"
+        controlled="${args.controlled}"
+        distance="${args.distance}"
+        for="${idPrimary}"
+        interactive="${args.interactive}"
+        followCursor="${args.followCursor}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        visible="${args.visible}"
+        hide-on-blur="${args.hideOnBlur}"
+        hide-on-esc="${args.hideOnEsc}"
+        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        ${content}
       </ino-popover>
     `;
   }
 );
 
-export const Playground = template.generatePlaygroundStory();
-export const Placement = template.generateStoryForProp('placement', 'right');
-export const AttachToBody = template.generateStoryForProp('attachToBody', true);
+export const ColorSchemes = templateColors.generateStoryForProp('colorScheme', 'light');
 
-export const Distance = template.generateStoryForProp('distance', 30);
-
-export const ColorScheme = template.generateStoryForProp(
-  'colorScheme',
-  'transparent'
-);
 
 export const Trigger = template.generateStoryForProp('trigger', 'click');
 
@@ -112,21 +200,22 @@ export const FollowCursor = template.generateStoryForProp(
   'horizontal'
 );
 
-const templateInteractive = new TemplateGenerator<Components.InoPopover>(
+const templateInteractive = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
   () => html`
     <ino-popover
       trigger="click"
       for="popover-interactive-target"
+      distance="15"
       interactive
-      placement="left"
+      placement="top"
     >
       <div class="interactive-popover">
         <p>I'm interactive. You can click me without closing this popover!</p>
         <ino-button>Button not closing the popover</ino-button>
       </div>
     </ino-popover>
-    <ino-button class="placement-button" id="popover-interactive-target"
+    <ino-button class="placement-button big-space" id="popover-interactive-target"
       >Interactive Content
     </ino-button>
   `
@@ -137,10 +226,10 @@ export const Interactions = templateInteractive.generateStoryForProp(
   true
 );
 
-const templateControlledPopover = new TemplateGenerator<Components.InoPopover>(
+const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
   () => {
-    const eventHandler = (e) => {
+    const eventHandler = (e: any) => {
       e.target?.setAttribute('visible', e.detail);
       (document.querySelector(
         '#controlled-checkbox'
@@ -150,16 +239,22 @@ const templateControlledPopover = new TemplateGenerator<Components.InoPopover>(
     return html`
       <ino-popover
         id="controlled-popover"
-        placement="left"
+        placement="top"
         controlled="true"
         trigger="click"
         visible="false"
+        distance="15"
         @visibleChanged="${eventHandler}"
       >
         <ino-checkbox id="controlled-checkbox" slot="popover-trigger">
           Uncheck to hide / check to show
         </ino-checkbox>
-        <div class="popover-content">I'm a controlled popover</div>
+        <div style="padding: 0.5rem">
+          <ino-chip >
+            Programmatically shown?
+            <ino-icon slot="icon-trailing" icon="checkmark"></ino-icon>
+          </ino-chip>
+        </div>
       </ino-popover>
     `;
   }

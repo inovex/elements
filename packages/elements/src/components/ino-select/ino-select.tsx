@@ -13,7 +13,7 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import { hasSlotContent } from '../../util/component-utils';
+import {  generateUniqueId, hasSlotContent } from '../../util/component-utils';
 
 /**
  * @slot icon-leading - For the icon to be prepended
@@ -31,6 +31,13 @@ export class Select implements ComponentInterface {
   private mdcOptionsListEl?: HTMLUListElement;
   private nativeInputElement?: HTMLInputElement;
   private optionsObserver: MutationObserver;
+
+  /**
+     * An internal auto generated id for the helper field.
+     */
+  private selectElId = generateUniqueId();
+
+
 
   @Element() el!: HTMLInoSelectElement;
 
@@ -125,6 +132,7 @@ export class Select implements ComponentInterface {
   connectedCallback() {
     // in case of usage e.g. in a popover this is necessary
     this.create();
+   
     this.optionsObserver = new MutationObserver(() => {
       forceUpdate(this.el);
     });
@@ -240,7 +248,12 @@ export class Select implements ComponentInterface {
       <Host class={inoSelectClasses} name={this.name}>
         <div class={classSelect} ref={(el) => (this.mdcSelectContainerEl = el)}>
           {hiddenInput}
-          <div class="mdc-select__anchor" aria-required={this.required}>
+          <div 
+            class="mdc-select__anchor"
+            role="combobox"
+            tabindex="0"
+            aria-labelledby={`label-${this.selectElId}`}
+            aria-required={this.required}>
             {leadingSlotHasContent && (
               <span class="mdc-select__icon">
                 <slot name="icon-leading"></slot>
@@ -249,6 +262,7 @@ export class Select implements ComponentInterface {
             <div class="mdc-select__selected-text"></div>
             {this.renderDropdownIcon()}
             <ino-label
+              id={`label-${this.selectElId}`}
               outline={this.outline}
               text={this.label}
               required={this.required}
@@ -256,8 +270,11 @@ export class Select implements ComponentInterface {
               show-hint={this.showLabelHint}
             />
           </div>
-          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+          <div 
+            class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul
+              role="listbox"
+              tabindex="-1"
               class="mdc-deprecated-list"
               ref={(el) => (this.mdcOptionsListEl = el)}
             >

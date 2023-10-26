@@ -4,7 +4,7 @@ const CONTENT = `
     <ino-input type="text"></ino-input>
   </ino-currency-input>
 `;
-const NATIVE_INPUT_SELECTOR = 'ino-input > label > input';
+const NATIVE_INPUT_SELECTOR = 'ino-input > .mdc-text-field > input';
 const HIDDEN_INPUT_SELECTOR = 'input[type="hidden"]';
 
 describe('InoCurrencyInput', () => {

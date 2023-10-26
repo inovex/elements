@@ -5,11 +5,18 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
+import { JSXBase } from "@stencil/core/internal";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
+export { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+export { Variants } from "./components/ino-button/ino-button";
+export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
+export { Placement, Props } from "tippy.js";
+export { JSXBase } from "@stencil/core/internal";
+export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
         /**
@@ -38,6 +45,36 @@ export namespace Components {
           * The selected value.
          */
         "value": string | KeyValue | null;
+    }
+    interface InoAvatar {
+        /**
+          * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+         */
+        "a11yLabel"?: string;
+        /**
+          * The alternative text of the avatar image.
+         */
+        "alt"?: string;
+        /**
+          * Colors the border of the avatar in the secondary color.
+         */
+        "colorSecondary": boolean;
+        /**
+          * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
+         */
+        "initials": string;
+        /**
+          * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
+         */
+        "interactive": boolean;
+        /**
+          * The img of the avatar.
+         */
+        "src": string;
+        /**
+          * The style variant of the avatar. Can be 'dashed' | 'solid'.
+         */
+        "variant": 'dashed' | 'solid';
     }
     interface InoButton {
         /**
@@ -453,6 +490,9 @@ export namespace Components {
          */
         "topBottomLocation": VerticalLocation;
     }
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
@@ -480,6 +520,10 @@ export namespace Components {
           * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs": JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
         /**
           * Sets the autofocus for this element.
          */
@@ -731,6 +775,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Id of the associated form control
+         */
+        "for": string;
+        /**
           * Styles the label in an outlined style
          */
         "outline": boolean;
@@ -781,6 +829,10 @@ export namespace Components {
          */
         "activated"?: boolean;
         /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs": JSXBase.HTMLAttributes<HTMLLIElement>;
+        /**
           * Styles the row in a disabled style.
          */
         "disabled"?: boolean;
@@ -797,6 +849,21 @@ export namespace Components {
          */
         "text"?: string;
     }
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface InoMarkdownEditor {
         /**
           * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
@@ -815,6 +882,10 @@ export namespace Components {
     }
     interface InoNavDrawer {
         /**
+          * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+         */
+        "a11yLabels"?: NavDrawerLabels;
+        /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
         "anchor"?: NavDrawerAnchor;
@@ -823,7 +894,7 @@ export namespace Components {
          */
         "open"?: boolean;
         /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+          * The variant to use for the drawer.
          */
         "variant"?: NavDrawerVariant;
     }
@@ -867,19 +938,23 @@ export namespace Components {
     }
     interface InoPopover {
         /**
+          * Shows an arrow pointing towards its trigger-element
+         */
+        "arrow": boolean;
+        /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
          */
         "attachToBody": boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
+          * Sets the color scheme of the popup.  Valid options include: `primary`, `light` and `dark`.
          */
-        "colorScheme": 'primary' | 'transparent';
+        "colorScheme": TippyThemes;
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled": boolean;
         /**
-          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
         /**
@@ -1324,9 +1399,13 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
+          * Shows an arrow
          */
-        "colorScheme": 'primary' | 'transparent';
+        "arrow": boolean;
+        /**
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+         */
+        "colorScheme": TippyThemes;
         /**
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
@@ -1339,6 +1418,10 @@ export namespace Components {
           * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
+        /**
+          * Adds a optional header text to the `ino-tooltip`
+         */
+        "headerText"?: string;
         /**
           * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
           * @deprecated
@@ -1491,6 +1574,12 @@ declare global {
         prototype: HTMLInoAutocompleteElement;
         new (): HTMLInoAutocompleteElement;
     };
+    interface HTMLInoAvatarElement extends Components.InoAvatar, HTMLStencilElement {
+    }
+    var HTMLInoAvatarElement: {
+        prototype: HTMLInoAvatarElement;
+        new (): HTMLInoAvatarElement;
+    };
     interface HTMLInoButtonElement extends Components.InoButton, HTMLStencilElement {
     }
     var HTMLInoButtonElement: {
@@ -1563,6 +1652,9 @@ declare global {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
     };
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {
     }
     var HTMLInoIconElement: {
@@ -1623,6 +1715,21 @@ declare global {
         prototype: HTMLInoListItemElement;
         new (): HTMLInoListItemElement;
     };
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
     }
     var HTMLInoMarkdownEditorElement: {
@@ -1764,6 +1871,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ino-accordion": HTMLInoAccordionElement;
         "ino-autocomplete": HTMLInoAutocompleteElement;
+        "ino-avatar": HTMLInoAvatarElement;
         "ino-button": HTMLInoButtonElement;
         "ino-card": HTMLInoCardElement;
         "ino-carousel": HTMLInoCarouselElement;
@@ -1847,6 +1955,36 @@ declare namespace LocalJSX {
           * The selected value.
          */
         "value"?: string | KeyValue | null;
+    }
+    interface InoAvatar {
+        /**
+          * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+         */
+        "a11yLabel"?: string;
+        /**
+          * The alternative text of the avatar image.
+         */
+        "alt"?: string;
+        /**
+          * Colors the border of the avatar in the secondary color.
+         */
+        "colorSecondary"?: boolean;
+        /**
+          * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
+         */
+        "initials"?: string;
+        /**
+          * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
+         */
+        "interactive"?: boolean;
+        /**
+          * The img of the avatar.
+         */
+        "src"?: string;
+        /**
+          * The style variant of the avatar. Can be 'dashed' | 'solid'.
+         */
+        "variant"?: 'dashed' | 'solid';
     }
     interface InoButton {
         /**
@@ -2286,6 +2424,9 @@ declare namespace LocalJSX {
          */
         "topBottomLocation"?: VerticalLocation;
     }
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
@@ -2317,6 +2458,10 @@ declare namespace LocalJSX {
           * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
          */
         "activated"?: boolean;
+        /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs"?: JSXBase.HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>;
         /**
           * Sets the autofocus for this element.
          */
@@ -2575,6 +2720,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Id of the associated form control
+         */
+        "for"?: string;
+        /**
           * Styles the label in an outlined style
          */
         "outline"?: boolean;
@@ -2625,6 +2774,10 @@ declare namespace LocalJSX {
          */
         "activated"?: boolean;
         /**
+          * Allows the specification of native HTML attributes on the underlying HTML element
+         */
+        "attrs"?: JSXBase.HTMLAttributes<HTMLLIElement>;
+        /**
           * Styles the row in a disabled style.
          */
         "disabled"?: boolean;
@@ -2645,6 +2798,21 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface InoMarkdownEditor {
         /**
           * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
@@ -2675,6 +2843,10 @@ declare namespace LocalJSX {
     }
     interface InoNavDrawer {
         /**
+          * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+         */
+        "a11yLabels"?: NavDrawerLabels;
+        /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
         "anchor"?: NavDrawerAnchor;
@@ -2687,7 +2859,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+          * The variant to use for the drawer.
          */
         "variant"?: NavDrawerVariant;
     }
@@ -2735,19 +2907,23 @@ declare namespace LocalJSX {
     }
     interface InoPopover {
         /**
+          * Shows an arrow pointing towards its trigger-element
+         */
+        "arrow"?: boolean;
+        /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
          */
         "attachToBody"?: boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
+          * Sets the color scheme of the popup.  Valid options include: `primary`, `light` and `dark`.
          */
-        "colorScheme"?: 'primary' | 'transparent';
+        "colorScheme"?: TippyThemes;
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled"?: boolean;
         /**
-          * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
         /**
@@ -3238,9 +3414,13 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
+          * Shows an arrow
          */
-        "colorScheme"?: 'primary' | 'transparent';
+        "arrow"?: boolean;
+        /**
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+         */
+        "colorScheme"?: TippyThemes;
         /**
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
@@ -3249,6 +3429,10 @@ declare namespace LocalJSX {
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "for"?: string;
+        /**
+          * Adds a optional header text to the `ino-tooltip`
+         */
+        "headerText"?: string;
         /**
           * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
           * @deprecated
@@ -3266,6 +3450,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ino-accordion": InoAccordion;
         "ino-autocomplete": InoAutocomplete;
+        "ino-avatar": InoAvatar;
         "ino-button": InoButton;
         "ino-card": InoCard;
         "ino-carousel": InoCarousel;
@@ -3319,6 +3504,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ino-accordion": LocalJSX.InoAccordion & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
             "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
+            "ino-avatar": LocalJSX.InoAvatar & JSXBase.HTMLAttributes<HTMLInoAvatarElement>;
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
             "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
@@ -3331,6 +3517,9 @@ declare module "@stencil/core" {
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
+            /**
+             * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+             */
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
             "ino-img": LocalJSX.InoImg & JSXBase.HTMLAttributes<HTMLInoImgElement>;
@@ -3341,6 +3530,21 @@ declare module "@stencil/core" {
             "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
+            /**
+             * The **Preview Mode** supports following actions:
+             * | Actions ||||
+             * |---|
+             * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+             * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+             * | Bold | Inline code | Task list |
+             * Additionally, there are a lot of predefined
+             * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+             * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+             * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+             *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+             *  * Support of task list syntax (`- [x] MyToDoTask`)
+             *  * No support of image syntax. __Images are not allowed!__
+             */
             "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;

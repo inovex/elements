@@ -118,11 +118,12 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property  | Attribute | Description                                                                                    | Type                                   | Default    |
-| --------- | --------- | ---------------------------------------------------------------------------------------------- | -------------------------------------- | ---------- |
-| `anchor`  | `anchor`  | Side from which the drawer will appear. Possible values: `left` (default), `right`.            | `"left" \| "right"`                    | `'left'`   |
-| `open`    | `open`    | Marks this element as open. (**unmanaged**)                                                    | `boolean`                              | `false`    |
-| `variant` | `variant` | The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`. | `"dismissible" \| "docked" \| "modal"` | `'docked'` |
+| Property     | Attribute | Description                                                                                                                                      | Type                                                      | Default                                                                                                      |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `a11yLabels` | --        | The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role. | `{ content: string; footer: string; toggleBtn: string; }` | `{     content: 'Main Navigation',     footer: 'Footer Navigation',     toggleBtn: 'Toggle Navigation',   }` |
+| `anchor`     | `anchor`  | Side from which the drawer will appear. Possible values: `left` (default), `right`.                                                              | `"left" \| "right"`                                       | `'left'`                                                                                                     |
+| `open`       | `open`    | Marks this element as open. (**unmanaged**)                                                                                                      | `boolean`                                                 | `false`                                                                                                      |
+| `variant`    | `variant` | The variant to use for the drawer.                                                                                                               | `"dismissible" \| "docked" \| "mobile" \| "modal"`        | `'docked'`                                                                                                   |
 
 
 ## Events
@@ -150,6 +151,7 @@ class MyComponent extends Component {
 | -------------------------------------- | ------------------------------------------------------- |
 | `--ino-nav-drawer-background`          | Background of the drawer.                               |
 | `--ino-nav-drawer-height`              | Height of the drawer.                                   |
+| `--ino-nav-drawer-mobile-width-open`   | Mobile variant only! The width of the open drawer.      |
 | `--ino-nav-drawer-text-color`          | Color of text inside the drawer.                        |
 | `--ino-nav-drawer-timing-function`     | Timing function of the slide animation of the drawer.   |
 | `--ino-nav-drawer-transition-duration` | Duration of the slide animation of the drawer.          |

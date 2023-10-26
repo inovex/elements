@@ -11,6 +11,7 @@ import LinkItem from '../../linkItem';
 import useTranslation from '../../../../utils/hooks/useTranslation';
 import { useRouter } from 'next/router';
 import { ContactButton } from '../../../shared/contactButton';
+import VersionSelect from 'components/shared/versionSelect';
 
 const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -32,6 +33,7 @@ export default function HeaderMobile() {
   const [expandedSubMenu, expandSubMenu] = useState<string | null>(null);
   const { t } = useTranslation();
   const router = useRouter();
+  const isLibraryPage = router.pathname.endsWith('/library/components');
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -49,7 +51,10 @@ export default function HeaderMobile() {
 
   return (
     <>
-      <MenuIcon className={styles.icon} onClick={toggleMenu} />
+      <div className={styles.menuIconContainer}>
+        <MenuIcon className={styles.icon} onClick={toggleMenu} />
+        {isLibraryPage && <VersionSelect />}
+      </div>
       <div
         ref={ref}
         className={classNames({
