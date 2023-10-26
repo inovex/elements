@@ -167,6 +167,7 @@ The component bubbles the native `click`-Event to the user.
 ### Used by
 
  - [ino-carousel](../ino-carousel)
+ - [ino-markdown-editor](../ino-markdown-editor)
  - [ino-nav-drawer](../ino-nav-drawer)
  - [ino-snackbar](../ino-snackbar)
  - [ino-table-header-cell](../ino-table-header-cell)
@@ -180,6 +181,7 @@ The component bubbles the native `click`-Event to the user.
 graph TD;
   ino-icon-button --> ino-icon
   ino-carousel --> ino-icon-button
+  ino-markdown-editor --> ino-icon-button
   ino-nav-drawer --> ino-icon-button
   ino-snackbar --> ino-icon-button
   ino-table-header-cell --> ino-icon-button

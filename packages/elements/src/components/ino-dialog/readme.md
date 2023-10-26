@@ -117,11 +117,19 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 | `--ino-dialog-border-radius`            | border-radius of the dialog     |
 | `--ino-dialog-box-shadow`               | box-shadow of the dialog        |
 | `--ino-dialog-height`                   | height of the dialog            |
+| `--ino-dialog-max-height`               | max-height of the dialog        |
+| `--ino-dialog-max-width`                | max-width of the dialog         |
+| `--ino-dialog-min-height`               | min-height of the dialog        |
+| `--ino-dialog-min-width`                | min-width of the dialog         |
 | `--ino-dialog-overlay-background-color` | background color of the overlay |
 | `--ino-dialog-width`                    | width of the dialog             |
 
 
 ## Dependencies
+
+### Used by
+
+ - [ino-markdown-editor](../ino-markdown-editor)
 
 ### Depends on
 
@@ -134,6 +142,7 @@ graph TD;
   ino-dialog --> ino-icon
   ino-dialog --> ino-button
   ino-button --> ino-spinner
+  ino-markdown-editor --> ino-dialog
   style ino-dialog fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

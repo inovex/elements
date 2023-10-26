@@ -11,6 +11,12 @@ import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
 import { JSXBase } from "@stencil/core/internal";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
+export { Alignment, ButtonType, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+export { Variants } from "./components/ino-button/ino-button";
+export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
+export { Placement, Props } from "tippy.js";
+export { JSXBase } from "@stencil/core/internal";
+export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
         /**
@@ -39,6 +45,36 @@ export namespace Components {
           * The selected value.
          */
         "value": string | KeyValue | null;
+    }
+    interface InoAvatar {
+        /**
+          * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+         */
+        "a11yLabel"?: string;
+        /**
+          * The alternative text of the avatar image.
+         */
+        "alt"?: string;
+        /**
+          * Colors the border of the avatar in the secondary color.
+         */
+        "colorSecondary": boolean;
+        /**
+          * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
+         */
+        "initials": string;
+        /**
+          * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
+         */
+        "interactive": boolean;
+        /**
+          * The img of the avatar.
+         */
+        "src": string;
+        /**
+          * The style variant of the avatar. Can be 'dashed' | 'solid'.
+         */
+        "variant": 'dashed' | 'solid';
     }
     interface InoButton {
         /**
@@ -454,6 +490,9 @@ export namespace Components {
          */
         "topBottomLocation": VerticalLocation;
     }
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
@@ -810,6 +849,21 @@ export namespace Components {
          */
         "text"?: string;
     }
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface InoMarkdownEditor {
         /**
           * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
@@ -1520,6 +1574,12 @@ declare global {
         prototype: HTMLInoAutocompleteElement;
         new (): HTMLInoAutocompleteElement;
     };
+    interface HTMLInoAvatarElement extends Components.InoAvatar, HTMLStencilElement {
+    }
+    var HTMLInoAvatarElement: {
+        prototype: HTMLInoAvatarElement;
+        new (): HTMLInoAvatarElement;
+    };
     interface HTMLInoButtonElement extends Components.InoButton, HTMLStencilElement {
     }
     var HTMLInoButtonElement: {
@@ -1592,6 +1652,9 @@ declare global {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
     };
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {
     }
     var HTMLInoIconElement: {
@@ -1652,6 +1715,21 @@ declare global {
         prototype: HTMLInoListItemElement;
         new (): HTMLInoListItemElement;
     };
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
     }
     var HTMLInoMarkdownEditorElement: {
@@ -1793,6 +1871,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ino-accordion": HTMLInoAccordionElement;
         "ino-autocomplete": HTMLInoAutocompleteElement;
+        "ino-avatar": HTMLInoAvatarElement;
         "ino-button": HTMLInoButtonElement;
         "ino-card": HTMLInoCardElement;
         "ino-carousel": HTMLInoCarouselElement;
@@ -1876,6 +1955,36 @@ declare namespace LocalJSX {
           * The selected value.
          */
         "value"?: string | KeyValue | null;
+    }
+    interface InoAvatar {
+        /**
+          * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+         */
+        "a11yLabel"?: string;
+        /**
+          * The alternative text of the avatar image.
+         */
+        "alt"?: string;
+        /**
+          * Colors the border of the avatar in the secondary color.
+         */
+        "colorSecondary"?: boolean;
+        /**
+          * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
+         */
+        "initials"?: string;
+        /**
+          * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
+         */
+        "interactive"?: boolean;
+        /**
+          * The img of the avatar.
+         */
+        "src"?: string;
+        /**
+          * The style variant of the avatar. Can be 'dashed' | 'solid'.
+         */
+        "variant"?: 'dashed' | 'solid';
     }
     interface InoButton {
         /**
@@ -2315,6 +2424,9 @@ declare namespace LocalJSX {
          */
         "topBottomLocation"?: VerticalLocation;
     }
+    /**
+     * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     */
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
@@ -2686,6 +2798,21 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    /**
+     * The **Preview Mode** supports following actions:
+     * | Actions ||||
+     * |---|
+     * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+     * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+     * | Bold | Inline code | Task list |
+     * Additionally, there are a lot of predefined
+     * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+     * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+     * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+     *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+     *  * Support of task list syntax (`- [x] MyToDoTask`)
+     *  * No support of image syntax. __Images are not allowed!__
+     */
     interface InoMarkdownEditor {
         /**
           * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
@@ -3323,6 +3450,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ino-accordion": InoAccordion;
         "ino-autocomplete": InoAutocomplete;
+        "ino-avatar": InoAvatar;
         "ino-button": InoButton;
         "ino-card": InoCard;
         "ino-carousel": InoCarousel;
@@ -3376,6 +3504,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ino-accordion": LocalJSX.InoAccordion & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
             "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
+            "ino-avatar": LocalJSX.InoAvatar & JSXBase.HTMLAttributes<HTMLInoAvatarElement>;
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
             "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
@@ -3388,6 +3517,9 @@ declare module "@stencil/core" {
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
+            /**
+             * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+             */
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
             "ino-img": LocalJSX.InoImg & JSXBase.HTMLAttributes<HTMLInoImgElement>;
@@ -3398,6 +3530,21 @@ declare module "@stencil/core" {
             "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
+            /**
+             * The **Preview Mode** supports following actions:
+             * | Actions ||||
+             * |---|
+             * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+             * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+             * | Bold | Inline code | Task list |
+             * Additionally, there are a lot of predefined
+             * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+             * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+             * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+             *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+             *  * Support of task list syntax (`- [x] MyToDoTask`)
+             *  * No support of image syntax. __Images are not allowed!__
+             */
             "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
