@@ -7,9 +7,12 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
       "options": {
         "commands": [
           "nx run elements-angular:compile",
+          "shx mv packages/elements-angular/dist/package.json packages/elements-angular/package.json",
+          "node packages/elements-angular/buildHelper.js postBuild",
           "nx run elements-angular:schematics"
         ],
         "parallel": false
@@ -17,6 +20,7 @@
     },
     "compile": {
       "executor": "@nrwl/angular:package",
+      "outputs": ["{projectRoot}/dist"],
       "options": {
         "project": "packages/elements-angular/ng-package.json",
         "tsConfig": "packages/elements-angular/tsconfig.lib.prod.json"
@@ -25,19 +29,28 @@
         "development": {
           "tsConfig": "packages/elements-angular/tsconfig.lib.json"
         }
-      }
+      },
+      "dependsOn": ["preNgPackage"]
     },
     "start": {
       "executor": "@nrwl/angular:package",
+      "outputs": ["{projectRoot}/dist"],
       "options": {
         "project": "packages/elements-angular/ng-package.json",
         "tsConfig": "packages/elements-angular/tsconfig.lib.json",
         "watch": true
+      },
+      "dependsOn": ["preNgPackage"]
+    },
+    "preNgPackage": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node packages/elements-angular/buildHelper.js preBuild"
       }
     },
     "schematics": {
       "executor": "nx:run-commands",
-      "outputs": ["packages/elements-angular/dist/schematics"],
+      "outputs": ["{projectRoot}/dist/schematics"],
       "options": {
         "commands": [
           "tsc -p packages/elements-angular/tsconfig.schematics.json --outDir packages/elements-angular/dist/schematics",

@@ -1728,24 +1728,19 @@
         },
         {
           "name": "role",
-          "type": "\"checkbox\" | \"radio\"",
+          "type": "string",
           "complexType": {
-            "original": "'checkbox' | 'radio'",
-            "resolved": "\"checkbox\" | \"radio\"",
+            "original": "string | null",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "role",
           "reflectToAttr": false,
-          "docs": "The type of control element",
+          "docs": "The type of control element\n\nValid options are 'checkbox' or 'radio'",
           "docsTags": [],
           "values": [
             {
-              "value": "checkbox",
-              "type": "string"
-            },
-            {
-              "value": "radio",
               "type": "string"
             }
           ],
