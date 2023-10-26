@@ -1399,9 +1399,13 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
+          * Shows an arrow
          */
-        "colorScheme": 'primary' | 'transparent';
+        "arrow": boolean;
+        /**
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+         */
+        "colorScheme": TippyThemes;
         /**
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
@@ -1414,6 +1418,10 @@ export namespace Components {
           * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
+        /**
+          * Adds a optional header text to the `ino-tooltip`
+         */
+        "headerText"?: string;
         /**
           * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
           * @deprecated
@@ -3406,9 +3414,13 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
+          * Shows an arrow
          */
-        "colorScheme"?: 'primary' | 'transparent';
+        "arrow"?: boolean;
+        /**
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+         */
+        "colorScheme"?: TippyThemes;
         /**
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
@@ -3417,6 +3429,10 @@ declare namespace LocalJSX {
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "for"?: string;
+        /**
+          * Adds a optional header text to the `ino-tooltip`
+         */
+        "headerText"?: string;
         /**
           * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
           * @deprecated
