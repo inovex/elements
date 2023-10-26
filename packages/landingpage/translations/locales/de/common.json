@@ -40,7 +40,7 @@
       }
     },
     "getting_started": {
-      "name": "Erste Schritte",
+      "name": "Guides",
       "subroutes": {
         "javascript": {
           "name": "Javascript"
@@ -94,6 +94,7 @@
   "meta": {
     "home": "Home",
     "explore": "Erkunden",
+    "getting_started": "Guides",
     "library": "Bibliothek",
     "about": "Über uns"
   },

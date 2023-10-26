@@ -1,0 +1,164 @@
+@use '../base/typography-new' as typography;
+@use '../base/new-theme' as theme;
+
+/**
+  * @prop --ino-avatar-size: Width and height of the ino-avatar
+  */
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes rotateBack {
+  0% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.ino-avatar {
+  --avatar-size: var(--ino-avatar-size, 138px);
+  @include flex-center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  color: theme.$p-5;
+  font-size: calc(var(--avatar-size) * 0.3);
+  font-weight: 600;
+  position: relative;
+
+  &--interactive {
+    cursor: pointer;
+
+    // background gradient fade-in-out
+    .ino-avatar__image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(76, 105, 201, 0.2);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .ino-avatar__image:hover::after,
+    .ino-avatar__image:focus::after {
+      opacity: 1;
+    }
+
+    // border width transition
+    .ino-avatar__border path,
+    .ino-avatar__border circle {
+      stroke-width: 2%;
+      transition: stroke-width 0.3s ease-in-out;
+    }
+
+    &.ino-avatar--solid,
+    &.ino-avatar--dashed {
+      &:hover,
+      &:focus {
+        .ino-avatar__border path,
+        .ino-avatar__border circle {
+          stroke-width: 4%;
+        }
+
+        .ino-avatar__image-inner::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.ino-avatar--dashed {
+      &:hover,
+      &:focus {
+        .ino-avatar__border {
+          transform: rotate(60deg);
+        }
+      }
+    }
+  }
+  // Avatar icon
+  &__icon-slot {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    width: calc(var(--avatar-size) * 0.26);
+    height: calc(var(--avatar-size) * 0.26);
+    bottom: 0;
+    right: 0;
+    box-shadow: 0px 0px 15px -10px theme.$p-5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ino-icon {
+      --ino-icon-height: calc(var(--avatar-size) * 0.18);
+      --ino-icon-width: calc(var(--avatar-size) * 0.18);
+    }
+  }
+}
+
+// Avatar image
+.ino-avatar__image {
+  @include flex-center;
+  width: 87%;
+  height: 87%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+
+  &.initials {
+    background: theme.$p-2;
+  }
+}
+
+// Avatar image inner
+.ino-avatar__image-inner {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+// Avatar border
+.ino-avatar__border {
+  @include flex-center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform, stroke-width;
+  transform: rotate(0deg);
+  transition: transform 250ms ease-in-out;
+
+  svg {
+    overflow: visible;
+  }
+
+  path,
+  circle {
+    stroke-width: 2%;
+    transition: stroke-width 0.3s ease-in-out;
+  }
+}

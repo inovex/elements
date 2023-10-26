@@ -18,7 +18,7 @@ const KEYS_TO_DELETE: ComponentProps[] = [
   'usagesDir',
 ];
 
-export const JsonDocsOutputTarget: OutputTargetDocsCustom = {
+const JsonDocs: OutputTargetDocsCustom = {
   type: 'docs-custom',
   generator: async (docs: JsonDocs) => {
 
@@ -32,3 +32,5 @@ export const JsonDocsOutputTarget: OutputTargetDocsCustom = {
     writeFileSync(storybookElementsJsonPath, JSON.stringify(docs, null, 2));
   },
 };
+
+export default JsonDocs

@@ -4,12 +4,25 @@ import Image from 'next/image';
 import useTranslation from 'utils/hooks/useTranslation';
 import styles from './attributions.module.scss';
 
-export default function Attributions() {
+interface AttributionsProps {
+  isWide: boolean;
+}
+
+export default function Attributions({ isWide }: AttributionsProps) {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.container}>
-      <div className={styles.company}>
+    <div
+      className={classNames(styles.container, {
+        [styles['column-layout']]: !isWide,
+      })}
+      style={!isWide ? { padding: '15px' } : {}}
+    >
+      <div
+        className={classNames(styles.company, {
+          [styles['column-layout']]: !isWide,
+        })}
+      >
         <Image
           src={inovexLogo}
           alt="inovex Logo"
@@ -28,7 +41,12 @@ export default function Attributions() {
         >
           <small>inovex GmbH</small>
         </a>
-        <span className={classNames(styles.attribution, 'body-m')}>&bull;</span>
+        {isWide ? (
+          <span className={classNames(styles.attribution, 'body-m')}>
+            &bull;
+          </span>
+        ) : null}
+
         <a
           className={classNames(styles.attribution, 'body-m')}
           rel="noopener noreferrer"
@@ -36,7 +54,12 @@ export default function Attributions() {
         >
           <small>{t('common.attributions.legalNotice.label')}</small>
         </a>
-        <span className={classNames(styles.attribution, 'body-m')}>&bull;</span>
+        {isWide ? (
+          <span className={classNames(styles.attribution, 'body-m')}>
+            &bull;
+          </span>
+        ) : null}
+
         <a
           className={classNames(styles.attribution, 'body-m')}
           rel="noopener noreferrer"
@@ -44,7 +67,12 @@ export default function Attributions() {
         >
           <small>{t('common.attributions.exclusionOfLiability.label')}</small>
         </a>
-        <span className={classNames(styles.attribution, 'body-m')}>&bull;</span>
+        {isWide ? (
+          <span className={classNames(styles.attribution, 'body-m')}>
+            &bull;
+          </span>
+        ) : null}
+
         <a
           className={classNames(styles.attribution, 'body-m')}
           rel="noopener noreferrer"

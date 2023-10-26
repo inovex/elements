@@ -35,7 +35,11 @@ p.linkDense {
   padding: 10px 15px;
   transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
 }
-
+p.footerDense {
+  font-size: inherit !important;
+  padding: inherit; 
+  transition: inherit;
+}
 p.linkSubItem {
   @extend .linkDense;
 

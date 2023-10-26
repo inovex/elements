@@ -234,7 +234,7 @@ const templateIcons = new TemplateGenerator<Components.InoInput>(
   </ino-input>
 `);
 /**
- * Add icons to the ino-input element by adding a `slot` and a `icon`.
+ * Add icons to the ino-input element by adding a `slot` and an `icon`.
  * 
  * - `slot="icon-leading"`: For the icon to be prepended
  * - `slot="icon-trailing"`: For the icon to be appended
