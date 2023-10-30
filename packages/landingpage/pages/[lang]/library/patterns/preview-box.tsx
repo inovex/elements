@@ -1,39 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { InoSegmentGroup, InoSegmentButton, InoIcon } from '@elements';
 import styles from './preview-box.module.scss';
-import axios from 'axios';
 
 interface PreviewBoxProps {
   title: string;
   description: string;
   previewComponent: JSX.Element;
-  codeString: string;
+  highlightedCode: string;
 }
 
 export default function PreviewBox({
   title,
   description,
   previewComponent,
-  codeString,
+  highlightedCode,
 }: PreviewBoxProps) {
   const [selectedValue, setSelectedValue] = useState<string>('preview');
-  const [highlightedCode, setHighlightedCode] = useState<string>('');
-
-  useEffect(() => {
-    async function fetchHighlightedCode() {
-      try {
-        const response = await axios.post('/api/highlight', {
-          code: codeString,
-          language: 'html',
-        });
-        setHighlightedCode(response.data.highlightedCode);
-      } catch (error) {
-        console.error('Error fetching highlighted code:', error);
-      }
-    }
-
-    fetchHighlightedCode();
-  }, [codeString]);
 
   return (
     <div className={styles.patternsWrapper}>
