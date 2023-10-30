@@ -15,10 +15,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@pxtrn/storybook-addon-docs-stencil',
   ],
-  managerEntries: [
-    './addons/post-current-story',
-    './addons/open-playground-automatically',
-  ],
+  managerEntries: ['./addons/post-current-story'],
   typescript: {
     compilerOptions: {
       typeRoots: ['node_modules/@types', '../src/types'],
