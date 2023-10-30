@@ -9,7 +9,7 @@
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/elements-angular-example",
+        "outputPath": "packages/elements-angular-example/dist",
         "index": "packages/elements-angular-example/src/index.html",
         "main": "packages/elements-angular-example/src/main.ts",
         "polyfills": ["zone.js"],

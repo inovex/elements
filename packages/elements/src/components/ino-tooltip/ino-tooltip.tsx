@@ -8,9 +8,8 @@ import {
   h,
   Method,
 } from '@stencil/core';
-import classNames from 'classnames';
-import TippyJS, { Instance, Placement } from 'tippy.js';
-import { TooltipTrigger } from '../types';
+import TippyJS, { Instance, Placement, roundArrow } from 'tippy.js';
+import { TooltipTrigger, TippyThemes } from '../types';
 
 /**
  * @slot default The text shown in the tooltip.
@@ -27,10 +26,16 @@ export class Tooltip implements ComponentInterface {
   @Element() el!: HTMLInoTooltipElement;
 
   /**
-   * Sets the color scheme of the tooltip
-   * Valid options include: `primary`, `transparent`
+	* Adds a optional header text to the `ino-tooltip`
+	*/
+  @Prop() headerText?: string;
+
+  /**
+   * Sets the color scheme of the tooltip.
+   * 
+   * Valid options include: `light`, `dark` or `primary`
    */
-  @Prop() colorScheme: 'primary' | 'transparent' =
+  @Prop() colorScheme: TippyThemes =
     'primary';
 
   /**
@@ -39,6 +44,11 @@ export class Tooltip implements ComponentInterface {
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
   @Prop() placement: Placement = 'auto';
+
+  /**
+   * Shows an arrow
+   */
+  @Prop() arrow = false; 
 
   @Watch('placement')
   async onPlacementChange() {
@@ -138,7 +148,8 @@ export class Tooltip implements ComponentInterface {
       delay: this.delay,
       placement: this.placement,
       trigger: this.trigger,
-      arrow: true,
+      arrow: this.arrow? roundArrow : false,
+      theme: this.colorScheme,
     };
 
     this.tooltipInstance = TippyJS(this.target, options);
@@ -183,14 +194,13 @@ export class Tooltip implements ComponentInterface {
   }
 
   render() {
-    const hostClasses = classNames(
-      `ino-tooltip--color-scheme-${this.colorScheme}`
-    );
-
     return (
-      <Host class={hostClasses}>
+      <Host>
         <div class="ino-tooltip__composer" role="tooltip">
-          <div class="ino-tooltip__inner">{this.label ? this.label : <slot />}</div>
+          <div class="ino-tooltip__inner">
+            {this.headerText && <header>{this.headerText}</header>}
+            {this.label ?? <slot />}
+          </div>
         </div>
       </Host>
     );

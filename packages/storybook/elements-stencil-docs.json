@@ -1728,24 +1728,19 @@
         },
         {
           "name": "role",
-          "type": "\"checkbox\" | \"radio\"",
+          "type": "string",
           "complexType": {
-            "original": "'checkbox' | 'radio'",
-            "resolved": "\"checkbox\" | \"radio\"",
+            "original": "string | null",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "role",
           "reflectToAttr": false,
-          "docs": "The type of control element",
+          "docs": "The type of control element\n\nValid options are 'checkbox' or 'radio'",
           "docsTags": [],
           "values": [
             {
-              "value": "checkbox",
-              "type": "string"
-            },
-            {
-              "value": "radio",
               "type": "string"
             }
           ],
@@ -10727,26 +10722,58 @@
       },
       "props": [
         {
-          "name": "colorScheme",
-          "type": "\"primary\" | \"transparent\"",
+          "name": "arrow",
+          "type": "boolean",
           "complexType": {
-            "original": "'primary' | 'transparent'",
-            "resolved": "\"primary\" | \"transparent\"",
+            "original": "boolean",
+            "resolved": "boolean",
             "references": {}
+          },
+          "mutable": false,
+          "attr": "arrow",
+          "reflectToAttr": false,
+          "docs": "Shows an arrow",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "colorScheme",
+          "type": "\"dark\" | \"light\" | \"primary\"",
+          "complexType": {
+            "original": "TippyThemes",
+            "resolved": "\"dark\" | \"light\" | \"primary\"",
+            "references": {
+              "TippyThemes": {
+                "location": "import",
+                "path": "../types",
+                "id": "src/components/types.ts::TippyThemes"
+              }
+            }
           },
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `transparent`",
+          "docs": "Sets the color scheme of the tooltip.\n\nValid options include: `light`, `dark` or `primary`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "primary",
+              "value": "dark",
               "type": "string"
             },
             {
-              "value": "transparent",
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
               "type": "string"
             }
           ],
@@ -10790,6 +10817,27 @@
           "attr": "for",
           "reflectToAttr": false,
           "docs": "The target id the tooltip belongs to.\nIf not given, the tooltip is attached to the parent component.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "headerText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "header-text",
+          "reflectToAttr": false,
+          "docs": "Adds a optional header text to the `ino-tooltip`",
           "docsTags": [],
           "values": [
             {
