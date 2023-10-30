@@ -6,9 +6,9 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-segment-group.scss';
 
 export default {
-  title: 'Buttons/ino-segment-group',
+  title: 'ino-segment/ino-segment-group',
   component: 'ino-segment-group',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-segment-group')],
+  decorators: [story => decorateStoryWithClass(story, 'story-segment-group')],
   parameters: {
     actions: {
       handles: ['checkedChange'],
@@ -33,7 +33,7 @@ const checkedChangeHandler = ({ detail, target }: CustomEvent<string>) =>
 
 const template = new TemplateGenerator<Components.InoSegmentGroup>(
   'ino-segment-group',
-  (args) => html`
+  args => html`
     <ino-segment-group
       id="segment-grp"
       name="${args.name}"

@@ -1,5 +1,5 @@
-import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
@@ -10,7 +10,7 @@ const eventHandler = (e: CustomEvent<boolean>) => {
 };
 
 export default {
-  title: 'Structure/<ino-accordion>',
+  title: 'ino-accordion',
   component: 'ino-accordion',
   decorators: [story => decorateStoryWithClass(story, 'story-accordion')],
   // will be used as default props for all stories
@@ -29,7 +29,9 @@ const template = new TemplateGenerator<Components.InoAccordion>(
       accordion-title="${args.accordionTitle}"
       @expandedChange="${eventHandler}"
     >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi enim, venenatis non facilisis sed, finibus in enim. Sed auctor enim nisl, sit amet feugiat risus blandit vitae.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi enim,
+      venenatis non facilisis sed, finibus in enim. Sed auctor enim nisl, sit
+      amet feugiat risus blandit vitae.
     </ino-accordion>
   `
 );

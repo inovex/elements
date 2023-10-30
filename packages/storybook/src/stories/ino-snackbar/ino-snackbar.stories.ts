@@ -2,17 +2,17 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-snackbar.scss';
-import { TemplateGenerator } from '../template-generator';
 
 export default {
-  title: 'Notification/ino-snackbar',
+  title: 'ino-snackbar',
   component: 'ino-snackbar',
   decorators: [
-    (s) => decorateStoryWithClass(s, 'story-ino-snackbar'),
-    (story) => {
-      const btnClickHandler = (e) => {
+    s => decorateStoryWithClass(s, 'story-ino-snackbar'),
+    story => {
+      const btnClickHandler = e => {
         if (!e.target.parentElement.classList.contains('snackbar-trigger')) {
           return;
         }
@@ -21,7 +21,7 @@ export default {
 
         const templates = Array.from(document.getElementsByTagName('template'));
         const templateWithId = templates.find(
-          (template) => template.id === triggerId
+          template => template.id === triggerId
         );
 
         const currentSnackbars = document.body.getElementsByTagName(
@@ -29,7 +29,7 @@ export default {
         );
 
         const snackbarWithIdExists = Array.from(currentSnackbars).some(
-          (snackbar) => snackbar.id === triggerId
+          snackbar => snackbar.id === triggerId
         );
 
         if (snackbarWithIdExists) {
@@ -39,7 +39,7 @@ export default {
         document.body.appendChild(templateWithId.content.cloneNode(true));
       };
 
-      const snackbarHideHandler = (e) =>
+      const snackbarHideHandler = e =>
         (e.target as HTMLInoSnackbarElement).remove();
 
       useEffect(() => {
@@ -70,7 +70,7 @@ type InoSnackbarExtended = Components.InoSnackbar & {
 
 const template = new TemplateGenerator<InoSnackbarExtended>(
   'ino-snackbar',
-  (args) => html`
+  args => html`
     <ino-button class="snackbar-trigger" data-template-id="${args.id}"
       >Show Snackbar
     </ino-button>
@@ -89,7 +89,8 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.argTypes = { // hide custom attributes from table
+Playground.argTypes = {
+  // hide custom attributes from table
   id: {
     table: {
       disable: true,

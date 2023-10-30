@@ -1,19 +1,19 @@
+import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-popover.scss';
-import { TemplateGenerator } from '../template-generator';
-import { Components } from '@inovex.de/elements';
 
 export default {
-  title: `Notification/ino-popover`,
+  title: `ino-popover`,
   component: 'ino-popover',
   parameters: {
     actions: {
       handles: ['visibleChange ino-popover'],
     },
   },
-  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-popover')],
+  decorators: [story => decorateStoryWithClass(story, 'story-ino-popover')],
   argTypes: {
     placement: {
       control: {
@@ -75,11 +75,11 @@ let POPOVER_COUNTER = 1;
 
 type InoPopoverExtended = Components.InoPopover & {
   placementClass: string;
-}
+};
 
 const template = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
-  (args) => {
+  args => {
     const id = `popover-${POPOVER_COUNTER++}`;
 
     return html`
@@ -96,10 +96,12 @@ const template = new TemplateGenerator<InoPopoverExtended>(
         visible="${args.visible}"
         hide-on-blur="${args.hideOnBlur}"
         hide-on-esc="${args.hideOnEsc}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem">
+        <div
+          style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem"
+        >
           <p>Popovers are complex tooltips.</p>
           <ino-chip>
             Able to contain other HTML-Elements?
@@ -114,7 +116,7 @@ const template = new TemplateGenerator<InoPopoverExtended>(
 export const Playground = template.generatePlaygroundStory();
 export const Arrow = template.generateStoryForProp('arrow', true);
 export const Placement = template.generateStoryForProp('placement', 'right', {
-  placementClass: "styled-placement"
+  placementClass: 'styled-placement',
 });
 
 export const AttachToBody = template.generateStoryForProp('attachToBody', true);
@@ -123,13 +125,17 @@ export const Distance = template.generateStoryForProp('distance', 30);
 
 const templateColors = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
-  (args) => {
-
+  args => {
     const idLight = 'popover-light';
     const idDark = 'popover-dark';
-    const idPrimary = 'popover-primary'
+    const idPrimary = 'popover-primary';
 
-    const content = html`<p style="padding: 0.5rem">Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.</p>`
+    const content = html`
+      <p style="padding: 0.5rem">
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur
+        amet ipsum do.
+      </p>
+    `;
 
     return html`
       <ino-button id="${idLight}">Light</ino-button>
@@ -145,7 +151,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         visible="${args.visible}"
         hide-on-blur="${args.hideOnBlur}"
         hide-on-esc="${args.hideOnEsc}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
         ${content}
@@ -163,7 +169,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         visible="${args.visible}"
         hide-on-blur="${args.hideOnBlur}"
         hide-on-esc="${args.hideOnEsc}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
         ${content}
@@ -181,7 +187,7 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
         visible="${args.visible}"
         hide-on-blur="${args.hideOnBlur}"
         hide-on-esc="${args.hideOnEsc}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
         ${content}
@@ -190,8 +196,10 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
   }
 );
 
-export const ColorSchemes = templateColors.generateStoryForProp('colorScheme', 'light');
-
+export const ColorSchemes = templateColors.generateStoryForProp(
+  'colorScheme',
+  'light'
+);
 
 export const Trigger = template.generateStoryForProp('trigger', 'click');
 
@@ -215,7 +223,9 @@ const templateInteractive = new TemplateGenerator<InoPopoverExtended>(
         <ino-button>Button not closing the popover</ino-button>
       </div>
     </ino-popover>
-    <ino-button class="placement-button big-space" id="popover-interactive-target"
+    <ino-button
+      class="placement-button big-space"
+      id="popover-interactive-target"
       >Interactive Content
     </ino-button>
   `
@@ -250,7 +260,7 @@ const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
           Uncheck to hide / check to show
         </ino-checkbox>
         <div style="padding: 0.5rem">
-          <ino-chip >
+          <ino-chip>
             Programmatically shown?
             <ino-icon slot="icon-trailing" icon="checkmark"></ino-icon>
           </ino-chip>
@@ -265,4 +275,4 @@ export const Visible = templateControlledPopover.generateStoryForProp(
   true
 );
 
-export const Delay = template.generateStoryForProp('delay', [500, 200])
+export const Delay = template.generateStoryForProp('delay', [500, 200]);

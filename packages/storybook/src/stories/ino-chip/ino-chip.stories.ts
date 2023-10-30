@@ -7,9 +7,9 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-chip.scss';
 
 export default {
-  title: 'Buttons/<ino-chip>',
+  title: 'ino-chip',
   component: 'ino-chip',
-  decorators: [(story) => decorateStoryWithClass(story)],
+  decorators: [story => decorateStoryWithClass(story)],
   parameters: {
     actions: {
       handles: ['chipClicked', 'chipRemoved'],
@@ -23,12 +23,12 @@ export default {
     selected: false,
     clickable: true,
     value: '',
-  }
+  },
 } as Meta<Components.InoChip>;
 
 const template = new TemplateGenerator<Components.InoChip>(
   'ino-chip',
-  (args) => html`
+  args => html`
     <ino-chip
       class="customizable-chip"
       disabled="${args.disabled}"
@@ -65,7 +65,6 @@ const templateFill = new TemplateGenerator<Components.InoChip>(
 );
 
 export const Fill = templateFill.generatePlaygroundStory();
-
 
 const templateIcons = new TemplateGenerator<Components.InoChip>(
   'ino-chip',
@@ -112,12 +111,14 @@ const templateFilter = new TemplateGenerator<Components.InoChip>(
     return html`
       <div class="ino-chip-story">
         ${values.map(
-          (value) => html` <ino-chip
-            value="${value}"
-            selectable
-            @chipClicked="${(ev) => handleClick(ev.target)}"
-            >${value}
-          </ino-chip>`
+          value => html`
+            <ino-chip
+              value="${value}"
+              selectable
+              @chipClicked="${ev => handleClick(ev.target)}"
+              >${value}
+            </ino-chip>
+          `
         )}
       </div>
     `;
@@ -138,12 +139,14 @@ const templateRemove = new TemplateGenerator<Components.InoChip>(
     return html`
       <div class="ino-chip-story">
         ${chips.map(
-          (value, index) => html` <ino-chip
-            value="${value}"
-            removable="${index !== 0}"
-            @chipRemoved="${(ev) => handleClick(ev.target)}"
-            >${value}
-          </ino-chip>`
+          (value, index) => html`
+            <ino-chip
+              value="${value}"
+              removable="${index !== 0}"
+              @chipRemoved="${ev => handleClick(ev.target)}"
+              >${value}
+            </ino-chip>
+          `
         )}
       </div>
     `;

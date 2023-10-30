@@ -10,7 +10,7 @@ import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter(
-  (icon) => !icon.startsWith('_')
+  icon => !icon.startsWith('_')
 ).concat([
   'status_zukuenftige',
   'status_abwesend',
@@ -36,15 +36,15 @@ function copyToClipboard(text) {
 }
 
 const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
-  (name) => name.length >= 1
+  name => name.length >= 1
 );
 
 const iconChips = ICON_IDS.map(
-  (name) => html`
+  name => html`
     <ino-chip
       id="icon-${name}"
       value="${name}"
-      @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
+      @chipClicked="${ev => copyToClipboard(ev.detail)}"
     >
       <ino-icon class="chip-icon" slot="icon-leading" icon="${name}"></ino-icon>
       ${name}
@@ -53,7 +53,7 @@ const iconChips = ICON_IDS.map(
 );
 
 export default {
-  title: 'Graphic/ino-icon',
+  title: 'ino-icon/ino-icon',
   component: 'ino-icon',
   parameters: {
     actions: {
@@ -64,10 +64,10 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-icon'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-icon'),
+    story => {
       useEffect(() => {
-        const searchIconHandler = function (e) {
+        const searchIconHandler = function(e) {
           if (e.target.tagName.toLowerCase() !== 'ino-input') {
             return;
           }
@@ -81,13 +81,13 @@ export default {
 
           // Hide not matching icons
           chips
-            .filter((chip) => !chip.value.includes(value.toLowerCase()))
-            .map((chip) => (chip.style.visibility = 'hidden'));
+            .filter(chip => !chip.value.includes(value.toLowerCase()))
+            .map(chip => (chip.style.visibility = 'hidden'));
 
           // Show matching icons
           chips
-            .filter((chip) => chip.value.includes(value.toLowerCase()))
-            .map((chip) => (chip.style.visibility = 'visible'));
+            .filter(chip => chip.value.includes(value.toLowerCase()))
+            .map(chip => (chip.style.visibility = 'visible'));
 
           input.value = value;
         };
@@ -113,7 +113,7 @@ export default {
 
 const template = new TemplateGenerator<Components.InoIcon>(
   'ino-icon',
-  (args) => html`
+  args => html`
     <ino-icon
       class="customizable-icon"
       clickable="${args.clickable}"
@@ -145,4 +145,3 @@ const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
   `
 );
 export const AllIcons = templateAllIcons.generatePlaygroundStory();
-

@@ -1,5 +1,5 @@
-import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
@@ -7,15 +7,15 @@ import { decorateStoryWithClass } from '../utils';
 import avatarImg from '../../assets/images/avatar.jpg';
 
 export default {
-  title: 'Graphic/<ino-avatar>',
+  title: 'ino-avatar',
   component: 'ino-avatar',
   decorators: [story => decorateStoryWithClass(story, 'story-avatar')],
   args: {
     initials: 'JD',
-    interactive: false, 
+    interactive: false,
     variant: 'solid',
     src: avatarImg,
-    colorSecondary: false, 
+    colorSecondary: false,
     a11yLabel: 'User avatar',
     alt: 'Jane Doe',
   },
@@ -35,7 +35,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       alt="${args.alt}"
     >
     </ino-avatar>
-`
+  `
 );
 
 export const Playground = template.generatePlaygroundStory();
@@ -83,5 +83,5 @@ export const WithIcon = () => {
         icon="checkmark"
       ></ino-icon>
     </ino-avatar>
-`;
+  `;
 };

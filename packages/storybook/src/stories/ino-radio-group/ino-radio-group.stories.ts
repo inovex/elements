@@ -1,12 +1,12 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 
 export default {
-  title: 'Input/ino-radio-group',
+  title: 'ino-radio/ino-radio-group',
   component: 'ino-radio-group',
   parameters: {
     actions: {
@@ -74,8 +74,12 @@ const template = new TemplateGenerator<Components.InoRadioGroup>(
       <ino-radio value="opt-2">Opt 2</ino-radio>
       <ino-radio value="opt-3">Opt 3</ino-radio>
     </ino-radio-group>
-`);
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 
-export const VerticalAlignment = template.generateStoryForProp('alignment', 'vertical');
+export const VerticalAlignment = template.generateStoryForProp(
+  'alignment',
+  'vertical'
+);

@@ -1,17 +1,17 @@
+import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-option-group.scss';
-import { TemplateGenerator } from '../template-generator';
-import { Components } from '@inovex.de/elements';
 
 export default {
-  title: 'Input/ino-option-group',
+  title: 'ino-option/ino-option-group',
   component: 'ino-option-group',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-option-group')],
+  decorators: [story => decorateStoryWithClass(story, 'story-option-group')],
   args: {
-    label: 'My group Label'
-  }
+    label: 'My group Label',
+  },
 } as Meta<Components.InoOptionGroup>;
 
 const template = new TemplateGenerator<Components.InoOptionGroup>(

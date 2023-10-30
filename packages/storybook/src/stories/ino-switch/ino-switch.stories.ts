@@ -9,7 +9,7 @@ const eventHandler = (e: CustomEvent<boolean>) =>
   ((e.target as HTMLInoSwitchElement).checked = e.detail);
 
 export default {
-  title: 'Input/ino-switch',
+  title: 'ino-switch',
   component: 'ino-switch',
   decorators: [story => decorateStoryWithClass(story, 'story-switch')],
   args: {

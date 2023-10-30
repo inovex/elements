@@ -7,11 +7,9 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-segment-button.scss';
 
 export default {
-  title: 'Buttons/ino-segment-button',
+  title: 'ino-segment/ino-segment-button',
   component: 'ino-segment-button',
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-segment-button'),
-  ],
+  decorators: [story => decorateStoryWithClass(story, 'story-segment-button')],
   parameters: {
     actions: {
       handles: ['checkedChange'],
@@ -26,24 +24,26 @@ export default {
   },
 } as Meta<Components.InoSegmentButton>;
 
-const checkedChangeHandler = (e: CustomEvent<boolean>) => (e.target as HTMLInoSegmentButtonElement).checked = e.detail;
+const checkedChangeHandler = (e: CustomEvent<boolean>) =>
+  ((e.target as HTMLInoSegmentButtonElement).checked = e.detail);
 
 const template = new TemplateGenerator<Components.InoSegmentButton>(
   'ino-segment-button',
   args => html`
-  <ino-segment-button
-    value="1"
-    class="customizable-segment-btn"
-    checked="${args.checked}"
-    dense="${args.dense}"
-    disabled="${args.disabled}"
-    name="${args.name}"
-    value="${args.value}"
-    @checkedChange="${checkedChangeHandler}"
-  >
-    Segment Button Label
-  </ino-segment-button>
-`);
+    <ino-segment-button
+      value="1"
+      class="customizable-segment-btn"
+      checked="${args.checked}"
+      dense="${args.dense}"
+      disabled="${args.disabled}"
+      name="${args.name}"
+      value="${args.value}"
+      @checkedChange="${checkedChangeHandler}"
+    >
+      Segment Button Label
+    </ino-segment-button>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 

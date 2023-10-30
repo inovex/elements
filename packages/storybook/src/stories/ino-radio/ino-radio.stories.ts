@@ -7,7 +7,7 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-radio.scss';
 
 export default {
-  title: 'Input/ino-radio',
+  title: 'ino-radio/ino-radio',
   component: 'ino-radio',
   parameters: {
     actions: {
@@ -40,21 +40,22 @@ export default {
 const template = new TemplateGenerator<Components.InoRadio>(
   'ino-radio',
   args => html`
-  <ino-radio
-    checked="${args.checked}"
-    disabled="${args.disabled}"
-    name="${args.name}"
-    value="${args.value}"
-  >
-    Radio Button Label
-  </ino-radio>
-`);
+    <ino-radio
+      checked="${args.checked}"
+      disabled="${args.disabled}"
+      name="${args.name}"
+      value="${args.value}"
+    >
+      Radio Button Label
+    </ino-radio>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 
 /**
  * Default unchecked state of this element.
  */
-export const Unchecked = template.generatePlaygroundStory()
+export const Unchecked = template.generatePlaygroundStory();
 export const Checked = template.generateStoryForProp('checked', true);
 export const Disabled = template.generateStoryForProp('disabled', true);

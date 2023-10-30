@@ -8,7 +8,7 @@ import './ino-checkbox.scss';
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function (e) {
+  const eventHandler = function(e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-checkbox') {
       return;
@@ -31,7 +31,7 @@ function subscribeToComponentEvents() {
 }
 
 export default {
-  title: 'Input/<ino-checkbox>',
+  title: '<ino-checkbox>',
   parameters: {
     actions: {
       handles: ['checkedChange .customizable-checkbox'],
@@ -39,7 +39,7 @@ export default {
   },
   decorators: [
     withStencilReadme(componentReadme),
-    (story) => {
+    story => {
       subscribeToComponentEvents();
       return story();
     },

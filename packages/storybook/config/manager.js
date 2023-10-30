@@ -6,7 +6,6 @@ addons.setConfig({
   panelPosition: 'bottom',
   theme,
   sidebar: {
-    showRoots: true,
-    collapsedRoots: ['input', 'buttons', 'structure', 'graphic', 'notification'],
+    showRoots: false,
   },
 });

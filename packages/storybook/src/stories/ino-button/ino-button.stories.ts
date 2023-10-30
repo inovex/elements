@@ -6,9 +6,9 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-button.scss';
 
 export default {
-  title: 'Buttons/<ino-button>',
+  title: 'ino-button',
   component: 'ino-button',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-button')],
+  decorators: [story => decorateStoryWithClass(story, 'story-button')],
   // will be used as default props for all stories
   args: {
     variant: 'filled',
@@ -21,7 +21,7 @@ export default {
 // the basic template for the button component
 const template = new TemplateGenerator<Components.InoButton>(
   'ino-button',
-  (args) => html`
+  args => html`
     <ino-button
       variant="${args.variant}"
       disabled="${args.disabled}"

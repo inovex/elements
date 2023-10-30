@@ -1,7 +1,7 @@
 import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-fab-set.scss';
@@ -14,14 +14,14 @@ const clickHandler = (e: CustomEvent<void>) => {
 };
 
 export default {
-  title: 'Buttons/<ino-fab-set>',
+  title: 'ino-fab/ino-fab-set',
   component: 'ino-fab-set',
   parameters: {
     actions: {
       handles: ['click ino-fab'],
     },
   },
-  decorators: [(story) => decorateStoryWithClass(story)],
+  decorators: [story => decorateStoryWithClass(story)],
   args: {
     openDial: false,
     dialDirection: 'top',
@@ -34,7 +34,7 @@ const template = new TemplateGenerator<
   Components.InoFabSet & { iconOpened: string; iconClosed: string }
 >(
   'ino-fab-set',
-  (args) => html`
+  args => html`
     <div style="position: absolute">
       <ino-fab-set
         open-dial="${args.openDial}"

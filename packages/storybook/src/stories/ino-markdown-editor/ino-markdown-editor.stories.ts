@@ -9,7 +9,7 @@ import './ino-markdown-editor.scss';
 const ID = 'editor-playground';
 
 export default {
-  title: 'Input/ino-markdown-editor',
+  title: 'ino-markdown-editor',
   component: 'ino-markdown-editor',
   parameters: {
     actions: {
@@ -38,7 +38,7 @@ export default {
   args: {
     initialValue: '',
     viewMode: 'preview',
-  }
+  },
 } as Meta;
 
 const template = new TemplateGenerator<Components.InoMarkdownEditor>(
@@ -52,4 +52,3 @@ const template = new TemplateGenerator<Components.InoMarkdownEditor>(
   `
 );
 export const Playground = template.generatePlaygroundStory();
-

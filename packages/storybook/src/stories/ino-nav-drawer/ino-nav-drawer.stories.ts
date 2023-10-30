@@ -1,9 +1,9 @@
+import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { Components } from '@inovex.de/elements';
 import inovexElementsLogo from '../../assets/images/elements.svg';
+import { TemplateGenerator } from '../template-generator';
 import './ino-nav-drawer.scss';
 
 const openChangeHandle = function(e) {
@@ -45,7 +45,7 @@ const clickHandler = e => {
 };
 
 export default {
-  title: `Structure/ino-nav-drawer`,
+  title: `ino-nav/ino-nav-drawer`,
   component: 'ino-nav-drawer',
   parameters: {
     actions: {

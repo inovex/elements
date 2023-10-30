@@ -1,19 +1,19 @@
+import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
 import { TemplateGenerator } from '../template-generator';
-import { Components } from '@inovex.de/elements';
+import { decorateStoryWithClass } from '../utils';
 import './ino-list-item.scss';
 
 export default {
-  title: 'Structure/ino-list-item',
+  title: 'ino-list/ino-list-item',
   component: 'ino-list-item',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-ino-list-item'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-ino-list-item'),
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => {
+        const eventHandler = e => {
           const el = e.target;
           el.setAttribute('checked', e.detail);
           if (el.getAttribute('indeterminate') === 'true') {
@@ -21,11 +21,11 @@ export default {
           }
         };
         const selections = document.querySelectorAll('ino-checkbox, ino-radio');
-        selections.forEach((s) =>
+        selections.forEach(s =>
           s.addEventListener('checkedChange', eventHandler)
         );
         return () =>
-          selections.forEach((s) =>
+          selections.forEach(s =>
             s.removeEventListener('checkedChange', eventHandler)
           );
       });
@@ -47,16 +47,18 @@ export default {
   },
 } as Meta;
 
-const exampleImg = html` <ino-img
-  slot="leading"
-  src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-  ratio-width="1"
-  ratio-height="1"
-></ino-img>`;
+const exampleImg = html`
+  <ino-img
+    slot="leading"
+    src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+    ratio-width="1"
+    ratio-height="1"
+  ></ino-img>
+`;
 
 const template = new TemplateGenerator<Components.InoListItem>(
   'ino-list-item',
-  (args) => html`
+  args => html`
     <ino-list two-lines="${Boolean(args.secondaryText)}">
       <ino-list-item
         secondary-text="${args.secondaryText}"
@@ -91,13 +93,22 @@ type InoListVariants = Components.InoList & {
 
 const templateGraphicAndMeta = new TemplateGenerator<InoListVariants>(
   'ino-list-item',
-  (args) => html`
+  args => html`
     <ino-list>
       <ino-list-item text="Lorem ipsum dolor sit">
         ${args.avatar && exampleImg}
-        ${args.checkbox && html` <ino-checkbox slot="leading"></ino-checkbox>`}
-        ${args.meta && html`<p slot="trailing">$10.00</p>`}
-        ${args.radio && html` <ino-radio slot="leading" selection></ino-radio>`}
+        ${args.checkbox &&
+          html`
+            <ino-checkbox slot="leading"></ino-checkbox>
+          `}
+        ${args.meta &&
+          html`
+            <p slot="trailing">$10.00</p>
+          `}
+        ${args.radio &&
+          html`
+            <ino-radio slot="leading" selection></ino-radio>
+          `}
       </ino-list-item>
     </ino-list>
   `

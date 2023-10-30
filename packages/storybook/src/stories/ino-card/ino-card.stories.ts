@@ -1,20 +1,20 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-card.scss';
 
 export default {
-  title: 'Structure/<ino-card>',
+  title: 'ino-card',
   component: 'ino-card',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-card'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-card'),
+    story => {
       useEffect(() => {
-        const handleClick = function (e) {
+        const handleClick = function(e) {
           const maybeCard: HTMLInoCardElement | undefined = e.target?.closest(
             'ino-card'
           );
@@ -42,7 +42,7 @@ export default {
 
 const template = new TemplateGenerator<Components.InoCard>(
   'ino-card',
-  (args) => html`
+  args => html`
     <ino-card
       class="customizable-card"
       disable-elevation="${args.disableElevation}"

@@ -8,13 +8,13 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-checkbox.scss';
 
 export default {
-  title: 'Input/ino-checkbox',
+  title: 'ino-checkbox',
   component: 'ino-checkbox',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-checkbox'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-checkbox'),
+    story => {
       useEffect(() => {
-        const handleCheckedChange = (e) => {
+        const handleCheckedChange = e => {
           const checkbox: HTMLInoCheckboxElement = e.target;
           checkbox.checked = e.detail;
           if (checkbox.indeterminate) {
@@ -23,11 +23,11 @@ export default {
         };
 
         const checkboxes = document.querySelectorAll('ino-checkbox');
-        checkboxes.forEach((c) =>
+        checkboxes.forEach(c =>
           c.addEventListener('checkedChange', handleCheckedChange)
         );
         return () =>
-          checkboxes.forEach((c) =>
+          checkboxes.forEach(c =>
             c.removeEventListener('checkedChange', handleCheckedChange)
           );
       });
@@ -48,7 +48,7 @@ export default {
 // the basic template for the checkbox component
 const template = new TemplateGenerator<Components.InoCheckbox>(
   'ino-checkbox',
-  (args) => html`
+  args => html`
     <ino-checkbox
       checked="${args.checked}"
       disabled="${args.disabled}"

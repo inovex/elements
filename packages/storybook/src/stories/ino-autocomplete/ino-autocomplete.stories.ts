@@ -6,14 +6,14 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-autocomplete.scss';
 
 export default {
-  title: 'Input/ino-autocomplete',
+  title: 'ino-autocomplete',
   component: 'ino-autocomplete',
   parameters: {
     actions: {
       handles: ['valueChange'],
     },
   },
-  decorators: [(story) => decorateStoryWithClass(story)],
+  decorators: [story => decorateStoryWithClass(story)],
   args: {
     debounce: 100,
     options: [
@@ -38,7 +38,7 @@ const inputHandler = (ev: CustomEvent<KeyValue>) => {
   (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
 };
 
-export const Playground: Story<Components.InoAutocomplete> = (args) => html`
+export const Playground: Story<Components.InoAutocomplete> = args => html`
   <div style="height: 300px;">
     <ino-autocomplete
       debounce="${args.debounce}"
@@ -51,4 +51,3 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
     </ino-autocomplete>
   </div>
 `;
-

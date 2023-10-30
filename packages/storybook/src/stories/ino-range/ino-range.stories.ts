@@ -1,17 +1,17 @@
 import { Components } from '@inovex.de/elements';
+import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-range.scss';
-import { useEffect } from '@storybook/client-api';
-import { TemplateGenerator } from '../template-generator';
 
 export default {
-  title: 'Input/<ino-range>',
+  title: 'ino-range',
   component: 'ino-range',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-range'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-range'),
+    story => {
       useEffect(() => {
         const eventHandlerSingle = (e: CustomEvent<number>) =>
           ((e.target as HTMLInoRangeElement).value = e.detail);
@@ -20,13 +20,13 @@ export default {
         const eventHandlerEnd = (e: CustomEvent<number>) =>
           ((e.target as HTMLInoRangeElement).valueEnd = e.detail);
         const inoRanges = document.querySelectorAll('ino-range');
-        inoRanges.forEach((r) => {
+        inoRanges.forEach(r => {
           r.addEventListener('valueChange', eventHandlerSingle);
           r.addEventListener('valueStartChange', eventHandlerStart);
           r.addEventListener('valueEndChange', eventHandlerEnd);
         });
         return () =>
-          inoRanges.forEach((r) => {
+          inoRanges.forEach(r => {
             r.removeEventListener('valueChange', eventHandlerSingle);
             r.removeEventListener('valueStartChange', eventHandlerStart);
             r.removeEventListener('valueEndChange', eventHandlerEnd);
@@ -53,7 +53,7 @@ export default {
 // the basic template for the checkbox component
 const template = new TemplateGenerator<Components.InoRange>(
   'ino-range',
-  (args) => html`
+  args => html`
     <ino-range
       class="customizable-range"
       disabled="${args.disabled}"
