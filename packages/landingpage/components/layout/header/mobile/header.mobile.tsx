@@ -33,6 +33,7 @@ export default function HeaderMobile() {
   const [expandedSubMenu, expandSubMenu] = useState<string | null>(null);
   const { t } = useTranslation();
   const router = useRouter();
+  const isLibraryPage = router.pathname.endsWith('/library/components');
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -52,7 +53,7 @@ export default function HeaderMobile() {
     <>
       <div className={styles.menuIconContainer}>
         <MenuIcon className={styles.icon} onClick={toggleMenu} />
-        <VersionSelect />
+        {isLibraryPage && <VersionSelect />}
       </div>
       <div
         ref={ref}

@@ -2,7 +2,8 @@
 @use '@material/drawer/mdc-drawer';
 @use '@material/drawer';
 @use '@material/list';
-@use '../base/theme';
+@use '../base/theme' as theme;
+@use '../base/new-theme' as new-theme;
 
 @include drawer.core-styles;
 @include drawer.dismissible-core-styles;
@@ -13,6 +14,7 @@
   /**
    * @prop --ino-nav-drawer-width-open: The width of the open drawer.
    * @prop --ino-nav-drawer-width-closed: Docked variant only! The width of the collapsed drawer.
+   * @prop --ino-nav-drawer-mobile-width-open: Mobile variant only! The width of the open drawer.
    * @prop --ino-nav-drawer-background: Background of the drawer.
    * @prop --ino-nav-drawer-height: Height of the drawer.
    * @prop --ino-nav-drawer-text-color: Color of text inside the drawer.
@@ -22,12 +24,16 @@
 
   --nav-drawer-width-open: var(--ino-nav-drawer-width-open, 250px);
   --nav-drawer-width-closed: var(--ino-nav-drawer-width-closed, 72px);
+  --nav-drawer-mobile-width-open: var(
+    --ino-nav-drawer-mobile-width-open,
+    171px
+  );
   --nav-drawer-height: var(--ino-nav-drawer-height, 100%);
   --nav-drawer-background: var(
     --ino-nav-drawer-background,
     #{theme.color(primary, contrast)}
   );
-  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, theme.$brand);
+  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, #{new-theme.$p-7});
   --nav-drawer-transition-duration: var(
     --ino-nav-drawer-transition-duration,
     0.25s
@@ -117,6 +123,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        white-space: normal;
 
         .mdc-drawer__subtitle {
           font-size: 12px;
@@ -222,5 +229,41 @@
     &.mdc-drawer--modal {
       top: 0;
     }
+  }
+
+  // Styles for mobile nav drawer
+  .mdc-drawer.mobile-drawer {
+    @include drawer.width(var(--nav-drawer-mobile-width-open));
+
+    .mdc-drawer__content {
+      margin-top: 87px;
+    }
+    .mdc-drawer__header {
+      font-size: 12px;
+      ::slotted(div) {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+    }
+
+    & + .mdc-drawer-app-content {
+      box-shadow: none;
+    }
+
+    & + .mdc-drawer-scrim {
+      backdrop-filter: blur(4.5px);
+      background: rgba(167, 183, 212, 0.41);
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    clip-path: inset(50%);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
   }
 }

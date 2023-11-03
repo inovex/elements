@@ -2,6 +2,16 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  border-top: 1px solid var(--inovex-elements-n-3);
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.column-layout {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
 }
 
 .company {
@@ -13,5 +23,5 @@
   display: flex;
   align-items: center;
   column-gap: 10px;
-  color: var(--inovex-elements-n-7) !important;
+  color: var(--inovex-elements-n-10) !important;
 }

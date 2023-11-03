@@ -5,6 +5,26 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The **Preview Mode** supports following actions:
+
+| Actions ||||
+|---|
+| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+| Bold | Inline code | Task list |
+
+Additionally, there are a lot of predefined
+[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+provided by the underlying [tiptap](https://tiptap.dev/) editor.
+
+The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+
+ * Support of strikethrough syntax (`~~TextToStrike~~`)
+ * Support of task list syntax (`- [x] MyToDoTask`)
+ * No support of image syntax. __Images are not allowed!__
+
 ## Properties
 
 | Property       | Attribute       | Description                                                                                                                                                                            | Type                                    | Default     |
@@ -34,6 +54,9 @@
 
 ### Depends on
 
+- [ino-dialog](../ino-dialog)
+- [ino-input](../ino-input)
+- [ino-icon-button](../ino-icon-button)
 - [ino-icon](../ino-icon)
 - [ino-popover](../ino-popover)
 - [ino-textarea](../ino-textarea)
@@ -41,9 +64,18 @@
 ### Graph
 ```mermaid
 graph TD;
+  ino-markdown-editor --> ino-dialog
+  ino-markdown-editor --> ino-input
+  ino-markdown-editor --> ino-icon-button
   ino-markdown-editor --> ino-icon
   ino-markdown-editor --> ino-popover
   ino-markdown-editor --> ino-textarea
+  ino-dialog --> ino-icon
+  ino-dialog --> ino-button
+  ino-button --> ino-spinner
+  ino-input --> ino-label
+  ino-input --> ino-icon
+  ino-icon-button --> ino-icon
   ino-textarea --> ino-label
   style ino-markdown-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -156,10 +156,7 @@ export class Dialog implements ComponentInterface {
   }
 
   render() {
-    //const hasBodySlot = hasSlotContent(this.el, 'body');
-    // const hasContentSlot = hasSlotContent(this.el, 'content');
     const hasDefaultSlot = hasSlotContent(this.el, 'default');
-
     const hasHeaderSlot = hasSlotContent(this.el, 'header');
     const hasBodySlot = hasSlotContent(this.el, 'body');
     const hasFooterSlot = hasSlotContent(this.el, 'footer');

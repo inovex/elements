@@ -9,19 +9,22 @@ import {
   Watch,
 } from '@stencil/core';
 import { Editor } from '@tiptap/core';
+import Link from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
-import TaskItem from './extensions/task_item';
-import TaskList from './extensions/task_list';
-import BulletList from './extensions/bullet_list';
 import classNames from 'classnames';
+import { InoInputCustomEvent } from '../..';
+import { hasValue } from '../../util/helpers';
 import { ViewMode, ViewModeUnion } from '../types';
-import markdownSerializer from './markdown-serializer';
 import {
   Actions,
+  getActiveLink,
   handleToolbarBtnClick,
   isToolbarBtnActive,
 } from './editor-toolbar-helper';
-import Link from '@tiptap/extension-link';
+import BulletList from './extensions/bullet_list';
+import TaskItem from './extensions/task_item';
+import TaskList from './extensions/task_list';
+import markdownSerializer from './markdown-serializer';
 
 /**
  * The **Preview Mode** supports following actions:
@@ -84,6 +87,10 @@ export class MarkdownEditor implements ComponentInterface {
 
   @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
   @State() private errorMessage = '';
+  @State() private showLinkDialog = false;
+  @State() private currentURL = '';
+  @State() private isCreationDialog = true;
+  @State() private hasValueChanged = false;
 
   /**
    * Emits when one of the view mode buttons was clicked.
@@ -130,7 +137,9 @@ export class MarkdownEditor implements ComponentInterface {
       extensions: [
         StarterKit.configure({ bulletList: false }),
         BulletList,
-        Link,
+        Link.extend({
+          inclusive: false,
+        }),
         TaskItem,
         TaskList,
       ],
@@ -150,8 +159,8 @@ export class MarkdownEditor implements ComponentInterface {
     this.toolbarActionsState = new Set<Actions>(
       Object.values(Actions).filter(
         (action) =>
-          typeof action === 'number' && isToolbarBtnActive(this.editor, action),
-      ) as Actions[],
+          typeof action === 'number' && isToolbarBtnActive(this.editor, action)
+      ) as Actions[]
     );
   };
 
@@ -164,7 +173,7 @@ export class MarkdownEditor implements ComponentInterface {
     e.stopPropagation();
     this.editor.commands.clearContent();
     this.editor.commands.setContent(
-      this.markdownToHtml(this.textareaRef.value),
+      this.markdownToHtml(this.textareaRef.value)
     );
     if (!this.errorMessage) this.valueChange.emit(this.textareaRef.value);
     this.inoBlur.emit();
@@ -180,7 +189,7 @@ export class MarkdownEditor implements ComponentInterface {
   private markdownToHtml(md: string = this.initialValue): string {
     return this.tryParse(
       () => markdownSerializer.parse(md),
-      this.editor.getHTML(),
+      this.editor.getHTML()
     );
   }
 
@@ -199,8 +208,42 @@ export class MarkdownEditor implements ComponentInterface {
     if (!this.errorMessage) this.viewModeChange.emit(viewMode);
   }
 
-  private handleToolbarActionClick(action: Actions): void {
-    handleToolbarBtnClick(this.editor, action);
+  private handleToolbarActionClick(action: Actions, url?: string): void {
+    handleToolbarBtnClick(this.editor, action, url);
+  }
+
+  private handleDeleteLink(): void {
+    this.handleToolbarActionClick(Actions.UNLINK);
+    this.showLinkDialog = false;
+  }
+
+  private handleTextInputChange(e: InoInputCustomEvent<string>): void {
+    this.currentURL = e.detail;
+    this.hasValueChanged = true;
+  }
+
+  private handleLinkButtonClick(): void {
+    const url = getActiveLink(this.editor);
+    if (url) {
+      this.currentURL = url;
+      this.isCreationDialog = false;
+    } else {
+      this.currentURL = '';
+      this.isCreationDialog = true;
+    }
+
+    this.hasValueChanged = false;
+    this.showLinkDialog = true;
+  }
+
+  private submitLink(e: Event): void {
+    e.preventDefault();
+    this.handleToolbarActionClick(Actions.LINK, this.currentURL);
+    this.showLinkDialog = false;
+  }
+
+  private isDisabled(): boolean {
+    return !hasValue(this.currentURL) || !this.hasValueChanged;
   }
 
   render() {
@@ -242,8 +285,56 @@ export class MarkdownEditor implements ComponentInterface {
         'toolbar__action-button--active': this.toolbarActionsState.has(action),
       });
 
+    const editLinkDialog = (
+      <ino-dialog
+        id="link-dialog"
+        open={this.showLinkDialog}
+        attach-to=".markdown-editor__content"
+        dismissible={true}
+        headerText="Insert Link"
+        onClose={() => (this.showLinkDialog = false)}
+      >
+        <section class={'ino-dialog-section'} slot="body">
+          <form class={'ino-dialog-form'} onSubmit={(e) => this.submitLink(e)}>
+            <ino-input
+              label="URL"
+              type="text"
+              required={true}
+              // autoFocus={true} // doesn't work because MUI Dialog traps focus
+              helper="Enter a valid URL"
+              value={this.currentURL}
+              onValueChange={(e) => this.handleTextInputChange(e)}
+              placeholder="https://example.org"
+            ></ino-input>
+            <button type="submit" style={{ display: 'none' }}></button>
+          </form>
+        </section>
+        <section class={'ino-dialog-section'} slot="footer">
+          <ino-icon-button
+            class={'ino-dialog-delete'}
+            icon="remove"
+            disabled={this.isCreationDialog}
+            onClick={() => {
+              if (!this.isCreationDialog) this.handleDeleteLink();
+            }}
+            type="reset"
+          ></ino-icon-button>
+          <ino-icon-button
+            icon="snackbar-checkmark"
+            filled={true}
+            disabled={this.isDisabled()}
+            onClick={(e) => {
+              if (!this.isDisabled()) this.submitLink(e);
+            }}
+            type="submit"
+          ></ino-icon-button>
+        </section>
+      </ino-dialog>
+    );
+
     return (
       <div class={editorClasses}>
+        {this.showLinkDialog && editLinkDialog}
         <div class="markdown-editor__toolbar">
           <div>
             <button
@@ -292,7 +383,7 @@ export class MarkdownEditor implements ComponentInterface {
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.LINK)}
-              onClick={() => this.handleToolbarActionClick(Actions.LINK)}
+              onClick={() => this.handleLinkButtonClick()}
             >
               <ino-icon icon="link" />
             </button>

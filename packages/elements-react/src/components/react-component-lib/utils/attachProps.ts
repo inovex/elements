@@ -75,6 +75,17 @@ export const getClassName = (
 };
 
 /**
+ * Transforms a React event name to a browser event name.
+ */
+export const transformReactEventName = (eventNameSuffix: string) => {
+  switch (eventNameSuffix) {
+    case 'doubleclick':
+      return 'dblclick';
+  }
+  return eventNameSuffix;
+};
+
+/**
  * Checks if an event is supported in the current execution environment.
  * @license Modernizr 3.0.0pre (Custom Build) | MIT
  */
@@ -82,7 +93,7 @@ export const isCoveredByReact = (eventNameSuffix: string) => {
   if (typeof document === 'undefined') {
     return true;
   } else {
-    const eventName = 'on' + eventNameSuffix;
+    const eventName = 'on' + transformReactEventName(eventNameSuffix);
     let isSupported = eventName in document;
 
     if (!isSupported) {

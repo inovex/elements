@@ -34,13 +34,10 @@ export const mergeRefs = (
   };
 };
 
-export const createForwardRef = <PropType, ElementType>(
-  ReactComponent: any,
-  displayName: string,
-) => {
+export const createForwardRef = <PropType, ElementType>(ReactComponent: any, displayName: string) => {
   const forwardRef = (
     props: StencilReactExternalProps<PropType, ElementType>,
-    ref: StencilReactForwardedRef<ElementType>,
+    ref: StencilReactForwardedRef<ElementType>
   ) => {
     return <ReactComponent {...props} forwardedRef={ref} />;
   };
@@ -50,11 +47,7 @@ export const createForwardRef = <PropType, ElementType>(
 };
 
 export const defineCustomElement = (tagName: string, customElement: any) => {
-  if (
-    customElement !== undefined &&
-    typeof customElements !== 'undefined' &&
-    !customElements.get(tagName)
-  ) {
+  if (customElement !== undefined && typeof customElements !== 'undefined' && !customElements.get(tagName)) {
     customElements.define(tagName, customElement);
   }
 };

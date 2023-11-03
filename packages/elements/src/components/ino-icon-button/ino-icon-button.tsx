@@ -6,15 +6,15 @@ import {
   Event,
   EventEmitter,
   Host,
-  Prop,
-  h,
   Listen,
+  Prop,
   Watch,
+  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 
-import { ButtonType } from '../types';
 import { JSXBase } from '@stencil/core/internal';
+import { ButtonType } from '../types';
 
 /**
  * @slot default - `<ino-icon>`

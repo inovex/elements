@@ -33,7 +33,6 @@ export class NavDrawer implements ComponentInterface {
    */
   private drawerInstance: MDCDrawer;
   private drawerEl: HTMLElement;
-
   @Element() el!: HTMLInoNavDrawerElement;
 
   /**
@@ -55,8 +54,7 @@ export class NavDrawer implements ComponentInterface {
   @Prop() anchor?: NavDrawerAnchor = 'left';
 
   /**
-   * The variant to use for the drawer
-   * Possible values: `docked` (default), `dismissible`, `modal`.
+   * The variant to use for the drawer.
    */
   @Prop() variant?: NavDrawerVariant = 'docked';
 
@@ -70,18 +68,33 @@ export class NavDrawer implements ComponentInterface {
     toggleBtn: 'Toggle Navigation',
   };
 
+  @Watch('variant')
+  variantChanged(newVariant: NavDrawerVariant) {
+    if (newVariant === 'mobile') {
+      this.activateMobileMode();
+    } else {
+      this.deactivateMobileMode();
+    }
+  }
+
   componentDidLoad() {
     this.drawerInstance = new MDCDrawer(
-      this.el.shadowRoot.querySelector('.mdc-drawer'),
+      this.el.shadowRoot.querySelector('.mdc-drawer')
     );
     // set initial value of open state
     if (this.drawerInstance) {
       this.drawerInstance.open = this.open || false;
     }
-
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
     this.initTabindex('content');
     this.initTabindex('footer');
+
+    // set initial mobile or desktop mode
+    if (this.variant === 'mobile') {
+      this.activateMobileMode();
+    } else {
+      this.deactivateMobileMode();
+    }
   }
 
   disconnectedCallback() {
@@ -89,6 +102,19 @@ export class NavDrawer implements ComponentInterface {
     this.drawerInstance?.destroy();
   }
 
+  private activateMobileMode() {
+    const navItems = this.el.querySelectorAll('ino-nav-item');
+    navItems.forEach((item) => {
+      item.classList.add('mobile-nav-item');
+    });
+  }
+
+  private deactivateMobileMode() {
+    const navItems = this.el.querySelectorAll('ino-nav-item');
+    navItems.forEach((item) => {
+      item.classList.remove('mobile-nav-item');
+    });
+  }
   // This listener ensures that only the most recently clicked/selected list item appears as "activated"
   @Listen('clickEl')
   handleListItemClick(event: CustomEvent) {
@@ -126,21 +152,24 @@ export class NavDrawer implements ComponentInterface {
 
   private initTabindex(slotName: string) {
     const contentElements = this.el.querySelector(`[slot="${slotName}"]`);
-    const contenListItems = contentElements.querySelectorAll('ino-list-item');
-    contenListItems[0].attrs = { tabIndex: 0 };
+    const contentListItems = contentElements.querySelectorAll('ino-list-item');
+    contentListItems[0].attrs = { tabIndex: 0 };
   }
 
   render() {
     const { anchor, variant } = this;
+
+    const isMobile = variant === 'mobile';
 
     const classDrawer = classNames({
       'mdc-drawer': true,
       'mdc-drawer--docked': variant === 'docked',
       'mdc-drawer--dismissible':
         variant === 'dismissible' || variant === 'docked', // docked is a modifier of MDC's dismissible inoVariant
-      'mdc-drawer--modal': variant === 'modal',
+      'mdc-drawer--modal': variant === 'modal' || isMobile,
       'mdc-drawer--anchor-left': anchor === 'left',
       'mdc-drawer--anchor-right': anchor === 'right',
+      'mobile-drawer': isMobile, // custom class for mobile drawer
     });
 
     const classAppContent = classNames({
@@ -168,8 +197,13 @@ export class NavDrawer implements ComponentInterface {
         <nav class="mdc-drawer__footer" aria-label={this.a11yLabels.footer}>
           <slot name="footer"></slot>
           <ino-icon-button
-            class="mdc-drawer__toggle"
+            class={{
+              'mdc-drawer__toggle': true,
+              'visually-hidden': isMobile, // Hide visually on mobile, but remains in DOM to meet focus-trap requirements
+            }}
             icon="arrow_right"
+            tabIndex={isMobile ? -1 : null} // Exclude from tab navigation on mobile drawer
+            aria-hidden={isMobile} // Hide from screen readers on mobile as it's only used to prevent focus-trap error and has no functional use
             onClick={this.toggleDrawer}
             attrs={{
               ariaLabel: this.a11yLabels.toggleBtn,
@@ -188,7 +222,9 @@ export class NavDrawer implements ComponentInterface {
     return (
       <Host>
         {nav}
-        {variant === 'modal' && <div class="mdc-drawer-scrim"></div>}
+        {(isMobile || variant === 'modal') && (
+          <div class="mdc-drawer-scrim"></div>
+        )}
         {main}
       </Host>
     );
