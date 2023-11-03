@@ -65,21 +65,21 @@ export class Avatar implements ComponentInterface {
    * Overrides the avatar's loading animation behavior.
    * When set to true, the loading animation is displayed indefinitely.
    * When set to false, the avatar will not show any loading animations.
-   * 
-   * By not using this property or setting it to undefined, the loading animation will be shown only while the image is being loaded.
+   *
+   * By default, the loading animation will be shown only while the image is being fetched.
    */
-  @Prop() overrideLoading?: boolean = false;
+  @Prop() isLoading?: boolean = false;
 
-  @State() isLoading: boolean = true;
+  @State() imgIsFetching: boolean = true;
 
   @Watch('showLoading')
   showLoadingHandler(newValue: boolean) {
-    this.isLoading = newValue;
+    this.imgIsFetching = newValue;
   }
 
   handleImageLoad() {
-    if (!this.overrideLoading) {
-      this.isLoading = false;
+    if (!this.isLoading) {
+      this.imgIsFetching = false;
     }
   }
 
@@ -105,7 +105,7 @@ export class Avatar implements ComponentInterface {
       'ino-avatar--interactive': this.interactive,
       'ino-avatar--dashed': this.variant === 'dashed',
       'ino-avatar--solid': this.variant === 'solid',
-      'ino-avatar--loading': this.overrideLoading && this.isLoading,
+      'ino-avatar--loading': this.isLoading && this.imgIsFetching,
     });
     const hasIconSlot = hasSlotContent(this.el, 'icon-slot');
 
@@ -121,10 +121,8 @@ export class Avatar implements ComponentInterface {
         {avatarBorder}
         {this.src ? (
           <div class="ino-avatar__image image">
-            {this.overrideLoading && this.isLoading && (
-              <div class="loading-wrapper">
-                <span class="loader"></span>
-              </div>
+            {this.isLoading && this.imgIsFetching && (
+              <div class="skeleton-loader"></div>
             )}
             <img
               class="ino-avatar__image-inner"
