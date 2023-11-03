@@ -22,7 +22,7 @@ export default {
             'ino-avatar'
           );
           checkbox.checked = e.detail;
-          avatar.setAttribute('is-loading', checkbox.checked);
+          avatar.setAttribute('loading', checkbox.checked);
           if (checkbox.indeterminate) {
             checkbox.indeterminate = false;
           }
@@ -48,7 +48,7 @@ export default {
     colorSecondary: false,
     a11yLabel: 'User avatar',
     alt: 'Jane Doe',
-    isLoading: false,
+    loading: undefined,
   },
 } as Meta<Components.InoAvatar>;
 
@@ -64,7 +64,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       color-secondary="${args.colorSecondary}"
       a11y-label="${args.a11yLabel}"
       alt="${args.alt}"
-      is-loading="${args.isLoading}"
+      .loading="${args.loading}"
     >
     </ino-avatar>
 `
@@ -125,7 +125,7 @@ export const LoadingAvatar = (args: Components.InoAvatar) => {
         initials="${args.initials}"
         interactive="${args.interactive}"
         variant="${args.variant}"
-        is-loading="true"
+        loading="true"
         src="${args.src}"
       >
       </ino-avatar>

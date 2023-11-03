@@ -70,7 +70,7 @@ export namespace Components {
         /**
           * Overrides the avatar's loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the avatar will not show any loading animations.  By default, the loading animation will be shown only while the image is being fetched.
          */
-        "isLoading"?: boolean;
+        "loading"?: boolean;
         /**
           * The img of the avatar.
          */
@@ -1976,7 +1976,7 @@ declare namespace LocalJSX {
         /**
           * Overrides the avatar's loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the avatar will not show any loading animations.  By default, the loading animation will be shown only while the image is being fetched.
          */
-        "isLoading"?: boolean;
+        "loading"?: boolean;
         /**
           * The img of the avatar.
          */

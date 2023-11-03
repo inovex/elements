@@ -68,7 +68,7 @@ export class Avatar implements ComponentInterface {
    *
    * By default, the loading animation will be shown only while the image is being fetched.
    */
-  @Prop() isLoading?: boolean = false;
+  @Prop() loading?: boolean = false;
 
   @State() imgIsFetching: boolean = true;
 
@@ -78,7 +78,7 @@ export class Avatar implements ComponentInterface {
   }
 
   handleImageLoad() {
-    if (!this.isLoading) {
+    if (!this.loading) {
       this.imgIsFetching = false;
     }
   }
@@ -105,7 +105,7 @@ export class Avatar implements ComponentInterface {
       'ino-avatar--interactive': this.interactive,
       'ino-avatar--dashed': this.variant === 'dashed',
       'ino-avatar--solid': this.variant === 'solid',
-      'ino-avatar--loading': this.isLoading && this.imgIsFetching,
+      'ino-avatar--loading': this.loading && this.imgIsFetching,
     });
     const hasIconSlot = hasSlotContent(this.el, 'icon-slot');
 
@@ -121,7 +121,7 @@ export class Avatar implements ComponentInterface {
         {avatarBorder}
         {this.src ? (
           <div class="ino-avatar__image image">
-            {this.isLoading && this.imgIsFetching && (
+            {this.loading && this.imgIsFetching && (
               <div class="skeleton-loader"></div>
             )}
             <img
