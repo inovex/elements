@@ -387,6 +387,28 @@
           "required": false
         },
         {
+          "name": "loading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "Overrides the avatar's loading animation behavior.\nWhen set to true, the loading animation is displayed indefinitely.\nWhen set to false, the avatar will not show any loading animations.\n\nBy default, the loading animation will be shown only while the image is being fetched.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "src",
           "type": "string",
           "complexType": {

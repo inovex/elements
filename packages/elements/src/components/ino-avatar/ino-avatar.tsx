@@ -1,4 +1,12 @@
-import { Component, ComponentInterface, Prop, h, Element } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Prop,
+  h,
+  Element,
+  State,
+  Watch,
+} from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 import primary from '../../assets/ino-avatar/primary.svg';
@@ -53,6 +61,27 @@ export class Avatar implements ComponentInterface {
    * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
    */
   @Prop() a11yLabel?: string = '';
+  /**
+   * Overrides the avatar's loading animation behavior.
+   * When set to true, the loading animation is displayed indefinitely.
+   * When set to false, the avatar will not show any loading animations.
+   *
+   * By default, the loading animation will be shown only while the image is being fetched.
+   */
+  @Prop() loading?: boolean = false;
+
+  @State() imgIsFetching: boolean = true;
+
+  @Watch('showLoading')
+  showLoadingHandler(newValue: boolean) {
+    this.imgIsFetching = newValue;
+  }
+
+  handleImageLoad() {
+    if (!this.loading) {
+      this.imgIsFetching = false;
+    }
+  }
 
   renderAvatarBorder() {
     const isDashed = this.variant === 'dashed';
@@ -68,7 +97,6 @@ export class Avatar implements ComponentInterface {
     // Decode the base64 string, otherwise only the string value is displayed
     const decodedSvgContent = window.atob(svgContent.split(',')[1]);
 
-
     return <div class="ino-avatar__border" innerHTML={decodedSvgContent} />;
   }
   render() {
@@ -77,8 +105,8 @@ export class Avatar implements ComponentInterface {
       'ino-avatar--interactive': this.interactive,
       'ino-avatar--dashed': this.variant === 'dashed',
       'ino-avatar--solid': this.variant === 'solid',
+      'ino-avatar--loading': this.loading && this.imgIsFetching,
     });
-
     const hasIconSlot = hasSlotContent(this.el, 'icon-slot');
 
     const avatarBorder = this.renderAvatarBorder();
@@ -93,7 +121,15 @@ export class Avatar implements ComponentInterface {
         {avatarBorder}
         {this.src ? (
           <div class="ino-avatar__image image">
-            <img class="ino-avatar__image-inner" src={this.src} alt={this.alt}/>
+            {this.loading && this.imgIsFetching && (
+              <div class="skeleton-loader"></div>
+            )}
+            <img
+              class="ino-avatar__image-inner"
+              src={this.src}
+              alt={this.alt}
+              onLoad={() => this.handleImageLoad()}
+            />
           </div>
         ) : (
           <div class="ino-avatar__image initials">{this.initials}</div>

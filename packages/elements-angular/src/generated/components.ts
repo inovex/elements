@@ -69,14 +69,14 @@ Trigger on two occasions:
 
 
 @ProxyCmp({
-  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'src', 'variant']
+  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'loading', 'src', 'variant']
 })
 @Component({
   selector: 'ino-avatar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'src', 'variant'],
+  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'loading', 'src', 'variant'],
 })
 export class InoAvatar {
   protected el: HTMLElement;
