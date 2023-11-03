@@ -8,6 +8,10 @@ import {
 import { Locale_File } from '../../../../translations/types';
 import { getHighlighter } from 'shiki';
 import PreviewBox from './preview-box';
+import Page from 'components/layout/page';
+import useTranslation from 'utils/hooks/useTranslation';
+import styles from './index.module.scss';
+
 
 interface HighlightedCodes {
   [key: string]: string;
@@ -15,9 +19,14 @@ interface HighlightedCodes {
 
 interface PatternsPageProps {
   highlightedCodes: HighlightedCodes;
+  codeStrings: any;
 }
 
-const MockupLogin: React.FC = () => <div style={{background: "hotpink", height: '300px'}}>Mockup component for login</div>;
+const MockupLogin: React.FC = () => (
+  <div style={{ background: 'hotpink', height: '100px' }}>
+    Boilerplate stuff
+  </div>
+);
 
 const MockupSignUp: React.FC = () => <div>Mockup component for signup</div>;
 
@@ -29,15 +38,32 @@ async function highlightCodeWithShiki(code: string) {
   });
 }
 
-const PatternsPage: NextPage<PatternsPageProps> = ({ highlightedCodes }) => {
+const PatternsPage: NextPage<PatternsPageProps> = ({
+  highlightedCodes,
+  codeStrings,
+}) => {
+  const { t } = useTranslation();
+
   return (
-    <div>
-      <h1>Design Pattern</h1>
+    <Page title={[t('common.meta.library')]}>
+      <div className={styles.header}>
+        <h5 className="title-m">Lorem ipsum dolor sit amet.</h5>
+        <h1 className="header-d3">
+          <b>Design Pattern</b>
+        </h1>
+        <p className="body-l">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua.
+        </p>
+        <div className={styles.divider} />
+      </div>
       <PreviewBox
         title="Login"
-        description="Lorem ipsum for login..."
+        description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
         previewComponent={<MockupLogin />}
         highlightedCode={highlightedCodes.login}
+        rawCode={codeStrings.login}
       />
 
       <PreviewBox
@@ -45,49 +71,28 @@ const PatternsPage: NextPage<PatternsPageProps> = ({ highlightedCodes }) => {
         description="Lorem ipsum for signup..."
         previewComponent={<MockupSignUp />}
         highlightedCode={highlightedCodes.signup}
+        rawCode={codeStrings.signup}
       />
-    </div>
+    </Page>
   );
 };
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const codeStrings = {
     login: `
-  <div class="container mx-auto px-4 py-5">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      
-      <!-- Card 1 -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <img src="https://placeimg.com/400/250/nature" alt="Nature Image" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-xl font-semibold mb-2">Nature Beauty</h2>
-          <p class="text-gray-600 mb-3">Experience the breathtaking scenes of nature's beauty in every corner of the world.</p>
-          <a href="#" class="text-blue-500 hover:underline">Read more</a>
-        </div>
-      </div>
-      
-      <!-- Card 2 -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <img src="https://placeimg.com/400/250/architecture" alt="Architecture Image" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-xl font-semibold mb-2">Modern Architecture</h2>
-          <p class="text-gray-600 mb-3">Explore the world's most fascinating architectural marvels, from ancient to modern.</p>
-          <a href="#" class="text-blue-500 hover:underline">Read more</a>
-        </div>
-      </div>
-      
-      <!-- Card 3 -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <img src="https://placeimg.com/400/250/tech" alt="Tech Image" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-xl font-semibold mb-2">Tech Innovations</h2>
-          <p class="text-gray-600 mb-3">Stay updated with the latest technology trends and innovations shaping the future.</p>
-          <a href="#" class="text-blue-500 hover:underline">Read more</a>
-        </div>
-      </div>
-  
-    </div>
-  </div>
-  `,
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HTML 5 Boilerplate</title>
+        <link rel="stylesheet" href="style.css">
+      </head>
+      <body>
+      <script src="index.js"></script>
+      </body>
+    </html>
+    `,
     signup: '<div>Mockup component for signup</div>',
   };
 
@@ -100,11 +105,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   for (const [label, code] of Object.entries(codeStrings)) {
     highlightedCodes[label] = await highlightCodeWithShiki(code);
   }
-
   return {
     props: {
       ...languageProperties,
       highlightedCodes,
+      codeStrings,
     },
   };
 };

@@ -2,24 +2,70 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  margin-top: 54px;
+
+  h1,
+  p {
+    margin: 0;
+    color: var(--inovex-elements-n-11);
+  }
+
+  p {
+    margin-top: 15px;
+  }
 }
 
 .segmentGroup {
-  justify-content: flex-end;
   display: flex;
-  padding-bottom: 14px;
+  justify-content: flex-end;
+  align-items: center;
   max-width: 100%;
+  margin: 29px 0 14px;
+
+  span {
+    display: flex;
+    align-items: flex-end;
+
+    ino-icon {
+      margin-right: 7.5px;
+    }
+  }
 }
 
-.segmentButton {
+.unselectedIcon,
+.copyIcon {
+  --ino-icon-color: var(--inovex-elements-n-3);
+  transition: transform 0.3s ease;
+}
+
+.copyIcon {
+  --ino-icon-height: 24px;
+  --ino-icon-width: 24px;
+
+  &:hover {
+    --ino-icon-color: #3b14f9; // text-active color of ino-segment-button
+    transform: rotate(-10deg);
+    cursor: pointer;
+  }
+}
+
+.popover {
+  padding: 6px 12px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  column-gap: 10px;
+  color: black;
+}
+
+.divider {
+  height: 30px;
+  width: 1px;
+  background-color: var(--inovex-elements-n-3);
+  margin: 0 16px;
 }
 
 .previewBox {
   display: flex;
-
   border-radius: 30px;
 
   &.previewMode {
@@ -45,14 +91,11 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  overflow-y: hidden;
-  overflow-x: auto;
-  // TODO: what fonts are we going to use?
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, //TODO: what fonts do we want to use?
     Liberation Mono, Courier New, monospace;
   font-size: 14px;
 
-  // Scrollbar styling
   &::-webkit-scrollbar {
     height: 4px;
   }
@@ -64,6 +107,7 @@
   &::-webkit-scrollbar-thumb {
     background-color: #666;
     border-radius: 2px;
+
     &:hover {
       background-color: #555;
     }
