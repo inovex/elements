@@ -12,15 +12,14 @@ export default {
   title: 'Graphic/<ino-avatar>',
   component: 'ino-avatar',
   decorators: [
-    story => decorateStoryWithClass(story, 'story-avatar'),
-    story => {
+    (story) => decorateStoryWithClass(story, 'story-avatar'),
+    (story) => {
       useEffect(() => {
-        const handleCheckedChange = e => {
+        const handleCheckedChange = (e) => {
           const checkbox: HTMLInoCheckboxElement = e.target;
           const parentDiv = checkbox.closest('div');
-          const avatar: HTMLInoAvatarElement = parentDiv.querySelector(
-            'ino-avatar'
-          );
+          const avatar: HTMLInoAvatarElement =
+            parentDiv.querySelector('ino-avatar');
           checkbox.checked = e.detail;
           avatar.setAttribute('loading', checkbox.checked);
           if (checkbox.indeterminate) {
@@ -29,12 +28,12 @@ export default {
         };
 
         const checkboxes = document.querySelectorAll('ino-checkbox');
-        checkboxes.forEach(c =>
-          c.addEventListener('checkedChange', handleCheckedChange)
+        checkboxes.forEach((c) =>
+          c.addEventListener('checkedChange', handleCheckedChange),
         );
         return () =>
-          checkboxes.forEach(c =>
-            c.removeEventListener('checkedChange', handleCheckedChange)
+          checkboxes.forEach((c) =>
+            c.removeEventListener('checkedChange', handleCheckedChange),
           );
       });
       return story();
@@ -55,7 +54,7 @@ export default {
 // The basic template for the avatar component
 const template = new TemplateGenerator<Components.InoAvatar>(
   'ino-avatar',
-  args => html`
+  (args) => html`
     <ino-avatar
       initials="${args.initials}"
       interactive="${args.interactive}"
@@ -67,7 +66,7 @@ const template = new TemplateGenerator<Components.InoAvatar>(
       .loading="${args.loading}"
     >
     </ino-avatar>
-`
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();
@@ -75,13 +74,13 @@ export const Playground = template.generatePlaygroundStory();
 export const Interactive = template.generateStoryForProp('interactive', true);
 export const ColorSecondary = template.generateStoryForProp(
   'colorSecondary',
-  true
+  true,
 );
 export const VariantDashed = template.generateStoryForProp('variant', 'dashed');
 export const VariantDashedInteractive = template.generateStoryForProp(
   'variant',
   'dashed',
-  { interactive: true }
+  { interactive: true },
 );
 /*
  The initials of the avatar if the `src` is not defined or `img` fails to load.
@@ -115,7 +114,7 @@ export const WithIcon = () => {
         icon="checkmark"
       ></ino-icon>
     </ino-avatar>
-`;
+  `;
 };
 
 export const LoadingAvatar = (args: Components.InoAvatar) => {
@@ -136,5 +135,5 @@ export const LoadingAvatar = (args: Components.InoAvatar) => {
         >Loading</ino-checkbox
       >
     </div>
-`;
+  `;
 };

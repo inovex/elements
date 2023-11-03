@@ -7,21 +7,22 @@ import { ValueAccessor } from './value-accessor';
   /* tslint:disable-next-line:directive-selector */
   selector: 'ino-checkbox, ino-control-item[role="checkbox"], ino-switch',
   host: {
-    '(checkedChange)': 'handleChangeEvent($event.target.checked)'
+    '(checkedChange)': 'handleChangeEvent($event.target.checked)',
   },
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: BooleanValueAccessor,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class BooleanValueAccessor extends ValueAccessor {
   constructor(el: ElementRef) {
     super(el);
   }
   writeValue(value: any) {
-    this.el.nativeElement.checked = this.lastValue = value == null ? false : value;
+    this.el.nativeElement.checked = this.lastValue =
+      value == null ? false : value;
   }
 }

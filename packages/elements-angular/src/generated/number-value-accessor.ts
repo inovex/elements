@@ -9,22 +9,22 @@ import { ValueAccessor } from './value-accessor';
   host: {
     '(valueChange)': 'handleChangeEvent($event.target.value)',
     '(valueStartChange)': 'handleChangeEvent($event.target.valueStart)',
-    '(valueEndChange)': 'handleChangeEvent($event.target.valueEnd)'
+    '(valueEndChange)': 'handleChangeEvent($event.target.valueEnd)',
   },
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: NumericValueAccessor,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class NumericValueAccessor extends ValueAccessor {
   constructor(el: ElementRef) {
     super(el);
   }
   registerOnChange(fn: (_: number | null) => void) {
-    super.registerOnChange(value => {
+    super.registerOnChange((value) => {
       fn(value === '' ? null : parseFloat(value));
     });
   }

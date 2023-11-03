@@ -33,7 +33,7 @@ import { TextValueAccessor } from './generated/text-value-accessor';
 })
 export class InoElementsModule {
   static forRoot(
-    config?: InoElementsConfig
+    config?: InoElementsConfig,
   ): ModuleWithProviders<InoElementsModule> {
     return {
       ngModule: InoElementsModule,

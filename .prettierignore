@@ -3,10 +3,13 @@ dist/
 www/
 vendor/
 
+.nx-cache/
 .stencil/
 .idea/
 .vscode/
 node_modules/
+**/.next/
+**/out/
 
 *.mdx
 

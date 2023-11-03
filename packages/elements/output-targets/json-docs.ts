@@ -31,4 +31,4 @@ const JsonDocs: OutputTargetDocsCustom = {
   },
 };
 
-export default JsonDocs
+export default JsonDocs;

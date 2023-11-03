@@ -32,13 +32,19 @@ async function main() {
 
   targets.forEach((target) => {
     // link @inovex.de/elements dependency
-    shell.exec('yalc add @inovex.de/elements', { cwd: `packages/elements-${target}` });
+    shell.exec('yalc add @inovex.de/elements', {
+      cwd: `packages/elements-${target}`,
+    });
     shell.exec('yarn install', { cwd: `packages/elements-${target}` });
     shell.exec(`nx run elements-${target}:build`);
     // publish target package
-    shell.exec('yalc publish --no-sig --push', { cwd: `packages/elements-${target}` });
+    shell.exec('yalc publish --no-sig --push', {
+      cwd: `packages/elements-${target}`,
+    });
     // Clean up
-    shell.exec('yalc remove @inovex.de/elements', { cwd: `packages/elements-${target}` });
+    shell.exec('yalc remove @inovex.de/elements', {
+      cwd: `packages/elements-${target}`,
+    });
   });
 }
 
