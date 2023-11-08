@@ -991,14 +991,14 @@ export declare interface InoRange extends Components.InoRange {
 
 
 @ProxyCmp({
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value']
+  inputs: ['checked', 'dense', 'disabled', 'name', 'type', 'value']
 })
 @Component({
   selector: 'ino-segment-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value'],
+  inputs: ['checked', 'dense', 'disabled', 'name', 'type', 'value'],
 })
 export class InoSegmentButton {
   protected el: HTMLElement;

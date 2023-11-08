@@ -433,6 +433,7 @@ export const InoSegmentButton = /*@__PURE__*/ defineContainer<JSX.InoSegmentButt
   'dense',
   'name',
   'value',
+  'type',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');

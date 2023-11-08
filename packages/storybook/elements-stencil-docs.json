@@ -8548,6 +8548,27 @@
           "required": false
         },
         {
+          "name": "type",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of the internal button in the element.\nThis can be 'submit', 'reset', or 'button'.\nIf not specified, the default type is 'submit'.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "value",
           "type": "string",
           "complexType": {
