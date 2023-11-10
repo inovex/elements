@@ -1247,6 +1247,10 @@ export namespace Components {
          */
         "label"?: string;
         /**
+          * The ID of the associated content panel. This prop is specifically used in conjunction with the `ino-tab-bar`. It links the tab to its content panel for accessibility, adhering to WAI-ARIA practices for the tabpanel role. See: https://w3c.github.io/aria/#tabpanel
+         */
+        "panelId"?: string;
+        /**
           * Indicates that the tab icon and label should flow vertically instead of horizontally.
          */
         "stacked": boolean;
@@ -3262,6 +3266,10 @@ declare namespace LocalJSX {
           * Emitted when the user interacts with the tab. This event is used by the ino-tab-bar.
          */
         "onInteracted"?: (event: InoTabCustomEvent<any>) => void;
+        /**
+          * The ID of the associated content panel. This prop is specifically used in conjunction with the `ino-tab-bar`. It links the tab to its content panel for accessibility, adhering to WAI-ARIA practices for the tabpanel role. See: https://w3c.github.io/aria/#tabpanel
+         */
+        "panelId"?: string;
         /**
           * Indicates that the tab icon and label should flow vertically instead of horizontally.
          */

@@ -1159,14 +1159,14 @@ export declare interface InoSwitch extends Components.InoSwitch {
 
 
 @ProxyCmp({
-  inputs: ['icon', 'indicatorContentWidth', 'label', 'stacked']
+  inputs: ['icon', 'indicatorContentWidth', 'label', 'panelId', 'stacked']
 })
 @Component({
   selector: 'ino-tab',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['icon', 'indicatorContentWidth', 'label', 'stacked'],
+  inputs: ['icon', 'indicatorContentWidth', 'label', 'panelId', 'stacked'],
 })
 export class InoTab {
   protected el: HTMLElement;

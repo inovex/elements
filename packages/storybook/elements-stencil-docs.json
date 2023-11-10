@@ -9560,6 +9560,28 @@
           "required": false
         },
         {
+          "name": "panelId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "panel-id",
+          "reflectToAttr": true,
+          "docs": "The ID of the associated content panel. This prop is specifically used in conjunction with the `ino-tab-bar`. It links the tab to its content panel for accessibility, adhering to WAI-ARIA practices for the tabpanel role. See: https://w3c.github.io/aria/#tabpanel",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "stacked",
           "type": "boolean",
           "complexType": {

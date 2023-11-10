@@ -30,13 +30,6 @@ export class TabBar implements ComponentInterface {
    */
   @Prop() activeTab?: number = 0;
 
-  @Watch('activeTab')
-  activeTabChangedWatcher(newTabIndex: number) {
-    if (this.mdcInstance) {
-      this.mdcInstance.activateTab(newTabIndex);
-    }
-  }
-
   /**
    * Autofocus of tab on activation.
    */
@@ -48,10 +41,34 @@ export class TabBar implements ComponentInterface {
    */
   @Event() activeTabChange!: EventEmitter;
 
+  @Watch('activeTab')
+  activeTabChangedWatcher(newTabIndex: number) {
+    if (this.mdcInstance) {
+      this.mdcInstance.activateTab(newTabIndex);
+      this.updateTabsAriaSelected(newTabIndex);
+    }
+  }
+
+  private updateTabsAriaSelected(activeTabIndex: number) {
+    const tabs = Array.from(this.el.querySelectorAll('ino-tab'));
+    tabs.forEach((tab, index) => {
+      const isSelected = index === activeTabIndex;
+      const panelId = (tab as HTMLInoTabElement).panelId;
+
+      const buttonElement = tab.querySelector('button');
+
+      buttonElement.setAttribute('aria-selected', isSelected.toString());
+      if (panelId) {
+        buttonElement.setAttribute('aria-controls', panelId);
+      }
+    });
+  }
+
   componentDidLoad() {
     this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
     this.mdcInstance.focusOnActivate = this.autoFocus;
     this.mdcInstance.activateTab(this.activeTab);
+    this.updateTabsAriaSelected(this.activeTab);
   }
 
   disconnectedCallback() {
@@ -66,12 +83,13 @@ export class TabBar implements ComponentInterface {
     );
     const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
     this.activeTabChange.emit(indexOfActivatedTab);
+    this.updateTabsAriaSelected(indexOfActivatedTab);
   }
 
   render() {
     return (
       <Host>
-        <div class="mdc-tab-bar" role="tablist">
+        <div class="mdc-tab-bar" role="tablist" aria-orientation="horizontal">
           <div class="mdc-tab-scroller">
             <div class="mdc-tab-scroller__scroll-area">
               <div class="mdc-tab-scroller__scroll-content">

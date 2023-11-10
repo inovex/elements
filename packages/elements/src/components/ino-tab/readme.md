@@ -74,12 +74,13 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property                | Attribute                 | Description                                                                                                                                    | Type      | Default     |
-| ----------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `icon`                  | `icon`                    | Indicates a leading icon in the tab.                                                                                                           | `string`  | `undefined` |
-| `indicatorContentWidth` | `indicator-content-width` | Indicates that the tab only expands to the width of its content.                                                                               | `boolean` | `false`     |
-| `label`                 | `label`                   | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead. Indicates a label text in the tab. | `string`  | `undefined` |
-| `stacked`               | `stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally.                                                          | `boolean` | `false`     |
+| Property                | Attribute                 | Description                                                                                                                                                                                                                                                            | Type      | Default     |
+| ----------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `icon`                  | `icon`                    | Indicates a leading icon in the tab.                                                                                                                                                                                                                                   | `string`  | `undefined` |
+| `indicatorContentWidth` | `indicator-content-width` | Indicates that the tab only expands to the width of its content.                                                                                                                                                                                                       | `boolean` | `false`     |
+| `label`                 | `label`                   | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.                                                                                                                         | `string`  | `undefined` |
+| `panelId`               | `panel-id`                | The ID of the associated content panel. This prop is specifically used in conjunction with the `ino-tab-bar`. It links the tab to its content panel for accessibility, adhering to WAI-ARIA practices for the tabpanel role. See: https://w3c.github.io/aria/#tabpanel | `string`  | `''`        |
+| `stacked`               | `stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally.                                                                                                                                                                                  | `boolean` | `false`     |
 
 
 ## Events
