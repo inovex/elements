@@ -1117,6 +1117,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * The type of the internal button in the element. This can be 'submit', 'reset', or 'button'. If not specified, the default type is 'submit'.
+         */
+        "type"?: string;
+        /**
           * Value of the element
          */
         "value"?: string;
@@ -3108,6 +3112,10 @@ declare namespace LocalJSX {
           * Emits if the user interacts with the button. If the button is disabled or checked, the event will not be emitted.
          */
         "onCheckedChange"?: (event: InoSegmentButtonCustomEvent<any>) => void;
+        /**
+          * The type of the internal button in the element. This can be 'submit', 'reset', or 'button'. If not specified, the default type is 'submit'.
+         */
+        "type"?: string;
         /**
           * Value of the element
          */
