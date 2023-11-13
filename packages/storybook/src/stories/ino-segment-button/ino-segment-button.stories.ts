@@ -23,6 +23,7 @@ export default {
     disabled: false,
     name: '',
     value: '',
+    type: '',
   },
 } as Meta<Components.InoSegmentButton>;
 
@@ -40,6 +41,7 @@ const template = new TemplateGenerator<Components.InoSegmentButton>(
       disabled="${args.disabled}"
       name="${args.name}"
       value="${args.value}"
+      type="${args.type}"
       @checkedChange="${checkedChangeHandler}"
     >
       Segment Button Label

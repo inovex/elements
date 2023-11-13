@@ -51,6 +51,13 @@ export class InoSegmentButton implements ComponentInterface {
   @Prop() value?: string;
 
   /**
+   * The type of the internal button in the element.
+   * This can be 'submit', 'reset', or 'button'.
+   * If not specified, the default type is 'submit'.
+   */
+  @Prop() type?: string;
+
+  /**
    * Emits if the user interacts with the button.
    * If the button is disabled or checked, the event will not be emitted.
    */
@@ -86,6 +93,7 @@ export class InoSegmentButton implements ComponentInterface {
           disabled={this.disabled}
           id={this.buttonId}
           name={this.name}
+          type={this.type}
         >
           <slot></slot>
         </button>
