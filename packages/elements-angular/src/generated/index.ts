@@ -1,3 +1,4 @@
+
 import * as d from './components';
 
 export const DIRECTIVES = [
@@ -48,5 +49,5 @@ export const DIRECTIVES = [
   d.InoTable,
   d.InoTableHeaderCell,
   d.InoTextarea,
-  d.InoTooltip,
+  d.InoTooltip
 ];

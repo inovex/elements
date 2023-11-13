@@ -7,15 +7,9 @@ export type StencilReactExternalProps<PropType, ElementType> = PropType &
   StyleReactProps;
 
 // This will be replaced with React.ForwardedRef when react-output-target is upgraded to React v17
-export type StencilReactForwardedRef<T> =
-  | ((instance: T | null) => void)
-  | React.MutableRefObject<T | null>
-  | null;
+export type StencilReactForwardedRef<T> = ((instance: T | null) => void) | React.MutableRefObject<T | null> | null;
 
-export const setRef = (
-  ref: StencilReactForwardedRef<any> | React.Ref<any> | undefined,
-  value: any,
-) => {
+export const setRef = (ref: StencilReactForwardedRef<any> | React.Ref<any> | undefined, value: any) => {
   if (typeof ref === 'function') {
     ref(value);
   } else if (ref != null) {
