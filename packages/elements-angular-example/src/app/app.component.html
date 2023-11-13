@@ -1,6 +1,6 @@
 <div class="header-h1">Simple ToDo</div>
 
-<div class="app-wrapper" [formGroup]="form">
+<form class="app-wrapper" [formGroup]="form">
   <div class="action-box">
     <ino-input
       formControlName="todoName"
@@ -36,7 +36,7 @@
     [viewMode]="mode"
     [initialValue]="myText"
   ></ino-markdown-editor>
-</div>
+</form>
 
 <div class="btn-box">
   <ino-button (click)="toggleInputState()"
