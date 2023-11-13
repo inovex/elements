@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import {
-  InoSegmentGroup,
-  InoSegmentButton,
   InoIcon,
   InoPopover,
+  InoSegmentButton,
+  InoSegmentGroup,
 } from '@elements';
 import styles from './preview-box.module.scss';
 
@@ -27,7 +27,13 @@ export default function PreviewBox({
   const [copyIcon, setCopyIcon] = useState<string>('copy');
   const [visiblePopover, setVisiblePopover] = useState<boolean>(false);
 
-  const previewBoxRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
+
+  const previewBoxHeight = useMemo(() => {
+    if(!previewRef.current) return 0
+
+    return previewRef.current.getBoundingClientRect().height
+  }, [previewRef.current])
 
   const handleMouseEnter = (value: string) => {
     setHoveredButton(value);
@@ -49,22 +55,6 @@ export default function PreviewBox({
       navigator.clipboard.writeText(rawCode);
     }
   };
-
-  useEffect(() => {
-    // adjust height of preview box to match code
-    if (previewBoxRef.current) {
-      if (selectedValue === 'Code') {
-        const preElement = previewBoxRef.current.querySelector('pre');
-        if (preElement) {
-          previewBoxRef.current.style.height = `${
-            preElement.scrollHeight + 40
-          }px`;
-        }
-      } else if (selectedValue === 'Preview') {
-        previewBoxRef.current.style.height = '';
-      }
-    }
-  }, [selectedValue]);
 
   return (
     <div className={styles.patternsWrapper}>
@@ -137,19 +127,20 @@ export default function PreviewBox({
         }`}
         style={{
           background: selectedValue === 'Code' ? '#1E1E1E' : '#ffffff80',
-          padding: selectedValue === 'Code' ? '16px' : '2rem',
+          padding: selectedValue === 'Code' ? '16px' : '16px',
         }}
-        ref={previewBoxRef}
       >
-        {selectedValue === 'Preview' && (
-          <div>{previewComponent}</div>
-        )}
-        {selectedValue === 'Code' && (
-          <div
-            className={styles.code}
-            dangerouslySetInnerHTML={{ __html: highlightedCode }}
-          ></div>
-        )}
+        <div
+          ref={previewRef}
+          style={{ display: selectedValue === 'Preview' ? 'block' : 'none' }}
+        >
+          {previewComponent}
+        </div>
+        <div
+          style={{ display: selectedValue === 'Code' ? 'block' : 'none', height: previewBoxHeight }}
+          className={styles.code}
+          dangerouslySetInnerHTML={{ __html: highlightedCode }}
+        ></div>
       </div>
     </div>
   );
