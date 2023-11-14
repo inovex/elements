@@ -65,6 +65,7 @@
     "@angular/compiler-cli": "~15.1.0",
     "@angular/language-service": "~15.1.0",
     "@nx/angular": "17.1.2",
+    "@nx/eslint": "^17.1.2",
     "@nx/eslint-plugin": "17.1.2",
     "@nx/storybook": "17.1.2",
     "@types/css-font-loading-module": "^0.0.7",

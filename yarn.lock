@@ -5300,7 +5300,7 @@
     semver "7.5.3"
     tslib "^2.3.0"
 
-"@nx/eslint@17.1.2":
+"@nx/eslint@17.1.2", "@nx/eslint@^17.1.2":
   version "17.1.2"
   resolved "https://registry.npmjs.org/@nx/eslint/-/eslint-17.1.2.tgz#27e92a804e9941ae9616e2914ead94c05b3d5918"
   integrity sha512-SDwx6P0HMzLURzbmUCPxvvkGBIhBIEujsvTCnaRsWJIKmrYKJjv4ENWqjZZSOMgP5gU2HjQFaWtRicjbdcu9Tg==
