@@ -17,3 +17,5 @@ proxies-list.ts
 proxies.ts
 utils.ts
 CHANGELOG.md
+
+/.nx/cache

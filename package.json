@@ -64,10 +64,9 @@
     "@angular/cli": "~15.1.0",
     "@angular/compiler-cli": "~15.1.0",
     "@angular/language-service": "~15.1.0",
-    "@nrwl/angular": "15.9.7",
-    "@nrwl/eslint-plugin-nx": "15.9.7",
-    "@nrwl/nx": "^7.8.7",
-    "@nrwl/storybook": "15.9.7",
+    "@nx/angular": "17.1.2",
+    "@nx/eslint-plugin": "17.1.2",
+    "@nx/storybook": "17.1.2",
     "@types/css-font-loading-module": "^0.0.7",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "26.0.24",
@@ -86,7 +85,7 @@
     "lerna": "^5.5.2",
     "lint-staged": "^10.5.3",
     "ng-packagr": "~15.1.0",
-    "nx": "15.9.7",
+    "nx": "17.1.2",
     "postcss": "^8.4.5",
     "postcss-import": "~14.1.0",
     "postcss-preset-env": "~7.5.0",
@@ -134,4 +133,3 @@
   "name": "core",
   "version": "8.1.3"
 }
-
