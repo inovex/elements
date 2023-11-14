@@ -7,13 +7,16 @@ import { MainRoutes } from 'utils/routes';
 import styles from './header.module.scss';
 import InstallChips from './install-chips';
 import { MyPatternA } from '@inovex.de/ui-patterns';
+import htmlString from 'public/my-pattern-a.html';
+
 
 export default function Header() {
   const { t, locale } = useTranslation();
+  console.log(htmlString)
   return (
     <>
       <div className={styles.container}>
-        <MyPatternA onHtmlLoad={console.log}></MyPatternA>
+        <MyPatternA />
         <div className={styles.image}>
           <Image
             width={663}

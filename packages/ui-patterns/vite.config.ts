@@ -6,9 +6,10 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [
-    react({ jsxRuntime: 'classic' }),
+    react(), // in case of error use { jsxRuntime: 'classic' }
     viteStaticCopy({
       targets: [{ src: 'src/patterns/**/**/*.html', dest: 'patterns-html' }],
+      // TODO: copy html files to landingpage/public/patterns
     }),
     dts({
       outDir: 'dist/types',
@@ -20,6 +21,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       formats: ['es']
     },
+    /* TODO: optimize bundle by externalizing react
     rollupOptions: {
       external: ['react', 'react-dom', '@inovex.de/elements-react', 'react/jsx-runtime'],
       output: {
@@ -31,5 +33,6 @@ export default defineConfig({
         },
       },
     },
+     */
   },
 });

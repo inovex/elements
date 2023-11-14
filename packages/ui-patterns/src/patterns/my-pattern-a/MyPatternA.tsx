@@ -1,8 +1,8 @@
 import htmlContent from './my-pattern-a.html?raw';
-import PatternWrapper, {WithWrapperProps} from '../PatternWrapper';
+import PatternWrapper from '../PatternWrapper';
 
-function MyPatternA(props: WithWrapperProps) {
-  return <PatternWrapper htmlContent={htmlContent} {...props} />;
+function MyPatternA() {
+  return <PatternWrapper htmlContent={htmlContent} />;
 }
 
 export default MyPatternA;
