@@ -8,8 +8,12 @@ export default defineConfig({
   plugins: [
     react(), // in case of error use { jsxRuntime: 'classic' }
     viteStaticCopy({
-      targets: [{ src: 'src/patterns/**/**/*.html', dest: 'patterns-html' }],
-      // TODO: copy html files to landingpage/public/patterns
+      targets: [
+        {
+          src: 'src/patterns/**/**/*.html',
+          dest: '../../landingpage/public/patterns-html',
+        },
+      ],
     }),
     dts({
       outDir: 'dist/types',
@@ -19,7 +23,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      formats: ['es']
+      formats: ['es'],
     },
     /* TODO: optimize bundle by externalizing react
     rollupOptions: {
