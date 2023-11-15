@@ -4,7 +4,7 @@ This package is a dedicated library for UI patterns, designed to accelerate the 
 
 ## Motivation
 
-The primary goal of this library is to provide users with a collection of common UI patterns to facilitate rapid and efficient UI development. These patterns demonstrate the versatility of the inovex Elements components and aim to inspire users in crafting visually appealing web applications.
+The primary goal of this library is to provide users with a collection of common UI patterns to facilitate rapid and efficient UI development. These patterns demonstrate the versatility of the inovex Elements web components and aim to inspire users in crafting visually appealing web applications.
 
 ## How It Works Internally
 
@@ -22,12 +22,12 @@ The `@inovex.de/ui-patterns` package utilizes a Vite-based application to manage
 
 - **Integration with Landing Page**:
   - The `@inovex.de/ui-patterns` is installed into the our`landingpage` package as a dependency.
-  - Developers and Contributors can then easily import individual patterns from this compiled library into the landing page project using standard module imports.
+  - Developers and contributors can then easily import individual patterns from this compiled library into the landing page project using standard module imports.
 
 
 ## Contributing
 
-To contribute a new UI pattern:
+To begin contributing a new UI pattern, initiate the Vite application server by running the `start:ui-patterns` command.
 
 1. Navigate to `ui-patterns/src/patterns` and create a new folder for your pattern.
 2. Inside this folder, create an HTML file with the Tailwind-styled UI pattern using `inovex-elements` components. 
@@ -56,9 +56,9 @@ To contribute a new UI pattern:
 
    export default MyPatternA;
    ```
-4. Run the build:ui-patterns command. The Vite configuration will handle the copying of HTML code to the landingpage and ensure proper integration of the React component.
+4. Run the `build:ui-patterns` command. The Vite configuration will handle the copying of HTML code to the landingpage and ensure proper integration of the React component.
 
-5. Import the new pattern component and its HTML content at the beginning of the landingpage pattern page:
+5. Finally, import the new pattern component and its HTML content at the beginning of the landingpage pattern page:
 
    ```js
    // landingpage/pages/library/patterns/index.tsx
