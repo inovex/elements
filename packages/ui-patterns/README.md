@@ -1,10 +1,10 @@
 # @inovex.de/ui-patterns
 
-This package, `@inovex.de/ui-patterns`, is a dedicated library for UI patterns, designed to accelerate the development of beautifully crafted web applications. It leverages the power of our `inovex Elements` web components, styled with Tailwind CSS.
+This package is a dedicated library for UI patterns, designed to accelerate the development of beautifully crafted web applications. It leverages the power of our inovex Elements web components, styled with Tailwind CSS.
 
 ## Motivation
 
-The primary goal of this library is to provide users with a collection of common UI patterns, such as login forms, to facilitate rapid and efficient UI development. These patterns demonstrate the versatility of `inovex Elements` components and aim to inspire users in crafting visually appealing web applications.
+The primary goal of this library is to provide users with a collection of common UI patterns to facilitate rapid and efficient UI development. These patterns demonstrate the versatility of the inovex Elements components and aim to inspire users in crafting visually appealing web applications.
 
 ## How It Works Internally
 
