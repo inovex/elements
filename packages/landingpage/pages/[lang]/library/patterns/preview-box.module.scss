@@ -69,20 +69,23 @@
   border-radius: 30px;
 
   &.previewMode {
-    padding: 2rem;
+    padding: 0.5rem;
     align-items: center;
     justify-content: center;
     border: 2px solid var(--inovex-elements-n-2);
+    background: #ffffff80;
   }
 
   &.codeMode {
+    padding: 0.5rem;
     align-items: flex-start;
     justify-content: flex-start;
+    border: 2px solid #22272e;
+    background: #22272e;
   }
 
   pre {
     margin: 0;
-    border-radius: 30px;
   }
 }
 
@@ -92,7 +95,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, //TODO: what fonts do we want to use?
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
   font-size: 14px;
 
@@ -102,11 +105,12 @@
 
   &::-webkit-scrollbar-track {
     background-color: #2e2e2e;
+    border-radius: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: #666;
-    border-radius: 2px;
+    border-radius: 4px;
 
     &:hover {
       background-color: #555;
