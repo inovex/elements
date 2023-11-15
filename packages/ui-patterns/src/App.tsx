@@ -3,7 +3,8 @@ import MyPattern from './patterns/my-pattern-a/MyPatternA';
 
 function App() {
   return (
-    <div className="App">
+    //TODO: add a navigation/ino-tab-bar to encapsulate the patterns and improve developer experience
+    <div>
       <MyPattern />
     </div>
   );
