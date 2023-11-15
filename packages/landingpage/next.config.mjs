@@ -63,7 +63,7 @@ const withMDX = nextMdx({
         remarkCodeHike,
         {
           autoImport: false,
-          theme: "dark-plus",
+          theme: "github-dark-dimmed",
           showCopyButton: true,
         },
       ],

@@ -11,7 +11,8 @@ import PreviewBox from './preview-box';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
 import styles from './index.module.scss';
-
+import Custom404 from 'pages/[lang]/404';
+import { inDevEnvironment } from 'utils/in-dev-mode';
 
 interface HighlightedCodes {
   [key: string]: string;
@@ -23,7 +24,7 @@ interface PatternsPageProps {
 }
 
 const MockupLogin: React.FC = () => (
-  <div style={{ background: 'hotpink', height: '100px' }}>
+  <div style={{ background: 'hotpink', height: '200px' }}>
     Boilerplate stuff
   </div>
 );
@@ -31,10 +32,10 @@ const MockupLogin: React.FC = () => (
 const MockupSignUp: React.FC = () => <div>Mockup component for signup</div>;
 
 async function highlightCodeWithShiki(code: string) {
-  const highlighter = await getHighlighter({ theme: 'dark-plus' });
+  const highlighter = await getHighlighter({ theme: 'github-dark-dimmed' });
   return highlighter.codeToHtml(code, {
     lang: 'html',
-    theme: 'dark-plus',
+    theme: 'github-dark-dimmed',
   });
 }
 
@@ -43,6 +44,10 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
   codeStrings,
 }) => {
   const { t } = useTranslation();
+  //TODO: Remove this  check when we implemented the first official pattern
+  if (!inDevEnvironment) {
+    return <Custom404 />;
+  }
 
   return (
     <Page title={[t('common.meta.library')]}>
@@ -60,18 +65,11 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
       </div>
       <PreviewBox
         title="Login"
+        id="login"
         description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
         previewComponent={<MockupLogin />}
         highlightedCode={highlightedCodes.login}
         rawCode={codeStrings.login}
-      />
-
-      <PreviewBox
-        title="Signup"
-        description="Lorem ipsum for signup..."
-        previewComponent={<MockupSignUp />}
-        highlightedCode={highlightedCodes.signup}
-        rawCode={codeStrings.signup}
       />
     </Page>
   );
@@ -93,7 +91,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       </body>
     </html>
     `,
-    signup: '<div>Mockup component for signup</div>',
   };
 
   const { props: languageProperties } = getStaticLanguageProps(
