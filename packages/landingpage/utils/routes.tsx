@@ -1,3 +1,5 @@
+import { inDevEnvironment } from './in-dev-mode';
+
 type RouteTree = MainRoute[];
 
 type Route = {
@@ -45,8 +47,37 @@ export enum SubRoutes {
   ABOUT_ACTIVITY = 'activity',
 }
 
+const productionModeExcludedSubroutes: { [key: string]: string[] } = {
+  library: ['patterns'],
+  // 'anotherMainRoute': ['subroute1', 'subroute2']
+};
+
+function filterSubroutesInProduction(
+  route: MainRoute,
+  isProductionMode: boolean
+): MainRoute {
+  const subroutesToFilter = productionModeExcludedSubroutes[route.key];
+
+  if (subroutesToFilter && isProductionMode) {
+    const filteredSubRoutes = route.subRoutes.filter(
+      (subRoute) => !subroutesToFilter.includes(subRoute.key)
+    );
+
+    return {
+      ...route,
+      subRoutes: filteredSubRoutes,
+    };
+  }
+  return route;
+}
+
+function applyProductionRouteFiltering(routes: RouteTree): RouteTree {
+  return routes.map((route) =>
+    filterSubroutesInProduction(route, !inDevEnvironment)
+  );
+}
 // TODO: create meaningful routes
-export const Routes: RouteTree = [
+const allRoutes: RouteTree = [
   {
     key: 'home',
     url: MainRoutes.HOME,
@@ -175,3 +206,5 @@ export const Routes: RouteTree = [
     ],
   },
 ];
+
+export const Routes = applyProductionRouteFiltering(allRoutes);
