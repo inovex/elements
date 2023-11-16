@@ -1,5 +1,3 @@
-
-
 interface PatternWrapperProps {
   htmlContent: string;
 }

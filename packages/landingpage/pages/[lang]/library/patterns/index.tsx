@@ -95,7 +95,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const { props: languageProperties } = getStaticLanguageProps(
     ctx as LangContext,
-    Locale_File.LIBRARY
+    Locale_File.LIBRARY,
   );
 
   const highlightedCodes: HighlightedCodes = {};
