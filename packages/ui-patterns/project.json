@@ -1,0 +1,58 @@
+{
+    "name": "ui-patterns",
+    "projectType": "application",
+    "sourceRoot": "packages/ui-patterns/src",
+    "tags": [],
+    "targets": {
+      "build": {
+        "executor": "nx:run-commands",
+        "outputs": ["{projectRoot}/dist"],
+        "options": {
+          "cwd": "packages/ui-patterns",
+          "commands": [
+            "tsc",
+            "vite build"
+          ]
+        }
+      },
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "cwd": "packages/ui-patterns"
+        },
+        "defaultConfiguration": "dev",
+        "configurations": {
+          "dev": {
+            "command": "vite --port 4400"
+          },
+          "prod": {
+            "command": "vite preview --port 4400"
+          }
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "cwd": "packages/ui-patterns",
+          "command": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+        },
+        "configurations": {
+          "fix": {
+            "command": "eslint . --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0"
+          }
+        }
+      },
+      "clean": {
+        "executor": "nx:run-commands",
+        "options": {
+          "cwd": "packages/ui-patterns",
+          "command": "shx rm -rf dist"
+        },
+        "configurations": {
+          "nodejs": {
+            "command": "shx rm -rf node_modules"
+          }
+        }
+      }
+    }
+  }

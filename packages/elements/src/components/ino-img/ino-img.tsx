@@ -148,7 +148,7 @@ export class Image implements ComponentInterface {
 
   private handleError() {
     this.imageEl.nextElementSibling.classList.add(
-      'ino-img__fallback-icon--visible'
+      'ino-img__fallback-icon--visible',
     );
   }
 

@@ -16,7 +16,7 @@ function addAsset(
   host: Tree,
   projectName: string,
   architect: string,
-  asset: string | { glob: string; input: string; output: string }
+  asset: string | { glob: string; input: string; output: string },
 ) {
   const config = readConfig(host);
   const appConfig = getAngularAppConfig(config, projectName);
@@ -25,7 +25,7 @@ function addAsset(
 
   // use process.stdout in order to write in the same line
   process.stdout.write(
-    `Adding the ino-icons to ${projectName}/architect/${architect} in your angular.json ... `
+    `Adding the ino-icons to ${projectName}/architect/${architect} in your angular.json ... `,
   );
 
   if (!targetConfig) {

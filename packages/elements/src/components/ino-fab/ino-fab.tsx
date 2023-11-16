@@ -25,7 +25,6 @@ export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
   private tooltip?: HTMLInoTooltipElement;
 
-
   @Element() el!: HTMLInoFabElement;
 
   /**
@@ -79,7 +78,7 @@ export class Fab implements ComponentInterface {
 
     if (this.icon) {
       console.warn(
-        `Property 'icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`
+        `Property 'icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`,
       );
     }
   }
@@ -93,7 +92,7 @@ export class Fab implements ComponentInterface {
 
   componentDidLoad() {
     this.fabRipple = new MDCRipple(
-      this.el.shadowRoot.querySelector('.mdc-fab')
+      this.el.shadowRoot.querySelector('.mdc-fab'),
     );
 
     if (!this.extended && this.tooltipPlacement !== 'none') {
@@ -109,10 +108,10 @@ export class Fab implements ComponentInterface {
         this.tooltipPlacement === 'none' ? undefined : this.tooltipPlacement,
       trigger: 'mouseenter focus',
     };
-  
+
     const tooltip = document.createElement('ino-tooltip');
     Object.keys(attributes).forEach((key) =>
-      tooltip.setAttribute(key, attributes[key])
+      tooltip.setAttribute(key, attributes[key]),
     );
     this.el.appendChild(tooltip);
     this.tooltip = tooltip;
@@ -138,7 +137,7 @@ export class Fab implements ComponentInterface {
 
   render() {
     const hostClasses = classNames(
-      `ino-fab--edge-position-${this.edgePosition}`
+      `ino-fab--edge-position-${this.edgePosition}`,
     );
 
     const classFab = classNames({

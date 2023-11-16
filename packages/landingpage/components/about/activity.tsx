@@ -24,7 +24,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Filler,
-  Legend
+  Legend,
 );
 
 const graphOptions = {
@@ -59,7 +59,7 @@ function Activity({ commitsPerMonth }: Props) {
     const style = getComputedStyle(inovexTheme[0]);
     const primaryColor = style.getPropertyValue('--inovex-elements-primary');
     const primaryFocusColor = style.getPropertyValue(
-      '--inovex-elements-primary-focus'
+      '--inovex-elements-primary-focus',
     );
 
     setGraphData({

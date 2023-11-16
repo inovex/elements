@@ -132,7 +132,7 @@ export class Button implements ComponentInterface {
         'button__icon--leading': leadingSlotHasContent,
         'button__icon--trailing': trailingSlotHasContent,
         'button--dense': this.dense,
-      }
+      },
     );
 
     const labelClasses = classNames('button__label', {

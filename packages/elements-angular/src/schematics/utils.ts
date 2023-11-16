@@ -35,7 +35,7 @@ export function writeConfig(host: Tree, config: JSON) {
 
 export function getAngularAppConfig(
   config: any,
-  projectName: string
+  projectName: string,
 ): any | never {
   if (!Object.prototype.hasOwnProperty.call(config.projects, projectName)) {
     throw new SchematicsException(`Could not find project: ${projectName}`);

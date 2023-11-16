@@ -13,7 +13,7 @@ const contributorLogins = CONTRIBUTORS.map((c) => c.login);
 
 export async function getGitHubContributers(): Promise<ElementsContributor[]> {
   const contributorsResponse: GithubContributor[] = await fetch(
-    GITHUB_REPO_URL + '/contributors'
+    GITHUB_REPO_URL + '/contributors',
   ).then((resp) => resp.json());
 
   if (!Array.isArray(contributorsResponse)) return [];
@@ -23,7 +23,7 @@ export async function getGitHubContributers(): Promise<ElementsContributor[]> {
     .filter((c) => contributorLogins.includes(c.login))
     .map((c) => {
       const found = CONTRIBUTORS.find(
-        (contributor) => c.login === contributor.login
+        (contributor) => c.login === contributor.login,
       );
 
       return {
@@ -42,13 +42,13 @@ const getDesigners = async () => {
   await Promise.all(
     CONTRIBUTORS.filter((c) => c.roles.includes(Role.DESIGN)).map(async (c) => {
       designerGithubProfile.push(
-        await fetch(GITHUB_USERS_API + c.login).then((res) => res.json())
+        await fetch(GITHUB_USERS_API + c.login).then((res) => res.json()),
       );
-    })
+    }),
   );
   return designerGithubProfile.map((c) => {
     const found = CONTRIBUTORS.find(
-      (contributor) => c.login === contributor.login
+      (contributor) => c.login === contributor.login,
     );
 
     return {

@@ -68,20 +68,22 @@ export class Snackbar implements ComponentInterface {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
     this.snackbarElement.addEventListener(
       'MDCSnackbar:closing',
-      this.handleSnackbarHide
+      this.handleSnackbarHide,
     );
     this.setupTimeout();
     if (this.stayVisibleOnHover) {
       this.snackbarElement.addEventListener(
         'mouseenter',
-        this.interruptTimeout
+        this.interruptTimeout,
       );
       this.snackbarElement.addEventListener('mouseleave', this.setupTimeout);
     }
     this.snackbarInstance.open();
 
     if (this.message) {
-      console.warn('[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.');
+      console.warn(
+        '[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.',
+      );
     }
   }
 
@@ -89,11 +91,11 @@ export class Snackbar implements ComponentInterface {
     this.snackbarInstance?.destroy();
     this.snackbarElement.removeEventListener(
       'MDCSnackbar:closing',
-      this.handleSnackbarHide
+      this.handleSnackbarHide,
     );
     this.snackbarElement.removeEventListener(
       'mouseenter',
-      this.interruptTimeout
+      this.interruptTimeout,
     );
     this.snackbarElement.removeEventListener('mouseleave', this.setupTimeout);
   }
@@ -103,7 +105,7 @@ export class Snackbar implements ComponentInterface {
     if (this.timeout >= 0) {
       this.nodeTimeout = setTimeout(
         () => this.snackbarInstance.close(),
-        this.timeout
+        this.timeout,
       );
     }
   };
@@ -138,7 +140,7 @@ export class Snackbar implements ComponentInterface {
 
     const snackbarClasses = classNames(
       'mdc-snackbar',
-      'ino-snackbar-layout-container'
+      'ino-snackbar-layout-container',
     );
 
     return (

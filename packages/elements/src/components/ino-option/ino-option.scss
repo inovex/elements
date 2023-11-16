@@ -1,5 +1,5 @@
 @use '../base/mdc-customize';
-@use "@material/list";
+@use '@material/list';
 @use '../base/theme';
 
 @include list.deprecated-core-styles;

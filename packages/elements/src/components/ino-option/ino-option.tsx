@@ -57,7 +57,8 @@ export class InoOption {
   }
 
   componentDidLoad() {
-    if (this.value === undefined) console.error('[ino-option]: A value is required.');
+    if (this.value === undefined)
+      console.error('[ino-option]: A value is required.');
   }
 
   render() {
@@ -69,10 +70,7 @@ export class InoOption {
 
     return (
       <Host role="option">
-        <li
-          class={classSelect}
-          data-value={this.value}
-        >
+        <li class={classSelect} data-value={this.value}>
           <span class="mdc-deprecated-list-item__text">
             <slot />
           </span>

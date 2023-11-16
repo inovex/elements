@@ -1,6 +1,6 @@
 <div class="header-h1">Simple ToDo</div>
 
-<div class="app-wrapper" [formGroup]="form">
+<form class="app-wrapper" [formGroup]="form">
   <div class="action-box">
     <ino-input
       formControlName="todoName"
@@ -25,7 +25,7 @@
         dense="true"
         slot="trailing"
         (click)="delete(todo)"
-      >Delete</ino-button
+        >Delete</ino-button
       >
     </ino-list-item>
   </ino-list>
@@ -36,12 +36,12 @@
     [viewMode]="mode"
     [initialValue]="myText"
   ></ino-markdown-editor>
-</div>
+</form>
 
 <div class="btn-box">
   <ino-button (click)="toggleInputState()"
-  >{{
-    this.form.controls['todoName'].disabled ? 'Enable' : 'Disable'
+    >{{
+      this.form.controls['todoName'].disabled ? 'Enable' : 'Disable'
     }}
     Input</ino-button
   >

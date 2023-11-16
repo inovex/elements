@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import './index.scss';
 import logo from '../../../assets/logo/elements.svg';
 
@@ -16,30 +21,30 @@ import { LoginFormApp } from './login-form-app';
 type CustomRoute = {
   to: string;
   label: string;
-  component: any
-}
+  component: any;
+};
 
 const ROUTES: CustomRoute[] = [
   {
     to: '/ino-button',
     label: '<InoButton>',
-    component: <Button/>
+    component: <Button />,
   },
   {
     to: '/ino-dialog',
     label: '<InoDialog>',
-    component: <Dialog/>
+    component: <Dialog />,
   },
   {
     to: '/ino-fab',
     label: '<InoFab>',
-    component: <Fab/>
+    component: <Fab />,
   },
   {
     to: '/ino-select',
     label: '<InoSelect>',
-    component: <Select/>
-  }
+    component: <Select />,
+  },
 ];
 
 const App: React.FC = () => {
@@ -55,33 +60,27 @@ const App: React.FC = () => {
         }}
       >
         <InoList slot="header">
-          <img height={'50'} alt="react-icon" src={logo}/>
+          <img height={'50'} alt="react-icon" src={logo} />
           <h2>inovex elements</h2>
           <span>React examples</span>
         </InoList>
         <InoList slot="content">
           <NavItemLink to="/home" label="TodoApp" />
           <NavItemLink to="/guide" label="LoginFormApp" />
-          <InoListDivider/>
-          {
-            ROUTES.map(({ to, label }) => (
-                <NavItemLink key={to} to={to} label={label}/>
-              )
-            )
-          }
+          <InoListDivider />
+          {ROUTES.map(({ to, label }) => (
+            <NavItemLink key={to} to={to} label={label} />
+          ))}
         </InoList>
         <main slot="app">
           <Routes>
-            <Route path="/" element={<Navigate replace to="/home"/>}/>
-            <Route path="/home" element={ <HomeTodoApp/>} />
-            <Route path="/guide" element={ <LoginFormApp/>} />
+            <Route path="/" element={<Navigate replace to="/home" />} />
+            <Route path="/home" element={<HomeTodoApp />} />
+            <Route path="/guide" element={<LoginFormApp />} />
 
-            {
-              ROUTES.map((route) => (
-                  <Route key={route.to} path={route.to} element={route.component} />
-                )
-              )
-            }
+            {ROUTES.map((route) => (
+              <Route key={route.to} path={route.to} element={route.component} />
+            ))}
           </Routes>
         </main>
       </InoNavDrawer>

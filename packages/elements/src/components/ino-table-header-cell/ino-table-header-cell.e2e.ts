@@ -25,7 +25,7 @@ describe('ino-table', () => {
   });
 
   function getDummySortDirectionDetails(
-    sortDirection: SortDirection
+    sortDirection: SortDirection,
   ): SortDirectionChangeDetails {
     return {
       columnId,
@@ -41,7 +41,7 @@ describe('ino-table', () => {
     const sortDirectionChangeSpy = await page.spyOnEvent('sortDirectionChange');
     await sortBtn.click();
     expect(sortDirectionChangeSpy).toHaveReceivedEventDetail(
-      getDummySortDirectionDetails('desc')
+      getDummySortDirectionDetails('desc'),
     );
   });
 
@@ -51,7 +51,7 @@ describe('ino-table', () => {
     const sortDirectionChangeSpy = await page.spyOnEvent('sortDirectionChange');
     await sortBtn.click();
     expect(sortDirectionChangeSpy).toHaveReceivedEventDetail(
-      getDummySortDirectionDetails('asc')
+      getDummySortDirectionDetails('asc'),
     );
   });
 
@@ -60,7 +60,7 @@ describe('ino-table', () => {
     const sortDirectionChangeSpy = await page.spyOnEvent('sortDirectionChange');
     await sortBtn.click();
     expect(sortDirectionChangeSpy).toHaveReceivedEventDetail(
-      getDummySortDirectionDetails('desc')
+      getDummySortDirectionDetails('desc'),
     );
   });
 });
