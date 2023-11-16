@@ -1,4 +1,4 @@
-import {MDCSelect, MDCSelectEventDetail} from '@material/select';
+import { MDCSelect, MDCSelectEventDetail } from '@material/select';
 import {
   Component,
   ComponentInterface,
@@ -13,7 +13,7 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import {  generateUniqueId, hasSlotContent } from '../../util/component-utils';
+import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 
 /**
  * @slot icon-leading - For the icon to be prepended
@@ -33,11 +33,9 @@ export class Select implements ComponentInterface {
   private optionsObserver: MutationObserver;
 
   /**
-     * An internal auto generated id for the helper field.
-     */
+   * An internal auto generated id for the helper field.
+   */
   private selectElId = generateUniqueId();
-
-
 
   @Element() el!: HTMLInoSelectElement;
 
@@ -132,7 +130,7 @@ export class Select implements ComponentInterface {
   connectedCallback() {
     // in case of usage e.g. in a popover this is necessary
     this.create();
-   
+
     this.optionsObserver = new MutationObserver(() => {
       forceUpdate(this.el);
     });
@@ -213,8 +211,8 @@ export class Select implements ComponentInterface {
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
 
     const inoSelectClasses = classNames({
-      'ino-select-outlined': this.outline
-    })
+      'ino-select-outlined': this.outline,
+    });
 
     const classSelect = classNames({
       'mdc-select': true,
@@ -227,8 +225,8 @@ export class Select implements ComponentInterface {
 
     const helperTextClasses = classNames({
       'mdc-select-helper-text': true,
-      'mdc-select-helper-text--validation-msg-persistent': this
-        .helperPersistent,
+      'mdc-select-helper-text--validation-msg-persistent':
+        this.helperPersistent,
       'mdc-select-helper-text--validation-msg': this.helperValidation,
     });
 
@@ -248,12 +246,13 @@ export class Select implements ComponentInterface {
       <Host class={inoSelectClasses} name={this.name}>
         <div class={classSelect} ref={(el) => (this.mdcSelectContainerEl = el)}>
           {hiddenInput}
-          <div 
+          <div
             class="mdc-select__anchor"
             role="combobox"
             tabindex="0"
             aria-labelledby={`label-${this.selectElId}`}
-            aria-required={this.required}>
+            aria-required={this.required}
+          >
             {leadingSlotHasContent && (
               <span class="mdc-select__icon">
                 <slot name="icon-leading"></slot>
@@ -270,8 +269,7 @@ export class Select implements ComponentInterface {
               show-hint={this.showLabelHint}
             />
           </div>
-          <div 
-            class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul
               role="listbox"
               tabindex="-1"

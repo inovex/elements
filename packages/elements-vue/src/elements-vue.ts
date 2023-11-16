@@ -34,5 +34,5 @@ export const InoElementsVue: Plugin = {
   async install(_: App) {
     await defineCustomElements(window, getHelperFunctions());
     addIcons(ICON_PATHS);
-  }
+  },
 };

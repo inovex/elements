@@ -40,4 +40,4 @@ export const useStorybookUrlSyncer = () => {
   }, [storyId]);
 
   return storyId;
-}
+};

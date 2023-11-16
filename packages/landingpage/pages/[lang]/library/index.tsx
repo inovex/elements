@@ -17,7 +17,7 @@ const Components = () => {
     push(
       `${asPath}/${SubRoutes.LIBRARY_COMPONENTS}?element=${WELCOME_PAGE_PLACEHOLDER}`,
       undefined,
-      { scroll: false }
+      { scroll: false },
     );
   });
 

@@ -11,7 +11,7 @@ const eventHandler = (e: CustomEvent<boolean>) =>
 export default {
   title: 'Input/ino-switch',
   component: 'ino-switch',
-  decorators: [story => decorateStoryWithClass(story, 'story-switch')],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-switch')],
   args: {
     checked: false,
     disabled: false,
@@ -21,7 +21,7 @@ export default {
 
 const template = new TemplateGenerator<Components.InoSwitch>(
   'ino-switch',
-  args => html`
+  (args) => html`
     <ino-switch
       checked="${args.checked}"
       disabled="${args.disabled}"
@@ -30,7 +30,7 @@ const template = new TemplateGenerator<Components.InoSwitch>(
     >
       Switch Label
     </ino-switch>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();
@@ -39,7 +39,7 @@ export const Disabled = template.generateStoryForProp('disabled', true);
 
 const templateIconsSlots = new TemplateGenerator<Components.InoSwitch>(
   'ino-switch',
-  args => html`
+  (args) => html`
     <ino-switch
       checked="${args.checked}"
       disabled="${args.disabled}"
@@ -50,7 +50,7 @@ const templateIconsSlots = new TemplateGenerator<Components.InoSwitch>(
       Switch Label
       <ino-icon slot="trailing" icon="onboarding"></ino-icon>
     </ino-switch>
-  `
+  `,
 );
 
 /**

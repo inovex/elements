@@ -11162,7 +11162,7 @@
       "path": "src/components/ino-button/ino-button.tsx"
     },
     "src/components/types.ts::KeyValue": {
-      "declaration": "{\n    key: string;\n    value: string;\n}",
+      "declaration": "{\n  key: string;\n  value: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },
@@ -11172,7 +11172,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/ino-datepicker/picker-factory.ts::PickerTypeKeys": {
-      "declaration": "export type PickerTypeKeys = typeof PickerTypes[keyof typeof PickerTypes];",
+      "declaration": "export type PickerTypeKeys = (typeof PickerTypes)[keyof typeof PickerTypes];",
       "docstring": "",
       "path": "src/components/ino-datepicker/picker-factory.ts"
     },
@@ -11242,7 +11242,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/types.ts::NavDrawerLabels": {
-      "declaration": "{content: string, footer: string, toggleBtn: string}",
+      "declaration": "{\n  content: string;\n  footer: string;\n  toggleBtn: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },

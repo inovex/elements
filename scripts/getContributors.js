@@ -21,7 +21,7 @@ import puppeteer from 'puppeteer';
     imgs.map((img) => ({
       src: img.getAttribute('src').replace('?s=60', '?s=120'),
       alt: img.getAttribute('alt'),
-    }))
+    })),
   );
 
   // Log the image tags with the same classes wrapped in an anchor with an href to the user's GitHub profile

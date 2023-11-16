@@ -10,12 +10,12 @@
   }
 }
 
-$radio-unchecked-color: #ABB1CC;
-$radio-checked-color: #2C02FF;
-$radio-hover-color: #4B4EFF;
-$radio-active-color: #2C02FF;
-$radio-disabled-color: #CBD0E0;
-$radio-focus-color: #2D5DFF4D;
+$radio-unchecked-color: #abb1cc;
+$radio-checked-color: #2c02ff;
+$radio-hover-color: #4b4eff;
+$radio-active-color: #2c02ff;
+$radio-disabled-color: #cbd0e0;
+$radio-focus-color: #2d5dff4d;
 
 :host {
   .mdc-radio {
@@ -35,7 +35,6 @@ $radio-focus-color: #2D5DFF4D;
       display: none;
     }
   }
-
 
   :hover .mdc-radio:not(.mdc-radio--disabled) {
     @include radio.unchecked-stroke-color($radio-hover-color);

@@ -20,13 +20,13 @@ import styles from './index.module.scss';
 const StoryBookPage: NextPage<void> = () => {
   const { t } = useTranslation();
   const { hideFooter } = useContext(UiContext) as UiContextType;
-  const {selectedVersion} = useVersion();
+  const { selectedVersion } = useVersion();
 
   const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
   const currentStory = useStorybookUrlSyncer();
   const url = useMemo(
     () => (currentStory ? fromLandingpageToStorybookUrl(currentStory) : null),
-    [currentStory]
+    [currentStory],
   );
 
   useEffect(() => {
@@ -90,7 +90,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const languagePaths = getStaticLanguagePaths().paths;
   const elementPaths = languagePaths.map(() => ({ params: { element: '' } }));
   const langXElementPaths = languagePaths.map((path, index) =>
-    merge(path, elementPaths[index])
+    merge(path, elementPaths[index]),
   );
 
   return {

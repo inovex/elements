@@ -32,7 +32,7 @@ function Examples() {
 
   const [slide, { set, increment, decrement }] = useMethods(
     createMethods,
-    Slides.Jarvis as Slides
+    Slides.Jarvis as Slides,
   );
 
   const swipeHandlers = useSwipe({

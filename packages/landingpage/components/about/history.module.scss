@@ -10,7 +10,9 @@
     width: -moz-fit-content;
     width: fit-content;
     isolation: isolate;
-    background-color: var(--inovex-elements-transparent); // needed, else background defaults to yellow
+    background-color: var(
+      --inovex-elements-transparent
+    ); // needed, else background defaults to yellow
 
     &::before {
       position: absolute;
@@ -20,10 +22,9 @@
       background: linear-gradient(
         0,
         var(--inovex-elements-p-3) 40%,
-        var(--inovex-elements-transparent) 40%,
-        );
+        var(--inovex-elements-transparent) 40%
+      );
       opacity: 0.4;
-      
     }
   }
 }

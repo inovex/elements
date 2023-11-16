@@ -57,7 +57,6 @@ describe('InoSelect', () => {
       await page.waitForChanges();
 
       expect(valueChangeEvent).toHaveReceivedEventDetail('HH');
-
     });
 
     it('should emit a valueChange event only one time', async () => {
@@ -82,7 +81,7 @@ describe('InoSelect', () => {
       `);
       const submitEventSpy = await page.spyOnEvent('submit');
       await page.$eval(`#${formId}`, (form: HTMLFormElement) =>
-        form.requestSubmit()
+        form.requestSubmit(),
       );
       expect(submitEventSpy).toHaveReceivedEvent();
     });
@@ -99,7 +98,7 @@ describe('InoSelect', () => {
 
       const submitEventSpy = await page.spyOnEvent('submit');
       await page.$eval(`#${formId}`, (form: HTMLFormElement) =>
-        form.requestSubmit()
+        form.requestSubmit(),
       );
       expect(submitEventSpy).not.toHaveReceivedEvent();
     });

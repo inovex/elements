@@ -111,7 +111,9 @@ export class InoControlItem implements ComponentInterface {
 
   componentDidLoad() {
     if (!['checkbox', 'radio'].includes(this.role))
-      console.warn(`Given role ${this.role}is not valid, fallbacks to role radio`)
+      console.warn(
+        `Given role ${this.role}is not valid, fallbacks to role radio`,
+      );
   }
 
   render() {

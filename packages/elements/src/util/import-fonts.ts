@@ -11,8 +11,8 @@ function checkFont(strFamily: HostedFonts): boolean {
 function addCSSToHead() {
   const isCSSVarLoaded = Boolean(
     getComputedStyle(document.documentElement).getPropertyValue(
-      '--ino-font-family'
-    )
+      '--ino-font-family',
+    ),
   );
 
   const isLatoLoaded = checkFont(HostedFonts.LATO);
@@ -22,8 +22,8 @@ function addCSSToHead() {
     style.setAttribute('type', 'text/css');
     style.appendChild(
       document.createTextNode(
-        "@import url('https://static.inovex.de/css/lato.css');"
-      )
+        "@import url('https://static.inovex.de/css/lato.css');",
+      ),
     );
     document.head.appendChild(style);
   }

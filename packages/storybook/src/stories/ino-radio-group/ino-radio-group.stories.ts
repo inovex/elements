@@ -14,25 +14,25 @@ export default {
     },
   },
   decorators: [
-    story => decorateStoryWithClass(story),
-    story => {
+    (story) => decorateStoryWithClass(story),
+    (story) => {
       useEffect(() => {
-        const checkedChangeHandler = e => {
+        const checkedChangeHandler = (e) => {
           e.currentTarget.setAttribute('value', e.target.getAttribute('value'));
         };
 
-        const valueChangeHandler = e => {
+        const valueChangeHandler = (e) => {
           e.currentTarget.setAttribute('value', e.detail);
         };
 
         const radioGrps = document.querySelectorAll('ino-radio-group');
-        radioGrps.forEach(radioGrp => {
+        radioGrps.forEach((radioGrp) => {
           radioGrp.addEventListener('checkedChange', checkedChangeHandler);
           radioGrp.addEventListener('valueChange', valueChangeHandler);
         });
 
         return () => {
-          radioGrps.forEach(radioGrp => {
+          radioGrps.forEach((radioGrp) => {
             radioGrp.removeEventListener('checkedChange', checkedChangeHandler);
             radioGrp.removeEventListener('valueChange', valueChangeHandler);
           });
@@ -64,7 +64,7 @@ export default {
 
 const template = new TemplateGenerator<Components.InoRadioGroup>(
   'ino-radio-group',
-  args => html`
+  (args) => html`
     <ino-radio-group
       id="radio-grp"
       value="${args.value}"
@@ -74,8 +74,12 @@ const template = new TemplateGenerator<Components.InoRadioGroup>(
       <ino-radio value="opt-2">Opt 2</ino-radio>
       <ino-radio value="opt-3">Opt 3</ino-radio>
     </ino-radio-group>
-`);
+  `,
+);
 
 export const Playground = template.generatePlaygroundStory();
 
-export const VerticalAlignment = template.generateStoryForProp('alignment', 'vertical');
+export const VerticalAlignment = template.generateStoryForProp(
+  'alignment',
+  'vertical',
+);

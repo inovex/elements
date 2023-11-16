@@ -22,11 +22,11 @@ export default {
         };
         const selections = document.querySelectorAll('ino-checkbox, ino-radio');
         selections.forEach((s) =>
-          s.addEventListener('checkedChange', eventHandler)
+          s.addEventListener('checkedChange', eventHandler),
         );
         return () =>
           selections.forEach((s) =>
-            s.removeEventListener('checkedChange', eventHandler)
+            s.removeEventListener('checkedChange', eventHandler),
           );
       });
       return story();
@@ -68,7 +68,7 @@ const template = new TemplateGenerator<Components.InoListItem>(
       >
       </ino-list-item>
     </ino-list>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();
@@ -76,7 +76,7 @@ export const Playground = template.generatePlaygroundStory();
 export const Text = template.generateStoryForProp('text', 'simple-item');
 export const SecondaryText = template.generateStoryForProp(
   'secondaryText',
-  'Second line text'
+  'Second line text',
 );
 export const Selected = template.generateStoryForProp('selected', true);
 export const Activated = template.generateStoryForProp('activated', true);
@@ -100,7 +100,7 @@ const templateGraphicAndMeta = new TemplateGenerator<InoListVariants>(
         ${args.radio && html` <ino-radio slot="leading" selection></ino-radio>`}
       </ino-list-item>
     </ino-list>
-  `
+  `,
 );
 
 /**

@@ -159,8 +159,8 @@ export class MarkdownEditor implements ComponentInterface {
     this.toolbarActionsState = new Set<Actions>(
       Object.values(Actions).filter(
         (action) =>
-          typeof action === 'number' && isToolbarBtnActive(this.editor, action)
-      ) as Actions[]
+          typeof action === 'number' && isToolbarBtnActive(this.editor, action),
+      ) as Actions[],
     );
   };
 
@@ -173,7 +173,7 @@ export class MarkdownEditor implements ComponentInterface {
     e.stopPropagation();
     this.editor.commands.clearContent();
     this.editor.commands.setContent(
-      this.markdownToHtml(this.textareaRef.value)
+      this.markdownToHtml(this.textareaRef.value),
     );
     if (!this.errorMessage) this.valueChange.emit(this.textareaRef.value);
     this.inoBlur.emit();
@@ -189,7 +189,7 @@ export class MarkdownEditor implements ComponentInterface {
   private markdownToHtml(md: string = this.initialValue): string {
     return this.tryParse(
       () => markdownSerializer.parse(md),
-      this.editor.getHTML()
+      this.editor.getHTML(),
     );
   }
 

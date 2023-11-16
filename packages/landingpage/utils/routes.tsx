@@ -54,13 +54,13 @@ const productionModeExcludedSubroutes: { [key: string]: string[] } = {
 
 function filterSubroutesInProduction(
   route: MainRoute,
-  isProductionMode: boolean
+  isProductionMode: boolean,
 ): MainRoute {
   const subroutesToFilter = productionModeExcludedSubroutes[route.key];
 
   if (subroutesToFilter && isProductionMode) {
     const filteredSubRoutes = route.subRoutes.filter(
-      (subRoute) => !subroutesToFilter.includes(subRoute.key)
+      (subRoute) => !subroutesToFilter.includes(subRoute.key),
     );
 
     return {
@@ -73,7 +73,7 @@ function filterSubroutesInProduction(
 
 function applyProductionRouteFiltering(routes: RouteTree): RouteTree {
   return routes.map((route) =>
-    filterSubroutesInProduction(route, !inDevEnvironment)
+    filterSubroutesInProduction(route, !inDevEnvironment),
   );
 }
 // TODO: create meaningful routes
