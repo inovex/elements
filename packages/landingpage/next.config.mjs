@@ -3,6 +3,7 @@ import nextMdx from '@next/mdx';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { readFile } from 'fs/promises';
 import withImages from 'next-images';
+import withHtml from 'next-html';
 import path, { join } from 'path';
 import remarkGfm from 'remark-gfm';
 
@@ -37,7 +38,7 @@ const nextConfiguration = {
             globOptions: {
               ignore: ['**/*.{html,md}'],
             },
-          },
+          }
         ],
       })
     );
@@ -75,7 +76,8 @@ const withMDX = nextMdx({
   },
 });
 
-const plugins = [withImages, withMDX];
+
+const plugins = [withImages, withMDX, withHtml];
 
 export default plugins.reduce(
   (config, plugin) => plugin(config),
