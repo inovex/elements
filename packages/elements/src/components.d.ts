@@ -421,7 +421,11 @@ export namespace Components {
          */
         "cancelText"?: string;
         /**
-          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
+         */
+        "dialogRole"?: 'dialog' | 'alertdialog';
+        /**
+          * Close the dialog by clicking outside of the dialog.
          */
         "dismissible"?: boolean;
         /**
@@ -2355,7 +2359,11 @@ declare namespace LocalJSX {
          */
         "cancelText"?: string;
         /**
-          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
+         */
+        "dialogRole"?: 'dialog' | 'alertdialog';
+        /**
+          * Close the dialog by clicking outside of the dialog.
          */
         "dismissible"?: boolean;
         /**

@@ -46,7 +46,7 @@ export class Dialog implements ComponentInterface {
   @Prop() fullwidth?: boolean;
 
   /**
-   * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+   * Close the dialog by clicking outside of the dialog.
    */
   @Prop() dismissible?: boolean;
 
@@ -54,6 +54,12 @@ export class Dialog implements ComponentInterface {
    * Opens the dialog if set to true
    */
   @Prop() open = false;
+
+  /**
+   * The role of the dialog. Can be either 'dialog' or 'alertdialog'.
+   * The 'alertdialog' role should be used for important alerts and error messages.
+   */
+  @Prop() dialogRole?: 'dialog' | 'alertdialog' = 'dialog';
 
   /**
    * Adds a headline to the `ino-dialog`
@@ -87,7 +93,7 @@ export class Dialog implements ComponentInterface {
 
   @Listen('keyup', { target: 'body' })
   handleKeyUp(event: KeyboardEvent) {
-    if (event.key === 'Escape' && this.open && this.dismissible) {
+    if (event.key === 'Escape' && this.open) {
       this.close.emit('close');
     }
   }
@@ -167,8 +173,12 @@ export class Dialog implements ComponentInterface {
           <div class="mdc-dialog__container">
             <div
               class="mdc-dialog__surface"
-              role="alertdialog"
-              aria-modal="true"
+              role={this.dialogRole}
+              aria-modal={this.dismissible ? 'true' : 'false'}
+              aria-labelledby="ino-dialog-title"
+              aria-describedby={
+                this.bodyText ? 'ino-dialog-description' : undefined
+              }
             >
               <div tabindex="0" />
               {hasDefaultSlot ? (
@@ -180,13 +190,15 @@ export class Dialog implements ComponentInterface {
                   ) : (
                     <header>
                       {this.icon && <ino-icon icon={this.icon} />}
-                      <h1>{this.headerText}</h1>
+                      <h1 id="ino-dialog-title">{this.headerText}</h1>
                     </header>
                   )}
                   {hasBodySlot ? (
                     <slot name="body"></slot>
                   ) : (
-                    <section class="body">{this.bodyText}</section>
+                    <section id="ino-dialog-description" class="body">
+                      {this.bodyText}
+                    </section>
                   )}
                   {hasFooterSlot ? (
                     <slot name="footer"></slot>

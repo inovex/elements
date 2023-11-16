@@ -64,6 +64,7 @@ export default {
   args: {
     attachTo: '.story-dialog',
     open: false,
+    dialogRole: 'dialog',
     fullwidth: false,
     dismissible: true,
     headerText: 'Hi, I am a headline',
@@ -183,8 +184,6 @@ ConfirmationDialogWithIcon.args = {
   buttonText: 'Open confirmation Dialog with icon',
   icon: 'message',
 };
-
-const buttonEvent: DialogCloseAction = 'close';
 
 const customContentWithSlots = new TemplateGenerator<InoDialogExtended>(
   'ino-dialog',
