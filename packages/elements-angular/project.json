@@ -19,7 +19,7 @@
       }
     },
     "compile": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{projectRoot}/dist"],
       "options": {
         "project": "packages/elements-angular/ng-package.json",
@@ -33,7 +33,7 @@
       "dependsOn": ["preNgPackage"]
     },
     "start": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{projectRoot}/dist"],
       "options": {
         "project": "packages/elements-angular/ng-package.json",
@@ -60,7 +60,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
