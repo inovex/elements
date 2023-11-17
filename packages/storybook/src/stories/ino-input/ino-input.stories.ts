@@ -57,6 +57,7 @@ export default {
     type: 'text',
     unit: '',
     value: '',
+    dense: false,
   }
 } as Meta<Components.InoInput>;
 
@@ -90,6 +91,7 @@ const template = new TemplateGenerator<Components.InoInput>(
     type="${args.type}"
     unit="${args.unit}"
     value="${args.value}"
+    dense="${args.dense}"
   >
   </ino-input>
 `);
@@ -293,4 +295,21 @@ const templateMetadata = new TemplateGenerator<Components.InoInput>(
   args => html`
   <ino-input value="2" type="number" unit="h" label="Hours input"></ino-input>
 `);
-export const Metadata = templateMetadata.generateStoryForProp('unit', 'h')
+export const Metadata = templateMetadata.generateStoryForProp('unit', 'h');
+
+const templateDense = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
+  <ino-input label="optional" show-label-hint dense="true"></ino-input>
+  <ino-input icon-leading icon-trailing label="Leading and Trailing icon" dense="true">
+    <ino-icon slot="icon-leading" icon="search"></ino-icon>
+    <ino-icon slot="icon-trailing" icon="add"></ino-icon>
+  </ino-input>
+  <ino-input label="Outline optional" outline show-label-hint dense="true"></ino-input>
+  <ino-input icon-leading icon-trailing label="Leading and Trailing icon" dense outline>
+    <ino-icon slot="icon-leading" icon="search"></ino-icon>
+    <ino-icon slot="icon-trailing" icon="add"></ino-icon>
+  </ino-input>
+`);
+
+export const Dense = templateDense.generateStoryForProp('dense', true);

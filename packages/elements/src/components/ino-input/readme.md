@@ -140,6 +140,7 @@ The component is based on a native input with additional features. Thus, the com
 | `autoFocus`              | `auto-focus`               | The autofocus of this element.                                                                                                                                                                                                                            | `boolean`                                                                                        | `undefined` |
 | `autocomplete`           | `autocomplete`             | The autocomplete property of this element.                                                                                                                                                                                                                | `string`                                                                                         | `undefined` |
 | `dataList`               | `data-list`                | The id of the datalist child                                                                                                                                                                                                                              | `string`                                                                                         | `undefined` |
+| `dense`                  | `dense`                    | Makes the input text and container slightly smaller.                                                                                                                                                                                                      | `boolean`                                                                                        | `false`     |
 | `disabled`               | `disabled`                 | Disables this element.                                                                                                                                                                                                                                    | `boolean`                                                                                        | `undefined` |
 | `error`                  | `error`                    | Displays the input field as invalid if set to true. If the property is not set or set to false, the validation is handled by the `pattern` property. This functionality might be useful if the input validation is (additionally) handled by the backend. | `boolean`                                                                                        | `undefined` |
 | `helper`                 | `helper`                   | The optional helper text.                                                                                                                                                                                                                                 | `string`                                                                                         | `undefined` |
@@ -212,17 +213,6 @@ Type: `Promise<void>`
 | ----------------- | ---------------------------- |
 | `"icon-leading"`  | For the icon to be prepended |
 | `"icon-trailing"` | For the icon to be appended  |
-
-
-## CSS Custom Properties
-
-| Name                      | Description             |
-| ------------------------- | ----------------------- |
-| `--ino-input-caret-color` | color of the caret      |
-| `--ino-input-color`       | text color of the input |
-| `--ino-input-icon-color`  | icon color              |
-| `--ino-input-label-color` | color of the label      |
-| `--ino-input-line-color`  | line color              |
 
 
 ## Dependencies

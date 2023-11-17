@@ -89,6 +89,11 @@ export class Input implements ComponentInterface {
   @Prop() disabled?: boolean;
 
   /**
+   * Makes the input text and container slightly smaller.
+   */
+   @Prop() dense = false;
+
+  /**
    * Displays the input field as invalid if set to true.
    * If the property is not set or set to false, the validation is handled by the `pattern` property.
    * This functionality might be useful if the input validation is (additionally) handled by the backend.
@@ -466,6 +471,7 @@ export class Input implements ComponentInterface {
 
     const classTextfield = classNames({
       'ino-input__composer': true,
+      'ino-input--dense': this.dense,
       'mdc-text-field': true,
       'mdc-text-field--disabled': this.disabled,
       'mdc-text-field--focused': this.autoFocus,

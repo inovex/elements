@@ -588,6 +588,10 @@ export namespace Components {
          */
         "dataList"?: string;
         /**
+          * Makes the input text and container slightly smaller.
+         */
+        "dense": boolean;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -2448,6 +2452,10 @@ declare namespace LocalJSX {
           * The id of the datalist child
          */
         "dataList"?: string;
+        /**
+          * Makes the input text and container slightly smaller.
+         */
+        "dense"?: boolean;
         /**
           * Disables this element.
          */

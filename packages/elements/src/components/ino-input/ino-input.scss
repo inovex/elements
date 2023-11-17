@@ -15,8 +15,13 @@ $padding-top: 24px;
 
 $icon-padding-to-text: 12px;
 $icon-padding-to-border: 6px;
+$icon-padding-to-text-dense: 6px;
+$icon-padding-to-border-dense: 0px;
 
+$filled-input-height: 56px;
+$filled-input-height-dense: 47px;
 $outline-input-height: 40px;
+$outline-input-height-dense: 30px;
 $outline-shape-radius: $outline-input-height / 2;
 $outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius $outline-shape-radius 0;
 
@@ -74,7 +79,7 @@ ino-input {
 
   .mdc-text-field {
     @include textfield.ink-color(var(--input-color));
-    @include textfield.height(56px);
+    @include textfield.height($filled-input-height);
   }
 
   & * {
@@ -124,7 +129,6 @@ ino-input .mdc-text-field--filled {
   @include textfield.fill-color(transparent);
   @include textfield.disabled-fill-color(transparent);
   @include textfield.line-ripple-color(var(--input-line-color));
-  
   &.mdc-text-field--invalid {
     @include textfield.line-ripple-color(theme.color(error));
   }
@@ -140,6 +144,30 @@ ino-input .mdc-text-field--filled {
     .mdc-floating-label,
     .mdc-floating-label--float-above {
       left: $padding-to-left;
+    }
+  }
+
+  &.ino-input--dense {
+    @include textfield.density(-1);
+    height: $filled-input-height-dense;
+
+    .mdc-text-field__input {
+      padding-top: calc($padding-top - 20px);
+    }
+
+    .mdc-floating-label.mdc-floating-label--float-above {
+      margin-top: 5px;
+    }  
+    
+    &:has(.mdc-text-field__icon.mdc-text-field__icon--leading) {
+      @include setIconMargins(
+        (0 $icon-padding-to-text-dense 0 $icon-padding-to-border-dense),
+        (0 $icon-padding-to-border-dense 0 $icon-padding-to-text-dense)
+      );  
+      .mdc-floating-label,
+      .mdc-floating-label--float-above {
+          left: 21px;
+      } 
     }
   }
 
@@ -193,6 +221,20 @@ ino-input .mdc-text-field--outlined {
   &[class*='--with-leading-icon']
     .mdc-floating-label:not(.mdc-floating-label--float-above) {
     left: 24px;
+  }
+
+  &.ino-input--dense {
+    @include textfield.outlined-height($outline-input-height-dense);
+
+    &[class*='--with-leading-icon']
+      .mdc-floating-label {
+        left: 21px;
+      }
+
+    &[class*='--with-leading-icon']
+      .mdc-floating-label.mdc-floating-label--float-above {
+      left: 5px;
+    }
   }
 
   .mdc-text-field__icon {
