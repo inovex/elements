@@ -37,7 +37,7 @@
           "reflectToAttr": false,
           "docs": "The title of the accordion.",
           "docsTags": [],
-          "default": "null",
+          "default": "''",
           "values": [
             {
               "type": "string"
@@ -57,7 +57,7 @@
           "mutable": false,
           "attr": "expanded",
           "reflectToAttr": false,
-          "docs": "Weather the accordion is expanded or collapsed.",
+          "docs": "Whether the accordion is expanded or collapsed.",
           "docsTags": [],
           "default": "false",
           "values": [

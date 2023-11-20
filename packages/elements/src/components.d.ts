@@ -24,7 +24,7 @@ export namespace Components {
          */
         "accordionTitle": string;
         /**
-          * Weather the accordion is expanded or collapsed.
+          * Whether the accordion is expanded or collapsed.
          */
         "expanded": boolean;
     }
@@ -1938,7 +1938,7 @@ declare namespace LocalJSX {
          */
         "accordionTitle"?: string;
         /**
-          * Weather the accordion is expanded or collapsed.
+          * Whether the accordion is expanded or collapsed.
          */
         "expanded"?: boolean;
         /**
