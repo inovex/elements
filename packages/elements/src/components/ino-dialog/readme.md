@@ -77,17 +77,18 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 ## Properties
 
-| Property      | Attribute     | Description                                                                                                                                                            | Type      | Default     |
-| ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `actionText`  | `action-text` | Adds a button with the given text to proceed with an action`                                                                                                           | `string`  | `undefined` |
-| `attachTo`    | `attach-to`   | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`  | `undefined` |
-| `bodyText`    | `body-text`   | Adds a text to the body of the `ino-dialog`                                                                                                                            | `string`  | `undefined` |
-| `cancelText`  | `cancel-text` | Adds a button with the given text to close the `ino-dialog`                                                                                                            | `string`  | `undefined` |
-| `dismissible` | `dismissible` | Close the dialog on pressing the ESC key or clicking outside of the dialog.                                                                                            | `boolean` | `undefined` |
-| `fullwidth`   | `fullwidth`   | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean` | `undefined` |
-| `headerText`  | `header-text` | Adds a headline to the `ino-dialog`                                                                                                                                    | `string`  | `undefined` |
-| `icon`        | `icon`        | Adds a `ino-icon` besides the headline                                                                                                                                 | `string`  | `undefined` |
-| `open`        | `open`        | Opens the dialog if set to true                                                                                                                                        | `boolean` | `false`     |
+| Property      | Attribute     | Description                                                                                                                                                            | Type                        | Default     |
+| ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------- |
+| `actionText`  | `action-text` | Adds a button with the given text to proceed with an action`                                                                                                           | `string`                    | `undefined` |
+| `attachTo`    | `attach-to`   | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`                    | `undefined` |
+| `bodyText`    | `body-text`   | Adds a text to the body of the `ino-dialog`                                                                                                                            | `string`                    | `undefined` |
+| `cancelText`  | `cancel-text` | Adds a button with the given text to close the `ino-dialog`                                                                                                            | `string`                    | `undefined` |
+| `dialogRole`  | `dialog-role` | The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.                        | `"alertdialog" \| "dialog"` | `'dialog'`  |
+| `dismissible` | `dismissible` | Close the dialog by clicking outside of the dialog.                                                                                                                    | `boolean`                   | `undefined` |
+| `fullwidth`   | `fullwidth`   | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean`                   | `undefined` |
+| `headerText`  | `header-text` | Adds a headline to the `ino-dialog`                                                                                                                                    | `string`                    | `undefined` |
+| `icon`        | `icon`        | Adds a `ino-icon` besides the headline                                                                                                                                 | `string`                    | `undefined` |
+| `open`        | `open`        | Opens the dialog if set to true                                                                                                                                        | `boolean`                   | `false`     |
 
 
 ## Events

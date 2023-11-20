@@ -2868,6 +2868,33 @@
           "required": false
         },
         {
+          "name": "dialogRole",
+          "type": "\"alertdialog\" | \"dialog\"",
+          "complexType": {
+            "original": "'dialog' | 'alertdialog'",
+            "resolved": "\"alertdialog\" | \"dialog\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dialog-role",
+          "reflectToAttr": false,
+          "docs": "The role of the dialog. Can be either 'dialog' or 'alertdialog'.\nThe 'alertdialog' role should be used for important alerts and error messages.",
+          "docsTags": [],
+          "default": "'dialog'",
+          "values": [
+            {
+              "value": "alertdialog",
+              "type": "string"
+            },
+            {
+              "value": "dialog",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dismissible",
           "type": "boolean",
           "complexType": {
@@ -2878,7 +2905,7 @@
           "mutable": false,
           "attr": "dismissible",
           "reflectToAttr": false,
-          "docs": "Close the dialog on pressing the ESC key or clicking outside of the dialog.",
+          "docs": "Close the dialog by clicking outside of the dialog.",
           "docsTags": [],
           "values": [
             {
@@ -8538,6 +8565,27 @@
           "attr": "name",
           "reflectToAttr": false,
           "docs": "Name of the element",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of the internal button in the element.\nThis can be 'submit', 'reset', or 'button'.\nIf not specified, the default type is 'submit'.",
           "docsTags": [],
           "values": [
             {
