@@ -8,6 +8,7 @@ import {
   Element,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { generateUniqueId } from '../../util/component-utils';
 
 /**
  * @slot default - The content of the Accordion
@@ -19,7 +20,7 @@ import classNames from 'classnames';
 })
 export class Accordion implements ComponentInterface {
   @Element() el: HTMLInoAccordionElement;
-  private contentId: string;
+  private contentId = generateUniqueId();
 
   /**
    * Whether the accordion is expanded or collapsed.
@@ -40,7 +41,6 @@ export class Accordion implements ComponentInterface {
     if (!this.accordionTitle) {
       console.warn('Ino-Accordion: missing accordionTitle property.');
     }
-    this.contentId = `ino-accordion-content-${this.el.id}`;
   }
 
   private toggleExpand() {
