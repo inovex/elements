@@ -6,7 +6,6 @@ import {
   EventEmitter,
   Prop,
   Element,
-  State,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -20,7 +19,7 @@ import classNames from 'classnames';
 })
 export class Accordion implements ComponentInterface {
   @Element() el: HTMLInoAccordionElement;
-  @State() contentId: string;
+  private contentId: string;
 
   /**
    * Whether the accordion is expanded or collapsed.
