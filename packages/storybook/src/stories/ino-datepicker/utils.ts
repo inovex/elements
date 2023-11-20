@@ -2,10 +2,10 @@ import '@inovex.de/elements';
 
 export function registerInlineDatepickerHandler() {
   const group = document.querySelector(
-    'ino-radio-group'
+    'ino-radio-group',
   ) as HTMLInoRadioGroupElement;
   const datepicker = document.querySelector(
-    '.datepicker-group ino-datepicker'
+    '.datepicker-group ino-datepicker',
   ) as HTMLInoDatepickerElement;
 
   const today = document.querySelector('.today');

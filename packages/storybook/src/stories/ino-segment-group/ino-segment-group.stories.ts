@@ -45,7 +45,7 @@ const template = new TemplateGenerator<Components.InoSegmentGroup>(
       <ino-segment-button value="opt-3">Option 3</ino-segment-button>
       <ino-segment-button value="opt-4">Option 4</ino-segment-button>
     </ino-segment-group>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();

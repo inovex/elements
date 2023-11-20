@@ -33,7 +33,6 @@ export class Label {
    */
   @Prop() disabled: boolean;
 
-
   /**
    * Id of the associated form control
    */
@@ -61,7 +60,9 @@ export class Label {
     });
 
     const label = this.text ? (
-      <label htmlFor={this.for} class={'mdc-floating-label'}>{this.text}</label>
+      <label htmlFor={this.for} class={'mdc-floating-label'}>
+        {this.text}
+      </label>
     ) : (
       ''
     );

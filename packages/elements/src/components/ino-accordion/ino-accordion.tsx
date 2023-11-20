@@ -68,7 +68,7 @@ export class Accordion implements ComponentInterface {
     return (
       <div class={inoAccordionClasses}>
         <div class="ino-accordion__header">
-          <h3 role="heading" aria-level="3" style={{margin: "0"}}>
+          <h3 role="heading" aria-level="3" style={{ margin: '0' }}>
             <button
               class="header-button"
               onClick={() => this.toggleExpand()}

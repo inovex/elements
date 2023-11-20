@@ -131,7 +131,7 @@ export class Dialog implements ComponentInterface {
 
   componentDidLoad() {
     this.mdcDialog = new MDCDialog(
-      this.el.shadowRoot.querySelector('.mdc-dialog')
+      this.el.shadowRoot.querySelector('.mdc-dialog'),
     );
 
     // Prevent internal handling of escape and scrim click action (would close the dialog).
@@ -153,7 +153,7 @@ export class Dialog implements ComponentInterface {
     }
     const element = closest(
       e.target as Element,
-      `[${DIALOG_ACTION_ATTRIBUTE}]`
+      `[${DIALOG_ACTION_ATTRIBUTE}]`,
     );
     if (!element) {
       return;

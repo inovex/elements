@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#2d02ff">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#2d02ff" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
 </html>
 
 <!-- Custom styles for the main area -->
 <script>
   document.title = 'Showcase - inovex elements';
-  document.body.classList.add("inovex-elements-typo");
-  document.body.classList.add("inovex-elements-theme");
+  document.body.classList.add('inovex-elements-typo');
+  document.body.classList.add('inovex-elements-theme');
 </script>
 <style type="text/css">
   div[role='menuitem'] {
@@ -59,7 +59,6 @@
     display: none;
   }
 
-  
   .os-content .sidebar-subheading {
     /* Title Small */
     letter-spacing: 0.02px;
@@ -102,10 +101,11 @@
 
   .os-content .sidebar-item + a:focus {
     background-color: var(--inovex-elements-white);
-    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset, rgb(var(--inovex-elements-primary) / 40%) 0 1px 9px 2px;
+    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset,
+      rgb(var(--inovex-elements-primary) / 40%) 0 1px 9px 2px;
     color: var(--inovex-elements-primary);
     z-index: 50;
-  } 
+  }
 
   /** Sidebar items */
   .os-content .sidebar-item:focus {
@@ -120,21 +120,20 @@
     background-color: var(--inovex-elements-n-1);
   }
 
-  .os-content .sidebar-item[data-selected="false"]:focus {
+  .os-content .sidebar-item[data-selected='false']:focus {
     color: var(--inovex-elements-primary);
     background-color: var(--inovex-elements-p-2);
   }
-  
-  .os-content .sidebar-item[data-selected="true"],
-  .os-content .sidebar-item[data-selected="true"]:focus  {
+
+  .os-content .sidebar-item[data-selected='true'],
+  .os-content .sidebar-item[data-selected='true']:focus {
     color: var(--inovex-elements-primary);
     background-color: var(--inovex-elements-p-3);
   }
 
-  .os-content .sidebar-item[data-selected="true"] svg {
+  .os-content .sidebar-item[data-selected='true'] svg {
     color: var(--inovex-elements-primary);
   }
-
 
   /** all sidebar svgs  */
   .os-content svg {
@@ -144,12 +143,12 @@
   .os-content .sidebar-header > div > a {
     color: var(--inovex-elements-primary);
     font-size: 20px;
-    letter-spacing: -.0083333333em;
+    letter-spacing: -0.0083333333em;
   }
 
-  div[role=main] .os-host {
+  div[role='main'] .os-host {
     bottom: 0 !important;
     z-index: 10 !important;
-    top:initial;
+    top: initial;
   }
 </style>

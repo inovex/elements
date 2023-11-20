@@ -1,5 +1,6 @@
 {
   "name": "elements-vue",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/elements-vue/src",
   "projectType": "library",
   "tags": [],

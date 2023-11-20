@@ -3,7 +3,7 @@ import { join } from 'path';
 
 const angularTargetPath = join(
   __dirname,
-  '../../elements-angular/src/generated'
+  '../../elements-angular/src/generated',
 );
 
 export default angularOutputTarget({

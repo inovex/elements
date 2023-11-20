@@ -12,7 +12,7 @@
 
 // @material/typography
 @use '@material/typography' with (
-  $font-family: ino-typo.font-family(sans-serif),
+  $font-family: ino-typo.font-family(sans-serif)
 );
 
 @forward '@material/typography' as mdc-typo-*;

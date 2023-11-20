@@ -63,7 +63,7 @@ export class Switch implements ComponentInterface {
 
     if (hasLeadingSlot != hasTrailingSlot) {
       console.error(
-        '[ino-switch] Two icons (leading & trailing) are required in order to use the icon switch.'
+        '[ino-switch] Two icons (leading & trailing) are required in order to use the icon switch.',
       );
     }
   }
@@ -102,7 +102,7 @@ export class Switch implements ComponentInterface {
       {
         'ino-switch-disabled': this.disabled,
         'ino-switch-icon-disabled': this.disabled,
-      }
+      },
     );
 
     const switchClasses = classNames(
@@ -111,19 +111,19 @@ export class Switch implements ComponentInterface {
       {
         'mdc-switch': true,
         'ino-switch__icon-toggle': hasLeadingSlot && hasTrailingSlot,
-      }
+      },
     );
 
     const iconClasses = classNames('mdc-switch__icons', 'switch-icon');
 
     const leadingIconClasses = classNames(
       iconClasses,
-      !this.checked ? 'switch-icon--selected' : 'switch-icon--unselected'
+      !this.checked ? 'switch-icon--selected' : 'switch-icon--unselected',
     );
 
     const trailingIconClasses = classNames(
       iconClasses,
-      this.checked ? 'switch-icon--selected' : 'switch-icon--unselected'
+      this.checked ? 'switch-icon--selected' : 'switch-icon--unselected',
     );
 
     return (

@@ -10,7 +10,7 @@ const MARKDOWN_TEXT = [
     '**bold**',
     '~~strikethrough~~',
     '[elements](https://github.com/inovex/elements)',
-    '`inline code`'
+    '`inline code`',
   ].join(' '),
   '',
   '> Blockquote\n',
@@ -48,7 +48,7 @@ describe('InoMarkdownEditor', () => {
 
   async function setUpTest(initialValue: string, viewMode: ViewMode) {
     page = await setupPageWithContent(
-      INO_MARKDOWN_EDITOR(initialValue, viewMode)
+      INO_MARKDOWN_EDITOR(initialValue, viewMode),
     );
     inoMarkdownEditor = await page.find(INO_MARKDOWN_EDITOR_SELECTOR);
     textArea = await inoMarkdownEditor.find('textarea');

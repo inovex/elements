@@ -7,7 +7,7 @@ export function generateUniqueId() {
 
 export function getSlotContent(
   el: HTMLElement,
-  slotName: string
+  slotName: string,
 ): HTMLElement | null {
   return el.querySelector(`[slot="${slotName}"]`);
 }
@@ -18,9 +18,9 @@ export function getSlotContent(
  * @param slotName The name of the slot to check. If not provided default slot is used.
  * @return `true` if a child at the slot exists, otherwise `false`
  */
- export function hasSlotContent(el: HTMLElement, slotName?: string): boolean {
-  return slotName 
-    ? el.querySelectorAll(`[slot="${slotName}"]`).length > 0 
+export function hasSlotContent(el: HTMLElement, slotName?: string): boolean {
+  return slotName
+    ? el.querySelectorAll(`[slot="${slotName}"]`).length > 0
     : el.querySelector('slot')?.assignedElements().length === 0;
 }
 

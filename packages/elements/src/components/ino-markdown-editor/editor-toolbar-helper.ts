@@ -20,7 +20,7 @@ const focusChain = (editor: Editor): ChainedCommands => editor.chain().focus();
 export function handleToolbarBtnClick(
   editor: Editor,
   action: Actions,
-  url?
+  url?,
 ): void {
   switch (action) {
     case Actions.ITALIC:

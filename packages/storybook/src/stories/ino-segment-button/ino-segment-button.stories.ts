@@ -27,25 +27,27 @@ export default {
   },
 } as Meta<Components.InoSegmentButton>;
 
-const checkedChangeHandler = (e: CustomEvent<boolean>) => (e.target as HTMLInoSegmentButtonElement).checked = e.detail;
+const checkedChangeHandler = (e: CustomEvent<boolean>) =>
+  ((e.target as HTMLInoSegmentButtonElement).checked = e.detail);
 
 const template = new TemplateGenerator<Components.InoSegmentButton>(
   'ino-segment-button',
-  args => html`
-  <ino-segment-button
-    value="1"
-    class="customizable-segment-btn"
-    checked="${args.checked}"
-    dense="${args.dense}"
-    disabled="${args.disabled}"
-    name="${args.name}"
-    value="${args.value}"
-    type="${args.type}"
-    @checkedChange="${checkedChangeHandler}"
-  >
-    Segment Button Label
-  </ino-segment-button>
-`);
+  (args) => html`
+    <ino-segment-button
+      value="1"
+      class="customizable-segment-btn"
+      checked="${args.checked}"
+      dense="${args.dense}"
+      disabled="${args.disabled}"
+      name="${args.name}"
+      value="${args.value}"
+      type="${args.type}"
+      @checkedChange="${checkedChangeHandler}"
+    >
+      Segment Button Label
+    </ino-segment-button>
+  `,
+);
 
 export const Playground = template.generatePlaygroundStory();
 

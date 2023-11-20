@@ -23,7 +23,7 @@ export default function FooterMobile() {
                 key={subRouteUrl}
                 url={subRouteUrl}
                 name={t(
-                  `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name`
+                  `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name`,
                 )}
                 isDense={true}
                 className={styles.subRouteName}

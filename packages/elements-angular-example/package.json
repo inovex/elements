@@ -1,5 +1,8 @@
 {
   "name": "elements-angular-example",
   "version": "8.1.3",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@inovex.de/elements-angular": "^8.1.3"
+  }
 }

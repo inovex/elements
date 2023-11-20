@@ -124,7 +124,7 @@ export class Range implements ComponentInterface {
      */
     this.inputElEnd.setAttribute(
       'value',
-      `${this.valueEnd || this.value || this.min}`
+      `${this.valueEnd || this.value || this.min}`,
     );
     this.inputElStart?.setAttribute('value', `${this.valueStart}`);
     this.sliderInstance = new MDCSlider(this.sliderEl);
@@ -181,7 +181,6 @@ export class Range implements ComponentInterface {
   }
 
   render() {
-
     const sliderClasses = classNames({
       'mdc-slider': true,
       'mdc-slider--discrete': this.discrete,

@@ -8,24 +8,24 @@ const camelCase = require('camelcase');
 
 const CUSTOM_ELEMENTS_JSON = require(path.join(
   __dirname,
-  '../packages/storybook/custom-elements.json'
+  '../packages/storybook/custom-elements.json',
 ));
 const ELEMENTS_COMPONENTS_DIR = path.join(
   __dirname,
-  '../packages/elements/src/components'
+  '../packages/elements/src/components',
 );
 const STORYBOOK_COMPONENTS_DIR = path.join(
   __dirname,
-  '../packages/storybook/src/stories'
+  '../packages/storybook/src/stories',
 );
 const REACT_INDEX_DIR = path.join(
   __dirname,
-  '../packages/elements-react/src/components/index.ts'
+  '../packages/elements-react/src/components/index.ts',
 );
 
 const SEMANTIC_PULL_REQUEST_YML = path.join(
   __dirname,
-  '../.github/semantic.yml'
+  '../.github/semantic.yml',
 );
 
 const CURRENT_PACKAGES = [
@@ -38,8 +38,8 @@ const CURRENT_PACKAGES = [
 if (!CUSTOM_ELEMENTS_JSON) {
   console.log(
     chalk.yellow(
-      `No 'custom-elements.json' found in packages/storybook. Building first.`
-    )
+      `No 'custom-elements.json' found in packages/storybook. Building first.`,
+    ),
   );
   shell.exec('lerna exec --scope=@inovex.de/elements');
 }
@@ -76,8 +76,8 @@ async function runCreationScript() {
   if (CUSTOM_ELEMENTS_JSON.tags.find((component) => component.name === name)) {
     console.log(
       chalk.yellow(
-        `Component with the name "${name}" already exists. Please choose another name.`
-      )
+        `Component with the name "${name}" already exists. Please choose another name.`,
+      ),
     );
     runCreationScript();
     return;
@@ -135,7 +135,7 @@ function writeToReactPackage(name) {
     `export const ${nameInPascalCase} = createReactComponent<
   StencilJSX.IntrinsicElements['${name}'],
   HTML${nameInPascalCase}Element
->('${name}');`
+>('${name}');`,
   );
 }
 
@@ -185,7 +185,7 @@ function cartesian(a, b) {
  */
 function getNewScopes(componentName) {
   const currentComponents = CUSTOM_ELEMENTS_JSON.tags.map(
-    (component) => component.name
+    (component) => component.name,
   );
   currentComponents.push(componentName);
   currentComponents.sort();

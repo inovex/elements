@@ -1,9 +1,9 @@
 @use '../base/mdc-customize';
-@use "@material/image-list/mdc-image-list";
-@use "@material/image-list";
-@use "@material/feature-targeting/functions" as feature-targeting-functions;
-@use "@material/feature-targeting/mixins" as feature-targeting-mixins;
-@use "sass:math";
+@use '@material/image-list/mdc-image-list';
+@use '@material/image-list';
+@use '@material/feature-targeting/functions' as feature-targeting-functions;
+@use '@material/feature-targeting/mixins' as feature-targeting-mixins;
+@use 'sass:math';
 
 /**
  * Since we are using css variables to allow the consumer to change the number
@@ -20,7 +20,8 @@
 
   .mdc-image-list__item {
     @include feature-targeting-mixins.targets($feat-structure) {
-      width: math.div(100%, #{$cols}) - math.div(#{$gutter-size} + 1px, #{$cols});
+      width: math.div(100%, #{$cols}) -
+        math.div(#{$gutter-size} + 1px, #{$cols});
       margin: math.div($gutter-size, 2);
     }
   }

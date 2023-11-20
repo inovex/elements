@@ -26,16 +26,14 @@ describe('InoButton', () => {
     await page.waitForChanges();
 
     const newBtn = await inoButtonEl.find('button');
-    const {
-      height: newHeight,
-      width: newWidth,
-    } = await newBtn.getComputedStyle();
+    const { height: newHeight, width: newWidth } =
+      await newBtn.getComputedStyle();
 
     expect(
-      Math.abs(pxStrToNumber(newWidth) - pxStrToNumber(width))
+      Math.abs(pxStrToNumber(newWidth) - pxStrToNumber(width)),
     ).not.toBeGreaterThanOrEqual(1);
     expect(
-      Math.abs(pxStrToNumber(newHeight) - pxStrToNumber(height))
+      Math.abs(pxStrToNumber(newHeight) - pxStrToNumber(height)),
     ).not.toBeGreaterThanOrEqual(1);
   });
 

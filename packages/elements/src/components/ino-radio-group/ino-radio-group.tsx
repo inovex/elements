@@ -119,7 +119,7 @@ export class RadioGroup implements ComponentInterface {
   private async removeHoverAnimation() {
     const radios = await this.getRadios();
     const checkedRadio = radios.find((radio) =>
-      radio.classList.contains('ino-checked-hover')
+      radio.classList.contains('ino-checked-hover'),
     );
 
     if (!checkedRadio) {
