@@ -5,16 +5,6 @@
 
 @include list.deprecated-core-styles;
 
-$option-selected-background-color: #{theme.$p-1};
-$option-selected-background-color-hover: #{theme.$p-2};
-$option-selected-background-color-focus: #{theme.$p-3};
-$option-selected-background-color-active: #{theme.$p-3};
-
-$option-deselected-background-color: #{theme.$white};
-$option-deselected-background-color-hover: #{theme.$n-1};
-$option-deselected-background-color-focus: #{theme.$n-2};
-$option-deselected-background-color-active: #{theme.$n-3};
-
 $height: 2.85rem;
 
 .ino-autocomplete__list {
@@ -32,19 +22,19 @@ $height: 2.85rem;
   height: $height;
 
   @include base.style-mdc-list-item-deselected-states(
-    $option-deselected-background-color,
-    $option-deselected-background-color-hover,
-    $option-deselected-background-color-focus,
-    $option-deselected-background-color-active
+    base.$OPTION-DESELECTED-BG-COLOR,
+    base.$OPTION-DESELECTED-BG-COLOR-HOVER,
+    base.$OPTION-DESELECTED-BG-COLOR-FOCUS,
+    base.$OPTION-DESELECTED-BG-COLOR-ACTIVE
   );
 
   &--selected,
   &--activated {
     @include base.style-mdc-list-item-selected-states(
-      $option-selected-background-color,
-      $option-selected-background-color-hover,
-      $option-selected-background-color-focus,
-      $option-selected-background-color-active
+      base.$OPTION-SELECTED-BG-COLOR,
+      base.$OPTION-SELECTED-BG-COLOR-HOVER,
+      base.$OPTION-SELECTED-BG-COLOR-FOCUS,
+      base.$OPTION-SELECTED-BG-COLOR-ACTIVE
     );
     color: black;
   }
