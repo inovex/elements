@@ -1,6 +1,9 @@
 @use '../components/base/typography-new';
 @use '../components/base/theme';
 @use '../components/base/new-theme' as new-theme;
+/*
+@use '../components/base/dark-theme' as dark-theme;
+*/
 
 .inovex-elements-typo {
   font-family: Lato, Verdana, sans-serif;
@@ -91,8 +94,8 @@
     @include typography-new.typo(body-s);
   }
 }
-
-.inovex-elements-theme {
+// Light Theme Variables (Default)
+.inovex-elements-theme/*-light*/ {
   --inovex-elements-white: #{new-theme.$white};
   --inovex-elements-black: #{new-theme.$black};
   --inovex-elements-transparent: #{new-theme.$transparent};
@@ -137,4 +140,30 @@
   --inovex-elements-error-light: #{new-theme.$error-light};
   --inovex-elements-warning: #{new-theme.$warning};
   --inovex-elements-warning-light: #{new-theme.$warning-light};
+}
+
+// Dark Theme Variables
+.inovex-elements-theme-dark {
+  --inovex-elements-white: #{dark-theme.$white};
+  --inovex-elements-black: #{dark-theme.$black};
+  --inovex-elements-transparent: #{dark-theme.$transparent};
+
+  // Neutrals dark theme colors
+  --inovex-elements-n-1: #{dark-theme.$n-1};
+  --inovex-elements-n-2: #{dark-theme.$n-2};
+  // ...
+
+  /*
+  TODO:
+  Continue defining dark theme colors for other categories.
+  */
+
+  /* Theme Switching Documentation
+   * -----------------------------
+   * The elements package is designed to be theme-aware, supporting light and dark themes.
+   * The actual theme switching should be implemented in the application using this library (our next.js landingpage or storybook).
+   * The application can switch themes at runtime by toggling between the 
+   * '.inovex-elements-theme-light' and '.inovex-elements-theme-dark' classes on a high-level element (like 'body').
+   * This allows for dynamic theme changes without the need to reload or recompile the application.
+   */
 }

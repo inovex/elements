@@ -6,6 +6,11 @@ $animation-time: 200ms;
 .ino-accordion {
   &:hover {
     background: theme.$p-1;
+    /*
+    TODO: Switch to CSS variables for light- & dark theme support.
+    Replace the above line with the following once the global styles.scss file has been updated with a dark-theme import:
+    background: var(--inovex-elements-p-1);
+    */
   }
   border-radius: 24px;
 
