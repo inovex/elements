@@ -8,9 +8,8 @@ import {
   h,
   Method,
 } from '@stencil/core';
-import classNames from 'classnames';
-import TippyJS, { Instance, Placement } from 'tippy.js';
-import { TooltipTrigger } from '../types';
+import TippyJS, { Instance, Placement, roundArrow } from 'tippy.js';
+import { TooltipTrigger, TippyThemes } from '../types';
 
 /**
  * @slot default The text shown in the tooltip.
@@ -27,11 +26,16 @@ export class Tooltip implements ComponentInterface {
   @Element() el!: HTMLInoTooltipElement;
 
   /**
-   * Sets the color scheme of the tooltip
-   * Valid options include: `primary`, `transparent`
+   * Adds a optional header text to the `ino-tooltip`
    */
-  @Prop() colorScheme: 'primary' | 'transparent' =
-    'primary';
+  @Prop() headerText?: string;
+
+  /**
+   * Sets the color scheme of the tooltip.
+   *
+   * Valid options include: `light`, `dark` or `primary`
+   */
+  @Prop() colorScheme: TippyThemes = 'primary';
 
   /**
    * The placement of the tooltip.
@@ -40,11 +44,16 @@ export class Tooltip implements ComponentInterface {
    */
   @Prop() placement: Placement = 'auto';
 
+  /**
+   * Shows an arrow
+   */
+  @Prop() arrow = false;
+
   @Watch('placement')
   async onPlacementChange() {
     this.tooltipInstance?.setProps({
-      placement: this.placement
-    })
+      placement: this.placement,
+    });
   }
 
   /**
@@ -79,8 +88,8 @@ export class Tooltip implements ComponentInterface {
   @Watch('delay')
   onDelayChange() {
     this.tooltipInstance?.setProps({
-      delay: this.delay
-    })
+      delay: this.delay,
+    });
   }
 
   @Watch('trigger')
@@ -95,7 +104,6 @@ export class Tooltip implements ComponentInterface {
    * @deprecated
    */
   @Prop() label?: string;
-
 
   /**
    * Returns the internally used tippy.js instance
@@ -128,7 +136,7 @@ export class Tooltip implements ComponentInterface {
 
     if (!this.target) {
       throw new Error(
-        `Target with the ID '${this.for}' could not be found in this document.`
+        `Target with the ID '${this.for}' could not be found in this document.`,
       );
     }
 
@@ -138,7 +146,8 @@ export class Tooltip implements ComponentInterface {
       delay: this.delay,
       placement: this.placement,
       trigger: this.trigger,
-      arrow: true,
+      arrow: this.arrow ? roundArrow : false,
+      theme: this.colorScheme,
     };
 
     this.tooltipInstance = TippyJS(this.target, options);
@@ -159,11 +168,11 @@ export class Tooltip implements ComponentInterface {
       this.target.removeEventListener(
         'blur',
         this.onLeaveTarget.bind(this),
-        true
+        true,
       );
       this.target.removeEventListener(
         'mouseleave',
-        this.onLeaveTarget.bind(this)
+        this.onLeaveTarget.bind(this),
       );
     }
   }
@@ -183,14 +192,13 @@ export class Tooltip implements ComponentInterface {
   }
 
   render() {
-    const hostClasses = classNames(
-      `ino-tooltip--color-scheme-${this.colorScheme}`
-    );
-
     return (
-      <Host class={hostClasses}>
+      <Host>
         <div class="ino-tooltip__composer" role="tooltip">
-          <div class="ino-tooltip__inner">{this.label ? this.label : <slot />}</div>
+          <div class="ino-tooltip__inner">
+            {this.headerText && <header>{this.headerText}</header>}
+            {this.label ?? <slot />}
+          </div>
         </div>
       </Host>
     );

@@ -37,7 +37,7 @@
           "reflectToAttr": false,
           "docs": "The title of the accordion.",
           "docsTags": [],
-          "default": "null",
+          "default": "''",
           "values": [
             {
               "type": "string"
@@ -57,7 +57,7 @@
           "mutable": false,
           "attr": "expanded",
           "reflectToAttr": false,
-          "docs": "Weather the accordion is expanded or collapsed.",
+          "docs": "Whether the accordion is expanded or collapsed.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -384,6 +384,28 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "Overrides the avatar's loading animation behavior.\nWhen set to true, the loading animation is displayed indefinitely.\nWhen set to false, the avatar will not show any loading animations.\n\nBy default, the loading animation will be shown only while the image is being fetched.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
@@ -1728,24 +1750,19 @@
         },
         {
           "name": "role",
-          "type": "\"checkbox\" | \"radio\"",
+          "type": "string",
           "complexType": {
-            "original": "'checkbox' | 'radio'",
-            "resolved": "\"checkbox\" | \"radio\"",
+            "original": "string | null",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "role",
           "reflectToAttr": false,
-          "docs": "The type of control element",
+          "docs": "The type of control element\n\nValid options are 'checkbox' or 'radio'",
           "docsTags": [],
           "values": [
             {
-              "value": "checkbox",
-              "type": "string"
-            },
-            {
-              "value": "radio",
               "type": "string"
             }
           ],
@@ -2851,6 +2868,33 @@
           "required": false
         },
         {
+          "name": "dialogRole",
+          "type": "\"alertdialog\" | \"dialog\"",
+          "complexType": {
+            "original": "'dialog' | 'alertdialog'",
+            "resolved": "\"alertdialog\" | \"dialog\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dialog-role",
+          "reflectToAttr": false,
+          "docs": "The role of the dialog. Can be either 'dialog' or 'alertdialog'.\nThe 'alertdialog' role should be used for important alerts and error messages.",
+          "docsTags": [],
+          "default": "'dialog'",
+          "values": [
+            {
+              "value": "alertdialog",
+              "type": "string"
+            },
+            {
+              "value": "dialog",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dismissible",
           "type": "boolean",
           "complexType": {
@@ -2861,7 +2905,7 @@
           "mutable": false,
           "attr": "dismissible",
           "reflectToAttr": false,
-          "docs": "Close the dialog on pressing the ESC key or clicking outside of the dialog.",
+          "docs": "Close the dialog by clicking outside of the dialog.",
           "docsTags": [],
           "values": [
             {
@@ -8536,6 +8580,27 @@
           "required": false
         },
         {
+          "name": "type",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of the internal button in the element.\nThis can be 'submit', 'reset', or 'button'.\nIf not specified, the default type is 'submit'.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -10737,26 +10802,58 @@
       },
       "props": [
         {
-          "name": "colorScheme",
-          "type": "\"primary\" | \"transparent\"",
+          "name": "arrow",
+          "type": "boolean",
           "complexType": {
-            "original": "'primary' | 'transparent'",
-            "resolved": "\"primary\" | \"transparent\"",
+            "original": "boolean",
+            "resolved": "boolean",
             "references": {}
+          },
+          "mutable": false,
+          "attr": "arrow",
+          "reflectToAttr": false,
+          "docs": "Shows an arrow",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "colorScheme",
+          "type": "\"dark\" | \"light\" | \"primary\"",
+          "complexType": {
+            "original": "TippyThemes",
+            "resolved": "\"dark\" | \"light\" | \"primary\"",
+            "references": {
+              "TippyThemes": {
+                "location": "import",
+                "path": "../types",
+                "id": "src/components/types.ts::TippyThemes"
+              }
+            }
           },
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `transparent`",
+          "docs": "Sets the color scheme of the tooltip.\n\nValid options include: `light`, `dark` or `primary`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "primary",
+              "value": "dark",
               "type": "string"
             },
             {
-              "value": "transparent",
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
               "type": "string"
             }
           ],
@@ -10800,6 +10897,27 @@
           "attr": "for",
           "reflectToAttr": false,
           "docs": "The target id the tooltip belongs to.\nIf not given, the tooltip is attached to the parent component.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "headerText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "header-text",
+          "reflectToAttr": false,
+          "docs": "Adds a optional header text to the `ino-tooltip`",
           "docsTags": [],
           "values": [
             {
@@ -11054,7 +11172,7 @@
       "path": "src/components/ino-button/ino-button.tsx"
     },
     "src/components/types.ts::KeyValue": {
-      "declaration": "{\n    key: string;\n    value: string;\n}",
+      "declaration": "{\n  key: string;\n  value: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },
@@ -11064,7 +11182,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/ino-datepicker/picker-factory.ts::PickerTypeKeys": {
-      "declaration": "export type PickerTypeKeys = typeof PickerTypes[keyof typeof PickerTypes];",
+      "declaration": "export type PickerTypeKeys = (typeof PickerTypes)[keyof typeof PickerTypes];",
       "docstring": "",
       "path": "src/components/ino-datepicker/picker-factory.ts"
     },
@@ -11134,7 +11252,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/types.ts::NavDrawerLabels": {
-      "declaration": "{content: string, footer: string, toggleBtn: string}",
+      "declaration": "{\n  content: string;\n  footer: string;\n  toggleBtn: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },

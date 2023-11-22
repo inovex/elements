@@ -34,10 +34,10 @@ export default function LinkItem({
           isActive && styles.linkActive,
           noMargin && styles.noMargin,
           isDense && styles.linkDense,
-          isFooter && styles.footerDense, 
+          isFooter && styles.footerDense,
           isSubItem && styles.linkSubItem,
           isDense ? 'title-m' : 'title-l',
-          className
+          className,
         )}
       >
         {name.toLowerCase()}

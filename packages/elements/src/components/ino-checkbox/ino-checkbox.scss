@@ -4,11 +4,11 @@
 @use '@material/checkbox';
 @use '../base/theme';
 
-$primary-dark: #2C02FF;
-$primary-base: #4B4EFF;
-$primary-light: #2D5DFF4D;
-$grey: #ABB1CC;
-$grey-light: #CBD0E0;
+$primary-dark: #2c02ff;
+$primary-base: #4b4eff;
+$primary-light: #2d5dff4d;
+$grey: #abb1cc;
+$grey-light: #cbd0e0;
 $white: #fff;
 
 $unchecked-color: $grey;
@@ -21,8 +21,18 @@ $focus-border-color: $primary-base;
 
 :host {
   .mdc-checkbox {
-    @include checkbox.container-colors($unchecked-color, $white, $checked-color, $checked-color);
-    @include checkbox.disabled-container-colors($disabled-color, $white, $disabled-color, $disabled-color);
+    @include checkbox.container-colors(
+      $unchecked-color,
+      $white,
+      $checked-color,
+      $checked-color
+    );
+    @include checkbox.disabled-container-colors(
+      $disabled-color,
+      $white,
+      $disabled-color,
+      $disabled-color
+    );
 
     &:before,
     &:after {
@@ -68,11 +78,17 @@ $focus-border-color: $primary-base;
 
 :host(:hover) {
   .mdc-checkbox {
-    @include checkbox.container-colors($primary-base, $white, $checked-color, $checked-color);
+    @include checkbox.container-colors(
+      $primary-base,
+      $white,
+      $checked-color,
+      $checked-color
+    );
   }
 }
 
-:host(:active) .mdc-checkbox:not(.checked), :host(:focus),
+:host(:active) .mdc-checkbox:not(.checked),
+:host(:focus),
 :host(:active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
   .mdc-checkbox__background {
     box-shadow: 0px 0px 0px 4px $primary-light;

@@ -69,14 +69,14 @@ Trigger on two occasions:
 
 
 @ProxyCmp({
-  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'src', 'variant']
+  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'loading', 'src', 'variant']
 })
 @Component({
   selector: 'ino-avatar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'src', 'variant'],
+  inputs: ['a11yLabel', 'alt', 'colorSecondary', 'initials', 'interactive', 'loading', 'src', 'variant'],
 })
 export class InoAvatar {
   protected el: HTMLElement;
@@ -334,14 +334,14 @@ The value can be found in `event.detail`
 
 
 @ProxyCmp({
-  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
 })
 @Component({
   selector: 'ino-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open'],
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open'],
 })
 export class InoDialog {
   protected el: HTMLElement;
@@ -991,14 +991,14 @@ export declare interface InoRange extends Components.InoRange {
 
 
 @ProxyCmp({
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value']
+  inputs: ['checked', 'dense', 'disabled', 'name', 'type', 'value']
 })
 @Component({
   selector: 'ino-segment-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value'],
+  inputs: ['checked', 'dense', 'disabled', 'name', 'type', 'value'],
 })
 export class InoSegmentButton {
   protected el: HTMLElement;
@@ -1315,7 +1315,7 @@ export declare interface InoTextarea extends Components.InoTextarea {
 
 
 @ProxyCmp({
-  inputs: ['colorScheme', 'delay', 'for', 'label', 'placement', 'trigger'],
+  inputs: ['arrow', 'colorScheme', 'delay', 'for', 'headerText', 'label', 'placement', 'trigger'],
   methods: ['getTippyInstance']
 })
 @Component({
@@ -1323,7 +1323,7 @@ export declare interface InoTextarea extends Components.InoTextarea {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['colorScheme', 'delay', 'for', 'label', 'placement', 'trigger'],
+  inputs: ['arrow', 'colorScheme', 'delay', 'for', 'headerText', 'label', 'placement', 'trigger'],
 })
 export class InoTooltip {
   protected el: HTMLElement;

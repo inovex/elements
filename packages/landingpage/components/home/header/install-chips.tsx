@@ -19,16 +19,13 @@ const CommandByFrameworks: Record<Framework, string> = {
 const COMMAND_CHIP_ID = 'command-chip';
 
 export default function InstallChips() {
-  const [
-    manuallySelectedFramework,
-    setManuallySelectedFramework,
-  ] = useState<Framework | null>(null);
+  const [manuallySelectedFramework, setManuallySelectedFramework] =
+    useState<Framework | null>(null);
   const [carouselFramework, setCarouselFramework] = useState<Framework>(
-    Framework.VUE
+    Framework.VUE,
   );
-  const [currentFramework, setCurrentFramework] = useState<Framework>(
-    carouselFramework
-  );
+  const [currentFramework, setCurrentFramework] =
+    useState<Framework>(carouselFramework);
 
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);
@@ -48,7 +45,7 @@ export default function InstallChips() {
         return FrameworksArr[nextIndex] as Framework;
       });
     },
-    manuallySelectedFramework ? null : 3000
+    manuallySelectedFramework ? null : 3000,
   );
 
   useEffect(() => {
@@ -76,7 +73,7 @@ export default function InstallChips() {
           className={classNames(
             styles.successMessage,
             showTooltip && styles.successMessageShow,
-            'body-m'
+            'body-m',
           )}
         >
           {t('header.clipboard_success')}
@@ -88,13 +85,13 @@ export default function InstallChips() {
             key={framework}
             className={classNames(
               styles.icon,
-              framework === currentFramework && styles.iconActive
+              framework === currentFramework && styles.iconActive,
             )}
           >
             <Image
               onClick={() => {
                 setManuallySelectedFramework(
-                  currentFramework === framework ? null : framework
+                  currentFramework === framework ? null : framework,
                 );
                 setCarouselFramework(framework);
               }}

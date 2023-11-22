@@ -24,7 +24,7 @@ export namespace Components {
          */
         "accordionTitle": string;
         /**
-          * Weather the accordion is expanded or collapsed.
+          * Whether the accordion is expanded or collapsed.
          */
         "expanded": boolean;
     }
@@ -67,6 +67,10 @@ export namespace Components {
           * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
          */
         "interactive": boolean;
+        /**
+          * Overrides the avatar's loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the avatar will not show any loading animations.  By default, the loading animation will be shown only while the image is being fetched.
+         */
+        "loading"?: boolean;
         /**
           * The img of the avatar.
          */
@@ -243,9 +247,9 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * The type of control element
+          * The type of control element  Valid options are 'checkbox' or 'radio'
          */
-        "role": 'checkbox' | 'radio';
+        "role": string | null;
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
@@ -417,7 +421,11 @@ export namespace Components {
          */
         "cancelText"?: string;
         /**
-          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
+         */
+        "dialogRole"?: 'dialog' | 'alertdialog';
+        /**
+          * Close the dialog by clicking outside of the dialog.
          */
         "dismissible"?: boolean;
         /**
@@ -1113,6 +1121,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * The type of the internal button in the element. This can be 'submit', 'reset', or 'button'. If not specified, the default type is 'submit'.
+         */
+        "type"?: string;
+        /**
           * Value of the element
          */
         "value"?: string;
@@ -1399,9 +1411,13 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
+          * Shows an arrow
          */
-        "colorScheme": 'primary' | 'transparent';
+        "arrow": boolean;
+        /**
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+         */
+        "colorScheme": TippyThemes;
         /**
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
@@ -1414,6 +1430,10 @@ export namespace Components {
           * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
+        /**
+          * Adds a optional header text to the `ino-tooltip`
+         */
+        "headerText"?: string;
         /**
           * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
           * @deprecated
@@ -1918,7 +1938,7 @@ declare namespace LocalJSX {
          */
         "accordionTitle"?: string;
         /**
-          * Weather the accordion is expanded or collapsed.
+          * Whether the accordion is expanded or collapsed.
          */
         "expanded"?: boolean;
         /**
@@ -1969,6 +1989,10 @@ declare namespace LocalJSX {
           * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
          */
         "interactive"?: boolean;
+        /**
+          * Overrides the avatar's loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the avatar will not show any loading animations.  By default, the loading animation will be shown only while the image is being fetched.
+         */
+        "loading"?: boolean;
         /**
           * The img of the avatar.
          */
@@ -2165,9 +2189,9 @@ declare namespace LocalJSX {
          */
         "onCheckedChange"?: (event: InoControlItemCustomEvent<any>) => void;
         /**
-          * The type of control element
+          * The type of control element  Valid options are 'checkbox' or 'radio'
          */
-        "role": 'checkbox' | 'radio';
+        "role": string | null;
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
@@ -2335,7 +2359,11 @@ declare namespace LocalJSX {
          */
         "cancelText"?: string;
         /**
-          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
+         */
+        "dialogRole"?: 'dialog' | 'alertdialog';
+        /**
+          * Close the dialog by clicking outside of the dialog.
          */
         "dismissible"?: boolean;
         /**
@@ -3093,6 +3121,10 @@ declare namespace LocalJSX {
          */
         "onCheckedChange"?: (event: InoSegmentButtonCustomEvent<any>) => void;
         /**
+          * The type of the internal button in the element. This can be 'submit', 'reset', or 'button'. If not specified, the default type is 'submit'.
+         */
+        "type"?: string;
+        /**
           * Value of the element
          */
         "value"?: string;
@@ -3406,9 +3438,13 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
+          * Shows an arrow
          */
-        "colorScheme"?: 'primary' | 'transparent';
+        "arrow"?: boolean;
+        /**
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+         */
+        "colorScheme"?: TippyThemes;
         /**
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
@@ -3417,6 +3453,10 @@ declare namespace LocalJSX {
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "for"?: string;
+        /**
+          * Adds a optional header text to the `ino-tooltip`
+         */
+        "headerText"?: string;
         /**
           * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
           * @deprecated

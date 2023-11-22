@@ -23,27 +23,27 @@ const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
 
 async function getCommitPerMonth(
-  locale: string
+  locale: string,
 ): Promise<GithubCommitsPerMonth> {
   const maybeGithubToken = process.env.GITHUB_TOKEN;
   const requestInit: RequestInit = {};
 
   if (maybeGithubToken) {
     console.log(
-      'Found a Github Token in your environment. Using it to fetch commit info.'
+      'Found a Github Token in your environment. Using it to fetch commit info.',
     );
     requestInit.headers = new Headers({
       authorization: `Bearer ${maybeGithubToken}`,
     });
   } else {
     console.warn(
-      'An github token was not found in your environment. Trying to fetch commit info without a token. You might run into a rate limit.'
+      'An github token was not found in your environment. Trying to fetch commit info without a token. You might run into a rate limit.',
     );
   }
 
   const fetchResult = await fetch(
     GITHUB_REPO_URL + '/stats/participation',
-    requestInit
+    requestInit,
   );
 
   if (fetchResult.status === 403) {
@@ -64,7 +64,7 @@ async function getCommitPerMonth(
     .map((commitsPerWeek, index) => {
       const week = subWeeks(
         lastDayOfCurrentWeek,
-        NUMBER_WEEKS_PER_YEAR - index
+        NUMBER_WEEKS_PER_YEAR - index,
       );
       const month = startOfMonth(week);
       return {
@@ -117,7 +117,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const users = await getGitHubContributers();
   const { localization } = getStaticLanguageProps(
     ctx as LangContext,
-    Locale_File.ABOUT
+    Locale_File.ABOUT,
   ).props;
   const commitsPerMonth = await getCommitPerMonth(localization.locale);
 

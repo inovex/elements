@@ -10,10 +10,10 @@ $n-7: #edeff5;
 $n-3: #7275a1;
 
 $primary: #2c02ff;
-$button_filled_hover-control_hover: #4B4EFF;
-$button_filled_pressed: #3D40F5;
-$button_outlined_text_pressed: #D7E0FF;
-$button_outlined_text_hover: #E8EDFF;
+$button_filled_hover-control_hover: #4b4eff;
+$button_filled_pressed: #3d40f5;
+$button_outlined_text_pressed: #d7e0ff;
+$button_outlined_text_hover: #e8edff;
 
 $border-focused: #2d5dff4d;
 $text-disabled: $n-3;
@@ -92,7 +92,6 @@ ino-button .button__variant--filled {
       $round-to-edged: false
     );
   }
-
 
   &:focus {
     background-color: $button_filled_pressed;

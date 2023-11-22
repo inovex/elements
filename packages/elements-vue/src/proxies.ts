@@ -32,7 +32,8 @@ export const InoAvatar = /*@__PURE__*/ defineContainer<JSX.InoAvatar>('ino-avata
   'interactive',
   'variant',
   'colorSecondary',
-  'a11yLabel'
+  'a11yLabel',
+  'loading'
 ]);
 
 
@@ -161,6 +162,7 @@ export const InoDialog = /*@__PURE__*/ defineContainer<JSX.InoDialog>('ino-dialo
   'fullwidth',
   'dismissible',
   'open',
+  'dialogRole',
   'headerText',
   'bodyText',
   'cancelText',
@@ -432,6 +434,7 @@ export const InoSegmentButton = /*@__PURE__*/ defineContainer<JSX.InoSegmentButt
   'dense',
   'name',
   'value',
+  'type',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');
@@ -553,8 +556,10 @@ export const InoTextarea = /*@__PURE__*/ defineContainer<JSX.InoTextarea, JSX.In
 
 
 export const InoTooltip = /*@__PURE__*/ defineContainer<JSX.InoTooltip>('ino-tooltip', undefined, [
+  'headerText',
   'colorScheme',
   'placement',
+  'arrow',
   'for',
   'trigger',
   'delay',

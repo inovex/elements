@@ -36,7 +36,7 @@ export const HomeTodoApp: React.FC = () => {
 
   const undoTodo = (todo: string) => {
     const filteredDoneTodo = doneTodos.filter(
-      (currentTodo) => currentTodo !== todo
+      (currentTodo) => currentTodo !== todo,
     );
     setTodos([...todos, todo]);
     setDoneTodos(filteredDoneTodo);
@@ -46,10 +46,7 @@ export const HomeTodoApp: React.FC = () => {
     <InoList>
       {todos.map((todo) => (
         <InoListItem key={todo} text={todo}>
-          <InoCheckbox
-            slot="leading"
-            onCheckedChange={() => doTodo(todo)}
-          />
+          <InoCheckbox slot="leading" onCheckedChange={() => doTodo(todo)} />
         </InoListItem>
       ))}
     </InoList>

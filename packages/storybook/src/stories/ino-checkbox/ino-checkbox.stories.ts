@@ -24,11 +24,11 @@ export default {
 
         const checkboxes = document.querySelectorAll('ino-checkbox');
         checkboxes.forEach((c) =>
-          c.addEventListener('checkedChange', handleCheckedChange)
+          c.addEventListener('checkedChange', handleCheckedChange),
         );
         return () =>
           checkboxes.forEach((c) =>
-            c.removeEventListener('checkedChange', handleCheckedChange)
+            c.removeEventListener('checkedChange', handleCheckedChange),
           );
       });
       return story();
@@ -59,7 +59,7 @@ const template = new TemplateGenerator<Components.InoCheckbox>(
     >
       Label
     </ino-checkbox>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();
@@ -70,7 +70,7 @@ export const Selection = template.generateStoryForProp('selection', true);
 
 export const Indeterminate = template.generateStoryForProp(
   'indeterminate',
-  true
+  true,
 );
 
 export const Disabled = template.generateStoryForProp('disabled', true);

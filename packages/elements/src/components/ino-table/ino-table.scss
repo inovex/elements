@@ -1,9 +1,9 @@
 @use '../base/mdc-customize';
 @use '../base/theme';
-@use "@material/data-table/data-table";
+@use '@material/data-table/data-table';
 
-@use "./table-row";
-@use "./table-cell";
+@use './table-row';
+@use './table-cell';
 
 @include data-table.core-styles;
 @include data-table.theme-baseline;

@@ -18,6 +18,8 @@ Lovingly crafted UI components based on native Web Components <br>for Angular, R
 
 <br>
 
+<img src="assets/elements-preview.png">
+
 <h1 align="center">Installation</h1>
 
 <div align="center">

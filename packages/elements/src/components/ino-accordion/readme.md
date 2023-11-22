@@ -9,8 +9,8 @@
 
 | Property         | Attribute         | Description                                     | Type      | Default |
 | ---------------- | ----------------- | ----------------------------------------------- | --------- | ------- |
-| `accordionTitle` | `accordion-title` | The title of the accordion.                     | `string`  | `null`  |
-| `expanded`       | `expanded`        | Weather the accordion is expanded or collapsed. | `boolean` | `false` |
+| `accordionTitle` | `accordion-title` | The title of the accordion.                     | `string`  | `''`    |
+| `expanded`       | `expanded`        | Whether the accordion is expanded or collapsed. | `boolean` | `false` |
 
 
 ## Events

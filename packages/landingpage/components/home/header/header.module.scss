@@ -6,8 +6,8 @@
     'header image'
     'info image'
     'installation image';
-    grid-row-gap: 40px;
-    margin-top: 75px;
+  grid-row-gap: 40px;
+  margin-top: 75px;
 }
 
 .image {
@@ -45,19 +45,21 @@
     position: relative;
     width: fit-content;
     isolation: isolate;
-    background-color: var(--inovex-elements-transparent); // needed, else background defaults to yellow
+    background-color: var(
+      --inovex-elements-transparent
+    ); // needed, else background defaults to yellow
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       inset: 0;
       z-index: -1;
       background: linear-gradient(
-      0,
-      var(--inovex-elements-p-3) 40%,
-      var(--inovex-elements-transparent) 40%,
-    );
-    opacity: 0.4;
+        0,
+        var(--inovex-elements-p-3) 40%,
+        var(--inovex-elements-transparent) 40%
+      );
+      opacity: 0.4;
     }
   }
 }
@@ -65,7 +67,7 @@
 .info {
   grid-area: info;
   max-width: 650px;
-  grid-column: 1 / span 2
+  grid-column: 1 / span 2;
 }
 
 .installation {

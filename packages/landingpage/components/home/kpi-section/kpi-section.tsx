@@ -39,7 +39,7 @@ export default function KPIsection() {
       const countUpAnim = new CountUp(
         countupRefs.current[i] as HTMLDivElement,
         kpi.target_value,
-        options
+        options,
       );
       countUpAnim.start();
     });

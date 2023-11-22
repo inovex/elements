@@ -21,15 +21,14 @@ export default {
 
         const templates = Array.from(document.getElementsByTagName('template'));
         const templateWithId = templates.find(
-          (template) => template.id === triggerId
+          (template) => template.id === triggerId,
         );
 
-        const currentSnackbars = document.body.getElementsByTagName(
-          'ino-snackbar'
-        );
+        const currentSnackbars =
+          document.body.getElementsByTagName('ino-snackbar');
 
         const snackbarWithIdExists = Array.from(currentSnackbars).some(
-          (snackbar) => snackbar.id === triggerId
+          (snackbar) => snackbar.id === triggerId,
         );
 
         if (snackbarWithIdExists) {
@@ -85,11 +84,12 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
         ${args.defaultSlot}
       </ino-snackbar>
     </template>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.argTypes = { // hide custom attributes from table
+Playground.argTypes = {
+  // hide custom attributes from table
   id: {
     table: {
       disable: true,
@@ -126,5 +126,5 @@ export const StayVisibleOnHover = template.generateStoryForProp(
     timeout: 5000,
     defaultSlot:
       'This snackbar stays visible on hover otherwise it will disappear in 5s',
-  }
+  },
 );

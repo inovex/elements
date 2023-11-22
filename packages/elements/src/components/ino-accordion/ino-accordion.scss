@@ -50,7 +50,7 @@ $animation-time: 200ms;
   }
 }
 
-.toggle-button {
+.toggle-wrapper {
   background: none;
   width: 32px;
   height: 32px;
@@ -86,4 +86,10 @@ $animation-time: 200ms;
       }
     }
   }
+}
+
+.header-button {
+  all: unset;
+  display: flex;
+  align-items: center;
 }
