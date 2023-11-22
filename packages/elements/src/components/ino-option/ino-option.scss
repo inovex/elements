@@ -25,37 +25,37 @@ ino-option {
   );
   --option-selected-background-color: var(
     --ino-option-selected-background-color,
-    #{theme.$p-1}
+    #{base.$OPTION-SELECTED-BG-COLOR}
   );
   --option-selected-background-color-hover: var(
     --ino-option-selected-background-color-hover,
-    #{theme.$p-2}
+    #{base.$OPTION-SELECTED-BG-COLOR-HOVER}
   );
   --option-selected-background-color-focus: var(
     --ino-option-selected-background-color-focus,
-    #{theme.$p-2}
+    #{base.$OPTION-SELECTED-BG-COLOR-HOVER}
   );
   --option-selected-background-color-active: var(
     --ino-option-selected-background-color-active,
-    #{theme.$p-3}
+    #{base.$OPTION-SELECTED-BG-COLOR-ACTIVE}
   );
   // the following CSS variables do not have a default value as the component uses the default colors set
   // by the MDC library if the value of the variable is empty
   --option-deselected-background-color: var(
     --ino-option-deselected-background-color,
-    #{theme.$white}
+    #{base.$OPTION-DESELECTED-BG-COLOR}
   );
   --option-deselected-background-color-hover: var(
     --ino-option-deselected-background-color-hover,
-    #{theme.$n-1}
+    #{base.$OPTION-DESELECTED-BG-COLOR-HOVER}
   );
   --option-deselected-background-color-focus: var(
     --ino-option-deselected-background-color-focus,
-    #{theme.$n-1}
+    #{base.$OPTION-DESELECTED-BG-COLOR-HOVER}
   );
   --option-deselected-background-color-active: var(
     --ino-option-deselected-background-color-active,
-    #{theme.$n-2}
+    #{base.$OPTION-DESELECTED-BG-COLOR}
   );
 }
 

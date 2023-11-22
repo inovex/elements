@@ -1,0 +1,5603 @@
+{
+  "version": "5.1",
+  "nxVersion": "15.9.7",
+  "deps": {
+    "@angular/animations": "~15.1.0",
+    "@angular/common": "~15.1.0",
+    "@angular/compiler": "~15.1.0",
+    "@angular/core": "~15.1.0",
+    "@angular/forms": "~15.1.0",
+    "@angular/platform-browser": "~15.1.0",
+    "@angular/platform-browser-dynamic": "~15.1.0",
+    "@angular/router": "~15.1.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4",
+    "@angular-devkit/build-angular": "~15.1.0",
+    "@angular-eslint/eslint-plugin": "~15.0.0",
+    "@angular-eslint/eslint-plugin-template": "~15.0.0",
+    "@angular-eslint/template-parser": "~15.0.0",
+    "@angular/cli": "~15.1.0",
+    "@angular/compiler-cli": "~15.1.0",
+    "@angular/language-service": "~15.1.0",
+    "@nrwl/angular": "15.9.7",
+    "@nrwl/eslint-plugin-nx": "15.9.7",
+    "@nrwl/nx": "^7.8.7",
+    "@nrwl/storybook": "15.9.7",
+    "@types/css-font-loading-module": "^0.0.7",
+    "@types/fs-extra": "^9.0.13",
+    "@types/jest": "26.0.24",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "camelcase": "^6.2.0",
+    "chalk": "^4.1.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-no-null": "^1.0.2",
+    "eslint-plugin-react": "^7.32.1",
+    "fs-extra": "^9.0.0",
+    "jest": "26.6.3",
+    "jest-cli": "26.6.3",
+    "js-yaml": "^3.14.0",
+    "lerna": "^5.5.2",
+    "lint-staged": "^10.5.3",
+    "ng-packagr": "~15.1.0",
+    "nx": "15.9.7",
+    "postcss": "^8.4.5",
+    "postcss-import": "~14.1.0",
+    "postcss-preset-env": "~7.5.0",
+    "postcss-url": "~10.1.3",
+    "prettier": "^2.1.2",
+    "prompts": "^2.4.0",
+    "shelljs": "^0.8.4",
+    "shx": "^0.3.2",
+    "standard-version": "^8.0.0",
+    "svgo": "^2.8.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~4.9.4",
+    "yalc": "^1.0.0-pre.32"
+  },
+  "pathMappings": {
+    "@inovex.de/elements-angular": [
+      "packages/elements-angular/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "nodes": {
+    "elements-angular-example": {
+      "name": "elements-angular-example",
+      "type": "app",
+      "data": {
+        "name": "elements-angular-example",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "projectType": "application",
+        "sourceRoot": "packages/elements-angular-example/src",
+        "prefix": "app",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "executor": "@angular-devkit/build-angular:browser",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/packages/elements-angular-example",
+              "index": "packages/elements-angular-example/src/index.html",
+              "main": "packages/elements-angular-example/src/main.ts",
+              "polyfills": [
+                "zone.js"
+              ],
+              "tsConfig": "packages/elements-angular-example/tsconfig.app.json",
+              "inlineStyleLanguage": "scss",
+              "assets": [
+                "packages/elements-angular-example/src/favicon.ico",
+                "packages/elements-angular-example/src/assets",
+                {
+                  "glob": "**/*.svg",
+                  "input": "node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
+                  "output": "ino-icon"
+                }
+              ],
+              "styles": [
+                "packages/elements-angular-example/src/styles.scss"
+              ],
+              "scripts": [],
+              "baseHref": "/example-projects/angular/"
+            },
+            "configurations": {
+              "production": {
+                "budgets": [
+                  {
+                    "type": "initial",
+                    "maximumWarning": "500kb",
+                    "maximumError": "1mb"
+                  },
+                  {
+                    "type": "anyComponentStyle",
+                    "maximumWarning": "2kb",
+                    "maximumError": "4kb"
+                  }
+                ],
+                "outputHashing": "all"
+              },
+              "development": {
+                "buildOptimizer": false,
+                "optimization": false,
+                "vendorChunk": true,
+                "extractLicenses": false,
+                "sourceMap": true,
+                "namedChunks": true
+              }
+            },
+            "defaultConfiguration": "production"
+          },
+          "start": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+              "production": {
+                "browserTarget": "elements-angular-example:build:production"
+              },
+              "development": {
+                "browserTarget": "elements-angular-example:build:development"
+              }
+            },
+            "defaultConfiguration": "development"
+          },
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "packages/elements-angular-example/**/*.ts",
+                "packages/elements-angular-example/**/*.html"
+              ]
+            }
+          }
+        },
+        "tags": [],
+        "root": "packages/elements-angular-example",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/elements-angular-example/.browserslistrc",
+            "hash": "2519363244570020624"
+          },
+          {
+            "file": "packages/elements-angular-example/.editorconfig",
+            "hash": "6686520031028425313"
+          },
+          {
+            "file": "packages/elements-angular-example/.eslintrc.json",
+            "hash": "15981357133695620618"
+          },
+          {
+            "file": "packages/elements-angular-example/.versionrc",
+            "hash": "5414789382074457529"
+          },
+          {
+            "file": "packages/elements-angular-example/angular.json",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/elements-angular-example/CHANGELOG.md",
+            "hash": "17573315198113919171"
+          },
+          {
+            "file": "packages/elements-angular-example/package.json",
+            "hash": "1552605894688600108"
+          },
+          {
+            "file": "packages/elements-angular-example/project.json",
+            "hash": "12957287671535732350"
+          },
+          {
+            "file": "packages/elements-angular-example/src/app/app.component.html",
+            "hash": "1599290867012134104"
+          },
+          {
+            "file": "packages/elements-angular-example/src/app/app.component.scss",
+            "hash": "563265346236308347"
+          },
+          {
+            "file": "packages/elements-angular-example/src/app/app.component.ts",
+            "hash": "8293961875783938710",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular-example",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/forms",
+                "source": "elements-angular-example",
+                "type": "static"
+              },
+              {
+                "target": "elements",
+                "source": "elements-angular-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular-example/src/app/app.module.ts",
+            "hash": "8190755058258457135",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular-example",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/platform-browser",
+                "source": "elements-angular-example",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/forms",
+                "source": "elements-angular-example",
+                "type": "static"
+              },
+              {
+                "target": "elements-angular",
+                "source": "elements-angular-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular-example/src/app/shared/models/todo.ts",
+            "hash": "5172933186332770777"
+          },
+          {
+            "file": "packages/elements-angular-example/src/app/shared/services/todo.service.spec.ts",
+            "hash": "16836095554328267496",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular-example/src/app/shared/services/todo.service.ts",
+            "hash": "4214856659798859830",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular-example/src/app/shared/shared.module.ts",
+            "hash": "8480543558757406609",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular-example",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/common",
+                "source": "elements-angular-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular-example/src/assets/.gitkeep",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/elements-angular-example/src/index.html",
+            "hash": "1957464140911152390"
+          },
+          {
+            "file": "packages/elements-angular-example/src/main.ts",
+            "hash": "3259059517603285449",
+            "dependencies": [
+              {
+                "target": "npm:@angular/platform-browser-dynamic",
+                "source": "elements-angular-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular-example/src/styles.scss",
+            "hash": "5195668842064076916"
+          },
+          {
+            "file": "packages/elements-angular-example/tsconfig.app.json",
+            "hash": "8365644956319658761"
+          },
+          {
+            "file": "packages/elements-angular-example/tsconfig.json",
+            "hash": "18098287675659642920"
+          }
+        ]
+      }
+    },
+    "elements-react-example": {
+      "name": "elements-react-example",
+      "type": "app",
+      "data": {
+        "name": "elements-react-example",
+        "projectType": "application",
+        "sourceRoot": "packages/elements-react-example/src",
+        "tags": [],
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "executor": "nx:run-commands",
+            "outputs": [
+              "{projectRoot}/dist"
+            ],
+            "options": {
+              "cwd": "packages/elements-react-example",
+              "command": "vite build"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements-react-example"
+            },
+            "defaultConfiguration": "dev",
+            "configurations": {
+              "dev": {
+                "command": "vite --port 4300"
+              },
+              "prod": {
+                "command": "vite preview --port 4300"
+              }
+            }
+          },
+          "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements-react-example",
+              "command": "shx rm -rf dist"
+            },
+            "configurations": {
+              "nodejs": {
+                "command": "shx rm -rf node_modules"
+              }
+            }
+          }
+        },
+        "root": "packages/elements-react-example",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/elements-react-example/.gitignore",
+            "hash": "14619577941153337813"
+          },
+          {
+            "file": "packages/elements-react-example/.versionrc",
+            "hash": "5414789382074457529"
+          },
+          {
+            "file": "packages/elements-react-example/CHANGELOG.md",
+            "hash": "14710026514343378182"
+          },
+          {
+            "file": "packages/elements-react-example/index.html",
+            "hash": "11132259122015845910"
+          },
+          {
+            "file": "packages/elements-react-example/package.json",
+            "hash": "17156755651265488894",
+            "dependencies": [
+              {
+                "target": "elements-react",
+                "source": "elements-react-example",
+                "type": "static"
+              },
+              {
+                "target": "npm:typescript",
+                "source": "elements-react-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-react-example/project.json",
+            "hash": "11255131064128969903"
+          },
+          {
+            "file": "packages/elements-react-example/src/App.test.tsx",
+            "hash": "17729915318124515201"
+          },
+          {
+            "file": "packages/elements-react-example/src/App.tsx",
+            "hash": "16898219451118044484"
+          },
+          {
+            "file": "packages/elements-react-example/src/assets/elements.svg",
+            "hash": "13130318251795344316"
+          },
+          {
+            "file": "packages/elements-react-example/src/home-todo-app/App.scss",
+            "hash": "10030451263412060003"
+          },
+          {
+            "file": "packages/elements-react-example/src/home-todo-app/index.tsx",
+            "hash": "6519504685821205280"
+          },
+          {
+            "file": "packages/elements-react-example/src/index.scss",
+            "hash": "18356751899395610001"
+          },
+          {
+            "file": "packages/elements-react-example/src/ino-button/index.tsx",
+            "hash": "775903477652720398"
+          },
+          {
+            "file": "packages/elements-react-example/src/ino-dialog/Dialog.scss",
+            "hash": "13239668864704583937"
+          },
+          {
+            "file": "packages/elements-react-example/src/ino-dialog/index.tsx",
+            "hash": "2787178233517268595"
+          },
+          {
+            "file": "packages/elements-react-example/src/ino-fab/index.tsx",
+            "hash": "15726082488851971372"
+          },
+          {
+            "file": "packages/elements-react-example/src/ino-select/index.tsx",
+            "hash": "4091712106938956966"
+          },
+          {
+            "file": "packages/elements-react-example/src/login-form-app/Guide.scss",
+            "hash": "1675033380033637614"
+          },
+          {
+            "file": "packages/elements-react-example/src/login-form-app/index.tsx",
+            "hash": "7989575641363012094",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "elements-react-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-react-example/src/main.tsx",
+            "hash": "3408250046083503443"
+          },
+          {
+            "file": "packages/elements-react-example/src/serviceWorker.ts",
+            "hash": "688904408958184546"
+          },
+          {
+            "file": "packages/elements-react-example/src/shared/components/NavItemLink.tsx",
+            "hash": "4211206023219347774"
+          },
+          {
+            "file": "packages/elements-react-example/src/shared/InovexElements.ts",
+            "hash": "16217897613318336576",
+            "dependencies": [
+              {
+                "target": "elements-react",
+                "source": "elements-react-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-react-example/src/vite-env.d.ts",
+            "hash": "12946363841406869089"
+          },
+          {
+            "file": "packages/elements-react-example/tsconfig.json",
+            "hash": "697412834187601468"
+          },
+          {
+            "file": "packages/elements-react-example/vite.config.ts",
+            "hash": "11448063237288204725"
+          }
+        ]
+      }
+    },
+    "elements-vue-example": {
+      "name": "elements-vue-example",
+      "type": "app",
+      "data": {
+        "name": "elements-vue-example",
+        "projectType": "application",
+        "sourceRoot": "packages/elements-vue-example/src",
+        "tags": [],
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements-vue-example",
+              "command": "vite build"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements-vue-example"
+            },
+            "defaultConfiguration": "dev",
+            "configurations": {
+              "dev": {
+                "command": "vite serve"
+              },
+              "prod": {
+                "command": "vite serve --mode=production"
+              }
+            }
+          },
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "packages/elements-vue-example/src/**/*.{ts,tsx,vue,js}"
+              ]
+            }
+          },
+          "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements-vue-example",
+              "command": "shx rm -rf dist"
+            },
+            "configurations": {
+              "nodejs": {
+                "command": "shx rm -rf node_modules"
+              }
+            }
+          }
+        },
+        "root": "packages/elements-vue-example",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/elements-vue-example/.eslintrc.json",
+            "hash": "4793991737243717730"
+          },
+          {
+            "file": "packages/elements-vue-example/.gitignore",
+            "hash": "17479629380480273326"
+          },
+          {
+            "file": "packages/elements-vue-example/.versionrc",
+            "hash": "5414789382074457529"
+          },
+          {
+            "file": "packages/elements-vue-example/CHANGELOG.md",
+            "hash": "6033160549897805319"
+          },
+          {
+            "file": "packages/elements-vue-example/index.html",
+            "hash": "17735941577909216774"
+          },
+          {
+            "file": "packages/elements-vue-example/package.json",
+            "hash": "8596561497497453005",
+            "dependencies": [
+              {
+                "target": "elements-vue",
+                "source": "elements-vue-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-vue-example/project.json",
+            "hash": "5294720012361933895"
+          },
+          {
+            "file": "packages/elements-vue-example/public/favicon.ico",
+            "hash": "18282137866655320110"
+          },
+          {
+            "file": "packages/elements-vue-example/README.md",
+            "hash": "17448691736218136144"
+          },
+          {
+            "file": "packages/elements-vue-example/src/App.vue",
+            "hash": "12611331362262101812"
+          },
+          {
+            "file": "packages/elements-vue-example/src/components/ContactForm.vue",
+            "hash": "8561980015263173814"
+          },
+          {
+            "file": "packages/elements-vue-example/src/components/ImageGallery.vue",
+            "hash": "9336918028631735213"
+          },
+          {
+            "file": "packages/elements-vue-example/src/components/SampleDialog.vue",
+            "hash": "2251411808394105194"
+          },
+          {
+            "file": "packages/elements-vue-example/src/components/ToDoList.vue",
+            "hash": "13202422005567384333"
+          },
+          {
+            "file": "packages/elements-vue-example/src/components/VCard.vue",
+            "hash": "2340588448289037148"
+          },
+          {
+            "file": "packages/elements-vue-example/src/main.js",
+            "hash": "5522805262243994833",
+            "dependencies": [
+              {
+                "target": "elements-vue",
+                "source": "elements-vue-example",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-vue-example/vite.config.js",
+            "hash": "15754581616299946090"
+          }
+        ]
+      }
+    },
+    "elements-angular": {
+      "name": "elements-angular",
+      "type": "lib",
+      "data": {
+        "name": "elements-angular",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "projectType": "library",
+        "sourceRoot": "packages/elements-angular/src",
+        "prefix": "app",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "commands": [
+                "nx run elements-angular:compile",
+                "nx run elements-angular:schematics"
+              ],
+              "parallel": false
+            },
+            "configurations": {}
+          },
+          "compile": {
+            "executor": "@nrwl/angular:package",
+            "options": {
+              "project": "packages/elements-angular/ng-package.json",
+              "tsConfig": "packages/elements-angular/tsconfig.lib.prod.json"
+            },
+            "configurations": {
+              "development": {
+                "tsConfig": "packages/elements-angular/tsconfig.lib.json"
+              }
+            }
+          },
+          "start": {
+            "executor": "@nrwl/angular:package",
+            "options": {
+              "project": "packages/elements-angular/ng-package.json",
+              "tsConfig": "packages/elements-angular/tsconfig.lib.json",
+              "watch": true
+            }
+          },
+          "schematics": {
+            "executor": "nx:run-commands",
+            "outputs": [
+              "packages/elements-angular/dist/schematics"
+            ],
+            "options": {
+              "commands": [
+                "tsc -p packages/elements-angular/tsconfig.schematics.json --outDir packages/elements-angular/dist/schematics",
+                "shx cp packages/elements-angular/src/schematics/collection.json packages/elements-angular/dist/schematics"
+              ],
+              "parallel": false
+            }
+          },
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "packages/elements-angular/src/**/*.ts",
+                "packages/elements-angular/src/**/*.html"
+              ]
+            }
+          }
+        },
+        "tags": [],
+        "root": "packages/elements-angular",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/elements-angular/.eslintrc.json",
+            "hash": "7598953231982455973"
+          },
+          {
+            "file": "packages/elements-angular/.versionrc",
+            "hash": "5414789382074457529"
+          },
+          {
+            "file": "packages/elements-angular/CHANGELOG.md",
+            "hash": "10803754948624485569"
+          },
+          {
+            "file": "packages/elements-angular/ng-package.json",
+            "hash": "16549495437455037715"
+          },
+          {
+            "file": "packages/elements-angular/package.json",
+            "hash": "2812944464984415239",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:tslib",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/common",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/project.json",
+            "hash": "15616042085651969674"
+          },
+          {
+            "file": "packages/elements-angular/README.md",
+            "hash": "8092258291104092810"
+          },
+          {
+            "file": "packages/elements-angular/src/app-initialize.ts",
+            "hash": "10076554805478274806",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "elements",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/generated/angular-component-lib/utils.ts",
+            "hash": "14371058592922750478",
+            "dependencies": [
+              {
+                "target": "npm:rxjs",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/generated/boolean-value-accessor.ts",
+            "hash": "17373690530823883241",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/forms",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/generated/components.ts",
+            "hash": "8047882622290331195",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "elements",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/generated/index.ts",
+            "hash": "16516680309281408850"
+          },
+          {
+            "file": "packages/elements-angular/src/generated/number-value-accessor.ts",
+            "hash": "5085243517219890231",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/forms",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/generated/radio-value-accessor.ts",
+            "hash": "302692943214278756",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/forms",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/generated/text-value-accessor.ts",
+            "hash": "2616625615857018327",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/forms",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/generated/value-accessor.ts",
+            "hash": "15841326621800051881",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/forms",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/index.ts",
+            "hash": "3996153207474563879"
+          },
+          {
+            "file": "packages/elements-angular/src/ino-elements.module.ts",
+            "hash": "2075971336129598886",
+            "dependencies": [
+              {
+                "target": "npm:@angular/core",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "npm:@angular/common",
+                "source": "elements-angular",
+                "type": "static"
+              },
+              {
+                "target": "elements",
+                "source": "elements-angular",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-angular/src/schematics/collection.json",
+            "hash": "11535290016544812900"
+          },
+          {
+            "file": "packages/elements-angular/src/schematics/ng-add/index.ts",
+            "hash": "17860372702283742408"
+          },
+          {
+            "file": "packages/elements-angular/src/schematics/utils.ts",
+            "hash": "12750978562171159603"
+          },
+          {
+            "file": "packages/elements-angular/src/utils.ts",
+            "hash": "8356461728756942461"
+          },
+          {
+            "file": "packages/elements-angular/tsconfig.json",
+            "hash": "11890788914850626765"
+          },
+          {
+            "file": "packages/elements-angular/tsconfig.lib.json",
+            "hash": "15326596857472922343"
+          },
+          {
+            "file": "packages/elements-angular/tsconfig.lib.prod.json",
+            "hash": "174503844014784742"
+          },
+          {
+            "file": "packages/elements-angular/tsconfig.schematics.json",
+            "hash": "17104443630759083028"
+          }
+        ]
+      }
+    },
+    "elements-react": {
+      "name": "elements-react",
+      "type": "lib",
+      "data": {
+        "name": "elements-react",
+        "sourceRoot": "packages/elements-react/src",
+        "projectType": "library",
+        "tags": [],
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "nx run elements-react:compile"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "nx watch --projects=elements-react -- nx run elements-react:compile"
+            }
+          },
+          "compile": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements-react",
+              "command": "tsc --project ./tsconfig.lib.json"
+            }
+          },
+          "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "shx rm -rf packages/elements-react/dist"
+            },
+            "configurations": {
+              "nodejs": {
+                "command": "shx rm -rf packages/elements-react/node_modules"
+              }
+            }
+          }
+        },
+        "root": "packages/elements-react",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/elements-react/.npmrc",
+            "hash": "17000789197435456837"
+          },
+          {
+            "file": "packages/elements-react/.versionrc",
+            "hash": "5414789382074457529"
+          },
+          {
+            "file": "packages/elements-react/CHANGELOG.md",
+            "hash": "401019946673358641"
+          },
+          {
+            "file": "packages/elements-react/package.json",
+            "hash": "6924724001964532369",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "elements-react",
+                "type": "static"
+              },
+              {
+                "target": "npm:typescript",
+                "source": "elements-react",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-react/project.json",
+            "hash": "9151296310578380318"
+          },
+          {
+            "file": "packages/elements-react/README.md",
+            "hash": "2243454400276642352"
+          },
+          {
+            "file": "packages/elements-react/src/components/createComponent.tsx",
+            "hash": "2813273460830922211"
+          },
+          {
+            "file": "packages/elements-react/src/components/index.ts",
+            "hash": "17870247474711769899",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "elements-react",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-react/src/components/react-component-lib/createComponent.tsx",
+            "hash": "4096364832743795836"
+          },
+          {
+            "file": "packages/elements-react/src/components/react-component-lib/createOverlayComponent.tsx",
+            "hash": "8773955420217539696"
+          },
+          {
+            "file": "packages/elements-react/src/components/react-component-lib/index.ts",
+            "hash": "1196254052687681421"
+          },
+          {
+            "file": "packages/elements-react/src/components/react-component-lib/interfaces.ts",
+            "hash": "9345528127668002987"
+          },
+          {
+            "file": "packages/elements-react/src/components/react-component-lib/utils/attachProps.ts",
+            "hash": "14941694564617541460"
+          },
+          {
+            "file": "packages/elements-react/src/components/react-component-lib/utils/case.ts",
+            "hash": "8151789878317466138"
+          },
+          {
+            "file": "packages/elements-react/src/components/react-component-lib/utils/dev.ts",
+            "hash": "4726996980237453002"
+          },
+          {
+            "file": "packages/elements-react/src/components/react-component-lib/utils/index.tsx",
+            "hash": "11192276063183013618"
+          },
+          {
+            "file": "packages/elements-react/src/components/ReactProps.ts",
+            "hash": "15027047721323028651"
+          },
+          {
+            "file": "packages/elements-react/src/components/utils/attachEventProps.ts",
+            "hash": "6850399135292442700"
+          },
+          {
+            "file": "packages/elements-react/src/components/utils/index.tsx",
+            "hash": "6924295793781287200"
+          },
+          {
+            "file": "packages/elements-react/src/index.ts",
+            "hash": "13106160619364256736",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "elements-react",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-react/src/types.ts",
+            "hash": "8525995664837326632"
+          },
+          {
+            "file": "packages/elements-react/tsconfig.json",
+            "hash": "15164464415561871702"
+          },
+          {
+            "file": "packages/elements-react/tsconfig.lib.json",
+            "hash": "9756788264031318303"
+          }
+        ]
+      }
+    },
+    "dist": {
+      "name": "dist",
+      "type": "lib",
+      "data": {
+        "generatedAt": 1700650483176,
+        "builder": {
+          "name": "webpack5"
+        },
+        "hasCustomBabel": false,
+        "hasCustomWebpack": true,
+        "hasStaticDirs": true,
+        "hasStorybookEslint": false,
+        "refCount": 0,
+        "monorepo": "Nx",
+        "packageManager": {
+          "type": "yarn",
+          "version": "1.22.19"
+        },
+        "typescriptOptions": {
+          "compilerOptions": {
+            "typeRoots": [
+              "node_modules/@types",
+              "../src/types"
+            ]
+          }
+        },
+        "storybookVersion": "6.5.16",
+        "language": "typescript",
+        "storybookPackages": {
+          "@storybook/addon-actions": {
+            "version": "6.5.16"
+          },
+          "@storybook/addon-links": {
+            "version": "6.5.16"
+          },
+          "@storybook/addon-viewport": {
+            "version": "6.5.16"
+          },
+          "@storybook/builder-webpack5": {
+            "version": "6.5.16"
+          },
+          "@storybook/manager-webpack5": {
+            "version": "6.5.16"
+          },
+          "@storybook/theming": {
+            "version": "6.5.16"
+          },
+          "@storybook/web-components": {
+            "version": "6.5.16"
+          }
+        },
+        "framework": {
+          "name": "web-components"
+        },
+        "addons": {
+          "@storybook/addon-essentials": {
+            "version": null
+          },
+          "@pxtrn/storybook-addon-docs-stencil": {
+            "version": "6.4.1"
+          }
+        },
+        "root": "packages/storybook/dist",
+        "implicitDependencies": [],
+        "targets": {},
+        "tags": [],
+        "files": []
+      }
+    },
+    "elements-vue": {
+      "name": "elements-vue",
+      "type": "lib",
+      "data": {
+        "name": "elements-vue",
+        "sourceRoot": "packages/elements-vue/src",
+        "projectType": "library",
+        "tags": [],
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "nx run elements-vue:compile"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "nx watch --projects=elements-vue -- nx run elements-vue:compile"
+            }
+          },
+          "compile": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements-vue",
+              "command": "tsc --project ./tsconfig.lib.json"
+            }
+          },
+          "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "shx rm -rf packages/elements-vue/dist"
+            },
+            "configurations": {
+              "nodejs": {
+                "command": "shx rm -rf  packages/elements-vue/node_modules"
+              }
+            }
+          }
+        },
+        "root": "packages/elements-vue",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/elements-vue/.versionrc",
+            "hash": "5414789382074457529"
+          },
+          {
+            "file": "packages/elements-vue/CHANGELOG.md",
+            "hash": "14994613844662817918"
+          },
+          {
+            "file": "packages/elements-vue/package.json",
+            "hash": "2150215743825090731",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "elements-vue",
+                "type": "static"
+              },
+              {
+                "target": "npm:typescript",
+                "source": "elements-vue",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-vue/project.json",
+            "hash": "13578034740416795045"
+          },
+          {
+            "file": "packages/elements-vue/README.md",
+            "hash": "2578666317926617040"
+          },
+          {
+            "file": "packages/elements-vue/src/elements-vue.ts",
+            "hash": "12392614097010317127",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "elements-vue",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-vue/src/index.ts",
+            "hash": "2337258895970507686"
+          },
+          {
+            "file": "packages/elements-vue/src/proxies.ts",
+            "hash": "8681541485987732795",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "elements-vue",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements-vue/src/vue-component-lib/utils.ts",
+            "hash": "2915418240141454143"
+          },
+          {
+            "file": "packages/elements-vue/tsconfig.json",
+            "hash": "10054548976229940318"
+          },
+          {
+            "file": "packages/elements-vue/tsconfig.lib.json",
+            "hash": "9756788264031318303"
+          }
+        ]
+      }
+    },
+    "landingpage": {
+      "name": "landingpage",
+      "type": "app",
+      "data": {
+        "name": "landingpage",
+        "sourceRoot": "/pages",
+        "projectType": "application",
+        "tags": [],
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "outputs": [
+              "{projectRoot}/out"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/landingpage",
+              "commands": [
+                "next build",
+                "next export"
+              ],
+              "parallel": false,
+              "color": true
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/landingpage"
+            },
+            "defaultConfiguration": "dev",
+            "configurations": {
+              "dev": {
+                "command": "next dev -p 4600"
+              },
+              "prod": {
+                "command": "next start -p 4600"
+              }
+            }
+          },
+          "lint": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/landingpage",
+              "command": "next lint"
+            },
+            "configurations": {
+              "fix": {
+                "command": "next lint --fix"
+              }
+            }
+          },
+          "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/landingpage",
+              "commands": [
+                "shx rm -rf out",
+                "shx rm -rf .next"
+              ]
+            },
+            "configurations": {
+              "nodejs": {
+                "command": "shx rm -rf node_modules"
+              }
+            }
+          }
+        },
+        "root": "packages/landingpage",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/landingpage/.env.development",
+            "hash": "8607525791543232505"
+          },
+          {
+            "file": "packages/landingpage/.env.production",
+            "hash": "4787658252861953052"
+          },
+          {
+            "file": "packages/landingpage/.eslintrc.json",
+            "hash": "8502544467284141439"
+          },
+          {
+            "file": "packages/landingpage/.gitignore",
+            "hash": "17267228748777387531"
+          },
+          {
+            "file": "packages/landingpage/CHANGELOG.md",
+            "hash": "11789631895305614840"
+          },
+          {
+            "file": "packages/landingpage/components/about/activity.module.scss",
+            "hash": "9525300728660179989"
+          },
+          {
+            "file": "packages/landingpage/components/about/activity.tsx",
+            "hash": "12550822516214038803"
+          },
+          {
+            "file": "packages/landingpage/components/about/contributors/contributor-card.module.scss",
+            "hash": "8122739877249015065"
+          },
+          {
+            "file": "packages/landingpage/components/about/contributors/contributor-card.tsx",
+            "hash": "5662366495161929930"
+          },
+          {
+            "file": "packages/landingpage/components/about/contributors/contributor-utils.tsx",
+            "hash": "18333944402809639881"
+          },
+          {
+            "file": "packages/landingpage/components/about/contributors/contributors.module.scss",
+            "hash": "10143801371113846199"
+          },
+          {
+            "file": "packages/landingpage/components/about/contributors/contributors.tsx",
+            "hash": "2242840427813525858"
+          },
+          {
+            "file": "packages/landingpage/components/about/history.module.scss",
+            "hash": "12189697997549941220"
+          },
+          {
+            "file": "packages/landingpage/components/about/history.tsx",
+            "hash": "5232915729122948428"
+          },
+          {
+            "file": "packages/landingpage/components/about/milestone.module.scss",
+            "hash": "14158001882052857700"
+          },
+          {
+            "file": "packages/landingpage/components/about/milestone.tsx",
+            "hash": "14404208351869945531"
+          },
+          {
+            "file": "packages/landingpage/components/contact/contact.module.scss",
+            "hash": "16269931753090819866"
+          },
+          {
+            "file": "packages/landingpage/components/contact/contact.tsx",
+            "hash": "7586226819141895951"
+          },
+          {
+            "file": "packages/landingpage/components/explore/demos-card.module.scss",
+            "hash": "16296021684654197762"
+          },
+          {
+            "file": "packages/landingpage/components/explore/demos-card.tsx",
+            "hash": "6818850182519015776"
+          },
+          {
+            "file": "packages/landingpage/components/explore/demos.module.scss",
+            "hash": "4686705653590322118"
+          },
+          {
+            "file": "packages/landingpage/components/explore/demos.tsx",
+            "hash": "5953915689457116677"
+          },
+          {
+            "file": "packages/landingpage/components/explore/examples.module.scss",
+            "hash": "5898561628392956547"
+          },
+          {
+            "file": "packages/landingpage/components/explore/examples.tsx",
+            "hash": "14741829359872015202"
+          },
+          {
+            "file": "packages/landingpage/components/explore/explore-header.module.scss",
+            "hash": "4394558833357199472"
+          },
+          {
+            "file": "packages/landingpage/components/explore/explore-header.tsx",
+            "hash": "12510243343044937566"
+          },
+          {
+            "file": "packages/landingpage/components/explore/resources/assets/link-icon.svg",
+            "hash": "9159629319198899536"
+          },
+          {
+            "file": "packages/landingpage/components/explore/resources/assets/resource-pattern.svg",
+            "hash": "3462736366579401416"
+          },
+          {
+            "file": "packages/landingpage/components/explore/resources/resources-card.module.scss",
+            "hash": "1656465002274475639"
+          },
+          {
+            "file": "packages/landingpage/components/explore/resources/resources-card.tsx",
+            "hash": "16949599352074314065"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/hint.module.scss",
+            "hash": "18210658060561694533"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/hint.tsx",
+            "hash": "10162868290854368087"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/layout.module.scss",
+            "hash": "11844904650775068889"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/layout.tsx",
+            "hash": "4498855574066409468"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/menuSection.tsx",
+            "hash": "11286898242944405966"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/navigationMenu.module.scss",
+            "hash": "13043552923520255317"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/navigationMenu.tsx",
+            "hash": "2423761914895804205"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/stepIndicator.module.scss",
+            "hash": "10995486524470752328"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/stepIndicator.tsx",
+            "hash": "2658199306981403725"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/tableShadow.module.scss",
+            "hash": "17981322919026974803"
+          },
+          {
+            "file": "packages/landingpage/components/getting-started/tableShadow.tsx",
+            "hash": "15168762810998416181"
+          },
+          {
+            "file": "packages/landingpage/components/home/component-sample/component-sample-card.module.scss",
+            "hash": "7889708095280022928"
+          },
+          {
+            "file": "packages/landingpage/components/home/component-sample/component-sample-card.tsx",
+            "hash": "8218553896641991460"
+          },
+          {
+            "file": "packages/landingpage/components/home/component-sample/component-sample.module.scss",
+            "hash": "7370401403968825177"
+          },
+          {
+            "file": "packages/landingpage/components/home/component-sample/component-sample.tsx",
+            "hash": "4281715559423780053"
+          },
+          {
+            "file": "packages/landingpage/components/home/core-aspects/core-aspects.module.scss",
+            "hash": "17250415223906145225"
+          },
+          {
+            "file": "packages/landingpage/components/home/core-aspects/core-aspects.tsx",
+            "hash": "11581870767453203850"
+          },
+          {
+            "file": "packages/landingpage/components/home/faq-section/faq-section.module.scss",
+            "hash": "14802780999313824599"
+          },
+          {
+            "file": "packages/landingpage/components/home/faq-section/faq-section.tsx",
+            "hash": "4235349733909598421"
+          },
+          {
+            "file": "packages/landingpage/components/home/header/header.module.scss",
+            "hash": "7877874736697961042"
+          },
+          {
+            "file": "packages/landingpage/components/home/header/header.tsx",
+            "hash": "3819301600480598841"
+          },
+          {
+            "file": "packages/landingpage/components/home/header/install-chips.module.scss",
+            "hash": "17958862815727266696"
+          },
+          {
+            "file": "packages/landingpage/components/home/header/install-chips.tsx",
+            "hash": "8329425377208101028"
+          },
+          {
+            "file": "packages/landingpage/components/home/kpi-section/kpi-section.module.scss",
+            "hash": "7524764977398102630"
+          },
+          {
+            "file": "packages/landingpage/components/home/kpi-section/kpi-section.tsx",
+            "hash": "3856390025786733837"
+          },
+          {
+            "file": "packages/landingpage/components/layout.module.scss",
+            "hash": "14567327592065772588"
+          },
+          {
+            "file": "packages/landingpage/components/layout.tsx",
+            "hash": "7036391675363227034"
+          },
+          {
+            "file": "packages/landingpage/components/layout/attributions.module.scss",
+            "hash": "14871006901462425630"
+          },
+          {
+            "file": "packages/landingpage/components/layout/attributions.tsx",
+            "hash": "678150391559041902"
+          },
+          {
+            "file": "packages/landingpage/components/layout/footer/desktop/footer.desktop.module.scss",
+            "hash": "7304525524436440905"
+          },
+          {
+            "file": "packages/landingpage/components/layout/footer/desktop/footer.desktop.tsx",
+            "hash": "12511609655100816544"
+          },
+          {
+            "file": "packages/landingpage/components/layout/footer/footer.module.scss",
+            "hash": "1746689344014553396"
+          },
+          {
+            "file": "packages/landingpage/components/layout/footer/footer.tsx",
+            "hash": "2464163013245883603"
+          },
+          {
+            "file": "packages/landingpage/components/layout/footer/mobile/footer.mobile.module.scss",
+            "hash": "11475636213561604669"
+          },
+          {
+            "file": "packages/landingpage/components/layout/footer/mobile/footer.mobile.tsx",
+            "hash": "144349221771960924"
+          },
+          {
+            "file": "packages/landingpage/components/layout/header/desktop/header.desktop.module.scss",
+            "hash": "13650469071988626084"
+          },
+          {
+            "file": "packages/landingpage/components/layout/header/desktop/header.desktop.tsx",
+            "hash": "5902730761833141291"
+          },
+          {
+            "file": "packages/landingpage/components/layout/header/desktop/localeSwitcher.tsx",
+            "hash": "4714841958735113464"
+          },
+          {
+            "file": "packages/landingpage/components/layout/header/desktop/navbar.module.scss",
+            "hash": "15185450167786000059"
+          },
+          {
+            "file": "packages/landingpage/components/layout/header/desktop/navbar.tsx",
+            "hash": "14499366812871389391"
+          },
+          {
+            "file": "packages/landingpage/components/layout/header/header.tsx",
+            "hash": "6784945398676097107"
+          },
+          {
+            "file": "packages/landingpage/components/layout/header/mobile/header.mobile.module.scss",
+            "hash": "14294662206437909633"
+          },
+          {
+            "file": "packages/landingpage/components/layout/header/mobile/header.mobile.tsx",
+            "hash": "3772866200306957223"
+          },
+          {
+            "file": "packages/landingpage/components/layout/linkItem.module.scss",
+            "hash": "17455918238118874366"
+          },
+          {
+            "file": "packages/landingpage/components/layout/linkItem.tsx",
+            "hash": "587091228609127494"
+          },
+          {
+            "file": "packages/landingpage/components/layout/page.tsx",
+            "hash": "8951733543940065273"
+          },
+          {
+            "file": "packages/landingpage/components/shared/card.module.scss",
+            "hash": "5361076718330791853"
+          },
+          {
+            "file": "packages/landingpage/components/shared/card.tsx",
+            "hash": "14660980093501006370"
+          },
+          {
+            "file": "packages/landingpage/components/shared/contactButton.tsx",
+            "hash": "4719655871606208246"
+          },
+          {
+            "file": "packages/landingpage/components/shared/versionSelect.tsx",
+            "hash": "6057419491820083491"
+          },
+          {
+            "file": "packages/landingpage/mdx/getting-started/angular-guide.mdx",
+            "hash": "10717012427032149527"
+          },
+          {
+            "file": "packages/landingpage/mdx/getting-started/javascript-guide.mdx",
+            "hash": "12932947954017141315"
+          },
+          {
+            "file": "packages/landingpage/mdx/getting-started/react-guide.mdx",
+            "hash": "4625641551947620737"
+          },
+          {
+            "file": "packages/landingpage/mdx/getting-started/vue-guide.mdx",
+            "hash": "10725938222078640321"
+          },
+          {
+            "file": "packages/landingpage/next.config.mjs",
+            "hash": "13034946711390006280"
+          },
+          {
+            "file": "packages/landingpage/package.json",
+            "hash": "9266513639070047843",
+            "dependencies": [
+              {
+                "target": "elements-react",
+                "source": "landingpage",
+                "type": "static"
+              },
+              {
+                "target": "npm:typescript",
+                "source": "landingpage",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/landingpage/pages/_app.tsx",
+            "hash": "7263594696686967555",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "landingpage",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/landingpage/pages/_document.tsx",
+            "hash": "7064558674390271511"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/404.module.scss",
+            "hash": "7128463032866231335"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/404.tsx",
+            "hash": "7705365906311424185"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/about/index.tsx",
+            "hash": "17723426572569608471"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/explore/index.module.scss",
+            "hash": "10378070401925131848"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/explore/index.tsx",
+            "hash": "10898338962756537386"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/getting-started/angular.tsx",
+            "hash": "5445171645904612466"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/getting-started/index.tsx",
+            "hash": "11192425339348362135"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/getting-started/javascript.tsx",
+            "hash": "9027628866832930111"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/getting-started/react.tsx",
+            "hash": "5682682092858043758"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/getting-started/vue.tsx",
+            "hash": "14634413770872898046"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/index.tsx",
+            "hash": "17146991721855543538"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/library/components/index.module.scss",
+            "hash": "4970909387329738508"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/library/components/index.tsx",
+            "hash": "7728260321510116916"
+          },
+          {
+            "file": "packages/landingpage/pages/[lang]/library/index.tsx",
+            "hash": "2870422531646952180"
+          },
+          {
+            "file": "packages/landingpage/pages/404.tsx",
+            "hash": "6051811370102156662"
+          },
+          {
+            "file": "packages/landingpage/pages/index.tsx",
+            "hash": "1604243970569877144"
+          },
+          {
+            "file": "packages/landingpage/project.json",
+            "hash": "7719356448361124790"
+          },
+          {
+            "file": "packages/landingpage/public/404.svg",
+            "hash": "17592653165162614819"
+          },
+          {
+            "file": "packages/landingpage/public/android-chrome-192x192.png",
+            "hash": "7922700469687112265"
+          },
+          {
+            "file": "packages/landingpage/public/android-chrome-512x512.png",
+            "hash": "13043793643356965049"
+          },
+          {
+            "file": "packages/landingpage/public/angular.svg",
+            "hash": "11094059590178000679"
+          },
+          {
+            "file": "packages/landingpage/public/apple-touch-icon.png",
+            "hash": "2826953230543903890"
+          },
+          {
+            "file": "packages/landingpage/public/browserconfig.xml",
+            "hash": "6818257873516693125"
+          },
+          {
+            "file": "packages/landingpage/public/Carousel_INCA.png",
+            "hash": "14232166254577357621"
+          },
+          {
+            "file": "packages/landingpage/public/Carousel_JARVIS.png",
+            "hash": "1739702621057065365"
+          },
+          {
+            "file": "packages/landingpage/public/Carousel_SELFONBOARDING.png",
+            "hash": "11969090566206993038"
+          },
+          {
+            "file": "packages/landingpage/public/Carousel_SELFSERVICE.png",
+            "hash": "12689888203267964657"
+          },
+          {
+            "file": "packages/landingpage/public/codesandbox-angular.png",
+            "hash": "10638018412727391720"
+          },
+          {
+            "file": "packages/landingpage/public/codesandbox-react.png",
+            "hash": "7331131552200549060"
+          },
+          {
+            "file": "packages/landingpage/public/codesandbox-vue.png",
+            "hash": "10344296019050090054"
+          },
+          {
+            "file": "packages/landingpage/public/contact-image-1.svg",
+            "hash": "15275623683173773939"
+          },
+          {
+            "file": "packages/landingpage/public/contact-image-2.svg",
+            "hash": "15842580084745847814"
+          },
+          {
+            "file": "packages/landingpage/public/coreaspect-consistent.svg",
+            "hash": "16768072000364111812"
+          },
+          {
+            "file": "packages/landingpage/public/coreaspect-futureproof.svg",
+            "hash": "4320504092571225052"
+          },
+          {
+            "file": "packages/landingpage/public/coreaspect-versatile.svg",
+            "hash": "8836973248158362360"
+          },
+          {
+            "file": "packages/landingpage/public/elements_dark.svg",
+            "hash": "17512774925869839633"
+          },
+          {
+            "file": "packages/landingpage/public/elements-collage.png",
+            "hash": "2575937388985209573"
+          },
+          {
+            "file": "packages/landingpage/public/elements-collection-image.png",
+            "hash": "238276258699749131"
+          },
+          {
+            "file": "packages/landingpage/public/elements.svg",
+            "hash": "8017543255632183100"
+          },
+          {
+            "file": "packages/landingpage/public/explore.svg",
+            "hash": "14803700389229341282"
+          },
+          {
+            "file": "packages/landingpage/public/favicon-16x16.png",
+            "hash": "9072837294424143998"
+          },
+          {
+            "file": "packages/landingpage/public/favicon-32x32.png",
+            "hash": "15484065031195021403"
+          },
+          {
+            "file": "packages/landingpage/public/favicon.ico",
+            "hash": "10046195606891170295"
+          },
+          {
+            "file": "packages/landingpage/public/github-logo.svg",
+            "hash": "13979856037145133825"
+          },
+          {
+            "file": "packages/landingpage/public/inovex-logo.svg",
+            "hash": "15504455422456540806"
+          },
+          {
+            "file": "packages/landingpage/public/javascript.svg",
+            "hash": "4336231212361752846"
+          },
+          {
+            "file": "packages/landingpage/public/login-form.png",
+            "hash": "9556532555789540151"
+          },
+          {
+            "file": "packages/landingpage/public/menu.svg",
+            "hash": "5524118409125304373"
+          },
+          {
+            "file": "packages/landingpage/public/mstile-144x144.png",
+            "hash": "5450041534150078028"
+          },
+          {
+            "file": "packages/landingpage/public/mstile-150x150.png",
+            "hash": "7487552183695541560"
+          },
+          {
+            "file": "packages/landingpage/public/mstile-310x150.png",
+            "hash": "10039801108479808830"
+          },
+          {
+            "file": "packages/landingpage/public/mstile-310x310.png",
+            "hash": "15582058342241415241"
+          },
+          {
+            "file": "packages/landingpage/public/mstile-70x70.png",
+            "hash": "17725864004225290276"
+          },
+          {
+            "file": "packages/landingpage/public/open-in-new.svg",
+            "hash": "16694667908272095236"
+          },
+          {
+            "file": "packages/landingpage/public/react-icon.svg",
+            "hash": "12872640831809619040"
+          },
+          {
+            "file": "packages/landingpage/public/react.svg",
+            "hash": "12872640831809619040"
+          },
+          {
+            "file": "packages/landingpage/public/safari-pinned-tab.svg",
+            "hash": "13765307072122002256"
+          },
+          {
+            "file": "packages/landingpage/public/site.webmanifest",
+            "hash": "15907017148257468797"
+          },
+          {
+            "file": "packages/landingpage/public/vercel.svg",
+            "hash": "3233056503954796132"
+          },
+          {
+            "file": "packages/landingpage/public/vue.svg",
+            "hash": "13505379856922187365"
+          },
+          {
+            "file": "packages/landingpage/README.md",
+            "hash": "1864626201039881788"
+          },
+          {
+            "file": "packages/landingpage/styles/custom-ch.css",
+            "hash": "3450111545159199753"
+          },
+          {
+            "file": "packages/landingpage/styles/globals.css",
+            "hash": "1574291343727530418"
+          },
+          {
+            "file": "packages/landingpage/styles/guide.css",
+            "hash": "17676482938841341736"
+          },
+          {
+            "file": "packages/landingpage/translations/config.ts",
+            "hash": "8160959449839137728"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/de/about.json",
+            "hash": "16048347372615873798"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/de/common.json",
+            "hash": "16641029407337938348"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/de/explore.json",
+            "hash": "622068170535166223"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/de/home.json",
+            "hash": "10853125405149351195"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/de/index.ts",
+            "hash": "13032417145437131768"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/de/library.json",
+            "hash": "861156396536405176"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/en/about.json",
+            "hash": "10090392320860722514"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/en/common.json",
+            "hash": "1255027816807733042"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/en/explore.json",
+            "hash": "1558764699464441006"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/en/home.json",
+            "hash": "6843399411313052810"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/en/index.ts",
+            "hash": "13032417145437131768"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/en/library.json",
+            "hash": "13603367675403092499"
+          },
+          {
+            "file": "packages/landingpage/translations/locales/index.ts",
+            "hash": "491228315975125666"
+          },
+          {
+            "file": "packages/landingpage/translations/types.ts",
+            "hash": "10384659770290863471"
+          },
+          {
+            "file": "packages/landingpage/translations/useDefaultLocale.ts",
+            "hash": "597071397592796977"
+          },
+          {
+            "file": "packages/landingpage/tsconfig.json",
+            "hash": "11454488337485501981"
+          },
+          {
+            "file": "packages/landingpage/types/contributors.ts",
+            "hash": "11052453013270530071"
+          },
+          {
+            "file": "packages/landingpage/types/github.ts",
+            "hash": "12568070461871133379"
+          },
+          {
+            "file": "packages/landingpage/types/langContext.ts",
+            "hash": "11861338272705256658"
+          },
+          {
+            "file": "packages/landingpage/types/roles.ts",
+            "hash": "13645285301510958288"
+          },
+          {
+            "file": "packages/landingpage/utils/context/LanguageContext.tsx",
+            "hash": "18275129238813434908"
+          },
+          {
+            "file": "packages/landingpage/utils/context/staticPaths.tsx",
+            "hash": "6519913488792950353"
+          },
+          {
+            "file": "packages/landingpage/utils/context/UiContext.tsx",
+            "hash": "9126186713159752375"
+          },
+          {
+            "file": "packages/landingpage/utils/context/VersionContext.tsx",
+            "hash": "1285510718074499530"
+          },
+          {
+            "file": "packages/landingpage/utils/contributors.ts",
+            "hash": "524233821145471636"
+          },
+          {
+            "file": "packages/landingpage/utils/elementsWrapper.ts",
+            "hash": "6636897199838080066",
+            "dependencies": [
+              {
+                "target": "elements-react",
+                "source": "landingpage",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/landingpage/utils/frameworks.tsx",
+            "hash": "8358707363492582618"
+          },
+          {
+            "file": "packages/landingpage/utils/hooks/useStorybookUrl.ts",
+            "hash": "6934007003520108952"
+          },
+          {
+            "file": "packages/landingpage/utils/hooks/useStorybookUrlSyncer.ts",
+            "hash": "4404353403634057875"
+          },
+          {
+            "file": "packages/landingpage/utils/hooks/useSwipe.ts",
+            "hash": "13955107780579389645"
+          },
+          {
+            "file": "packages/landingpage/utils/hooks/useTranslation.ts",
+            "hash": "2994934546424357252"
+          },
+          {
+            "file": "packages/landingpage/utils/in-dev-mode.ts",
+            "hash": "14959280401041057334"
+          },
+          {
+            "file": "packages/landingpage/utils/routes.tsx",
+            "hash": "1502585138596083724"
+          },
+          {
+            "file": "packages/landingpage/utils/stringExtensions.ts",
+            "hash": "10855525604770063513"
+          }
+        ]
+      }
+    },
+    "storybook": {
+      "name": "storybook",
+      "type": "app",
+      "data": {
+        "name": "storybook",
+        "sourceRoot": "packages/storybook/src",
+        "projectType": "application",
+        "tags": [],
+        "namedInputs": {
+          "default": [
+            "{projectRoot}/**/*",
+            "{projectRoot}/../elements/dist/**/*"
+          ]
+        },
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "outputs": [
+              "{projectRoot}/dist"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/storybook",
+              "command": "build-storybook -c config -o dist",
+              "color": true
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/storybook"
+            },
+            "defaultConfiguration": "dev",
+            "configurations": {
+              "dev": {
+                "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
+              },
+              "prod": {
+                "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
+              }
+            }
+          },
+          "lint": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/storybook",
+              "command": "eslint src"
+            },
+            "configurations": {
+              "fix": {
+                "command": "eslint src --fix"
+              }
+            }
+          },
+          "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/storybook",
+              "command": "shx rm -rf dist"
+            },
+            "configurations": {
+              "nodejs": {
+                "command": "shx rm -rf node_modules"
+              }
+            }
+          }
+        },
+        "root": "packages/storybook",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/storybook/.eslintrc.json",
+            "hash": "11905475118072421723"
+          },
+          {
+            "file": "packages/storybook/.versionrc",
+            "hash": "5414789382074457529"
+          },
+          {
+            "file": "packages/storybook/addons/post-current-story.tsx",
+            "hash": "8198169750872894614"
+          },
+          {
+            "file": "packages/storybook/CHANGELOG.md",
+            "hash": "6711108322023602410"
+          },
+          {
+            "file": "packages/storybook/config/global.scss",
+            "hash": "8525464542731902842"
+          },
+          {
+            "file": "packages/storybook/config/main.js",
+            "hash": "334031591561109752"
+          },
+          {
+            "file": "packages/storybook/config/manager-head.html",
+            "hash": "8370162150361396843"
+          },
+          {
+            "file": "packages/storybook/config/manager.js",
+            "hash": "7487912164169360153"
+          },
+          {
+            "file": "packages/storybook/config/preview-body.html",
+            "hash": "3883609228124193222"
+          },
+          {
+            "file": "packages/storybook/config/preview-head.html",
+            "hash": "7236019140304446728"
+          },
+          {
+            "file": "packages/storybook/config/preview.js",
+            "hash": "5985903032915743000",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/config/theme.js",
+            "hash": "2376338006566113839",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/custom-elements.json",
+            "hash": "1657659370118745670"
+          },
+          {
+            "file": "packages/storybook/elements-stencil-docs.d.ts",
+            "hash": "6645967244851031574"
+          },
+          {
+            "file": "packages/storybook/elements-stencil-docs.json",
+            "hash": "9044436078689699510"
+          },
+          {
+            "file": "packages/storybook/package.json",
+            "hash": "18297227517175184163",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              },
+              {
+                "target": "npm:chalk",
+                "source": "storybook",
+                "type": "static"
+              },
+              {
+                "target": "npm:prettier",
+                "source": "storybook",
+                "type": "static"
+              },
+              {
+                "target": "npm:typescript",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/project.json",
+            "hash": "9839729945870642059"
+          },
+          {
+            "file": "packages/storybook/README.md",
+            "hash": "12876804282348445304"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/avatar.jpg",
+            "hash": "9356326928923461923"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/beach.jpg",
+            "hash": "13974313251563677720"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/elements.svg",
+            "hash": "8017543255632183100"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/fjord.jpg",
+            "hash": "16240673087796129741"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/forrest.jpg",
+            "hash": "8840840076451490294"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/InoDialog_Demo_Image.jpeg",
+            "hash": "7156612011129543580"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/InoDialog_Demo_Image.png",
+            "hash": "15812792712329298679"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/InoNavDrawer_Demo_Image.jpeg",
+            "hash": "13918259891652722355"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/InoSidebar_Demo_Image.png",
+            "hash": "10745837196378802482"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/InoSnackbar_Demo_Image.png",
+            "hash": "14338401369552499880"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/james-logo.png",
+            "hash": "3580626158648560038"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/liberty.jpg",
+            "hash": "9417882161682246821"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/lightning.jpg",
+            "hash": "9328238629032855537"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/mountains.jpg",
+            "hash": "7551344879322226531"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/nidaros.jpg",
+            "hash": "1122702692390446226"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/trondheim.jpg",
+            "hash": "11237431366601254703"
+          },
+          {
+            "file": "packages/storybook/src/assets/images/waterfall.jpg",
+            "hash": "17943441039955229661"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/changelog.stories.mdx",
+            "hash": "16268015010098745466"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/configuration.stories.mdx",
+            "hash": "6375962854961722355"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/01-high-level-overview.stories.mdx",
+            "hash": "17769805962037814573"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/02-quick-start.stories.mdx",
+            "hash": "17264080198290822070"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/03-team-organization.stories.mdx",
+            "hash": "11421371818467001948"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/04-developing-components.stories.mdx",
+            "hash": "3615857511884096225"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/05-storybook.stories.mdx",
+            "hash": "15898202218597939926"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/06-issue-tracking.stories.mdx",
+            "hash": "7918764891387602130"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/07-commit-message-format.stories.mdx",
+            "hash": "4014853764839771966"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/08-pull-requests.stories.mdx",
+            "hash": "4582458828826289625"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/09-versioning-and-releasing.stories.mdx",
+            "hash": "4789727639599190411"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/contributing/10-updating-dependencies.stories.mdx",
+            "hash": "2893218440553452302"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/framework-integration/angular-instructions.stories.mdx",
+            "hash": "14775646444368526055"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/framework-integration/javascript-instructions.stories.mdx",
+            "hash": "5872880147594719218"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/framework-integration/react-instructions.stories.mdx",
+            "hash": "7380972140824304819"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/framework-integration/vue-instructions.stories.mdx",
+            "hash": "1844036158520927383"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/styleguide/colors.stories.ts",
+            "hash": "6760298561843790896"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/styleguide/styles.scss",
+            "hash": "9561679214535478634"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/styleguide/typography.stories.mdx",
+            "hash": "3990352622579488714"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/stylesheet.stories.mdx",
+            "hash": "4225246273367390394"
+          },
+          {
+            "file": "packages/storybook/src/stories/docs/welcome.stories.mdx",
+            "hash": "17451851114119275077"
+          },
+          {
+            "file": "packages/storybook/src/stories/global.d.ts",
+            "hash": "4110215435294329087"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-accordion/ino-accordion.scss",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-accordion/ino-accordion.stories.mdx",
+            "hash": "15615189778105433575"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-accordion/ino-accordion.stories.ts",
+            "hash": "5804856709142944118",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-autocomplete/ino-autocomplete.scss",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-autocomplete/ino-autocomplete.stories.mdx",
+            "hash": "456507587664277213"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-autocomplete/ino-autocomplete.stories.ts",
+            "hash": "6008778580716388370",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-avatar/ino-avatar.stories.mdx",
+            "hash": "13842964715291154471"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-avatar/ino-avatar.stories.ts",
+            "hash": "15896654845558778014",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-button/ino-button.scss",
+            "hash": "1952847867943608852"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-button/ino-button.stories.mdx",
+            "hash": "12742593257720762913"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-button/ino-button.stories.ts",
+            "hash": "8989584097794313719",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-card/ino-card.scss",
+            "hash": "9336516892855010608"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-card/ino-card.stories.mdx",
+            "hash": "12222574935221049787"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-card/ino-card.stories.ts",
+            "hash": "5214251732068040272",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-carousel/ino-carousel.scss",
+            "hash": "4688233842161927762"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-carousel/ino-carousel.stories.mdx",
+            "hash": "8068021667928371578"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-carousel/ino-carousel.stories.ts",
+            "hash": "9704979566179932340",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-checkbox/ino-checkbox.scss",
+            "hash": "3653281495516368526"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-checkbox/ino-checkbox.stories.js",
+            "hash": "10123503010285806937"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-checkbox/ino-checkbox.stories.mdx",
+            "hash": "11436292143584921667"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-checkbox/ino-checkbox.stories.ts",
+            "hash": "5555287386304942421",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-chip/ino-chip.scss",
+            "hash": "782798454668247944"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-chip/ino-chip.stories.mdx",
+            "hash": "11171569672315397711"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-chip/ino-chip.stories.ts",
+            "hash": "6385089253661940030",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-control-item/ino-control-item.scss",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-control-item/ino-control-item.stories.mdx",
+            "hash": "15519419737229285696"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-control-item/ino-control-item.stories.ts",
+            "hash": "10186897854967667991",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-currency-input/ino-currency-input.scss",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-currency-input/ino-currency-input.stories.mdx",
+            "hash": "5136924358760375230"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-currency-input/ino-currency-input.stories.ts",
+            "hash": "14217751787092328272",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-datepicker/ino-datepicker.scss",
+            "hash": "4900111930178404223"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-datepicker/ino-datepicker.stories.mdx",
+            "hash": "12213554291888113621"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-datepicker/ino-datepicker.stories.ts",
+            "hash": "16201287728922565198",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-datepicker/utils.ts",
+            "hash": "9240876696741489498",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-dialog/ino-dialog.scss",
+            "hash": "2653722502845980051"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-dialog/ino-dialog.stories.mdx",
+            "hash": "795851384675095090"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-dialog/ino-dialog.stories.ts",
+            "hash": "12437670136022793615",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-fab-set/ino-fab-set.scss",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-fab-set/ino-fab-set.stories.mdx",
+            "hash": "6599883188044785274"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-fab-set/ino-fab-set.stories.ts",
+            "hash": "13404890670698441799",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-fab/ino-fab.scss",
+            "hash": "4915677475103965584"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-fab/ino-fab.stories.mdx",
+            "hash": "14377411869836801435"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-fab/ino-fab.stories.ts",
+            "hash": "12834959702166955190",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-icon-button/ino-icon-button.scss",
+            "hash": "10251749338557331993"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-icon-button/ino-icon-button.stories.mdx",
+            "hash": "791481508363097670"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-icon-button/ino-icon-button.stories.ts",
+            "hash": "12805272370718811611",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-icon/ino-icon.scss",
+            "hash": "1469185990335390775"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-icon/ino-icon.stories.mdx",
+            "hash": "3620288883605096043"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-icon/ino-icon.stories.ts",
+            "hash": "4794297492885868403",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-img-list/ino-img-list.stories.mdx",
+            "hash": "16947332006460212834"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-img-list/ino-img-list.stories.ts",
+            "hash": "18055556669445856439",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-img/ino-img.scss",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-img/ino-img.stories.mdx",
+            "hash": "8001477064454257790"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-img/ino-img.stories.ts",
+            "hash": "3842116920195906439",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-input-file/ino-input-file.stories.mdx",
+            "hash": "3783512256770154947"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-input-file/ino-input-file.stories.ts",
+            "hash": "10396975458766898255",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-input/ino-input.scss",
+            "hash": "7559379962637588433"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-input/ino-input.stories.mdx",
+            "hash": "285481282380871452"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-input/ino-input.stories.ts",
+            "hash": "5341438879101791314",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-list-divider/ino-list-divider.stories.mdx",
+            "hash": "4289467809347650567"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-list-divider/ino-list-divider.stories.ts",
+            "hash": "8546598116480795555",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-list-item/ino-list-item.scss",
+            "hash": "11451826946191928883"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-list-item/ino-list-item.stories.mdx",
+            "hash": "11808551871387577225"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-list-item/ino-list-item.stories.ts",
+            "hash": "4800161999204188089",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-list/ino-list.stories.mdx",
+            "hash": "17219132186466798710"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-list/ino-list.stories.ts",
+            "hash": "583229467045178349",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-markdown-editor/ino-markdown-editor.scss",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-markdown-editor/ino-markdown-editor.stories.mdx",
+            "hash": "15568336465069394598"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-markdown-editor/ino-markdown-editor.stories.ts",
+            "hash": "5047422319199070042",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-menu/ino-menu.scss",
+            "hash": "1031227915853781322"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-menu/ino-menu.stories.mdx",
+            "hash": "6735968037993515169"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-menu/ino-menu.stories.ts",
+            "hash": "8312883666474797853",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-nav-drawer/ino-nav-drawer.scss",
+            "hash": "2640401894049933478"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-nav-drawer/ino-nav-drawer.stories.mdx",
+            "hash": "5436193631550615088"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-nav-drawer/ino-nav-drawer.stories.ts",
+            "hash": "1491540572473547938",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-nav-item/ino-nav-item.stories.mdx",
+            "hash": "12213487753851441192"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-nav-item/ino-nav-item.stories.ts",
+            "hash": "3419171388027440013",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-option-group/ino-option-group.scss",
+            "hash": "979906861507245265"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-option-group/ino-option-group.stories.mdx",
+            "hash": "11434687580324182957"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-option-group/ino-option-group.stories.ts",
+            "hash": "3710647096016823547",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-option/ino-option.scss",
+            "hash": "12926649877215855619"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-option/ino-option.stories.mdx",
+            "hash": "6997833829968274053"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-option/ino-option.stories.ts",
+            "hash": "16781394112422275525",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-popover/ino-popover.scss",
+            "hash": "10738039237824606049"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-popover/ino-popover.stories.mdx",
+            "hash": "1903734195432512057"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-popover/ino-popover.stories.ts",
+            "hash": "8875571925423805442",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-progress-bar/ino-progress-bar.scss",
+            "hash": "7646907599260738697"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-progress-bar/ino-progress-bar.stories.mdx",
+            "hash": "13644057186773800098"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-progress-bar/ino-progress-bar.stories.ts",
+            "hash": "15456592091844275892",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-radio-group/ino-radio-group.stories.mdx",
+            "hash": "57136089614329616"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-radio-group/ino-radio-group.stories.ts",
+            "hash": "107406744091739291",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-radio/ino-radio.scss",
+            "hash": "2680965869945907529"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-radio/ino-radio.stories.mdx",
+            "hash": "17521799133652305928"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-radio/ino-radio.stories.ts",
+            "hash": "13184539010914255543",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-range/ino-range.scss",
+            "hash": "17225808402761892308"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-range/ino-range.stories.mdx",
+            "hash": "10619506637042277979"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-range/ino-range.stories.ts",
+            "hash": "15090547483717651181",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-segment-button/ino-segment-button.scss",
+            "hash": "3731008244955638130"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-segment-button/ino-segment-button.stories.mdx",
+            "hash": "15055812160003922621"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-segment-button/ino-segment-button.stories.ts",
+            "hash": "13843636858126512327",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-segment-group/ino-segment-group.scss",
+            "hash": "1189499761287356324"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-segment-group/ino-segment-group.stories.mdx",
+            "hash": "1900983915491671563"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-segment-group/ino-segment-group.stories.ts",
+            "hash": "3735172992398338327",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-select/ino-select.scss",
+            "hash": "18417325871702297221"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-select/ino-select.stories.mdx",
+            "hash": "3833143867735994159"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-select/ino-select.stories.ts",
+            "hash": "4031682309080164975",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-snackbar/ino-snackbar.scss",
+            "hash": "11819209009346637697"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-snackbar/ino-snackbar.stories.mdx",
+            "hash": "14873441162837606160"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-snackbar/ino-snackbar.stories.ts",
+            "hash": "7632466381583633162",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-spinner/ino-spinner.scss",
+            "hash": "14808170099799265732"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-spinner/ino-spinner.stories.mdx",
+            "hash": "6153558667506030246"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-spinner/ino-spinner.stories.ts",
+            "hash": "2510941029254432203",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-switch/ino-switch.scss",
+            "hash": "129083038717787664"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-switch/ino-switch.stories.mdx",
+            "hash": "8855566612650759792"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-switch/ino-switch.stories.ts",
+            "hash": "5664226592056777439",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-tab-bar/ino-tab-bar.scss",
+            "hash": "908735315093802476"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-tab-bar/ino-tab-bar.stories.mdx",
+            "hash": "12891459402284687694"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-tab-bar/ino-tab-bar.stories.ts",
+            "hash": "9143733711695545241",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-tab/ino-tab.stories.mdx",
+            "hash": "16949448925754000821"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-tab/ino-tab.stories.ts",
+            "hash": "9745537294748332212",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-table-header-cell/ino-table-header-cell.scss",
+            "hash": "16799955025564520822"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-table-header-cell/ino-table-header-cell.stories.mdx",
+            "hash": "10381188095890752365"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-table-header-cell/ino-table-header-cell.stories.ts",
+            "hash": "13892077552080105374",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-table/ino-table.scss",
+            "hash": "15118937304901650177"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-table/ino-table.stories.mdx",
+            "hash": "72618703655264467"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-table/ino-table.stories.ts",
+            "hash": "5050145695531962751",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-textarea/ino-textarea.scss",
+            "hash": "6862874624542267751"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-textarea/ino-textarea.stories.mdx",
+            "hash": "16141820629377470166"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-textarea/ino-textarea.stories.ts",
+            "hash": "3703421120555882866",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-tooltip/ino-tooltip.scss",
+            "hash": "7996581719247881166"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-tooltip/ino-tooltip.stories.mdx",
+            "hash": "4624473195082080340"
+          },
+          {
+            "file": "packages/storybook/src/stories/ino-tooltip/ino-tooltip.stories.ts",
+            "hash": "16028689501320679190",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/stories/showcase/showcase.scss",
+            "hash": "17392189108464111216"
+          },
+          {
+            "file": "packages/storybook/src/stories/showcase/showcase.stories.js",
+            "hash": "8698136172167836528"
+          },
+          {
+            "file": "packages/storybook/src/stories/template-generator.ts",
+            "hash": "10232073795729890780"
+          },
+          {
+            "file": "packages/storybook/src/stories/utils.ts",
+            "hash": "6015216459427978116",
+            "dependencies": [
+              {
+                "target": "elements",
+                "source": "storybook",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/storybook/src/types/images.d.ts",
+            "hash": "2588180873096328608"
+          },
+          {
+            "file": "packages/storybook/static/welcome.svg",
+            "hash": "15244259240347343717"
+          }
+        ]
+      }
+    },
+    "elements": {
+      "name": "elements",
+      "type": "lib",
+      "data": {
+        "name": "elements",
+        "sourceRoot": "packages/elements/src",
+        "projectType": "library",
+        "tags": [],
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "executor": "nx:run-commands",
+            "outputs": [
+              "packages/elements/dist"
+            ],
+            "options": {
+              "cwd": "packages/elements",
+              "command": "stencil build --ci"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements",
+              "command": "stencil build --watch --ci"
+            }
+          },
+          "test": {
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "packages/elements",
+              "command": "stencil test --e2e --no-build"
+            },
+            "configurations": {
+              "ci": {
+                "command": "stencil test --e2e --no-build"
+              },
+              "watch": {
+                "command": "stencil test --e2e --watch"
+              }
+            }
+          },
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "packages/elements/src/*.{ts,tsx}",
+                "packages/elements/scripts/*.{ts,tsx}",
+                "packages/elements/output-targets/*.{ts,tsx}"
+              ]
+            }
+          },
+          "icons": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "ts-node --project packages/elements/tsconfig.json packages/elements/scripts/integrateIcons.ts"
+            },
+            "configurations": {
+              "optimize": {
+                "command": "svgo -f packages/elements/src/assets/ino-icon --config svgo.config.js"
+              }
+            }
+          }
+        },
+        "root": "packages/elements",
+        "implicitDependencies": [],
+        "files": [
+          {
+            "file": "packages/elements/.eslintrc.json",
+            "hash": "6480870713582209380"
+          },
+          {
+            "file": "packages/elements/.versionrc",
+            "hash": "5414789382074457529"
+          },
+          {
+            "file": "packages/elements/CHANGELOG.md",
+            "hash": "8524530848095707041"
+          },
+          {
+            "file": "packages/elements/output-targets/angular.ts",
+            "hash": "11599569522604218952"
+          },
+          {
+            "file": "packages/elements/output-targets/json-docs.ts",
+            "hash": "9015213206675755941"
+          },
+          {
+            "file": "packages/elements/output-targets/react.ts",
+            "hash": "13369069994284481516"
+          },
+          {
+            "file": "packages/elements/output-targets/vue.ts",
+            "hash": "5712339400375731243"
+          },
+          {
+            "file": "packages/elements/package.json",
+            "hash": "643524708691352347",
+            "dependencies": [
+              {
+                "target": "npm:@types/css-font-loading-module",
+                "source": "elements",
+                "type": "static"
+              },
+              {
+                "target": "npm:@types/jest",
+                "source": "elements",
+                "type": "static"
+              },
+              {
+                "target": "npm:@typescript-eslint/eslint-plugin",
+                "source": "elements",
+                "type": "static"
+              },
+              {
+                "target": "npm:@typescript-eslint/parser",
+                "source": "elements",
+                "type": "static"
+              },
+              {
+                "target": "npm:jest",
+                "source": "elements",
+                "type": "static"
+              },
+              {
+                "target": "npm:jest-cli",
+                "source": "elements",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements/project.json",
+            "hash": "7471083126053808141"
+          },
+          {
+            "file": "packages/elements/README.md",
+            "hash": "336814821084904687"
+          },
+          {
+            "file": "packages/elements/scripts/integrateIcons.ts",
+            "hash": "3587366706923606952",
+            "dependencies": [
+              {
+                "target": "npm:fs-extra",
+                "source": "elements",
+                "type": "static"
+              },
+              {
+                "target": "npm:camelcase",
+                "source": "elements",
+                "type": "static"
+              }
+            ]
+          },
+          {
+            "file": "packages/elements/src/assets/ino-avatar/primary_dashed.svg",
+            "hash": "12291579972889869480"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-avatar/primary.svg",
+            "hash": "9155979736313185779"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-avatar/secondary_dashed.svg",
+            "hash": "289787557664075769"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-avatar/secondary.svg",
+            "hash": "8968494367245721555"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/_fab_set_arrow_down.svg",
+            "hash": "18175665187381761448"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/_fab_set_arrow_up.svg",
+            "hash": "3527804514816096011"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/_input_number_arrow_down.svg",
+            "hash": "13485415992126468432"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/_input_number_arrow_up.svg",
+            "hash": "17826000954427780817"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/add.svg",
+            "hash": "1885373260780418253"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/arrow_down.svg",
+            "hash": "4857995887273603231"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/arrow_left.svg",
+            "hash": "4815972344190495593"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/arrow_right.svg",
+            "hash": "3644671938559903309"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/arrow_up.svg",
+            "hash": "13576813186239221060"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/back_arrow.svg",
+            "hash": "4297476422565135919"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/birthday.svg",
+            "hash": "13722017938410373466"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/bold.svg",
+            "hash": "15758324321527612447"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/bullet_list.svg",
+            "hash": "2861214756612090720"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/calendar.svg",
+            "hash": "13288279562544953880"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/call.svg",
+            "hash": "12625785070480543914"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/camera.svg",
+            "hash": "8371270022605880737"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/cart.svg",
+            "hash": "868010603011804576"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/chat.svg",
+            "hash": "6525940300598829314"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/checkmark.svg",
+            "hash": "3450301528911482388"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/close.svg",
+            "hash": "14169542520511083649"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/cloud.svg",
+            "hash": "1984439953754846558"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/code_block.svg",
+            "hash": "12661391443619311905"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/code.svg",
+            "hash": "17165868629414287169"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/company.svg",
+            "hash": "1101563663978757376"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/copy.svg",
+            "hash": "4886697072665647827"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/dashboard.svg",
+            "hash": "9280786629999725701"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/developer.svg",
+            "hash": "16665534986859624877"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/discover.svg",
+            "hash": "4659072843059895262"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/display.svg",
+            "hash": "13249858770624265806"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/download.svg",
+            "hash": "14423208206739305386"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/edit_text.svg",
+            "hash": "12451946470694297027"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/edit.svg",
+            "hash": "13751540938656129024"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/employee.svg",
+            "hash": "12233091440810059832"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/favorite.svg",
+            "hash": "7087275634288468499"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/filter.svg",
+            "hash": "5777180407623633180"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/first_steps.svg",
+            "hash": "5431453118035684435"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/folder.svg",
+            "hash": "11717963451201677284"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/headline_one.svg",
+            "hash": "17118665255118186607"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/headline_two.svg",
+            "hash": "6856701195271378500"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/help.svg",
+            "hash": "8983141909487024913"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/home.svg",
+            "hash": "319179786088089739"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/image_not_available.svg",
+            "hash": "15574437519493258465"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/index.esm.d.ts",
+            "hash": "14387728107667660883"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/index.esm.js",
+            "hash": "9128841147250593896"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/index.js",
+            "hash": "12412696674791745146"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/info.svg",
+            "hash": "7156879813487590880"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/italic.svg",
+            "hash": "10766261463762621204"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/library.svg",
+            "hash": "8953119524481625199"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/link.svg",
+            "hash": "17118703832709388568"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/location.svg",
+            "hash": "773229085062388967"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/logout.svg",
+            "hash": "922663736572528401"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/mail.svg",
+            "hash": "12909795666184981404"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/menu.svg",
+            "hash": "231499271830262327"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/message.svg",
+            "hash": "12604448590676756743"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/number.svg",
+            "hash": "17909091222956377369"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/numeric_list.svg",
+            "hash": "13303278023733277755"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/offboarding_running.svg",
+            "hash": "2349559652756018061"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/offboarding.svg",
+            "hash": "18075980708364264443"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/onboarding_running.svg",
+            "hash": "3585358570285406105"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/onboarding.svg",
+            "hash": "4211669862009290812"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/opportunity.svg",
+            "hash": "14913951130130050874"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/options_dotted.svg",
+            "hash": "17531832008998694616"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/options.svg",
+            "hash": "16779608703211585006"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/partner.svg",
+            "hash": "11462354225063589217"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/password.svg",
+            "hash": "17324446888480770236"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/phone.svg",
+            "hash": "2879590434136408524"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/pin.svg",
+            "hash": "13100855084754390042"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/print.svg",
+            "hash": "130756905586175294"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/question.svg",
+            "hash": "16494398281862214589"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/quote.svg",
+            "hash": "12576037801125130430"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/refresh.svg",
+            "hash": "3636004930695685735"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/remove.svg",
+            "hash": "9249075123515798291"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/report.svg",
+            "hash": "3489606824382138822"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/save.svg",
+            "hash": "15062915633899120644"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/search.svg",
+            "hash": "16181186209968318841"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/settings.svg",
+            "hash": "18109076388161232220"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/share.svg",
+            "hash": "17299860030721370531"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/snackbar-checkmark.svg",
+            "hash": "10549521611769979744"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/snackbar-error.svg",
+            "hash": "13164238561447924707"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/snackbar-information.svg",
+            "hash": "6397824730379346444"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/sort_az.svg",
+            "hash": "7336350220926132900"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/sort_down.svg",
+            "hash": "7879886756232208403"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/sort_up.svg",
+            "hash": "3260850854592681307"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/sort_za.svg",
+            "hash": "3929276410967647549"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/sort.svg",
+            "hash": "13354160787702534151"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/star.svg",
+            "hash": "18219484073686974928"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/status_away.svg",
+            "hash": "15156594329978247835"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/status_current.svg",
+            "hash": "5328865861644334913"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/status_future.svg",
+            "hash": "7188638619033500534"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/status_past.svg",
+            "hash": "12403266134362039352"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/strikethrough.svg",
+            "hash": "4916543922570937435"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/time.svg",
+            "hash": "4966766232019016432"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/underline.svg",
+            "hash": "3451842406706377827"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/upload.svg",
+            "hash": "11768975480318450991"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/user.svg",
+            "hash": "4648092282168423571"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/warning.svg",
+            "hash": "9439012148944028350"
+          },
+          {
+            "file": "packages/elements/src/assets/ino-icon/web.svg",
+            "hash": "12156717677380670532"
+          },
+          {
+            "file": "packages/elements/src/components.d.ts",
+            "hash": "11915221420678602138"
+          },
+          {
+            "file": "packages/elements/src/components/base/_animation.scss",
+            "hash": "67643132415666637"
+          },
+          {
+            "file": "packages/elements/src/components/base/_common.scss",
+            "hash": "3329728637986876861"
+          },
+          {
+            "file": "packages/elements/src/components/base/_mdc-customize.scss",
+            "hash": "4918846096454555842"
+          },
+          {
+            "file": "packages/elements/src/components/base/_new-theme.scss",
+            "hash": "11102103064958646278"
+          },
+          {
+            "file": "packages/elements/src/components/base/_option-base.scss",
+            "hash": "5586768801894214569"
+          },
+          {
+            "file": "packages/elements/src/components/base/_theme.scss",
+            "hash": "7068481674847347987"
+          },
+          {
+            "file": "packages/elements/src/components/base/_tooltip-base.scss",
+            "hash": "1873408084770312057"
+          },
+          {
+            "file": "packages/elements/src/components/base/_typography-new.scss",
+            "hash": "2544394106043499120"
+          },
+          {
+            "file": "packages/elements/src/components/base/_typography.scss",
+            "hash": "9816839517398023133"
+          },
+          {
+            "file": "packages/elements/src/components/config.ts",
+            "hash": "12861447227308910596"
+          },
+          {
+            "file": "packages/elements/src/components/ino-accordion/ino-accordion.scss",
+            "hash": "9010659347860740035"
+          },
+          {
+            "file": "packages/elements/src/components/ino-accordion/ino-accordion.tsx",
+            "hash": "6511479997354635481"
+          },
+          {
+            "file": "packages/elements/src/components/ino-accordion/readme.md",
+            "hash": "18243800232814899887"
+          },
+          {
+            "file": "packages/elements/src/components/ino-autocomplete/ino-autocomplete.e2e.ts",
+            "hash": "6566248366364044007"
+          },
+          {
+            "file": "packages/elements/src/components/ino-autocomplete/ino-autocomplete.scss",
+            "hash": "3598054941092677376"
+          },
+          {
+            "file": "packages/elements/src/components/ino-autocomplete/ino-autocomplete.tsx",
+            "hash": "3023988883779760328"
+          },
+          {
+            "file": "packages/elements/src/components/ino-autocomplete/readme.md",
+            "hash": "45406856801024"
+          },
+          {
+            "file": "packages/elements/src/components/ino-avatar/ino-avatar.scss",
+            "hash": "145659592431014122"
+          },
+          {
+            "file": "packages/elements/src/components/ino-avatar/ino-avatar.tsx",
+            "hash": "15549553307253036814"
+          },
+          {
+            "file": "packages/elements/src/components/ino-avatar/readme.md",
+            "hash": "14897320417393908739"
+          },
+          {
+            "file": "packages/elements/src/components/ino-button/ino-button.e2e.ts",
+            "hash": "1212287503809265193"
+          },
+          {
+            "file": "packages/elements/src/components/ino-button/ino-button.scss",
+            "hash": "3568243362069874331"
+          },
+          {
+            "file": "packages/elements/src/components/ino-button/ino-button.tsx",
+            "hash": "4121659385080655619"
+          },
+          {
+            "file": "packages/elements/src/components/ino-button/readme.md",
+            "hash": "12288551710209105663"
+          },
+          {
+            "file": "packages/elements/src/components/ino-card/ino-card.e2e.ts",
+            "hash": "452485541856859809"
+          },
+          {
+            "file": "packages/elements/src/components/ino-card/ino-card.scss",
+            "hash": "16539438693598136152"
+          },
+          {
+            "file": "packages/elements/src/components/ino-card/ino-card.tsx",
+            "hash": "10269532721990022684"
+          },
+          {
+            "file": "packages/elements/src/components/ino-card/readme.md",
+            "hash": "14770688073590208501"
+          },
+          {
+            "file": "packages/elements/src/components/ino-carousel-slide/ino-carousel-slide.e2e.ts",
+            "hash": "8183075340465635944"
+          },
+          {
+            "file": "packages/elements/src/components/ino-carousel-slide/ino-carousel-slide.scss",
+            "hash": "7685273764753697615"
+          },
+          {
+            "file": "packages/elements/src/components/ino-carousel-slide/ino-carousel-slide.tsx",
+            "hash": "13511909561831187140"
+          },
+          {
+            "file": "packages/elements/src/components/ino-carousel-slide/readme.md",
+            "hash": "2615178141920986446"
+          },
+          {
+            "file": "packages/elements/src/components/ino-carousel/ino-carousel.e2e.ts",
+            "hash": "10621056527184699711"
+          },
+          {
+            "file": "packages/elements/src/components/ino-carousel/ino-carousel.scss",
+            "hash": "13738075571324384710"
+          },
+          {
+            "file": "packages/elements/src/components/ino-carousel/ino-carousel.tsx",
+            "hash": "5655457270437719124"
+          },
+          {
+            "file": "packages/elements/src/components/ino-carousel/readme.md",
+            "hash": "1842031528491082862"
+          },
+          {
+            "file": "packages/elements/src/components/ino-checkbox/ino-checkbox.e2e.ts",
+            "hash": "497126447742580287"
+          },
+          {
+            "file": "packages/elements/src/components/ino-checkbox/ino-checkbox.scss",
+            "hash": "5471941388645540776"
+          },
+          {
+            "file": "packages/elements/src/components/ino-checkbox/ino-checkbox.tsx",
+            "hash": "12096699224231650910"
+          },
+          {
+            "file": "packages/elements/src/components/ino-checkbox/readme.md",
+            "hash": "16864566675409240715"
+          },
+          {
+            "file": "packages/elements/src/components/ino-chip/ino-chip.e2e.ts",
+            "hash": "9042010463201459452"
+          },
+          {
+            "file": "packages/elements/src/components/ino-chip/ino-chip.scss",
+            "hash": "15489139911070354395"
+          },
+          {
+            "file": "packages/elements/src/components/ino-chip/ino-chip.tsx",
+            "hash": "14818362599186675244"
+          },
+          {
+            "file": "packages/elements/src/components/ino-chip/readme.md",
+            "hash": "3931587802763579137"
+          },
+          {
+            "file": "packages/elements/src/components/ino-control-item/ino-control-item.e2e.ts",
+            "hash": "2511553324675411271"
+          },
+          {
+            "file": "packages/elements/src/components/ino-control-item/ino-control-item.scss",
+            "hash": "4279924107347375077"
+          },
+          {
+            "file": "packages/elements/src/components/ino-control-item/ino-control-item.tsx",
+            "hash": "1716306834244786343"
+          },
+          {
+            "file": "packages/elements/src/components/ino-control-item/readme.md",
+            "hash": "16001740214340953506"
+          },
+          {
+            "file": "packages/elements/src/components/ino-currency-input/ino-currency-input.e2e.ts",
+            "hash": "17561521934187886716"
+          },
+          {
+            "file": "packages/elements/src/components/ino-currency-input/ino-currency-input.scss",
+            "hash": "3244421341483603138"
+          },
+          {
+            "file": "packages/elements/src/components/ino-currency-input/ino-currency-input.tsx",
+            "hash": "6350346973954614488"
+          },
+          {
+            "file": "packages/elements/src/components/ino-currency-input/readme.md",
+            "hash": "11666023706978927777"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/ino-datepicker.e2e.ts",
+            "hash": "13138862073414794442"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/ino-datepicker.scss",
+            "hash": "11878867974788859362"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/ino-datepicker.tsx",
+            "hash": "6615585177391368499"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/local.ts",
+            "hash": "12656046353622719928"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/picker-factory.ts",
+            "hash": "2919846599345139884"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/picker/DatePicker.ts",
+            "hash": "397458898790928017"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/picker/MonthPicker.ts",
+            "hash": "7495686635576848099"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/picker/TimePicker.ts",
+            "hash": "14652392303216329976"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/readme.md",
+            "hash": "2867875343098994061"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/validator.spec.ts",
+            "hash": "14925998966358509944"
+          },
+          {
+            "file": "packages/elements/src/components/ino-datepicker/validator.ts",
+            "hash": "13571240737806102919"
+          },
+          {
+            "file": "packages/elements/src/components/ino-dialog/ino-dialog.e2e.ts",
+            "hash": "1604634738938396562"
+          },
+          {
+            "file": "packages/elements/src/components/ino-dialog/ino-dialog.scss",
+            "hash": "15784973264824672985"
+          },
+          {
+            "file": "packages/elements/src/components/ino-dialog/ino-dialog.tsx",
+            "hash": "2216045707532432008"
+          },
+          {
+            "file": "packages/elements/src/components/ino-dialog/readme.md",
+            "hash": "1581230532212960105"
+          },
+          {
+            "file": "packages/elements/src/components/ino-fab-set/ino-fab-set.e2e.ts",
+            "hash": "12111897270963911105"
+          },
+          {
+            "file": "packages/elements/src/components/ino-fab-set/ino-fab-set.scss",
+            "hash": "16662525718806438361"
+          },
+          {
+            "file": "packages/elements/src/components/ino-fab-set/ino-fab-set.tsx",
+            "hash": "10819736973330733212"
+          },
+          {
+            "file": "packages/elements/src/components/ino-fab-set/readme.md",
+            "hash": "7410940512233409078"
+          },
+          {
+            "file": "packages/elements/src/components/ino-fab/ino-fab.e2e.ts",
+            "hash": "11752221664303522837"
+          },
+          {
+            "file": "packages/elements/src/components/ino-fab/ino-fab.scss",
+            "hash": "13393822622489368976"
+          },
+          {
+            "file": "packages/elements/src/components/ino-fab/ino-fab.tsx",
+            "hash": "8426947599017697476"
+          },
+          {
+            "file": "packages/elements/src/components/ino-fab/readme.md",
+            "hash": "2665360732003786718"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon-button/ino-icon-button.e2e.ts",
+            "hash": "13935104683770970182"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon-button/ino-icon-button.scss",
+            "hash": "11905974446348737082"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon-button/ino-icon-button.tsx",
+            "hash": "15063869202223461929"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon-button/readme.md",
+            "hash": "9613227446907715794"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon/icons.js",
+            "hash": "4873621132554369031"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon/ino-icon.e2e.ts",
+            "hash": "15045100005210397693"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon/ino-icon.scss",
+            "hash": "5395343246489731479"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon/ino-icon.tsx",
+            "hash": "10200730899039819392"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon/readme.md",
+            "hash": "14435922075783301969"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon/request.ts",
+            "hash": "16377958477650993428"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon/utils.ts",
+            "hash": "2520821252019483032"
+          },
+          {
+            "file": "packages/elements/src/components/ino-icon/validate.ts",
+            "hash": "9707046529418229381"
+          },
+          {
+            "file": "packages/elements/src/components/ino-img-list/ino-img-list.e2e.ts",
+            "hash": "17503599475213861193"
+          },
+          {
+            "file": "packages/elements/src/components/ino-img-list/ino-img-list.scss",
+            "hash": "16039664573391085922"
+          },
+          {
+            "file": "packages/elements/src/components/ino-img-list/ino-img-list.tsx",
+            "hash": "10740114952344022906"
+          },
+          {
+            "file": "packages/elements/src/components/ino-img-list/readme.md",
+            "hash": "17949166552988010613"
+          },
+          {
+            "file": "packages/elements/src/components/ino-img/ino-img.scss",
+            "hash": "12073722444015853218"
+          },
+          {
+            "file": "packages/elements/src/components/ino-img/ino-img.tsx",
+            "hash": "4796799844030544865"
+          },
+          {
+            "file": "packages/elements/src/components/ino-img/readme.md",
+            "hash": "6358723589325027960"
+          },
+          {
+            "file": "packages/elements/src/components/ino-input-file/ino-input-file.e2e.ts",
+            "hash": "6418857830091883944"
+          },
+          {
+            "file": "packages/elements/src/components/ino-input-file/ino-input-file.scss",
+            "hash": "8490470294270401697"
+          },
+          {
+            "file": "packages/elements/src/components/ino-input-file/ino-input-file.tsx",
+            "hash": "8051502215992205050"
+          },
+          {
+            "file": "packages/elements/src/components/ino-input-file/readme.md",
+            "hash": "9730348219278702352"
+          },
+          {
+            "file": "packages/elements/src/components/ino-input/ino-input.e2e.ts",
+            "hash": "4142074962614283612"
+          },
+          {
+            "file": "packages/elements/src/components/ino-input/ino-input.scss",
+            "hash": "13245931296208313601"
+          },
+          {
+            "file": "packages/elements/src/components/ino-input/ino-input.tsx",
+            "hash": "6381296042134562392"
+          },
+          {
+            "file": "packages/elements/src/components/ino-input/readme.md",
+            "hash": "1008066884014593753"
+          },
+          {
+            "file": "packages/elements/src/components/ino-label/ino-label.scss",
+            "hash": "5525664324314568502"
+          },
+          {
+            "file": "packages/elements/src/components/ino-label/ino-label.tsx",
+            "hash": "11526868898235803640"
+          },
+          {
+            "file": "packages/elements/src/components/ino-label/readme.md",
+            "hash": "3996453539092026746"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list-divider/ino-list-divider.scss",
+            "hash": "17942710697713531626"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list-divider/ino-list-divider.tsx",
+            "hash": "6064052220157770728"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list-divider/readme.md",
+            "hash": "2636518268143735563"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list-item/ino-list-item.e2e.ts",
+            "hash": "11016796826896637694"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list-item/ino-list-item.scss",
+            "hash": "18307897542987284692"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list-item/ino-list-item.tsx",
+            "hash": "9022287129919071065"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list-item/readme.md",
+            "hash": "3297888476612958051"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list/ino-list.scss",
+            "hash": "10216834683471591145"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list/ino-list.tsx",
+            "hash": "9425638731401116340"
+          },
+          {
+            "file": "packages/elements/src/components/ino-list/readme.md",
+            "hash": "18191493515552100800"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/editor-toolbar-helper.ts",
+            "hash": "3476124268105170518"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/extensions/bullet_list.ts",
+            "hash": "3724301655607576116"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/extensions/task_item.ts",
+            "hash": "11156862820049614435"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/extensions/task_list.ts",
+            "hash": "16349899049703237003"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/ino-markdown-editor.e2e.ts",
+            "hash": "5789202761375310145"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/ino-markdown-editor.scss",
+            "hash": "15821109195226131884"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/ino-markdown-editor.tsx",
+            "hash": "1690105098713024353"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/markdown-serializer.ts",
+            "hash": "1298782057675592248"
+          },
+          {
+            "file": "packages/elements/src/components/ino-markdown-editor/readme.md",
+            "hash": "16417845980138768057"
+          },
+          {
+            "file": "packages/elements/src/components/ino-menu/ino-menu.e2e.ts",
+            "hash": "2947907496336826577"
+          },
+          {
+            "file": "packages/elements/src/components/ino-menu/ino-menu.scss",
+            "hash": "14968067629915525956"
+          },
+          {
+            "file": "packages/elements/src/components/ino-menu/ino-menu.tsx",
+            "hash": "2277453364448581108"
+          },
+          {
+            "file": "packages/elements/src/components/ino-menu/readme.md",
+            "hash": "844057701860296885"
+          },
+          {
+            "file": "packages/elements/src/components/ino-nav-drawer/ino-nav-drawer.e2e.ts",
+            "hash": "12918795537368989680"
+          },
+          {
+            "file": "packages/elements/src/components/ino-nav-drawer/ino-nav-drawer.scss",
+            "hash": "16595445470832658067"
+          },
+          {
+            "file": "packages/elements/src/components/ino-nav-drawer/ino-nav-drawer.tsx",
+            "hash": "3976632825549408348"
+          },
+          {
+            "file": "packages/elements/src/components/ino-nav-drawer/readme.md",
+            "hash": "14702984700610633874"
+          },
+          {
+            "file": "packages/elements/src/components/ino-nav-item/ino-nav-item.scss",
+            "hash": "5979796885195282621"
+          },
+          {
+            "file": "packages/elements/src/components/ino-nav-item/ino-nav-item.tsx",
+            "hash": "7847917111271465111"
+          },
+          {
+            "file": "packages/elements/src/components/ino-nav-item/readme.md",
+            "hash": "2726304200753281275"
+          },
+          {
+            "file": "packages/elements/src/components/ino-option-group/ino-option-group.e2e.ts",
+            "hash": "12354527063546834414"
+          },
+          {
+            "file": "packages/elements/src/components/ino-option-group/ino-option-group.scss",
+            "hash": "3321837160910738309"
+          },
+          {
+            "file": "packages/elements/src/components/ino-option-group/ino-option-group.tsx",
+            "hash": "11539187457037872547"
+          },
+          {
+            "file": "packages/elements/src/components/ino-option-group/readme.md",
+            "hash": "17724800223443295408"
+          },
+          {
+            "file": "packages/elements/src/components/ino-option/ino-option.e2e.ts",
+            "hash": "12823319091796582161"
+          },
+          {
+            "file": "packages/elements/src/components/ino-option/ino-option.scss",
+            "hash": "3843066620502243581"
+          },
+          {
+            "file": "packages/elements/src/components/ino-option/ino-option.tsx",
+            "hash": "4355116740834313694"
+          },
+          {
+            "file": "packages/elements/src/components/ino-option/readme.md",
+            "hash": "149534363330561478"
+          },
+          {
+            "file": "packages/elements/src/components/ino-popover/ino-popover.scss",
+            "hash": "18227791065928534400"
+          },
+          {
+            "file": "packages/elements/src/components/ino-popover/ino-popover.tsx",
+            "hash": "3207307179558571532"
+          },
+          {
+            "file": "packages/elements/src/components/ino-popover/plugins.ts",
+            "hash": "17215607492805648873"
+          },
+          {
+            "file": "packages/elements/src/components/ino-popover/readme.md",
+            "hash": "1587937363985131489"
+          },
+          {
+            "file": "packages/elements/src/components/ino-progress-bar/ino-progress-bar.e2e.ts",
+            "hash": "7275135423316170956"
+          },
+          {
+            "file": "packages/elements/src/components/ino-progress-bar/ino-progress-bar.scss",
+            "hash": "12860057824332547774"
+          },
+          {
+            "file": "packages/elements/src/components/ino-progress-bar/ino-progress-bar.tsx",
+            "hash": "6798231530366451170"
+          },
+          {
+            "file": "packages/elements/src/components/ino-progress-bar/readme.md",
+            "hash": "1183414945662979917"
+          },
+          {
+            "file": "packages/elements/src/components/ino-radio-group/ino-radio-group.e2e.ts",
+            "hash": "5274179131248280877"
+          },
+          {
+            "file": "packages/elements/src/components/ino-radio-group/ino-radio-group.scss",
+            "hash": "4212020787220830004"
+          },
+          {
+            "file": "packages/elements/src/components/ino-radio-group/ino-radio-group.tsx",
+            "hash": "8414292208870964995"
+          },
+          {
+            "file": "packages/elements/src/components/ino-radio-group/readme.md",
+            "hash": "7923358798667477546"
+          },
+          {
+            "file": "packages/elements/src/components/ino-radio/ino-radio.e2e.ts",
+            "hash": "15526554731831029299"
+          },
+          {
+            "file": "packages/elements/src/components/ino-radio/ino-radio.scss",
+            "hash": "3372893922841075632"
+          },
+          {
+            "file": "packages/elements/src/components/ino-radio/ino-radio.tsx",
+            "hash": "6969154548039261176"
+          },
+          {
+            "file": "packages/elements/src/components/ino-radio/readme.md",
+            "hash": "17784227565431463054"
+          },
+          {
+            "file": "packages/elements/src/components/ino-range/ino-range.e2e.ts",
+            "hash": "6158777857824218445"
+          },
+          {
+            "file": "packages/elements/src/components/ino-range/ino-range.scss",
+            "hash": "14607050015734841976"
+          },
+          {
+            "file": "packages/elements/src/components/ino-range/ino-range.tsx",
+            "hash": "11532935882923421392"
+          },
+          {
+            "file": "packages/elements/src/components/ino-range/readme.md",
+            "hash": "1259466336552388031"
+          },
+          {
+            "file": "packages/elements/src/components/ino-segment-button/ino-segment-button.e2e.ts",
+            "hash": "9227869044339798113"
+          },
+          {
+            "file": "packages/elements/src/components/ino-segment-button/ino-segment-button.scss",
+            "hash": "4173791490087959221"
+          },
+          {
+            "file": "packages/elements/src/components/ino-segment-button/ino-segment-button.tsx",
+            "hash": "14105049909591985986"
+          },
+          {
+            "file": "packages/elements/src/components/ino-segment-button/readme.md",
+            "hash": "3150253537245006845"
+          },
+          {
+            "file": "packages/elements/src/components/ino-segment-group/ino-segment-group.e2e.ts",
+            "hash": "6368351712242892218"
+          },
+          {
+            "file": "packages/elements/src/components/ino-segment-group/ino-segment-group.scss",
+            "hash": "6876243199236779695"
+          },
+          {
+            "file": "packages/elements/src/components/ino-segment-group/ino-segment-group.tsx",
+            "hash": "4140842325608817808"
+          },
+          {
+            "file": "packages/elements/src/components/ino-segment-group/readme.md",
+            "hash": "8168361606210047854"
+          },
+          {
+            "file": "packages/elements/src/components/ino-select/ino-select.e2e.ts",
+            "hash": "17364863964597874610"
+          },
+          {
+            "file": "packages/elements/src/components/ino-select/ino-select.scss",
+            "hash": "9147681777941857314"
+          },
+          {
+            "file": "packages/elements/src/components/ino-select/ino-select.tsx",
+            "hash": "17430329181552964079"
+          },
+          {
+            "file": "packages/elements/src/components/ino-select/readme.md",
+            "hash": "11346801497990780460"
+          },
+          {
+            "file": "packages/elements/src/components/ino-snackbar/ino-snackbar.e2e.ts",
+            "hash": "3120336963822232458"
+          },
+          {
+            "file": "packages/elements/src/components/ino-snackbar/ino-snackbar.scss",
+            "hash": "1537589462781756108"
+          },
+          {
+            "file": "packages/elements/src/components/ino-snackbar/ino-snackbar.tsx",
+            "hash": "17443256051744832775"
+          },
+          {
+            "file": "packages/elements/src/components/ino-snackbar/readme.md",
+            "hash": "5672865047693453464"
+          },
+          {
+            "file": "packages/elements/src/components/ino-spinner/ino-spinner.scss",
+            "hash": "12980464590971999101"
+          },
+          {
+            "file": "packages/elements/src/components/ino-spinner/ino-spinner.tsx",
+            "hash": "9138073381819155721"
+          },
+          {
+            "file": "packages/elements/src/components/ino-spinner/mixins/_bounce.scss",
+            "hash": "13088785481068636325"
+          },
+          {
+            "file": "packages/elements/src/components/ino-spinner/mixins/_circle.scss",
+            "hash": "1779423671012057036"
+          },
+          {
+            "file": "packages/elements/src/components/ino-spinner/mixins/_tile.scss",
+            "hash": "6758183355164749840"
+          },
+          {
+            "file": "packages/elements/src/components/ino-spinner/mixins/_transitions.scss",
+            "hash": "2456297852714141429"
+          },
+          {
+            "file": "packages/elements/src/components/ino-spinner/readme.md",
+            "hash": "15806303768962118493"
+          },
+          {
+            "file": "packages/elements/src/components/ino-switch/ino-switch.e2e.ts",
+            "hash": "5562760487127423873"
+          },
+          {
+            "file": "packages/elements/src/components/ino-switch/ino-switch.scss",
+            "hash": "15412040311120583804"
+          },
+          {
+            "file": "packages/elements/src/components/ino-switch/ino-switch.tsx",
+            "hash": "12063288108215186490"
+          },
+          {
+            "file": "packages/elements/src/components/ino-switch/readme.md",
+            "hash": "2555367001258260683"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tab-bar/ino-tab-bar.e2e.ts",
+            "hash": "6094236211764174479"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tab-bar/ino-tab-bar.scss",
+            "hash": "12368585617432810934"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tab-bar/ino-tab-bar.tsx",
+            "hash": "1495358783947195697"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tab-bar/readme.md",
+            "hash": "14656570472403186380"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tab/ino-tab.e2e.ts",
+            "hash": "4740394290297431176"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tab/ino-tab.scss",
+            "hash": "16766183916033779460"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tab/ino-tab.tsx",
+            "hash": "6046608376492149359"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tab/readme.md",
+            "hash": "4089815924649450038"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table-header-cell/ino-table-header-cell.e2e.ts",
+            "hash": "15475147555449122402"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table-header-cell/ino-table-header-cell.scss",
+            "hash": "9197872894770300936"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table-header-cell/ino-table-header-cell.tsx",
+            "hash": "7135750220132978550"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table-header-cell/readme.md",
+            "hash": "5818474295030975840"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table/_table-cell.scss",
+            "hash": "1902352159599073643"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table/_table-row.scss",
+            "hash": "11463919036876621160"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table/ino-table.e2e.ts",
+            "hash": "9938957246301503040"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table/ino-table.scss",
+            "hash": "8378236507090081026"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table/ino-table.tsx",
+            "hash": "8220911219879806612"
+          },
+          {
+            "file": "packages/elements/src/components/ino-table/readme.md",
+            "hash": "11667210312648506297"
+          },
+          {
+            "file": "packages/elements/src/components/ino-textarea/ino-textarea.e2e.ts",
+            "hash": "2973131412954234631"
+          },
+          {
+            "file": "packages/elements/src/components/ino-textarea/ino-textarea.scss",
+            "hash": "6254843131208828732"
+          },
+          {
+            "file": "packages/elements/src/components/ino-textarea/ino-textarea.tsx",
+            "hash": "7263781055110260331"
+          },
+          {
+            "file": "packages/elements/src/components/ino-textarea/readme.md",
+            "hash": "9929814191258148251"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tooltip/ino-tooltip.scss",
+            "hash": "3066434983362361624"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tooltip/ino-tooltip.tsx",
+            "hash": "9620426495699744488"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tooltip/mixins.scss",
+            "hash": "7963124104383357688"
+          },
+          {
+            "file": "packages/elements/src/components/ino-tooltip/readme.md",
+            "hash": "10431091322912794876"
+          },
+          {
+            "file": "packages/elements/src/components/types.ts",
+            "hash": "4534995665431630404"
+          },
+          {
+            "file": "packages/elements/src/global/styles.scss",
+            "hash": "13134689700238745914"
+          },
+          {
+            "file": "packages/elements/src/index.ts",
+            "hash": "1398615837778112486"
+          },
+          {
+            "file": "packages/elements/src/interface.d.ts",
+            "hash": "536419636819893719"
+          },
+          {
+            "file": "packages/elements/src/util/component-utils.ts",
+            "hash": "16662654456661213345"
+          },
+          {
+            "file": "packages/elements/src/util/debouncer.ts",
+            "hash": "1272884329064957734"
+          },
+          {
+            "file": "packages/elements/src/util/e2etests-setup.ts",
+            "hash": "6086198675598392782"
+          },
+          {
+            "file": "packages/elements/src/util/helpers.ts",
+            "hash": "9092996463091086429"
+          },
+          {
+            "file": "packages/elements/src/util/icons.ts",
+            "hash": "8620131061652822404"
+          },
+          {
+            "file": "packages/elements/src/util/import-fonts.ts",
+            "hash": "9699125692299393320"
+          },
+          {
+            "file": "packages/elements/src/util/math-utils.ts",
+            "hash": "8098287028259813315"
+          },
+          {
+            "file": "packages/elements/src/util/svg-parser.ts",
+            "hash": "9069141252400246624"
+          },
+          {
+            "file": "packages/elements/src/util/test-utils.ts",
+            "hash": "6556451794072445691"
+          },
+          {
+            "file": "packages/elements/stencil.config.ts",
+            "hash": "7923400664006622847"
+          },
+          {
+            "file": "packages/elements/tsconfig.eslint.json",
+            "hash": "14994386570639986904"
+          },
+          {
+            "file": "packages/elements/tsconfig.json",
+            "hash": "15243313141191634827"
+          },
+          {
+            "file": "packages/elements/tsconfig.lib.json",
+            "hash": "7190402972799980723"
+          }
+        ]
+      }
+    }
+  },
+  "externalNodes": {
+    "npm:@angular/animations": {
+      "type": "npm",
+      "name": "npm:@angular/animations",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/animations",
+        "hash": "4ee6054fc19b5dad650b20e900feb9f7655137fcae8a22389efbd0b3363c8809"
+      }
+    },
+    "npm:@angular/common": {
+      "type": "npm",
+      "name": "npm:@angular/common",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/common",
+        "hash": "c1cd58b5251da8e8d44060f7f56b43d8cb2d275c3102de71cb769c197dbb99e6"
+      }
+    },
+    "npm:@angular/compiler": {
+      "type": "npm",
+      "name": "npm:@angular/compiler",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/compiler",
+        "hash": "d2cd11e9be674a9b1f11f53fdbbe1317de505787f8aad4bec1866b9f226ff2a8"
+      }
+    },
+    "npm:@angular/core": {
+      "type": "npm",
+      "name": "npm:@angular/core",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/core",
+        "hash": "c81a1d132c35c714b8c993d694264d717fdfb3eae75435b5fd85cba49b772648"
+      }
+    },
+    "npm:@angular/forms": {
+      "type": "npm",
+      "name": "npm:@angular/forms",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/forms",
+        "hash": "e264c4f06a55ebbef162daa204e8dbdf4d56534782a61d83bfb7c6afa7c9d02c"
+      }
+    },
+    "npm:@angular/platform-browser": {
+      "type": "npm",
+      "name": "npm:@angular/platform-browser",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/platform-browser",
+        "hash": "bd9edcbe7018b6c43142d905999a240f39dd2a6fa5b392af130c8f7518959039"
+      }
+    },
+    "npm:@angular/platform-browser-dynamic": {
+      "type": "npm",
+      "name": "npm:@angular/platform-browser-dynamic",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/platform-browser-dynamic",
+        "hash": "12e668c9426b835c6492e64b37b3987887347ba3150cca20d222216c55d3af15"
+      }
+    },
+    "npm:@angular/router": {
+      "type": "npm",
+      "name": "npm:@angular/router",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/router",
+        "hash": "d5f175008b70181bc41f1d7dc5fa05f58750b67ed9f2435ccfb7498a13f2a74e"
+      }
+    },
+    "npm:rxjs": {
+      "type": "npm",
+      "name": "npm:rxjs",
+      "data": {
+        "version": "~7.5.0",
+        "packageName": "rxjs",
+        "hash": "aa112459324303e2c3a2c6033c0d5c33b5f574a48df523b7ccd42bbf2d8650b3"
+      }
+    },
+    "npm:tslib": {
+      "type": "npm",
+      "name": "npm:tslib",
+      "data": {
+        "version": "^2.3.0",
+        "packageName": "tslib",
+        "hash": "a33e74687104ec3eee715b3039ada1f6fc526a5dbb18f125cfc6c30497bfe2b7"
+      }
+    },
+    "npm:zone.js": {
+      "type": "npm",
+      "name": "npm:zone.js",
+      "data": {
+        "version": "~0.11.4",
+        "packageName": "zone.js",
+        "hash": "a211e56d3799fbf56783773e48ad85c02c7126f69bb0919a7e2a11000feb9873"
+      }
+    },
+    "npm:@angular-devkit/build-angular": {
+      "type": "npm",
+      "name": "npm:@angular-devkit/build-angular",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular-devkit/build-angular",
+        "hash": "be4459287a0f18df2ded5cd2d74c57e1b0c6293436a40baaa233358f2585f02d"
+      }
+    },
+    "npm:@angular-eslint/eslint-plugin": {
+      "type": "npm",
+      "name": "npm:@angular-eslint/eslint-plugin",
+      "data": {
+        "version": "~15.0.0",
+        "packageName": "@angular-eslint/eslint-plugin",
+        "hash": "3d18ffdb5a5426ddc68f33bf630a8a3fb133dcdbb6b3aaf61ebb1cf3b3735526"
+      }
+    },
+    "npm:@angular-eslint/eslint-plugin-template": {
+      "type": "npm",
+      "name": "npm:@angular-eslint/eslint-plugin-template",
+      "data": {
+        "version": "~15.0.0",
+        "packageName": "@angular-eslint/eslint-plugin-template",
+        "hash": "1f8f4b117abadbfc3a88f9c5ea5e3b3dd97254151420f6b1605e4ae232ad8c56"
+      }
+    },
+    "npm:@angular-eslint/template-parser": {
+      "type": "npm",
+      "name": "npm:@angular-eslint/template-parser",
+      "data": {
+        "version": "~15.0.0",
+        "packageName": "@angular-eslint/template-parser",
+        "hash": "074287544d9105f2c268aabcae508a5be7b4d8391dbd1be3b8378456be258343"
+      }
+    },
+    "npm:@angular/cli": {
+      "type": "npm",
+      "name": "npm:@angular/cli",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/cli",
+        "hash": "cdbf84d896a55710608d4556046ac82264e484d8040222f3d44349b23d510052"
+      }
+    },
+    "npm:@angular/compiler-cli": {
+      "type": "npm",
+      "name": "npm:@angular/compiler-cli",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/compiler-cli",
+        "hash": "617f736f9107ec430af6022acdc15b402ca0f0a498c8f46d635cedec10434a00"
+      }
+    },
+    "npm:@angular/language-service": {
+      "type": "npm",
+      "name": "npm:@angular/language-service",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "@angular/language-service",
+        "hash": "0cb5bc3cb0286e834c0db593d4aa7684785e1a29e39ec59f98254e0e2648edb2"
+      }
+    },
+    "npm:@nrwl/angular": {
+      "type": "npm",
+      "name": "npm:@nrwl/angular",
+      "data": {
+        "version": "15.9.7",
+        "packageName": "@nrwl/angular",
+        "hash": "679af8ada693e70b475baf6c70471ccb28977ba2d08924798cf811af096f30bf"
+      }
+    },
+    "npm:@nrwl/eslint-plugin-nx": {
+      "type": "npm",
+      "name": "npm:@nrwl/eslint-plugin-nx",
+      "data": {
+        "version": "15.9.7",
+        "packageName": "@nrwl/eslint-plugin-nx",
+        "hash": "5e82ccaed27db6188c16db57cc9b243e4d1de6d9939f3ab9aab6c051f257cd32"
+      }
+    },
+    "npm:@nrwl/nx": {
+      "type": "npm",
+      "name": "npm:@nrwl/nx",
+      "data": {
+        "version": "^7.8.7",
+        "packageName": "@nrwl/nx",
+        "hash": "c6f288d386c2b2392a38b8108b8d0fa2dff5c018cad12fdca7f96409300bcd7e"
+      }
+    },
+    "npm:@nrwl/storybook": {
+      "type": "npm",
+      "name": "npm:@nrwl/storybook",
+      "data": {
+        "version": "15.9.7",
+        "packageName": "@nrwl/storybook",
+        "hash": "4a899a0b797a4ffafb096bea86c84b879c9f61d9c594a169e4c1473b16bf8f5b"
+      }
+    },
+    "npm:@types/css-font-loading-module": {
+      "type": "npm",
+      "name": "npm:@types/css-font-loading-module",
+      "data": {
+        "version": "^0.0.7",
+        "packageName": "@types/css-font-loading-module",
+        "hash": "f9cd6c66e8dd8451e8048476361106513359dcb9e2e50e8d610a9e798f38c1c0"
+      }
+    },
+    "npm:@types/fs-extra": {
+      "type": "npm",
+      "name": "npm:@types/fs-extra",
+      "data": {
+        "version": "^9.0.13",
+        "packageName": "@types/fs-extra",
+        "hash": "f8002342327a52c311b7ea6176d293ec105e671d01ffead9af249eb0ace3cf95"
+      }
+    },
+    "npm:@types/jest": {
+      "type": "npm",
+      "name": "npm:@types/jest",
+      "data": {
+        "version": "26.0.24",
+        "packageName": "@types/jest",
+        "hash": "0eb9988e242d9945fa7471566d65203a842a82dba7f2ecffea5a54c05e4090d0"
+      }
+    },
+    "npm:@typescript-eslint/eslint-plugin": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/eslint-plugin",
+      "data": {
+        "version": "^5.48.2",
+        "packageName": "@typescript-eslint/eslint-plugin",
+        "hash": "ef05176631375018f4d6063d5facf7115f45ec3dedb96879770bb294d2611c62"
+      }
+    },
+    "npm:@typescript-eslint/parser": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/parser",
+      "data": {
+        "version": "^5.48.2",
+        "packageName": "@typescript-eslint/parser",
+        "hash": "6e6c64a62086de5d8151aa0c86e3827fb5365a9303d65a870e444d99b20aa1e4"
+      }
+    },
+    "npm:camelcase": {
+      "type": "npm",
+      "name": "npm:camelcase",
+      "data": {
+        "version": "^6.2.0",
+        "packageName": "camelcase",
+        "hash": "064c7680ca615b597defbb63f169413443dc99f23d9e70d61da3e38e15f231c3"
+      }
+    },
+    "npm:chalk": {
+      "type": "npm",
+      "name": "npm:chalk",
+      "data": {
+        "version": "^4.1.2",
+        "packageName": "chalk",
+        "hash": "cc25c3a2d861b0035d48b8e1544c1544afdf34b5f778c290c191f95ef2f56acb"
+      }
+    },
+    "npm:copy-webpack-plugin": {
+      "type": "npm",
+      "name": "npm:copy-webpack-plugin",
+      "data": {
+        "version": "^11.0.0",
+        "packageName": "copy-webpack-plugin",
+        "hash": "c3f6b621cd77018b4518f49927e5281260725f04e7ced126b6a8148bc6860c10"
+      }
+    },
+    "npm:eslint-config-prettier": {
+      "type": "npm",
+      "name": "npm:eslint-config-prettier",
+      "data": {
+        "version": "^7.2.0",
+        "packageName": "eslint-config-prettier",
+        "hash": "86ca9363c537caefcbd2e6ba81456921d9d9d0f695b5fd49bdad775988f1e5a6"
+      }
+    },
+    "npm:eslint-plugin-no-null": {
+      "type": "npm",
+      "name": "npm:eslint-plugin-no-null",
+      "data": {
+        "version": "^1.0.2",
+        "packageName": "eslint-plugin-no-null",
+        "hash": "53df81ed0adde8fa4bd7649f15a1fc4c4b7d3db3ea8e63266dec2961530cbbf0"
+      }
+    },
+    "npm:eslint-plugin-react": {
+      "type": "npm",
+      "name": "npm:eslint-plugin-react",
+      "data": {
+        "version": "^7.32.1",
+        "packageName": "eslint-plugin-react",
+        "hash": "6d26afb0df79b036e97afc4763ef7036f685e991c3a63e3a1252e8ac590002ad"
+      }
+    },
+    "npm:fs-extra": {
+      "type": "npm",
+      "name": "npm:fs-extra",
+      "data": {
+        "version": "^9.0.0",
+        "packageName": "fs-extra",
+        "hash": "4692575cbb882b0fedef031f75bce484606f8b17332178c1e9712257a68e48e9"
+      }
+    },
+    "npm:jest": {
+      "type": "npm",
+      "name": "npm:jest",
+      "data": {
+        "version": "26.6.3",
+        "packageName": "jest",
+        "hash": "63176cf36499c3208ed98034cb7256a46a7f18f7ff31b6b2635b12737f1bebb0"
+      }
+    },
+    "npm:jest-cli": {
+      "type": "npm",
+      "name": "npm:jest-cli",
+      "data": {
+        "version": "26.6.3",
+        "packageName": "jest-cli",
+        "hash": "77541b5f0ac333b58be35dbbd7bb3a514942d6f2f34939c79ae4969a1901a718"
+      }
+    },
+    "npm:js-yaml": {
+      "type": "npm",
+      "name": "npm:js-yaml",
+      "data": {
+        "version": "^3.14.0",
+        "packageName": "js-yaml",
+        "hash": "18a2525239c6f290f2f6f9ef2b03221421860bae06d052fb28cf70f004061d5c"
+      }
+    },
+    "npm:lerna": {
+      "type": "npm",
+      "name": "npm:lerna",
+      "data": {
+        "version": "^5.5.2",
+        "packageName": "lerna",
+        "hash": "ee5f09754e2a933a7b35caa91609eeaabd33cd7a93cad9821d55d47ef1a87a5c"
+      }
+    },
+    "npm:lint-staged": {
+      "type": "npm",
+      "name": "npm:lint-staged",
+      "data": {
+        "version": "^10.5.3",
+        "packageName": "lint-staged",
+        "hash": "b8de1345516e86f8de808adf21aa6c9ea899cf20ee36250ecfc7f4bcdb06e081"
+      }
+    },
+    "npm:ng-packagr": {
+      "type": "npm",
+      "name": "npm:ng-packagr",
+      "data": {
+        "version": "~15.1.0",
+        "packageName": "ng-packagr",
+        "hash": "6fe49ae8d24d6457b266602726e709abcf1b59659df953d2483098e8d0444946"
+      }
+    },
+    "npm:nx": {
+      "type": "npm",
+      "name": "npm:nx",
+      "data": {
+        "version": "15.9.7",
+        "packageName": "nx",
+        "hash": "5252dae2e24e550df00a1013512440b4c922fa490b8b86eae5cb6e601716dc01"
+      }
+    },
+    "npm:postcss": {
+      "type": "npm",
+      "name": "npm:postcss",
+      "data": {
+        "version": "^8.4.5",
+        "packageName": "postcss",
+        "hash": "77ea28f4150f3072149a5f73cf64a3baaf71854e5b7ec15149465507239eebd1"
+      }
+    },
+    "npm:postcss-import": {
+      "type": "npm",
+      "name": "npm:postcss-import",
+      "data": {
+        "version": "~14.1.0",
+        "packageName": "postcss-import",
+        "hash": "ec7d47c271d0adf955c350eed4f91b2e59ec99e7c47af57e9a7551560ee6e53e"
+      }
+    },
+    "npm:postcss-preset-env": {
+      "type": "npm",
+      "name": "npm:postcss-preset-env",
+      "data": {
+        "version": "~7.5.0",
+        "packageName": "postcss-preset-env",
+        "hash": "2a4e1e242962a0b3eeb5ca2d2d10f615168558903c7432fb267147a2ce043c1b"
+      }
+    },
+    "npm:postcss-url": {
+      "type": "npm",
+      "name": "npm:postcss-url",
+      "data": {
+        "version": "~10.1.3",
+        "packageName": "postcss-url",
+        "hash": "4353e1860f9f280c9b37af6302a3ccfb95ee98faa43e6c822aa89b46db1ba079"
+      }
+    },
+    "npm:prettier": {
+      "type": "npm",
+      "name": "npm:prettier",
+      "data": {
+        "version": "^2.1.2",
+        "packageName": "prettier",
+        "hash": "bdb8f56c1b6d3a0050d2025c3705b80c86c91569f5557926cf03c09de1509c84"
+      }
+    },
+    "npm:prompts": {
+      "type": "npm",
+      "name": "npm:prompts",
+      "data": {
+        "version": "^2.4.0",
+        "packageName": "prompts",
+        "hash": "5861cef6da5534d1435ee83066d9cc7b71af345472fde8b386fd62404797e7f2"
+      }
+    },
+    "npm:shelljs": {
+      "type": "npm",
+      "name": "npm:shelljs",
+      "data": {
+        "version": "^0.8.4",
+        "packageName": "shelljs",
+        "hash": "dd5bfdaf5934e815d891822409fc6a2c8554985271cde0a0a68fe26d7f116ded"
+      }
+    },
+    "npm:shx": {
+      "type": "npm",
+      "name": "npm:shx",
+      "data": {
+        "version": "^0.3.2",
+        "packageName": "shx",
+        "hash": "dcdf85f1a5f7e8132aa35abb980be6c424cf38f01a26b5aef1100bf05fabb9c8"
+      }
+    },
+    "npm:standard-version": {
+      "type": "npm",
+      "name": "npm:standard-version",
+      "data": {
+        "version": "^8.0.0",
+        "packageName": "standard-version",
+        "hash": "6c9e679d3f3973ed6849f49b41f732123d8b8172df35b30807dc37cf3c9ba785"
+      }
+    },
+    "npm:svgo": {
+      "type": "npm",
+      "name": "npm:svgo",
+      "data": {
+        "version": "^2.8.0",
+        "packageName": "svgo",
+        "hash": "bf734eb27336102fb1b0e2cc46a06002ab1112f7a1d621ac0a709d7743d927eb"
+      }
+    },
+    "npm:ts-node": {
+      "type": "npm",
+      "name": "npm:ts-node",
+      "data": {
+        "version": "^10.9.1",
+        "packageName": "ts-node",
+        "hash": "2de038a62faed11c2bb07dc6a9d7bc5d17c4e997ef162bc294869337872e339c"
+      }
+    },
+    "npm:typescript": {
+      "type": "npm",
+      "name": "npm:typescript",
+      "data": {
+        "version": "~4.9.4",
+        "packageName": "typescript",
+        "hash": "ce6273e800cb747273957adf9c6d97e6cda855f5b451e383ec4561f50e90a485"
+      }
+    },
+    "npm:yalc": {
+      "type": "npm",
+      "name": "npm:yalc",
+      "data": {
+        "version": "^1.0.0-pre.32",
+        "packageName": "yalc",
+        "hash": "c108689f929dca137bce08919343b707b804a19a4492d7021ba18e1eeba9f8d7"
+      }
+    }
+  },
+  "dependencies": {
+    "elements-angular-example": [
+      {
+        "source": "elements-angular-example",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular-example",
+        "target": "npm:@angular/forms",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular-example",
+        "target": "elements",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular-example",
+        "target": "npm:@angular/platform-browser",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular-example",
+        "target": "elements-angular",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular-example",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular-example",
+        "target": "npm:@angular/platform-browser-dynamic",
+        "type": "static"
+      }
+    ],
+    "elements-react-example": [
+      {
+        "source": "elements-react-example",
+        "target": "elements-react",
+        "type": "static"
+      },
+      {
+        "source": "elements-react-example",
+        "target": "npm:typescript",
+        "type": "static"
+      },
+      {
+        "source": "elements-react-example",
+        "target": "elements",
+        "type": "static"
+      }
+    ],
+    "elements-vue-example": [
+      {
+        "source": "elements-vue-example",
+        "target": "elements-vue",
+        "type": "static"
+      }
+    ],
+    "elements-angular": [
+      {
+        "source": "elements-angular",
+        "target": "elements",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular",
+        "target": "npm:tslib",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "elements-angular",
+        "target": "npm:@angular/forms",
+        "type": "static"
+      }
+    ],
+    "elements-react": [
+      {
+        "source": "elements-react",
+        "target": "elements",
+        "type": "static"
+      },
+      {
+        "source": "elements-react",
+        "target": "npm:typescript",
+        "type": "static"
+      }
+    ],
+    "dist": [],
+    "elements-vue": [
+      {
+        "source": "elements-vue",
+        "target": "elements",
+        "type": "static"
+      },
+      {
+        "source": "elements-vue",
+        "target": "npm:typescript",
+        "type": "static"
+      }
+    ],
+    "landingpage": [
+      {
+        "source": "landingpage",
+        "target": "elements-react",
+        "type": "static"
+      },
+      {
+        "source": "landingpage",
+        "target": "npm:typescript",
+        "type": "static"
+      },
+      {
+        "source": "landingpage",
+        "target": "elements",
+        "type": "static"
+      }
+    ],
+    "storybook": [
+      {
+        "source": "storybook",
+        "target": "elements",
+        "type": "static"
+      },
+      {
+        "source": "storybook",
+        "target": "npm:chalk",
+        "type": "static"
+      },
+      {
+        "source": "storybook",
+        "target": "npm:prettier",
+        "type": "static"
+      },
+      {
+        "source": "storybook",
+        "target": "npm:typescript",
+        "type": "static"
+      }
+    ],
+    "elements": [
+      {
+        "source": "elements",
+        "target": "npm:@types/css-font-loading-module",
+        "type": "static"
+      },
+      {
+        "source": "elements",
+        "target": "npm:@types/jest",
+        "type": "static"
+      },
+      {
+        "source": "elements",
+        "target": "npm:@typescript-eslint/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "elements",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "elements",
+        "target": "npm:jest",
+        "type": "static"
+      },
+      {
+        "source": "elements",
+        "target": "npm:jest-cli",
+        "type": "static"
+      },
+      {
+        "source": "elements",
+        "target": "npm:fs-extra",
+        "type": "static"
+      },
+      {
+        "source": "elements",
+        "target": "npm:camelcase",
+        "type": "static"
+      }
+    ]
+  }
+}
