@@ -17,7 +17,7 @@ describe('InoInput', () => {
   });
 
   async function applyToNativeHtmlElement(
-    fn: (input: HTMLInputElement) => void
+    fn: (input: HTMLInputElement) => void,
   ): Promise<void> {
     const htmlInputEl = await page.$('input');
     await page.evaluate(fn, htmlInputEl);
@@ -57,15 +57,15 @@ describe('InoInput', () => {
       const emptyElement = {};
 
       const focusedElementWithoutAutofocus = await page.evaluate(
-        () => document.activeElement
+        () => document.activeElement,
       );
       expect(focusedElementWithoutAutofocus).toEqual(emptyElement);
 
       const pageWithFocusedInput = await setupPageWithContent(
-        `<ino-input auto-focus></ino-input>`
+        `<ino-input auto-focus></ino-input>`,
       );
       const focusedElement = await pageWithFocusedInput.evaluate(
-        () => document.activeElement
+        () => document.activeElement,
       );
       expect(focusedElement).not.toEqual(emptyElement);
     });
@@ -159,7 +159,6 @@ describe('InoInput', () => {
   });
 
   describe('Events', () => {
-
     it('should trigger inoFocus-Event when focused', async () => {
       const spyOnFocusEvent = await inoInputEl.spyOnEvent('inoFocus');
       await nativeInputEl.focus();
@@ -231,7 +230,7 @@ describe('InoInput', () => {
 
       expect(activeElementProps.tagName).toEqual('INPUT');
       expect(activeElementProps.parentClassName).toContain(
-        'mdc-text-field--focused'
+        'mdc-text-field--focused',
       );
     });
 

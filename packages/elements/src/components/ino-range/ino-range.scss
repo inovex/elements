@@ -2,11 +2,11 @@
 @use '@material/slider/slider';
 @use '@material/slider' as slider-mixins;
 @use '../base/new-theme' as theme;
-@use "@material/ripple";
+@use '@material/ripple';
 
 @include slider.core-styles;
 
-$range_hover-control_hover: #4B4EFF;
+$range_hover-control_hover: #4b4eff;
 
 ino-range {
   .mdc-slider {
@@ -18,7 +18,8 @@ ino-range {
     @include slider-mixins.value-indicator-text-color(theme.$white);
 
     & .mdc-slider__track {
-      .mdc-slider__track--active, .mdc-slider__track--inactive {
+      .mdc-slider__track--active,
+      .mdc-slider__track--inactive {
         height: 2px;
         border-radius: 10px;
         top: 1px;

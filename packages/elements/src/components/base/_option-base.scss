@@ -1,0 +1,58 @@
+@use './new-theme' as theme;
+
+$OPTION-SELECTED-BG-COLOR: #{theme.$p-1};
+$OPTION-SELECTED-BG-COLOR-HOVER: #{theme.$p-2};
+$OPTION-SELECTED-BG-COLOR-FOCUS: #{theme.$p-3};
+$OPTION-SELECTED-BG-COLOR-ACTIVE: #{theme.$p-3};
+
+$OPTION-DESELECTED-BG-COLOR: #{theme.$white};
+$OPTION-DESELECTED-BG-COLOR-HOVER: #{theme.$n-1};
+$OPTION-DESELECTED-BG-COLOR-FOCUS: #{theme.$n-2};
+$OPTION-DESELECTED-BG-COLOR-ACTIVE: #{theme.$n-3};
+
+@mixin style-mdc-list-item-selected-states(
+  $background,
+  $hover,
+  $focus,
+  $active
+) {
+  background-color: #{$background};
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    background-color: #{$hover};
+  }
+
+  &:focus {
+    background-color: #{$focus};
+  }
+
+  &:active {
+    background-color: #{$active};
+  }
+}
+
+@mixin style-mdc-list-item-deselected-states(
+  $background,
+  $hover,
+  $focus,
+  $active
+) {
+  background-color: #{$background};
+
+  &:hover {
+    background-color: #{$hover};
+  }
+
+  &:focus {
+    background-color: #{$focus};
+  }
+
+  &:active {
+    background-color: #{$active};
+  }
+}

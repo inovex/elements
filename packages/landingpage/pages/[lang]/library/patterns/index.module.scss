@@ -1,0 +1,28 @@
+.header {
+  h1,
+  p {
+    color: var(--inovex-elements-n-11);
+    margin: 0;
+  }
+  h5 {
+    color: var(--inovex-elements-p-6);
+    margin: 70px 0 8px;
+  }
+
+  p {
+    margin-top: 21px;
+  }
+}
+
+.divider {
+  width: 123px;
+  height: 3px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: linear-gradient(
+    90deg,
+    var(--inovex-elements-p-5) 0%,
+    rgba(70, 85, 255, 0) 63.21%
+  );
+  margin-top: 54px;
+}

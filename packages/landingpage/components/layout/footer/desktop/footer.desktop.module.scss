@@ -1,0 +1,32 @@
+.sublinks {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 6rem;
+  row-gap: 2rem;
+  padding: 3rem 0;
+
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media only screen and (max-width: 850px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  .mainRouteName {
+    color: var(--inovex-elements-n-10);
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+    white-space: nowrap;
+  }
+
+  .subRouteName {
+    color: var(--inovex-elements-n-9);
+    font-size: smaller;
+  }
+}

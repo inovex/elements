@@ -7,7 +7,8 @@ $default-text-size: 16px;
   @return math.div($px, $default-text-size) * 1rem;
 }
 
-$typo-names: display-1, display-2, display-3, headline-1, headline-2, headline-3, title-l, title-m, title-s, label-l, label-m, label-s, body-l, body-m, body-s;
+$typo-names: display-1, display-2, display-3, headline-1, headline-2, headline-3,
+  title-l, title-m, title-s, label-l, label-m, label-s, body-l, body-m, body-s;
 
 $typographies: (
   display-1: (
@@ -103,7 +104,6 @@ $typographies: (
 );
 
 @mixin typo($typo-name) {
-
   @if not list.index($typo-names, $typo-name) {
     @error "#{$typo-name} is not a valid typo name. Expected one of #{$typo-names}.";
   }

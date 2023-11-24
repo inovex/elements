@@ -134,7 +134,7 @@ export class Textarea implements ComponentInterface {
       this.textfield.value = value;
       this.nativeTextareaElement.setSelectionRange(
         this.cursorPosition,
-        this.cursorPosition
+        this.cursorPosition,
       );
       this.updateAutogrow();
     }
@@ -155,9 +155,9 @@ export class Textarea implements ComponentInterface {
   }
 
   /**
-  * Sets blur on the native `textarea`.
-  * Use this method instead of the global `textarea.blur()`.
-  */
+   * Sets blur on the native `textarea`.
+   * Use this method instead of the global `textarea.blur()`.
+   */
   @Method()
   async setBlur() {
     this.nativeTextareaElement?.blur();
@@ -167,7 +167,7 @@ export class Textarea implements ComponentInterface {
     // Remove as soon as the 'filled' style should be released as new default style
     if (this.outline === undefined) {
       console.warn(
-        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'outline' property explicitly to true, please.`
+        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'outline' property explicitly to true, please.`,
       );
       this.outline = true;
     }
@@ -226,8 +226,6 @@ export class Textarea implements ComponentInterface {
     this.valueChange.emit(value);
   }
 
-
-  
   componentWillLoad() {
     this.inputID = generateUniqueId();
   }

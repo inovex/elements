@@ -23,7 +23,8 @@ $filled-input-height-dense: 47px;
 $outline-input-height: 40px;
 $outline-input-height-dense: 30px;
 $outline-shape-radius: $outline-input-height / 2;
-$outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius $outline-shape-radius 0;
+$outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius
+  $outline-shape-radius 0;
 
 @mixin setIconColors($color) {
   .mdc-text-field__icon {
@@ -204,14 +205,15 @@ ino-input .mdc-text-field--outlined {
   @include setIconMargins((0 $icon-padding-to-text 0 $icon-padding-to-text));
 
   // style outline with corner for helpertext
-  &.mdc-text-field--has-helpertext.mdc-text-field--focused, &.mdc-text-field--has-helpertext.mdc-text-field--has-helpertext-persistent{
+  &.mdc-text-field--has-helpertext.mdc-text-field--focused,
+  &.mdc-text-field--has-helpertext.mdc-text-field--has-helpertext-persistent {
     @include textfield.outline-shape-radius($outline-shape-radius-corner);
 
-    &+.mdc-text-field-helper-line {
+    & + .mdc-text-field-helper-line {
       padding-left: 0;
     }
   }
-  
+
   &.mdc-text-field--disabled {
     @include textfield.outline-shape-radius($outline-shape-radius);
   }

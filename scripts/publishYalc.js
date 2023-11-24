@@ -1,7 +1,5 @@
 const shell = require('shelljs');
 const prompts = require('prompts');
-const fs = require('fs-extra');
-const path = require('path');
 
 const questions = [
   {
@@ -22,106 +20,31 @@ const questions = [
   },
 ];
 
-function publishReact() {
-  shell.exec(
-    'lerna exec --scope=@inovex.de/elements-react -- yalc publish --no-sig --push'
-  );
-}
-
-function publishVue() {
-  shell.exec(
-    'lerna exec --scope=@inovex.de/elements-vue -- yalc publish --no-sig --push'
-  );
-}
-
-function publishAngular() {
-  switch (process.platform) {
-    case 'win32':
-      shell.exec(
-        'lerna exec --scope=@inovex.de/elements-angular -- xcopy /i /e /y .yalc .\\dist\\.yalc'
-      );
-      shell.exec(
-        'lerna exec --scope=@inovex.de/elements-angular -- xcopy /y yalc.lock .\\dist\\*'
-      );
-      break;
-    case 'linux':
-      shell.exec(
-        'lerna exec --scope=@inovex.de/elements-angular -- cp -r .yalc ./dist/.yalc'
-      );
-      shell.exec(
-        'lerna exec --scope=@inovex.de/elements-angular -- cp yalc.lock ./dist/yalc.lock'
-      );
-      /*
-      const elementsAngularDirPath = path.join(
-        process.cwd(),
-        'packages/elements-angular/elements'
-      );
-      const dstDirPath = path.join(elementsAngularDirPath, 'dist');
-
-      const yalcDir = path.join(elementsAngularDirPath, '.yalc');
-      const lockFile = path.join(elementsAngularDirPath, 'yalc.lock');
-
-      let newYalcDir = path.join(dstDirPath, path.basename(yalcDir));
-      fs.emptyDirSync(newYalcDir);
-      fs.copySync(yalcDir, newYalcDir);
-      fs.copySync(lockFile, `${dstDirPath}/yalc.lock`);
-      // */
-      break;
-    case 'darwin':
-      shell.exec(
-        'lerna exec --scope=@inovex.de/elements-angular -- cp -r {.yalc,yalc.lock} ./dist'
-      );
-      break;
-    default:
-      throw Error(`Platform ${process.platform} not supported yet`);
-  }
-
-  // explicitly push @inovex.de/elements-angular due to angular library project structure
-  shell.exec('yalc publish --no-sig --push ./packages/elements-angular/elements/dist/');
-}
-
 async function main() {
   const { targets, skipInstall } = await prompts(questions);
 
   // Build current elements version
   if (!skipInstall) {
-    shell.exec('lerna exec --scope=@inovex.de/elements -- yarn install');
+    shell.exec('yarn install', { cwd: 'packages/elements' });
   }
-  shell.exec('lerna exec --scope=@inovex.de/elements -- yarn build');
-  shell.exec('lerna exec --scope=@inovex.de/elements -- yalc publish --no-sig');
+  shell.exec('nx run elements:build');
+  shell.exec('yalc publish --no-sig', { cwd: 'packages/elements' });
 
-  // link @inovex.de/elements dependency
   targets.forEach((target) => {
-    shell.exec(
-      `lerna exec --scope=@inovex.de/elements-${target} -- yalc add @inovex.de/elements`
-    );
-    shell.exec(
-      `lerna exec --scope=@inovex.de/elements-${target} -- yarn install`
-    );
-
-    // build packages (angular-builder for angular, else target)
-    shell.exec(
-      `lerna exec --scope=@inovex.de/elements-${
-        target === 'angular' ? 'angular-builder' : target
-      } -- yarn build`
-    );
-  });
-
-  // Publish to yalc hub for the respective target
-  if (targets.includes('angular')) {
-    publishAngular();
-  }
-  if (targets.includes('react')) {
-    publishReact();
-  }
-  if (targets.includes('vue')) {
-    publishVue();
-  }
-  // Clean up
-  targets.forEach((target) => {
-    shell.exec(
-      `lerna exec --scope=@inovex.de/elements-${target} -- yalc remove @inovex.de/elements`
-    );
+    // link @inovex.de/elements dependency
+    shell.exec('yalc add @inovex.de/elements', {
+      cwd: `packages/elements-${target}`,
+    });
+    shell.exec('yarn install', { cwd: `packages/elements-${target}` });
+    shell.exec(`nx run elements-${target}:build`);
+    // publish target package
+    shell.exec('yalc publish --no-sig --push', {
+      cwd: `packages/elements-${target}`,
+    });
+    // Clean up
+    shell.exec('yalc remove @inovex.de/elements', {
+      cwd: `packages/elements-${target}`,
+    });
   });
 }
 

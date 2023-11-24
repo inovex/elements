@@ -2,6 +2,11 @@ export const hasShadowDom = (el: HTMLElement) => {
   return !!el.shadowRoot && !!(el as any).attachShadow;
 };
 
+// Tests if a string has a value
+export function hasValue(str: string | null | undefined): boolean {
+  return str !== null && str !== undefined && str.trim() !== '';
+}
+
 export const renderHiddenInput = (
   container: HTMLElement,
   name: string,
@@ -9,7 +14,7 @@ export const renderHiddenInput = (
   disabled: boolean,
 ): HTMLInputElement => {
   let input = container.querySelector(
-    'input.aux-input'
+    'input.aux-input',
   ) as HTMLInputElement | null;
   if (!input) {
     input = container.ownerDocument.createElement('input');

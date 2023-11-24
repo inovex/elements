@@ -98,6 +98,7 @@ export class Button implements ComponentInterface {
     if (this.disabled) {
       e.preventDefault();
       e.stopPropagation();
+      return;
     }
 
     // this button wants to specifically submit a form
@@ -131,7 +132,7 @@ export class Button implements ComponentInterface {
         'button__icon--leading': leadingSlotHasContent,
         'button__icon--trailing': trailingSlotHasContent,
         'button--dense': this.dense,
-      }
+      },
     );
 
     const labelClasses = classNames('button__label', {

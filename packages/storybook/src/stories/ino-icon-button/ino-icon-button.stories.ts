@@ -2,10 +2,7 @@ import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import {
-  decorateStoryWithClass,
-  withIconControl,
-} from '../utils';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon-button.scss';
 
 export default {
@@ -36,7 +33,7 @@ const template = new TemplateGenerator<Components.InoIconButton>(
     >
       <ino-icon icon="${args.icon}"></ino-icon>
     </ino-icon-button>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();

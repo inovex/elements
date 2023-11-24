@@ -9,13 +9,13 @@ import { InoElementsWindow, InoElementsConfig } from '@inovex.de/elements';
 let didInitialize = false;
 
 export const ConfigToken = new InjectionToken<InoElementsConfig>(
-  'INOVEX_ELEMENTS_CONFIG'
+  'INOVEX_ELEMENTS_CONFIG',
 );
 
 export const appInitialize = (
   config: InoElementsConfig,
   doc: Document,
-  zone: NgZone
+  zone: NgZone,
 ) => {
   return (): any => {
     const win: InoElementsWindow | undefined = doc.defaultView as any;

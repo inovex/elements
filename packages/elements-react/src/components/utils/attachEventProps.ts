@@ -10,7 +10,7 @@ export const camelToDashCase = (str: string) =>
 export const attachEventProps = (
   node: HTMLElement,
   newProps: any,
-  oldProps: any = {}
+  oldProps: any = {},
 ) => {
   // add any classes in className to the class list
   const className = getClassName(node.classList, newProps, oldProps);
@@ -49,17 +49,17 @@ export const attachEventProps = (
 export const getClassName = (
   classList: DOMTokenList,
   newProps: any,
-  oldProps: any
+  oldProps: any,
 ) => {
   const newClassProp: string = newProps.className || newProps.class;
   const oldClassProp: string = oldProps.className || oldProps.class;
   // map the classes to Maps for performance
   const currentClasses = arrayToMap(classList);
   const incomingPropClasses = arrayToMap(
-    newClassProp ? newClassProp.split(' ') : []
+    newClassProp ? newClassProp.split(' ') : [],
   );
   const oldPropClasses = arrayToMap(
-    oldClassProp ? oldClassProp.split(' ') : []
+    oldClassProp ? oldClassProp.split(' ') : [],
   );
   const finalClassNames: string[] = [];
   // loop through each of the current classes on the component
@@ -84,7 +84,7 @@ export const getClassName = (
  */
 export const isCoveredByReact = (
   eventNameSuffix: string,
-  doc: Document = document
+  doc: Document = document,
 ) => {
   const eventName = 'on' + eventNameSuffix;
   let isSupported = eventName in doc;
@@ -101,7 +101,7 @@ export const isCoveredByReact = (
 export const syncEvent = (
   node: Element,
   eventName: string,
-  newEventHandler: (e: Event) => any
+  newEventHandler: (e: Event) => any,
 ) => {
   const eventStore = (node as any).__events || ((node as any).__events = {});
   const oldEventHandler = eventStore[eventName];
@@ -118,7 +118,7 @@ export const syncEvent = (
       if (newEventHandler) {
         newEventHandler.call(this, e);
       }
-    })
+    }),
   );
 };
 

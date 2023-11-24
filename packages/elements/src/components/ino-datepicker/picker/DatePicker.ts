@@ -18,5 +18,5 @@ export const createDatePickerOptions = ({
   minDate,
   maxDate,
   mode,
-  'static': staticVal,
+  static: staticVal,
 });

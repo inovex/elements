@@ -216,7 +216,7 @@ export class Input implements ComponentInterface {
     if (this.nativeInputEl && !['number', 'email'].includes(this.type)) {
       this.nativeInputEl.setSelectionRange(
         this.cursorPosition,
-        this.cursorPosition
+        this.cursorPosition,
       );
     }
   }
@@ -263,7 +263,7 @@ export class Input implements ComponentInterface {
 
   componentDidLoad() {
     this.mdcTextfield = new MDCTextField(
-      this.el.querySelector('.mdc-text-field')
+      this.el.querySelector('.mdc-text-field'),
     );
 
     if (this.type === 'email') {
@@ -272,7 +272,7 @@ export class Input implements ComponentInterface {
 
     if (this.helper) {
       const helperTextEl = document.querySelector(
-        '.mdc-text-field-helper-text'
+        '.mdc-text-field-helper-text',
       );
       this.mdcHelperText = new MDCTextFieldHelperText(helperTextEl);
     }
@@ -282,7 +282,7 @@ export class Input implements ComponentInterface {
       hasSlotContent(this.el, 'ino-icon-trailing')
     ) {
       this.mdcTextfieldIcon = new MDCTextFieldIcon(
-        this.el.querySelector('.mdc-text-field__icon')
+        this.el.querySelector('.mdc-text-field__icon'),
       );
     }
     this.textfieldValue = this.value || '';
@@ -362,7 +362,6 @@ export class Input implements ComponentInterface {
    */
   @Prop() resetOnChange = true;
 
-
   private inputID: string;
 
   componentWillLoad() {
@@ -416,7 +415,7 @@ export class Input implements ComponentInterface {
       maximumFractionDigits: precision,
     };
     const formattedValue = new Intl.NumberFormat([], opts).format(
-      value + Number(stepWithFallback)
+      value + Number(stepWithFallback),
     );
     this.valueChange.emit(formattedValue);
   };
@@ -463,7 +462,7 @@ export class Input implements ComponentInterface {
   render() {
     const hasHelperText = Boolean(this.helper);
     const hasCharacterCounter = Boolean(
-      this.helperCharacterCounter && !Number.isNaN(this.maxlength)
+      this.helperCharacterCounter && !Number.isNaN(this.maxlength),
     );
 
     const leadingIconSlot = hasSlotContent(this.el, 'icon-leading');

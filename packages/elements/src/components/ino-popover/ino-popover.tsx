@@ -242,7 +242,7 @@ export class Popover implements ComponentInterface {
     const shouldFollowCursor =
       (typeof this.followCursor == 'boolean' && this.followCursor) ||
       ['horizontal', 'vertical', 'initial'].includes(
-        this.followCursor as string
+        this.followCursor as string,
       );
 
     if (shouldFollowCursor) {
@@ -271,14 +271,14 @@ export class Popover implements ComponentInterface {
             onMount: () => {
               // Workaround: datepickers may be already initialized an need to be redrawn.
               const datepickers = Array.from(
-                this.el.querySelectorAll('ino-datepicker')
+                this.el.querySelectorAll('ino-datepicker'),
               ) as HTMLInoDatepickerElement[];
               datepickers?.forEach((datepicker) => datepicker.redraw());
 
               const target = this.popoverContent.querySelector(
                 'ino-input[data-ino-focus],' +
                   'ino-datepicker[data-ino-focus], ' +
-                  ' ino-textarea[data-ino-focus]'
+                  ' ino-textarea[data-ino-focus]',
               ) as
                 | HTMLInoDatepickerElement
                 | HTMLInoTextareaElement
@@ -337,7 +337,7 @@ export class Popover implements ComponentInterface {
     }
     const element = closest(
       e.target as Element,
-      `[${POPOVER_CLOSE_ATTRIBUTE}]`
+      `[${POPOVER_CLOSE_ATTRIBUTE}]`,
     );
     if (!element) {
       return;

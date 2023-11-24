@@ -1,4 +1,5 @@
 @use '../base/theme';
+@use '../base/new-theme' as new_theme;
 @use '@material/textfield';
 
 /**
@@ -6,6 +7,22 @@
   @prop --ino-markdown-editor-max-height: max-height of text editor Default value is `none`.
 */
 
+// specific styles for the markdown editor dialog window that opens when having text selected and clicking the "create link" button
+.ino-dialog-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.ino-dialog-delete ino-icon {
+  --ino-icon-button-icon-color: #{new_theme.$error};
+}
+
+.ino-dialog-form {
+  width: 100%;
+}
+
+// general styles
 $border-radius: 10px;
 
 ino-markdown-editor {

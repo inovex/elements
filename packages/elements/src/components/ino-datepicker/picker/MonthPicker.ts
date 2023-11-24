@@ -6,7 +6,13 @@ import { PartialFlatpickrOptions } from '../picker-factory';
 
 export type MonthPicker = Pick<
   BaseOptions,
-  'defaultDate' | 'minDate' | 'maxDate' | 'plugins' | 'onReady' | 'onDestroy' | 'static'
+  | 'defaultDate'
+  | 'minDate'
+  | 'maxDate'
+  | 'plugins'
+  | 'onReady'
+  | 'onDestroy'
+  | 'static'
 >;
 
 type OnValueChangeFn = PartialFlatpickrOptions['onValueChange'];
@@ -21,7 +27,7 @@ type OnValueChangeFn = PartialFlatpickrOptions['onValueChange'];
 const monthChangeHandler = (
   instance: Instance,
   yearOffset: -1 | 1,
-  onValueChange: OnValueChangeFn
+  onValueChange: OnValueChangeFn,
 ) => {
   const currentDate = instance.selectedDates[0];
 
@@ -33,7 +39,7 @@ const monthChangeHandler = (
   const formattedDate = changeYearByOne(
     currentDate,
     instance.config.dateFormat,
-    yearOffset
+    yearOffset,
   );
 
   onValueChange(formattedDate);
@@ -49,7 +55,7 @@ const monthChangeHandler = (
 const changeYearByOne = (
   value: Date,
   format: string,
-  yearOffset: -1 | 1
+  yearOffset: -1 | 1,
 ): string => {
   const year = value.getFullYear();
   const month = value.getMonth();
@@ -61,12 +67,12 @@ const changeYearByOne = (
 
 const monthChangePrevHandler = (
   instance: Instance,
-  onValueChange: OnValueChangeFn
+  onValueChange: OnValueChangeFn,
 ) => monthChangeHandler(instance, -1, onValueChange);
 
 const monthChangeNextHandler = (
   instance: Instance,
-  onValueChange: OnValueChangeFn
+  onValueChange: OnValueChangeFn,
 ) => monthChangeHandler(instance, 1, onValueChange);
 
 export const createMonthPickerOptions = ({
@@ -79,7 +85,7 @@ export const createMonthPickerOptions = ({
 }: PartialFlatpickrOptions): MonthPicker => {
   if (!onValueChange) {
     throw new Error(
-      `No 'onValueChange' function passed to the MonthPicker. This should not happen.`
+      `No 'onValueChange' function passed to the MonthPicker. This should not happen.`,
     );
   }
 
@@ -95,18 +101,18 @@ export const createMonthPickerOptions = ({
     static: staticVal,
     onReady: (_, __, instance) => {
       instance.prevMonthNav.addEventListener('click', () =>
-        monthChangePrevHandler(instance, onValueChange)
+        monthChangePrevHandler(instance, onValueChange),
       );
       instance.nextMonthNav.addEventListener('click', () =>
-        monthChangeNextHandler(instance, onValueChange)
+        monthChangeNextHandler(instance, onValueChange),
       );
     },
     onDestroy: (_, __, instance) => {
       instance.prevMonthNav.removeEventListener('click', () =>
-        monthChangePrevHandler(instance, onValueChange)
+        monthChangePrevHandler(instance, onValueChange),
       );
       instance.nextMonthNav.removeEventListener('click', () =>
-        monthChangeNextHandler(instance, onValueChange)
+        monthChangeNextHandler(instance, onValueChange),
       );
     },
   };

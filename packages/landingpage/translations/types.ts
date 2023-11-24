@@ -6,7 +6,7 @@ export enum Locale_File {
   GETTING_STARTED = 'gettingStarted',
   COMMON = 'common',
   LIBRARY = 'library',
-  EXPLORE = 'explore'
+  EXPLORE = 'explore',
 }
 
 export interface Translations {

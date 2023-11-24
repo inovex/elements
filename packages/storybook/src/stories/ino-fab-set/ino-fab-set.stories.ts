@@ -8,7 +8,7 @@ import './ino-fab-set.scss';
 
 const clickHandler = (e: CustomEvent<void>) => {
   const fabSetEl = (e.target as HTMLElement).closest(
-    'ino-fab-set'
+    'ino-fab-set',
   ) as HTMLInoFabSetElement;
   fabSetEl.openDial = !fabSetEl.openDial;
 };
@@ -64,7 +64,7 @@ const template = new TemplateGenerator<
         </ino-fab>
       </ino-fab-set>
     </div>
-  `
+  `,
 );
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'iconOpened', '_fab_set_arrow_down');

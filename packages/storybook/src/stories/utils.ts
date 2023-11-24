@@ -15,7 +15,7 @@ export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
 export const withIconControl = <T>(
   story: Story<T>,
   propertyName: string,
-  defaultValue?: string
+  defaultValue?: string,
 ) => {
   maybeCreateStoryArgs(story);
   story.args[propertyName] = defaultValue || '';
@@ -30,7 +30,7 @@ export const withIconControl = <T>(
 export const withSortDirection = <T>(
   story: Story<T>,
   propertyName: string,
-  defaultValue?: string
+  defaultValue?: string,
 ) => {
   maybeCreateStoryArgs(story);
   story.args[propertyName] = defaultValue || '';
@@ -42,20 +42,18 @@ export const withSortDirection = <T>(
   };
 };
 
-
 export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
 
 export const decorateStoryWithClass = (
   story: () => StoryFnHtmlReturnType,
-  className?: string
+  className?: string,
 ): StoryFnHtmlReturnType => {
   return html`<div class="${className ?? ''}">${story()}</div>`;
 };
 
 export const showSnackbar = (message: string) => {
-  const snackbar: HTMLInoSnackbarElement = document.createElement(
-    'ino-snackbar'
-  );
+  const snackbar: HTMLInoSnackbarElement =
+    document.createElement('ino-snackbar');
   snackbar.message = message;
   document.body.appendChild(snackbar);
   snackbar.addEventListener('hideEl', () => snackbar.remove());

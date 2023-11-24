@@ -11,7 +11,7 @@ export default function useTranslation() {
       text = _.get(localization.translations, key);
       if (!text) {
         throw new Error(
-          `Translation '${key}' for locale '${localization.locale}' not found.`
+          `Translation '${key}' for locale '${localization.locale}' not found.`,
         );
       }
     }

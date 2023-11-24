@@ -1,15 +1,12 @@
 export type ButtonType = 'button' | 'submit' | 'reset';
 export type ChipSurface = 'solid' | 'outline';
-export type ColorScheme =
-  | 'primary'
-  | 'warning'
-  | 'error';
+export type ColorScheme = 'primary' | 'warning' | 'error';
 export type DatepickerType = 'date' | 'datetime' | 'range' | 'time';
 export type HorizontalLocation = 'left' | 'right';
 export type ImageDecodingTypes = 'async' | 'auto' | 'sync';
 export type Locations = HorizontalLocation | VerticalLocation;
 export type NavDrawerAnchor = 'left' | 'right';
-export type NavDrawerVariant = 'docked' | 'dismissible' | 'modal';
+export type NavDrawerVariant = 'docked' | 'dismissible' | 'modal' | 'mobile';
 export type SnackbarType = 'info' | 'success' | 'error';
 export type SpinnerType = 'tile' | 'bounce' | 'circle';
 export type SurfaceType = 'filled' | 'outlined' | 'text';
@@ -54,17 +51,21 @@ export type UserInputInterceptor = (value: string) => string;
 /**
  * An arbitary string (or close by default) referencing the action of a dialog.
  */
-export type DialogCloseAction = 'close'|string;
+export type DialogCloseAction = 'close' | string;
 
-export type DialogSubmitAction = 'submit'|string;
+export type DialogSubmitAction = 'submit' | string;
 
 export type Alignment = 'horizontal' | 'vertical';
 
 export type KeyValue = {
-    key: string;
-    value: string;
+  key: string;
+  value: string;
 };
 export type HeaderSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-export type NavDrawerLabels = {content: string, footer: string, toggleBtn: string}
+export type NavDrawerLabels = {
+  content: string;
+  footer: string;
+  toggleBtn: string;
+};
 
 export type TippyThemes = 'light' | 'dark' | 'primary';

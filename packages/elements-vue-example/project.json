@@ -1,5 +1,6 @@
 {
   "name": "elements-vue-example",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "packages/elements-vue-example/src",
   "tags": [],
@@ -8,7 +9,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/elements-vue-example",
-        "command": "vue-cli-service build"
+        "command": "vite build"
       }
     },
     "start": {
@@ -19,15 +20,15 @@
       "defaultConfiguration": "dev",
       "configurations": {
         "dev": {
-          "command": "vue-cli-service serve --open --port=4400 --host=127.0.0.1"
+          "command": "vite serve"
         },
         "prod": {
-          "command": "vue-cli-service serve --open --port=4400 --host=127.0.0.1 --mode=production"
+          "command": "vite serve --mode=production"
         }
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [

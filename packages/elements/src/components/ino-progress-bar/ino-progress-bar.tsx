@@ -63,7 +63,7 @@ export class InoProgressBar implements ComponentInterface {
 
   private initializeComponent = () => {
     this.mdcProgress = new MDCLinearProgress(
-      this.el.shadowRoot.querySelector('.mdc-linear-progress')
+      this.el.shadowRoot.querySelector('.mdc-linear-progress'),
     );
     this.mdcProgress.determinate = !this.indeterminate;
     this.mdcProgress.progress = this.progress;
