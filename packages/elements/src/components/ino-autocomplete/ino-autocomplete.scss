@@ -1,42 +1,59 @@
 @use '../base/mdc-customize';
 @use '@material/list';
-@use '../base/theme' as theme;
-@use '../base/new-theme' as new-theme;
+@use '../base/new-theme' as theme;
+@use '../base/option-base' as base;
 
 @include list.deprecated-core-styles;
+
+$height: 2.85rem;
 
 .ino-autocomplete__list {
   margin: 0.5rem 0 0 0;
   padding: 0;
-  background-color: white;
-  box-shadow: 0px 0px 22px 0px rgba(new-theme.$n-10, 0.35);
+  background-color: theme.$white;
+  box-shadow: 0px 0px 22px 0px rgba(theme.$n-10, 0.35);
   border-radius: 10px;
   overflow: auto;
 }
 
+@include list.deprecated-item-disabled-text-opacity(0.5);
+
 .ino-autocomplete__list-item {
-  height: 1.5rem;
-  font-size: 0.85rem;
-  padding: 7px 0 7px 9px;
+  height: $height;
+
+  @include base.style-mdc-list-item-deselected-states(
+    base.$OPTION-DESELECTED-BG-COLOR,
+    base.$OPTION-DESELECTED-BG-COLOR-HOVER,
+    base.$OPTION-DESELECTED-BG-COLOR-FOCUS,
+    base.$OPTION-DESELECTED-BG-COLOR-ACTIVE
+  );
 
   &--selected,
-  &:hover {
-    background-color: new-theme.$p-1;
+  &--activated {
+    @include base.style-mdc-list-item-selected-states(
+      base.$OPTION-SELECTED-BG-COLOR,
+      base.$OPTION-SELECTED-BG-COLOR-HOVER,
+      base.$OPTION-SELECTED-BG-COLOR-FOCUS,
+      base.$OPTION-SELECTED-BG-COLOR-ACTIVE
+    );
     color: black;
   }
 
   &--highlight {
-    color: theme.color(primary, dark);
+    color: theme.$p-7;
     background-color: transparent;
     font-weight: bold;
   }
 
   &--no-match {
-    color: theme.color(light, dark);
+    padding: 0 0 0 16px;
+    display: flex;
+    align-items: center;
+    color: theme.$n-5;
     pointer-events: none;
   }
 }
 
 .ino-input--font-grey {
-  --ino-input-color: #{new-theme.$n-5}; //n-05
+  --ino-input-color: #{theme.$n-5};
 }

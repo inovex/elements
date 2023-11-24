@@ -134,10 +134,11 @@ The component behaves like a native select with additional features. The native 
 
 ## CSS Custom Properties
 
-| Name                      | Description                    |
-| ------------------------- | ------------------------------ |
-| `--ino-select-height`     | Height of the open select menu |
-| `--ino-select-icon-color` | Icon color                     |
+| Name                      | Description                           |
+| ------------------------- | ------------------------------------- |
+| `--ino-border-radius`     | Border-radius of the open select menu |
+| `--ino-select-height`     | Height of the open select menu        |
+| `--ino-select-icon-color` | Icon color                            |
 
 
 ## Dependencies
