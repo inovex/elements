@@ -16,6 +16,9 @@
     },
     "lint": {
       "cache": true
+    },
+    "deploy": {
+      "command": "npm publish --dry-run"
     }
   },
   "generators": {

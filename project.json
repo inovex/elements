@@ -4,11 +4,27 @@
   "targets": {
     "version": {
       "executor": "@jscutlery/semver:version",
+      "dependsOn": [
+        {
+          "projects": [
+            "elements",
+            "elements-angular",
+            "elements-react",
+            "elements-vue"
+          ],
+          "target": "build"
+        }
+      ],
       "options": {
         "syncVersions": true,
         "dryRun": true,
         "skipProjectChangelog": true,
-        "postTargets": ["elements:d"]
+        "postTargets": [
+          "elements:deploy",
+          "elements-angular:deploy",
+          "elements-react:deploy",
+          "elements-vue:deploy"
+        ]
       }
     }
   },

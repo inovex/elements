@@ -34,6 +34,12 @@
           "command": "shx rm -rf  packages/elements-vue/node_modules"
         }
       }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{workspaceRoot}/{projectRoot}"
+      }
     }
   }
 }
