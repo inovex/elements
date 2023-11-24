@@ -10,40 +10,49 @@ $OPTION-DESELECTED-BG-COLOR-HOVER: #{theme.$n-1};
 $OPTION-DESELECTED-BG-COLOR-FOCUS: #{theme.$n-2};
 $OPTION-DESELECTED-BG-COLOR-ACTIVE: #{theme.$n-3};
 
-@mixin style-mdc-list-item-selected-states($background, $hover, $focus, $active) {
-    background-color: #{$background};
+@mixin style-mdc-list-item-selected-states(
+  $background,
+  $hover,
+  $focus,
+  $active
+) {
+  background-color: #{$background};
 
-    &::before,
-    &::after {
-        display: none;
-    }
+  &::before,
+  &::after {
+    display: none;
+  }
 
-    &:hover {
-        background-color: #{$hover};
-    }
+  &:hover {
+    background-color: #{$hover};
+  }
 
-    &:focus {
-        background-color: #{$focus};
-    }
+  &:focus {
+    background-color: #{$focus};
+  }
 
-    &:active {
-        background-color: #{$active};
-    }
+  &:active {
+    background-color: #{$active};
+  }
 }
 
-@mixin style-mdc-list-item-deselected-states($background, $hover, $focus, $active) {
-    background-color: #{$background};
+@mixin style-mdc-list-item-deselected-states(
+  $background,
+  $hover,
+  $focus,
+  $active
+) {
+  background-color: #{$background};
 
-    &:hover {
-        background-color: #{$hover};
-    }
+  &:hover {
+    background-color: #{$hover};
+  }
 
-    &:focus {
-        background-color: #{$focus};
-    }
+  &:focus {
+    background-color: #{$focus};
+  }
 
-    &:active {
-        background-color: #{$active};
-    }
-    
+  &:active {
+    background-color: #{$active};
+  }
 }

@@ -1,5 +1,5 @@
 @use '../base/mdc-customize';
-@use "@material/list";
+@use '@material/list';
 @use '../base/new-theme' as theme;
 @use '../base/option-base' as base;
 
@@ -19,10 +19,7 @@ ino-option {
    * @prop --ino-option-deselected-background-color-focus: Background color on focus if deselected
    * @prop --ino-option-deselected-background-color-active: Background color if active and deselected
    */
-  --height: var(
-    --ino-option-height,
-    #{$height}
-  );
+  --height: var(--ino-option-height, #{$height});
   --option-selected-background-color: var(
     --ino-option-selected-background-color,
     #{base.$OPTION-SELECTED-BG-COLOR}
@@ -82,7 +79,7 @@ ino-option {
       );
     }
   }
-  
+
   .mdc-deprecated-list-item--disabled {
     pointer-events: none;
   }
