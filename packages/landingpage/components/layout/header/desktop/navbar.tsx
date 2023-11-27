@@ -2,15 +2,19 @@ import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
 import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
-import { InoPopover } from '@elements';
+import { InoPopover, InoSwitch } from '@elements';
 import useTranslation from 'utils/hooks/useTranslation';
 import { ContactButton } from '../../../shared/contactButton';
+import { useTheme } from 'utils/context/ThemeContext';
+import { inDevEnvironment } from 'utils/in-dev-mode';
 
 const POPOVER_OFFSET = 10;
 
 export default function Navbar() {
   const router = useRouter();
   const { t } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
+  const isDarkMode = theme === 'inovex-elements-theme-dark';
 
   function isRouteActive(mainRouteUrl: string, mainRouteName: string) {
     const pathSplit = router.pathname.split('/');
@@ -59,6 +63,10 @@ export default function Navbar() {
         </div>
       ))}
       <ContactButton />
+      {/* TODO: add a toggle Icon with Sun & Moon icons for light and dark mode toggle */}
+      {inDevEnvironment && (
+      <InoSwitch checked={isDarkMode} onCheckedChange={toggleTheme}></InoSwitch>
+    )}
     </nav>
   );
 }

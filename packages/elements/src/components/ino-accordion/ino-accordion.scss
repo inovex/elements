@@ -40,7 +40,7 @@ $animation-time: 200ms;
   }
 
   &--expanded {
-    background: theme.$p-1;
+    background: var(--inovex-elements-p-1); //Example for CSS variable usage
   }
 
   .ino-accordion__content-wrapper {

@@ -4,12 +4,14 @@ import styles from './layout.module.scss';
 import Footer from './layout/footer/footer';
 import Header from './layout/header/header';
 import { UiContext, UiContextType } from '../utils/context/UiContext';
+import { useTheme } from '../utils/context/ThemeContext';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const { isFooterHidden } = useContext(UiContext) as UiContextType;
+  const { theme } = useTheme();
 
   return (
-    <div className="inovex-elements-typo inovex-elements-theme">
+    <div className={`inovex-elements-typo ${theme}`}>
       <Head>
         <meta
           name="viewport"
