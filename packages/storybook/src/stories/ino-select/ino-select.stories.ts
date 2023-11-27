@@ -153,20 +153,7 @@ export const Form = templateForm.generatePlaygroundStory();
 const templateDense = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
   args => html`
-  <ino-select label="Select with leading icon">
-    <ino-icon slot="icon-leading" icon="user"></ino-icon>
-    <ino-option value="Selected Option" selected>Selected Option</ino-option>
-    ${optionsTemplate}
-  </ino-select>
   <ino-select label="Select with leading icon" dense>
-    <ino-icon slot="icon-leading" icon="user"></ino-icon>
-    <ino-option value="Selected Option" selected>Selected Option</ino-option>
-    ${optionsTemplate}
-  </ino-select>
-  <ino-select
-    outline
-    label="Select with leading icon"
-  >
     <ino-icon slot="icon-leading" icon="user"></ino-icon>
     <ino-option value="Selected Option" selected>Selected Option</ino-option>
     ${optionsTemplate}
