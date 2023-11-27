@@ -1145,6 +1145,10 @@ export namespace Components {
     }
     interface InoSelect {
         /**
+          * Makes the input text and container slightly smaller.
+         */
+        "dense": boolean;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -3152,6 +3156,10 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface InoSelect {
+        /**
+          * Makes the input text and container slightly smaller.
+         */
+        "dense"?: boolean;
         /**
           * Disables this element.
          */

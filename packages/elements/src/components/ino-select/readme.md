@@ -104,6 +104,7 @@ The component behaves like a native select with additional features. The native 
 
 | Property           | Attribute           | Description                                                                                                                                     | Type      | Default     |
 | ------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `dense`            | `dense`             | Makes the input text and container slightly smaller.                                                                                            | `boolean` | `false`     |
 | `disabled`         | `disabled`          | Disables this element.                                                                                                                          | `boolean` | `undefined` |
 | `error`            | `error`             | Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation. | `boolean` | `undefined` |
 | `helper`           | `helper`            | A helper text to display below the select element. By default, non-validation helper text is always visible.                                    | `string`  | `undefined` |

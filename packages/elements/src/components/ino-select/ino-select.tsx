@@ -71,6 +71,11 @@ export class Select implements ComponentInterface {
   @Prop() outline?: boolean;
 
   /**
+   * Makes the input text and container slightly smaller.
+   */
+  @Prop() dense = false;
+
+  /**
    * The value of this element. (**unmanaged**)
    */
   @Prop() value?: string = '';
@@ -215,10 +220,14 @@ export class Select implements ComponentInterface {
 
   render() {
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
+    const hasHelperText = Boolean(this.helper);
 
     const inoSelectClasses = classNames({
       'ino-select-outlined': this.outline,
-    });
+      'ino-select-dense': this.dense,
+      'ino-select--has-helpertext': hasHelperText,
+      'ino-select--has-helpertext-persistent': this.helperPersistent,
+    })
 
     const classSelect = classNames({
       'mdc-select': true,

@@ -13,6 +13,14 @@ $not-outlined-select: 'not(.mdc-select--outlined)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
 $border-radius: 0.7rem;
 
+$filled-input-height: 56px;
+$filled-input-height-dense: 35px;
+$filled-selected-text-height-dense: 25px;
+$outline-input-height: 40px;
+$outline-input-height-dense: 30px;
+$outline-shape-radius: $outline-input-height / 2;
+$outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius $outline-shape-radius 0;
+
 @mixin setIconColors($color) {
   .mdc-select__icon {
     ino-icon {
@@ -120,59 +128,150 @@ ino-select {
     overflow: hidden;
   }
 
-  .mdc-select--filled {
-    .mdc-select__anchor {
-      padding-left: 0;
-    }
-
-    .mdc-select__selected-text {
-      margin-top: 24px;
-    }
-
-    .mdc-select__icon {
-      margin-top: 12px;
-    }
-
-    .mdc-select__dropdown-icon {
-      margin-top: 18px;
-    }
-
-    .mdc-floating-label {
-      top: 36px;
-    }
-
-    .mdc-floating-label.mdc-floating-label--float-above {
-      top: 25px;
-    }
-
-    &[class*='--with-leading-icon'] {
-      .mdc-floating-label,
-      .mdc-floating-label--float-above {
-        left: 48px;
-      }
-    }
-  }
-
   // make sure the border-color is the default if focused and invalid
   .mdc-select.mdc-select--outlined.mdc-select--invalid.mdc-select--focused {
     @include ino-label.outline-border-color(theme.color(primary));
   }
 
-  .mdc-select--outlined {
-    .mdc-select__selected-text {
-      margin-top: 16px;
-    }
+  &:not(.ino-select-outlined) .mdc-select-helper-text {
+    margin-left: 0;
+  }
+}
 
-    .mdc-floating-label.mdc-floating-label--float-above {
-      top: 28px;
-    }
+// filled 
+ino-select .mdc-select--filled {
 
-    &[class*='--with-leading-icon'] ino-icon {
-      display: unset; // center icon vertically
+  .mdc-select__anchor {
+    padding-left: 0;
+  }
+
+  .mdc-select__selected-text {
+    margin-top: 24px;
+  }
+
+  .mdc-select__icon {
+    margin-top: 12px;
+  }
+
+  .mdc-select__dropdown-icon {
+    margin-top: 18px;
+  }
+
+  .mdc-floating-label {
+    top: 36px;
+  }
+
+  .mdc-floating-label.mdc-floating-label--float-above {
+    top: 25px;
+  }
+
+  &[class*='--with-leading-icon'] {
+    .mdc-floating-label,
+    .mdc-floating-label--float-above {
+      left: 48px;
+    }
+  }
+}
+
+// filled dense
+ino-select.ino-select-dense .mdc-select--filled {
+  @include select.filled-density(-1);
+  @include select.filled-height($filled-input-height-dense);
+  overflow: visible;
+
+  .mdc-select__anchor {
+    align-items: end;
+  }
+
+  .mdc-select__selected-text {
+    height: $filled-selected-text-height-dense;
+    margin: 0 0 2px;
+  }
+
+  .mdc-floating-label.mdc-floating-label--float-above {
+    top: 18px;
+    display: unset;
+  }  
+
+  .mdc-select__icon {
+    margin: auto 12px;
+  }
+
+  .mdc-select__dropdown-icon {
+    align-self: end;
+    margin-bottom: 5px;
+  }
+}
+
+// outline
+ino-select.ino-select-outlined {
+  @include select.outlined-height($outline-input-height);
+  @include select.outline-shape-radius($outline-shape-radius);
+
+  &.ino-select--has-helpertext, &.ino-select--has-helpertext.ino-select--has-helpertext-persistent{
+    @include select.outline-shape-radius($outline-shape-radius-corner);
+
+    & .mdc-select-helper-text {
+      margin-left: 0;
     }
   }
 
-  &:not(.ino-select-outlined) .mdc-select-helper-text {
-    margin-left: 0;
+  .mdc-select__selected-text {
+    margin-top: 7px;
+  }
+
+  .mdc-select--focused .mdc-floating-label.mdc-floating-label--float-above {
+    margin-top: -1px;
+  }
+
+  .mdc-floating-label.mdc-floating-label--float-above {
+    top: 19px;
+  }
+
+  & [class*='--with-leading-icon'] ino-icon {
+    display: unset; // center icon vertically
+  }
+
+  & [class*='--with-leading-icon']
+  .mdc-floating-label {
+    left: 21px;
+  }
+
+  & [class*='--with-leading-icon']
+    .mdc-floating-label.mdc-floating-label--float-above {
+    left: 5px;
+  }
+}
+
+// outline dense
+ino-select.ino-select-outlined.ino-select-dense {
+  @include select.outlined-height($outline-input-height-dense);
+
+  & [class*='--with-leading-icon']
+    .mdc-floating-label.mdc-floating-label--float-above {
+    top: 13px;
+  }
+
+  .mdc-floating-label.mdc-floating-label--float-above {
+    margin-top: 0px;
+    top: 13px;
+  }  
+
+  .mdc-select--focused .mdc-floating-label.mdc-floating-label--float-above {
+    top: 12px;
+  }
+
+  .mdc-select__selected-text {
+    margin-top: 2px;
+  }
+
+  .mdc-select__icon {
+    align-self: end;
+
+    ino-icon {
+      --icon-width: 20px;
+      --icon-height: 20px;
+      margin: auto 0;
+    }
   }
 }

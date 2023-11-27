@@ -456,6 +456,7 @@ export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect, JSX.InoSel
   'showLabelHint',
   'label',
   'outline',
+  'dense',
   'value',
   'helper',
   'helperValidation',
