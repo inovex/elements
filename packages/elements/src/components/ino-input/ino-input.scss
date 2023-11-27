@@ -16,10 +16,14 @@ $padding-top: 24px;
 $icon-padding-to-text: 12px;
 $icon-padding-to-border: 6px;
 $icon-padding-to-text-dense: 6px;
+$icon-padding-to-bottom-dense: 15px;
 $icon-padding-to-border-dense: 0px;
 
 $filled-input-height: 56px;
-$filled-input-height-dense: 47px;
+$filled-input-height-dense: 30px;
+$filled-input-padding-dense: calc($padding-top - 22px) 0 0;
+$filled-selected-text-height-dense: 25px;
+
 $outline-input-height: 40px;
 $outline-input-height-dense: 30px;
 $outline-shape-radius: $outline-input-height / 2;
@@ -175,20 +179,27 @@ ino-input .mdc-text-field--filled {
 // filled dense
 ino-input .mdc-text-field--filled.ino-input--dense {
   @include textfield.density(-1);
-  height: $filled-input-height-dense;
+  @include textfield.height($filled-input-height-dense);
+  align-items: end;
 
   .mdc-text-field__input {
-    padding-top: calc($padding-top - 20px);
+    padding: $filled-input-padding-dense;
+    height: $filled-selected-text-height-dense;
+  }
+
+  .mdc-floating-label {
+    display: unset;
+    padding-bottom: 2px;
   }
 
   .mdc-floating-label.mdc-floating-label--float-above {
-    margin-top: 5px;
+    margin-top: 3px;
   }  
   
   &:has(.mdc-text-field__icon.mdc-text-field__icon--leading) {
     @include setIconMargins(
-      (0 $icon-padding-to-text-dense 0 $icon-padding-to-border-dense),
-      (0 $icon-padding-to-border-dense 0 $icon-padding-to-text-dense)
+      (0 $icon-padding-to-text-dense $icon-padding-to-bottom-dense $icon-padding-to-border-dense),
+      (0 $icon-padding-to-border-dense $icon-padding-to-bottom-dense $icon-padding-to-text-dense)
     );  
     .mdc-floating-label,
     .mdc-floating-label--float-above {
