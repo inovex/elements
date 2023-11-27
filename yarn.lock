@@ -10644,6 +10644,11 @@ commander@^8.3.0:
   resolved "https://registry.npmjs.org/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
   integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
 
+commander@~2.19.0:
+  version "2.19.0"
+  resolved "https://registry.npmjs.org/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
+  integrity sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==
+
 common-ancestor-path@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/common-ancestor-path/-/common-ancestor-path-1.0.1.tgz#4f7d2d1394d91b7abdf51871c62f71eadb0182a7"
@@ -12199,11 +12204,6 @@ elliptic@^6.5.3, elliptic@^6.5.4:
     inherits "^2.0.4"
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
-
-emittery@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.npmjs.org/emittery/-/emittery-0.13.1.tgz#c04b8c3457490e0847ae51fced3af52d338e3dad"
-  integrity sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==
 
 emittery@^0.7.1:
   version "0.7.2"
@@ -15934,13 +15934,6 @@ jest-docblock@^26.0.0:
   dependencies:
     detect-newline "^3.0.0"
 
-jest-docblock@^29.7.0:
-  version "29.7.0"
-  resolved "https://registry.npmjs.org/jest-docblock/-/jest-docblock-29.7.0.tgz#8fddb6adc3cdc955c93e2a87f61cfd350d5d119a"
-  integrity sha512-q617Auw3A612guyaFgsbFeYpNP5t2aoUNLwBUbc/0kD1R4t9ixDbyFTHd1nok4epoVFpr7PmeWHrhvuV3XaJ4g==
-  dependencies:
-    detect-newline "^3.0.0"
-
 jest-each@^26.6.2:
   version "26.6.2"
   resolved "https://registry.npmjs.org/jest-each/-/jest-each-26.6.2.tgz#02526438a77a67401c8a6382dfe5999952c167cb"
@@ -16087,14 +16080,6 @@ jest-leak-detector@^26.6.2:
     jest-get-type "^26.3.0"
     pretty-format "^26.6.2"
 
-jest-leak-detector@^29.7.0:
-  version "29.7.0"
-  resolved "https://registry.npmjs.org/jest-leak-detector/-/jest-leak-detector-29.7.0.tgz#5b7ec0dadfdfec0ca383dc9aa016d36b5ea4c728"
-  integrity sha512-kYA8IJcSYtST2BY9I+SMC32nDpBT3J2NvWJx8+JCuCdl/CR1I4EKUJROiP8XtCcxqgTTBGJNdbB1A8XRKbTetw==
-  dependencies:
-    jest-get-type "^29.6.3"
-    pretty-format "^29.7.0"
-
 jest-matcher-utils@^26.6.2:
   version "26.6.2"
   resolved "https://registry.npmjs.org/jest-matcher-utils/-/jest-matcher-utils-26.6.2.tgz#8e6fd6e863c8b2d31ac6472eeb237bc595e53e7a"
@@ -16215,7 +16200,7 @@ jest-resolve@^29.4.1, jest-resolve@^29.7.0:
     resolve.exports "^2.0.0"
     slash "^3.0.0"
 
-jest-runner@^26.6.3:
+jest-runner@^26.6.2, jest-runner@^26.6.3, jest-runner@^29.7.0:
   version "26.6.3"
   resolved "https://registry.npmjs.org/jest-runner/-/jest-runner-26.6.3.tgz#2d1fed3d46e10f233fd1dbd3bfaa3fe8924be159"
   integrity sha512-atgKpRHnaA2OvByG/HpGA4g6CSPS/1LK0jK3gATJAoptC1ojltpmVlYC3TYgdmGp+GLuhzpH30Gvs36szSL2JQ==
@@ -16240,33 +16225,6 @@ jest-runner@^26.6.3:
     jest-worker "^26.6.2"
     source-map-support "^0.5.6"
     throat "^5.0.0"
-
-jest-runner@^29.7.0:
-  version "29.7.0"
-  resolved "https://registry.npmjs.org/jest-runner/-/jest-runner-29.7.0.tgz#809af072d408a53dcfd2e849a4c976d3132f718e"
-  integrity sha512-fsc4N6cPCAahybGBfTRcq5wFR6fpLznMg47sY5aDpsoejOcVYFb07AHuSnR0liMcPTgBsA3ZJL6kFOjPdoNipQ==
-  dependencies:
-    "@jest/console" "^29.7.0"
-    "@jest/environment" "^29.7.0"
-    "@jest/test-result" "^29.7.0"
-    "@jest/transform" "^29.7.0"
-    "@jest/types" "^29.6.3"
-    "@types/node" "*"
-    chalk "^4.0.0"
-    emittery "^0.13.1"
-    graceful-fs "^4.2.9"
-    jest-docblock "^29.7.0"
-    jest-environment-node "^29.7.0"
-    jest-haste-map "^29.7.0"
-    jest-leak-detector "^29.7.0"
-    jest-message-util "^29.7.0"
-    jest-resolve "^29.7.0"
-    jest-runtime "^29.7.0"
-    jest-util "^29.7.0"
-    jest-watcher "^29.7.0"
-    jest-worker "^29.7.0"
-    p-limit "^3.1.0"
-    source-map-support "0.5.13"
 
 jest-runtime@^26.6.3:
   version "26.6.3"
@@ -16444,20 +16402,6 @@ jest-watcher@^26.6.2:
     ansi-escapes "^4.2.1"
     chalk "^4.0.0"
     jest-util "^26.6.2"
-    string-length "^4.0.1"
-
-jest-watcher@^29.7.0:
-  version "29.7.0"
-  resolved "https://registry.npmjs.org/jest-watcher/-/jest-watcher-29.7.0.tgz#7810d30d619c3a62093223ce6bb359ca1b28a2f2"
-  integrity sha512-49Fg7WXkU3Vl2h6LbLtMQ/HyB6rXSIX7SqvBLQmssRBGN9I0PNvPmAmCWSOY6SOvrjhI/F7/bGAv9RtnsPA03g==
-  dependencies:
-    "@jest/test-result" "^29.7.0"
-    "@jest/types" "^29.6.3"
-    "@types/node" "*"
-    ansi-escapes "^4.2.1"
-    chalk "^4.0.0"
-    emittery "^0.13.1"
-    jest-util "^29.7.0"
     string-length "^4.0.1"
 
 jest-worker@^26.5.0, jest-worker@^26.6.2:
@@ -23218,14 +23162,6 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@0.5.13:
-  version "0.5.13"
-  resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.13.tgz#31b24a9c2e73c2de85066c0feb7d44767ed52932"
-  integrity sha512-SHSKFHadjVA5oR4PPqhtAVdcBWwRYVd6g6cAXnIbRiIwc2EhPrTuKUBdSLvlEKyIP3GCf89fltvcZiP9MMFA1w==
-  dependencies:
-    buffer-from "^1.0.0"
-    source-map "^0.6.0"
-
 source-map-support@0.5.19:
   version "0.5.19"
   resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
@@ -24675,7 +24611,15 @@ uc.micro@^1.0.1, uc.micro@^1.0.5:
   resolved "https://registry.npmjs.org/uc.micro/-/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
   integrity sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==
 
-uglify-js@3.4.x, uglify-js@3.6.4, uglify-js@^3.1.4:
+uglify-js@3.4.x:
+  version "3.4.10"
+  resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
+  integrity sha512-Y2VsbPVs0FIshJztycsO2SfPk7/KAF/T72qzv9u5EpQ4kB2hQoHlhNQTsNyy6ul7lQtqJN/AoWeS23OzEiEFxw==
+  dependencies:
+    commander "~2.19.0"
+    source-map "~0.6.1"
+
+uglify-js@^3.1.4:
   version "3.6.4"
   resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.6.4.tgz#88cc880c6ed5cf9868fdfa0760654e7bed463f1d"
   integrity sha512-9Yc2i881pF4BPGhjteCXQNaXx1DCwm3dtOyBaG2hitHjLWOczw/ki8vD1bqyT3u6K0Ms/FpCShkmfg+FtlOfYA==

@@ -111,12 +111,14 @@ const templateFilter = new TemplateGenerator<Components.InoChip>(
     return html`
       <div class="ino-chip-story">
         ${values.map(
-          (value) => html` <ino-chip
-            value="${value}"
-            selectable
-            @chipClicked="${(ev) => handleClick(ev.target)}"
-            >${value}
-          </ino-chip>`,
+          (value) => html`
+            <ino-chip
+              value="${value}"
+              selectable
+              @chipClicked="${(ev) => handleClick(ev.target)}"
+              >${value}
+            </ino-chip>
+          `,
         )}
       </div>
     `;
@@ -137,12 +139,14 @@ const templateRemove = new TemplateGenerator<Components.InoChip>(
     return html`
       <div class="ino-chip-story">
         ${chips.map(
-          (value, index) => html` <ino-chip
-            value="${value}"
-            removable="${index !== 0}"
-            @chipRemoved="${(ev) => handleClick(ev.target)}"
-            >${value}
-          </ino-chip>`,
+          (value, index) => html`
+            <ino-chip
+              value="${value}"
+              removable="${index !== 0}"
+              @chipRemoved="${(ev) => handleClick(ev.target)}"
+              >${value}
+            </ino-chip>
+          `,
         )}
       </div>
     `;

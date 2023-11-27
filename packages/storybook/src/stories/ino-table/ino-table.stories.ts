@@ -48,7 +48,8 @@ export default {
   },
 };
 
-const tableContent = html`<tr slot="header-row"></tr>
+const tableContent = html`
+  <tr slot="header-row"></tr>
   <ino-table-header-cell
     column-id="id"
     sort-start="asc"
@@ -144,7 +145,8 @@ const tableContent = html`<tr slot="header-row"></tr>
     <td>95%</td>
     <td>Some information</td>
     <td>Some information</td>
-  </tr> `;
+  </tr>
+`;
 
 const template = new TemplateGenerator<Components.InoTable>(
   'ino-table',
@@ -157,12 +159,14 @@ const template = new TemplateGenerator<Components.InoTable>(
       sticky-header="${args.stickyHeader}"
     >
       ${args.loading
-        ? html`<ino-progress-bar
-            slot="loading-indicator"
-            indeterminate
-            debounce="200"
-            active
-          ></ino-progress-bar>`
+        ? html`
+            <ino-progress-bar
+              slot="loading-indicator"
+              indeterminate
+              debounce="200"
+              active
+            ></ino-progress-bar>
+          `
         : html``}
       ${tableContent}
     </ino-table>

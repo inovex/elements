@@ -65,8 +65,11 @@ export default function Navbar() {
       <ContactButton />
       {/* TODO: add a toggle Icon with Sun & Moon icons for light and dark mode toggle */}
       {inDevEnvironment && (
-      <InoSwitch checked={isDarkMode} onCheckedChange={toggleTheme}></InoSwitch>
-    )}
+        <InoSwitch
+          checked={isDarkMode}
+          onCheckedChange={toggleTheme}
+        ></InoSwitch>
+      )}
     </nav>
   );
 }

@@ -3,11 +3,10 @@ import { inDevEnvironment } from 'utils/in-dev-mode';
 
 const ThemeContext = createContext({
   theme: 'inovex-elements-theme',
-  toggleTheme: () => {}
+  toggleTheme: () => {},
 });
 
 export const useTheme = () => useContext(ThemeContext);
-
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState('inovex-elements-theme');
@@ -15,8 +14,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const toggleTheme = () => {
     if (!inDevEnvironment) return;
 
-    setTheme(current => 
-      current === 'inovex-elements-theme' ? 'inovex-elements-theme-dark' : 'inovex-elements-theme'
+    setTheme((current) =>
+      current === 'inovex-elements-theme'
+        ? 'inovex-elements-theme-dark'
+        : 'inovex-elements-theme',
     );
   };
 
