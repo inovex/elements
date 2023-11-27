@@ -14,6 +14,7 @@ module.exports = {
   addons: [
     '@storybook/addon-essentials',
     '@pxtrn/storybook-addon-docs-stencil',
+    'storybook-addon-themes'
   ],
   managerEntries: ['./addons/post-current-story'],
   typescript: {

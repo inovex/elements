@@ -27,6 +27,8 @@ setStencilDocJson(docsJson);
 
 applyPolyfills().then(() => defineCustomElements(window));
 
+const isInDevEnvironment = process && process.env.NODE_ENV === 'development';
+
 // Explicit order for the docs section
 export const parameters = {
   viewMode: 'docs',
@@ -58,4 +60,14 @@ export const parameters = {
       ],
     },
   },
+  // using storybook-addon-themes https://storybook.js.org/addons/storybook-addon-themes
+  ...(isInDevEnvironment && {
+    themes: {
+      default: 'light',
+      list: [
+        { name: 'light', class: 'inovex-elements-theme', color: '#ffffff' },
+        { name: 'dark', class: 'inovex-elements-theme-dark', color: '#000000' },
+      ],
+    },
+  }),
 };
