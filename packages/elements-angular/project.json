@@ -68,12 +68,6 @@
           "packages/elements-angular/src/**/*.html"
         ]
       }
-    },
-    "deploy": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "{workspaceRoot}/{projectRoot}"
-      }
     }
   },
   "tags": []

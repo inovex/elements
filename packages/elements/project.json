@@ -56,12 +56,6 @@
           "command": "svgo -f packages/elements/src/assets/ino-icon --config svgo.config.js"
         }
       }
-    },
-    "deploy": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "{workspaceRoot}/{projectRoot}"
-      }
     }
   }
 }

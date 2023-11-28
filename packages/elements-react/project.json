@@ -34,12 +34,6 @@
           "command": "shx rm -rf packages/elements-react/node_modules"
         }
       }
-    },
-    "deploy": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "{workspaceRoot}/{projectRoot}"
-      }
     }
   }
 }

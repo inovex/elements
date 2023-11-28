@@ -4,27 +4,33 @@
   "targets": {
     "version": {
       "executor": "@jscutlery/semver:version",
-      "dependsOn": [
-        {
-          "projects": [
-            "elements",
-            "elements-angular",
-            "elements-react",
-            "elements-vue"
-          ],
-          "target": "build"
-        }
-      ],
       "options": {
         "syncVersions": true,
-        "dryRun": true,
         "skipProjectChangelog": true,
+        "dryRun": true,
         "postTargets": [
-          "elements:deploy",
-          "elements-angular:deploy",
-          "elements-react:deploy",
-          "elements-vue:deploy"
+          "deploy-npm",
+          "deploy-github"
         ]
+      }
+    },
+    "deploy-npm": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npm publish -w packages/elements --dry-run",
+          "npm publish -w packages/elements-angular --dry-run",
+          "npm publish -w packages/elements-react --dry-run",
+          "npm publish -w packages/elements-vue --dry-run"
+        ],
+        "parallel": false
+      }
+    },
+    "deploy-github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "{tag}",
+        "notes": "{notes}"
       }
     }
   },
