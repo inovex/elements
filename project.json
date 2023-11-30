@@ -9,7 +9,7 @@
         "syncVersions": true,
         "skipProjectChangelog": true,
         "dryRun": false,
-        "push": false,
+        "push": true,
         "commitMessageFormat": "chore: publish {version}",
         "postTargets": [
           "deploy-npm",
