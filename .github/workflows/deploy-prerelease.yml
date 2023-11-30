@@ -1,0 +1,35 @@
+name: 'Deploy Pre-Release'
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/elements'
+      - 'packages/elements-angular'
+      - 'packages/elements-react'
+      - 'packages/elements-vue'
+
+jobs:
+  canary-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+          always-auth: true
+      - uses: ./.github/workflows/dependencies-install
+      - name: Setup Git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor}}@users.noreply.github.com"
+      - name: Version
+        shell: bash
+        run: yarn nx run workspace:version --configuration=prerelease
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
