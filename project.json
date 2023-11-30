@@ -61,7 +61,10 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "git reset --hard"
+          {
+            "command": "git reset --hard",
+            "forwardAllArgs": false
+          }
         ]
       }
     }
