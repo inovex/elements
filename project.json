@@ -5,6 +5,7 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
+        "baseBranch": "master",
         "syncVersions": true,
         "skipProjectChangelog": true,
         "dryRun": false,
