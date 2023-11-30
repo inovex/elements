@@ -29,6 +29,17 @@
     },
     "deploy-npm": {
       "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "projects": [
+            "elements",
+            "elements-angular",
+            "elements-react",
+            "elements-vue"
+          ],
+          "target": "build"
+        }
+      ],
       "options": {
         "commands": [
           "npm publish -w packages/elements --dry-run",
