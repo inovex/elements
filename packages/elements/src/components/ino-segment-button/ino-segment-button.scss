@@ -11,9 +11,9 @@ $round-border: 24px 24px 24px 24px;
 $edged-border: 24px 0 24px 24px;
 
 /* Colors: */
-$button_outlined_text_pressed: #d7e0ff;
-$button_outlined_text_hover: #e8edff;
-$text-active: #3b14f9;
+$button_pressed-bg: theme.$p-3;
+$button-active-bg: theme.$p-2;
+$text-active:  theme.$p-5;
 
 ino-segment-button {
   .button {
@@ -60,12 +60,12 @@ ino-segment-button {
     &:active {
       box-shadow: none;
       color: $text-active;
-      background-color: $button_outlined_text_pressed;
+      background-color: $button_pressed-bg;
     }
 
     &--active {
       color: $text-active;
-      background-color: $button_outlined_text_hover;
+      background-color: $button-active-bg;
     }
 
     &:disabled {
