@@ -13,7 +13,7 @@ import useTranslation from 'utils/hooks/useTranslation';
 import styles from './index.module.scss';
 import Custom404 from 'pages/[lang]/404';
 import { inDevEnvironment } from 'utils/in-dev-mode';
-import { MyPatternA, myPatternAHtml } from '@inovex.de/ui-patterns'
+import { MyPatternA, myPatternAHtml } from '@inovex.de/ui-patterns';
 
 interface HighlightedCodes {
   [key: string]: string;
