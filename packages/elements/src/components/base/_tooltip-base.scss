@@ -6,7 +6,7 @@
 @import '../base/typography';
 
 $border-radius: 10px;
-$shadow-color: rgba(93, 91, 105, 0.3);
+$shadow-color: rgba(theme.$n-10, 0.35);
 
 @mixin tooltip($background-color, $font-color) {
   background: $background-color;
