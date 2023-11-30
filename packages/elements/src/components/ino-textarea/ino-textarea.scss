@@ -2,7 +2,7 @@
 @use '@material/textfield/mdc-text-field';
 @use '@material/floating-label/mdc-floating-label';
 @use '@material/textfield';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 
 ino-textarea {
   /**
@@ -12,15 +12,15 @@ ino-textarea {
    */
   --textarea-outline-color: var(
     --ino-textarea-outline-color,
-    #{theme.color(primary)}
+    #{theme.$p-5}
   );
   --textarea-caret-color: var(
     --ino-textarea-caret-color,
-    #{theme.color(primary)}
+    #{theme.$p-5}
   );
   --textarea-label-color: var(
     --ino-textarea-label-color,
-    #{theme.color(primary)}
+    #{theme.$p-5}
   );
 }
 
