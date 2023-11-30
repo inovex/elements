@@ -1,5 +1,5 @@
 @use '../base/mdc-customize';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 @use '../base/typography';
 @use '@material/data-table';
 
@@ -17,12 +17,15 @@ ino-table ino-table-header-cell {
 
   &.mdc-data-table__header-cell {
     padding: 2px 0 4px 0;
+    border-bottom: 2px solid theme.$n-3;
+    color: theme.$n-4;
   }
 
   .mdc-data-table__header-cell-wrapper {
     padding: 0 10px;
     height: 100%;
     border-radius: 10px;
+    border-color: theme.$n-2;
     outline: 0;
     margin-right: $margin-right;
   }
@@ -78,8 +81,8 @@ ino-table ino-table-header-cell {
     &:focus-within,
     &.ino-table-header-cell--active {
       .mdc-data-table__header-cell-wrapper {
-        color: theme.color(primary);
-        background: rgba(theme.color(light), 0.32);
+        color: theme.$p-5;
+        background: theme.$n-2;
       }
       .ino-table-header-cell__search-icon {
         display: block;
@@ -93,11 +96,11 @@ ino-table ino-table-header-cell {
 
     .ino-table-header-cell__popover-content {
       border-radius: inherit;
-      box-shadow: 0px 25px 50px -12px rgba(#1e2125, 0.25); // TODO move color
+      box-shadow: 0px 25px 50px -12px theme.$primary-focus; 
     }
   }
   &.ino-table-header-cell--searched {
-    border-bottom-color: theme.color(primary);
+    border-bottom-color: theme.$p-5;
   }
 
   // TODO: Add proper icons for all directions
