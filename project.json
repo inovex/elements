@@ -11,20 +11,14 @@
         "dryRun": false,
         "push": true,
         "commitMessageFormat": "chore: publish {version}",
-        "postTargets": [
-          "deploy-npm",
-          "deploy-github"
-        ]
+        "postTargets": ["deploy-npm", "deploy-github"]
       },
       "configurations": {
         "prerelease": {
           "releaseAs": "prerelease",
           "skipCommit": true,
           "skipRootChangelog": true,
-          "postTargets": [
-            "deploy-npm",
-            "cleanup-prerelease"
-          ]
+          "postTargets": ["deploy-npm", "cleanup-prerelease"]
         }
       }
     },

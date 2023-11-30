@@ -1,46 +1,25 @@
 {
   "name": "core",
+  "version": "8.1.3",
   "private": true,
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "engines": {
     "node": ">=14.20"
   },
   "scripts": {
-    "---start---": "",
     "start:storybook": "nx run-many --target=start --projects=storybook,elements --output-style=stream",
-    "start:angular-example": "nx run elements-angular-example:start",
-    "start:react-example": "nx run elements-react-example:start",
-    "start:vue-example": "nx run elements-vue-example:start",
     "start:landingpage": "nx run landingpage:start",
     "start:ui-patterns": "nx run ui-patterns:dev",
-    "---build---": "",
     "build": "nx run-many --target=build --output-style=stream --exclude workspace",
-    "build:affected": "nx run-many --target=build --output-style=stream --exclude workspace",
-    "build:core": "nx run elements:build",
-    "build:landingpage": "nx run landingpage:build",
-    "---test---": "",
-    "test": "nx run-many --target=test --output-style=stream --configuration=ci",
-    "test:core": "nx run elements:test",
+    "test": "nx run-many --target=test --output-style=stream --configuration=ci --exclude workspace",
     "test:core:watch": "nx run elements:test:watch",
-    "---lint-n-format---": "",
     "lint": "nx run-many --target=lint --output-style=stream --exclude workspace",
     "lint:fix": "nx run-many --target=lint --configuration=fix --output-style=stream --exclude workspace",
-    "format": "nx run-many --target format:check --exclude workspace",
-    "format:fix": "nx run-many --target format:write --exclude workspace",
-    "---misc---": "",
-    "clean": "nx run-many --target=clean && shx rm -rf dist",
-    "clean:node-modules": "nx run-many --target=clean --configuration=nodejs && shx rm -rf node_modules",
-    "---lerna---": "",
-    "changelog": "yarn changelog:root && yarn changelog:pkgs",
-    "changelog:root": "standard-version",
-    "changelog:pkgs": "lerna exec --concurrency 1 --stream 'standard-version'",
-    "new:component": "node scripts/newComponent.js",
-    "prepare:release": "lerna version --conventional-commits --no-changelog --yes --no-git-tag-version",
-    "publish:yalc": "node ./scripts/publishYalc.js",
-    "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish",
-    "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
-    "version": "node scripts/bumprootversion.js && yarn changelog",
-    "postversion": "git add -A"
+    "format": "nx format:check --exclude workspace",
+    "format:fix": "nx format:write --exclude workspace",
+    "qc": "yarn lint && yarn format && yarn build && yarn test",
+    "clean": "nx run-many --target=clean --exclude workspace && shx rm -rf dist",
+    "clean:node-modules": "nx run-many --target=clean --configuration=nodejs --exclude workspace && shx rm -rf node_modules"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~15.1.0",
@@ -119,6 +98,5 @@
       "**/flatpickr",
       "**/@mdx-js/*"
     ]
-  },
-  "version": "8.1.3"
+  }
 }

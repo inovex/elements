@@ -35,7 +35,7 @@ jobs:
           name: storybook
           path: version/${{ github.ref_name }} # Push to the proper directory on gh pages branch.
           check-artifacts: true # search in current workflow run
-          workflow-conclusion: "in_progress" # need to change to in_progress, cause current workflow run is always running
+          workflow-conclusion: 'in_progress' # need to change to in_progress, cause current workflow run is always running
       - name: Provide latest symlink
         if: ${{ ! contains( github.ref_name, '-' ) }} # only link to latest for releases (e.g. v7.0.0), not pre-releases (e.g. v.7.0.0-1)
         run: cd version && rm -f latest && ln -s ${{ github.ref_name }} latest
