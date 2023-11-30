@@ -1,6 +1,6 @@
 @use '../base/mdc-customize';
 @use '@material/list';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 
 @include list.deprecated-core-styles;
 
@@ -19,36 +19,45 @@ ino-list-item {
    */
   --list-item-selected-color: var(
     --ino-list-item-selected-color,
-    #{theme.color(primary)}
+    #{theme.$p-5}
   );
   --list-item-selected-background-color: var(
     --ino-list-item-selected-background-color,
-    #{rgba(theme.color(primary, base), 0.05)}
+    #{theme.$p-1}
   );
   --list-item-selected-background-color-hover: var(
     --ino-list-item-selected-background-color-hover,
-    #{rgba(theme.color(primary, base), 0.1)}
+    #{theme.$p-2}
   );
   --list-item-selected-background-color-active: var(
     --ino-list-item-selected-background-color-active,
-    #{rgba(theme.color(primary, base), 0.3)}
+    #{theme.$p-2}
   );
   --list-item-selected-background-color-focus: var(
     --ino-list-item-selected-background-color-focus,
-    #{rgba(theme.color(primary, base), 0.15)}
+    #{theme.$p-2}
   );
-  --list-item-deselected-color: var(--ino-list-item-deselected-color);
+
+
+  --list-item-deselected-color: var(
+    --ino-list-item-deselected-color, 
+      #{theme.$n-11}
+    );
   --list-item-deselected-background-color: var(
-    --ino-list-item-deselected-background-color
+    --ino-list-item-deselected-background-color,
+    #{theme.$transparent}
   );
   --list-item-deselected-background-color-hover: var(
-    --ino-list-item-deselected-background-color-hover
+    --ino-list-item-deselected-background-color-hover,
+    #{theme.$n-1}
   );
   --list-item-deselected-background-color-active: var(
-    --ino-list-item-deselected-background-color-active
+    --ino-list-item-deselected-background-color-active,
+    #{theme.$n-1}
   );
   --list-item-deselected-background-color-focus: var(
-    --ino-list-item-deselected-background-color-focus
+    --ino-list-item-deselected-background-color-focus,
+    #{theme.$n-1}
   );
 }
 
@@ -121,7 +130,7 @@ ino-list-item {
 
     &:hover {
       background-color: var(--list-item-deselected-background-color-hover);
-    }
+    } 
 
     &:focus {
       background-color: var(--list-item-deselected-background-color-focus);
