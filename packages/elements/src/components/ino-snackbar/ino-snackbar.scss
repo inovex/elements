@@ -2,23 +2,23 @@
 @use '../base/mdc-customize';
 @use '@material/snackbar/mdc-snackbar';
 @use '../base/typography';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 @use '../base/animation';
 
 $snackbar-types: 'info', 'error', 'success';
 
 $snackbar-color-map-by-type: (
   info: (
-    color: theme.color(primary),
-    color-light: theme.color(primary, light),
+    color: #{theme.$p-5},
+    color-light: #{theme.$p-2},
   ),
   error: (
-    color: theme.color(error),
-    color-light: theme.color(error, light),
+    color: #{theme.$error},
+    color-light: #{theme.$error-light},
   ),
   success: (
-    color: theme.color(success),
-    color-light: theme.color(success, light),
+    color: #{theme.$success},
+    color-light: #{theme.$success-light},
   ),
 );
 
@@ -63,10 +63,7 @@ ino-snackbar {
   @each $type in $snackbar-types {
     &.ino-snackbar--type-#{$type} {
       --snackbar-color: #{color($type, color)};
-      --snackbar-color-light: #{sass-color.adjust(
-          color($type, color-light),
-          $lightness: 30%
-        )}; // FIXME use light color of new color pallet
+      --snackbar-color-light: #{color($type, color-light)}; 
     }
   }
 
