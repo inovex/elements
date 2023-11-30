@@ -61,7 +61,7 @@ To begin contributing a new UI pattern, initiate the Vite application server by 
 5. Finally, import the new pattern component and its HTML content at the beginning of the landingpage pattern page:
 
    ```js
-   // landingpage/pages/library/patterns/index.tsx
+   // landingpage/pages/[lang]/library/patterns/index.tsx
    import { MyPatternA } from '@inovex.de/ui-patterns'
    import myPatternAhtml from 'public/patterns-html/my-pattern-a.html';
    ```
@@ -90,5 +90,6 @@ To begin contributing a new UI pattern, initiate the Vite application server by 
       // ...
    };
    ```
+   6. Additionally, import the pattern in the `ui-patterns-playground` package. This allows to showcase the pattern in the playground and test it in a development environment.
    
 Done! Your contribution is now live, both in dev mode and once deployed on our official landing page. It's ready to be viewed and copied on the library patterns page, showcasing the potential of our inovex Elements library. **Thanks for contributing and enriching our library with your UI Pattern!**
