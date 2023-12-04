@@ -32,6 +32,9 @@
         },
         "watch": {
           "command": "stencil test --e2e --watch"
+        },
+        "unit": {
+          "command": "stencil test --spec"
         }
       }
     },
