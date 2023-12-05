@@ -56,10 +56,7 @@ $extended-edged-borders: (
    * @prop --fab-icon-color-disabled: Color of the slotted icon if disabled
    */
   --fab-color: var(--ino-fab-color, white);
-  --fab-background-color: var(
-    --ino-fab-background-color,
-    #{theme.$p-6}
-  );
+  --fab-background-color: var(--ino-fab-background-color, #{theme.$p-6});
   --fab-background-color-hover: var(
     --ino-fab-background-color-hover,
     #{theme.$p-5}
@@ -68,14 +65,8 @@ $extended-edged-borders: (
     --ino-fab-background-color-active,
     #{theme.$p-7}
   );
-  --fab-icon-color: var(
-    --ino-fab-icon-color,
-    #{theme.$white}
-  );
-  --fab-color-disabled: var(
-    --ino-fab-color-disabled,
-    #{theme.$white}
-  );
+  --fab-icon-color: var(--ino-fab-icon-color, #{theme.$white});
+  --fab-color-disabled: var(--ino-fab-color-disabled, #{theme.$white});
   --fab-background-color-disabled: var(
     --ino-background-color-disabled,
     #{theme.$n-4}

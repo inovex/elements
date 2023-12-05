@@ -12,5 +12,4 @@
   @include linear-progress.core-styles;
   @include linear-progress.bar-color(var(--progress-bar--bar-color));
   @include linear-progress.buffer-color(theme.$n-2);
-
 }

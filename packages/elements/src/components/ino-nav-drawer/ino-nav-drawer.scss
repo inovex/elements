@@ -28,10 +28,7 @@
     171px
   );
   --nav-drawer-height: var(--ino-nav-drawer-height, 100%);
-  --nav-drawer-background: var(
-    --ino-nav-drawer-background,
-    #{theme.$white}
-  );
+  --nav-drawer-background: var(--ino-nav-drawer-background, #{theme.$white});
   --nav-drawer-text-color: var(--ino-nav-drawer-text-color, #{theme.$p-7});
   --nav-drawer-transition-duration: var(
     --ino-nav-drawer-transition-duration,

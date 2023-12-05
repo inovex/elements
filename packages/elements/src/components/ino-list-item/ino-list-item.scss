@@ -38,11 +38,10 @@ ino-list-item {
     #{theme.$p-2}
   );
 
-
   --list-item-deselected-color: var(
-    --ino-list-item-deselected-color, 
-      #{theme.$n-11}
-    );
+    --ino-list-item-deselected-color,
+    #{theme.$n-11}
+  );
   --list-item-deselected-background-color: var(
     --ino-list-item-deselected-background-color,
     #{theme.$transparent}
@@ -130,7 +129,7 @@ ino-list-item {
 
     &:hover {
       background-color: var(--list-item-deselected-background-color-hover);
-    } 
+    }
 
     &:focus {
       background-color: var(--list-item-deselected-background-color-focus);

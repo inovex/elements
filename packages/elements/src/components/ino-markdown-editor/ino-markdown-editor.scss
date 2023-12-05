@@ -69,9 +69,10 @@ ino-markdown-editor {
     background-color: transparent;
     font-size: 22px;
 
-    &:hover, &--active {
+    &:hover,
+    &--active {
       --ino-icon-color-primary: #{theme.$p-6};
-      background-color:  theme.$p-2;
+      background-color: theme.$p-2;
       color: theme.$p-6;
       cursor: pointer;
     }

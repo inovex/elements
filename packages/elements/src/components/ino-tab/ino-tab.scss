@@ -6,7 +6,6 @@
 @use '../base/new-theme' as theme;
 @use '../base/typography';
 
-
 ino-tab {
   .mdc-tab {
     @include typography.font(sans-serif, s, regular);
@@ -18,7 +17,13 @@ ino-tab {
     @include ripple.surface;
     @include ripple.radius-bounded;
     @include ripple.states-base-color(theme.$p-2);
-    @include ripple.states-opacities((hover: .5, focus: 0.8, press: 0.8));
+    @include ripple.states-opacities(
+      (
+        hover: 0.5,
+        focus: 0.8,
+        press: 0.8,
+      )
+    );
     overflow: hidden;
 
     ino-icon {

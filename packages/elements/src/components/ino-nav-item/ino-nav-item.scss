@@ -12,11 +12,11 @@ ino-nav-item {
    */
 
   --nav-item-color: var(--ino-nav-item-color, #{theme.$n-11});
-  --nav-item-color-active: var(
-    --ino-nav-item-color-active,
-    #{theme.$p-5}
+  --nav-item-color-active: var(--ino-nav-item-color-active, #{theme.$p-5});
+  --nav-item-background-color: var(
+    --ino-nav-item-background-color,
+    theme.$white
   );
-  --nav-item-background-color: var(--ino-nav-item-background-color, theme.$white);
   --nav-item-background-color-active: var(
     --ino-nav-item-background-color-active,
     #{theme.$n-2}

@@ -20,10 +20,7 @@ ino-icon-button {
   $icon-size: var(--ino-icon-button-icon-size, 24px);
   $icon-color: var(--ino-icon-button-icon-color, theme.$p-5);
   $background-color: var(--ino-icon-button-background-color, transparent);
-  $icon-active-color: var(
-    --ino-icon-button-icon-active-color,
-    theme.$p-5
-  );
+  $icon-active-color: var(--ino-icon-button-icon-active-color, theme.$p-5);
   $background-active-color: var(
     --ino-icon-button-background-active-color,
     theme.$p-5

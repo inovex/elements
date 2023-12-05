@@ -63,7 +63,7 @@ ino-snackbar {
   @each $type in $snackbar-types {
     &.ino-snackbar--type-#{$type} {
       --snackbar-color: #{color($type, color)};
-      --snackbar-color-light: #{color($type, color-light)}; 
+      --snackbar-color-light: #{color($type, color-light)};
     }
   }
 
