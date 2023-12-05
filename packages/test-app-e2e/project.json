@@ -1,0 +1,23 @@
+{
+  "name": "test-app-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/test-app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/packages/test-app-e2e"],
+      "options": {
+        "config": "packages/test-app-e2e/playwright.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/test-app-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "implicitDependencies": ["test-app"]
+}

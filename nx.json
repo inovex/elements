@@ -13,6 +13,10 @@
     },
     "lint": {
       "cache": true
+    },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^default"]
     }
   },
   "generators": {
@@ -28,6 +32,12 @@
     },
     "@nx/angular:component": {
       "style": "scss"
+    },
+    "@nx/web:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "vitest",
+      "e2eTestRunner": "playwright"
     }
   },
   "cacheDirectory": ".nx-cache"
