@@ -91,7 +91,7 @@ export class Input implements ComponentInterface {
   /**
    * Makes the input text and container slightly smaller.
    */
-   @Prop() dense = false;
+  @Prop() dense = false;
 
   /**
    * Displays the input field as invalid if set to true.

@@ -194,17 +194,23 @@ ino-input .mdc-text-field--filled.ino-input--dense {
 
   .mdc-floating-label.mdc-floating-label--float-above {
     margin-top: 3px;
-  }  
-  
+  }
+
   &:has(.mdc-text-field__icon.mdc-text-field__icon--leading) {
     @include setIconMargins(
-      (0 $icon-padding-to-text-dense $icon-padding-to-bottom-dense $icon-padding-to-border-dense),
-      (0 $icon-padding-to-border-dense $icon-padding-to-bottom-dense $icon-padding-to-text-dense)
-    );  
+      (
+        0 $icon-padding-to-text-dense $icon-padding-to-bottom-dense
+          $icon-padding-to-border-dense
+      ),
+      (
+        0 $icon-padding-to-border-dense $icon-padding-to-bottom-dense
+          $icon-padding-to-text-dense
+      )
+    );
     .mdc-floating-label,
     .mdc-floating-label--float-above {
-        left: 21px;
-    } 
+      left: 21px;
+    }
   }
 }
 
@@ -248,10 +254,9 @@ ino-input .mdc-text-field--outlined {
 ino-input .mdc-text-field--outlined.ino-input--dense {
   @include textfield.outlined-height($outline-input-height-dense);
 
-  &[class*='--with-leading-icon']
-    .mdc-floating-label {
-      left: 21px;
-    }
+  &[class*='--with-leading-icon'] .mdc-floating-label {
+    left: 21px;
+  }
 
   &[class*='--with-leading-icon']
     .mdc-floating-label.mdc-floating-label--float-above {
@@ -262,7 +267,6 @@ ino-input .mdc-text-field--outlined.ino-input--dense {
 ino-input .mdc-text-field + .mdc-text-field-helper-line {
   padding-left: 0;
 }
-
 
 // Custom number arrows
 ino-input[type='number'] {

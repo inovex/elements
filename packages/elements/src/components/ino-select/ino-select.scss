@@ -19,7 +19,8 @@ $filled-selected-text-height-dense: 25px;
 $outline-input-height: 40px;
 $outline-input-height-dense: 30px;
 $outline-shape-radius: $outline-input-height / 2;
-$outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius $outline-shape-radius 0;
+$outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius
+  $outline-shape-radius 0;
 
 @mixin setIconColors($color) {
   .mdc-select__icon {
@@ -138,9 +139,8 @@ ino-select {
   }
 }
 
-// filled 
+// filled
 ino-select .mdc-select--filled {
-
   .mdc-select__anchor {
     padding-left: 0;
   }
@@ -191,7 +191,7 @@ ino-select.ino-select-dense .mdc-select--filled {
   .mdc-floating-label.mdc-floating-label--float-above {
     top: 18px;
     display: unset;
-  }  
+  }
 
   .mdc-select__icon {
     margin: auto 12px;
@@ -208,7 +208,8 @@ ino-select.ino-select-outlined {
   @include select.outlined-height($outline-input-height);
   @include select.outline-shape-radius($outline-shape-radius);
 
-  &.ino-select--has-helpertext, &.ino-select--has-helpertext.ino-select--has-helpertext-persistent{
+  &.ino-select--has-helpertext,
+  &.ino-select--has-helpertext.ino-select--has-helpertext-persistent {
     @include select.outline-shape-radius($outline-shape-radius-corner);
 
     & .mdc-select-helper-text {
@@ -232,12 +233,12 @@ ino-select.ino-select-outlined {
     display: unset; // center icon vertically
   }
 
-  & [class*='--with-leading-icon']
-  .mdc-floating-label {
+  & [class*='--with-leading-icon'] .mdc-floating-label {
     left: 21px;
   }
 
-  & [class*='--with-leading-icon']
+  &
+    [class*='--with-leading-icon']
     .mdc-floating-label.mdc-floating-label--float-above {
     left: 5px;
   }
@@ -247,7 +248,8 @@ ino-select.ino-select-outlined {
 ino-select.ino-select-outlined.ino-select-dense {
   @include select.outlined-height($outline-input-height-dense);
 
-  & [class*='--with-leading-icon']
+  &
+    [class*='--with-leading-icon']
     .mdc-floating-label.mdc-floating-label--float-above {
     top: 13px;
   }
@@ -255,7 +257,7 @@ ino-select.ino-select-outlined.ino-select-dense {
   .mdc-floating-label.mdc-floating-label--float-above {
     margin-top: 0px;
     top: 13px;
-  }  
+  }
 
   .mdc-select--focused .mdc-floating-label.mdc-floating-label--float-above {
     top: 12px;

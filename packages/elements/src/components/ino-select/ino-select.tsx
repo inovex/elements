@@ -227,7 +227,7 @@ export class Select implements ComponentInterface {
       'ino-select-dense': this.dense,
       'ino-select--has-helpertext': hasHelperText,
       'ino-select--has-helpertext-persistent': this.helperPersistent,
-    })
+    });
 
     const classSelect = classNames({
       'mdc-select': true,
