@@ -7,7 +7,6 @@ export class AppElement extends HTMLElement {
   public static observedAttributes = [];
 
   connectedCallback() {
-
     defineCustomElements();
     this.innerHTML = `
       <ino-button>HI</ino-button>

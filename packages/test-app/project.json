@@ -1,8 +1,8 @@
 {
-  "name": "playwright-e2e",
+  "name": "test-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "packages/playwright-e2e/src",
+  "sourceRoot": "packages/test-app/src",
   "tags": [],
   "targets": {
     "build": {
@@ -10,7 +10,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/packages/playwright-e2e"
+        "outputPath": "dist/packages/test-app"
       },
       "configurations": {
         "development": {
@@ -25,15 +25,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "playwright-e2e:build"
+        "buildTarget": "test-app:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "playwright-e2e:build:development",
+          "buildTarget": "test-app:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "playwright-e2e:build:production",
+          "buildTarget": "test-app:build:production",
           "hmr": false
         }
       }
@@ -42,14 +42,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "playwright-e2e:build"
+        "buildTarget": "test-app:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "playwright-e2e:build:development"
+          "buildTarget": "test-app:build:development"
         },
         "production": {
-          "buildTarget": "playwright-e2e:build:production"
+          "buildTarget": "test-app:build:production"
         }
       }
     },
@@ -58,14 +58,14 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/packages/playwright-e2e"
+        "reportsDirectory": "../../coverage/packages/test-app"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/playwright-e2e/**/*.ts"]
+        "lintFilePatterns": ["packages/test-app/**/*.ts"]
       }
     }
   }
