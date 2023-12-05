@@ -35,6 +35,7 @@
     "test:core": "nx run elements:test",
     "test:core:watch": "nx run elements:test:watch",
     "test:unit": "nx run elements:test --configuration=unit",
+    "test:playwright": "nx run test-app-e2e:e2e",
     "---lint-n-format---": "",
     "lint": "nx run-many --target=lint --output-style=stream",
     "lint:fix": "nx run-many --target=lint --configuration=fix --output-style=stream",
