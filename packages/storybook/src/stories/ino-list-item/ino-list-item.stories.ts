@@ -47,12 +47,14 @@ export default {
   },
 } as Meta;
 
-const exampleImg = html` <ino-img
-  slot="leading"
-  src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-  ratio-width="1"
-  ratio-height="1"
-></ino-img>`;
+const exampleImg = html`
+  <ino-img
+    slot="leading"
+    src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+    ratio-width="1"
+    ratio-height="1"
+  ></ino-img>
+`;
 
 const template = new TemplateGenerator<Components.InoListItem>(
   'ino-list-item',
@@ -95,9 +97,10 @@ const templateGraphicAndMeta = new TemplateGenerator<InoListVariants>(
     <ino-list>
       <ino-list-item text="Lorem ipsum dolor sit">
         ${args.avatar && exampleImg}
-        ${args.checkbox && html` <ino-checkbox slot="leading"></ino-checkbox>`}
-        ${args.meta && html`<p slot="trailing">$10.00</p>`}
-        ${args.radio && html` <ino-radio slot="leading" selection></ino-radio>`}
+        ${args.checkbox && html` <ino-checkbox slot="leading"></ino-checkbox> `}
+        ${args.meta && html` <p slot="trailing">$10.00</p> `}
+        ${args.radio &&
+        html` <ino-radio slot="leading" selection></ino-radio> `}
       </ino-list-item>
     </ino-list>
   `,

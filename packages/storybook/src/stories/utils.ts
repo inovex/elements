@@ -48,7 +48,7 @@ export const decorateStoryWithClass = (
   story: () => StoryFnHtmlReturnType,
   className?: string,
 ): StoryFnHtmlReturnType => {
-  return html`<div class="${className ?? ''}">${story()}</div>`;
+  return html` <div class="${className ?? ''}">${story()}</div> `;
 };
 
 export const showSnackbar = (message: string) => {

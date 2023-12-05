@@ -130,10 +130,12 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
     const idDark = 'popover-dark';
     const idPrimary = 'popover-primary';
 
-    const content = html`<p style="padding: 0.5rem">
-      Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet
-      ipsum do.
-    </p>`;
+    const content = html`
+      <p style="padding: 0.5rem">
+        Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur
+        amet ipsum do.
+      </p>
+    `;
 
     return html`
       <ino-button id="${idLight}">Light</ino-button>

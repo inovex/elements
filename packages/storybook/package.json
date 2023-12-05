@@ -63,6 +63,7 @@
     "sass": "^1.49.7",
     "sass-loader": "^12.6.0",
     "story-description-loader": "^1.0.0",
+    "storybook-addon-themes": "^6.1.0",
     "typescript": "^4.5.5",
     "webpack": "^5.0.0"
   },
