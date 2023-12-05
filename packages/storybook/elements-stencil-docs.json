@@ -687,7 +687,7 @@
             "references": {
               "Variants": {
                 "location": "local",
-                "path": "/Users/maria-luisastefan/Documents/GitHub/elements/packages/elements/src/components/ino-button/ino-button.tsx",
+                "path": "/Users/arbeit/Projects/elements/packages/elements/src/components/ino-button/ino-button.tsx",
                 "id": "src/components/ino-button/ino-button.tsx::Variants"
               }
             }

@@ -1,0 +1,72 @@
+{
+  "name": "playwright-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "packages/playwright-e2e/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/packages/playwright-e2e"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "playwright-e2e:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "playwright-e2e:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "playwright-e2e:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "playwright-e2e:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "playwright-e2e:build:development"
+        },
+        "production": {
+          "buildTarget": "playwright-e2e:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/playwright-e2e"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/playwright-e2e/**/*.ts"]
+      }
+    }
+  }
+}
