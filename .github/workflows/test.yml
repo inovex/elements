@@ -1,4 +1,4 @@
-name: Test & Build
+name: Quality Control
 
 on:
   push:
@@ -8,13 +8,25 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  build:
+  qc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
-      - run: yarn build
-        # Build caches for (canary) release workflow
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Track master branch to make nx affected work
+        run: git branch --track main origin/master
+      - name: Install dependencies
+        uses: ./.github/workflows/dependencies-install
+      - name: Check format
+        run: yarn format
+      - name: Check lint
+        run: yarn lint
+      - name: Build all projects
+        run: yarn build
+      - name: Test all projects
+        run: yarn test
       - name: Upload build artifacts for canary release
         uses: ./.github/workflows/artifacts-upload
         with:
@@ -22,26 +34,6 @@ jobs:
           upload-example-artifacts: ${{ github.ref == 'refs/heads/master' }}
           upload-storybook-artifact: true
 
-  lint_n_format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
-      - run: yarn format
-      - run: yarn lint
-
-  test:
-    needs:
-      - build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
-      - run: yarn build:core
-      - run: yarn test
-
   unicorn:
-    needs:
-      - test
-      - build
+    needs: qc
     uses: ./.github/workflows/deploy-unicorn.yml
