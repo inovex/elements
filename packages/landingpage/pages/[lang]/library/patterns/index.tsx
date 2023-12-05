@@ -13,6 +13,7 @@ import useTranslation from 'utils/hooks/useTranslation';
 import styles from './index.module.scss';
 import Custom404 from 'pages/[lang]/404';
 import { inDevEnvironment } from 'utils/in-dev-mode';
+import { MyPatternA, myPatternAHtml } from '@inovex.de/ui-patterns';
 
 interface HighlightedCodes {
   [key: string]: string;
@@ -67,7 +68,7 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
         title="Login"
         id="login"
         description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-        previewComponent={<MockupLogin />}
+        previewComponent={<MyPatternA />}
         highlightedCode={highlightedCodes.login}
         rawCode={codeStrings.login}
       />
@@ -76,21 +77,7 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
 };
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const codeStrings = {
-    login: `
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>HTML 5 Boilerplate</title>
-        <link rel="stylesheet" href="style.css">
-      </head>
-      <body>
-      <script src="index.js"></script>
-      </body>
-    </html>
-    `,
+    login: myPatternAHtml,
   };
 
   const { props: languageProperties } = getStaticLanguageProps(
