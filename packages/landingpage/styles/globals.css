@@ -15,8 +15,16 @@ body {
   position: absolute;
   inset: 0;
   z-index: -10;
-  background: radial-gradient(circle at 15% 11%, var(--inovex-elements-p-2) 2%, transparent 17%),
-  radial-gradient(circle at 75% 50%, var(--inovex-elements-p-2) 1%, transparent 50%);
+  background: radial-gradient(
+      circle at 15% 11%,
+      var(--inovex-elements-p-2) 2%,
+      transparent 17%
+    ),
+    radial-gradient(
+      circle at 75% 50%,
+      var(--inovex-elements-p-2) 1%,
+      transparent 50%
+    );
   filter: blur(10rem);
 }
 
