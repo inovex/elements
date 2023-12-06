@@ -10,6 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="inovex-elements-typo inovex-elements-theme">
+      <div className="blur-bg"></div>
       <Head>
         <meta
           name="viewport"
