@@ -69,3 +69,5 @@ export type NavDrawerLabels = {
 };
 
 export type TippyThemes = 'light' | 'dark' | 'primary';
+
+export type Variants = 'filled' | 'outlined' | 'text';

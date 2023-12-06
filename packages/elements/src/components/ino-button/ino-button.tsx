@@ -11,8 +11,7 @@ import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
 import { ButtonType } from '../types';
-
-export type Variants = 'filled' | 'outlined' | 'text';
+import { Variants } from '../types';
 
 /**
  * @slot icon-leading - For the icon to be prepended

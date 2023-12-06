@@ -686,9 +686,9 @@
             "resolved": "\"filled\" | \"outlined\" | \"text\"",
             "references": {
               "Variants": {
-                "location": "local",
-                "path": "/Users/maria-luisastefan/Documents/GitHub/elements/packages/elements/src/components/ino-button/ino-button.tsx",
-                "id": "src/components/ino-button/ino-button.tsx::Variants"
+                "location": "import",
+                "path": "../types",
+                "id": "src/components/types.ts::Variants"
               }
             }
           },
@@ -11166,10 +11166,10 @@
       "docstring": "",
       "path": "src/components/types.ts"
     },
-    "src/components/ino-button/ino-button.tsx::Variants": {
+    "src/components/types.ts::Variants": {
       "declaration": "export type Variants = 'filled' | 'outlined' | 'text';",
       "docstring": "",
-      "path": "src/components/ino-button/ino-button.tsx"
+      "path": "src/components/types.ts"
     },
     "src/components/types.ts::KeyValue": {
       "declaration": "{\n  key: string;\n  value: string;\n}",
