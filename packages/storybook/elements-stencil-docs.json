@@ -11161,6 +11161,11 @@
     }
   ],
   "typeLibrary": {
+    "src/components/types.ts::KeyValue": {
+      "declaration": "{\n  key: string;\n  value: string;\n}",
+      "docstring": "",
+      "path": "src/components/types.ts"
+    },
     "src/components/types.ts::ButtonType": {
       "declaration": "export type ButtonType = 'button' | 'submit' | 'reset';",
       "docstring": "",
@@ -11168,11 +11173,6 @@
     },
     "src/components/types.ts::Variants": {
       "declaration": "export type Variants = 'filled' | 'outlined' | 'text';",
-      "docstring": "",
-      "path": "src/components/types.ts"
-    },
-    "src/components/types.ts::KeyValue": {
-      "declaration": "{\n  key: string;\n  value: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },

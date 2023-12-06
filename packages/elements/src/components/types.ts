@@ -26,15 +26,12 @@ export type TooltipTrigger =
   | 'click focus'
   | 'click mouseenter focus'
   | 'click focus mouseenter';
-
 export enum ViewMode {
   MARKDOWN = 'markdown',
   PREVIEW = 'preview',
   READONLY = 'readonly',
-}
-
+};
 export type ViewModeUnion = `${ViewMode}`;
-
 export type VerticalLocation = 'top' | 'bottom';
 export type InputType =
   | 'color'
@@ -47,16 +44,12 @@ export type InputType =
   | 'url'
   | 'week';
 export type UserInputInterceptor = (value: string) => string;
-
 /**
  * An arbitary string (or close by default) referencing the action of a dialog.
  */
 export type DialogCloseAction = 'close' | string;
-
 export type DialogSubmitAction = 'submit' | string;
-
 export type Alignment = 'horizontal' | 'vertical';
-
 export type KeyValue = {
   key: string;
   value: string;
@@ -67,7 +60,5 @@ export type NavDrawerLabels = {
   footer: string;
   toggleBtn: string;
 };
-
 export type TippyThemes = 'light' | 'dark' | 'primary';
-
 export type Variants = 'filled' | 'outlined' | 'text';
