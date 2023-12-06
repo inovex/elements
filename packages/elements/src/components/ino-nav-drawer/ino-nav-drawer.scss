@@ -2,8 +2,7 @@
 @use '@material/drawer/mdc-drawer';
 @use '@material/drawer';
 @use '@material/list';
-@use '../base/theme' as theme;
-@use '../base/new-theme' as new-theme;
+@use '../base/new-theme' as theme;
 
 @include drawer.core-styles;
 @include drawer.dismissible-core-styles;
@@ -29,11 +28,8 @@
     171px
   );
   --nav-drawer-height: var(--ino-nav-drawer-height, 100%);
-  --nav-drawer-background: var(
-    --ino-nav-drawer-background,
-    #{theme.color(primary, contrast)}
-  );
-  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, #{new-theme.$p-7});
+  --nav-drawer-background: var(--ino-nav-drawer-background, #{theme.$white});
+  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, #{theme.$p-7});
   --nav-drawer-transition-duration: var(
     --ino-nav-drawer-transition-duration,
     0.25s

@@ -1,5 +1,5 @@
 @use '../base/mdc-customize';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 @use '@material/icon-button/mdc-icon-button';
 @use '@material/icon-button';
 @use '@material/ripple/ripple-theme';
@@ -18,15 +18,12 @@ ino-icon-button {
 
   $button-size: var(--ino-icon-button-size, 48px);
   $icon-size: var(--ino-icon-button-icon-size, 24px);
-  $icon-color: var(--ino-icon-button-icon-color, theme.color(primary));
+  $icon-color: var(--ino-icon-button-icon-color, theme.$p-5);
   $background-color: var(--ino-icon-button-background-color, transparent);
-  $icon-active-color: var(
-    --ino-icon-button-icon-active-color,
-    theme.color(primary)
-  );
+  $icon-active-color: var(--ino-icon-button-icon-active-color, theme.$p-5);
   $background-active-color: var(
     --ino-icon-button-background-active-color,
-    theme.color(primary)
+    theme.$p-5
   );
 
   ino-icon {
@@ -58,10 +55,10 @@ ino-icon-button {
   }
 
   &.ino-icon-button--filled {
-    --ino-icon-button-icon-color: #{theme.color(primary, contrast)};
-    --ino-icon-button-icon-active-color: #{theme.color(primary, contrast)};
-    --ino-icon-button-background-color: #{theme.color(primary)};
-    --ino-icon-button-background-active-color: #{theme.color(primary, contrast)};
+    --ino-icon-button-icon-color: #{theme.$white};
+    --ino-icon-button-icon-active-color: #{theme.$white};
+    --ino-icon-button-background-color: #{theme.$p-6};
+    --ino-icon-button-background-active-color: #{theme.$white};
   }
 }
 
@@ -70,11 +67,11 @@ ino-icon-button {
 .ino-icon-button--disabled.ino-icon-button-filled {
   --ino-icon-button-background-color: var(
     --ino-icon-button-background-disabled-color,
-    #{theme.color(dark, light)}
+    #{theme.$n-4}
   );
 
   ino-icon {
-    --ino-icon-button-icon-color: #fff;
+    --ino-icon-button-icon-color: #{theme.$white};
   }
 }
 
@@ -82,7 +79,7 @@ ino-icon-button {
   ino-icon {
     --ino-icon-button-icon-color: var(
       --ino-icon-button-icon-disabled-color,
-      #{theme.color(dark, light)}
+      #{theme.$n-4}
     );
   }
 }

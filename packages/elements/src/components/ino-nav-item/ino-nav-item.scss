@@ -1,6 +1,6 @@
 @use '../base/mdc-customize';
 @use '@material/list/mdc-list';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 @use '../base/typography-new' as typography;
 
 ino-nav-item {
@@ -11,15 +11,15 @@ ino-nav-item {
    * @prop --ino-nav-item-background-color-active: Active color of the background of one item.
    */
 
-  --nav-item-color: var(--ino-nav-item-color, #{theme.color(dark, dark)});
-  --nav-item-color-active: var(
-    --ino-nav-item-color-active,
-    #{theme.color(primary, base)}
+  --nav-item-color: var(--ino-nav-item-color, #{theme.$n-11});
+  --nav-item-color-active: var(--ino-nav-item-color-active, #{theme.$p-5});
+  --nav-item-background-color: var(
+    --ino-nav-item-background-color,
+    theme.$white
   );
-  --nav-item-background-color: var(--ino-nav-item-background-color, white);
   --nav-item-background-color-active: var(
     --ino-nav-item-background-color-active,
-    #{rgba(theme.color(light, contrast), 0.04)}
+    #{theme.$n-2}
   );
 
   .mdc-deprecated-list-item,
