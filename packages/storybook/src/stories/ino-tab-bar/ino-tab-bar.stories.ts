@@ -16,12 +16,12 @@ export default {
     story => {
       useEffect(() => {
         const tabBars = document.querySelectorAll('ino-tab-bar');
-        tabBars.forEach(t =>
-          t.addEventListener('activeTabChange', eventHandler)
+        tabBars.forEach((t) =>
+          t.addEventListener('activeTabChange', eventHandler),
         );
         return () =>
-          tabBars.forEach(t =>
-            t.removeEventListener('activeTabChange', eventHandler)
+          tabBars.forEach((t) =>
+            t.removeEventListener('activeTabChange', eventHandler),
           );
       });
       return story();

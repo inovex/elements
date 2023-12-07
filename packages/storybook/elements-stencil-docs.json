@@ -37,7 +37,7 @@
           "reflectToAttr": false,
           "docs": "The title of the accordion.",
           "docsTags": [],
-          "default": "null",
+          "default": "''",
           "values": [
             {
               "type": "string"
@@ -57,7 +57,7 @@
           "mutable": false,
           "attr": "expanded",
           "reflectToAttr": false,
-          "docs": "Weather the accordion is expanded or collapsed.",
+          "docs": "Whether the accordion is expanded or collapsed.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -687,7 +687,7 @@
             "references": {
               "Variants": {
                 "location": "local",
-                "path": "/Users/arbeit/Projects/elements/packages/elements/src/components/ino-button/ino-button.tsx",
+                "path": "/Users/maria-luisastefan/Documents/GitHub/elements/packages/elements/src/components/ino-button/ino-button.tsx",
                 "id": "src/components/ino-button/ino-button.tsx::Variants"
               }
             }
@@ -2868,6 +2868,33 @@
           "required": false
         },
         {
+          "name": "dialogRole",
+          "type": "\"alertdialog\" | \"dialog\"",
+          "complexType": {
+            "original": "'dialog' | 'alertdialog'",
+            "resolved": "\"alertdialog\" | \"dialog\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dialog-role",
+          "reflectToAttr": false,
+          "docs": "The role of the dialog. Can be either 'dialog' or 'alertdialog'.\nThe 'alertdialog' role should be used for important alerts and error messages.",
+          "docsTags": [],
+          "default": "'dialog'",
+          "values": [
+            {
+              "value": "alertdialog",
+              "type": "string"
+            },
+            {
+              "value": "dialog",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dismissible",
           "type": "boolean",
           "complexType": {
@@ -2878,7 +2905,7 @@
           "mutable": false,
           "attr": "dismissible",
           "reflectToAttr": false,
-          "docs": "Close the dialog on pressing the ESC key or clicking outside of the dialog.",
+          "docs": "Close the dialog by clicking outside of the dialog.",
           "docsTags": [],
           "values": [
             {
@@ -7062,6 +7089,11 @@
           "docs": "Background color on hover if deselected"
         },
         {
+          "name": "--ino-option-height",
+          "annotation": "prop",
+          "docs": "Height of the option container"
+        },
+        {
           "name": "--ino-option-selected-background-color",
           "annotation": "prop",
           "docs": "Background color if selected"
@@ -8548,6 +8580,27 @@
           "required": false
         },
         {
+          "name": "type",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of the internal button in the element.\nThis can be 'submit', 'reset', or 'button'.\nIf not specified, the default type is 'submit'.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -8971,6 +9024,11 @@
         }
       ],
       "styles": [
+        {
+          "name": "--ino-border-radius",
+          "annotation": "prop",
+          "docs": "Border-radius of the open select menu"
+        },
         {
           "name": "--ino-select-height",
           "annotation": "prop",
@@ -11156,7 +11214,7 @@
       "path": "src/components/ino-button/ino-button.tsx"
     },
     "src/components/types.ts::KeyValue": {
-      "declaration": "{\n    key: string;\n    value: string;\n}",
+      "declaration": "{\n  key: string;\n  value: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },
@@ -11166,7 +11224,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/ino-datepicker/picker-factory.ts::PickerTypeKeys": {
-      "declaration": "export type PickerTypeKeys = typeof PickerTypes[keyof typeof PickerTypes];",
+      "declaration": "export type PickerTypeKeys = (typeof PickerTypes)[keyof typeof PickerTypes];",
       "docstring": "",
       "path": "src/components/ino-datepicker/picker-factory.ts"
     },
@@ -11236,7 +11294,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/types.ts::NavDrawerLabels": {
-      "declaration": "{content: string, footer: string, toggleBtn: string}",
+      "declaration": "{\n  content: string;\n  footer: string;\n  toggleBtn: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },

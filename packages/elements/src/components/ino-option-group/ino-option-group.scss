@@ -1,5 +1,5 @@
 @use '../base/mdc-customize';
-@use "@material/list/mdc-list";
+@use '@material/list/mdc-list';
 
 ino-option-group ino-option:not(#ino-opt-group-header) .mdc-list-item {
   padding-left: 30px;

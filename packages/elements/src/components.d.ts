@@ -24,7 +24,7 @@ export namespace Components {
          */
         "accordionTitle": string;
         /**
-          * Weather the accordion is expanded or collapsed.
+          * Whether the accordion is expanded or collapsed.
          */
         "expanded": boolean;
     }
@@ -421,7 +421,11 @@ export namespace Components {
          */
         "cancelText"?: string;
         /**
-          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
+         */
+        "dialogRole"?: 'dialog' | 'alertdialog';
+        /**
+          * Close the dialog by clicking outside of the dialog.
          */
         "dismissible"?: boolean;
         /**
@@ -1116,6 +1120,10 @@ export namespace Components {
           * Name of the element
          */
         "name"?: string;
+        /**
+          * The type of the internal button in the element. This can be 'submit', 'reset', or 'button'. If not specified, the default type is 'submit'.
+         */
+        "type"?: string;
         /**
           * Value of the element
          */
@@ -1938,7 +1946,7 @@ declare namespace LocalJSX {
          */
         "accordionTitle"?: string;
         /**
-          * Weather the accordion is expanded or collapsed.
+          * Whether the accordion is expanded or collapsed.
          */
         "expanded"?: boolean;
         /**
@@ -2359,7 +2367,11 @@ declare namespace LocalJSX {
          */
         "cancelText"?: string;
         /**
-          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
+         */
+        "dialogRole"?: 'dialog' | 'alertdialog';
+        /**
+          * Close the dialog by clicking outside of the dialog.
          */
         "dismissible"?: boolean;
         /**
@@ -3116,6 +3128,10 @@ declare namespace LocalJSX {
           * Emits if the user interacts with the button. If the button is disabled or checked, the event will not be emitted.
          */
         "onCheckedChange"?: (event: InoSegmentButtonCustomEvent<any>) => void;
+        /**
+          * The type of the internal button in the element. This can be 'submit', 'reset', or 'button'. If not specified, the default type is 'submit'.
+         */
+        "type"?: string;
         /**
           * Value of the element
          */

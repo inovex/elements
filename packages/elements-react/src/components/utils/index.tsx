@@ -7,11 +7,11 @@ export type IonicReactExternalProps<PropType, ElementType> = PropType & {
 
 export const createForwardRef = <PropType, ElementType>(
   ReactComponent: any,
-  displayName: string
+  displayName: string,
 ) => {
   const forwardRef = (
     props: IonicReactExternalProps<PropType, ElementType>,
-    ref: React.Ref<ElementType>
+    ref: React.Ref<ElementType>,
   ) => {
     return <ReactComponent {...props} forwardedRef={ref} />;
   };

@@ -32,7 +32,7 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
           value={framework}
           onValueChange={(value) =>
             push(
-              `/${Supported_Locales.EN}${MainRoutes.GETTING_STARTED}/${value.detail}`
+              `/${Supported_Locales.EN}${MainRoutes.GETTING_STARTED}/${value.detail}`,
             )
           }
         >
@@ -76,7 +76,7 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
                 {'Go to the' + ` ${frameworkName}` + ' Sandbox'}
               </InoButton>
             </a>
-        )}
+          )}
         </div>
       </div>
     </Page>

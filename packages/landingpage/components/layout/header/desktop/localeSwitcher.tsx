@@ -15,10 +15,10 @@ const LocaleSwitcher = () => {
         router.pathname,
         switchToEnglish
           ? router.asPath.replace(Supported_Locales.DE, Supported_Locales.EN)
-          : router.asPath.replace(Supported_Locales.EN, Supported_Locales.DE)
+          : router.asPath.replace(Supported_Locales.EN, Supported_Locales.DE),
       );
     },
-    [router]
+    [router],
   );
 
   const isChecked = (locale as string) === Supported_Locales.EN;

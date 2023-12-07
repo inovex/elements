@@ -10,10 +10,10 @@ export const pxToNumber = (s: string): number =>
 export const setPropertyOfEl = <Component extends HTMLElement>(
   page: E2EPage,
   selector: string,
-  props: Partial<Component>
+  props: Partial<Component>,
 ) => {
   return page.$eval(selector, (el: Component) => {
-    console.log(props)
+    console.log(props);
     Object.assign(el, props);
   });
 };

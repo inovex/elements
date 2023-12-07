@@ -45,8 +45,8 @@ export default {
       },
     },
     message: {
-      control: 'string'
-    }
+      control: 'string',
+    },
   },
   args: {
     headerText: '',
@@ -62,31 +62,37 @@ export default {
 
 const template = new TemplateGenerator<Components.InoTooltip>(
   'ino-tooltip',
-  args => html`
-  <ino-button id="${args.for}">Trigger Element</ino-button>
-  <ino-tooltip
-    header-text="${args.headerText}"
-    for="${args.for}"
-    placement="${args.placement}"
-    trigger="${args.trigger}"
-    color-scheme="${args.colorScheme}"
-    delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
-    arrow="${args.arrow}"
-  >This is a tooltip</ino-tooltip>
-`);
+  (args) => html`
+    <ino-button id="${args.for}">Trigger Element</ino-button>
+    <ino-tooltip
+      header-text="${args.headerText}"
+      for="${args.for}"
+      placement="${args.placement}"
+      trigger="${args.trigger}"
+      color-scheme="${args.colorScheme}"
+      delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
+      arrow="${args.arrow}"
+      >This is a tooltip</ino-tooltip
+    >
+  `,
+);
 
 export const Playground = template.generatePlaygroundStory();
 
-export const HeaderText = template.generateStoryForProp('headerText', 'Headline', {
-  for: 'tooltip-target-header'
-});
+export const HeaderText = template.generateStoryForProp(
+  'headerText',
+  'Headline',
+  {
+    for: 'tooltip-target-header',
+  },
+);
 
 export const Placement = template.generateStoryForProp('placement', 'right', {
-  for: 'tooltip-target-placement'
+  for: 'tooltip-target-placement',
 });
 
 export const Arrow = template.generateStoryForProp('arrow', true, {
-  for: 'tooltip-target-arrow'
+  for: 'tooltip-target-arrow',
 });
 
 export const Trigger = template.generateStoryForProp('trigger', 'click', {
@@ -96,10 +102,9 @@ export const Trigger = template.generateStoryForProp('trigger', 'click', {
 const templateColors = new TemplateGenerator<Components.InoTooltip>(
   'ino-tooltip',
   (args) => {
-
     const idLight = 'tooltip-light';
     const idDark = 'tooltip-dark';
-    const idPrimary = 'tooltip-primary'
+    const idPrimary = 'tooltip-primary';
 
     return html`
       <ino-button id="${idLight}">Light</ino-button>
@@ -108,18 +113,18 @@ const templateColors = new TemplateGenerator<Components.InoTooltip>(
         for="${idLight}"
         placement="${args.placement}"
         trigger="${args.trigger}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        This is a tooltip 
-      </ino-tooltip> 
+        This is a tooltip
+      </ino-tooltip>
       <ino-button id="${idDark}">Dark</ino-button>
       <ino-tooltip
         color-scheme="dark"
         for="${idDark}"
         placement="${args.placement}"
         trigger="${args.trigger}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
         This is a tooltip
@@ -130,16 +135,19 @@ const templateColors = new TemplateGenerator<Components.InoTooltip>(
         for="${idPrimary}"
         placement="${args.placement}"
         trigger="${args.trigger}"
-        delay=${typeof args.delay === 'number'? args.delay : [args.delay]}
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        This is a tooltip 
+        This is a tooltip
       </ino-tooltip>
     `;
-  }
+  },
 );
 
-export const ColorSchemes = templateColors.generateStoryForProp('colorScheme', 'light');
+export const ColorSchemes = templateColors.generateStoryForProp(
+  'colorScheme',
+  'light',
+);
 
 export const Delay = template.generateStoryForProp('delay', [500, 200], {
   for: 'tooltip-target-delay',

@@ -11,7 +11,7 @@ import * as path from 'path';
 import { join } from 'path';
 
 const fixedVueOutputTarget = (
-  outputTarget: OutputTargetVue
+  outputTarget: OutputTargetVue,
 ): OutputTargetCustom => {
   const stencilOutputTarget = stencilVueOutputTarget(outputTarget);
 
@@ -22,7 +22,7 @@ const fixedVueOutputTarget = (
       _config: Config,
       compilerCtx: CompilerCtx,
       buildCtx: BuildCtx,
-      docs: any
+      docs: any,
     ) => {
       await stencilOutputTarget.generator(_config, compilerCtx, buildCtx, docs);
       await runFix(outputTarget.proxiesFile);
@@ -36,7 +36,7 @@ async function runFix(proxyPath: string) {
   const elementsVueUtilsPath = path.resolve(
     path.dirname(fullProxyPath),
     'vue-component-lib',
-    'utils.ts'
+    'utils.ts',
   );
 
   // provide v-model bindings for elements components
@@ -46,7 +46,7 @@ async function runFix(proxyPath: string) {
   });
   utilsString = utilsString.replace(
     'modelPropValue = (e?.target as any)[modelProp];',
-    'modelPropValue = (e as CustomEvent).detail;'
+    'modelPropValue = (e as CustomEvent).detail;',
   );
 
   await fs.promises.writeFile(elementsVueUtilsPath, utilsString);

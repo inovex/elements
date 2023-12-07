@@ -334,14 +334,14 @@ The value can be found in `event.detail`
 
 
 @ProxyCmp({
-  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
 })
 @Component({
   selector: 'ino-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open'],
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open'],
 })
 export class InoDialog {
   protected el: HTMLElement;
@@ -991,14 +991,14 @@ export declare interface InoRange extends Components.InoRange {
 
 
 @ProxyCmp({
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value']
+  inputs: ['checked', 'dense', 'disabled', 'name', 'type', 'value']
 })
 @Component({
   selector: 'ino-segment-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value'],
+  inputs: ['checked', 'dense', 'disabled', 'name', 'type', 'value'],
 })
 export class InoSegmentButton {
   protected el: HTMLElement;

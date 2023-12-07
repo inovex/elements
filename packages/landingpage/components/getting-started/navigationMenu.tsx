@@ -20,11 +20,11 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
           }
         });
       },
-      { rootMargin: '-30% 0px -70% 0px' } // top, right, bottom, left margins around the root element's bounding box
+      { rootMargin: '-30% 0px -70% 0px' }, // top, right, bottom, left margins around the root element's bounding box
     );
 
     const domSectionElements = document.querySelectorAll(
-      'section[data-menu-section]'
+      'section[data-menu-section]',
     );
 
     const sectionsTemp: Sections = {};
@@ -48,7 +48,7 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
 
   function handleAnchorClick(
     event: React.MouseEvent<HTMLAnchorElement>,
-    section: string
+    section: string,
   ) {
     event.preventDefault();
     const targetElement = document.querySelector(`#${section}`);

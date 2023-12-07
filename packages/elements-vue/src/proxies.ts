@@ -162,6 +162,7 @@ export const InoDialog = /*@__PURE__*/ defineContainer<JSX.InoDialog>('ino-dialo
   'fullwidth',
   'dismissible',
   'open',
+  'dialogRole',
   'headerText',
   'bodyText',
   'cancelText',
@@ -433,6 +434,7 @@ export const InoSegmentButton = /*@__PURE__*/ defineContainer<JSX.InoSegmentButt
   'dense',
   'name',
   'value',
+  'type',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');

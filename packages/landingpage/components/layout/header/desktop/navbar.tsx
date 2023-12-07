@@ -47,7 +47,7 @@ export default function Navbar() {
                     key={subRouteUrl}
                     url={subRouteUrl}
                     name={t(
-                      `common.navigation.${key}.subroutes.${subRouteName}.name`
+                      `common.navigation.${key}.subroutes.${subRouteName}.name`,
                     )}
                     isDense={true}
                     isSubItem={true}

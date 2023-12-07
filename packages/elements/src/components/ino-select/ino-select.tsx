@@ -1,4 +1,4 @@
-import {MDCSelect, MDCSelectEventDetail} from '@material/select';
+import { MDCSelect, MDCSelectEventDetail } from '@material/select';
 import {
   Component,
   ComponentInterface,
@@ -13,7 +13,7 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import {  generateUniqueId, hasSlotContent } from '../../util/component-utils';
+import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 
 /**
  * @slot icon-leading - For the icon to be prepended
@@ -33,11 +33,9 @@ export class Select implements ComponentInterface {
   private optionsObserver: MutationObserver;
 
   /**
-     * An internal auto generated id for the helper field.
-     */
+   * An internal auto generated id for the helper field.
+   */
   private selectElId = generateUniqueId();
-
-
 
   @Element() el!: HTMLInoSelectElement;
 
@@ -132,7 +130,7 @@ export class Select implements ComponentInterface {
   connectedCallback() {
     // in case of usage e.g. in a popover this is necessary
     this.create();
-   
+
     this.optionsObserver = new MutationObserver(() => {
       forceUpdate(this.el);
     });
@@ -192,20 +190,26 @@ export class Select implements ComponentInterface {
 
   private renderDropdownIcon = () => (
     <span class="mdc-select__dropdown-icon">
-      <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5">
-        <polygon
+      <span class="mdc-select__dropdown-icon-graphic">
+        <svg
           class="mdc-select__dropdown-icon-inactive"
-          stroke="none"
-          fill-rule="evenodd"
-          points="7 10 12 15 17 10"
-        ></polygon>
-        <polygon
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          width="24"
+          viewBox="0 -960 960 960"
+        >
+          <path d="M480-362q-8 0-15-2.5t-13-8.5L268-557q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-373q-6 6-13 8.5t-15 2.5Z" />
+        </svg>
+        <svg
           class="mdc-select__dropdown-icon-active"
-          stroke="none"
-          fill-rule="evenodd"
-          points="7 15 12 10 17 15"
-        ></polygon>
-      </svg>
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          width="24"
+          viewBox="0 -960 960 960"
+        >
+          <path d="M480-529 324-373q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q6-6 13-8.5t15-2.5q8 0 15 2.5t13 8.5l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-529Z" />
+        </svg>
+      </span>
     </span>
   );
 
@@ -213,8 +217,8 @@ export class Select implements ComponentInterface {
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
 
     const inoSelectClasses = classNames({
-      'ino-select-outlined': this.outline
-    })
+      'ino-select-outlined': this.outline,
+    });
 
     const classSelect = classNames({
       'mdc-select': true,
@@ -227,8 +231,8 @@ export class Select implements ComponentInterface {
 
     const helperTextClasses = classNames({
       'mdc-select-helper-text': true,
-      'mdc-select-helper-text--validation-msg-persistent': this
-        .helperPersistent,
+      'mdc-select-helper-text--validation-msg-persistent':
+        this.helperPersistent,
       'mdc-select-helper-text--validation-msg': this.helperValidation,
     });
 
@@ -248,12 +252,13 @@ export class Select implements ComponentInterface {
       <Host class={inoSelectClasses} name={this.name}>
         <div class={classSelect} ref={(el) => (this.mdcSelectContainerEl = el)}>
           {hiddenInput}
-          <div 
+          <div
             class="mdc-select__anchor"
             role="combobox"
             tabindex="0"
             aria-labelledby={`label-${this.selectElId}`}
-            aria-required={this.required}>
+            aria-required={this.required}
+          >
             {leadingSlotHasContent && (
               <span class="mdc-select__icon">
                 <slot name="icon-leading"></slot>
@@ -270,8 +275,7 @@ export class Select implements ComponentInterface {
               show-hint={this.showLabelHint}
             />
           </div>
-          <div 
-            class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul
               role="listbox"
               tabindex="-1"

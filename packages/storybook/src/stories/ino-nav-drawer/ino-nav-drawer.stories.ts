@@ -6,7 +6,7 @@ import { Components } from '@inovex.de/elements';
 import inovexElementsLogo from '../../assets/images/elements.svg';
 import './ino-nav-drawer.scss';
 
-const openChangeHandle = function(e) {
+const openChangeHandle = function (e) {
   const el = e.target;
   if (el.tagName.toLowerCase() !== 'ino-nav-drawer') {
     return;
@@ -14,7 +14,7 @@ const openChangeHandle = function(e) {
   el.setAttribute('open', !!e.detail);
 };
 
-const clickHandler = e => {
+const clickHandler = (e) => {
   e.preventDefault();
   e.stopPropagation();
   const el = e.target.parentElement;
@@ -36,7 +36,7 @@ const clickHandler = e => {
     const parentDrawer = el.closest('ino-nav-drawer');
     const navItemNodes = parentDrawer.querySelectorAll('ino-list-item');
     navItemNodes &&
-      navItemNodes.forEach(link => {
+      navItemNodes.forEach((link) => {
         link.activated = false;
       });
     el.activated = true;
@@ -57,7 +57,7 @@ export default {
     },
   },
   decorators: [
-    story => {
+    (story) => {
       useEffect(() => {
         document.addEventListener('openChange', openChangeHandle);
         document.addEventListener('click', clickHandler);
@@ -94,7 +94,7 @@ export default {
 
 const template = new TemplateGenerator<Components.InoNavDrawer>(
   'ino-nav-drawer',
-  args => {
+  (args) => {
     return html`
       <div class="story-nav-drawer__default">
         <ino-nav-drawer
@@ -156,7 +156,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
         </ino-nav-drawer>
       </div>
     `;
-  }
+  },
 );
 
 export const Playground = template.generatePlaygroundStory();
@@ -166,7 +166,7 @@ export const Modal = template.generateStoryForProp('variant', 'modal', {
 });
 export const Dismissible = template.generateStoryForProp(
   'variant',
-  'dismissible'
+  'dismissible',
 );
 export const Mobile = template.generateStoryForProp('variant', 'mobile', {
   open: false,

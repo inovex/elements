@@ -53,7 +53,7 @@ export class FabSet implements ComponentInterface {
         'ino-fab-set--open-dial': this.openDial,
       },
       'ino-top-bottom-location-' + this.topBottomLocation,
-      'ino-left-right-location-' + this.leftRightLocation
+      'ino-left-right-location-' + this.leftRightLocation,
     );
 
     const speedDialClasses = classNames({
@@ -62,7 +62,7 @@ export class FabSet implements ComponentInterface {
 
     const directionClasses = classNames(
       'ino-fab-set-wrapper',
-      'ino-direction-' + this.dialDirection
+      'ino-direction-' + this.dialDirection,
     );
 
     const hasClosedIcon = hasSlotContent(this.el, 'icon-closed');

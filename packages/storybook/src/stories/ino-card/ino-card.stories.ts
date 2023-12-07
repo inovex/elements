@@ -15,9 +15,8 @@ export default {
     (story) => {
       useEffect(() => {
         const handleClick = function (e) {
-          const maybeCard: HTMLInoCardElement | undefined = e.target?.closest(
-            'ino-card'
-          );
+          const maybeCard: HTMLInoCardElement | undefined =
+            e.target?.closest('ino-card');
 
           if (!maybeCard) return;
 
@@ -63,11 +62,11 @@ const template = new TemplateGenerator<Components.InoCard>(
         </ino-segment-group>
       </div>
     </ino-card>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();
 export const DisabledElevation = template.generateStoryForProp(
   'disableElevation',
-  true
+  true,
 );

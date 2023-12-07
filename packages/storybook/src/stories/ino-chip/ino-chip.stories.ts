@@ -23,7 +23,7 @@ export default {
     selected: false,
     clickable: true,
     value: '',
-  }
+  },
 } as Meta<Components.InoChip>;
 
 const template = new TemplateGenerator<Components.InoChip>(
@@ -41,7 +41,7 @@ const template = new TemplateGenerator<Components.InoChip>(
     >
       Label
     </ino-chip>
-  `
+  `,
 );
 export const Playground = template.generatePlaygroundStory();
 
@@ -61,11 +61,10 @@ const templateFill = new TemplateGenerator<Components.InoChip>(
       <ino-chip fill="solid">Chip Solid</ino-chip>
       <ino-chip fill="outline">Chip Outline</ino-chip>
     </div>
-  `
+  `,
 );
 
 export const Fill = templateFill.generatePlaygroundStory();
-
 
 const templateIcons = new TemplateGenerator<Components.InoChip>(
   'ino-chip',
@@ -85,7 +84,7 @@ const templateIcons = new TemplateGenerator<Components.InoChip>(
         <ino-icon slot="icon-trailing" icon="star"></ino-icon>
       </ino-chip>
     </div>
-  `
+  `,
 );
 /*
  In order to include icons, use the `icon-leading` or `icon-trailing` slot
@@ -117,11 +116,11 @@ const templateFilter = new TemplateGenerator<Components.InoChip>(
             selectable
             @chipClicked="${(ev) => handleClick(ev.target)}"
             >${value}
-          </ino-chip>`
+          </ino-chip>`,
         )}
       </div>
     `;
-  }
+  },
 );
 /**
  * In order to use ino-chips as filter, use `selectable` on each element
@@ -143,11 +142,11 @@ const templateRemove = new TemplateGenerator<Components.InoChip>(
             removable="${index !== 0}"
             @chipRemoved="${(ev) => handleClick(ev.target)}"
             >${value}
-          </ino-chip>`
+          </ino-chip>`,
         )}
       </div>
     `;
-  }
+  },
 );
 
 /**
