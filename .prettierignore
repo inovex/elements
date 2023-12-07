@@ -26,3 +26,5 @@ packages/elements-vue/src/**
 packages/storybook/elements-stencil-docs.json
 
 assets/
+
+.angular

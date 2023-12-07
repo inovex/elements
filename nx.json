@@ -38,6 +38,21 @@
       "linter": "eslint",
       "unitTestRunner": "vitest",
       "e2eTestRunner": "playwright"
+    },
+    "@nx/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "bundler": "vite",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
     }
   },
   "cacheDirectory": ".nx-cache"
