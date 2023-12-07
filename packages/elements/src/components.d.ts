@@ -1234,6 +1234,14 @@ export namespace Components {
     }
     interface InoTab {
         /**
+          * Contains the ID of the associated tab panel for accessibility purposes. This property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.
+         */
+        "a11yControls"?: string;
+        /**
+          * Reflects the selected state of the tab for accessibility purposes. This property is optional and primarily managed by the parent `ino-tab-bar` component, adhering to WAI-ARIA practices for the tab role.
+         */
+        "a11ySelected"?: boolean;
+        /**
           * Indicates a leading icon in the tab.
          */
         "icon"?: string;
@@ -1246,10 +1254,6 @@ export namespace Components {
           * @deprecated
          */
         "label"?: string;
-        /**
-          * The ID of the associated content panel. This prop is specifically used in conjunction with the `ino-tab-bar`. It links the tab to its content panel for accessibility, adhering to WAI-ARIA practices for the tabpanel role. See: https://w3c.github.io/aria/#tabpanel
-         */
-        "panelId"?: string;
         /**
           * Indicates that the tab icon and label should flow vertically instead of horizontally.
          */
@@ -3250,6 +3254,14 @@ declare namespace LocalJSX {
     }
     interface InoTab {
         /**
+          * Contains the ID of the associated tab panel for accessibility purposes. This property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.
+         */
+        "a11yControls"?: string;
+        /**
+          * Reflects the selected state of the tab for accessibility purposes. This property is optional and primarily managed by the parent `ino-tab-bar` component, adhering to WAI-ARIA practices for the tab role.
+         */
+        "a11ySelected"?: boolean;
+        /**
           * Indicates a leading icon in the tab.
          */
         "icon"?: string;
@@ -3266,10 +3278,6 @@ declare namespace LocalJSX {
           * Emitted when the user interacts with the tab. This event is used by the ino-tab-bar.
          */
         "onInteracted"?: (event: InoTabCustomEvent<any>) => void;
-        /**
-          * The ID of the associated content panel. This prop is specifically used in conjunction with the `ino-tab-bar`. It links the tab to its content panel for accessibility, adhering to WAI-ARIA practices for the tabpanel role. See: https://w3c.github.io/aria/#tabpanel
-         */
-        "panelId"?: string;
         /**
           * Indicates that the tab icon and label should flow vertically instead of horizontally.
          */

@@ -49,10 +49,22 @@ const template = new TemplateGenerator<Components.InoTabBar>(
       active-tab="${args.activeTab}"
       auto-focus="${args.autoFocus}"
     >
-      <ino-tab panelId="panel-1" label="User" icon="user"></ino-tab>
-      <ino-tab panelId="panel-2" label="Messages" icon="message"></ino-tab>
-      <ino-tab panelId="panel-3" label="Settings" icon="settings"></ino-tab>
-      <ino-tab panelId="panel-4" label="Download" icon="download"></ino-tab>
+      <ino-tab label="User" icon="user" a11y-controls="user-panel"></ino-tab>
+      <ino-tab
+        label="Messages"
+        icon="message"
+        a11y-controls="messages-panel"
+      ></ino-tab>
+      <ino-tab
+        label="Settings"
+        icon="settings"
+        a11y-controls="settings-panel"
+      ></ino-tab>
+      <ino-tab
+        label="Download"
+        icon="download"
+        a11y-controls="download-panel"
+      ></ino-tab>
     </ino-tab-bar>
   `
 );

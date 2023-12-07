@@ -33,9 +33,16 @@ export class Tab implements ComponentInterface {
   @Prop() label?: string;
 
   /**
-   * The ID of the associated content panel. This prop is specifically used in conjunction with the `ino-tab-bar`. It links the tab to its content panel for accessibility, adhering to WAI-ARIA practices for the tabpanel role. See: https://w3c.github.io/aria/#tabpanel
+   * Contains the ID of the associated tab panel for accessibility purposes.
+   * This property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.
    */
-  @Prop({ reflect: true }) panelId?: string = '';
+  @Prop({ reflect: true }) a11yControls?: string;
+
+  /**
+   * Reflects the selected state of the tab for accessibility purposes.
+   * This property is optional and primarily managed by the parent `ino-tab-bar` component, adhering to WAI-ARIA practices for the tab role.
+   */
+  @Prop({ reflect: true }) a11ySelected?: boolean;
 
   /**
    * Indicates that the tab icon and label should flow vertically instead of horizontally.
@@ -53,28 +60,26 @@ export class Tab implements ComponentInterface {
    */
   @Event() interacted!: EventEmitter;
 
-  @Watch('panelID')
-  panelIdChanged(newValue: string) {
-    this.panelId = newValue;
+  @Watch('a11ySelected')
+  a11ySelectedChanged(newValue: boolean) {
+    const buttonElement = this.el.querySelector('button');
+    if (buttonElement) {
+      buttonElement.setAttribute('aria-selected', String(newValue));
+    }
+  }
+
+  @Watch('a11yControls')
+  a11yControlsChanged(newValue: string) {
+    const buttonElement = this.el.querySelector('button');
+    if (buttonElement) {
+      buttonElement.setAttribute('aria-controls', newValue);
+    }
   }
 
   @Listen('MDCTab:interacted')
   interactionHandler(e) {
     e.stopPropagation();
     this.interacted.emit(this.el);
-  }
-  componentWillLoad() {
-    this.syncAttributeToProp();
-  }
-  /**
-   * Syncs 'panelID' attribute with the property for Storybook compatibility inside the ino-tab-bar story.
-   * ( <ino-tab panelID="panel-1" label="User" icon="user"></ino-tab> )
-   */
-  private syncAttributeToProp() {
-    const panelIdAttr = this.el.getAttribute('panelID');
-    if (panelIdAttr) {
-      this.panelId = panelIdAttr;
-    }
   }
 
   render() {
@@ -94,7 +99,9 @@ export class Tab implements ComponentInterface {
         <button class={tabClasses} role="tab" aria-selected="false">
           <span class="mdc-tab__content">
             {this.icon && <ino-icon class="mdc-tab__icon" icon={this.icon} />}
-            <span class="mdc-tab__text-label">{this.label ? this.label : <slot />}</span>
+            <span class="mdc-tab__text-label">
+              {this.label ? this.label : <slot />}
+            </span>
             {this.indicatorContentWidth && indicatorWidth}
           </span>
           {!this.indicatorContentWidth && indicatorWidth}

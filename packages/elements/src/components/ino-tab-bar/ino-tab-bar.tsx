@@ -45,22 +45,14 @@ export class TabBar implements ComponentInterface {
   activeTabChangedWatcher(newTabIndex: number) {
     if (this.mdcInstance) {
       this.mdcInstance.activateTab(newTabIndex);
-      this.updateTabsAriaSelected(newTabIndex);
+      this.updateActiveTabState(newTabIndex);
     }
   }
 
-  private updateTabsAriaSelected(activeTabIndex: number) {
-    const tabs = Array.from(this.el.querySelectorAll('ino-tab'));
+  private updateActiveTabState(activeTabIndex: number) {
+    const tabs: NodeListOf<HTMLInoTabElement> = this.el.querySelectorAll('ino-tab');
     tabs.forEach((tab, index) => {
-      const isSelected = index === activeTabIndex;
-      const panelId = (tab as HTMLInoTabElement).panelId;
-
-      const buttonElement = tab.querySelector('button');
-
-      buttonElement.setAttribute('aria-selected', isSelected.toString());
-      if (panelId) {
-        buttonElement.setAttribute('aria-controls', panelId);
-      }
+      tab.a11ySelected = (index === activeTabIndex);
     });
   }
 
@@ -68,7 +60,7 @@ export class TabBar implements ComponentInterface {
     this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
     this.mdcInstance.focusOnActivate = this.autoFocus;
     this.mdcInstance.activateTab(this.activeTab);
-    this.updateTabsAriaSelected(this.activeTab);
+    this.updateActiveTabState(this.activeTab);
   }
 
   disconnectedCallback() {
@@ -83,7 +75,7 @@ export class TabBar implements ComponentInterface {
     );
     const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
     this.activeTabChange.emit(indexOfActivatedTab);
-    this.updateTabsAriaSelected(indexOfActivatedTab);
+    this.updateActiveTabState(indexOfActivatedTab);
   }
 
   render() {

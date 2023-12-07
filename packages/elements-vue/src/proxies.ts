@@ -494,7 +494,8 @@ export const InoSwitch = /*@__PURE__*/ defineContainer<JSX.InoSwitch, JSX.InoSwi
 export const InoTab = /*@__PURE__*/ defineContainer<JSX.InoTab>('ino-tab', undefined, [
   'icon',
   'label',
-  'panelId',
+  'a11yControls',
+  'a11ySelected',
   'stacked',
   'indicatorContentWidth',
   'interacted'
