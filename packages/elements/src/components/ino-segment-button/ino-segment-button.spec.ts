@@ -36,9 +36,38 @@ describe('InoSegmentButton', () => {
 
     await page.waitForChanges();
 
-    let button = inoSegmentButton.querySelector('button') as HTMLButtonElement;
+    const button = inoSegmentButton.querySelector(
+      'button',
+    ) as HTMLButtonElement;
 
     expect(button.classList.contains('button--dense')).toBe(true);
     expect(button.classList.contains('button--active')).toBe(true);
+  });
+
+  it('should handle click event', async () => {
+    const inoSegmentButton = page.root as HTMLInoSegmentButtonElement;
+
+    const eventSpy = jest.fn();
+    inoSegmentButton.addEventListener('checkedChange', eventSpy);
+
+    inoSegmentButton.click();
+    expect(eventSpy).toHaveBeenCalled();
+  });
+
+  it('click should not emit on disabled or checked', async () => {
+    const inoSegmentButton = page.root as HTMLInoSegmentButtonElement;
+
+    inoSegmentButton.disabled = true;
+    const eventSpy = jest.fn();
+    inoSegmentButton.addEventListener('checkedChange', eventSpy);
+
+    inoSegmentButton.click();
+    expect(eventSpy).not.toHaveBeenCalled();
+
+    inoSegmentButton.disabled = false;
+    inoSegmentButton.checked = true;
+
+    inoSegmentButton.click();
+    expect(eventSpy).not.toHaveBeenCalled();
   });
 });
