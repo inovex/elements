@@ -50,9 +50,10 @@ export class TabBar implements ComponentInterface {
   }
 
   private updateActiveTabState(activeTabIndex: number) {
-    const tabs: NodeListOf<HTMLInoTabElement> = this.el.querySelectorAll('ino-tab');
+    const tabs: NodeListOf<HTMLInoTabElement> =
+      this.el.querySelectorAll('ino-tab');
     tabs.forEach((tab, index) => {
-      tab.a11ySelected = (index === activeTabIndex);
+      tab.a11ySelected = index === activeTabIndex;
     });
   }
 

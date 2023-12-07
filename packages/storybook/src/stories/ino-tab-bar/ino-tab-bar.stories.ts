@@ -6,14 +6,14 @@ import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-tab-bar.scss';
 
-const eventHandler = e => e.target.setAttribute('active-tab', e.detail);
+const eventHandler = (e) => e.target.setAttribute('active-tab', e.detail);
 
 export default {
   title: `Structure/ino-tab-bar`,
   component: 'ino-tab-bar',
   decorators: [
-    story => decorateStoryWithClass(story, 'story-tab-bar'),
-    story => {
+    (story) => decorateStoryWithClass(story, 'story-tab-bar'),
+    (story) => {
       useEffect(() => {
         const tabBars = document.querySelectorAll('ino-tab-bar');
         tabBars.forEach((t) =>
@@ -43,7 +43,7 @@ export default {
 
 const template = new TemplateGenerator<Components.InoTabBar>(
   'ino-tab-bar',
-  args => html`
+  (args) => html`
     <ino-tab-bar
       id="customizable-tabbar"
       active-tab="${args.activeTab}"
@@ -66,7 +66,7 @@ const template = new TemplateGenerator<Components.InoTabBar>(
         a11y-controls="download-panel"
       ></ino-tab>
     </ino-tab-bar>
-  `
+  `,
 );
 
 export const Playground = template.generatePlaygroundStory();
