@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Button should return true on click', async ({ page }) => {
-  await page.goto('/components/ino-segment-button.html');
+  await page.goto('/components/ino-segment-button/ino-segment-button.html');
 
   const container = page.getByTestId('normal');
   const button = container.getByText('My Button');
@@ -15,7 +15,7 @@ test('Button should return true on click', async ({ page }) => {
 });
 
 test('Should not emit event on already checked', async ({ page }) => {
-  await page.goto('/components/ino-segment-button.html');
+  await page.goto('/components/ino-segment-button/ino-segment-button.html');
 
   const container = page.getByTestId('checked');
   const button = container.locator('button.button--active');
@@ -27,7 +27,7 @@ test('Should not emit event on already checked', async ({ page }) => {
 });
 
 test('Should not emit event on disabled', async ({ page }) => {
-  await page.goto('/components/ino-segment-button.html');
+  await page.goto('/components/ino-segment-button/ino-segment-button.html');
 
   const container = page.getByTestId('disabled');
   await expect(
