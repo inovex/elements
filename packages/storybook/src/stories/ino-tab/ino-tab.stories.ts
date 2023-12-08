@@ -12,6 +12,7 @@ export default {
     indicatorContentWidth: false,
     stacked: false,
     icon: 'info',
+    a11yControls: 'panel-id',
   },
 } as Meta<Components.InoTab>;
 
@@ -22,6 +23,7 @@ const template = new TemplateGenerator<Components.InoTab>(
       icon="${args.icon}"
       indicator-content-width="${args.indicatorContentWidth}"
       stacked="${args.stacked}"
+      a11y-controls="${args.a11yControls}"
     >
       Label
     </ino-tab>

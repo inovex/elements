@@ -9549,6 +9549,48 @@
       },
       "props": [
         {
+          "name": "a11yControls",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "a-1-1y-controls",
+          "reflectToAttr": true,
+          "docs": "Contains the ID of the associated tab panel for accessibility purposes.\nThis property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "a11ySelected",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "a-1-1y-selected",
+          "reflectToAttr": true,
+          "docs": "Reflects the selected state of the tab for accessibility purposes.\nThis property is optional and primarily managed by the parent `ino-tab-bar` component, adhering to WAI-ARIA practices for the tab role.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "icon",
           "type": "string",
           "complexType": {
