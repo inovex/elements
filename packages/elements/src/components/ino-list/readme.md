@@ -21,6 +21,13 @@
 | `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider`  A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.  This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s. |
 
 
+## CSS Custom Properties
+
+| Name                            | Description                                                                    |
+| ------------------------------- | ------------------------------------------------------------------------------ |
+| `--ino-list-item-border-radius` | Border radius of the list container, also effects the first and last list item |
+
+
 ## Dependencies
 
 ### Used by

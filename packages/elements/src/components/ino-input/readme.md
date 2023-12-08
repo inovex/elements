@@ -85,6 +85,17 @@ Type: `Promise<void>`
 | `"icon-trailing"` | For the icon to be appended  An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.  Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more. |
 
 
+## CSS Custom Properties
+
+| Name                      | Description             |
+| ------------------------- | ----------------------- |
+| `--ino-input-caret-color` | color of the caret      |
+| `--ino-input-color`       | text color of the input |
+| `--ino-input-icon-color`  | icon color              |
+| `--ino-input-label-color` | color of the label      |
+| `--ino-input-line-color`  | line color              |
+
+
 ## Dependencies
 
 ### Used by

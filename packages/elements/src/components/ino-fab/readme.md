@@ -25,6 +25,20 @@
 | `"icon-leading"` | For the icon to be prepended  A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component. It appears in front of all screen content, typically as a circular shape with an icon in its center.  FABs come in three types: regular, mini, and extended |
 
 
+## CSS Custom Properties
+
+| Name                              | Description                           |
+| --------------------------------- | ------------------------------------- |
+| `--fab-background-color`          | Background color                      |
+| `--fab-background-color-active`   | Background color if active            |
+| `--fab-background-color-disabled` | Background color if disabled          |
+| `--fab-background-color-hover`    | Background color on hover             |
+| `--fab-color-disabled`            | Text color if disabled                |
+| `--fab-icon-color`                | Color of the slotted icon             |
+| `--fab-icon-color-disabled`       | Color of the slotted icon if disabled |
+| `--ino-fab-color`                 | Text color                            |
+
+
 ## Dependencies
 
 ### Used by

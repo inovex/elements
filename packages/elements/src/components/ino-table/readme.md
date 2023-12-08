@@ -32,6 +32,13 @@
 | `"loading-indicator"` | `<ino-progess-bar>` element used for an additional loading state.  The ino-table is a custom table used to display sets of data across multiple columns. It currently supports different states (selected, active), sorting and loading indication.  > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table). |
 
 
+## CSS Custom Properties
+
+| Name                     | Description           |
+| ------------------------ | --------------------- |
+| `--ino-table-row-height` | height of a table row |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

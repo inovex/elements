@@ -20,6 +20,13 @@
 | `"default"` | One or more `ino-img` with `imgListItem="true"`  The ino-img-list component is used in combination with the ino-img component to display an array of images in a grid-like format. It is based on the mdc-image-list component. |
 
 
+## CSS Custom Properties
+
+| Name                  | Description                |
+| --------------------- | -------------------------- |
+| `--ino-img-list-cols` | sets the number of columns |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

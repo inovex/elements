@@ -22,6 +22,16 @@
 | `"default"` | Any element  A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.  This component is used as child of `ino-list` and `ino-menu` components.  > Note: This component's main use case is within the `ino-nav-drawer`. |
 
 
+## CSS Custom Properties
+
+| Name                                     | Description                                   |
+| ---------------------------------------- | --------------------------------------------- |
+| `--ino-nav-item-background-color`        | Inactive color of the background of one item. |
+| `--ino-nav-item-background-color-active` | Active color of the background of one item.   |
+| `--ino-nav-item-color`                   | Inactive color of icon.                       |
+| `--ino-nav-item-color-active`            | Active color of icon.                         |
+
+
 ## Dependencies
 
 ### Depends on

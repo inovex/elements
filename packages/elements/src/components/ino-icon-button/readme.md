@@ -32,6 +32,20 @@
 | `"default"` | `<ino-icon>`  A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component. |
 
 
+## CSS Custom Properties
+
+| Name                                          | Description                                    |
+| --------------------------------------------- | ---------------------------------------------- |
+| `--ino-icon-button-background-active-color`   | base color of the active background            |
+| `--ino-icon-button-background-color`          | default color of the background                |
+| `--ino-icon-button-background-disabled-color` | base color of the background in disabled state |
+| `--ino-icon-button-icon-active-color`         | color of the active icon itself                |
+| `--ino-icon-button-icon-color`                | default color of the icon itself               |
+| `--ino-icon-button-icon-disabled-color`       | color of the icon itself in disabled state     |
+| `--ino-icon-button-icon-size`                 | size of the icon itself                        |
+| `--ino-icon-button-size`                      | size of the entire button                      |
+
+
 ## Dependencies
 
 ### Used by

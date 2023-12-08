@@ -31,6 +31,14 @@
 | `"default"` | One or more `ino-carousel-slide` The `ino-carousel` component works in combination with the `ino-carousel-slide` component and can be used to display an array of images as a slide show. What is more, it also features an autoplay property that allows the slides to be changed automatically. Lastly, using the css variables described at the bottom of the page, you can easily customize the dimensions of the component as well as the duration of the slide transition. |
 
 
+## CSS Custom Properties
+
+| Name                                | Description                              |
+| ----------------------------------- | ---------------------------------------- |
+| `--ino-carousel-animation-duration` | sets the duration of the slide animation |
+| `--ino-carousel-icon-color`         | sets the color of the navigation buttons |
+
+
 ## Dependencies
 
 ### Depends on
