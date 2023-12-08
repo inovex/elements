@@ -8,7 +8,6 @@ import {
   Prop,
   h,
   Listen,
-  Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -60,22 +59,6 @@ export class Tab implements ComponentInterface {
    */
   @Event() interacted!: EventEmitter;
 
-  @Watch('a11ySelected')
-  a11ySelectedChanged(newValue: boolean) {
-    const buttonElement = this.el.querySelector('button');
-    if (buttonElement) {
-      buttonElement.setAttribute('aria-selected', String(newValue));
-    }
-  }
-
-  @Watch('a11yControls')
-  a11yControlsChanged(newValue: string) {
-    const buttonElement = this.el.querySelector('button');
-    if (buttonElement) {
-      buttonElement.setAttribute('aria-controls', newValue);
-    }
-  }
-
   @Listen('MDCTab:interacted')
   interactionHandler(e) {
     e.stopPropagation();
@@ -96,7 +79,12 @@ export class Tab implements ComponentInterface {
 
     return (
       <Host>
-        <button class={tabClasses} role="tab" aria-selected="false">
+        <button
+          class={tabClasses}
+          role="tab"
+          aria-selected={this.a11ySelected ? 'true' : 'false'}
+          aria-controls={this.a11yControls}
+        >
           <span class="mdc-tab__content">
             {this.icon && <ino-icon class="mdc-tab__icon" icon={this.icon} />}
             <span class="mdc-tab__text-label">
