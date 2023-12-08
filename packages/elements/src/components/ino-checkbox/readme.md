@@ -1,6 +1,6 @@
 # ino-checkbox
 
-A checkbox that allows the user to select one or more items from a set of options.
+
 
 <!-- Auto Generated Below -->
 

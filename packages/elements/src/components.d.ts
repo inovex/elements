@@ -28,6 +28,18 @@ export namespace Components {
          */
         "expanded": boolean;
     }
+    /**
+     * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+     * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+     * flexible to some extent compared to stateless components.
+     * ## Responsibilities
+     * The component handles the following tasks:
+     * - Management of the `value` property of the `<ino-input>` element.
+     * - Management of showing and hiding the different options based on the input.
+     * - Keyboard navigation among the options.
+     * ## Filtering
+     * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+     */
     interface InoAutocomplete {
         /**
           * Number of ms the search function should be delayed after the user typed something.
@@ -150,6 +162,9 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface InoCarouselSlide {
         /**
           * Selected state controlled by the `<ino-carousel>`
@@ -164,6 +179,9 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface InoCheckbox {
         /**
           * Marks this element as checked. (**unmanaged**)
@@ -499,6 +517,7 @@ export namespace Components {
         "topBottomLocation": VerticalLocation;
     }
     /**
+     * A light icon component for texts and other components.
      * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
      */
     interface InoIcon {
@@ -553,6 +572,9 @@ export namespace Components {
          */
         "type"?: ButtonType;
     }
+    /**
+     * An image component with different styles that reserves a predefined space to avoid jumping contents.
+     */
     interface InoImg {
         /**
           * The alternative text of this image.
@@ -735,6 +757,10 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+     * This component replaces the native behaviour with a custom `ino-button` with logic.
+     */
     interface InoInputFile {
         /**
           * The types of files accepted by the server.
@@ -777,6 +803,9 @@ export namespace Components {
          */
         "required"?: boolean;
     }
+    /**
+     * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+     */
     interface InoLabel {
         /**
           * Colors the label in an light grey to indicate the disabled status for this element
@@ -817,6 +846,10 @@ export namespace Components {
          */
         "twoLines"?: boolean;
     }
+    /**
+     * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface InoListDivider {
         /**
           * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
@@ -1006,6 +1039,9 @@ export namespace Components {
          */
         "visible"?: boolean;
     }
+    /**
+     * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+     */
     interface InoProgressBar {
         /**
           * Sets the buffer progress
@@ -1052,6 +1088,9 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    /**
+     * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+     */
     interface InoRange {
         /**
           * Disables this element.
@@ -1185,6 +1224,9 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     */
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -1208,6 +1250,10 @@ export namespace Components {
          */
         "type": SnackbarType;
     }
+    /**
+     * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+     * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+     */
     interface InoSpinner {
         /**
           * The height of this spinner (default = 40)
@@ -1240,6 +1286,9 @@ export namespace Components {
          */
         "name"?: string;
     }
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+     */
     interface InoTab {
         /**
           * Indicates a leading icon in the tab.
@@ -1339,6 +1388,10 @@ export namespace Components {
          */
         "sortStart": SortDirection;
     }
+    /**
+     * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+     * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+     */
     interface InoTextarea {
         /**
           * The autofocus of this element.
@@ -1580,6 +1633,18 @@ declare global {
         prototype: HTMLInoAccordionElement;
         new (): HTMLInoAccordionElement;
     };
+    /**
+     * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+     * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+     * flexible to some extent compared to stateless components.
+     * ## Responsibilities
+     * The component handles the following tasks:
+     * - Management of the `value` property of the `<ino-input>` element.
+     * - Management of showing and hiding the different options based on the input.
+     * - Keyboard navigation among the options.
+     * ## Filtering
+     * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+     */
     interface HTMLInoAutocompleteElement extends Components.InoAutocomplete, HTMLStencilElement {
     }
     var HTMLInoAutocompleteElement: {
@@ -1610,12 +1675,18 @@ declare global {
         prototype: HTMLInoCarouselElement;
         new (): HTMLInoCarouselElement;
     };
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface HTMLInoCarouselSlideElement extends Components.InoCarouselSlide, HTMLStencilElement {
     }
     var HTMLInoCarouselSlideElement: {
         prototype: HTMLInoCarouselSlideElement;
         new (): HTMLInoCarouselSlideElement;
     };
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface HTMLInoCheckboxElement extends Components.InoCheckbox, HTMLStencilElement {
     }
     var HTMLInoCheckboxElement: {
@@ -1665,6 +1736,7 @@ declare global {
         new (): HTMLInoFabSetElement;
     };
     /**
+     * A light icon component for texts and other components.
      * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
      */
     interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {
@@ -1679,6 +1751,9 @@ declare global {
         prototype: HTMLInoIconButtonElement;
         new (): HTMLInoIconButtonElement;
     };
+    /**
+     * An image component with different styles that reserves a predefined space to avoid jumping contents.
+     */
     interface HTMLInoImgElement extends Components.InoImg, HTMLStencilElement {
     }
     var HTMLInoImgElement: {
@@ -1697,12 +1772,19 @@ declare global {
         prototype: HTMLInoInputElement;
         new (): HTMLInoInputElement;
     };
+    /**
+     * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+     * This component replaces the native behaviour with a custom `ino-button` with logic.
+     */
     interface HTMLInoInputFileElement extends Components.InoInputFile, HTMLStencilElement {
     }
     var HTMLInoInputFileElement: {
         prototype: HTMLInoInputFileElement;
         new (): HTMLInoInputFileElement;
     };
+    /**
+     * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+     */
     interface HTMLInoLabelElement extends Components.InoLabel, HTMLStencilElement {
     }
     var HTMLInoLabelElement: {
@@ -1715,6 +1797,10 @@ declare global {
         prototype: HTMLInoListElement;
         new (): HTMLInoListElement;
     };
+    /**
+     * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface HTMLInoListDividerElement extends Components.InoListDivider, HTMLStencilElement {
     }
     var HTMLInoListDividerElement: {
@@ -1784,6 +1870,9 @@ declare global {
         prototype: HTMLInoPopoverElement;
         new (): HTMLInoPopoverElement;
     };
+    /**
+     * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+     */
     interface HTMLInoProgressBarElement extends Components.InoProgressBar, HTMLStencilElement {
     }
     var HTMLInoProgressBarElement: {
@@ -1802,6 +1891,9 @@ declare global {
         prototype: HTMLInoRadioGroupElement;
         new (): HTMLInoRadioGroupElement;
     };
+    /**
+     * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+     */
     interface HTMLInoRangeElement extends Components.InoRange, HTMLStencilElement {
     }
     var HTMLInoRangeElement: {
@@ -1826,12 +1918,19 @@ declare global {
         prototype: HTMLInoSelectElement;
         new (): HTMLInoSelectElement;
     };
+    /**
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     */
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
     }
     var HTMLInoSnackbarElement: {
         prototype: HTMLInoSnackbarElement;
         new (): HTMLInoSnackbarElement;
     };
+    /**
+     * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+     * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+     */
     interface HTMLInoSpinnerElement extends Components.InoSpinner, HTMLStencilElement {
     }
     var HTMLInoSpinnerElement: {
@@ -1844,6 +1943,9 @@ declare global {
         prototype: HTMLInoSwitchElement;
         new (): HTMLInoSwitchElement;
     };
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+     */
     interface HTMLInoTabElement extends Components.InoTab, HTMLStencilElement {
     }
     var HTMLInoTabElement: {
@@ -1868,6 +1970,10 @@ declare global {
         prototype: HTMLInoTableHeaderCellElement;
         new (): HTMLInoTableHeaderCellElement;
     };
+    /**
+     * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+     * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+     */
     interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {
     }
     var HTMLInoTextareaElement: {
@@ -1946,6 +2052,18 @@ declare namespace LocalJSX {
          */
         "onExpandedChange"?: (event: InoAccordionCustomEvent<boolean>) => void;
     }
+    /**
+     * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+     * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+     * flexible to some extent compared to stateless components.
+     * ## Responsibilities
+     * The component handles the following tasks:
+     * - Management of the `value` property of the `<ino-input>` element.
+     * - Management of showing and hiding the different options based on the input.
+     * - Keyboard navigation among the options.
+     * ## Filtering
+     * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+     */
     interface InoAutocomplete {
         /**
           * Number of ms the search function should be delayed after the user typed something.
@@ -2076,6 +2194,9 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface InoCarouselSlide {
         /**
           * Selected state controlled by the `<ino-carousel>`
@@ -2090,6 +2211,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface InoCheckbox {
         /**
           * Marks this element as checked. (**unmanaged**)
@@ -2445,6 +2569,7 @@ declare namespace LocalJSX {
         "topBottomLocation"?: VerticalLocation;
     }
     /**
+     * A light icon component for texts and other components.
      * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
      */
     interface InoIcon {
@@ -2507,6 +2632,9 @@ declare namespace LocalJSX {
          */
         "type"?: ButtonType;
     }
+    /**
+     * An image component with different styles that reserves a predefined space to avoid jumping contents.
+     */
     interface InoImg {
         /**
           * The alternative text of this image.
@@ -2685,6 +2813,10 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+     * This component replaces the native behaviour with a custom `ino-button` with logic.
+     */
     interface InoInputFile {
         /**
           * The types of files accepted by the server.
@@ -2734,6 +2866,9 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
     }
+    /**
+     * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+     */
     interface InoLabel {
         /**
           * Colors the label in an light grey to indicate the disabled status for this element
@@ -2774,6 +2909,10 @@ declare namespace LocalJSX {
          */
         "twoLines"?: boolean;
     }
+    /**
+     * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface InoListDivider {
         /**
           * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
@@ -2987,6 +3126,9 @@ declare namespace LocalJSX {
          */
         "visible"?: boolean;
     }
+    /**
+     * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+     */
     interface InoProgressBar {
         /**
           * Sets the buffer progress
@@ -3041,6 +3183,9 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    /**
+     * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+     */
     interface InoRange {
         /**
           * Disables this element.
@@ -3193,6 +3338,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     */
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -3224,6 +3372,10 @@ declare namespace LocalJSX {
          */
         "type"?: SnackbarType;
     }
+    /**
+     * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+     * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+     */
     interface InoSpinner {
         /**
           * The height of this spinner (default = 40)
@@ -3260,6 +3412,9 @@ declare namespace LocalJSX {
          */
         "onCheckedChange"?: (event: InoSwitchCustomEvent<any>) => void;
     }
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+     */
     interface InoTab {
         /**
           * Indicates a leading icon in the tab.
@@ -3366,6 +3521,10 @@ declare namespace LocalJSX {
          */
         "sortStart"?: SortDirection;
     }
+    /**
+     * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+     * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+     */
     interface InoTextarea {
         /**
           * The autofocus of this element.
@@ -3527,12 +3686,30 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ino-accordion": LocalJSX.InoAccordion & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
+            /**
+             * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+             * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+             * flexible to some extent compared to stateless components.
+             * ## Responsibilities
+             * The component handles the following tasks:
+             * - Management of the `value` property of the `<ino-input>` element.
+             * - Management of showing and hiding the different options based on the input.
+             * - Keyboard navigation among the options.
+             * ## Filtering
+             * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+             */
             "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
             "ino-avatar": LocalJSX.InoAvatar & JSXBase.HTMLAttributes<HTMLInoAvatarElement>;
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
             "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
+            /**
+             * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+             */
             "ino-carousel-slide": LocalJSX.InoCarouselSlide & JSXBase.HTMLAttributes<HTMLInoCarouselSlideElement>;
+            /**
+             * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+             */
             "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
             "ino-control-item": LocalJSX.InoControlItem & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
@@ -3542,16 +3719,31 @@ declare module "@stencil/core" {
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
             /**
+             * A light icon component for texts and other components.
              * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
              */
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
+            /**
+             * An image component with different styles that reserves a predefined space to avoid jumping contents.
+             */
             "ino-img": LocalJSX.InoImg & JSXBase.HTMLAttributes<HTMLInoImgElement>;
             "ino-img-list": LocalJSX.InoImgList & JSXBase.HTMLAttributes<HTMLInoImgListElement>;
             "ino-input": LocalJSX.InoInput & JSXBase.HTMLAttributes<HTMLInoInputElement>;
+            /**
+             * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+             * This component replaces the native behaviour with a custom `ino-button` with logic.
+             */
             "ino-input-file": LocalJSX.InoInputFile & JSXBase.HTMLAttributes<HTMLInoInputFileElement>;
+            /**
+             * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+             */
             "ino-label": LocalJSX.InoLabel & JSXBase.HTMLAttributes<HTMLInoLabelElement>;
             "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
+            /**
+             * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+             * This component is used as child of `ino-list` and `ino-menu` components.
+             */
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
             /**
@@ -3576,20 +3768,40 @@ declare module "@stencil/core" {
             "ino-option": LocalJSX.InoOption & JSXBase.HTMLAttributes<HTMLInoOptionElement>;
             "ino-option-group": LocalJSX.InoOptionGroup & JSXBase.HTMLAttributes<HTMLInoOptionGroupElement>;
             "ino-popover": LocalJSX.InoPopover & JSXBase.HTMLAttributes<HTMLInoPopoverElement>;
+            /**
+             * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+             */
             "ino-progress-bar": LocalJSX.InoProgressBar & JSXBase.HTMLAttributes<HTMLInoProgressBarElement>;
             "ino-radio": LocalJSX.InoRadio & JSXBase.HTMLAttributes<HTMLInoRadioElement>;
             "ino-radio-group": LocalJSX.InoRadioGroup & JSXBase.HTMLAttributes<HTMLInoRadioGroupElement>;
+            /**
+             * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+             */
             "ino-range": LocalJSX.InoRange & JSXBase.HTMLAttributes<HTMLInoRangeElement>;
             "ino-segment-button": LocalJSX.InoSegmentButton & JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement>;
             "ino-segment-group": LocalJSX.InoSegmentGroup & JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement>;
             "ino-select": LocalJSX.InoSelect & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
+            /**
+             * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+             */
             "ino-snackbar": LocalJSX.InoSnackbar & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
+            /**
+             * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+             * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+             */
             "ino-spinner": LocalJSX.InoSpinner & JSXBase.HTMLAttributes<HTMLInoSpinnerElement>;
             "ino-switch": LocalJSX.InoSwitch & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;
+            /**
+             * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+             */
             "ino-tab": LocalJSX.InoTab & JSXBase.HTMLAttributes<HTMLInoTabElement>;
             "ino-tab-bar": LocalJSX.InoTabBar & JSXBase.HTMLAttributes<HTMLInoTabBarElement>;
             "ino-table": LocalJSX.InoTable & JSXBase.HTMLAttributes<HTMLInoTableElement>;
             "ino-table-header-cell": LocalJSX.InoTableHeaderCell & JSXBase.HTMLAttributes<HTMLInoTableHeaderCellElement>;
+            /**
+             * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+             * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+             */
             "ino-textarea": LocalJSX.InoTextarea & JSXBase.HTMLAttributes<HTMLInoTextareaElement>;
             "ino-tooltip": LocalJSX.InoTooltip & JSXBase.HTMLAttributes<HTMLInoTooltipElement>;
         }

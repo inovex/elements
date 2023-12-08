@@ -1,41 +1,6 @@
 # ino-segment-button
 
-A button component that can be used in combination with the ino-segment-group component.
 
-## Usage
-
-The component can be used as follows:
-
-### Web Component
-
-```js
-document
-  .querySelector('ino-segment-button')
-  .addEventListener('click', () => alert('Button was clicked!'));
-```
-
-```html
-<ino-segment-button checked disabled name="<string>" dense value="<string>">
-  Button Content
-</ino-segment-button>
-```
-
-### React
-
-```js
-import { Component } from 'react';
-import { InoSegmentButton } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <InoSegmentButton onClick={(_) => alert('Yeah, you clicked the button!')}>
-        You can click me!
-      </InoSegmentButton>
-    );
-  }
-}
-```
 
 <!-- Auto Generated Below -->
 
@@ -61,9 +26,9 @@ class MyComponent extends Component {
 
 ## Slots
 
-| Slot        | Description         |
-| ----------- | ------------------- |
-| `"default"` | Label of the button |
+| Slot        | Description                                                                                                   |
+| ----------- | ------------------------------------------------------------------------------------------------------------- |
+| `"default"` | Label of the button  A button component that can be used in combination with the ino-segment-group component. |
 
 
 ----------------------------------------------

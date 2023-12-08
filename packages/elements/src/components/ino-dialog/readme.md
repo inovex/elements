@@ -1,76 +1,5 @@
 # ino-dialog
 
-The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
-It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
-
-## Usage
-
-The component can be used as follows:
-
-### Web Component
-
-```js
-document
-  .querySelector('ino-dialog')
-  .addEventListener('close', (e) =>
-    alert(`dialog has been closed with action: ${e.detail}`),
-  );
-```
-
-```html
-<ino-dialog>
-  <div class="awesome-content"></div>
-</ino-dialog>
-```
-
-### React
-
-```jsx
-import React from 'react';
-import { Component } from 'react';
-import { InoButton, InoDialog } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-
-  state = {
-    open: false
-  };
-
-  handleEvent = () => {
-    this.setState((open) => ({
-      open: !open
-    }))
-  };
-
-  render() {
-    return (
-      <>
-        <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>
-        <InoDialog open={this.state.open}>
-          <div class="awesome-content"/>
-        </InoDialog>
-      </>
-    );
-  }
-}
-```
-
-## Additional information
-
-### Sizing
-The dialog is displayed in the middle (horiziontally and vertically centered) on a surface.
-In order to customize the dialog's size, use the `--ino-dialog-height` and `--ino-dialog-width` properties.
-Either use a fixed value or use css calc (f.e. `calc(100% - 60px)` to add a margin auf `30px` on both sides).
-
-### Fullwidth
-A Fullwidth dialog is a distinct variant which has 100% width an is attached to the bottom of the page. It scrolls up and defines a small
-margin at top for the background scrim and escape for dialog close. It's not recommenended to use this option with `--ino-dialog-width` and `--ino-dialog-height`.
-
-### Closing actions
-You can mark elements as "action elements" by providing a `data-ino-dialog-action="action-name"` attribute.
-On user clicks, the dialog checks whether the target is a dialog action and, if true, emits a `close` event with `event.detail = "action-name"`.
-
-Subsequently, listen to the `close` Event and check the `event.detail` to retrieve the users action.
 
 <!-- Auto Generated Below -->
 
@@ -101,29 +30,12 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 ## Slots
 
-| Slot        | Description                                 |
-| ----------- | ------------------------------------------- |
-| `"body"`    | content to replace default body of dialog   |
-| `"default"` | content of the dialog                       |
-| `"footer"`  | content to replace default footer of dialog |
-| `"header"`  | content to replace default header of dialog |
-
-
-## CSS Custom Properties
-
-| Name                                    | Description                     |
-| --------------------------------------- | ------------------------------- |
-| `--ino-dialog-background-color`         | background color of the dialog  |
-| `--ino-dialog-border`                   | border shorthand of the dialog  |
-| `--ino-dialog-border-radius`            | border-radius of the dialog     |
-| `--ino-dialog-box-shadow`               | box-shadow of the dialog        |
-| `--ino-dialog-height`                   | height of the dialog            |
-| `--ino-dialog-max-height`               | max-height of the dialog        |
-| `--ino-dialog-max-width`                | max-width of the dialog         |
-| `--ino-dialog-min-height`               | min-height of the dialog        |
-| `--ino-dialog-min-width`                | min-width of the dialog         |
-| `--ino-dialog-overlay-background-color` | background color of the overlay |
-| `--ino-dialog-width`                    | width of the dialog             |
+| Slot        | Description                                                                                                                                                                                                                                                                                |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `"body"`    | content to replace default body of dialog                                                                                                                                                                                                                                                  |
+| `"default"` | content of the dialog                                                                                                                                                                                                                                                                      |
+| `"footer"`  | content to replace default footer of dialog  The ino-dialog component displays a modal window that can be used to display additional information or notify the user. It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users. |
+| `"header"`  | content to replace default header of dialog                                                                                                                                                                                                                                                |
 
 
 ## Dependencies

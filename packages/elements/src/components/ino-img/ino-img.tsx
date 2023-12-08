@@ -11,7 +11,9 @@ import {
 
 import { ImageDecodingTypes } from '../types';
 import classNames from 'classnames';
-
+/**
+ * An image component with different styles that reserves a predefined space to avoid jumping contents.
+ */
 @Component({
   tag: 'ino-img',
   styleUrl: 'ino-img.scss',

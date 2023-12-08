@@ -18,6 +18,8 @@ import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 /**
  * @slot icon-leading - For the icon to be prepended
  * @slot default - One or more `ino-option(-group)`
+ *
+ * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
  */
 @Component({
   tag: 'ino-select',

@@ -15,6 +15,10 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
  * @slot default - One or more `ino-fab`
  * @slot icon-opened - The icon of the FAB button while being open
  * @slot icon-closed - The icon of the FAB button while being closed
+ *
+ * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
+ * button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed
+ * dial.
  */
 @Component({
   tag: 'ino-fab-set',

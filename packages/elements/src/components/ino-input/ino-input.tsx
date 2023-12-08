@@ -22,6 +22,11 @@ import { InputType, UserInputInterceptor } from '../types';
 /**
  * @slot icon-leading - For the icon to be prepended
  * @slot icon-trailing - For the icon to be appended
+ *
+ * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
+ *
+ * Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
+ *
  */
 @Component({
   tag: 'ino-input',

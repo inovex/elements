@@ -1,91 +1,5 @@
 # ino-button
 
-A button component with different styles and icon capability.
-
-## Usage
-
-The component can be used as follows:
-
-### Web Component
-
-```js
-document
-  .querySelector('ino-button')
-  .addEventListener('click', (_) => alert('Button was clicked!'));
-```
-
-```html
-<ino-button
-  autofocus
-  disabled
-  name="<string>"
-  form="<string>"
-  type="<string>"
-  color-scheme="<string>"
-  fill="<string>"
-  dense
-  onClick="handleClick()"
->
-  <ino-icon icon="add"></ino-icon>
-  Button Content
-</ino-button>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```jsx
-import { Component } from 'react';
-import { InoButton, InoIcon } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <InoButton
-        inoIconLeading
-        onClick={(_) => alert('Yeah, you clicked the button!')}
-      >
-        <InoIcon inoIcon="add" />
-        You can click me!
-      </InoButton>
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoButton } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Button: React.FunctionComponent<Components.InoButtonAttributes> = (
-  props,
-) => {
-  const { onClick } = props;
-
-  return (
-    <InoButton inoIconLeading onClick={onClick}>
-      <InoIcon inoIcon={'add'} />
-      You can click me!
-    </InoButton>
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <Button
-        onClick={(_) => alert('Yeah, you clicked the button!')}
-      />
-    );
-  }
-}
-```
-
-## Demo
 
 <!-- Auto Generated Below -->
 
@@ -106,10 +20,10 @@ class MyComponent extends Component {
 
 ## Slots
 
-| Slot              | Description                  |
-| ----------------- | ---------------------------- |
-| `"icon-leading"`  | For the icon to be prepended |
-| `"icon-trailing"` | For the icon to be appended  |
+| Slot              | Description                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------ |
+| `"icon-leading"`  | For the icon to be prepended                                                               |
+| `"icon-trailing"` | For the icon to be appended  A button component with different styles and icon capability. |
 
 
 ## Dependencies

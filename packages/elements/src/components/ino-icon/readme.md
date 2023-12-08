@@ -1,97 +1,13 @@
 # ino-icon
 
-A light icon component for texts and other components.
 
-### Usage
-
-The component can be used as follows:
-
-```js
-document.querySelector('ino-icon').addEventListener('clickEl', (e) => {
-  // ...
-});
-```
-
-```js
-document
-  .querySelector('ino-icon')
-  .addEventListener('clickEl', (_) => alert('The icon was clicked'));
-```
-
-```html
-<ino-icon icon="<string>" clickable onclickel="handleClickEl()">
-</ino-icon>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```jsx
-import { Component } from 'react';
-import { InoIcon } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  handleClick = (e: any) => {
-    alert(`Icon was clicked`);
-  };
-
-  render() {
-    return <InoIcon icon="search" clickable onClickEl={handleClick} />;
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```jsx
-import React, { Component } from 'react';
-import { InoIcon } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {
-  const { icon } = props;
-
-  const handleClick = (e: any) => {
-    alert(`Icon was clicked`);
-  };
-
-  return (
-    <InoIcon icon={icon} onClickEl={handleClick}>
-      {props.children}
-    </InoIcon>
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return <Icon icon="search" />;
-  }
-}
-```
-
-## Additional Hints
-
-The component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.
-
-**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.
-
-### Add icons
-
-If you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.
-
-> **Note:** To use the provided icons in your consumer project, you need to copy all contents of
-> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected
-> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions
-> on how to integrate the icons with Angular, React or plain JavaScript.
-
-Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
 
 <!-- Auto Generated Below -->
 
 
 ## Overview
 
+A light icon component for texts and other components.
 This component is based on the ionicons (https://github.com/ionic-team/ionicons)
 
 ## Properties
@@ -110,15 +26,6 @@ This component is based on the ionicons (https://github.com/ionic-team/ionicons)
 | Event     | Description                                                                                                           | Type               |
 | --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<any>` |
-
-
-## CSS Custom Properties
-
-| Name                | Description        |
-| ------------------- | ------------------ |
-| `--ino-icon-color`  | Color of the icon  |
-| `--ino-icon-height` | Height of the icon |
-| `--ino-icon-width`  | Width of the icon  |
 
 
 ## Dependencies

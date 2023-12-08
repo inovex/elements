@@ -1,108 +1,5 @@
 # ino-textarea
 
-A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
-
-> **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
-
-### Usage
-
-The component can be used as follows:
-
-```js
-document
-  .querySelector('ino-textarea')
-  .addEventListener('valueChange', (e) =>
-    alert(`The new textarea value is ${e.detail}`),
-  );
-```
-
-```html
-<ino-textarea
-  autofocus
-  cols="<number>"
-  disabled
-  maxlength="<number>"
-  minlength="<number>"
-  name="<string>"
-  placeholder="<string>"
-  required
-  rows="<number>"
-  value="<string>"
-  autogrow
-  label="<string>"
->
-</ino-textarea>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoTextarea } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <InoTextarea autogrow>
-        Here's some text. And the textarea will grow when you enter more...
-      </InoTextarea>
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoTextarea } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Textarea: React.FunctionComponent<Components.InoTextareaAttributes> = (
-  props,
-) => {
-  const { autogrow } = props;
-
-  return <InoTextarea autogrow={autogrow}>{props.children}</InoTextarea>;
-};
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <Textarea autogrow>
-        Here's some text. And the textarea will grow when you enter more...
-      </Textarea>
-    );
-  }
-}
-```
-
-## Additional Hints
-
-**Labels**: The component shows a floating label containing the value of `label`.
-
-### Control flow
-
-The textarea has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of input.
-
-```js
-document.querySelector('ino-textarea').addEventListener('valueChanges', (e) => {
-  // ...
-});
-```
-
-```html
-<ino-textarea
-  value={this.state.value}
-  valueChange={e => this.state.value = e.detail}>
-</ino-textarea>
-```
-
-### Event Behaviour
-
-The component is based on a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLTextareaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement) like `keyup`. The native `input` and `change` event is not bubbled because the value will only change when the value attribute changes.
 
 <!-- Auto Generated Below -->
 
@@ -159,15 +56,6 @@ Use this method instead of the global `textarea.focus()`.
 Type: `Promise<void>`
 
 
-
-
-## CSS Custom Properties
-
-| Name                           | Description                   |
-| ------------------------------ | ----------------------------- |
-| `--ino-textarea-caret-color`   | color of the caret            |
-| `--ino-textarea-label-color`   | color of the label            |
-| `--ino-textarea-outline-color` | outline color of the textarea |
 
 
 ## Dependencies

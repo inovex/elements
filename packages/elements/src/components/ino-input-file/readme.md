@@ -1,78 +1,6 @@
 # ino-input-file
 
-An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
 
-This component replaces the native behaviour with a custom `ino-button` with logic.
-
-### Usage
-
-The component can be used as follows:
-
-```js
-document
-  .querySelector('ino-input-file')
-  .addEventListener('changeFile', (e) => alert(`The new file is: ${e.detail}`));
-```
-
-```html
-<ino-input-file
-  accept="<string>"
-  autofocus
-  disabled
-  multiple
-  name="<string>"
-  required
-
-  label="<string>"
->
-</ino-input>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoInputFile } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  onChangeFile(e) {
-    const fileNames = e.detail.files
-      .map((f) => [f.name, f.type, f.size + ' bytes'].join(', '))
-      .join('\n');
-    alert(fileNames);
-  }
-
-  render() {
-    return <InoInputFile onChangeFile={this.onChangeFile} />;
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoInputFile } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const FileInput: React.FunctionComponent<Components.InoInputFile> = (props) => {
-  const onFileChange = (e: any) => {
-    alert(`The new file is: ${e.detail}`);
-  };
-
-  return <InoInputFile onFileChange={onFileChange} />;
-};
-
-class MyComponent extends Component {
-  render() {
-    return <FileInput />;
-  }
-}
-```
-
-## Additional Hints
 
 <!-- Auto Generated Below -->
 
@@ -98,14 +26,6 @@ class MyComponent extends Component {
 | Event        | Description                   | Type                                      |
 | ------------ | ----------------------------- | ----------------------------------------- |
 | `changeFile` | Emits when the value changes. | `CustomEvent<{ e: any; files: File[]; }>` |
-
-
-## CSS Custom Properties
-
-| Name                          | Description                        |
-| ----------------------------- | ---------------------------------- |
-| `--ino-input-file-box-height` | Height of the drag and drop window |
-| `--ino-input-file-box-width`  | Width of the drag and drop window  |
 
 
 ## Dependencies

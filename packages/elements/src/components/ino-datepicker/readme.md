@@ -1,145 +1,6 @@
 # ino-datepicker
 
-A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
 
-## Usage
-
-The component can be used as follows:
-
-### Web Component
-
-```js
-document
-  .querySelector('ino-datepicker')
-  .addEventListener('valueChange', (e) =>
-    alert(`The new datepicker value is: ${e.detail}`),
-  );
-```
-
-```html
-<ino-datepicker
-  autofocus
-  disabled
-  name="<string>"
-  required
-  value="<string>"
-  min="<string>"
-  max="<string>"
-  minute-step="<number>"
-  hour-step="<number>"
-  inline="<boolean>"
-  range
-  outline
-  placeholder="<string>"
-  label="<string>"
-  pattern="<string>"
-  date-format="<string>"
-  default-date="<string>"
-  default-hour="<number>"
-  default-minute="<number>"
-  twelve-hour-time
-  helper="<string>"
-  helper-persistent
-  helper-validation
->
-</ino-datepicker>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoDatepicker } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  valueChange(e: any) {
-    alert(`The new value is ${e.detail}`);
-  }
-
-  render() {
-    return (
-      <InoDatepicker
-        inoLabel="Select a date"
-        inoHelper="Choose a date"
-        onValueChange={valueChange}
-      />
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoDatepicker } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = (
-  props,
-) => {
-  const { inoLabel, inoHelper } = props;
-
-  const valueChange = (e: any) => {
-    alert(`The new value is ${e.detail}`);
-  };
-
-  return (
-    <InoDatepicker
-      inoLabel={inoLabel}
-      inoHelper={inoHelper}
-      onValueChange={valueChange}
-    />
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return <Datepicker inoLabel="Select a date" inoHelper="Choose a date" />;
-  }
-}
-```
-
-## Additional Hints
-
-### Types
-
-This datepicker can be used as a picker for ...
-
-- date
-- time
-- datetime
-- month
-
-The type of the picker is selected based on the  type` property. See the examples below.
-
-#### Datepicker
-
-```html
-<ino-datepicker type="date" label="Date"></ino-datepicker>
-```
-
-#### Timepicker
-
-```html
-<ino-datepicker type="time" label="Time"></ino-datepicker>
-```
-
-#### Date-Time-Picker
-
-```html
-<ino-datepicker type="datetime" label="Datetime"> </ino-datepicker>
-```
-
-#### Monthpicker
-
-```html
-<ino-datepicker type="month" label="Month"></ino-datepicker>
-```
-
-## Demo
 
 <!-- Auto Generated Below -->
 
@@ -221,10 +82,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot              | Description                                                               |
-| ----------------- | ------------------------------------------------------------------------- |
-| `"icon-leading"`  | Leading `ino-icon` of the underyling ino-input (only for inline pickers)  |
-| `"icon-trailing"` | Trailing `ino-icon` of the underyling ino-input (only for inline pickers) |
+| Slot              | Description                                                                                                                                                                                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"icon-leading"`  | Leading `ino-icon` of the underyling ino-input (only for inline pickers)                                                                                                                                                                                                   |
+| `"icon-trailing"` | Trailing `ino-icon` of the underyling ino-input (only for inline pickers)  A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience. |
 
 
 ## Dependencies

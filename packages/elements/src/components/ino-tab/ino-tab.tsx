@@ -11,6 +11,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+ */
 @Component({
   tag: 'ino-tab',
   styleUrl: 'ino-tab.scss',

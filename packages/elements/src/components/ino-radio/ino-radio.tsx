@@ -18,6 +18,8 @@ import { renderHiddenInput } from '../../util/helpers';
 
 /**
  * @slot default - Label of the checkbox
+ *
+ * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
  */
 @Component({
   tag: 'ino-radio',

@@ -14,6 +14,7 @@ import { getSvgContent, inoiconContent } from './request';
 import { getUrl } from './utils';
 
 /**
+ * A light icon component for texts and other components.
  * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
  */
 @Component({
