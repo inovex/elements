@@ -18,7 +18,7 @@ import { ChipSurface } from '../types';
  * @slot default - The label text of the chip
  * @slot icon-leading - For the icon to be prepended
  * @slot icon-trailing - For the icon to be appended - disables the `removable` property
- * 
+ *
  * The ino-chip component displays the provided content and icon as a chip.
  */
 @Component({

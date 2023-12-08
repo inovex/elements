@@ -14,7 +14,7 @@ import { generateUniqueId } from '../../util/component-utils';
 
 /**
  * @slot default - Label of the button
- * 
+ *
  * A button component that can be used in combination with the ino-segment-group component.
  */
 @Component({

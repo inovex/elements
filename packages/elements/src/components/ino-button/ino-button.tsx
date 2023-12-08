@@ -17,7 +17,7 @@ export type Variants = 'filled' | 'outlined' | 'text';
 /**
  * @slot icon-leading - For the icon to be prepended
  * @slot icon-trailing - For the icon to be appended
- * 
+ *
  * A button component with different styles and icon capability.
  */
 @Component({
