@@ -11,7 +11,7 @@ import nidarosImg from '../../assets/images/nidaros.jpg';
 import './ino-dialog.scss';
 
 export default {
-  title: 'Structure/<ino-dialog>',
+  title: 'Structure/ino-dialog',
   component: 'ino-dialog',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-dialog'),

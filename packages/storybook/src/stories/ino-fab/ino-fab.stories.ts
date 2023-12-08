@@ -7,7 +7,7 @@ import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-fab.scss';
 
 export default {
-  title: 'Buttons/<ino-fab>',
+  title: 'Buttons/ino-fab',
   component: 'ino-fab',
   decorators: [(story) => decorateStoryWithClass(story, 'story-fab')],
   args: {

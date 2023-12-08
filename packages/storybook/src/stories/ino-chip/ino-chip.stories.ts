@@ -7,7 +7,7 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-chip.scss';
 
 export default {
-  title: 'Buttons/<ino-chip>',
+  title: 'Buttons/ino-chip',
   component: 'ino-chip',
   decorators: [(story) => decorateStoryWithClass(story)],
   parameters: {

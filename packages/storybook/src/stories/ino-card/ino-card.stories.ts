@@ -8,7 +8,7 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-card.scss';
 
 export default {
-  title: 'Structure/<ino-card>',
+  title: 'Structure/ino-card',
   component: 'ino-card',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-card'),

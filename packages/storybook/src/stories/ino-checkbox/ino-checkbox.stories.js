@@ -31,7 +31,7 @@ function subscribeToComponentEvents() {
 }
 
 export default {
-  title: 'Input/<ino-checkbox>',
+  title: 'Input/ino-checkbox',
   parameters: {
     actions: {
       handles: ['checkedChange .customizable-checkbox'],
