@@ -45,7 +45,7 @@
     "lint:vue": "nx run elements-vue:lint",
     "lint:ui-patterns": "nx run ui-patterns:lint",
     "lint:ui-patterns-playground": "nx run ui-patterns-playground:lint",
-    "format": "yarn prettier --check **/*.{js,ts,tsx,md,html,css,scss}",
+    "format": "yarn prettier --check ./**/*.{js,ts,tsx,md,html,css,scss}",
     "format:fix": "yarn prettier --write ./**/*.{js,ts,tsx,md,html,css,scss}",
     "---misc---": "",
     "clean": "nx run-many --target=clean && shx rm -rf dist",
