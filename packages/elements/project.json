@@ -35,6 +35,9 @@
         },
         "unit": {
           "command": "stencil test --spec"
+        },
+        "screenshot": {
+          "command": "stencil test --e2e --screenshot --no-build"
         }
       }
     },
