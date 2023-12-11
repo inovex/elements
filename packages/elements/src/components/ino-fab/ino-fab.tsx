@@ -20,6 +20,10 @@ import { hasSlotContent } from '../../util/component-utils';
  * It appears in front of all screen content, typically as a circular shape with an icon in its center.
  *
  * FABs come in three types: regular, mini, and extended
+ *
+ * #### Additional Hints
+ *
+ * **Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.
  */
 @Component({
   tag: 'ino-fab',

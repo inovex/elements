@@ -20,6 +20,9 @@ import { ButtonType } from '../types';
  * @slot default - `<ino-icon>`
  *
  * A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
+ *
+ * ## Additional Hints
+ * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
  */
 @Component({
   tag: 'ino-icon-button',
