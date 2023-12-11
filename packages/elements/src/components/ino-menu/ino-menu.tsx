@@ -10,14 +10,14 @@ import { Placement } from 'tippy.js';
 import { focusIfExists, generateUniqueId } from '../../util/component-utils';
 
 /**
- * @slot default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`
- *
  * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
  * The anchor element is the parent element.
  *
  * The menu items consist of different variations of the `ino-list-item` component.
  *
  * If you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.
+ *
+ * @slot default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`
  */
 @Component({
   tag: 'ino-menu',

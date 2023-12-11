@@ -10,14 +10,14 @@ import {
 import classNames from 'classnames';
 
 /**
- * @slot default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`
- *
  * A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.
  *
  * This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.
  *
  * #### Additional Hints
- * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
+ * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line. 
+ * 
+ * @slot default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`
  */
 @Component({
   tag: 'ino-list',

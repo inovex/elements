@@ -15,10 +15,10 @@ import { ButtonType } from '../types';
 export type Variants = 'filled' | 'outlined' | 'text';
 
 /**
+ * A button component with different styles and icon capability.
+ * 
  * @slot icon-leading - For the icon to be prepended
  * @slot icon-trailing - For the icon to be appended
- *
- * A button component with different styles and icon capability.
  */
 @Component({
   tag: 'ino-button',

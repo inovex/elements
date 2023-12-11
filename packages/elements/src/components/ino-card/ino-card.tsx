@@ -10,12 +10,12 @@ import classnames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
 /**
+ * The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
+ * fully customize the appearance of the card.
+ * 
  * @slot header - For the element to be placed in the card header
  * @slot content - For card content
  * @slot footer - For the element to be placed in the card footer
- *
- * The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
- * fully customize the appearance of the card.
  */
 @Component({
   tag: 'ino-card',

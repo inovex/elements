@@ -16,11 +16,11 @@ import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 
 /**
+ * Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
+ *
  * @slot default - Label of the switch
  * @slot icon-on - Icon used for the checked state. The colors of the `color-scheme` will be used.
  * @slot icon-off - Icon used for the unchecked state. The colors of the `color-scheme` will be used.
- *
- * Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
  */
 @Component({
   tag: 'ino-switch',

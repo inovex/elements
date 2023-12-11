@@ -9,13 +9,13 @@ import {
 import classNames from 'classnames';
 
 /**
- * @slot default - Any element
- *
  * A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
  *
  * This component is used as child of `ino-list` and `ino-menu` components.
  *
  * > Note: This component's main use case is within the `ino-nav-drawer`.
+ * 
+ * @slot default - Any element
  */
 @Component({
   tag: 'ino-nav-item',

@@ -16,9 +16,9 @@ import classNames from 'classnames';
 import { SortDirection, SortDirectionChangeDetails } from '../../interface';
 
 /**
- * @slot default - The search content (input field, list) within the popover.
- *
  * The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.
+ *
+ * @slot default - The search content (input field, list) within the popover.
  */
 @Component({
   tag: 'ino-table-header-cell',

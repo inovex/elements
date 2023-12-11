@@ -15,14 +15,14 @@ import { MDCRipple } from '@material/ripple';
 import { JSXBase } from '@stencil/core/internal';
 
 /**
+ * A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+ *
+ * This component is used as child of `ino-list` and `ino-menu` components.
+ * 
  * @slot leading - For the element to be prepended
  * @slot trailing - For the element to be appended
  * @slot primary - For the (text) element
  * @slot secondary - For the secondary text element in a two-lined list
- *
- * A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
- *
- * This component is used as child of `ino-list` and `ino-menu` components.
  */
 @Component({
   tag: 'ino-list-item',

@@ -18,13 +18,13 @@ import { hasSlotContent } from '../../util/component-utils';
 const DIALOG_ACTION_ATTRIBUTE = 'data-ino-dialog-action';
 
 /**
+ * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+ * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+ *
  * @slot default - content of the dialog
  * @slot header - content to replace default header of dialog
  * @slot body - content to replace default body of dialog
  * @slot footer - content to replace default footer of dialog
- *
- * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
- * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
  */
 @Component({
   tag: 'ino-dialog',

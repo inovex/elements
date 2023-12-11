@@ -12,10 +12,6 @@ import { hasSlotContent } from '../../util/component-utils';
 import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 
 /**
- * @slot default - One or more `ino-fab`
- * @slot icon-opened - The icon of the FAB button while being open
- * @slot icon-closed - The icon of the FAB button while being closed
- *
  * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
  * button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed
  * dial.
@@ -27,6 +23,10 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
  *
  * The ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to
  * your local state and pass the state to the component again to open/close the fab-set.
+ *
+ * @slot default - One or more `ino-fab`
+ * @slot icon-opened - The icon of the FAB button while being open
+ * @slot icon-closed - The icon of the FAB button while being closed
  */
 @Component({
   tag: 'ino-fab-set',

@@ -11,9 +11,9 @@ import {
 import classNames from 'classnames';
 
 /**
- * @slot default - The text of the option
- *
  * An option component that can be used to add options to an ino-select component.
+ * 
+ * @slot default - The text of the option
  */
 @Component({
   tag: 'ino-option',
