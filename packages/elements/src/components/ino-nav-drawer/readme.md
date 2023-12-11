@@ -4,6 +4,13 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A navigation drawer component with different variants, setting up the base layout for your app.
+It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
+
+> Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+
 ## Properties
 
 | Property     | Attribute | Description                                                                                                                                      | Type                                                      | Default                                                                                                      |
@@ -23,14 +30,14 @@
 
 ## Slots
 
-| Slot         | Description                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"app"`      | For the application located next to this nav-drawer  A navigation drawer component with different variants, setting up the base layout for your app. It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.  > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside. |
-| `"content"`  | For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`)                                                                                                                                                                                                                                                                                                                       |
-| `"footer"`   | For elements below the content slot                                                                                                                                                                                                                                                                                                                                                                           |
-| `"header"`   | For a custom header on top of the navigation bar                                                                                                                                                                                                                                                                                                                                                              |
-| `"logo"`     | For the logo on top of the navigation bar (cannot be used with the `header` slot)                                                                                                                                                                                                                                                                                                                             |
-| `"subtitle"` | For the element just below the logo (cannot be used with the `header` slot)                                                                                                                                                                                                                                                                                                                                   |
+| Slot         | Description                                                                             |
+| ------------ | --------------------------------------------------------------------------------------- |
+| `"app"`      | For the application located next to this nav-drawer                                     |
+| `"content"`  | For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`) |
+| `"footer"`   | For elements below the content slot                                                     |
+| `"header"`   | For a custom header on top of the navigation bar                                        |
+| `"logo"`     | For the logo on top of the navigation bar (cannot be used with the `header` slot)       |
+| `"subtitle"` | For the element just below the logo (cannot be used with the `header` slot)             |
 
 
 ## CSS Custom Properties

@@ -5,6 +5,16 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A Popover is a dialog which is bound to a specific element and appears next to it. Under the
+hood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.
+
+The Popover
+and [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)
+components are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips
+can only display plain text.
+
 ## Properties
 
 | Property       | Attribute        | Description                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
@@ -48,10 +58,10 @@ Type: `Promise<any>`
 
 ## Slots
 
-| Slot                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `"default"`         | Content of the popover  A Popover is a dialog which is bound to a specific element and appears next to it. Under the hood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.  The Popover and [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage) components are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips can only display plain text. |
-| `"popover-trigger"` | The target element to attach the triggers to                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Slot                | Description                                  |
+| ------------------- | -------------------------------------------- |
+| `"default"`         | Content of the popover                       |
+| `"popover-trigger"` | The target element to attach the triggers to |
 
 
 ## Dependencies

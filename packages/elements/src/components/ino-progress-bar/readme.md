@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+
 ## Properties
 
 | Property        | Attribute       | Description                                                             | Type      | Default     |

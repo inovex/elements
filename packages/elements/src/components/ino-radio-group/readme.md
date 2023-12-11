@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
+
 ## Properties
 
 | Property    | Attribute   | Description                                                                                                                                                | Type                         | Default        |
@@ -22,9 +26,9 @@
 
 ## Slots
 
-| Slot        | Description                                                                                                                                                                          |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `"default"` | One or more `ino-radio`  A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. |
+| Slot        | Description             |
+| ----------- | ----------------------- |
+| `"default"` | One or more `ino-radio` |
 
 
 ----------------------------------------------

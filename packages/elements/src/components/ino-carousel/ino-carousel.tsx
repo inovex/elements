@@ -18,7 +18,7 @@ import classNames from 'classnames';
  * it also features an autoplay property that allows the slides to be changed automatically.
  * Lastly, using the css variables described at the bottom of the page, you can easily customize
  * the dimensions of the component as well as the duration of the slide transition.
- * 
+ *
  * @slot default - One or more `ino-carousel-slide`
  */
 @Component({

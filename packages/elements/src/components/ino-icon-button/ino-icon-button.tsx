@@ -22,7 +22,7 @@ import { ButtonType } from '../types';
  *
  * ## Additional Hints
  * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
- * 
+ *
  * @slot default - `<ino-icon>`
  */
 @Component({

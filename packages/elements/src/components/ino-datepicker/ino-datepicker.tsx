@@ -29,7 +29,7 @@ import { Validator } from './validator';
  * - time
  * - datetime
  * - month
- * 
+ *
  * @slot icon-leading - Leading `ino-icon` of the underyling ino-input (only for inline pickers)
  * @slot icon-trailing - Trailing `ino-icon` of the underyling ino-input (only for inline pickers)
  */

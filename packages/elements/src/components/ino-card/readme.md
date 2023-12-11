@@ -5,6 +5,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
+fully customize the appearance of the card.
+
 ## Properties
 
 | Property           | Attribute           | Description                                                        | Type      | Default |
@@ -15,11 +20,11 @@
 
 ## Slots
 
-| Slot        | Description                                                                                                                                                                                                          |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"content"` | For card content                                                                                                                                                                                                     |
-| `"footer"`  | For the element to be placed in the card footer  The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to fully customize the appearance of the card. |
-| `"header"`  | For the element to be placed in the card header                                                                                                                                                                      |
+| Slot        | Description                                     |
+| ----------- | ----------------------------------------------- |
+| `"content"` | For card content                                |
+| `"footer"`  | For the element to be placed in the card footer |
+| `"header"`  | For the element to be placed in the card header |
 
 
 ## CSS Custom Properties

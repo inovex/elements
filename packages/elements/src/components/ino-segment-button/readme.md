@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A button component that can be used in combination with the ino-segment-group component.
+
 ## Properties
 
 | Property   | Attribute  | Description                                                                                                                                 | Type      | Default     |
@@ -26,9 +30,9 @@
 
 ## Slots
 
-| Slot        | Description                                                                                                   |
-| ----------- | ------------------------------------------------------------------------------------------------------------- |
-| `"default"` | Label of the button  A button component that can be used in combination with the ino-segment-group component. |
+| Slot        | Description         |
+| ----------- | ------------------- |
+| `"default"` | Label of the button |
 
 
 ----------------------------------------------

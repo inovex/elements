@@ -5,6 +5,15 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.
+
+This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.
+
+#### Additional Hints
+Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
+
 ## Properties
 
 | Property   | Attribute   | Description                                                                                                                        | Type      | Default     |
@@ -16,9 +25,9 @@
 
 ## Slots
 
-| Slot        | Description                                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider`  A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.  This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s. |
+| Slot        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider` |
 
 
 ## CSS Custom Properties

@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.
+
 ## Properties
 
 | Property        | Attribute        | Description                                                                                                                                                                                             | Type              | Default     |
@@ -63,9 +67,9 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot        | Description                                                                                                                                                                       |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"default"` | The search content (input field, list) within the popover.  The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s. |
+| Slot        | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| `"default"` | The search content (input field, list) within the popover. |
 
 
 ## Dependencies

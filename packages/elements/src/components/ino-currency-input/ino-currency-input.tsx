@@ -18,7 +18,7 @@ import { inoElementsConfig as config } from '../config';
  * #### Additional Hints
  * The currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.
  * However, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.
- * 
+ *
  * @slot default - `<ino-input>` of `type="text"`
  * */
 @Component({

@@ -5,6 +5,12 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
+#### Additional Hints
+Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
+
 ## Properties
 
 | Property           | Attribute           | Description                                                                                                                                     | Type      | Default     |
@@ -31,10 +37,10 @@
 
 ## Slots
 
-| Slot             | Description                                                                                                                                                                                                                                                    |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"default"`      | One or more `ino-option(-group)`  A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component. |
-| `"icon-leading"` | For the icon to be prepended                                                                                                                                                                                                                                   |
+| Slot             | Description                       |
+| ---------------- | --------------------------------- |
+| `"default"`      | One or more `ino-option(-group)`* |
+| `"icon-leading"` | For the icon to be prepended      |
 
 
 ## CSS Custom Properties

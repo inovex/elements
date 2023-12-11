@@ -4,6 +4,12 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+
+> **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+
 ## Properties
 
 | Property               | Attribute                | Description                                                                                                                                                                                                                                                                                               | Type      | Default     |

@@ -4,6 +4,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+
 ## Properties
 
 | Property      | Attribute     | Description                                                                                                                                                            | Type                        | Default     |
@@ -30,12 +35,12 @@
 
 ## Slots
 
-| Slot        | Description                                                                                                                                                                                                                                                                                |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `"body"`    | content to replace default body of dialog                                                                                                                                                                                                                                                  |
-| `"default"` | content of the dialog                                                                                                                                                                                                                                                                      |
-| `"footer"`  | content to replace default footer of dialog  The ino-dialog component displays a modal window that can be used to display additional information or notify the user. It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users. |
-| `"header"`  | content to replace default header of dialog                                                                                                                                                                                                                                                |
+| Slot        | Description                                 |
+| ----------- | ------------------------------------------- |
+| `"body"`    | content to replace default body of dialog   |
+| `"default"` | content of the dialog                       |
+| `"footer"`  | content to replace default footer of dialog |
+| `"header"`  | content to replace default header of dialog |
 
 
 ## CSS Custom Properties

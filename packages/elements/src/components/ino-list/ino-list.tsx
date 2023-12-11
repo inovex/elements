@@ -15,8 +15,8 @@ import classNames from 'classnames';
  * This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.
  *
  * #### Additional Hints
- * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line. 
- * 
+ * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
+ *
  * @slot default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`
  */
 @Component({

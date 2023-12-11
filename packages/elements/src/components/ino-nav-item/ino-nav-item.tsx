@@ -14,7 +14,7 @@ import classNames from 'classnames';
  * This component is used as child of `ino-list` and `ino-menu` components.
  *
  * > Note: This component's main use case is within the `ino-nav-drawer`.
- * 
+ *
  * @slot default - Any element
  */
 @Component({

@@ -5,6 +5,12 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A tooltip component that displays text when users hover over, focus on, or tap an element.
+
+> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.
+
 ## Properties
 
 | Property      | Attribute      | Description                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
@@ -35,9 +41,9 @@ Type: `Promise<any>`
 
 ## Slots
 
-| Slot                                                                                                                                                                                                                                                                                                                                                 | Description |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `"default The text shown in the tooltip.  A tooltip component that displays text when users hover over, focus on, or tap an element.  > Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component."` |             |
+| Slot                                       | Description |
+| ------------------------------------------ | ----------- |
+| `"default The text shown in the tooltip."` |             |
 
 
 ## Dependencies

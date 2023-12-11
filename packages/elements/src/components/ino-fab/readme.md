@@ -5,6 +5,17 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
+It appears in front of all screen content, typically as a circular shape with an icon in its center.
+
+FABs come in three types: regular, mini, and extended
+
+#### Additional Hints
+
+**Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.
+
 ## Properties
 
 | Property           | Attribute           | Description                                                                                                                                                                                          | Type                                                                                                                                                                                                                   | Default      |
@@ -20,9 +31,9 @@
 
 ## Slots
 
-| Slot             | Description                                                                                                                                                                                                                                                                                                                                                                                          |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"icon-leading"` | For the icon to be prepended  A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component. It appears in front of all screen content, typically as a circular shape with an icon in its center.  FABs come in three types: regular, mini, and extended |
+| Slot             | Description                  |
+| ---------------- | ---------------------------- |
+| `"icon-leading"` | For the icon to be prepended |
 
 
 ## CSS Custom Properties

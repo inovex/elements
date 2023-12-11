@@ -4,6 +4,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A button group that can be used as an alternative to drop-down menus.
+
 ## Properties
 
 | Property | Attribute | Description                | Type     | Default     |
@@ -21,9 +25,9 @@
 
 ## Slots
 
-| Slot        | Description                                                                                             |
-| ----------- | ------------------------------------------------------------------------------------------------------- |
-| `"default"` | One or more `ino-segment-button`  A button group that can be used as an alternative to drop-down menus. |
+| Slot        | Description                      |
+| ----------- | -------------------------------- |
+| `"default"` | One or more `ino-segment-button` |
 
 
 ----------------------------------------------

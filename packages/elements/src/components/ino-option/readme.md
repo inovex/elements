@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+An option component that can be used to add options to an ino-select component.
+
 ## Properties
 
 | Property             | Attribute  | Description         | Type      | Default     |
@@ -23,9 +27,9 @@
 
 ## Slots
 
-| Slot        | Description                                                                                             |
-| ----------- | ------------------------------------------------------------------------------------------------------- |
-| `"default"` | The text of the option  An option component that can be used to add options to an ino-select component. |
+| Slot        | Description            |
+| ----------- | ---------------------- |
+| `"default"` | The text of the option |
 
 
 ## CSS Custom Properties

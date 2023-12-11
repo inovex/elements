@@ -4,6 +4,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A button component with different styles and icon capability.
+
 ## Properties
 
 | Property    | Attribute   | Description                                                                                                                                                                                                                                                                                                               | Type                               | Default     |
@@ -20,10 +24,10 @@
 
 ## Slots
 
-| Slot              | Description                                                                                |
-| ----------------- | ------------------------------------------------------------------------------------------ |
-| `"icon-leading"`  | For the icon to be prepended                                                               |
-| `"icon-trailing"` | For the icon to be appended  A button component with different styles and icon capability. |
+| Slot              | Description                  |
+| ----------------- | ---------------------------- |
+| `"icon-leading"`  | For the icon to be prepended |
+| `"icon-trailing"` | For the icon to be appended  |
 
 
 ## Dependencies

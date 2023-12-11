@@ -5,6 +5,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The ino-img-list component is used in combination with the ino-img component to display an array of images
+in a grid-like format. It is based on the mdc-image-list component.
+
 ## Properties
 
 | Property       | Attribute       | Description                                                                                             | Type      | Default |
@@ -15,9 +20,9 @@
 
 ## Slots
 
-| Slot        | Description                                                                                                                                                                                                                     |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"default"` | One or more `ino-img` with `imgListItem="true"`  The ino-img-list component is used in combination with the ino-img component to display an array of images in a grid-like format. It is based on the mdc-image-list component. |
+| Slot        | Description                                     |
+| ----------- | ----------------------------------------------- |
+| `"default"` | One or more `ino-img` with `imgListItem="true"` |
 
 
 ## CSS Custom Properties
