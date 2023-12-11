@@ -5,7 +5,7 @@
 @use '../base/new-theme' as theme;
 @use '../base/animation';
 
-$snackbar-types: 'info', 'error', 'success';
+$snackbar-types: 'info', 'error', 'success', 'warning';
 
 $snackbar-color-map-by-type: (
   info: (
@@ -19,6 +19,10 @@ $snackbar-color-map-by-type: (
   success: (
     color: #{theme.$success},
     color-light: #{theme.$success-light},
+  ),
+  warning: (
+    color: #{theme.$warning},
+    color-light: #{theme.$warning-light},
   ),
 );
 

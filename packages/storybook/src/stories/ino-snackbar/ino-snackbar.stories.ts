@@ -107,10 +107,64 @@ export const ActionText = template.generateStoryForProp('actionText', 'Show', {
   defaultSlot: 'You received a new message.',
 });
 
-export const Types = template.generateStoryForProp('type', 'success', {
+const templateTypes = new TemplateGenerator<InoSnackbarExtended>(
+  'ino-snackbar',
+  (args) => html`
+    <div style="display: flex; gap: 10px">
+      <ino-button class="snackbar-trigger" data-template-id="${args.id}-success"
+        >Type: success
+      </ino-button>
+      <ino-button class="snackbar-trigger" data-template-id="${args.id}-info"
+        >Type: info
+      </ino-button>
+      <ino-button class="snackbar-trigger" data-template-id="${args.id}-warning"
+        >Type: warning
+      </ino-button>
+      <ino-button class="snackbar-trigger" data-template-id="${args.id}-error"
+        >Type: error
+      </ino-button>
+    </div>
+    <template id="${args.id}-success">
+      <ino-snackbar
+        id="${args.id}-success"
+        action-text="Action: success"
+        type="success"
+      >
+        I'm a success snackbar!
+      </ino-snackbar>
+    </template>
+    <template id="${args.id}-info">
+      <ino-snackbar
+        id="${args.id}"
+        action-text="Action: info"
+        type="info"
+      >
+        I'm an info snackbar!
+      </ino-snackbar>
+    </template>
+    <template id="${args.id}-warning">
+      <ino-snackbar
+        id="${args.id}"
+        action-text="Action: warning"
+        type="warning"
+      >
+        I'm a warning snackbar!
+      </ino-snackbar>
+    </template>
+    <template id="${args.id}-error">
+      <ino-snackbar
+        id="${args.id}"
+        action-text="Action: error"
+        type="error"
+      >
+        I'm an error snackbar!
+      </ino-snackbar>
+    </template>
+  `,
+);
+
+export const Types = templateTypes.generateStoryForProp('type', 'success', {
   id: 'snackbar-type',
-  defaultSlot: 'User successfully updated!',
-  actionText: 'Undo',
 });
 
 export const Timeout = template.generateStoryForProp('timeout', 5000, {

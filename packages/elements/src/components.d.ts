@@ -1204,7 +1204,7 @@ export namespace Components {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type. There are three types of messages: info, success, and error.
+          * Changes the snackbar type. There are three four types of messages: info, success, warning and error.
          */
         "type": SnackbarType;
     }
@@ -3228,7 +3228,7 @@ declare namespace LocalJSX {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type. There are three types of messages: info, success, and error.
+          * Changes the snackbar type. There are three four types of messages: info, success, warning and error.
          */
         "type"?: SnackbarType;
     }
