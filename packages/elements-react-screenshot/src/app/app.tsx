@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.scss';
-import { Route, Routes, Link } from 'react-router-dom';
-import { InoButton, InoSegmentButton } from '@inovex.de/elements-react';
+import { Route, Routes } from 'react-router-dom';
+import { InoRange, InoSegmentButton } from '@inovex.de/elements-react';
 
 export function App() {
   return (
@@ -17,10 +17,60 @@ export function App() {
         }
       />
       <Route
-        path="/page-2"
+        path="/ino-range"
         element={
-          <div>
-            <Link to="/">Click here to go back to root page.</Link>
+          <div data-testid="container">
+            <InoRange disabled={true} max={100}></InoRange>
+            <InoRange
+              discrete={true}
+              markers={true}
+              max={100}
+              value={50}
+            ></InoRange>
+            <InoRange
+              discrete={true}
+              ranged={true}
+              min={0}
+              max={100}
+              value-start={50}
+              value-end={70}
+            ></InoRange>
+            <InoRange
+              color-scheme="dark"
+              discrete={true}
+              max={100}
+              value={50}
+            ></InoRange>
+            <InoRange
+              color-scheme="error"
+              discrete={true}
+              max={100}
+              value={50}
+            ></InoRange>
+            <InoRange
+              color-scheme="light"
+              discrete={true}
+              max={100}
+              value={50}
+            ></InoRange>
+            <InoRange
+              color-scheme="secondary"
+              discrete={true}
+              max={100}
+              value={50}
+            ></InoRange>
+            <InoRange
+              color-scheme="warning"
+              discrete={true}
+              max={100}
+              value={50}
+            ></InoRange>
+            <InoRange
+              color-scheme="success"
+              discrete={true}
+              max={100}
+              value={50}
+            ></InoRange>
           </div>
         }
       />

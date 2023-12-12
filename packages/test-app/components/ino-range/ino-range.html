@@ -1,0 +1,18 @@
+<script type="module" src="/src/main.ts"></script>
+<script type="module" src="ino-range-template.js"></script>
+<my-template>
+  <ino-range data-testid="disabled" disabled="true" max="100"></ino-range
+></my-template>
+<my-template data-testid="discrete"
+  ><ino-range discrete="true" min="0" max="100" value="50"></ino-range>
+</my-template>
+<my-template data-testid="ranged">
+  <ino-range
+    discrete="true"
+    ranged="true"
+    min="0"
+    max="100"
+    value-start="50"
+    value-end="70"
+  ></ino-range>
+</my-template>
