@@ -1,13 +1,13 @@
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import { html } from 'lit-html';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { html } from 'lit';
 import { decorateStoryWithClass } from '../utils';
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from '@storybook/preview-api';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
 import './ino-table.scss';
 
 export default {
-  title: `Structure/ino-table`,
+  title: 'Structure/ino-table',
   component: 'ino-table',
   inline: true,
   decorators: [

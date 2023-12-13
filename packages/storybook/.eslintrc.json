@@ -1,6 +1,11 @@
 {
-  "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*"],
+  "extends": [
+    "../../.eslintrc.json",
+    "plugin:storybook/recommended"
+  ],
+  "ignorePatterns": [
+    "!**/*"
+  ],
   "rules": {
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"

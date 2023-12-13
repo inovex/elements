@@ -1,5 +1,5 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
@@ -9,7 +9,7 @@ import './ino-tab-bar.scss';
 const eventHandler = (e) => e.target.setAttribute('active-tab', e.detail);
 
 export default {
-  title: `Structure/ino-tab-bar`,
+  title: 'Structure/ino-tab-bar',
   component: 'ino-tab-bar',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-tab-bar'),

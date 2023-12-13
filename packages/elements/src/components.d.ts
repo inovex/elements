@@ -1582,13 +1582,35 @@ export interface InoTextareaCustomEvent<T> extends CustomEvent<T> {
     target: HTMLInoTextareaElement;
 }
 declare global {
+    interface HTMLInoAccordionElementEventMap {
+        "expandedChange": boolean;
+    }
     interface HTMLInoAccordionElement extends Components.InoAccordion, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoAccordionElementEventMap>(type: K, listener: (this: HTMLInoAccordionElement, ev: InoAccordionCustomEvent<HTMLInoAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoAccordionElementEventMap>(type: K, listener: (this: HTMLInoAccordionElement, ev: InoAccordionCustomEvent<HTMLInoAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoAccordionElement: {
         prototype: HTMLInoAccordionElement;
         new (): HTMLInoAccordionElement;
     };
+    interface HTMLInoAutocompleteElementEventMap {
+        "valueChange": string | { key: string; value: string };
+    }
     interface HTMLInoAutocompleteElement extends Components.InoAutocomplete, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoAutocompleteElementEventMap>(type: K, listener: (this: HTMLInoAutocompleteElement, ev: InoAutocompleteCustomEvent<HTMLInoAutocompleteElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoAutocompleteElementEventMap>(type: K, listener: (this: HTMLInoAutocompleteElement, ev: InoAutocompleteCustomEvent<HTMLInoAutocompleteElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoAutocompleteElement: {
         prototype: HTMLInoAutocompleteElement;
@@ -1612,7 +1634,18 @@ declare global {
         prototype: HTMLInoCardElement;
         new (): HTMLInoCardElement;
     };
+    interface HTMLInoCarouselElementEventMap {
+        "valueChange": string;
+    }
     interface HTMLInoCarouselElement extends Components.InoCarousel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoCarouselElementEventMap>(type: K, listener: (this: HTMLInoCarouselElement, ev: InoCarouselCustomEvent<HTMLInoCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoCarouselElementEventMap>(type: K, listener: (this: HTMLInoCarouselElement, ev: InoCarouselCustomEvent<HTMLInoCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoCarouselElement: {
         prototype: HTMLInoCarouselElement;
@@ -1624,37 +1657,105 @@ declare global {
         prototype: HTMLInoCarouselSlideElement;
         new (): HTMLInoCarouselSlideElement;
     };
+    interface HTMLInoCheckboxElementEventMap {
+        "checkedChange": any;
+    }
     interface HTMLInoCheckboxElement extends Components.InoCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoCheckboxElementEventMap>(type: K, listener: (this: HTMLInoCheckboxElement, ev: InoCheckboxCustomEvent<HTMLInoCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoCheckboxElementEventMap>(type: K, listener: (this: HTMLInoCheckboxElement, ev: InoCheckboxCustomEvent<HTMLInoCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoCheckboxElement: {
         prototype: HTMLInoCheckboxElement;
         new (): HTMLInoCheckboxElement;
     };
+    interface HTMLInoChipElementEventMap {
+        "chipClicked": string;
+        "chipRemoved": string;
+    }
     interface HTMLInoChipElement extends Components.InoChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoChipElementEventMap>(type: K, listener: (this: HTMLInoChipElement, ev: InoChipCustomEvent<HTMLInoChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoChipElementEventMap>(type: K, listener: (this: HTMLInoChipElement, ev: InoChipCustomEvent<HTMLInoChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoChipElement: {
         prototype: HTMLInoChipElement;
         new (): HTMLInoChipElement;
     };
+    interface HTMLInoControlItemElementEventMap {
+        "checkedChange": any;
+    }
     interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoControlItemElementEventMap>(type: K, listener: (this: HTMLInoControlItemElement, ev: InoControlItemCustomEvent<HTMLInoControlItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoControlItemElementEventMap>(type: K, listener: (this: HTMLInoControlItemElement, ev: InoControlItemCustomEvent<HTMLInoControlItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoControlItemElement: {
         prototype: HTMLInoControlItemElement;
         new (): HTMLInoControlItemElement;
     };
+    interface HTMLInoCurrencyInputElementEventMap {
+        "valueChange": number;
+    }
     interface HTMLInoCurrencyInputElement extends Components.InoCurrencyInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoCurrencyInputElementEventMap>(type: K, listener: (this: HTMLInoCurrencyInputElement, ev: InoCurrencyInputCustomEvent<HTMLInoCurrencyInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoCurrencyInputElementEventMap>(type: K, listener: (this: HTMLInoCurrencyInputElement, ev: InoCurrencyInputCustomEvent<HTMLInoCurrencyInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoCurrencyInputElement: {
         prototype: HTMLInoCurrencyInputElement;
         new (): HTMLInoCurrencyInputElement;
     };
+    interface HTMLInoDatepickerElementEventMap {
+        "valueChange": string;
+    }
     interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoDatepickerElementEventMap>(type: K, listener: (this: HTMLInoDatepickerElement, ev: InoDatepickerCustomEvent<HTMLInoDatepickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoDatepickerElementEventMap>(type: K, listener: (this: HTMLInoDatepickerElement, ev: InoDatepickerCustomEvent<HTMLInoDatepickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoDatepickerElement: {
         prototype: HTMLInoDatepickerElement;
         new (): HTMLInoDatepickerElement;
     };
+    interface HTMLInoDialogElementEventMap {
+        "close": DialogCloseAction;
+        "action": DialogSubmitAction;
+    }
     interface HTMLInoDialogElement extends Components.InoDialog, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoDialogElementEventMap>(type: K, listener: (this: HTMLInoDialogElement, ev: InoDialogCustomEvent<HTMLInoDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoDialogElementEventMap>(type: K, listener: (this: HTMLInoDialogElement, ev: InoDialogCustomEvent<HTMLInoDialogElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoDialogElement: {
         prototype: HTMLInoDialogElement;
@@ -1672,16 +1773,38 @@ declare global {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
     };
+    interface HTMLInoIconElementEventMap {
+        "clickEl": any;
+    }
     /**
      * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
      */
     interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoIconElementEventMap>(type: K, listener: (this: HTMLInoIconElement, ev: InoIconCustomEvent<HTMLInoIconElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoIconElementEventMap>(type: K, listener: (this: HTMLInoIconElement, ev: InoIconCustomEvent<HTMLInoIconElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoIconElement: {
         prototype: HTMLInoIconElement;
         new (): HTMLInoIconElement;
     };
+    interface HTMLInoIconButtonElementEventMap {
+        "clickEl": any;
+    }
     interface HTMLInoIconButtonElement extends Components.InoIconButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoIconButtonElementEventMap>(type: K, listener: (this: HTMLInoIconButtonElement, ev: InoIconButtonCustomEvent<HTMLInoIconButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoIconButtonElementEventMap>(type: K, listener: (this: HTMLInoIconButtonElement, ev: InoIconButtonCustomEvent<HTMLInoIconButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoIconButtonElement: {
         prototype: HTMLInoIconButtonElement;
@@ -1699,13 +1822,40 @@ declare global {
         prototype: HTMLInoImgListElement;
         new (): HTMLInoImgListElement;
     };
+    interface HTMLInoInputElementEventMap {
+        "inoBlur": void;
+        "inoFocus": void;
+        "valueChange": string;
+    }
     interface HTMLInoInputElement extends Components.InoInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoInputElementEventMap>(type: K, listener: (this: HTMLInoInputElement, ev: InoInputCustomEvent<HTMLInoInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoInputElementEventMap>(type: K, listener: (this: HTMLInoInputElement, ev: InoInputCustomEvent<HTMLInoInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoInputElement: {
         prototype: HTMLInoInputElement;
         new (): HTMLInoInputElement;
     };
+    interface HTMLInoInputFileElementEventMap {
+        "changeFile": {
+    e: any;
+    files: File[];
+  };
+    }
     interface HTMLInoInputFileElement extends Components.InoInputFile, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoInputFileElementEventMap>(type: K, listener: (this: HTMLInoInputFileElement, ev: InoInputFileCustomEvent<HTMLInoInputFileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoInputFileElementEventMap>(type: K, listener: (this: HTMLInoInputFileElement, ev: InoInputFileCustomEvent<HTMLInoInputFileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoInputFileElement: {
         prototype: HTMLInoInputFileElement;
@@ -1729,12 +1879,28 @@ declare global {
         prototype: HTMLInoListDividerElement;
         new (): HTMLInoListDividerElement;
     };
+    interface HTMLInoListItemElementEventMap {
+        "clickEl": any;
+    }
     interface HTMLInoListItemElement extends Components.InoListItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoListItemElementEventMap>(type: K, listener: (this: HTMLInoListItemElement, ev: InoListItemCustomEvent<HTMLInoListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoListItemElementEventMap>(type: K, listener: (this: HTMLInoListItemElement, ev: InoListItemCustomEvent<HTMLInoListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoListItemElement: {
         prototype: HTMLInoListItemElement;
         new (): HTMLInoListItemElement;
     };
+    interface HTMLInoMarkdownEditorElementEventMap {
+        "viewModeChange": ViewModeUnion;
+        "valueChange": string;
+        "inoBlur": void;
+    }
     /**
      * The **Preview Mode** supports following actions:
      * | Actions ||||
@@ -1751,6 +1917,14 @@ declare global {
      *  * No support of image syntax. __Images are not allowed!__
      */
     interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoMarkdownEditorElementEventMap>(type: K, listener: (this: HTMLInoMarkdownEditorElement, ev: InoMarkdownEditorCustomEvent<HTMLInoMarkdownEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoMarkdownEditorElementEventMap>(type: K, listener: (this: HTMLInoMarkdownEditorElement, ev: InoMarkdownEditorCustomEvent<HTMLInoMarkdownEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoMarkdownEditorElement: {
         prototype: HTMLInoMarkdownEditorElement;
@@ -1762,7 +1936,18 @@ declare global {
         prototype: HTMLInoMenuElement;
         new (): HTMLInoMenuElement;
     };
+    interface HTMLInoNavDrawerElementEventMap {
+        "openChange": boolean;
+    }
     interface HTMLInoNavDrawerElement extends Components.InoNavDrawer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoNavDrawerElementEventMap>(type: K, listener: (this: HTMLInoNavDrawerElement, ev: InoNavDrawerCustomEvent<HTMLInoNavDrawerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoNavDrawerElementEventMap>(type: K, listener: (this: HTMLInoNavDrawerElement, ev: InoNavDrawerCustomEvent<HTMLInoNavDrawerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoNavDrawerElement: {
         prototype: HTMLInoNavDrawerElement;
@@ -1774,7 +1959,18 @@ declare global {
         prototype: HTMLInoNavItemElement;
         new (): HTMLInoNavItemElement;
     };
+    interface HTMLInoOptionElementEventMap {
+        "clickEl": HTMLInoOptionElement;
+    }
     interface HTMLInoOptionElement extends Components.InoOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoOptionElementEventMap>(type: K, listener: (this: HTMLInoOptionElement, ev: InoOptionCustomEvent<HTMLInoOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoOptionElementEventMap>(type: K, listener: (this: HTMLInoOptionElement, ev: InoOptionCustomEvent<HTMLInoOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoOptionElement: {
         prototype: HTMLInoOptionElement;
@@ -1786,7 +1982,18 @@ declare global {
         prototype: HTMLInoOptionGroupElement;
         new (): HTMLInoOptionGroupElement;
     };
+    interface HTMLInoPopoverElementEventMap {
+        "visibleChanged": boolean;
+    }
     interface HTMLInoPopoverElement extends Components.InoPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoPopoverElementEventMap>(type: K, listener: (this: HTMLInoPopoverElement, ev: InoPopoverCustomEvent<HTMLInoPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoPopoverElementEventMap>(type: K, listener: (this: HTMLInoPopoverElement, ev: InoPopoverCustomEvent<HTMLInoPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoPopoverElement: {
         prototype: HTMLInoPopoverElement;
@@ -1798,43 +2005,123 @@ declare global {
         prototype: HTMLInoProgressBarElement;
         new (): HTMLInoProgressBarElement;
     };
+    interface HTMLInoRadioElementEventMap {
+        "checkedChange": any;
+    }
     interface HTMLInoRadioElement extends Components.InoRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoRadioElementEventMap>(type: K, listener: (this: HTMLInoRadioElement, ev: InoRadioCustomEvent<HTMLInoRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoRadioElementEventMap>(type: K, listener: (this: HTMLInoRadioElement, ev: InoRadioCustomEvent<HTMLInoRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoRadioElement: {
         prototype: HTMLInoRadioElement;
         new (): HTMLInoRadioElement;
     };
+    interface HTMLInoRadioGroupElementEventMap {
+        "valueChange": number | string;
+    }
     interface HTMLInoRadioGroupElement extends Components.InoRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoRadioGroupElementEventMap>(type: K, listener: (this: HTMLInoRadioGroupElement, ev: InoRadioGroupCustomEvent<HTMLInoRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoRadioGroupElementEventMap>(type: K, listener: (this: HTMLInoRadioGroupElement, ev: InoRadioGroupCustomEvent<HTMLInoRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoRadioGroupElement: {
         prototype: HTMLInoRadioGroupElement;
         new (): HTMLInoRadioGroupElement;
     };
+    interface HTMLInoRangeElementEventMap {
+        "valueChange": number;
+        "valueStartChange": number;
+        "valueEndChange": number;
+    }
     interface HTMLInoRangeElement extends Components.InoRange, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoRangeElementEventMap>(type: K, listener: (this: HTMLInoRangeElement, ev: InoRangeCustomEvent<HTMLInoRangeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoRangeElementEventMap>(type: K, listener: (this: HTMLInoRangeElement, ev: InoRangeCustomEvent<HTMLInoRangeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoRangeElement: {
         prototype: HTMLInoRangeElement;
         new (): HTMLInoRangeElement;
     };
+    interface HTMLInoSegmentButtonElementEventMap {
+        "checkedChange": any;
+    }
     interface HTMLInoSegmentButtonElement extends Components.InoSegmentButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoSegmentButtonElementEventMap>(type: K, listener: (this: HTMLInoSegmentButtonElement, ev: InoSegmentButtonCustomEvent<HTMLInoSegmentButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoSegmentButtonElementEventMap>(type: K, listener: (this: HTMLInoSegmentButtonElement, ev: InoSegmentButtonCustomEvent<HTMLInoSegmentButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSegmentButtonElement: {
         prototype: HTMLInoSegmentButtonElement;
         new (): HTMLInoSegmentButtonElement;
     };
+    interface HTMLInoSegmentGroupElementEventMap {
+        "valueChange": any;
+    }
     interface HTMLInoSegmentGroupElement extends Components.InoSegmentGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoSegmentGroupElementEventMap>(type: K, listener: (this: HTMLInoSegmentGroupElement, ev: InoSegmentGroupCustomEvent<HTMLInoSegmentGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoSegmentGroupElementEventMap>(type: K, listener: (this: HTMLInoSegmentGroupElement, ev: InoSegmentGroupCustomEvent<HTMLInoSegmentGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSegmentGroupElement: {
         prototype: HTMLInoSegmentGroupElement;
         new (): HTMLInoSegmentGroupElement;
     };
+    interface HTMLInoSelectElementEventMap {
+        "valueChange": string;
+    }
     interface HTMLInoSelectElement extends Components.InoSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoSelectElementEventMap>(type: K, listener: (this: HTMLInoSelectElement, ev: InoSelectCustomEvent<HTMLInoSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoSelectElementEventMap>(type: K, listener: (this: HTMLInoSelectElement, ev: InoSelectCustomEvent<HTMLInoSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSelectElement: {
         prototype: HTMLInoSelectElement;
         new (): HTMLInoSelectElement;
     };
+    interface HTMLInoSnackbarElementEventMap {
+        "actionClick": any;
+        "hideEl": any;
+    }
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoSnackbarElementEventMap>(type: K, listener: (this: HTMLInoSnackbarElement, ev: InoSnackbarCustomEvent<HTMLInoSnackbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoSnackbarElementEventMap>(type: K, listener: (this: HTMLInoSnackbarElement, ev: InoSnackbarCustomEvent<HTMLInoSnackbarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSnackbarElement: {
         prototype: HTMLInoSnackbarElement;
@@ -1846,37 +2133,105 @@ declare global {
         prototype: HTMLInoSpinnerElement;
         new (): HTMLInoSpinnerElement;
     };
+    interface HTMLInoSwitchElementEventMap {
+        "checkedChange": any;
+    }
     interface HTMLInoSwitchElement extends Components.InoSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoSwitchElementEventMap>(type: K, listener: (this: HTMLInoSwitchElement, ev: InoSwitchCustomEvent<HTMLInoSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoSwitchElementEventMap>(type: K, listener: (this: HTMLInoSwitchElement, ev: InoSwitchCustomEvent<HTMLInoSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSwitchElement: {
         prototype: HTMLInoSwitchElement;
         new (): HTMLInoSwitchElement;
     };
+    interface HTMLInoTabElementEventMap {
+        "interacted": any;
+    }
     interface HTMLInoTabElement extends Components.InoTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoTabElementEventMap>(type: K, listener: (this: HTMLInoTabElement, ev: InoTabCustomEvent<HTMLInoTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoTabElementEventMap>(type: K, listener: (this: HTMLInoTabElement, ev: InoTabCustomEvent<HTMLInoTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTabElement: {
         prototype: HTMLInoTabElement;
         new (): HTMLInoTabElement;
     };
+    interface HTMLInoTabBarElementEventMap {
+        "activeTabChange": any;
+    }
     interface HTMLInoTabBarElement extends Components.InoTabBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoTabBarElementEventMap>(type: K, listener: (this: HTMLInoTabBarElement, ev: InoTabBarCustomEvent<HTMLInoTabBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoTabBarElementEventMap>(type: K, listener: (this: HTMLInoTabBarElement, ev: InoTabBarCustomEvent<HTMLInoTabBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTabBarElement: {
         prototype: HTMLInoTabBarElement;
         new (): HTMLInoTabBarElement;
     };
+    interface HTMLInoTableElementEventMap {
+        "sortChange": SortDirectionChangeDetails;
+    }
     interface HTMLInoTableElement extends Components.InoTable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoTableElementEventMap>(type: K, listener: (this: HTMLInoTableElement, ev: InoTableCustomEvent<HTMLInoTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoTableElementEventMap>(type: K, listener: (this: HTMLInoTableElement, ev: InoTableCustomEvent<HTMLInoTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTableElement: {
         prototype: HTMLInoTableElement;
         new (): HTMLInoTableElement;
     };
+    interface HTMLInoTableHeaderCellElementEventMap {
+        "sortDirectionChange": SortDirectionChangeDetails;
+        "searchFocusChange": boolean;
+    }
     interface HTMLInoTableHeaderCellElement extends Components.InoTableHeaderCell, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoTableHeaderCellElementEventMap>(type: K, listener: (this: HTMLInoTableHeaderCellElement, ev: InoTableHeaderCellCustomEvent<HTMLInoTableHeaderCellElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoTableHeaderCellElementEventMap>(type: K, listener: (this: HTMLInoTableHeaderCellElement, ev: InoTableHeaderCellCustomEvent<HTMLInoTableHeaderCellElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTableHeaderCellElement: {
         prototype: HTMLInoTableHeaderCellElement;
         new (): HTMLInoTableHeaderCellElement;
     };
+    interface HTMLInoTextareaElementEventMap {
+        "inoBlur": void;
+        "valueChange": string;
+    }
     interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInoTextareaElementEventMap>(type: K, listener: (this: HTMLInoTextareaElement, ev: InoTextareaCustomEvent<HTMLInoTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInoTextareaElementEventMap>(type: K, listener: (this: HTMLInoTextareaElement, ev: InoTextareaCustomEvent<HTMLInoTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTextareaElement: {
         prototype: HTMLInoTextareaElement;

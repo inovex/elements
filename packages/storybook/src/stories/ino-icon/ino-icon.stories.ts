@@ -1,10 +1,10 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 
-import ICONS from '../../../../elements/src/components/ino-icon/icons';
+import ICONS from './../../../../elements/src/components/ino-icon/icons';
 
 import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon.scss';

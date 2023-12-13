@@ -3,7 +3,7 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-range.scss';
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from '@storybook/preview-api';
 import { TemplateGenerator } from '../template-generator';
 
 export default {

@@ -1,4 +1,4 @@
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
@@ -45,7 +45,7 @@ const clickHandler = (e) => {
 };
 
 export default {
-  title: `Structure/ino-nav-drawer`,
+  title: 'Structure/ino-nav-drawer',
   component: 'ino-nav-drawer',
   parameters: {
     actions: {

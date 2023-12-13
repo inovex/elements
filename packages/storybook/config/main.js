@@ -1,26 +1,32 @@
+import { dirname, join } from "path";
 // main point of configuration for storybook
 const path = require('path');
 
-module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
+/** @type { import('@storybook/react-vite').StorybookConfig } */
+const config = {
+  core: {},
+
   staticDirs: [
     '../static',
     '../../elements/src/assets',
     '../../../assets/logo',
   ],
+
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
+
   addons: [
-    '@storybook/addon-essentials',
-    '@pxtrn/storybook-addon-docs-stencil',
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@pxtrn/storybook-addon-docs-stencil"),
   ],
-  managerEntries: ['./addons/post-current-story'],
+
+  managerEntries: [require.resolve('../addons/post-current-story.tsx')],
+
   typescript: {
     compilerOptions: {
       typeRoots: ['node_modules/@types', '../src/types'],
     },
   },
+
   webpackFinal: (config) => {
     config.devServer = {
       watchContentBase: true,
@@ -58,4 +64,18 @@ module.exports = {
 
     return config;
   },
+
+  framework: {
+    name: getAbsolutePath("@storybook/web-components-webpack5"),
+    options: {}
+  },
+
+  docs: {
+    autodocs: true
+  }
 };
+export default config;
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, "package.json")));
+}

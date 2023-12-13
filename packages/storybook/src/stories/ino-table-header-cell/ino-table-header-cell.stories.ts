@@ -1,14 +1,14 @@
 import { html } from 'lit-html';
 import { decorateStoryWithClass, withIconControl } from '../utils';
 import { Meta } from '@storybook/web-components';
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from '@storybook/preview-api';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
 import './ino-table-header-cell.scss';
 import { registerInlineDatepickerHandler } from '../ino-datepicker/utils';
 
 export default {
-  title: `Structure/ino-table-header-cell`,
+  title: 'Structure/ino-table-header-cell',
   component: 'ino-table-header-cell',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-ino-table-header-cell'),

@@ -1,4 +1,4 @@
-import { useEffect } from '@storybook/client-api';
+import { useEffect } from '@storybook/preview-api';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
@@ -6,7 +6,7 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-currency-input.scss';
 
 export default {
-  title: `Input/ino-currency-input`,
+  title: 'Input/ino-currency-input',
   component: 'ino-currency-input',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-ino-currency-input'),

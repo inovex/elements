@@ -5,7 +5,7 @@ import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass, withIconControl } from '../utils';
 
 export default {
-  title: `Structure/ino-tab`,
+  title: 'Structure/ino-tab',
   component: 'ino-tab',
   decorators: [(story) => decorateStoryWithClass(story)],
   args: {

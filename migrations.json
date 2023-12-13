@@ -1,0 +1,12 @@
+{
+  "migrations": [
+    {
+      "cli": "nx",
+      "version": "17.2.0-beta.2",
+      "description": "Rename '@nx/angular:webpack-dev-server' executor to '@nx/angular:dev-server'",
+      "factory": "./src/migrations/update-17-2-0/rename-webpack-dev-server",
+      "package": "@nx/angular",
+      "name": "rename-webpack-dev-server-executor"
+    }
+  ]
+}

@@ -25,10 +25,10 @@
       "defaultConfiguration": "dev",
       "configurations": {
         "dev": {
-          "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
+          "command": "storybook dev -p 6006 -c config --quiet --no-version-updates"
         },
         "prod": {
-          "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
+          "command": "storybook build -p 6006 -c config --quiet --no-version-updates"
         }
       }
     },

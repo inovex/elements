@@ -1,9 +1,8 @@
-import { Story } from '@storybook/web-components';
-import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
+import { StoryObj, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import ICONS from '../../../elements/src/components/ino-icon/icons';
+import ICONS from '@inovex.de/elements/src/components/ino-icon/icons';
 
-export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
+export const maybeCreateStoryArgs = <T>(story: StoryObj<T>) => {
   if (!story.args) {
     story.args = {};
   }
@@ -13,7 +12,7 @@ export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
 };
 
 export const withIconControl = <T>(
-  story: Story<T>,
+  story: StoryObj<T>,
   propertyName: string,
   defaultValue?: string,
 ) => {
@@ -45,9 +44,9 @@ export const withSortDirection = <T>(
 export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
 
 export const decorateStoryWithClass = (
-  story: () => StoryFnHtmlReturnType,
+  story: () => any,
   className?: string,
-): StoryFnHtmlReturnType => {
+): any => {
   return html`<div class="${className ?? ''}">${story()}</div>`;
 };
 
