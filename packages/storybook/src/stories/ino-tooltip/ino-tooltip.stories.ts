@@ -5,7 +5,7 @@ import { decorateStoryWithClass } from '../utils';
 import { TemplateGenerator } from '../template-generator';
 import './ino-tooltip.scss';
 
-export default {
+const meta: Meta = {
   title: 'Notification/ino-tooltip',
   component: 'ino-tooltip',
   decorators: [(story) => decorateStoryWithClass(story, 'story-tooltip')],
@@ -58,7 +58,8 @@ export default {
     message: '',
     arrow: false,
   },
-} as Meta;
+};
+export default meta;
 
 const template = new TemplateGenerator<Components.InoTooltip>(
   'ino-tooltip',
@@ -77,7 +78,7 @@ const template = new TemplateGenerator<Components.InoTooltip>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory();
+//export const Playground = template.generatePlaygroundStory();
 
 export const HeaderText = template.generateStoryForProp(
   'headerText',
