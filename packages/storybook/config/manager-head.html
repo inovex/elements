@@ -146,9 +146,23 @@
     letter-spacing: -0.0083333333em;
   }
 
-  div[role='main'] .os-host {
+  /** toolbar on bottom */
+  div[role='main'] > div > div > div > div:first-child {
     bottom: 0 !important;
     z-index: 10 !important;
     top: initial;
+  }
+
+  /** overwrite toolbar icon color & hover */
+  div[role="main"] > div > div > div > div:first-child button svg path {
+    fill: var(--inovex-elements-n-11);
+  }
+
+  div[role="main"] > div > div > div > div:first-child button:hover {
+    background-color: var(--inovex-elements-p-2)
+  }
+  
+  div[role="main"] > div > div > div > div:first-child button:hover svg path {
+    fill: var(--inovex-elements-primary);
   }
 </style>
