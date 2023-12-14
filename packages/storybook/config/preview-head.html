@@ -25,36 +25,35 @@
   }
 
   /** overwrite toolbar icon color & hover */
-  .os-content button svg path {
+  .sbdocs.sbdocs-preview > div:first-child button svg path {
     fill: var(--inovex-elements-n-11);
   }
 
-  .os-content button:hover svg path {
-    fill: var(--inovex-elements-primary);
+  .sbdocs.sbdocs-preview > div:first-child button:hover {
+    background-color: var(--inovex-elements-p-3);
+  }
+
+  .sbdocs.sbdocs-preview > div:first-child button:hover svg path {
+    fill: var(--inovex-elements-p-7);
   }
 
   /** disable scroll on toolbar */
-  .os-content {
+  .sbdocs.sbdocs-preview > div:first-child {
     overflow-y: hidden;
   }
 
-  .os-content a {
+  .sbdocs.sbdocs-preview > div:first-child a {
     display: block;
     max-height: 12px;
     max-width: 28px;
   }
 
   /** Style open-in-new-tap button same way as the other buttons */
-  .os-content a svg path {
+  .sbdocs.sbdocs-preview > div:first-child a svg path {
     fill: var(--inovex-elements-n-11) !important;
   }
 
-  .os-content a:hover svg path {
+  .sbdocs.sbdocs-preview > div:first-child a:hover svg path {
     fill: var(--inovex-elements-primary) !important;
   }
-
-  /* .os-content .os-viewport button {
-    background-color: green;
-    color: var(--inovex-elements-primary);
-  } */
 </style>
