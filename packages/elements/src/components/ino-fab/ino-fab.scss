@@ -1,7 +1,7 @@
 @use '../base/mdc-customize';
 @use '@material/fab/mdc-fab';
 @use '@material/fab';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 @use '../base/animation';
 
 @include fab.core-styles;
@@ -56,33 +56,24 @@ $extended-edged-borders: (
    * @prop --fab-icon-color-disabled: Color of the slotted icon if disabled
    */
   --fab-color: var(--ino-fab-color, white);
-  --fab-background-color: var(
-    --ino-fab-background-color,
-    #{theme.color(primary)}
-  );
+  --fab-background-color: var(--ino-fab-background-color, #{theme.$p-6});
   --fab-background-color-hover: var(
     --ino-fab-background-color-hover,
-    #{theme.color(primary, light)}
+    #{theme.$p-5}
   );
   --fab-background-color-active: var(
     --ino-fab-background-color-active,
-    #{theme.color(primary, dark)}
+    #{theme.$p-7}
   );
-  --fab-icon-color: var(
-    --ino-fab-icon-color,
-    #{theme.color(primary, contrast)}
-  );
-  --fab-color-disabled: var(
-    --ino-fab-color-disabled,
-    #{theme.color(primary, contrast)}
-  );
+  --fab-icon-color: var(--ino-fab-icon-color, #{theme.$white});
+  --fab-color-disabled: var(--ino-fab-color-disabled, #{theme.$white});
   --fab-background-color-disabled: var(
     --ino-background-color-disabled,
-    #{theme.color(dark, light)}
+    #{theme.$n-4}
   );
   --fab-icon-color-disabled: var(
     --ino-fab-icon-color-disabled,
-    #{theme.color(primary, contrast)}
+    #{theme.$white}
   );
 }
 

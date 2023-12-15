@@ -10,6 +10,7 @@
     "start:storybook": "nx run-many --target=start --projects=storybook,elements --output-style=stream",
     "start:landingpage": "nx run landingpage:start",
     "start:ui-patterns": "nx run ui-patterns:dev",
+    "start:ui-patterns-playground": "nx run ui-patterns-playground:start",
     "build": "nx run-many --target=build --output-style=stream --exclude workspace",
     "test": "nx run-many --target=test --output-style=stream --configuration=ci --exclude workspace",
     "test:core:watch": "nx run elements:test:watch",

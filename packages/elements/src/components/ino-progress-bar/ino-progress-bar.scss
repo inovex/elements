@@ -1,14 +1,15 @@
 @use '../base/mdc-customize';
 @use '@material/linear-progress/mdc-linear-progress';
 @use '@material/linear-progress';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 
 :host {
   /**
    * @prop --progress-bar--bar-color: Color of the progress bar
    */
-  --progress-bar--bar-color: #{theme.color(primary)};
+  --progress-bar--bar-color: #{theme.$p-5};
 
   @include linear-progress.core-styles;
   @include linear-progress.bar-color(var(--progress-bar--bar-color));
+  @include linear-progress.buffer-color(theme.$n-2);
 }

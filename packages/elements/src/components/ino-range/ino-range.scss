@@ -10,9 +10,9 @@ $range_hover-control_hover: #4b4eff;
 
 ino-range {
   .mdc-slider {
-    @include slider-mixins.track-active-color(theme.$primary);
+    @include slider-mixins.track-active-color(theme.$p-5);
     @include slider-mixins.track-inactive-color(theme.$n-6);
-    @include slider-mixins.thumb-color(theme.$primary);
+    @include slider-mixins.thumb-color(theme.$p-5);
     @include slider-mixins.thumb-ripple-color(theme.$transparent);
     @include slider-mixins.tick-mark-inactive-color(theme.$black);
     @include slider-mixins.value-indicator-text-color(theme.$white);
