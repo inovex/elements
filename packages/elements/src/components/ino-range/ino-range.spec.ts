@@ -37,9 +37,7 @@ describe('InoRange', () => {
     const inoRange = page.root as HTMLInoRangeElement;
     inoRange.ranged = true;
     inoRange.discrete = true;
-    inoRange.min = 0;
-    inoRange.max = 400;
-    inoRange.step = 1;
+    inoRange.max = 100;
     await page.waitForChanges();
     inoRange.valueStart = 4;
     inoRange.valueEnd = 56;
@@ -54,7 +52,7 @@ describe('InoRange', () => {
     expect(valueIndicatorTextElements[0].textContent).toBe('4');
     expect(valueIndicatorTextElements[1].textContent).toBe('56');
   }); 
-  TODO: SET valuestart value  end funktion
+  TODO: SET valuestart valueend klappt in mehreren stages nicht
   */
 
   it('marker property logic', async () => {

@@ -35,42 +35,6 @@ export function App() {
               value-start={50}
               value-end={70}
             ></InoRange>
-            <InoRange
-              color-scheme="dark"
-              discrete={true}
-              max={100}
-              value={50}
-            ></InoRange>
-            <InoRange
-              color-scheme="error"
-              discrete={true}
-              max={100}
-              value={50}
-            ></InoRange>
-            <InoRange
-              color-scheme="light"
-              discrete={true}
-              max={100}
-              value={50}
-            ></InoRange>
-            <InoRange
-              color-scheme="secondary"
-              discrete={true}
-              max={100}
-              value={50}
-            ></InoRange>
-            <InoRange
-              color-scheme="warning"
-              discrete={true}
-              max={100}
-              value={50}
-            ></InoRange>
-            <InoRange
-              color-scheme="success"
-              discrete={true}
-              max={100}
-              value={50}
-            ></InoRange>
           </div>
         }
       />
