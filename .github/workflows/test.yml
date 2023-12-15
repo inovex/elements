@@ -16,7 +16,8 @@ jobs:
         with:
           fetch-depth: 0
       - name: Track master branch to make nx affected work
-        run: git branch --track main origin/master
+        run: |
+          git branch --track main origin/master
       - name: Install dependencies
         uses: ./.github/workflows/dependencies-install
       - name: Check format
