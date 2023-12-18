@@ -4,7 +4,6 @@ class MyTemplate extends HTMLElement {
   
       this.attachShadow({ mode: 'open' });
   
-      // Create a template element
       const template = document.createElement('template');
       template.innerHTML = `
         <div>
@@ -14,14 +13,13 @@ class MyTemplate extends HTMLElement {
         </div>
       `;
   
-      // Append the template content to the shadow DOM
       this.shadowRoot.appendChild(template.content.cloneNode(true));
   
-      // Use this.shadowRoot to query elements within the shadow DOM
+    
       const container = this.shadowRoot.getElementById('container');
         const displayValue = this.shadowRoot.getElementById('display-value');
         const displaySecondValue = this.shadowRoot.getElementById('display-second-value');
-      //const button = this.shadowRoot.querySelector('ino-segment-button'); TODO: Ohne shadow dom?
+     
   
       
       container.addEventListener('valueChange', (event) => {
@@ -30,17 +28,16 @@ class MyTemplate extends HTMLElement {
       });
         
       container.addEventListener('valueStartChange', (event) => {
-        event.target.setAttribute('valueStart', event.detail);
+        event.target.setAttribute('value-start', event.detail);
         displayValue.textContent = event.detail;     
       });
         
       container.addEventListener('valueEndChange', (event) => {
-        event.target.setAttribute('valueEnd', event.detail);
+        event.target.setAttribute('value-end', event.detail);
         displaySecondValue.textContent = event.detail;     
       });
     }
   }
   
-  // Define the custom element tag
   customElements.define('my-template', MyTemplate);
   
