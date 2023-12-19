@@ -1,9 +1,11 @@
-import { Meta } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-accordion.scss';
+
+type Story = StoryObj;
 
 const eventHandler = (e: CustomEvent<boolean>) => {
   (e.target as HTMLInoAccordionElement).expanded = e.detail;
@@ -24,22 +26,20 @@ export default {
 const template = new TemplateGenerator<Components.InoAccordion>(
   'ino-accordion',
   (args) => html`
-    <ino-accordion
-      expanded="${args.expanded}"
-      accordion-title="${args.accordionTitle}"
-      @expandedChange="${eventHandler}"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi enim,
-      venenatis non facilisis sed, finibus in enim. Sed auctor enim nisl, sit
-      amet feugiat risus blandit vitae.
-    </ino-accordion>
-  `,
+  <ino-accordion
+    expanded="${args.expanded}"
+    accordion-title="${args.accordionTitle}"
+    @expandedChange="${eventHandler}"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi enim,
+    venenatis non facilisis sed, finibus in enim. Sed auctor enim nisl, sit
+    amet feugiat risus blandit vitae.
+  </ino-accordion>
+`,
 );
 
-export const Playground = template.generatePlaygroundStory();
-
-export const Expanded = template.generateStoryForProp('expanded', true);
-export const AccordionTitle = template.generateStoryForProp(
+export const Expanded: Story = template.generateStoryForProp('expanded', true);
+export const AccordionTitle: Story = template.generateStoryForProp(
   'accordionTitle',
   'Custom Title',
 );
