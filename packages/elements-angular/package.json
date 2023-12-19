@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-angular",
-  "version": "8.1.3",
+  "version": "9.0.0",
   "author": "Sven Lindauer <slindauer@inovex.de>",
   "description": "Angular library for @inovex.de/elements to use the components in Angular projects",
   "contributors": [
@@ -22,7 +22,7 @@
     "@angular-devkit/core": "15.1.6"
   },
   "dependencies": {
-    "@inovex.de/elements": "^8.1.3",
+    "@inovex.de/elements": "^9.0.0",
     "tslib": "^2.3.0"
   },
   "schematics": "./schematics/collection.json",
@@ -39,5 +39,18 @@
   "esm2020": "./dist/esm2020/inovex.de-elements-angular.mjs",
   "fesm2020": "./dist/fesm2020/inovex.de-elements-angular.mjs",
   "fesm2015": "./dist/fesm2015/inovex.de-elements-angular.mjs",
-  "typings": "./dist/index.d.ts"
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "esm2020": "./dist/esm2020/inovex.de-elements-angular.mjs",
+      "es2020": "./dist/fesm2020/inovex.de-elements-angular.mjs",
+      "es2015": "./dist/fesm2015/inovex.de-elements-angular.mjs",
+      "node": "./dist/fesm2015/inovex.de-elements-angular.mjs",
+      "default": "./dist/fesm2020/inovex.de-elements-angular.mjs"
+    }
+  }
 }
