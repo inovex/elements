@@ -1,11 +1,12 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/preview-api';
-import { Meta } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
-
 import './ino-card.scss';
+
+type Story = StoryObj;
 
 export default {
   title: 'Structure/<ino-card>',
@@ -42,31 +43,34 @@ export default {
 const template = new TemplateGenerator<Components.InoCard>(
   'ino-card',
   (args) => html`
-    <ino-card
-      class="customizable-card"
-      disable-elevation="${args.disableElevation}"
-      selected="${args.selected}"
-    >
-      <div slot="header" class="card-header">
-        <ino-icon icon="info" clickable></ino-icon>
-      </div>
-      <div slot="content" class="card-content--vertical">
-        <ino-img
-          src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-        ></ino-img>
-      </div>
-      <div slot="footer" class="sample-card-footer">
-        <ino-segment-group>
-          <ino-segment-button value="1">Read</ino-segment-button>
-          <ino-segment-button value="2">Bookmark</ino-segment-button>
-        </ino-segment-group>
-      </div>
-    </ino-card>
-  `,
+  <ino-card
+    class="customizable-card"
+    disable-elevation="${args.disableElevation}"
+    selected="${args.selected}"
+  >
+    <div slot="header" class="card-header">
+      <ino-icon icon="info" clickable></ino-icon>
+    </div>
+    <div slot="content" class="card-content--vertical">
+      <ino-img
+        src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+      ></ino-img>
+    </div>
+    <div slot="footer" class="sample-card-footer">
+      <ino-segment-group>
+        <ino-segment-button value="1">Read</ino-segment-button>
+        <ino-segment-button value="2">Bookmark</ino-segment-button>
+      </ino-segment-group>
+    </div>
+  </ino-card>
+`);
+
+export const DisabledElevation: Story = template.generateStoryForProp(
+  'disableElevation',
+  true,
 );
 
-export const Playground = template.generatePlaygroundStory();
-export const DisabledElevation = template.generateStoryForProp(
-  'disableElevation',
+export const Selected: Story = template.generateStoryForProp(
+  'selected',
   true,
 );
