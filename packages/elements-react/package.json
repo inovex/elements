@@ -47,6 +47,6 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@inovex.de/elements": "^8.1.3"
+    "@inovex.de/elements": "^9.0.0"
   }
 }
