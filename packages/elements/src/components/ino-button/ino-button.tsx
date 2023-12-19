@@ -11,8 +11,7 @@ import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
 import { ButtonType } from '../types';
-
-export type Variants = 'filled' | 'outlined' | 'text';
+import { ButtonVariants } from '../types';
 
 /**
  * @slot icon-leading - For the icon to be prepended
@@ -61,7 +60,7 @@ export class Button implements ComponentInterface {
    * * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app.
    * * **text**: Typically used for less prominent actions, including those in dialogs and cards.
    */
-  @Prop() variant: Variants = 'filled';
+  @Prop() variant: ButtonVariants = 'filled';
 
   /**
    * Makes the button text and container slightly smaller.

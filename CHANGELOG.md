@@ -1,4 +1,49 @@
 # Changelog
+
+This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
+
+# [9.0.0](https://github.com/inovex/elements/compare/v8.1.3...v9.0.0) (2023-12-15)
+
+
+### Bug Fixes
+
+* **elements|ino-radio-group:** trigger valueChange upon clicking ([#977](https://github.com/inovex/elements/issues/977)) ([4878306](https://github.com/inovex/elements/commit/4878306937fea6d6162d44105f56853a56c24c34))
+* **elements:** fix typo in docs (stylsheet->stylesheet) ([#1051](https://github.com/inovex/elements/issues/1051)) ([313d9a1](https://github.com/inovex/elements/commit/313d9a1a7dd339d2844c0e64c4e1f96990149a70))
+* **elements:** link input and textarea element to its label ([#1041](https://github.com/inovex/elements/issues/1041)) ([5ad5f90](https://github.com/inovex/elements/commit/5ad5f9082c109ef22c43adf141f8ebd553af1b9e))
+
+
+### Features
+
+* **elements-angular:** add support for Angular v15 ([#868](https://github.com/inovex/elements/issues/868)) ([5562793](https://github.com/inovex/elements/commit/5562793e908240bea5afcbe511f7d721a9ea949e))
+* **elements|ino-accordion:** improve accessibility ([#1096](https://github.com/inovex/elements/issues/1096)) ([517042a](https://github.com/inovex/elements/commit/517042afe6d29020a18bf6403472a424b84c8a7e))
+* **elements|ino-avatar:** add loading animation ([#1077](https://github.com/inovex/elements/issues/1077)) ([b8ef09b](https://github.com/inovex/elements/commit/b8ef09ba2daac1d25f44fc10932db58f1d207bc2))
+* **elements|ino-markdown-editor:** add dialog to edit links ([#1024](https://github.com/inovex/elements/issues/1024)) ([1efec20](https://github.com/inovex/elements/commit/1efec2021aaeaa80948da7e53407241c3f31e5c8))
+* **elements|ino-nav-drawer:** accesibility improvements ([#1036](https://github.com/inovex/elements/issues/1036)) ([347edb4](https://github.com/inovex/elements/commit/347edb4e1838b7d83f13afe2930dcbb995b3d36f))
+* **elements|ino-nav-drawer:** add mobile variant ([#1035](https://github.com/inovex/elements/issues/1035)) ([5617375](https://github.com/inovex/elements/commit/5617375dc3cfd799a622d9f374a8442918cd416d))
+* **elements|ino-nav-drawer:** enable navigation via keyboard ([#1017](https://github.com/inovex/elements/issues/1017)) ([02bf91f](https://github.com/inovex/elements/commit/02bf91fc5b0c380722c90265239ff8098b3313fe))
+* **elements|ino-segment-button:** add type property ([#1095](https://github.com/inovex/elements/issues/1095)) ([924c0fc](https://github.com/inovex/elements/commit/924c0fc64ddc15d74315ed16ade93a2b72fd81f8))
+* **elements|ino-select:** improve accessibility ([#1055](https://github.com/inovex/elements/issues/1055)) ([d370dc2](https://github.com/inovex/elements/commit/d370dc254d583753971017536461566b9a65cd7a))
+* **elements|ino-tab-bar:** improve accessibility ([#1098](https://github.com/inovex/elements/issues/1098)) ([70b0523](https://github.com/inovex/elements/commit/70b05236f346e72e21e49109231800ec4bfad953))
+* **elements:** add avatar component ([#1018](https://github.com/inovex/elements/issues/1018)) ([2e1fc97](https://github.com/inovex/elements/commit/2e1fc970970131c8e09b3d1b16b29d49b2a35868))
+* **elements:** add new icons ([#1019](https://github.com/inovex/elements/issues/1019)) ([180fd5a](https://github.com/inovex/elements/commit/180fd5a4a80840a373f12f72dc7d716dd80e7366))
+* **landingpage:** add blur bg pattern ([#1123](https://github.com/inovex/elements/issues/1123)) ([067d812](https://github.com/inovex/elements/commit/067d812daf54ff6d41d9dd0cee44f969683d1651))
+* **landingpage:** add button to open storybook externally ([#960](https://github.com/inovex/elements/issues/960)) ([eaf80ea](https://github.com/inovex/elements/commit/eaf80ea54388a5d23e6f46cf859486617ed04f97))
+* **landingpage:** add patterns preview-code-box ([#1080](https://github.com/inovex/elements/issues/1080)) ([533f621](https://github.com/inovex/elements/commit/533f621315411bdf4e8a750e5d276f9ae701dd29))
+* **storybook:** allow to choose different versions in storybook ([#1022](https://github.com/inovex/elements/issues/1022)) ([9028657](https://github.com/inovex/elements/commit/9028657c6841848437d6acd2332ff50cc9d632c0))
+
+
+### Styles
+
+* **elements|ino-popover:** update design ([#974](https://github.com/inovex/elements/issues/974)) ([3b6a756](https://github.com/inovex/elements/commit/3b6a756c48f32d55b6f19a8d9486f0d3de8e845e))
+
+
+### BREAKING CHANGES
+
+* **elements|ino-popover:** The `colorScheme` was updated with its possibilities now being `light`, `dark`, and `primary` (default). The equivalent of the old `transparent` option is `light` and needs to be updated accordingly.
+* **elements-angular:** We updated our underlying Angular to version 15 in order to make use of the newest features. In consequence, all Angular versions below 13 will no longer be supported.
+
+
+
 ### [8.1.3](https://github.com/inovex/elements/compare/v8.1.2...v8.1.3) (2023-06-01)
 
 ### [8.1.2](https://github.com/inovex/elements/compare/v8.1.1...v8.1.2) (2023-06-01)

@@ -682,13 +682,13 @@
           "name": "variant",
           "type": "\"filled\" | \"outlined\" | \"text\"",
           "complexType": {
-            "original": "Variants",
+            "original": "ButtonVariants",
             "resolved": "\"filled\" | \"outlined\" | \"text\"",
             "references": {
-              "Variants": {
-                "location": "local",
-                "path": "/Users/maria-luisastefan/Documents/GitHub/elements/packages/elements/src/components/ino-button/ino-button.tsx",
-                "id": "src/components/ino-button/ino-button.tsx::Variants"
+              "ButtonVariants": {
+                "location": "import",
+                "path": "../types",
+                "id": "src/components/types.ts::ButtonVariants"
               }
             }
           },
@@ -11203,18 +11203,18 @@
     }
   ],
   "typeLibrary": {
+    "src/components/types.ts::KeyValue": {
+      "declaration": "{\n  key: string;\n  value: string;\n}",
+      "docstring": "",
+      "path": "src/components/types.ts"
+    },
     "src/components/types.ts::ButtonType": {
       "declaration": "export type ButtonType = 'button' | 'submit' | 'reset';",
       "docstring": "",
       "path": "src/components/types.ts"
     },
-    "src/components/ino-button/ino-button.tsx::Variants": {
-      "declaration": "export type Variants = 'filled' | 'outlined' | 'text';",
-      "docstring": "",
-      "path": "src/components/ino-button/ino-button.tsx"
-    },
-    "src/components/types.ts::KeyValue": {
-      "declaration": "{\n  key: string;\n  value: string;\n}",
+    "src/components/types.ts::ButtonVariants": {
+      "declaration": "export type ButtonVariants = 'filled' | 'outlined' | 'text';",
       "docstring": "",
       "path": "src/components/types.ts"
     },
