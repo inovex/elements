@@ -31,6 +31,7 @@ applyPolyfills().then(() => defineCustomElements(window));
 const preview = {
   parameters: {
     viewMode: 'docs',
+    layout: 'centered',
     controls: {
       hideNoControlsWarning: true,
     },
@@ -43,6 +44,7 @@ const preview = {
       source: {
         // excludeDecorators: true,
       },
+      toc: true, // 👈 Enables the table of contents for components stories
     },
     options: {
       panelPosition: 'bottom',
