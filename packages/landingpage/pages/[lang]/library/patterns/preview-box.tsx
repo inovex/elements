@@ -6,6 +6,7 @@ import {
   InoSegmentGroup,
 } from '@elements';
 import styles from './preview-box.module.scss';
+import useTranslation from 'utils/hooks/useTranslation';
 
 type ViewMode = 'CodeMode' | 'PreviewMode';
 
@@ -118,6 +119,7 @@ interface PreviewBoxProps {
   previewComponent: JSX.Element;
   highlightedCode: string;
   rawCode: string;
+  requiresJS?: boolean;
 }
 
 export default function PreviewBox({
@@ -127,9 +129,12 @@ export default function PreviewBox({
   previewComponent,
   highlightedCode,
   rawCode,
+  requiresJS = false,
 }: PreviewBoxProps) {
   const [selectedValue, setSelectedValue] = useState<ViewMode>('PreviewMode');
   const previewRef = useRef<HTMLDivElement>(null);
+
+  const { t } = useTranslation();
 
   const previewBoxHeight = useMemo(() => {
     if (!previewRef.current) return 0;
@@ -139,7 +144,18 @@ export default function PreviewBox({
   return (
     <div className={styles.patternsWrapper}>
       <h1 className="header-h1">{title}</h1>
-      <p className="body-l">{description}</p>
+      <div className={styles.descriptionWrapper}>
+        <p className="body-l">{description}</p>
+        {requiresJS ? (
+          <span className={`${styles.jsTag} body-s`}>
+            {t('designPatterns.tag.js')}
+          </span>
+        ) : (
+          <span className={`${styles.htmlTag} body-s`}>
+            {t('designPatterns.tag.html')}
+          </span>
+        )}
+      </div>
       <div className={styles.segmentGroup}>
         <ViewModeSelection
           selectedValue={selectedValue}

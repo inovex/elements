@@ -67,7 +67,7 @@
   border-radius: 30px;
 
   &.previewMode {
-    padding: 69px 0.5rem;
+    padding: 69px 1rem;
     align-items: center;
     justify-content: center;
     border: 2px solid var(--inovex-elements-n-2);
@@ -75,7 +75,7 @@
   }
 
   &.codeMode {
-    padding: 0.5rem;
+    padding: 1rem;
     align-items: flex-start;
     justify-content: flex-start;
     border: 2px solid #22272e;
@@ -114,4 +114,25 @@
       background-color: #555;
     }
   }
+}
+
+.descriptionWrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.jsTag,
+.htmlTag {
+  margin-left: 10px;
+  border-radius: 12px;
+  padding: 3px 10px;
+  height: fit-content;
+}
+
+.jsTag {
+  background-color: var(--inovex-elements-warning-light);
+}
+
+.htmlTag {
+  background-color: var(--inovex-elements-success-light);
 }
