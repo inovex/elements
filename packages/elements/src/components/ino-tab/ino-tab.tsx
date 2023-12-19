@@ -32,6 +32,18 @@ export class Tab implements ComponentInterface {
   @Prop() label?: string;
 
   /**
+   * Contains the ID of the associated tab panel for accessibility purposes.
+   * This property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.
+   */
+  @Prop({ reflect: true }) a11yControls?: string;
+
+  /**
+   * Reflects the selected state of the tab for accessibility purposes.
+   * This property is optional and primarily managed by the parent `ino-tab-bar` component, adhering to WAI-ARIA practices for the tab role.
+   */
+  @Prop({ reflect: true }) a11ySelected?: boolean;
+
+  /**
    * Indicates that the tab icon and label should flow vertically instead of horizontally.
    */
   @Prop() stacked = false;
@@ -67,7 +79,12 @@ export class Tab implements ComponentInterface {
 
     return (
       <Host>
-        <button class={tabClasses} role="tab" aria-selected="false">
+        <button
+          class={tabClasses}
+          role="tab"
+          aria-selected={this.a11ySelected ? 'true' : 'false'}
+          aria-controls={this.a11yControls}
+        >
           <span class="mdc-tab__content">
             {this.icon && <ino-icon class="mdc-tab__icon" icon={this.icon} />}
             <span class="mdc-tab__text-label">
