@@ -25,15 +25,15 @@
   }
 
   /** overwrite toolbar icon color & hover */
-  .sbdocs.sbdocs-preview > div:first-child button svg path {
+  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) button svg path {
     fill: var(--inovex-elements-n-11);
   }
 
-  .sbdocs.sbdocs-preview > div:first-child button:hover {
+  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) button:hover {
     background-color: var(--inovex-elements-p-3);
   }
 
-  .sbdocs.sbdocs-preview > div:first-child button:hover svg path {
+  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) button:hover svg path {
     fill: var(--inovex-elements-p-7);
   }
 
@@ -42,18 +42,18 @@
     overflow-y: hidden;
   }
 
-  .sbdocs.sbdocs-preview > div:first-child a {
+  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) a {
     display: block;
     max-height: 12px;
     max-width: 28px;
   }
 
   /** Style open-in-new-tap button same way as the other buttons */
-  .sbdocs.sbdocs-preview > div:first-child a svg path {
+  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) a svg path {
     fill: var(--inovex-elements-n-11) !important;
   }
 
-  .sbdocs.sbdocs-preview > div:first-child a:hover svg path {
+  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) a:hover svg path {
     fill: var(--inovex-elements-primary) !important;
   }
 
