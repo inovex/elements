@@ -34,7 +34,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@inovex.de/elements": "^8.1.3",
+    "@inovex.de/elements": "^9.0.0",
     "moment": "^2.24.0"
   },
   "devDependencies": {
