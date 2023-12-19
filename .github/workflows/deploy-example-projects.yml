@@ -2,7 +2,7 @@ name: Deploy Example Projects
 
 on:
   workflow_run:
-    workflows: [ "Test & Build" ]
+    workflows: ['Quality Control']
     types: [completed]
     branches: [master]
 

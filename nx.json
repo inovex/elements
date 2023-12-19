@@ -1,4 +1,7 @@
 {
+  "affected": {
+    "defaultBase": "origin/master"
+  },
   "workspaceLayout": {
     "appsDir": "packages",
     "libsDir": "packages"

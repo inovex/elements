@@ -1240,6 +1240,14 @@ export namespace Components {
     }
     interface InoTab {
         /**
+          * Contains the ID of the associated tab panel for accessibility purposes. This property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.
+         */
+        "a11yControls"?: string;
+        /**
+          * Reflects the selected state of the tab for accessibility purposes. This property is optional and primarily managed by the parent `ino-tab-bar` component, adhering to WAI-ARIA practices for the tab role.
+         */
+        "a11ySelected"?: boolean;
+        /**
           * Indicates a leading icon in the tab.
          */
         "icon"?: string;
@@ -3259,6 +3267,14 @@ declare namespace LocalJSX {
         "onCheckedChange"?: (event: InoSwitchCustomEvent<any>) => void;
     }
     interface InoTab {
+        /**
+          * Contains the ID of the associated tab panel for accessibility purposes. This property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.
+         */
+        "a11yControls"?: string;
+        /**
+          * Reflects the selected state of the tab for accessibility purposes. This property is optional and primarily managed by the parent `ino-tab-bar` component, adhering to WAI-ARIA practices for the tab role.
+         */
+        "a11ySelected"?: boolean;
         /**
           * Indicates a leading icon in the tab.
          */
