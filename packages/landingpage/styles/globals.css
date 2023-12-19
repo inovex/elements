@@ -1,6 +1,5 @@
 @import '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
 @import '@inovex.de/ui-patterns/dist/style.css';
-@import './guide.css';
 
 html,
 body {
@@ -35,7 +34,8 @@ h1.header-d3 {
 }
 
 :root b {
-  font-weight: bold; /* for firefox */
+  font-weight: bold;
+  /* for firefox */
 }
 
 * {
@@ -45,4 +45,15 @@ h1.header-d3 {
 ino-chip * {
   /* mdc chip works with box-sizing: content-box which gets overwritten by global styles */
   box-sizing: initial;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 200px;
+  row-gap: 80px;
+}
+
+.section-container section:first-child {
+  margin: 80px 0 0 0;
 }
