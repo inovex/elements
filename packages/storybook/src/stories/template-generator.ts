@@ -1,6 +1,7 @@
-import { Story } from '@storybook/web-components';
+import { StoryObj } from '@storybook/web-components';
 import docsJson from '../../elements-stencil-docs';
 
+type Story = StoryObj;
 /**
  * A utility class that helps with creating type-safe stories
  */

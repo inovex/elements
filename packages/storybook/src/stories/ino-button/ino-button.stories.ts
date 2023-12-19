@@ -1,9 +1,11 @@
 import { Components } from '@inovex.de/elements';
-import { Meta } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-button.scss';
+
+type Story = StoryObj;
 
 export default {
   title: 'Buttons/<ino-button>',
@@ -22,30 +24,31 @@ export default {
 const template = new TemplateGenerator<Components.InoButton>(
   'ino-button',
   (args) => html`
-    <ino-button
-      variant="${args.variant}"
-      disabled="${args.disabled}"
-      dense="${args.dense}"
-      loading="${args.loading}"
-    >
-      Label
-    </ino-button>
-  `,
+  <ino-button
+    variant="${args.variant}"
+    disabled="${args.disabled}"
+    dense="${args.dense}"
+    loading="${args.loading}"
+  >
+    Label
+  </ino-button>
+`,
 );
 
-export const Playground = template.generatePlaygroundStory();
+//export const Playground = template.generatePlaygroundStory();
 
-export const Filled = template.generateStoryForProp('variant', 'filled');
-export const Outlined = template.generateStoryForProp('variant', 'outlined');
-export const Text = template.generateStoryForProp('variant', 'text');
-export const Disabled = template.generateStoryForProp('disabled', true);
-export const Dense = template.generateStoryForProp('dense', true);
-export const Loading = template.generateStoryForProp('loading', true);
+export const Filled: Story = template.generateStoryForProp('variant', 'filled');
+export const Outlined: Story = template.generateStoryForProp('variant', 'outlined');
+export const Text: Story = template.generateStoryForProp('variant', 'text');
+export const Disabled: Story = template.generateStoryForProp('disabled', true);
+export const Dense: Story = template.generateStoryForProp('dense', true);
+export const Loading: Story = template.generateStoryForProp('loading', true);
 
-/*
+/**
  In order to include icons, use the `icon-leading` or `icon-trailing` slot
  */
-export const LeadingAndTrailingIcon = () => html`
+export const LeadingAndTrailingIcon: Story = {
+  render: () => html`
   <div class="container">
     <ino-button>
       <ino-icon icon="info" slot="icon-leading"></ino-icon>
@@ -56,4 +59,5 @@ export const LeadingAndTrailingIcon = () => html`
       Label
     </ino-button>
   </div>
-`;
+`
+}
