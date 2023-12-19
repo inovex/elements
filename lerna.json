@@ -1,7 +1,5 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "version": "9.0.0",
   "npmClient": "yarn",
   "useNx": true,
@@ -11,9 +9,7 @@
       "yes": true,
       "push": false,
       "message": "chore: publish %s",
-      "allowBranch": [
-        "master"
-      ]
+      "allowBranch": ["master"]
     }
   }
 }
