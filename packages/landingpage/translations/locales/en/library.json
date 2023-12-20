@@ -3,7 +3,7 @@
     "header": {
       "top": "Efficient Development",
       "title": "Design Patterns",
-      "subtitle": "Elevate your project with our lovingly crafted design patterns, optimized for web development. The inovex Elements collection, seamlessly integrated, empowers you to build responsive and visually appealing user interfaces with ease. Our commitment to quality ensures each pattern is meticulously designed for modern web applications."
+      "subtitle": "Elevate your project with our lovingly crafted design patterns, optimized for web development. The inovex Elements web components, seamlessly integrated with Tailwind CSS, empowers you to build responsive and visually appealing user interfaces with ease. Our commitment to quality ensures each pattern is meticulously designed for modern web applications."
     },
     "tag": {
       "js": "Requires JS",
