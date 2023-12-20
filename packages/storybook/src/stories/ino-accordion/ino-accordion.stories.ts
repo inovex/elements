@@ -3,18 +3,21 @@ import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-accordion.scss';
+import Story from "../template-generator-new";
 
 const eventHandler = (e: CustomEvent<boolean>) => {
   (e.target as HTMLInoAccordionElement).expanded = e.detail;
 };
 
-export default {
+const Playground = {
   title: 'Structure/<ino-accordion>',
   component: 'ino-accordion',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-accordion')]
-} as Meta<Components.InoAccordion>;
-
-export const Accordion = {
+  decorators: [(story) => decorateStoryWithClass(story, 'story-accordion')],
+  parameters: {
+    docs: {
+      toc: false // disabled because the ino-accordion also contains h3 headlines that are queried for the TOC
+    }
+  },
   render: (args) => html`
   <ino-accordion
     expanded="${args.expanded}"
@@ -31,17 +34,18 @@ export const Accordion = {
   }
 } as Meta<Components.InoAccordion>;
 
-// TODO: Descriptions (TS-comments)
-export const Expanded = {
-  ...Accordion,
+export const Expanded = Story({
+  ...Playground,
   args: {
-    expanded: false
+    expanded: true
   },
-} as Meta<Components.InoAccordion>;
+}).addPropertyDocs('expanded');
 
-export const AccordionTitle = {
-  ...Accordion,
+export const AccordionTitle = Story({
+  ...Playground,
   args: {
     accordionTitle: 'Custom Title'
   },
-} as Meta<Components.InoAccordion>;
+}).addPropertyDocs('accordionTitle');
+
+export default Playground
