@@ -26,6 +26,18 @@ export namespace Components {
          */
         "expanded": boolean;
     }
+    /**
+     * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+     * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+     * flexible to some extent compared to stateless components.
+     * ## Responsibilities
+     * The component handles the following tasks:
+     * - Management of the `value` property of the `<ino-input>` element.
+     * - Management of showing and hiding the different options based on the input.
+     * - Keyboard navigation among the options.
+     * ## Filtering
+     * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+     */
     interface InoAutocomplete {
         /**
           * Number of ms the search function should be delayed after the user typed something.
@@ -78,6 +90,9 @@ export namespace Components {
          */
         "variant": 'dashed' | 'solid';
     }
+    /**
+     * A button component with different styles and icon capability.
+     */
     interface InoButton {
         /**
           * Sets the autofocus for this element.
@@ -112,6 +127,10 @@ export namespace Components {
          */
         "variant": ButtonVariants;
     }
+    /**
+     * The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
+     * fully customize the appearance of the card.
+     */
     interface InoCard {
         /**
           * Disables the hover effect if true
@@ -122,6 +141,13 @@ export namespace Components {
          */
         "selected": boolean;
     }
+    /**
+     * The `ino-carousel` component works in combination with the `ino-carousel-slide` component
+     * and can be used to display an array of images as a slide show. What is more,
+     * it also features an autoplay property that allows the slides to be changed automatically.
+     * Lastly, using the css variables described at the bottom of the page, you can easily customize
+     * the dimensions of the component as well as the duration of the slide transition.
+     */
     interface InoCarousel {
         /**
           * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
@@ -148,6 +174,9 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface InoCarouselSlide {
         /**
           * Selected state controlled by the `<ino-carousel>`
@@ -162,6 +191,9 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface InoCheckbox {
         /**
           * Marks this element as checked. (**unmanaged**)
@@ -188,6 +220,14 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * The ino-chip component displays the provided content and icon as a chip.
+     * Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `icon` attribute.
+     * #### Additional Hints
+     * **Content**: Utilize the `label` attribute to define the chip's label. Include an icon on the left side of the chip via the `icon` attribute.
+     * **Selection**: Chips can be used for single or multi-selection among a few options. Refer to the **Selection** and **Filter** stories for examples.
+     * **Removable Chips**: Set `removable` to `true` to allow chip removal by the user, which will display a `close` icon on the chip's right side. On removal, a `removeChip` event is emitted instead of hiding or destroying the component. Handle the removal process by listening to this event.
+     */
     interface InoChip {
         /**
           * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
@@ -223,6 +263,12 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     * #### Restrictions
+     * Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
+     */
     interface InoControlItem {
         /**
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.
@@ -269,6 +315,13 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.
+     * The `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.
+     * #### Additional Hints
+     * The currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.
+     * However, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.
+     */
     interface InoCurrencyInput {
         /**
           * A supported locale for currency number formatting. If not given, it uses the global config. See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
@@ -279,6 +332,15 @@ export namespace Components {
          */
         "value": number | string;
     }
+    /**
+     * A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
+     * #### Types
+     * This datepicker can be used as a picker for different types:
+     * - date
+     * - time
+     * - datetime
+     * - month
+     */
     interface InoDatepicker {
         /**
           * Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers
@@ -401,6 +463,10 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+     * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     */
     interface InoDialog {
         /**
           * Adds a button with the given text to proceed with an action`
@@ -443,6 +509,13 @@ export namespace Components {
          */
         "open": boolean;
     }
+    /**
+     * A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
+     * It appears in front of all screen content, typically as a circular shape with an icon in its center.
+     * FABs come in three types: regular, mini, and extended
+     * #### Additional Hints
+     * **Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.
+     */
     interface InoFab {
         /**
           * Disables the button.
@@ -478,6 +551,16 @@ export namespace Components {
          */
         "tooltipPlacement": Placement | 'none';
     }
+    /**
+     * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
+     * button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed
+     * dial.
+     * #### Additional Hints
+     * **Content**: Put the FABs for the speed dial inside of `ino-fab-set` as `ino-fab`.
+     * #### Control flow
+     * The ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to
+     * your local state and pass the state to the component again to open/close the fab-set.
+     */
     interface InoFabSet {
         /**
           * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
@@ -497,7 +580,18 @@ export namespace Components {
         "topBottomLocation": VerticalLocation;
     }
     /**
+     * A light icon component for texts and other components.
      * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     * #### Additional Hints
+     * The component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.
+     * **Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.
+     * #### Add icons
+     * If you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.
+     * > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
+     * > `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected
+     * > to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions
+     * > on how to integrate the icons with Angular, React or plain JavaScript.
+     * Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
      */
     interface InoIcon {
         /**
@@ -521,6 +615,11 @@ export namespace Components {
          */
         "svgTitle"?: string;
     }
+    /**
+     * A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
+     * ## Additional Hints
+     * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
+     */
     interface InoIconButton {
         /**
           * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
@@ -551,6 +650,9 @@ export namespace Components {
          */
         "type"?: ButtonType;
     }
+    /**
+     * An image component with different styles that reserves a predefined space to avoid jumping contents.
+     */
     interface InoImg {
         /**
           * The alternative text of this image.
@@ -609,6 +711,10 @@ export namespace Components {
          */
         "width"?: number;
     }
+    /**
+     * The ino-img-list component is used in combination with the ino-img component to display an array of images
+     * in a grid-like format. It is based on the mdc-image-list component.
+     */
     interface InoImgList {
         /**
           * Encapsulates the label of all img-list-items within the image
@@ -619,6 +725,10 @@ export namespace Components {
          */
         "masonry": boolean;
     }
+    /**
+     * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
+     * Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
+     */
     interface InoInput {
         /**
           * The autofocus of this element.
@@ -733,6 +843,10 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+     * This component replaces the native behaviour with a custom `ino-button` with logic.
+     */
     interface InoInputFile {
         /**
           * The types of files accepted by the server.
@@ -775,6 +889,9 @@ export namespace Components {
          */
         "required"?: boolean;
     }
+    /**
+     * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+     */
     interface InoLabel {
         /**
           * Colors the label in an light grey to indicate the disabled status for this element
@@ -801,6 +918,12 @@ export namespace Components {
          */
         "text": string;
     }
+    /**
+     * A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.
+     * This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.
+     * #### Additional Hints
+     * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
+     */
     interface InoList {
         /**
           * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
@@ -815,6 +938,10 @@ export namespace Components {
          */
         "twoLines"?: boolean;
     }
+    /**
+     * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface InoListDivider {
         /**
           * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
@@ -829,6 +956,10 @@ export namespace Components {
          */
         "padded"?: boolean;
     }
+    /**
+     * A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface InoListItem {
         /**
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
@@ -880,12 +1011,23 @@ export namespace Components {
          */
         "viewMode": ViewModeUnion;
     }
+    /**
+     * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
+     * The anchor element is the parent element.
+     * The menu items consist of different variations of the `ino-list-item` component.
+     * If you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.
+     */
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
         "placement": Placement;
     }
+    /**
+     * A navigation drawer component with different variants, setting up the base layout for your app.
+     * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
+     * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+     */
     interface InoNavDrawer {
         /**
           * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
@@ -904,6 +1046,11 @@ export namespace Components {
          */
         "variant"?: NavDrawerVariant;
     }
+    /**
+     * A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     * > Note: This component's main use case is within the `ino-nav-drawer`.
+     */
     interface InoNavItem {
         /**
           * Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated.
@@ -922,6 +1069,9 @@ export namespace Components {
          */
         "text"?: string;
     }
+    /**
+     * An option component that can be used to add options to an ino-select component.
+     */
     interface InoOption {
         /**
           * Disables the option
@@ -936,12 +1086,24 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * A wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.
+     * Beyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).
+     */
     interface InoOptionGroup {
         /**
           * Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).
          */
         "label"?: string;
     }
+    /**
+     * A Popover is a dialog which is bound to a specific element and appears next to it. Under the
+     * hood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.
+     * The Popover
+     * and [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)
+     * components are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips
+     * can only display plain text.
+     */
     interface InoPopover {
         /**
           * Shows an arrow pointing towards its trigger-element
@@ -1004,6 +1166,9 @@ export namespace Components {
          */
         "visible"?: boolean;
     }
+    /**
+     * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+     */
     interface InoProgressBar {
         /**
           * Sets the buffer progress
@@ -1022,6 +1187,11 @@ export namespace Components {
          */
         "progress"?: number;
     }
+    /**
+     * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
+     * #### Additional Hints
+     * Clicking on the radio button triggers an event that contains the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.
+     */
     interface InoRadio {
         /**
           * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
@@ -1040,6 +1210,9 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
+     */
     interface InoRadioGroup {
         /**
           * Sets the alignment of the radios to either vertical or horizontal.
@@ -1050,6 +1223,9 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    /**
+     * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+     */
     interface InoRange {
         /**
           * Disables this element.
@@ -1101,6 +1277,9 @@ export namespace Components {
          */
         "valueStart"?: number;
     }
+    /**
+     * A button component that can be used in combination with the ino-segment-group component.
+     */
     interface InoSegmentButton {
         /**
           * Activates the button
@@ -1127,6 +1306,9 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * A button group that can be used as an alternative to drop-down menus.
+     */
     interface InoSegmentGroup {
         /**
           * Name of the segment group
@@ -1137,6 +1319,11 @@ export namespace Components {
          */
         "value"?: any;
     }
+    /**
+     * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
+     * #### Additional Hints
+     * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
+     */
     interface InoSelect {
         /**
           * Disables this element.
@@ -1183,6 +1370,9 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     */
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -1206,6 +1396,10 @@ export namespace Components {
          */
         "type": SnackbarType;
     }
+    /**
+     * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+     * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+     */
     interface InoSpinner {
         /**
           * The height of this spinner (default = 40)
@@ -1224,6 +1418,9 @@ export namespace Components {
          */
         "width": number;
     }
+    /**
+     * Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
+     */
     interface InoSwitch {
         /**
           * Marks this element as checked. (**unmanaged**)
@@ -1238,6 +1435,9 @@ export namespace Components {
          */
         "name"?: string;
     }
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+     */
     interface InoTab {
         /**
           * Contains the ID of the associated tab panel for accessibility purposes. This property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.
@@ -1265,6 +1465,9 @@ export namespace Components {
          */
         "stacked": boolean;
     }
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
+     */
     interface InoTabBar {
         /**
           * Activates the tab at the given index (**unmanaged**).
@@ -1275,6 +1478,11 @@ export namespace Components {
          */
         "autoFocus"?: boolean;
     }
+    /**
+     * The ino-table is a custom table used to display sets of data across multiple columns.
+     * It currently supports different states (selected, active), sorting and loading indication.
+     * > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).
+     */
     interface InoTable {
         /**
           * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar.
@@ -1298,6 +1506,9 @@ export namespace Components {
          */
         "stickyHeader"?: boolean;
     }
+    /**
+     * The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.
+     */
     interface InoTableHeaderCell {
         /**
           * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
@@ -1345,6 +1556,10 @@ export namespace Components {
          */
         "sortStart": SortDirection;
     }
+    /**
+     * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+     * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+     */
     interface InoTextarea {
         /**
           * The autofocus of this element.
@@ -1415,6 +1630,10 @@ export namespace Components {
          */
         "value"?: string;
     }
+    /**
+     * A tooltip component that displays text when users hover over, focus on, or tap an element.
+     * > Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.
+     */
     interface InoTooltip {
         /**
           * Shows an arrow
@@ -1586,6 +1805,18 @@ declare global {
         prototype: HTMLInoAccordionElement;
         new (): HTMLInoAccordionElement;
     };
+    /**
+     * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+     * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+     * flexible to some extent compared to stateless components.
+     * ## Responsibilities
+     * The component handles the following tasks:
+     * - Management of the `value` property of the `<ino-input>` element.
+     * - Management of showing and hiding the different options based on the input.
+     * - Keyboard navigation among the options.
+     * ## Filtering
+     * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+     */
     interface HTMLInoAutocompleteElement extends Components.InoAutocomplete, HTMLStencilElement {
     }
     var HTMLInoAutocompleteElement: {
@@ -1598,72 +1829,143 @@ declare global {
         prototype: HTMLInoAvatarElement;
         new (): HTMLInoAvatarElement;
     };
+    /**
+     * A button component with different styles and icon capability.
+     */
     interface HTMLInoButtonElement extends Components.InoButton, HTMLStencilElement {
     }
     var HTMLInoButtonElement: {
         prototype: HTMLInoButtonElement;
         new (): HTMLInoButtonElement;
     };
+    /**
+     * The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
+     * fully customize the appearance of the card.
+     */
     interface HTMLInoCardElement extends Components.InoCard, HTMLStencilElement {
     }
     var HTMLInoCardElement: {
         prototype: HTMLInoCardElement;
         new (): HTMLInoCardElement;
     };
+    /**
+     * The `ino-carousel` component works in combination with the `ino-carousel-slide` component
+     * and can be used to display an array of images as a slide show. What is more,
+     * it also features an autoplay property that allows the slides to be changed automatically.
+     * Lastly, using the css variables described at the bottom of the page, you can easily customize
+     * the dimensions of the component as well as the duration of the slide transition.
+     */
     interface HTMLInoCarouselElement extends Components.InoCarousel, HTMLStencilElement {
     }
     var HTMLInoCarouselElement: {
         prototype: HTMLInoCarouselElement;
         new (): HTMLInoCarouselElement;
     };
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface HTMLInoCarouselSlideElement extends Components.InoCarouselSlide, HTMLStencilElement {
     }
     var HTMLInoCarouselSlideElement: {
         prototype: HTMLInoCarouselSlideElement;
         new (): HTMLInoCarouselSlideElement;
     };
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface HTMLInoCheckboxElement extends Components.InoCheckbox, HTMLStencilElement {
     }
     var HTMLInoCheckboxElement: {
         prototype: HTMLInoCheckboxElement;
         new (): HTMLInoCheckboxElement;
     };
+    /**
+     * The ino-chip component displays the provided content and icon as a chip.
+     * Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `icon` attribute.
+     * #### Additional Hints
+     * **Content**: Utilize the `label` attribute to define the chip's label. Include an icon on the left side of the chip via the `icon` attribute.
+     * **Selection**: Chips can be used for single or multi-selection among a few options. Refer to the **Selection** and **Filter** stories for examples.
+     * **Removable Chips**: Set `removable` to `true` to allow chip removal by the user, which will display a `close` icon on the chip's right side. On removal, a `removeChip` event is emitted instead of hiding or destroying the component. Handle the removal process by listening to this event.
+     */
     interface HTMLInoChipElement extends Components.InoChip, HTMLStencilElement {
     }
     var HTMLInoChipElement: {
         prototype: HTMLInoChipElement;
         new (): HTMLInoChipElement;
     };
+    /**
+     * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     * #### Restrictions
+     * Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
+     */
     interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {
     }
     var HTMLInoControlItemElement: {
         prototype: HTMLInoControlItemElement;
         new (): HTMLInoControlItemElement;
     };
+    /**
+     * A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.
+     * The `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.
+     * #### Additional Hints
+     * The currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.
+     * However, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.
+     */
     interface HTMLInoCurrencyInputElement extends Components.InoCurrencyInput, HTMLStencilElement {
     }
     var HTMLInoCurrencyInputElement: {
         prototype: HTMLInoCurrencyInputElement;
         new (): HTMLInoCurrencyInputElement;
     };
+    /**
+     * A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
+     * #### Types
+     * This datepicker can be used as a picker for different types:
+     * - date
+     * - time
+     * - datetime
+     * - month
+     */
     interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {
     }
     var HTMLInoDatepickerElement: {
         prototype: HTMLInoDatepickerElement;
         new (): HTMLInoDatepickerElement;
     };
+    /**
+     * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+     * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     */
     interface HTMLInoDialogElement extends Components.InoDialog, HTMLStencilElement {
     }
     var HTMLInoDialogElement: {
         prototype: HTMLInoDialogElement;
         new (): HTMLInoDialogElement;
     };
+    /**
+     * A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
+     * It appears in front of all screen content, typically as a circular shape with an icon in its center.
+     * FABs come in three types: regular, mini, and extended
+     * #### Additional Hints
+     * **Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.
+     */
     interface HTMLInoFabElement extends Components.InoFab, HTMLStencilElement {
     }
     var HTMLInoFabElement: {
         prototype: HTMLInoFabElement;
         new (): HTMLInoFabElement;
     };
+    /**
+     * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
+     * button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed
+     * dial.
+     * #### Additional Hints
+     * **Content**: Put the FABs for the speed dial inside of `ino-fab-set` as `ino-fab`.
+     * #### Control flow
+     * The ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to
+     * your local state and pass the state to the component again to open/close the fab-set.
+     */
     interface HTMLInoFabSetElement extends Components.InoFabSet, HTMLStencilElement {
     }
     var HTMLInoFabSetElement: {
@@ -1671,7 +1973,18 @@ declare global {
         new (): HTMLInoFabSetElement;
     };
     /**
+     * A light icon component for texts and other components.
      * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     * #### Additional Hints
+     * The component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.
+     * **Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.
+     * #### Add icons
+     * If you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.
+     * > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
+     * > `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected
+     * > to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions
+     * > on how to integrate the icons with Angular, React or plain JavaScript.
+     * Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
      */
     interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {
     }
@@ -1679,54 +1992,91 @@ declare global {
         prototype: HTMLInoIconElement;
         new (): HTMLInoIconElement;
     };
+    /**
+     * A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
+     * ## Additional Hints
+     * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
+     */
     interface HTMLInoIconButtonElement extends Components.InoIconButton, HTMLStencilElement {
     }
     var HTMLInoIconButtonElement: {
         prototype: HTMLInoIconButtonElement;
         new (): HTMLInoIconButtonElement;
     };
+    /**
+     * An image component with different styles that reserves a predefined space to avoid jumping contents.
+     */
     interface HTMLInoImgElement extends Components.InoImg, HTMLStencilElement {
     }
     var HTMLInoImgElement: {
         prototype: HTMLInoImgElement;
         new (): HTMLInoImgElement;
     };
+    /**
+     * The ino-img-list component is used in combination with the ino-img component to display an array of images
+     * in a grid-like format. It is based on the mdc-image-list component.
+     */
     interface HTMLInoImgListElement extends Components.InoImgList, HTMLStencilElement {
     }
     var HTMLInoImgListElement: {
         prototype: HTMLInoImgListElement;
         new (): HTMLInoImgListElement;
     };
+    /**
+     * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
+     * Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
+     */
     interface HTMLInoInputElement extends Components.InoInput, HTMLStencilElement {
     }
     var HTMLInoInputElement: {
         prototype: HTMLInoInputElement;
         new (): HTMLInoInputElement;
     };
+    /**
+     * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+     * This component replaces the native behaviour with a custom `ino-button` with logic.
+     */
     interface HTMLInoInputFileElement extends Components.InoInputFile, HTMLStencilElement {
     }
     var HTMLInoInputFileElement: {
         prototype: HTMLInoInputFileElement;
         new (): HTMLInoInputFileElement;
     };
+    /**
+     * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+     */
     interface HTMLInoLabelElement extends Components.InoLabel, HTMLStencilElement {
     }
     var HTMLInoLabelElement: {
         prototype: HTMLInoLabelElement;
         new (): HTMLInoLabelElement;
     };
+    /**
+     * A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.
+     * This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.
+     * #### Additional Hints
+     * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
+     */
     interface HTMLInoListElement extends Components.InoList, HTMLStencilElement {
     }
     var HTMLInoListElement: {
         prototype: HTMLInoListElement;
         new (): HTMLInoListElement;
     };
+    /**
+     * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface HTMLInoListDividerElement extends Components.InoListDivider, HTMLStencilElement {
     }
     var HTMLInoListDividerElement: {
         prototype: HTMLInoListDividerElement;
         new (): HTMLInoListDividerElement;
     };
+    /**
+     * A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface HTMLInoListItemElement extends Components.InoListItem, HTMLStencilElement {
     }
     var HTMLInoListItemElement: {
@@ -1754,132 +2104,220 @@ declare global {
         prototype: HTMLInoMarkdownEditorElement;
         new (): HTMLInoMarkdownEditorElement;
     };
+    /**
+     * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
+     * The anchor element is the parent element.
+     * The menu items consist of different variations of the `ino-list-item` component.
+     * If you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.
+     */
     interface HTMLInoMenuElement extends Components.InoMenu, HTMLStencilElement {
     }
     var HTMLInoMenuElement: {
         prototype: HTMLInoMenuElement;
         new (): HTMLInoMenuElement;
     };
+    /**
+     * A navigation drawer component with different variants, setting up the base layout for your app.
+     * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
+     * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+     */
     interface HTMLInoNavDrawerElement extends Components.InoNavDrawer, HTMLStencilElement {
     }
     var HTMLInoNavDrawerElement: {
         prototype: HTMLInoNavDrawerElement;
         new (): HTMLInoNavDrawerElement;
     };
+    /**
+     * A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     * > Note: This component's main use case is within the `ino-nav-drawer`.
+     */
     interface HTMLInoNavItemElement extends Components.InoNavItem, HTMLStencilElement {
     }
     var HTMLInoNavItemElement: {
         prototype: HTMLInoNavItemElement;
         new (): HTMLInoNavItemElement;
     };
+    /**
+     * An option component that can be used to add options to an ino-select component.
+     */
     interface HTMLInoOptionElement extends Components.InoOption, HTMLStencilElement {
     }
     var HTMLInoOptionElement: {
         prototype: HTMLInoOptionElement;
         new (): HTMLInoOptionElement;
     };
+    /**
+     * A wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.
+     * Beyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).
+     */
     interface HTMLInoOptionGroupElement extends Components.InoOptionGroup, HTMLStencilElement {
     }
     var HTMLInoOptionGroupElement: {
         prototype: HTMLInoOptionGroupElement;
         new (): HTMLInoOptionGroupElement;
     };
+    /**
+     * A Popover is a dialog which is bound to a specific element and appears next to it. Under the
+     * hood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.
+     * The Popover
+     * and [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)
+     * components are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips
+     * can only display plain text.
+     */
     interface HTMLInoPopoverElement extends Components.InoPopover, HTMLStencilElement {
     }
     var HTMLInoPopoverElement: {
         prototype: HTMLInoPopoverElement;
         new (): HTMLInoPopoverElement;
     };
+    /**
+     * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+     */
     interface HTMLInoProgressBarElement extends Components.InoProgressBar, HTMLStencilElement {
     }
     var HTMLInoProgressBarElement: {
         prototype: HTMLInoProgressBarElement;
         new (): HTMLInoProgressBarElement;
     };
+    /**
+     * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
+     * #### Additional Hints
+     * Clicking on the radio button triggers an event that contains the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.
+     */
     interface HTMLInoRadioElement extends Components.InoRadio, HTMLStencilElement {
     }
     var HTMLInoRadioElement: {
         prototype: HTMLInoRadioElement;
         new (): HTMLInoRadioElement;
     };
+    /**
+     * A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
+     */
     interface HTMLInoRadioGroupElement extends Components.InoRadioGroup, HTMLStencilElement {
     }
     var HTMLInoRadioGroupElement: {
         prototype: HTMLInoRadioGroupElement;
         new (): HTMLInoRadioGroupElement;
     };
+    /**
+     * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+     */
     interface HTMLInoRangeElement extends Components.InoRange, HTMLStencilElement {
     }
     var HTMLInoRangeElement: {
         prototype: HTMLInoRangeElement;
         new (): HTMLInoRangeElement;
     };
+    /**
+     * A button component that can be used in combination with the ino-segment-group component.
+     */
     interface HTMLInoSegmentButtonElement extends Components.InoSegmentButton, HTMLStencilElement {
     }
     var HTMLInoSegmentButtonElement: {
         prototype: HTMLInoSegmentButtonElement;
         new (): HTMLInoSegmentButtonElement;
     };
+    /**
+     * A button group that can be used as an alternative to drop-down menus.
+     */
     interface HTMLInoSegmentGroupElement extends Components.InoSegmentGroup, HTMLStencilElement {
     }
     var HTMLInoSegmentGroupElement: {
         prototype: HTMLInoSegmentGroupElement;
         new (): HTMLInoSegmentGroupElement;
     };
+    /**
+     * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
+     * #### Additional Hints
+     * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
+     */
     interface HTMLInoSelectElement extends Components.InoSelect, HTMLStencilElement {
     }
     var HTMLInoSelectElement: {
         prototype: HTMLInoSelectElement;
         new (): HTMLInoSelectElement;
     };
+    /**
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     */
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
     }
     var HTMLInoSnackbarElement: {
         prototype: HTMLInoSnackbarElement;
         new (): HTMLInoSnackbarElement;
     };
+    /**
+     * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+     * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+     */
     interface HTMLInoSpinnerElement extends Components.InoSpinner, HTMLStencilElement {
     }
     var HTMLInoSpinnerElement: {
         prototype: HTMLInoSpinnerElement;
         new (): HTMLInoSpinnerElement;
     };
+    /**
+     * Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
+     */
     interface HTMLInoSwitchElement extends Components.InoSwitch, HTMLStencilElement {
     }
     var HTMLInoSwitchElement: {
         prototype: HTMLInoSwitchElement;
         new (): HTMLInoSwitchElement;
     };
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+     */
     interface HTMLInoTabElement extends Components.InoTab, HTMLStencilElement {
     }
     var HTMLInoTabElement: {
         prototype: HTMLInoTabElement;
         new (): HTMLInoTabElement;
     };
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
+     */
     interface HTMLInoTabBarElement extends Components.InoTabBar, HTMLStencilElement {
     }
     var HTMLInoTabBarElement: {
         prototype: HTMLInoTabBarElement;
         new (): HTMLInoTabBarElement;
     };
+    /**
+     * The ino-table is a custom table used to display sets of data across multiple columns.
+     * It currently supports different states (selected, active), sorting and loading indication.
+     * > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).
+     */
     interface HTMLInoTableElement extends Components.InoTable, HTMLStencilElement {
     }
     var HTMLInoTableElement: {
         prototype: HTMLInoTableElement;
         new (): HTMLInoTableElement;
     };
+    /**
+     * The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.
+     */
     interface HTMLInoTableHeaderCellElement extends Components.InoTableHeaderCell, HTMLStencilElement {
     }
     var HTMLInoTableHeaderCellElement: {
         prototype: HTMLInoTableHeaderCellElement;
         new (): HTMLInoTableHeaderCellElement;
     };
+    /**
+     * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+     * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+     */
     interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {
     }
     var HTMLInoTextareaElement: {
         prototype: HTMLInoTextareaElement;
         new (): HTMLInoTextareaElement;
     };
+    /**
+     * A tooltip component that displays text when users hover over, focus on, or tap an element.
+     * > Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.
+     */
     interface HTMLInoTooltipElement extends Components.InoTooltip, HTMLStencilElement {
     }
     var HTMLInoTooltipElement: {
@@ -1952,6 +2390,18 @@ declare namespace LocalJSX {
          */
         "onExpandedChange"?: (event: InoAccordionCustomEvent<boolean>) => void;
     }
+    /**
+     * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+     * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+     * flexible to some extent compared to stateless components.
+     * ## Responsibilities
+     * The component handles the following tasks:
+     * - Management of the `value` property of the `<ino-input>` element.
+     * - Management of showing and hiding the different options based on the input.
+     * - Keyboard navigation among the options.
+     * ## Filtering
+     * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+     */
     interface InoAutocomplete {
         /**
           * Number of ms the search function should be delayed after the user typed something.
@@ -2008,6 +2458,9 @@ declare namespace LocalJSX {
          */
         "variant"?: 'dashed' | 'solid';
     }
+    /**
+     * A button component with different styles and icon capability.
+     */
     interface InoButton {
         /**
           * Sets the autofocus for this element.
@@ -2042,6 +2495,10 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariants;
     }
+    /**
+     * The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
+     * fully customize the appearance of the card.
+     */
     interface InoCard {
         /**
           * Disables the hover effect if true
@@ -2052,6 +2509,13 @@ declare namespace LocalJSX {
          */
         "selected"?: boolean;
     }
+    /**
+     * The `ino-carousel` component works in combination with the `ino-carousel-slide` component
+     * and can be used to display an array of images as a slide show. What is more,
+     * it also features an autoplay property that allows the slides to be changed automatically.
+     * Lastly, using the css variables described at the bottom of the page, you can easily customize
+     * the dimensions of the component as well as the duration of the slide transition.
+     */
     interface InoCarousel {
         /**
           * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
@@ -2082,6 +2546,9 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface InoCarouselSlide {
         /**
           * Selected state controlled by the `<ino-carousel>`
@@ -2096,6 +2563,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+     */
     interface InoCheckbox {
         /**
           * Marks this element as checked. (**unmanaged**)
@@ -2126,6 +2596,14 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * The ino-chip component displays the provided content and icon as a chip.
+     * Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `icon` attribute.
+     * #### Additional Hints
+     * **Content**: Utilize the `label` attribute to define the chip's label. Include an icon on the left side of the chip via the `icon` attribute.
+     * **Selection**: Chips can be used for single or multi-selection among a few options. Refer to the **Selection** and **Filter** stories for examples.
+     * **Removable Chips**: Set `removable` to `true` to allow chip removal by the user, which will display a `close` icon on the chip's right side. On removal, a `removeChip` event is emitted instead of hiding or destroying the component. Handle the removal process by listening to this event.
+     */
     interface InoChip {
         /**
           * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
@@ -2169,6 +2647,12 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     * #### Restrictions
+     * Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
+     */
     interface InoControlItem {
         /**
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.
@@ -2219,6 +2703,13 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.
+     * The `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.
+     * #### Additional Hints
+     * The currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.
+     * However, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.
+     */
     interface InoCurrencyInput {
         /**
           * A supported locale for currency number formatting. If not given, it uses the global config. See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
@@ -2233,6 +2724,15 @@ declare namespace LocalJSX {
          */
         "value"?: number | string;
     }
+    /**
+     * A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
+     * #### Types
+     * This datepicker can be used as a picker for different types:
+     * - date
+     * - time
+     * - datetime
+     * - month
+     */
     interface InoDatepicker {
         /**
           * Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers
@@ -2347,6 +2847,10 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+     * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     */
     interface InoDialog {
         /**
           * Adds a button with the given text to proceed with an action`
@@ -2397,6 +2901,13 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    /**
+     * A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
+     * It appears in front of all screen content, typically as a circular shape with an icon in its center.
+     * FABs come in three types: regular, mini, and extended
+     * #### Additional Hints
+     * **Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.
+     */
     interface InoFab {
         /**
           * Disables the button.
@@ -2432,6 +2943,16 @@ declare namespace LocalJSX {
          */
         "tooltipPlacement"?: Placement | 'none';
     }
+    /**
+     * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
+     * button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed
+     * dial.
+     * #### Additional Hints
+     * **Content**: Put the FABs for the speed dial inside of `ino-fab-set` as `ino-fab`.
+     * #### Control flow
+     * The ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to
+     * your local state and pass the state to the component again to open/close the fab-set.
+     */
     interface InoFabSet {
         /**
           * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
@@ -2451,7 +2972,18 @@ declare namespace LocalJSX {
         "topBottomLocation"?: VerticalLocation;
     }
     /**
+     * A light icon component for texts and other components.
      * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+     * #### Additional Hints
+     * The component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.
+     * **Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.
+     * #### Add icons
+     * If you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.
+     * > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
+     * > `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected
+     * > to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions
+     * > on how to integrate the icons with Angular, React or plain JavaScript.
+     * Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
      */
     interface InoIcon {
         /**
@@ -2479,6 +3011,11 @@ declare namespace LocalJSX {
          */
         "svgTitle"?: string;
     }
+    /**
+     * A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
+     * ## Additional Hints
+     * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
+     */
     interface InoIconButton {
         /**
           * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
@@ -2513,6 +3050,9 @@ declare namespace LocalJSX {
          */
         "type"?: ButtonType;
     }
+    /**
+     * An image component with different styles that reserves a predefined space to avoid jumping contents.
+     */
     interface InoImg {
         /**
           * The alternative text of this image.
@@ -2571,6 +3111,10 @@ declare namespace LocalJSX {
          */
         "width"?: number;
     }
+    /**
+     * The ino-img-list component is used in combination with the ino-img component to display an array of images
+     * in a grid-like format. It is based on the mdc-image-list component.
+     */
     interface InoImgList {
         /**
           * Encapsulates the label of all img-list-items within the image
@@ -2581,6 +3125,10 @@ declare namespace LocalJSX {
          */
         "masonry"?: boolean;
     }
+    /**
+     * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
+     * Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
+     */
     interface InoInput {
         /**
           * The autofocus of this element.
@@ -2691,6 +3239,10 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+     * This component replaces the native behaviour with a custom `ino-button` with logic.
+     */
     interface InoInputFile {
         /**
           * The types of files accepted by the server.
@@ -2740,6 +3292,9 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
     }
+    /**
+     * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+     */
     interface InoLabel {
         /**
           * Colors the label in an light grey to indicate the disabled status for this element
@@ -2766,6 +3321,12 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    /**
+     * A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.
+     * This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.
+     * #### Additional Hints
+     * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
+     */
     interface InoList {
         /**
           * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
@@ -2780,6 +3341,10 @@ declare namespace LocalJSX {
          */
         "twoLines"?: boolean;
     }
+    /**
+     * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface InoListDivider {
         /**
           * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
@@ -2794,6 +3359,10 @@ declare namespace LocalJSX {
          */
         "padded"?: boolean;
     }
+    /**
+     * A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     */
     interface InoListItem {
         /**
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
@@ -2861,12 +3430,23 @@ declare namespace LocalJSX {
          */
         "viewMode"?: ViewModeUnion;
     }
+    /**
+     * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
+     * The anchor element is the parent element.
+     * The menu items consist of different variations of the `ino-list-item` component.
+     * If you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.
+     */
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
         "placement"?: Placement;
     }
+    /**
+     * A navigation drawer component with different variants, setting up the base layout for your app.
+     * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
+     * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+     */
     interface InoNavDrawer {
         /**
           * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
@@ -2889,6 +3469,11 @@ declare namespace LocalJSX {
          */
         "variant"?: NavDrawerVariant;
     }
+    /**
+     * A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+     * This component is used as child of `ino-list` and `ino-menu` components.
+     * > Note: This component's main use case is within the `ino-nav-drawer`.
+     */
     interface InoNavItem {
         /**
           * Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated.
@@ -2907,6 +3492,9 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    /**
+     * An option component that can be used to add options to an ino-select component.
+     */
     interface InoOption {
         /**
           * Disables the option
@@ -2925,12 +3513,24 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    /**
+     * A wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.
+     * Beyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).
+     */
     interface InoOptionGroup {
         /**
           * Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).
          */
         "label"?: string;
     }
+    /**
+     * A Popover is a dialog which is bound to a specific element and appears next to it. Under the
+     * hood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.
+     * The Popover
+     * and [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)
+     * components are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips
+     * can only display plain text.
+     */
     interface InoPopover {
         /**
           * Shows an arrow pointing towards its trigger-element
@@ -2993,6 +3593,9 @@ declare namespace LocalJSX {
          */
         "visible"?: boolean;
     }
+    /**
+     * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+     */
     interface InoProgressBar {
         /**
           * Sets the buffer progress
@@ -3011,6 +3614,11 @@ declare namespace LocalJSX {
          */
         "progress"?: number;
     }
+    /**
+     * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
+     * #### Additional Hints
+     * Clicking on the radio button triggers an event that contains the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.
+     */
     interface InoRadio {
         /**
           * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
@@ -3033,6 +3641,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
+     */
     interface InoRadioGroup {
         /**
           * Sets the alignment of the radios to either vertical or horizontal.
@@ -3047,6 +3658,9 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    /**
+     * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+     */
     interface InoRange {
         /**
           * Disables this element.
@@ -3105,6 +3719,9 @@ declare namespace LocalJSX {
          */
         "valueStart"?: number;
     }
+    /**
+     * A button component that can be used in combination with the ino-segment-group component.
+     */
     interface InoSegmentButton {
         /**
           * Activates the button
@@ -3135,6 +3752,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * A button group that can be used as an alternative to drop-down menus.
+     */
     interface InoSegmentGroup {
         /**
           * Name of the segment group
@@ -3149,6 +3769,11 @@ declare namespace LocalJSX {
          */
         "value"?: any;
     }
+    /**
+     * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
+     * #### Additional Hints
+     * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
+     */
     interface InoSelect {
         /**
           * Disables this element.
@@ -3199,6 +3824,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     */
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -3230,6 +3858,10 @@ declare namespace LocalJSX {
          */
         "type"?: SnackbarType;
     }
+    /**
+     * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+     * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+     */
     interface InoSpinner {
         /**
           * The height of this spinner (default = 40)
@@ -3248,6 +3880,9 @@ declare namespace LocalJSX {
          */
         "width"?: number;
     }
+    /**
+     * Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
+     */
     interface InoSwitch {
         /**
           * Marks this element as checked. (**unmanaged**)
@@ -3266,6 +3901,9 @@ declare namespace LocalJSX {
          */
         "onCheckedChange"?: (event: InoSwitchCustomEvent<any>) => void;
     }
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+     */
     interface InoTab {
         /**
           * Contains the ID of the associated tab panel for accessibility purposes. This property is optional and used to link the tab to its content panel, adhering to WAI-ARIA practices for the tabpanel role.
@@ -3297,6 +3935,9 @@ declare namespace LocalJSX {
          */
         "stacked"?: boolean;
     }
+    /**
+     * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
+     */
     interface InoTabBar {
         /**
           * Activates the tab at the given index (**unmanaged**).
@@ -3311,6 +3952,11 @@ declare namespace LocalJSX {
          */
         "onActiveTabChange"?: (event: InoTabBarCustomEvent<any>) => void;
     }
+    /**
+     * The ino-table is a custom table used to display sets of data across multiple columns.
+     * It currently supports different states (selected, active), sorting and loading indication.
+     * > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).
+     */
     interface InoTable {
         /**
           * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar.
@@ -3338,6 +3984,9 @@ declare namespace LocalJSX {
          */
         "stickyHeader"?: boolean;
     }
+    /**
+     * The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.
+     */
     interface InoTableHeaderCell {
         /**
           * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
@@ -3380,6 +4029,10 @@ declare namespace LocalJSX {
          */
         "sortStart"?: SortDirection;
     }
+    /**
+     * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+     * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+     */
     interface InoTextarea {
         /**
           * The autofocus of this element.
@@ -3450,6 +4103,10 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * A tooltip component that displays text when users hover over, focus on, or tap an element.
+     * > Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.
+     */
     interface InoTooltip {
         /**
           * Shows an arrow
@@ -3541,32 +4198,163 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ino-accordion": LocalJSX.InoAccordion & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
+            /**
+             * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+             * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+             * flexible to some extent compared to stateless components.
+             * ## Responsibilities
+             * The component handles the following tasks:
+             * - Management of the `value` property of the `<ino-input>` element.
+             * - Management of showing and hiding the different options based on the input.
+             * - Keyboard navigation among the options.
+             * ## Filtering
+             * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+             */
             "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
             "ino-avatar": LocalJSX.InoAvatar & JSXBase.HTMLAttributes<HTMLInoAvatarElement>;
+            /**
+             * A button component with different styles and icon capability.
+             */
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
+            /**
+             * The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
+             * fully customize the appearance of the card.
+             */
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
+            /**
+             * The `ino-carousel` component works in combination with the `ino-carousel-slide` component
+             * and can be used to display an array of images as a slide show. What is more,
+             * it also features an autoplay property that allows the slides to be changed automatically.
+             * Lastly, using the css variables described at the bottom of the page, you can easily customize
+             * the dimensions of the component as well as the duration of the slide transition.
+             */
             "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
+            /**
+             * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+             */
             "ino-carousel-slide": LocalJSX.InoCarouselSlide & JSXBase.HTMLAttributes<HTMLInoCarouselSlideElement>;
+            /**
+             * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+             */
             "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
+            /**
+             * The ino-chip component displays the provided content and icon as a chip.
+             * Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `icon` attribute.
+             * #### Additional Hints
+             * **Content**: Utilize the `label` attribute to define the chip's label. Include an icon on the left side of the chip via the `icon` attribute.
+             * **Selection**: Chips can be used for single or multi-selection among a few options. Refer to the **Selection** and **Filter** stories for examples.
+             * **Removable Chips**: Set `removable` to `true` to allow chip removal by the user, which will display a `close` icon on the chip's right side. On removal, a `removeChip` event is emitted instead of hiding or destroying the component. Handle the removal process by listening to this event.
+             */
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
+            /**
+             * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+             * This component is used as child of `ino-list` and `ino-menu` components.
+             * #### Restrictions
+             * Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
+             */
             "ino-control-item": LocalJSX.InoControlItem & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
+            /**
+             * A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.
+             * The `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.
+             * #### Additional Hints
+             * The currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.
+             * However, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.
+             */
             "ino-currency-input": LocalJSX.InoCurrencyInput & JSXBase.HTMLAttributes<HTMLInoCurrencyInputElement>;
+            /**
+             * A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
+             * #### Types
+             * This datepicker can be used as a picker for different types:
+             * - date
+             * - time
+             * - datetime
+             * - month
+             */
             "ino-datepicker": LocalJSX.InoDatepicker & JSXBase.HTMLAttributes<HTMLInoDatepickerElement>;
+            /**
+             * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+             * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+             */
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
+            /**
+             * A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
+             * It appears in front of all screen content, typically as a circular shape with an icon in its center.
+             * FABs come in three types: regular, mini, and extended
+             * #### Additional Hints
+             * **Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.
+             */
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
+            /**
+             * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
+             * button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed
+             * dial.
+             * #### Additional Hints
+             * **Content**: Put the FABs for the speed dial inside of `ino-fab-set` as `ino-fab`.
+             * #### Control flow
+             * The ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to
+             * your local state and pass the state to the component again to open/close the fab-set.
+             */
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
             /**
+             * A light icon component for texts and other components.
              * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+             * #### Additional Hints
+             * The component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.
+             * **Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.
+             * #### Add icons
+             * If you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.
+             * > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
+             * > `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected
+             * > to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions
+             * > on how to integrate the icons with Angular, React or plain JavaScript.
+             * Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
              */
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
+            /**
+             * A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
+             * ## Additional Hints
+             * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
+             */
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
+            /**
+             * An image component with different styles that reserves a predefined space to avoid jumping contents.
+             */
             "ino-img": LocalJSX.InoImg & JSXBase.HTMLAttributes<HTMLInoImgElement>;
+            /**
+             * The ino-img-list component is used in combination with the ino-img component to display an array of images
+             * in a grid-like format. It is based on the mdc-image-list component.
+             */
             "ino-img-list": LocalJSX.InoImgList & JSXBase.HTMLAttributes<HTMLInoImgListElement>;
+            /**
+             * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
+             * Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
+             */
             "ino-input": LocalJSX.InoInput & JSXBase.HTMLAttributes<HTMLInoInputElement>;
+            /**
+             * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+             * This component replaces the native behaviour with a custom `ino-button` with logic.
+             */
             "ino-input-file": LocalJSX.InoInputFile & JSXBase.HTMLAttributes<HTMLInoInputFileElement>;
+            /**
+             * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+             */
             "ino-label": LocalJSX.InoLabel & JSXBase.HTMLAttributes<HTMLInoLabelElement>;
+            /**
+             * A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.
+             * This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.
+             * #### Additional Hints
+             * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
+             */
             "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
+            /**
+             * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+             * This component is used as child of `ino-list` and `ino-menu` components.
+             */
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
+            /**
+             * A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+             * This component is used as child of `ino-list` and `ino-menu` components.
+             */
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
             /**
              * The **Preview Mode** supports following actions:
@@ -3584,27 +4372,115 @@ declare module "@stencil/core" {
              *  * No support of image syntax. __Images are not allowed!__
              */
             "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
+            /**
+             * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
+             * The anchor element is the parent element.
+             * The menu items consist of different variations of the `ino-list-item` component.
+             * If you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.
+             */
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
+            /**
+             * A navigation drawer component with different variants, setting up the base layout for your app.
+             * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
+             * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+             */
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
+            /**
+             * A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+             * This component is used as child of `ino-list` and `ino-menu` components.
+             * > Note: This component's main use case is within the `ino-nav-drawer`.
+             */
             "ino-nav-item": LocalJSX.InoNavItem & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;
+            /**
+             * An option component that can be used to add options to an ino-select component.
+             */
             "ino-option": LocalJSX.InoOption & JSXBase.HTMLAttributes<HTMLInoOptionElement>;
+            /**
+             * A wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.
+             * Beyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).
+             */
             "ino-option-group": LocalJSX.InoOptionGroup & JSXBase.HTMLAttributes<HTMLInoOptionGroupElement>;
+            /**
+             * A Popover is a dialog which is bound to a specific element and appears next to it. Under the
+             * hood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.
+             * The Popover
+             * and [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)
+             * components are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips
+             * can only display plain text.
+             */
             "ino-popover": LocalJSX.InoPopover & JSXBase.HTMLAttributes<HTMLInoPopoverElement>;
+            /**
+             * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+             */
             "ino-progress-bar": LocalJSX.InoProgressBar & JSXBase.HTMLAttributes<HTMLInoProgressBarElement>;
+            /**
+             * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
+             * #### Additional Hints
+             * Clicking on the radio button triggers an event that contains the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.
+             */
             "ino-radio": LocalJSX.InoRadio & JSXBase.HTMLAttributes<HTMLInoRadioElement>;
+            /**
+             * A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
+             */
             "ino-radio-group": LocalJSX.InoRadioGroup & JSXBase.HTMLAttributes<HTMLInoRadioGroupElement>;
+            /**
+             * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+             */
             "ino-range": LocalJSX.InoRange & JSXBase.HTMLAttributes<HTMLInoRangeElement>;
+            /**
+             * A button component that can be used in combination with the ino-segment-group component.
+             */
             "ino-segment-button": LocalJSX.InoSegmentButton & JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement>;
+            /**
+             * A button group that can be used as an alternative to drop-down menus.
+             */
             "ino-segment-group": LocalJSX.InoSegmentGroup & JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement>;
+            /**
+             * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
+             * #### Additional Hints
+             * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
+             */
             "ino-select": LocalJSX.InoSelect & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
+            /**
+             * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+             */
             "ino-snackbar": LocalJSX.InoSnackbar & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
+            /**
+             * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+             * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+             */
             "ino-spinner": LocalJSX.InoSpinner & JSXBase.HTMLAttributes<HTMLInoSpinnerElement>;
+            /**
+             * Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
+             */
             "ino-switch": LocalJSX.InoSwitch & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;
+            /**
+             * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
+             */
             "ino-tab": LocalJSX.InoTab & JSXBase.HTMLAttributes<HTMLInoTabElement>;
+            /**
+             * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
+             */
             "ino-tab-bar": LocalJSX.InoTabBar & JSXBase.HTMLAttributes<HTMLInoTabBarElement>;
+            /**
+             * The ino-table is a custom table used to display sets of data across multiple columns.
+             * It currently supports different states (selected, active), sorting and loading indication.
+             * > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).
+             */
             "ino-table": LocalJSX.InoTable & JSXBase.HTMLAttributes<HTMLInoTableElement>;
+            /**
+             * The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.
+             */
             "ino-table-header-cell": LocalJSX.InoTableHeaderCell & JSXBase.HTMLAttributes<HTMLInoTableHeaderCellElement>;
+            /**
+             * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
+             * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
+             */
             "ino-textarea": LocalJSX.InoTextarea & JSXBase.HTMLAttributes<HTMLInoTextareaElement>;
+            /**
+             * A tooltip component that displays text when users hover over, focus on, or tap an element.
+             * > Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.
+             */
             "ino-tooltip": LocalJSX.InoTooltip & JSXBase.HTMLAttributes<HTMLInoTooltipElement>;
         }
     }

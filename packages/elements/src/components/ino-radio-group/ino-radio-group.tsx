@@ -14,6 +14,8 @@ import { Alignment } from '../types';
 import classNames from 'classnames';
 
 /**
+ * A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
+ *
  * @slot default - One or more `ino-radio`
  */
 @Component({

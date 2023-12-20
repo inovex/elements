@@ -14,6 +14,11 @@ import { SortDirectionChangeDetails, SortDirection } from '../../interface';
 import classNames from 'classnames';
 
 /**
+ * The ino-table is a custom table used to display sets of data across multiple columns.
+ * It currently supports different states (selected, active), sorting and loading indication.
+ *
+ * > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).
+ *
  * @slot default - Table content (data, not header)
  * @slot header-row - `<tr>` element containing the table header cells (td, th, ino-table-header-cell)
  * @slot loading-indicator - `<ino-progess-bar>` element used for an additional loading state.

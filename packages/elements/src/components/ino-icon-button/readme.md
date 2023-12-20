@@ -1,125 +1,16 @@
 # ino-icon-button
 
-A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
 
-### Usage
-
-The component can be used as follows:
-
-```js
-document
-  .querySelector('ino-icon-button')
-  .addEventListener('click', (_) => alert('The icon button was clicked'));
-```
-
-```html
-<ino-icon-button
-  autofocus
-  disabled
-  activated="<boolean>"
-  icon="<string>"
->
-</ino-icon-button>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoIconButton } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  handleClick = (e: any) => {
-    alert(`IconButton was clicked`);
-  };
-
-  render() {
-    return <InoIconButton icon="search" onClick={handleClick} />;
-  }
-}
-```
-
-#### Example #2 - Using default slot
-
-```js
-import { Component } from 'react';
-import { InoIconButton } from '@inovex.de/elements/dist/react';
-class MyComponent extends Component {
-  handleClick = (e: any) => {
-    alert(`IconButton was clicked`);
-  };
-  render() {
-    return <InoIconButton onClick={handleClick}>
-       <ino-icon icon='time'></ino-icon>
-    </InoIconButton>;
-  } 
-}
-```
-
-#### Example #3 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoIconButton } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = (
-  props,
-) => {
-  const { inoIcon } = props;
-
-  const handleClick = (e: any) => {
-    alert(`IconButton was clicked`);
-  };
-
-  return (
-    <InoIconButton icon={inoIcon} onClick={handleClick}>
-      {props.children}
-    </InoIconButton>
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return <IconButton icon="search" />;
-  }
-}
-```
-
-## Managed Icon Button
-
-Buttons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.
-
-This can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_
-
-```js
-activated = false;
-
-document.querySelector('ino-icon-button').addEventListener('click', (e) => {
-  const el = e.target;
-  activated = !activated;
-  activated
-    ? el.addAttribute('activated')
-    : el.removeAttribute('activated');
-});
-```
-
-```html
-<ino-icon-button icon="info"></ino-icon-button>
-```
-
-## Additional Hints
-
-**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
-
-### Native Events
-
-The component bubbles the native `click`-Event to the user.
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
+
+## Additional Hints
+**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
 
 ## Properties
 

@@ -17,6 +17,8 @@ import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 
 /**
+ * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+ *
  * @slot default - Label of the checkbox
  */
 @Component({

@@ -1,104 +1,15 @@
 # ino-select
 
-A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
 
-### Usage
-
-The component can be used as follows:
-
-```js
-document
-  .querySelector('ino-select')
-  .addEventListener('valueChange', (e) =>
-    alert(`The new select value is: ${e.detail}`),
-  );
-```
-
-```html
-<ino-select
-  autofocus
-  disabled
-  name="<string>"
-  required
-  value="<string>"
-  label="<string>"
-  outline
->
-  <ino-option value="Option 1">Option 1</ino-option>
-  <ino-option value="Option 2">Option 2</ino-option> ...
-</ino-select>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoSelect, InoOption } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <InoSelect; inoLabel="Form select"; required>
-        <InoOption; value="Test">Test</InoOption>
-      </InoSelect>;;
-    )
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoSelect, InoOption } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Select: React.FunctionComponent<Components.InoSelectAttributes> = props => {
-  const { inoLabel, required } = props;
-
-  return (
-    <InoSelect;
-      inoLabel={inoLabel};
-      required={required}
-    >
-      {props.children}
-    </InoSelect>;;
-  )
-};
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <Select; inoLabel="Form select"; required>
-        <InoOption; value="Test">Test</InoOption>
-      </Select>;;
-    )
-  }
-}
-```
-
-## Additional Hints
-
-Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
-
-### Control flow
-
-The select has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of select.
-
-```js
-document
-  .querySelector('ino-select')
-  .addEventListener('valueChange', (e) => (this.state.value = e.detail));
-```
-
-### Event Behaviour
-
-The component behaves like a native select with additional features. The native `input'` is not bubbled. The component will emit a `valueChange` event if the value of the group changes.
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
+#### Additional Hints
+Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
 
 ## Properties
 
@@ -126,10 +37,10 @@ The component behaves like a native select with additional features. The native 
 
 ## Slots
 
-| Slot             | Description                      |
-| ---------------- | -------------------------------- |
-| `"default"`      | One or more `ino-option(-group)` |
-| `"icon-leading"` | For the icon to be prepended     |
+| Slot             | Description                       |
+| ---------------- | --------------------------------- |
+| `"default"`      | One or more `ino-option(-group)`* |
+| `"icon-leading"` | For the icon to be prepended      |
 
 
 ## CSS Custom Properties

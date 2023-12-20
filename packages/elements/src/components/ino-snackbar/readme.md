@@ -1,106 +1,12 @@
 # ino-snackbar
 
-Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
-
-### Usage
-
-The component can be used as follows:
-
-```js
-document
-  .querySelector('ino-snackbar')
-  .addEventListener('inoActionClick', (e) =>
-    alert('Action-Button was clicked!'),
-  );
-
-document
-  .querySelector('ino-snackbar')
-  .addEventListener('hideEl', (e) => alert('Snackbar hides!'));
-```
-
-```html
-<ino-snackbar
-  message="<string>"
-  action-text="<string>"
-  action-on-bottom
-  align-start
-  oninoactionclick="handleClickEl()"
-  onhideel="handleHideEl()"
->
-</ino-snackbar>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoSnackbar } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <InoSnackbar
-        inoMessage="Message deleted"
-        inoActionText="Undo"
-        inoActionOnBottom={false}
-        inoAlignStart={false}
-      />
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoSnackbar } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Snackbar: React.FunctionComponent<Components.InoSnackbarAttributes> = props => {
-  const {
-    inoMessage,
-    inoActionText,
-    inoActionOnBottom,
-    inoAlignStart
-  } = props;
-
-  return (
-    <InoSnackbar
-      inoMessage={inoMessage}
-      inoActionText={inoActionText}
-      inoActionOnBottom={inoActionOnBottom}
-      inoAlignStart={inoAlignStart}
-    >
-      {props.children}
-    </InoSnackbar>
-  );
-};
-
-class MyComponent extends Component {
-  const conditionToRender = true;
-
-  render() {
-    return conditionToRender && (
-      <Snackbar
-        inoMessage="Message deleted"
-        inoActionText="Undo"
-        inoActionOnBottom={false}
-        inoAlignStart={false}
-      />
-    );
-  }
-}
-```
-
-## Additional Hints
-
-Snackbar is displayed when `show` is changed to checked.
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
 
 ## Properties
 

@@ -1,17 +1,6 @@
 # ino-autocomplete
 
-A component that acts similar to the native `datalist` feature of the `<input>` element.
 
-In contrast to other components, this one is stateful, which means that it contains its own state and is therefore less
-flexible to some extent.
-
-This component handles the following tasks:
-
-* Management of the `value` property of the `<ino-input>` element
-* management of showing and hiding the different options filtered on the basis of the input
-* Keyboard navigation on the options
-
-The options are filtered by `.includes(...)`, ignoring upper and lower case.
 
 ### Usage
 
@@ -55,6 +44,22 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+`ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+
+Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+flexible to some extent compared to stateless components.
+
+## Responsibilities
+The component handles the following tasks:
+- Management of the `value` property of the `<ino-input>` element.
+- Management of showing and hiding the different options based on the input.
+- Keyboard navigation among the options.
+
+## Filtering
+The options are filtered using `.includes(...)`, which ignores case sensitivity.
 
 ## Properties
 

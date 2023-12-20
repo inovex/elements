@@ -14,6 +14,9 @@ import {
 import classNames from 'classnames';
 import { preventEvent } from '../../util/component-utils';
 
+/**
+ * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
+ */
 @Component({
   tag: 'ino-range',
   styleUrl: 'ino-range.scss',
