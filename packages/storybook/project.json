@@ -21,7 +21,7 @@
           "command": "storybook build -c config -o dist"
         },
         "prod": {
-          "command": "storybook build -c config --quiet --no-version-updates -o dist"
+          "command": "storybook build -c config --quiet -o dist"
         }
       }
     },
