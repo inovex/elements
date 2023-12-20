@@ -1,4 +1,4 @@
-import { locales, Supported_Locales } from './config';
+import { Supported_Locales } from './config';
 
 export enum Locale_File {
   HOME = 'home',
@@ -20,5 +20,5 @@ export type Localization = {
 };
 
 export function isLocale(tested: string): tested is Supported_Locales {
-  return locales.some((locale) => locale === tested);
+  return tested.toUpperCase() in Supported_Locales;
 }
