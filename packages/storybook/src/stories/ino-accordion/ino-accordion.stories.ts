@@ -1,11 +1,8 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-accordion.scss';
-
-type Story = StoryObj;
 
 const eventHandler = (e: CustomEvent<boolean>) => {
   (e.target as HTMLInoAccordionElement).expanded = e.detail;
@@ -14,18 +11,11 @@ const eventHandler = (e: CustomEvent<boolean>) => {
 export default {
   title: 'Structure/<ino-accordion>',
   component: 'ino-accordion',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-accordion')],
-  // will be used as default props for all stories
-  args: {
-    expanded: false,
-    accordionTitle: 'Accordion Title',
-  },
+  decorators: [(story) => decorateStoryWithClass(story, 'story-accordion')]
 } as Meta<Components.InoAccordion>;
 
-// the basic template for the accordion component
-const template = new TemplateGenerator<Components.InoAccordion>(
-  'ino-accordion',
-  (args) => html`
+export const Accordion = {
+  render: (args) => html`
   <ino-accordion
     expanded="${args.expanded}"
     accordion-title="${args.accordionTitle}"
@@ -34,12 +24,24 @@ const template = new TemplateGenerator<Components.InoAccordion>(
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi enim,
     venenatis non facilisis sed, finibus in enim. Sed auctor enim nisl, sit
     amet feugiat risus blandit vitae.
-  </ino-accordion>
-`,
-);
+  </ino-accordion>`,
+  args: {
+    expanded: false,
+    accordionTitle: 'Accordion Title',
+  }
+} as Meta<Components.InoAccordion>;
 
-export const Expanded: Story = template.generateStoryForProp('expanded', true);
-export const AccordionTitle: Story = template.generateStoryForProp(
-  'accordionTitle',
-  'Custom Title',
-);
+// TODO: Descriptions (TS-comments)
+export const Expanded = {
+  ...Accordion,
+  args: {
+    expanded: false
+  },
+} as Meta<Components.InoAccordion>;
+
+export const AccordionTitle = {
+  ...Accordion,
+  args: {
+    accordionTitle: 'Custom Title'
+  },
+} as Meta<Components.InoAccordion>;
