@@ -1,8 +1,8 @@
 {
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.8.1",
-    "typescriptVersion": "5.2.2"
+    "version": "4.3.0",
+    "typescriptVersion": "5.1.6"
   },
   "components": [
     {
