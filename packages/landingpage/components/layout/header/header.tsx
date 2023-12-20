@@ -3,7 +3,7 @@ import HeaderDesktop from './desktop/header.desktop';
 import HeaderMobile from './mobile/header.mobile';
 
 export default function Header() {
-  const isWide = useMedia('(min-width: 600px)', true);
+  const isWide = useMedia('(min-width: 1000px)', true);
 
   return isWide ? <HeaderDesktop /> : <HeaderMobile />;
 }
