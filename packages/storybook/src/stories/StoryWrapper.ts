@@ -1,10 +1,14 @@
-import { Meta } from "@storybook/web-components";
-import docsJson from "../../elements-stencil-docs";
-import { merge } from "lodash";
+import { Meta } from '@storybook/web-components';
+import docsJson from '../../elements-stencil-docs';
+import { merge } from 'lodash';
+
+export interface MetaWrapper<T> extends Meta<T> {
+  docsFromProperty?: keyof T;
+}
 
 /**
  * This is an optional wrapper around the Meta type of storybook.
- * It extends the Meta object by a function `addPropertyDocs` that can be used to extract the comment of a property made in the stencil component.
+ * It extends the Meta type by `docsFromProperty` that can be used to extract the comment of a property made in the stencil component.
  *
  * Example:
  * If a Stencil component looks like this:
@@ -16,25 +20,25 @@ import { merge } from "lodash";
  * ```
  * You can write a story like this and the comment ("Used to expand or collapse the component.") will be added above the story.
  * ```
- * export const Expanded = Story<Components.MyStencilComponent>({
- *   render: () => ...
- *   // other meta props
+ * export const Expanded = Story({
+ *   render: () => ...,
+ *   docsFromProperty: 'expanded'
  *   args: {
  *     expanded: false
  *   },
- * }).addPropertyDocs('expanded');
+ * })
  * ```
  *
- * @param meta The story object (see https://release-7-0--storybook-frontpage.netlify.app/docs/7.0/writing-stories/introduction)
- * @returns The same object extended with the `addPropertyDocs` method
+ * @param meta The story object (see https://release-7-0--storybook-frontpage.netlify.app/docs/7.0/writing-stories/introduction) with the extra `docsFromProperty` string
+ * @returns The same object extended with the added documentation
  */
-export default function Story<C extends object, Key = keyof C>(meta: Meta<C>) {
-  function addPropertyDocs(propertyName: Key) {
+export default function Story<C extends object>(meta: MetaWrapper<C>) {
+  if (meta.docsFromProperty) {
     if (!meta.component) throw new Error('Component name needs to be provided');
 
     const doc = findPropertyDocumentationInJsonDoc(
       meta.component,
-      propertyName as string,
+      meta.docsFromProperty as string,
     );
 
     return merge({}, meta, {
@@ -42,10 +46,8 @@ export default function Story<C extends object, Key = keyof C>(meta: Meta<C>) {
     });
   }
 
-  return {
-    ...meta,
-    addPropertyDocs,
-  };
+
+  return meta;
 }
 
 function findPropertyDocumentationInJsonDoc(
