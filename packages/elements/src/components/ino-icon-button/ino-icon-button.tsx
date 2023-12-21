@@ -13,7 +13,6 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
-import { JSXBase } from '@stencil/core/internal';
 import { ButtonType } from '../types';
 
 /**

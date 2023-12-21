@@ -8,12 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
-import { JSXBase } from "@stencil/core/internal";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 export { Placement, Props } from "tippy.js";
-export { JSXBase } from "@stencil/core/internal";
 export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {

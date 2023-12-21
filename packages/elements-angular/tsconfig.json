@@ -8,11 +8,10 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true
+    "skipLibCheck": false
   },
   "files": [],
   "include": [],
-  "exclude": [ "src/generated/*.ts" ],
   "references": [
     {
       "path": "./tsconfig.lib.json"
