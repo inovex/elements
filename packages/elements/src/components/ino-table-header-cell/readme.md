@@ -58,12 +58,6 @@ Type: `Promise<void>`
 
 Updates the search behaviour of this cell.
 
-#### Parameters
-
-| Name         | Type      | Description                                              |
-| ------------ | --------- | -------------------------------------------------------- |
-| `searchable` | `boolean` | true, if the cell should be searchable, false otherwise. |
-
 #### Returns
 
 Type: `Promise<void>`

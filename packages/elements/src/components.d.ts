@@ -1797,26 +1797,12 @@ export interface InoTextareaCustomEvent<T> extends CustomEvent<T> {
     target: HTMLInoTextareaElement;
 }
 declare global {
-    interface HTMLInoAccordionElementEventMap {
-        "expandedChange": boolean;
-    }
     interface HTMLInoAccordionElement extends Components.InoAccordion, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoAccordionElementEventMap>(type: K, listener: (this: HTMLInoAccordionElement, ev: InoAccordionCustomEvent<HTMLInoAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoAccordionElementEventMap>(type: K, listener: (this: HTMLInoAccordionElement, ev: InoAccordionCustomEvent<HTMLInoAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoAccordionElement: {
         prototype: HTMLInoAccordionElement;
         new (): HTMLInoAccordionElement;
     };
-    interface HTMLInoAutocompleteElementEventMap {
-        "valueChange": string | { key: string; value: string };
-    }
     /**
      * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
      * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
@@ -1830,14 +1816,6 @@ declare global {
      * The options are filtered using `.includes(...)`, which ignores case sensitivity.
      */
     interface HTMLInoAutocompleteElement extends Components.InoAutocomplete, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoAutocompleteElementEventMap>(type: K, listener: (this: HTMLInoAutocompleteElement, ev: InoAutocompleteCustomEvent<HTMLInoAutocompleteElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoAutocompleteElementEventMap>(type: K, listener: (this: HTMLInoAutocompleteElement, ev: InoAutocompleteCustomEvent<HTMLInoAutocompleteElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoAutocompleteElement: {
         prototype: HTMLInoAutocompleteElement;
@@ -1868,9 +1846,6 @@ declare global {
         prototype: HTMLInoCardElement;
         new (): HTMLInoCardElement;
     };
-    interface HTMLInoCarouselElementEventMap {
-        "valueChange": string;
-    }
     /**
      * The `ino-carousel` component works in combination with the `ino-carousel-slide` component
      * and can be used to display an array of images as a slide show. What is more,
@@ -1879,14 +1854,6 @@ declare global {
      * the dimensions of the component as well as the duration of the slide transition.
      */
     interface HTMLInoCarouselElement extends Components.InoCarousel, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoCarouselElementEventMap>(type: K, listener: (this: HTMLInoCarouselElement, ev: InoCarouselCustomEvent<HTMLInoCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoCarouselElementEventMap>(type: K, listener: (this: HTMLInoCarouselElement, ev: InoCarouselCustomEvent<HTMLInoCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoCarouselElement: {
         prototype: HTMLInoCarouselElement;
@@ -1901,30 +1868,15 @@ declare global {
         prototype: HTMLInoCarouselSlideElement;
         new (): HTMLInoCarouselSlideElement;
     };
-    interface HTMLInoCheckboxElementEventMap {
-        "checkedChange": any;
-    }
     /**
      * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
      */
     interface HTMLInoCheckboxElement extends Components.InoCheckbox, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoCheckboxElementEventMap>(type: K, listener: (this: HTMLInoCheckboxElement, ev: InoCheckboxCustomEvent<HTMLInoCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoCheckboxElementEventMap>(type: K, listener: (this: HTMLInoCheckboxElement, ev: InoCheckboxCustomEvent<HTMLInoCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoCheckboxElement: {
         prototype: HTMLInoCheckboxElement;
         new (): HTMLInoCheckboxElement;
     };
-    interface HTMLInoChipElementEventMap {
-        "chipClicked": string;
-        "chipRemoved": string;
-    }
     /**
      * The ino-chip component displays the provided content and icon as a chip.
      * Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `icon` attribute.
@@ -1934,22 +1886,11 @@ declare global {
      * **Removable Chips**: Set `removable` to `true` to allow chip removal by the user, which will display a `close` icon on the chip's right side. On removal, a `removeChip` event is emitted instead of hiding or destroying the component. Handle the removal process by listening to this event.
      */
     interface HTMLInoChipElement extends Components.InoChip, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoChipElementEventMap>(type: K, listener: (this: HTMLInoChipElement, ev: InoChipCustomEvent<HTMLInoChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoChipElementEventMap>(type: K, listener: (this: HTMLInoChipElement, ev: InoChipCustomEvent<HTMLInoChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoChipElement: {
         prototype: HTMLInoChipElement;
         new (): HTMLInoChipElement;
     };
-    interface HTMLInoControlItemElementEventMap {
-        "checkedChange": any;
-    }
     /**
      * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
      * This component is used as child of `ino-list` and `ino-menu` components.
@@ -1957,22 +1898,11 @@ declare global {
      * Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
      */
     interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoControlItemElementEventMap>(type: K, listener: (this: HTMLInoControlItemElement, ev: InoControlItemCustomEvent<HTMLInoControlItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoControlItemElementEventMap>(type: K, listener: (this: HTMLInoControlItemElement, ev: InoControlItemCustomEvent<HTMLInoControlItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoControlItemElement: {
         prototype: HTMLInoControlItemElement;
         new (): HTMLInoControlItemElement;
     };
-    interface HTMLInoCurrencyInputElementEventMap {
-        "valueChange": number;
-    }
     /**
      * A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.
      * The `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.
@@ -1981,22 +1911,11 @@ declare global {
      * However, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.
      */
     interface HTMLInoCurrencyInputElement extends Components.InoCurrencyInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoCurrencyInputElementEventMap>(type: K, listener: (this: HTMLInoCurrencyInputElement, ev: InoCurrencyInputCustomEvent<HTMLInoCurrencyInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoCurrencyInputElementEventMap>(type: K, listener: (this: HTMLInoCurrencyInputElement, ev: InoCurrencyInputCustomEvent<HTMLInoCurrencyInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoCurrencyInputElement: {
         prototype: HTMLInoCurrencyInputElement;
         new (): HTMLInoCurrencyInputElement;
     };
-    interface HTMLInoDatepickerElementEventMap {
-        "valueChange": string;
-    }
     /**
      * A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
      * #### Types
@@ -2007,36 +1926,16 @@ declare global {
      * - month
      */
     interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoDatepickerElementEventMap>(type: K, listener: (this: HTMLInoDatepickerElement, ev: InoDatepickerCustomEvent<HTMLInoDatepickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoDatepickerElementEventMap>(type: K, listener: (this: HTMLInoDatepickerElement, ev: InoDatepickerCustomEvent<HTMLInoDatepickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoDatepickerElement: {
         prototype: HTMLInoDatepickerElement;
         new (): HTMLInoDatepickerElement;
     };
-    interface HTMLInoDialogElementEventMap {
-        "close": DialogCloseAction;
-        "action": DialogSubmitAction;
-    }
     /**
      * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
      * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
      */
     interface HTMLInoDialogElement extends Components.InoDialog, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoDialogElementEventMap>(type: K, listener: (this: HTMLInoDialogElement, ev: InoDialogCustomEvent<HTMLInoDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoDialogElementEventMap>(type: K, listener: (this: HTMLInoDialogElement, ev: InoDialogCustomEvent<HTMLInoDialogElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoDialogElement: {
         prototype: HTMLInoDialogElement;
@@ -2071,9 +1970,6 @@ declare global {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
     };
-    interface HTMLInoIconElementEventMap {
-        "clickEl": any;
-    }
     /**
      * A light icon component for texts and other components.
      * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
@@ -2089,36 +1985,17 @@ declare global {
      * Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
      */
     interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoIconElementEventMap>(type: K, listener: (this: HTMLInoIconElement, ev: InoIconCustomEvent<HTMLInoIconElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoIconElementEventMap>(type: K, listener: (this: HTMLInoIconElement, ev: InoIconCustomEvent<HTMLInoIconElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoIconElement: {
         prototype: HTMLInoIconElement;
         new (): HTMLInoIconElement;
     };
-    interface HTMLInoIconButtonElementEventMap {
-        "clickEl": any;
-    }
     /**
      * A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
      * ## Additional Hints
      * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
      */
     interface HTMLInoIconButtonElement extends Components.InoIconButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoIconButtonElementEventMap>(type: K, listener: (this: HTMLInoIconButtonElement, ev: InoIconButtonCustomEvent<HTMLInoIconButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoIconButtonElementEventMap>(type: K, listener: (this: HTMLInoIconButtonElement, ev: InoIconButtonCustomEvent<HTMLInoIconButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoIconButtonElement: {
         prototype: HTMLInoIconButtonElement;
@@ -2143,48 +2020,21 @@ declare global {
         prototype: HTMLInoImgListElement;
         new (): HTMLInoImgListElement;
     };
-    interface HTMLInoInputElementEventMap {
-        "inoBlur": void;
-        "inoFocus": void;
-        "valueChange": string;
-    }
     /**
      * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
      * Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
      */
     interface HTMLInoInputElement extends Components.InoInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoInputElementEventMap>(type: K, listener: (this: HTMLInoInputElement, ev: InoInputCustomEvent<HTMLInoInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoInputElementEventMap>(type: K, listener: (this: HTMLInoInputElement, ev: InoInputCustomEvent<HTMLInoInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoInputElement: {
         prototype: HTMLInoInputElement;
         new (): HTMLInoInputElement;
     };
-    interface HTMLInoInputFileElementEventMap {
-        "changeFile": {
-    e: any;
-    files: File[];
-  };
-    }
     /**
      * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
      * This component replaces the native behaviour with a custom `ino-button` with logic.
      */
     interface HTMLInoInputFileElement extends Components.InoInputFile, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoInputFileElementEventMap>(type: K, listener: (this: HTMLInoInputFileElement, ev: InoInputFileCustomEvent<HTMLInoInputFileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoInputFileElementEventMap>(type: K, listener: (this: HTMLInoInputFileElement, ev: InoInputFileCustomEvent<HTMLInoInputFileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoInputFileElement: {
         prototype: HTMLInoInputFileElement;
@@ -2221,32 +2071,16 @@ declare global {
         prototype: HTMLInoListDividerElement;
         new (): HTMLInoListDividerElement;
     };
-    interface HTMLInoListItemElementEventMap {
-        "clickEl": any;
-    }
     /**
      * A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
      * This component is used as child of `ino-list` and `ino-menu` components.
      */
     interface HTMLInoListItemElement extends Components.InoListItem, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoListItemElementEventMap>(type: K, listener: (this: HTMLInoListItemElement, ev: InoListItemCustomEvent<HTMLInoListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoListItemElementEventMap>(type: K, listener: (this: HTMLInoListItemElement, ev: InoListItemCustomEvent<HTMLInoListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoListItemElement: {
         prototype: HTMLInoListItemElement;
         new (): HTMLInoListItemElement;
     };
-    interface HTMLInoMarkdownEditorElementEventMap {
-        "viewModeChange": ViewModeUnion;
-        "valueChange": string;
-        "inoBlur": void;
-    }
     /**
      * The **Preview Mode** supports following actions:
      * | Actions ||||
@@ -2263,14 +2097,6 @@ declare global {
      *  * No support of image syntax. __Images are not allowed!__
      */
     interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoMarkdownEditorElementEventMap>(type: K, listener: (this: HTMLInoMarkdownEditorElement, ev: InoMarkdownEditorCustomEvent<HTMLInoMarkdownEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoMarkdownEditorElementEventMap>(type: K, listener: (this: HTMLInoMarkdownEditorElement, ev: InoMarkdownEditorCustomEvent<HTMLInoMarkdownEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoMarkdownEditorElement: {
         prototype: HTMLInoMarkdownEditorElement;
@@ -2288,23 +2114,12 @@ declare global {
         prototype: HTMLInoMenuElement;
         new (): HTMLInoMenuElement;
     };
-    interface HTMLInoNavDrawerElementEventMap {
-        "openChange": boolean;
-    }
     /**
      * A navigation drawer component with different variants, setting up the base layout for your app.
      * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
      * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
      */
     interface HTMLInoNavDrawerElement extends Components.InoNavDrawer, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoNavDrawerElementEventMap>(type: K, listener: (this: HTMLInoNavDrawerElement, ev: InoNavDrawerCustomEvent<HTMLInoNavDrawerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoNavDrawerElementEventMap>(type: K, listener: (this: HTMLInoNavDrawerElement, ev: InoNavDrawerCustomEvent<HTMLInoNavDrawerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoNavDrawerElement: {
         prototype: HTMLInoNavDrawerElement;
@@ -2321,21 +2136,10 @@ declare global {
         prototype: HTMLInoNavItemElement;
         new (): HTMLInoNavItemElement;
     };
-    interface HTMLInoOptionElementEventMap {
-        "clickEl": HTMLInoOptionElement;
-    }
     /**
      * An option component that can be used to add options to an ino-select component.
      */
     interface HTMLInoOptionElement extends Components.InoOption, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoOptionElementEventMap>(type: K, listener: (this: HTMLInoOptionElement, ev: InoOptionCustomEvent<HTMLInoOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoOptionElementEventMap>(type: K, listener: (this: HTMLInoOptionElement, ev: InoOptionCustomEvent<HTMLInoOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoOptionElement: {
         prototype: HTMLInoOptionElement;
@@ -2351,9 +2155,6 @@ declare global {
         prototype: HTMLInoOptionGroupElement;
         new (): HTMLInoOptionGroupElement;
     };
-    interface HTMLInoPopoverElementEventMap {
-        "visibleChanged": boolean;
-    }
     /**
      * A Popover is a dialog which is bound to a specific element and appears next to it. Under the
      * hood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.
@@ -2363,14 +2164,6 @@ declare global {
      * can only display plain text.
      */
     interface HTMLInoPopoverElement extends Components.InoPopover, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoPopoverElementEventMap>(type: K, listener: (this: HTMLInoPopoverElement, ev: InoPopoverCustomEvent<HTMLInoPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoPopoverElementEventMap>(type: K, listener: (this: HTMLInoPopoverElement, ev: InoPopoverCustomEvent<HTMLInoPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoPopoverElement: {
         prototype: HTMLInoPopoverElement;
@@ -2385,148 +2178,68 @@ declare global {
         prototype: HTMLInoProgressBarElement;
         new (): HTMLInoProgressBarElement;
     };
-    interface HTMLInoRadioElementEventMap {
-        "checkedChange": any;
-    }
     /**
      * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
      * #### Additional Hints
      * Clicking on the radio button triggers an event that contains the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.
      */
     interface HTMLInoRadioElement extends Components.InoRadio, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoRadioElementEventMap>(type: K, listener: (this: HTMLInoRadioElement, ev: InoRadioCustomEvent<HTMLInoRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoRadioElementEventMap>(type: K, listener: (this: HTMLInoRadioElement, ev: InoRadioCustomEvent<HTMLInoRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoRadioElement: {
         prototype: HTMLInoRadioElement;
         new (): HTMLInoRadioElement;
     };
-    interface HTMLInoRadioGroupElementEventMap {
-        "valueChange": number | string;
-    }
     /**
      * A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
      */
     interface HTMLInoRadioGroupElement extends Components.InoRadioGroup, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoRadioGroupElementEventMap>(type: K, listener: (this: HTMLInoRadioGroupElement, ev: InoRadioGroupCustomEvent<HTMLInoRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoRadioGroupElementEventMap>(type: K, listener: (this: HTMLInoRadioGroupElement, ev: InoRadioGroupCustomEvent<HTMLInoRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoRadioGroupElement: {
         prototype: HTMLInoRadioGroupElement;
         new (): HTMLInoRadioGroupElement;
     };
-    interface HTMLInoRangeElementEventMap {
-        "valueChange": number;
-        "valueStartChange": number;
-        "valueEndChange": number;
-    }
     /**
      * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
      */
     interface HTMLInoRangeElement extends Components.InoRange, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoRangeElementEventMap>(type: K, listener: (this: HTMLInoRangeElement, ev: InoRangeCustomEvent<HTMLInoRangeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoRangeElementEventMap>(type: K, listener: (this: HTMLInoRangeElement, ev: InoRangeCustomEvent<HTMLInoRangeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoRangeElement: {
         prototype: HTMLInoRangeElement;
         new (): HTMLInoRangeElement;
     };
-    interface HTMLInoSegmentButtonElementEventMap {
-        "checkedChange": any;
-    }
     /**
      * A button component that can be used in combination with the ino-segment-group component.
      */
     interface HTMLInoSegmentButtonElement extends Components.InoSegmentButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoSegmentButtonElementEventMap>(type: K, listener: (this: HTMLInoSegmentButtonElement, ev: InoSegmentButtonCustomEvent<HTMLInoSegmentButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoSegmentButtonElementEventMap>(type: K, listener: (this: HTMLInoSegmentButtonElement, ev: InoSegmentButtonCustomEvent<HTMLInoSegmentButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSegmentButtonElement: {
         prototype: HTMLInoSegmentButtonElement;
         new (): HTMLInoSegmentButtonElement;
     };
-    interface HTMLInoSegmentGroupElementEventMap {
-        "valueChange": any;
-    }
     /**
      * A button group that can be used as an alternative to drop-down menus.
      */
     interface HTMLInoSegmentGroupElement extends Components.InoSegmentGroup, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoSegmentGroupElementEventMap>(type: K, listener: (this: HTMLInoSegmentGroupElement, ev: InoSegmentGroupCustomEvent<HTMLInoSegmentGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoSegmentGroupElementEventMap>(type: K, listener: (this: HTMLInoSegmentGroupElement, ev: InoSegmentGroupCustomEvent<HTMLInoSegmentGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSegmentGroupElement: {
         prototype: HTMLInoSegmentGroupElement;
         new (): HTMLInoSegmentGroupElement;
     };
-    interface HTMLInoSelectElementEventMap {
-        "valueChange": string;
-    }
     /**
      * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
      * #### Additional Hints
      * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
      */
     interface HTMLInoSelectElement extends Components.InoSelect, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoSelectElementEventMap>(type: K, listener: (this: HTMLInoSelectElement, ev: InoSelectCustomEvent<HTMLInoSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoSelectElementEventMap>(type: K, listener: (this: HTMLInoSelectElement, ev: InoSelectCustomEvent<HTMLInoSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSelectElement: {
         prototype: HTMLInoSelectElement;
         new (): HTMLInoSelectElement;
     };
-    interface HTMLInoSnackbarElementEventMap {
-        "actionClick": any;
-        "hideEl": any;
-    }
     /**
      * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
      */
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoSnackbarElementEventMap>(type: K, listener: (this: HTMLInoSnackbarElement, ev: InoSnackbarCustomEvent<HTMLInoSnackbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoSnackbarElementEventMap>(type: K, listener: (this: HTMLInoSnackbarElement, ev: InoSnackbarCustomEvent<HTMLInoSnackbarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSnackbarElement: {
         prototype: HTMLInoSnackbarElement;
@@ -2542,126 +2255,58 @@ declare global {
         prototype: HTMLInoSpinnerElement;
         new (): HTMLInoSpinnerElement;
     };
-    interface HTMLInoSwitchElementEventMap {
-        "checkedChange": any;
-    }
     /**
      * Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
      */
     interface HTMLInoSwitchElement extends Components.InoSwitch, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoSwitchElementEventMap>(type: K, listener: (this: HTMLInoSwitchElement, ev: InoSwitchCustomEvent<HTMLInoSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoSwitchElementEventMap>(type: K, listener: (this: HTMLInoSwitchElement, ev: InoSwitchCustomEvent<HTMLInoSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoSwitchElement: {
         prototype: HTMLInoSwitchElement;
         new (): HTMLInoSwitchElement;
     };
-    interface HTMLInoTabElementEventMap {
-        "interacted": any;
-    }
     /**
      * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
      */
     interface HTMLInoTabElement extends Components.InoTab, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoTabElementEventMap>(type: K, listener: (this: HTMLInoTabElement, ev: InoTabCustomEvent<HTMLInoTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoTabElementEventMap>(type: K, listener: (this: HTMLInoTabElement, ev: InoTabCustomEvent<HTMLInoTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTabElement: {
         prototype: HTMLInoTabElement;
         new (): HTMLInoTabElement;
     };
-    interface HTMLInoTabBarElementEventMap {
-        "activeTabChange": any;
-    }
     /**
      * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
      */
     interface HTMLInoTabBarElement extends Components.InoTabBar, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoTabBarElementEventMap>(type: K, listener: (this: HTMLInoTabBarElement, ev: InoTabBarCustomEvent<HTMLInoTabBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoTabBarElementEventMap>(type: K, listener: (this: HTMLInoTabBarElement, ev: InoTabBarCustomEvent<HTMLInoTabBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTabBarElement: {
         prototype: HTMLInoTabBarElement;
         new (): HTMLInoTabBarElement;
     };
-    interface HTMLInoTableElementEventMap {
-        "sortChange": SortDirectionChangeDetails;
-    }
     /**
      * The ino-table is a custom table used to display sets of data across multiple columns.
      * It currently supports different states (selected, active), sorting and loading indication.
      * > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).
      */
     interface HTMLInoTableElement extends Components.InoTable, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoTableElementEventMap>(type: K, listener: (this: HTMLInoTableElement, ev: InoTableCustomEvent<HTMLInoTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoTableElementEventMap>(type: K, listener: (this: HTMLInoTableElement, ev: InoTableCustomEvent<HTMLInoTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTableElement: {
         prototype: HTMLInoTableElement;
         new (): HTMLInoTableElement;
     };
-    interface HTMLInoTableHeaderCellElementEventMap {
-        "sortDirectionChange": SortDirectionChangeDetails;
-        "searchFocusChange": boolean;
-    }
     /**
      * The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.
      */
     interface HTMLInoTableHeaderCellElement extends Components.InoTableHeaderCell, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoTableHeaderCellElementEventMap>(type: K, listener: (this: HTMLInoTableHeaderCellElement, ev: InoTableHeaderCellCustomEvent<HTMLInoTableHeaderCellElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoTableHeaderCellElementEventMap>(type: K, listener: (this: HTMLInoTableHeaderCellElement, ev: InoTableHeaderCellCustomEvent<HTMLInoTableHeaderCellElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTableHeaderCellElement: {
         prototype: HTMLInoTableHeaderCellElement;
         new (): HTMLInoTableHeaderCellElement;
     };
-    interface HTMLInoTextareaElementEventMap {
-        "inoBlur": void;
-        "valueChange": string;
-    }
     /**
      * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
      * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
      */
     interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoTextareaElementEventMap>(type: K, listener: (this: HTMLInoTextareaElement, ev: InoTextareaCustomEvent<HTMLInoTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoTextareaElementEventMap>(type: K, listener: (this: HTMLInoTextareaElement, ev: InoTextareaCustomEvent<HTMLInoTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoTextareaElement: {
         prototype: HTMLInoTextareaElement;
