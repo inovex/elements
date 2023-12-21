@@ -3943,9 +3943,8 @@
             "resolved": "HTMLAttributes<HTMLButtonElement> & Partial<ARIAMixin>",
             "references": {
               "JSXBase": {
-                "location": "import",
-                "path": "@stencil/core/internal",
-                "id": "../../node_modules/@stencil/core/internal/index.d.ts::JSXBase"
+                "location": "global",
+                "id": "global::JSXBase"
               },
               "HTMLButtonElement": {
                 "location": "global",
@@ -6037,9 +6036,8 @@
             "resolved": "HTMLAttributes<HTMLLIElement>",
             "references": {
               "JSXBase": {
-                "location": "import",
-                "path": "@stencil/core/internal",
-                "id": "../../node_modules/@stencil/core/internal/index.d.ts::JSXBase"
+                "location": "global",
+                "id": "global::JSXBase"
               },
               "HTMLLIElement": {
                 "location": "global",
@@ -11257,11 +11255,6 @@
       "declaration": "export type HorizontalLocation = 'left' | 'right';",
       "docstring": "",
       "path": "src/components/types.ts"
-    },
-    "../../node_modules/@stencil/core/internal/index.d.ts::JSXBase": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "../../node_modules/@stencil/core/internal/index.d.ts"
     },
     "src/components/types.ts::ImageDecodingTypes": {
       "declaration": "export type ImageDecodingTypes = 'async' | 'auto' | 'sync';",

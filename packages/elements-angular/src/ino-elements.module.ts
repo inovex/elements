@@ -6,30 +6,35 @@ import {
 } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { InoElementsConfig } from '@inovex.de/elements';
-import { DIRECTIVES } from './generated';
+import { DIRECTIVES } from './directives/proxies-list';
 
 import { appInitialize, ConfigToken } from './app-initialize';
-import { BooleanValueAccessor } from './generated/boolean-value-accessor';
-import { NumericValueAccessor } from './generated/number-value-accessor';
-import { RadioValueAccessor } from './generated/radio-value-accessor';
-import { TextValueAccessor } from './generated/text-value-accessor';
+import {
+  BooleanValueAccessorDirective,
+  FsValueAccessorDirective,
+  NumericValueAccessorDirective,
+  RadioValueAccessorDirective,
+  RangeValueAccessorDirective,
+  TextValueAccessorDirective,
+} from './directives/control-value-accesors';
+
+const DECLARATIONS = [
+  // generated proxies
+  ...DIRECTIVES,
+
+  // ngModel accessors
+  BooleanValueAccessorDirective,
+  FsValueAccessorDirective,
+  NumericValueAccessorDirective,
+  RadioValueAccessorDirective,
+  RangeValueAccessorDirective,
+  TextValueAccessorDirective,
+];
 
 @NgModule({
-  declarations: [
-    ...DIRECTIVES,
-    BooleanValueAccessor,
-    NumericValueAccessor,
-    RadioValueAccessor,
-    TextValueAccessor,
-  ],
+  declarations: DECLARATIONS,
   imports: [CommonModule],
-  exports: [
-    ...DIRECTIVES,
-    BooleanValueAccessor,
-    NumericValueAccessor,
-    RadioValueAccessor,
-    TextValueAccessor,
-  ],
+  exports: DECLARATIONS,
 })
 export class InoElementsModule {
   static forRoot(

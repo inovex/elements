@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "packages/elements-angular/src",
-  "prefix": "app",
+  "prefix": "ino",
   "targets": {
     "build": {
       "executor": "nx:run-commands",
@@ -16,7 +16,8 @@
           "nx run elements-angular:schematics"
         ],
         "parallel": false
-      }
+      },
+      "dependsOn": ["^build"]
     },
     "compile": {
       "executor": "@nx/angular:package",
