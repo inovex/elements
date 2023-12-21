@@ -6207,10 +6207,10 @@
   resolved "https://registry.npmjs.org/@stencil/angular-output-target/-/angular-output-target-0.8.2.tgz#8e2635d9c9c4675f94aa5fef295659392306914b"
   integrity sha512-i2Oxq2VPQTo1OoP3iDN39N2f/CDO9crS8oUfGEtjwzMgMNuYSMB2VprFoVDUTwqaCP6N409M8+/wJK3oApTDuQ==
 
-"@stencil/core@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-4.3.0.tgz#ab7c4eedce1bd8947bfefdf6a0c19372f88c7fb6"
-  integrity sha512-WYjftKg5fuqO7mf3nTl1aCRurkeMmfEF38WcBG4VLF6UPQ+MA76/koedGR2LGhATGByx+pbxR4iRxAr2Bspc9A==
+"@stencil/core@^4.9.0":
+  version "4.9.0"
+  resolved "https://registry.npmjs.org/@stencil/core/-/core-4.9.0.tgz#f224813dde3a2b7f3cdccc5d39eaf777ad2d0ef2"
+  integrity sha512-aWSkhBmk3yPwRAkUwBbzRwmdhb8hKiQ/JMr9m5jthpBZLjtppYbzz6PN2MhSMDfRp6K93eQw5WogSEH4HHuB6w==
 
 "@stencil/react-output-target@^0.5.3":
   version "0.5.3"
