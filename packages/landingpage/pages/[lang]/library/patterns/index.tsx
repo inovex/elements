@@ -54,7 +54,6 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
           previewComponent={<Login />}
           highlightedCode={highlightedCodes.login}
           rawCode={codeStrings.login}
-          requiresJS={true}
         />
       </div>
     </Page>

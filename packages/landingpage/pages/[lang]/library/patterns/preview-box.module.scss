@@ -115,24 +115,3 @@
     }
   }
 }
-
-.descriptionWrapper {
-  display: flex;
-  align-items: flex-end;
-}
-
-.jsTag,
-.htmlTag {
-  margin-left: 10px;
-  border-radius: 12px;
-  padding: 3px 10px;
-  height: fit-content;
-}
-
-.jsTag {
-  background-color: var(--inovex-elements-warning-light);
-}
-
-.htmlTag {
-  background-color: var(--inovex-elements-success-light);
-}
