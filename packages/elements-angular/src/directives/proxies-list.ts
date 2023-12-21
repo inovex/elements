@@ -1,5 +1,5 @@
 
-import * as d from './components';
+import * as d from './proxies';
 
 export const DIRECTIVES = [
   d.InoAccordion,
