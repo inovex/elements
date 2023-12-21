@@ -10,5 +10,5 @@ export default angularOutputTarget({
   componentCorePackage: '@inovex.de/elements',
   outputType: 'component',
   directivesProxyFile: `${angularTargetPath}/proxies.ts`,
-  directivesArrayFile: `${angularTargetPath}/proxies-list.ts`
+  directivesArrayFile: `${angularTargetPath}/proxies-list.ts`,
 });

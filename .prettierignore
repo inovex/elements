@@ -21,7 +21,7 @@ CHANGELOG.md
 .stencil/
 components.d.ts
 packages/elements-react/src/components/**
-packages/elements-angular/src/generated/**
+packages/elements-angular/src/directives/**
 packages/elements-vue/src/**
 packages/storybook/elements-stencil-docs.json
 
