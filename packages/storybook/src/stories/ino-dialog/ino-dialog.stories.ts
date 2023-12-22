@@ -1,12 +1,12 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
+import { TemplateGenerator } from '../template-generator';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-dialog.scss';
 
@@ -18,7 +18,7 @@ export default {
     (story) => {
       useEffect(() => {
         // Open
-        const handleOpen = (e) => {
+        const handleOpen = (e: any) => {
           const dialog = document.getElementById(
             e.target.parentElement.getAttribute('data-dialog-id'),
           ) as HTMLInoDialogElement;
@@ -30,7 +30,7 @@ export default {
 
         // Close
         const dialogs = document.querySelectorAll('ino-dialog');
-        const handleClose = (e) => {
+        const handleClose = (e: any) => {
           e.target.open = false;
           if (e.target.id == 'demo-action-dialog') {
             const snackbar = document.createElement(
@@ -73,6 +73,7 @@ export default {
     actionText: 'submit',
     cancelText: 'cancel',
     icon: 'search',
+    closeIcon: false,
   },
 } as Meta<Components.InoDialog>;
 
@@ -98,6 +99,7 @@ const template = new TemplateGenerator<InoDialogExtended>(
       action-text="${args.actionText}"
       cancel-text="${args.cancelText}"
       icon="${args.icon}"
+      close-icon="${args.closeIcon}"
     >
     </ino-dialog>
   `,
@@ -134,8 +136,7 @@ const templateConfirmationWithText = new TemplateGenerator<InoDialogExtended>(
  *
  * Contains a `headerText`, `bodyText`, `cancelText` and `actionText`.
  */
-export const ConfirmationDialogWithText =
-  templateConfirmationWithText.generatePlaygroundStory();
+export const ConfirmationDialogWithText = templateConfirmationWithText.generatePlaygroundStory();
 ConfirmationDialogWithText.args = {
   headerText: 'Do you really want to delete your account?',
   bodyText:
@@ -173,8 +174,7 @@ const templateConfirmationWithIcon = new TemplateGenerator<InoDialogExtended>(
  *
  * Contains a `ino-icon` (use `icon="iconID"` on the `ino-dialog` to select one of the given [ino-icons](https://elements.inovex.de/version/v8.0.0/?path=/docs/graphic-ino-icon--all-icons)), `headerText`, `bodyText`, `canceltext` and `actionText`.
  */
-export const ConfirmationDialogWithIcon =
-  templateConfirmationWithIcon.generatePlaygroundStory();
+export const ConfirmationDialogWithIcon = templateConfirmationWithIcon.generatePlaygroundStory();
 ConfirmationDialogWithIcon.args = {
   headerText: 'Perfect! You almost made it...',
   bodyText:

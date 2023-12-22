@@ -2794,7 +2794,7 @@
           "mutable": false,
           "attr": "action-text",
           "reflectToAttr": false,
-          "docs": "Adds a button with the given text to proceed with an action`",
+          "docs": "Adds a button with the given text to proceed with an action",
           "docsTags": [],
           "values": [
             {
@@ -2865,6 +2865,28 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "closeIcon",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "close-icon",
+          "reflectToAttr": false,
+          "docs": "Adds a close icon in the top right corner to close the `ino-dialog`",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
