@@ -7,7 +7,7 @@ import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-img.scss';
 
 export default {
-  title: 'Graphic/<ino-img>',
+  title: 'Graphic/ino-img',
   component: 'ino-img',
   decorators: [(story) => decorateStoryWithClass(story)],
   args: {

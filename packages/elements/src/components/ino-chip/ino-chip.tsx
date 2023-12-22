@@ -15,6 +15,16 @@ import { hasSlotContent } from '../../util/component-utils';
 import { ChipSurface } from '../types';
 
 /**
+ * The ino-chip component displays the provided content and icon as a chip.
+ * Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `icon` attribute.
+ *
+ * #### Additional Hints
+ * **Content**: Utilize the `label` attribute to define the chip's label. Include an icon on the left side of the chip via the `icon` attribute.
+ *
+ * **Selection**: Chips can be used for single or multi-selection among a few options. Refer to the **Selection** and **Filter** stories for examples.
+ *
+ * **Removable Chips**: Set `removable` to `true` to allow chip removal by the user, which will display a `close` icon on the chip's right side. On removal, a `removeChip` event is emitted instead of hiding or destroying the component. Handle the removal process by listening to this event.
+ *
  * @slot default - The label text of the chip
  * @slot icon-leading - For the icon to be prepended
  * @slot icon-trailing - For the icon to be appended - disables the `removable` property

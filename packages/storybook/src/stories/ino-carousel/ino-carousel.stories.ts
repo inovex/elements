@@ -12,7 +12,7 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-carousel.scss';
 
 export default {
-  title: 'Graphic/<ino-carousel>',
+  title: 'Graphic/ino-carousel',
   component: 'ino-carousel',
   decorators: [(story) => decorateStoryWithClass(story, 'story-carousel')],
   args: {

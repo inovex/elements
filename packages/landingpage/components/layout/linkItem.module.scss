@@ -1,7 +1,8 @@
 p.link {
   cursor: pointer;
-  color: var(--inovex-elements-n-6);
+  color: var(--inovex-elements-n-11);
   overflow-wrap: break-word;
+  font-weight: lighter !important;
 
   &:hover {
     color: var(--inovex-elements-primary);
@@ -9,8 +10,9 @@ p.link {
 }
 
 p.linkActive {
-  color: var(--inovex-elements-n-10);
+  color: var(--inovex-elements-n-11);
   position: relative;
+  font-weight: bold !important;
 
   &::after {
     content: '';
@@ -33,7 +35,7 @@ p.linkDense {
   font-size: large !important;
   margin: 0;
   padding: 10px 15px;
-  transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+  transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
 }
 p.footerDense {
   font-size: inherit !important;
@@ -42,14 +44,15 @@ p.footerDense {
 }
 p.linkSubItem {
   @extend .linkDense;
+  border-radius: 99px 0px 99px 99px;
 
   &:hover {
-    color: white;
-    background-color: var(--inovex-elements-p-7);
+    color: var(--inovex-elements-p-6);
+    background-color: var(--inovex-elements-p-2);
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   p:not(.linkDense) {
     margin: 21px 0 0;
   }

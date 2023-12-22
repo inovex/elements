@@ -1,47 +1,14 @@
 # ino-img-list
 
-The ino-img-list component is used in combination with the ino-img component to display an array of images
-in a grid-like format. It is based on the mdc-image-list component.
 
-## Usage
-
-The component can be used as follows:
-
-```html
-<ino-img-list enclose-label masonry>
-  <ino-img
-    src="url/to/image"
-    label="optional label"
-    img-list-item
-  ></ino-img>
-</ino-img-list>
-```
-
-## React
-
-```jsx
-import React from 'react';
-import { Component } from 'react';
-import { InoImgList, InoImg } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  state = {
-    source: 'url/to/img',
-    encloseLabel: true,
-  };
-
-  render() {
-    return (
-      <InoImgList encloseLabel={this.state.encloseLabel}>
-        <InoImg src={this.state.source} img-list-item></InoImg>
-      </InoImgList>
-    );
-  }
-}
-```
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+The ino-img-list component is used in combination with the ino-img component to display an array of images
+in a grid-like format. It is based on the mdc-image-list component.
 
 ## Properties
 

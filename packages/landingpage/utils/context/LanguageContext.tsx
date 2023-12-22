@@ -39,7 +39,7 @@ export const LanguageProvider = ({ localization, children }: Params) => {
   const { query } = useRouter();
   useEffect(() => {
     if (localizationState.locale !== storedLocale) {
-      setStoredLocale(localizationState.locale);
+      setStoredLocale(localizationState.locale as String);
     }
   }, [localizationState.locale]);
 

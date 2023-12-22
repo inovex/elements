@@ -10,6 +10,9 @@ import {
 import { MDCLinearProgress } from '@material/linear-progress/component';
 import classNames from 'classnames';
 
+/**
+ * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
+ */
 @Component({
   tag: 'ino-progress-bar',
   styleUrl: 'ino-progress-bar.scss',

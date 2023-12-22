@@ -1,120 +1,15 @@
 # ino-nav-drawer
 
+
+<!-- Auto Generated Below -->
+
+
+## Overview
+
 A navigation drawer component with different variants, setting up the base layout for your app.
 It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
 
 > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
-
-## Usage
-
-The component can be used as follows:
-
-### Web Component
-
-```js
-document
-  .querySelector('ino-nav-drawer')
-  .addEventListener('openChange', (_) => alert('Drawer was toggled!')) // watch for toggle change
-  .setAttribute('open', true); // open drawer
-```
-
-```html
-<ino-nav-drawer
-  open="<boolean>"
-  anchor="left|right"
-  variant="docked|dismissible|modal"
->
-  <ino-list slot="content">
-    <ino-nav-item text="View1">
-      <ino-icon icon="user">
-    </ino-nav-item>
-    <ino-nav-item text="View2">
-      <ino-icon icon="settings">
-    </ino-nav-item>
-  </ino-list>
-
-  <main slot="app">
-    App Content
-  </main>
-</ino-nav-drawer>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoNavDrawer } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <InoNavDrawer
-        open="false"
-        anchor="left"
-        variant="docked"
-        onOpen={(_) => alert('Yeah, you just opened the drawer!')}
-      >
-        <ino-list slot="header">
-          <ino-img src="https://picsum.photos/50/50" />
-        </ino-list>
-        <ino-list slot="content">
-          <ino-nav-item text="Some Link">
-            <ino-icon icon="onboarding"></ino-icon>
-          </ino-nav-item>
-        </ino-list>
-        <ino-list slot="footer">
-          <ino-nav-item text="My Profile">
-            <ino-img
-              src="https://picsum.photos/id/1027/250/250.jpg"
-              style="border-radius: 50%"
-              ratio-width="1"
-              ratio-height="1"
-            ></ino-img>
-          </ino-nav-item>
-        </ino-list>
-
-        <main slot="app">
-          <App /> /* Your app goes here */
-        </main>
-      </InoNavDrawer>
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoNavDrawer } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = (
-  props
-) => {
-  const { open, variant, anchor } = props;
-
-  return (
-    <InoNavDrawer open={open} variant={variant} onClick={onClick}>
-      Drawer Content
-      <main slot="app">App Content</main>
-    </InoNavDrawer>
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return <Drawer variant="dismissible" anchor="left" open="true" />;
-  }
-}
-```
-
-## Demo
-
-<!-- Auto Generated Below -->
-
 
 ## Properties
 

@@ -1,114 +1,21 @@
 # ino-chip
 
-The ino-chip component displays the provided content and icon as a chip.
 
-## Usage
-
-The component can be used as follows:
-
-### Web Component
-
-```js
-const chip = document.querySelector('ino-chip');
-chip.addEventListener('chipClicked', (e) =>
-  console.log('This chip was clicked:', e.detail),
-)
-chip.addEventListener('chipRemoved', (e) =>
-  console.log('This chip was removed:', e.detail),
-);
-```
-
-```html
-
-<ino-chip
-  disabled
-  fill="<string>"
-  label="<string>"
-  removable
-  selectable
-  selected
-  value="<string>"
->
-  <ino-icon slot=icon-leading" icon="<string>"></ino-icon>
-</ino-chip>
-```
-
-### React
-
-#### Example #1
-
-```tsx
-import { Component } from 'react';
-import { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-
-  fruits = ["apple", "banana", "cherry"];
-
-  handleChipClicked(e: CustomEvent<string>) {
-    console.log("User clicked the fruit: ", e.detail);
-  }
-
-  render() {
-    return (
-      <div>
-        {fruits.map(fruit => (
-            <InoChip value={fruit} label={fruit} onChipClicked={this.handleChipClicked}/>
-          )
-        )}
-      </div>
-    );
-  }
-}
-```
-
-#### Example #2
-
-```tsx
-import React, { Component } from 'react';
-import { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const ChipSet = () => {
-
-  const fruits = ["apple", "banana", "cherry"];
-  const [selectedFruit, setSelectedFruit] = useState < string > ("apple");
-
-  return (
-    <div>
-      {fruits.map(fruit => (
-        <InoChip
-          value={fruit}
-          label={fruit}
-          selectable
-          selected={fruit === selectedFruit}
-          onChipClicked={(e) => setSelectedFruit(fruit)}
-        />
-      ))}
-    </div>
-  );
-};
-```
-
-## Additional Hints
-
-**Content**: Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.
-
-### Selection
-A set of chips can be used to implement a single or multi selection from a handful of options.
-Have a look at the **Selection** and **Filter** stories.
-
-### Removable chips
-
-If `removable` is set to `true`, the chip can be removed by the user. 
-The component then displays a small `close` icon on the right side of the chip next to the label.
-
-However, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.
-
-## Demo
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+The ino-chip component displays the provided content and icon as a chip.
+Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `icon` attribute.
+
+#### Additional Hints
+**Content**: Utilize the `label` attribute to define the chip's label. Include an icon on the left side of the chip via the `icon` attribute.
+
+**Selection**: Chips can be used for single or multi-selection among a few options. Refer to the **Selection** and **Filter** stories for examples.
+
+**Removable Chips**: Set `removable` to `true` to allow chip removal by the user, which will display a `close` icon on the chip's right side. On removal, a `removeChip` event is emitted instead of hiding or destroying the component. Handle the removal process by listening to this event.
 
 ## Properties
 

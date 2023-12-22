@@ -1,74 +1,12 @@
 # ino-range
 
-A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
-
-### Usage
-
-The component can be used as follows:
-
-```js
-document
-  .querySelector('ino-datepicker')
-  .addEventListener('valueChange', (e) =>
-    alert(`The new range value is: ${e.detail}`),
-  );
-```
-
-```html
-<ino-range
-  min="<number>"
-  max="<number>"
-  value="<number>"
-  name="<string>"
-  step="<number>"
-  disabled
-  color-scheme="<string>"
-  discrete
-  markers
->
-</ino-range>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoRange } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return <InoRange />;
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoRange } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Range: React.FunctionComponent<Components.InoRangeAttributes> = (
-  props,
-) => {
-
-  return <InoRange>{props.children}</InoRange>;
-};
-
-class MyComponent extends Component {
-  render() {
-    return <Range />;
-  }
-}
-```
-
-## Additional Hints
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
 
 ## Properties
 

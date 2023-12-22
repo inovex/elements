@@ -17,6 +17,11 @@ import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 
 /**
+ * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
+ *
+ * #### Additional Hints
+ * Clicking on the radio button triggers an event that contains the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.
+ *
  * @slot default - Label of the checkbox
  */
 @Component({

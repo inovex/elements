@@ -1,103 +1,12 @@
 # ino-img
 
-An image component with different styles that reserves a predefined space to avoid jumping contents.
-
-### Usage
-
-The component can be used as follows (custom preferences have an `ino`-prefix):
-
-```js
-document
-  .querySelector('ino-img')
-  .addEventListener('click', (_) => alert('The image was clicked'));
-```
-
-```html
-<ino-img
-  alt="<string>"
-  decoding="<string>"
-  width="<number>"
-  height="<number>"
-  sizes="<string>"
-  src="<string>"
-  srcset="<string>"
-  usemap="<string>"
-  ratio-height="<number>"
-  ratio-width="<number>"
-  rounded
->
-</ino-img>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoImg } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <InoImg
-        height={100}
-        width={100}
-        src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-      />
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoImg } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Img: React.FunctionComponent<Components.InoImgAttributes> = (props) => {
-  const { height, width, src } = props;
-
-  return (
-    <InoImg height={height} width={width} src={src}>
-      {props.children}
-    </InoImg>
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <Img
-        height={100}
-        width={100}
-        src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-      />
-    );
-  }
-}
-```
-
-## Additional Hints
-
-If the attribute `rounded` is true, the image is displayed with rounded corners.
-
-### Pre-defined ratios
-
-The image component has two attributes `ratio-height` and `ratio-width`. Use them to define any desired ratio and avoid content jumping!
-
-Example: If the image `image.png` has a ratio of `16:9`, define the image component as follows:
-
-```html
-<ino-img src="image.png" ratio-width="16" ratio-height="9"></ino-img>
-```
-
-Using this setup, the width of the element extends to 100% (or the value defined in `width` attribute) and the computed height is based on the ratio attributes.
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+An image component with different styles that reserves a predefined space to avoid jumping contents.
 
 ## Properties
 

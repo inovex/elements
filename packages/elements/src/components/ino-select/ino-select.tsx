@@ -16,8 +16,12 @@ import classNames from 'classnames';
 import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 
 /**
+ * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
+ * #### Additional Hints
+ * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
+ *
  * @slot icon-leading - For the icon to be prepended
- * @slot default - One or more `ino-option(-group)`
+ * @slot default - One or more `ino-option(-group)`*
  */
 @Component({
   tag: 'ino-select',

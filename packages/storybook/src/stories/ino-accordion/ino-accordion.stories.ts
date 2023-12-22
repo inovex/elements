@@ -10,7 +10,7 @@ const eventHandler = (e: CustomEvent<boolean>) => {
 };
 
 export default {
-  title: 'Structure/<ino-accordion>',
+  title: 'Structure/ino-accordion',
   component: 'ino-accordion',
   decorators: [(story) => decorateStoryWithClass(story, 'story-accordion')],
   // will be used as default props for all stories

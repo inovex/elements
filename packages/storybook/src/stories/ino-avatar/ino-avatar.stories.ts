@@ -9,7 +9,7 @@ import './ino-avatar.scss';
 import avatarImg from '../../assets/images/avatar.jpg';
 
 export default {
-  title: 'Graphic/<ino-avatar>',
+  title: 'Graphic/ino-avatar',
   component: 'ino-avatar',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-avatar'),

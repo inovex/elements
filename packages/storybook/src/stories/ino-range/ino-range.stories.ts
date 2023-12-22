@@ -7,7 +7,7 @@ import { useEffect } from '@storybook/client-api';
 import { TemplateGenerator } from '../template-generator';
 
 export default {
-  title: 'Input/<ino-range>',
+  title: 'Input/ino-range',
   component: 'ino-range',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-range'),

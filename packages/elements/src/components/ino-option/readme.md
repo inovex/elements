@@ -1,17 +1,13 @@
 # ino-option
 
-An option component that can be used to add options to an ino-select component.
 
-### Usage
-
-The component can be used as follows:
-
-```html
-<ino-option disabled selected value="<string>"> Content </ino-option>
-```
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+An option component that can be used to add options to an ino-select component.
 
 ## Properties
 
