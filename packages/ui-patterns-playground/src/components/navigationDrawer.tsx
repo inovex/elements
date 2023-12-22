@@ -7,24 +7,15 @@ import {
   InoNavDrawer,
   InoNavItem,
 } from '@inovex.de/elements-react';
-import { useLocation } from 'react-router-dom';
+
 import ShowcaseBox from './showcaseBox';
 
 type NavigationDrawerProps = {
   children: ReactNode;
 };
 
-const routeTitles: { [key: string]: string } = {
-  '/': 'Login',
-  '/mypatterna': 'My Pattern A',
-  '/guide': 'How to design a pattern?',
-};
-
 function NavigationDrawer({ children }: NavigationDrawerProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const location = useLocation();
-
-  const title = routeTitles[location.pathname] || 'No Title';
 
   return (
     <InoNavDrawer
@@ -56,9 +47,6 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
           </InoNavItem>
         </Link>
       </InoList>
-      <InoList role="menubar" slot="footer" aria-label="Footer Navigation">
-        {/* How to design a pattern guide */}
-      </InoList>
 
       <InoList role="menubar" slot="footer" aria-label="Footer Navigation">
         <Link to="/guide">
@@ -74,7 +62,6 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
         className="main-content h-full flex justify-center items-center"
       >
         <div>
-          <h2 className="justify-self-start text-inovex-p-6">{title}</h2>
           <ShowcaseBox>{children}</ShowcaseBox>
         </div>
       </main>
