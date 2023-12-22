@@ -1,10 +1,10 @@
 import {CH} from '@code-hike/mdx/components';
+import { InoNavMenuSection } from '@inovex.de/elements-react';
 import Hint from "components/getting-started/hint";
-import MenuSection from "components/getting-started/menuSection";
 import StepIndicator from 'components/getting-started/stepIndicator';
 
 # Integrate with Javascript
-<MenuSection title='About the Elements'>
+<InoNavMenuSection sectionName='About the Elements'>
 
 The components provided in this package work out-of-the box and are shipped with a preloader. You do not have to import the components manually as the preloader will lazy load the components you use. Hence, if you for instance only use `<ino-button>`, the loader only requests the portions of the package which are needed to render the button.
 
@@ -35,9 +35,9 @@ Use the npm package manager if...
   yarn add @inovex.de/elements
   ```
 </CH.Code>
-</MenuSection>
+</InoNavMenuSection>
 
-<MenuSection title='Integration via script tag'>
+<InoNavMenuSection sectionName='Integration via script tag'>
 
 <StepIndicator step='2'>To load the components at runtime, you need to insert the following code fragment.
 Make sure that the script tag is set on each web page the user can visit on your website.
@@ -73,9 +73,9 @@ However, for testing purposes, and if you just want to play around with the inov
 ></script>
 ```
 </CH.Code>
-</MenuSection>
+</InoNavMenuSection>
 
-<MenuSection title='Use the Components'>
+<InoNavMenuSection sectionName='Use the Components'>
 
 You can now use the components on your website in the same way as you would use any native HTML element. To help you getting started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js) for you to play around with.
-</MenuSection>
+</InoNavMenuSection>

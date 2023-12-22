@@ -1,5 +1,5 @@
 import {CH} from '@code-hike/mdx/components';
-import MenuSection from "components/getting-started/menuSection";
+import { InoNavMenuSection } from '@inovex.de/elements-react';
 import StepIndicator from 'components/getting-started/stepIndicator';
 
 # Integrate with Angular
@@ -8,7 +8,7 @@ We set up a demo project with Angular CLI to show you how to integrate the compo
 
 Scroll down to see the CodeSandbox. These instructions are based on `angular@12.0.0` and [`angular-cli@12.0.0`](https://cli.angular.io/).
 
-<MenuSection title='Preparation'>
+<InoNavMenuSection sectionName='Preparation'>
 <StepIndicator step='1'>Install dependency `@inovex.de/elements-angular`</StepIndicator>
 
 We provide an integration layer package for Angular, so you can integrate the inovex Elements as an Angular library into your Angular project.
@@ -39,9 +39,9 @@ Add the following to your build assets (`projects.<your-project-name>.architect.
 }
 // ...
 ```
-</MenuSection>
+</InoNavMenuSection>
 
-<MenuSection title='Importing Modules'>
+<InoNavMenuSection sectionName='Importing Modules'>
 
 <StepIndicator step='3'>Import the Module `InoElementsModule`</StepIndicator>
 
@@ -79,9 +79,9 @@ export class AppModule {}
 If you have more than one module, you should integrate the `InoElementsModule` into each module that is supposed to use the inovex Elements.
 Alternatively, you can also integrate the components into a shared module.
 This way, you only need to import the components once (recommended).
-</MenuSection>
+</InoNavMenuSection>
 
-<MenuSection title='Use the Components'>
+<InoNavMenuSection sectionName='Use the Components'>
 
 That's it. You are now ready to use our components.
-</MenuSection>
+</InoNavMenuSection>

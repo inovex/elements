@@ -1,8 +1,8 @@
 import {CH} from '@code-hike/mdx/components';
+import { InoNavMenuSection } from '@inovex.de/elements-react';
 import Image from 'next/image';
 import Hint from "components/getting-started/hint";
 import StepIndicator from 'components/getting-started/stepIndicator';
-import MenuSection from "components/getting-started/menuSection";
 
 
   <section>
@@ -44,7 +44,7 @@ import MenuSection from "components/getting-started/menuSection";
 
   </section>
 
-  <MenuSection title='Preparation'>
+  <InoNavMenuSection sectionName='Preparation'>
   <StepIndicator step='1'> First, create a new React app for our login page.</StepIndicator>
 
   ```bash
@@ -96,9 +96,9 @@ import MenuSection from "components/getting-started/menuSection";
     )
   ```
 
-  </MenuSection>
+  </InoNavMenuSection>
 
-    <MenuSection title="Properties">
+    <InoNavMenuSection sectionName="Properties">
 
     To configure either the functionality or the appearance of the inovex Elements, we use properties.
 
@@ -235,8 +235,8 @@ import MenuSection from "components/getting-started/menuSection";
   }
   ```
 
-  </MenuSection>
-  <MenuSection title="Finishing Touches">
+  </InoNavMenuSection>
+  <InoNavMenuSection sectionName="Finishing Touches">
 
   Let's apply what we learned by the example of the `<InoInput>` on other inovex Elements components to finalize our login-page.
 
@@ -382,9 +382,9 @@ import MenuSection from "components/getting-started/menuSection";
   The `stacked` property indicates that the tab icon and label should flow vertically instead of horizontally.
   Alternatively, group `<InoTab>` into an [ino-tab-bar](https://elements.inovex.de/version/v7.1.0/?path=/docs/structure-ino-tab-bar--playground), if you plan on using many tabs.
 
-  </MenuSection>
+  </InoNavMenuSection>
 
-  <MenuSection title="Wrapping Up">
+  <InoNavMenuSection sectionName="Wrapping Up">
 
   Congratulations! You have created a login-page with React and the main concepts of the **inovex Elements** - _The last interoperable UI library for any framework_:
 
@@ -395,5 +395,5 @@ import MenuSection from "components/getting-started/menuSection";
 
   With the same approach you can keep on coding, don’t start from scratch every time you create a new project.
 
-  </MenuSection>
+  </InoNavMenuSection>
 
