@@ -4,7 +4,7 @@ const getElementTopPosition = (id: string): number =>
 export const scrollToAnchor = (
   anchor: string,
   scrollBehaviour: ScrollBehavior = 'smooth',
-  scrollOffset = 0
+  scrollOffset = 0,
 ): void => {
   const position = getElementTopPosition(anchor);
   const offsetPosition = position + window.scrollY - scrollOffset;
