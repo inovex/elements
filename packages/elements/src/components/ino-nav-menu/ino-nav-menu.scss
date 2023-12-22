@@ -1,0 +1,55 @@
+@use '../base/typography-new' as typography;
+
+$sideBorderWidth: 2px;
+
+ino-nav-menu {
+  .ino-nav-menu {
+    position: sticky;
+    top: 0;
+    border-left: $sideBorderWidth solid #ebecf0;
+    max-width: max-content;
+
+    &__title {
+      font-weight: bold;
+      @include typography.typo('body-l');
+      margin-bottom: 16px;
+      padding: 0 12px;
+    }
+
+    &__sections {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      &__section {
+        list-style: none;
+
+        a {
+          @include typography.typo('body-m');
+          padding: 2px 12px;
+          text-decoration: none;
+          display: flex;
+          border-bottom-right-radius: 24px;
+          color: var(--inovex-elements-black);
+        }
+
+        &:hover a {
+          background-color: var(--inovex-elements-n-1);
+        }
+
+        &--active {
+          border-left: $sideBorderWidth solid var(--inovex-elements-p-6);
+          transform: translateX(#{-1 * $sideBorderWidth});
+
+          a,
+          &:hover a {
+            background-color: var(--inovex-elements-n-2);
+            color: var(--inovex-elements-p-6);
+          }
+        }
+      }
+    }
+  }
+}

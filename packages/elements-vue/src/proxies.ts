@@ -353,6 +353,22 @@ export const InoNavItem = /*@__PURE__*/ defineContainer<JSX.InoNavItem>('ino-nav
 ]);
 
 
+export const InoNavMenu = /*@__PURE__*/ defineContainer<JSX.InoNavMenu>('ino-nav-menu', undefined, [
+  'menuTitle',
+  'sections',
+  'activeSection',
+  'scrollOffset',
+  'intersectionObserverConfig',
+  'activeSectionChanged'
+]);
+
+
+export const InoNavMenuSection = /*@__PURE__*/ defineContainer<JSX.InoNavMenuSection>('ino-nav-menu-section', undefined, [
+  'sectionName',
+  'showTitle'
+]);
+
+
 export const InoOption = /*@__PURE__*/ defineContainer<JSX.InoOption>('ino-option', undefined, [
   'disabled',
   'selected',

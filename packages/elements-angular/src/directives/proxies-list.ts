@@ -31,6 +31,8 @@ export const DIRECTIVES = [
   d.InoMenu,
   d.InoNavDrawer,
   d.InoNavItem,
+  d.InoNavMenu,
+  d.InoNavMenuSection,
   d.InoOption,
   d.InoOptionGroup,
   d.InoPopover,
