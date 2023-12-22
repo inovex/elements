@@ -136,7 +136,8 @@ const templateConfirmationWithText = new TemplateGenerator<InoDialogExtended>(
  *
  * Contains a `headerText`, `bodyText`, `cancelText` and `actionText`.
  */
-export const ConfirmationDialogWithText = templateConfirmationWithText.generatePlaygroundStory();
+export const ConfirmationDialogWithText =
+  templateConfirmationWithText.generatePlaygroundStory();
 ConfirmationDialogWithText.args = {
   headerText: 'Do you really want to delete your account?',
   bodyText:
@@ -174,7 +175,8 @@ const templateConfirmationWithIcon = new TemplateGenerator<InoDialogExtended>(
  *
  * Contains a `ino-icon` (use `icon="iconID"` on the `ino-dialog` to select one of the given [ino-icons](https://elements.inovex.de/version/v8.0.0/?path=/docs/graphic-ino-icon--all-icons)), `headerText`, `bodyText`, `canceltext` and `actionText`.
  */
-export const ConfirmationDialogWithIcon = templateConfirmationWithIcon.generatePlaygroundStory();
+export const ConfirmationDialogWithIcon =
+  templateConfirmationWithIcon.generatePlaygroundStory();
 ConfirmationDialogWithIcon.args = {
   headerText: 'Perfect! You almost made it...',
   bodyText:
