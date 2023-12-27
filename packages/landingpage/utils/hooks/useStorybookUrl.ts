@@ -9,8 +9,9 @@ export const useStorybookUrl = () => {
   const { query, isReady } = useRouter();
   const [iFrameStartURl, setIFrameStartURl] = useState<string | null>(null);
 
-  const [storybookUrl, setStorybookUrl] =
-    useState<string | undefined>(undefined);
+  const [storybookUrl, setStorybookUrl] = useState<string | undefined>(
+    undefined,
+  );
 
   useEffect(() => {
     const urlFromEnv = process.env.NEXT_PUBLIC_STORYBOOK_URL;
