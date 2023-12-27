@@ -36,6 +36,8 @@ $header-height--shrunk: 80px;
     display: inline-block;
     height: $header-height--shrunk - 15px;
     margin: 5px;
+    width: 60px;
+    position: relative;
 
     img {
       height: inherit;
@@ -78,13 +80,16 @@ $header-height--shrunk: 80px;
 
 .github {
   grid-area: github;
-}
+  width: 30px;
+  height: 30px;
+  position: relative;
 
-.githubImage {
-  transition: filter 300ms;
-  filter: opacity(0.5);
+  .githubImage {
+    transition: filter 300ms;
+    filter: opacity(0.5);
 
-  &:hover {
-    filter: opacity(1);
+    &:hover {
+      filter: opacity(1);
+    }
   }
 }

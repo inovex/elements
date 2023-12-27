@@ -2,11 +2,16 @@ import ElementsLogo from '@assets/elements.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import useTranslation from '../../../../utils/hooks/useTranslation';
-import VersionSelect from 'components/shared/versionSelect';
 import { useRouter } from 'next/router';
 import styles from './header.desktop.module.scss';
 import LocaleSwitcher from './localeSwitcher';
 import Navbar from './navbar';
+import dynamic from 'next/dynamic';
+
+const VersionSelectWithoutSSR = dynamic(
+  () => import('components/shared/versionSelect'),
+  { ssr: false },
+);
 
 export default function HeaderDesktop() {
   const { locale } = useTranslation();
@@ -18,23 +23,19 @@ export default function HeaderDesktop() {
       <div className={styles.headerInner}>
         <div className={styles.logo}>
           <Link
+            className={styles.logoLink}
             href={{
               pathname: '/[lang]',
               query: { lang: locale },
             }}
             replace
           >
-            <Image
-              src={ElementsLogo}
-              alt="inovex-elements Logo"
-              width={60}
-              height={60}
-            />
+            <Image src={ElementsLogo} alt="inovex-elements Logo" fill />
           </Link>
         </div>
         {isLibraryPage && (
           <div className={styles.versionContainer}>
-            <VersionSelect />
+            <VersionSelectWithoutSSR />
           </div>
         )}
         <div className={styles.language}>
@@ -53,12 +54,7 @@ export default function HeaderDesktop() {
             className={styles.githubImage}
             src={`/github-logo.svg`}
             alt="Github Logo"
-            width={30}
-            height={30}
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-            }}
+            fill
           />
         </a>
       </div>
