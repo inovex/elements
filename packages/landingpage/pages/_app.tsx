@@ -9,8 +9,6 @@ import {
 } from '@inovex.de/elements/dist/loader';
 import { useEffect } from 'react';
 import { LanguageProvider } from 'utils/context/LanguageContext';
-import useDefaultLocale from '../translations/useDefaultLocale';
-import { useMount } from 'react-use';
 import UiContextProvider from '../utils/context/UiContext';
 import { VersionProvider } from '../utils/context/VersionContext';
 
@@ -20,9 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       void defineCustomElements(window);
     });
   }, []);
-
-  const redirectToDefaultLocale = useDefaultLocale();
-  useMount(redirectToDefaultLocale);
 
   return (
     <UiContextProvider>
