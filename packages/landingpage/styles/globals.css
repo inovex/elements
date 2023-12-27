@@ -46,3 +46,11 @@ ino-chip * {
   /* mdc chip works with box-sizing: content-box which gets overwritten by global styles */
   box-sizing: initial;
 }
+
+ino-select:not(.ino-select-loaded) * {
+  display: none;
+}
+
+ino-popover:not(.ino-popover-loaded) * {
+  display: none !important;
+}

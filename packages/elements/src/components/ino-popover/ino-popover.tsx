@@ -8,6 +8,7 @@ import {
   Host,
   Method,
   Prop,
+  State,
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
@@ -228,8 +229,11 @@ export class Popover implements ComponentInterface {
    */
   @Event() visibleChanged: EventEmitter<boolean>;
 
+  @State() loaded = false;
+
   componentDidLoad() {
     this.create();
+    this.loaded = true;
   }
 
   private create() {
@@ -270,6 +274,7 @@ export class Popover implements ComponentInterface {
       placement: this.placement,
       trigger: this.trigger,
       offset: [0, this.distance],
+      showOnCreate: false,
       plugins: [
         ...plugins,
         // Add lifecycle hooks as plugin to allow consumers to add their own hooks
@@ -357,7 +362,11 @@ export class Popover implements ComponentInterface {
     const popoverClasses = classNames('ino-popover', 'ino-popover__content');
 
     return (
-      <Host>
+      <Host
+        class={classNames({
+          'ino-popover-loaded': this.loaded,
+        })}
+      >
         <slot name="popover-trigger" />
         <div ref={(ref) => (this.popoverContainer = ref)}>
           <div
