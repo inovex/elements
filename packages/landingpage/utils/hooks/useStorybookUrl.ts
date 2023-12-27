@@ -1,26 +1,36 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useVersion } from '../context/VersionContext';
 
-export const WELCOME_PAGE_PLACEHOLDER = 'welcome';
+export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--page';
 
 export const useStorybookUrl = () => {
-  const storybookUrl = process.env.NEXT_PUBLIC_STORYBOOK_URL;
-
+  const { selectedVersion } = useVersion();
   const { query, isReady } = useRouter();
   const [iFrameStartURl, setIFrameStartURl] = useState<string | null>(null);
 
-  function fromLandingpageToStorybookUrl(query: string): string {
-    if (!query || query === WELCOME_PAGE_PLACEHOLDER)
-      return `${storybookUrl}?path=/docs/docs-welcome--page`;
+  const [storybookUrl, setStorybookUrl] =
+    useState<string | undefined>(undefined);
 
-    return `${storybookUrl}?path=/docs/${query}`;
-  }
+  useEffect(() => {
+    const urlFromEnv = process.env.NEXT_PUBLIC_STORYBOOK_URL;
+    const url = selectedVersion
+      ? urlFromEnv?.replace('latest', selectedVersion)
+      : urlFromEnv;
+    setStorybookUrl(url);
+  }, [selectedVersion]);
+
+  const fromLandingpageToStorybookUrl = (
+    query?: string | null,
+  ): string | null => {
+    if (!storybookUrl) return null;
+    return `${storybookUrl}?path=/docs/${query ?? WELCOME_PAGE_PLACEHOLDER}`;
+  };
 
   useEffect(() => {
     if (iFrameStartURl || !isReady) return;
-
     setIFrameStartURl(fromLandingpageToStorybookUrl(query.element as string));
-  }, [isReady, query.element]);
+  }, [isReady, query.element, selectedVersion]);
 
   return { initialUrl: iFrameStartURl, fromLandingpageToStorybookUrl };
 };

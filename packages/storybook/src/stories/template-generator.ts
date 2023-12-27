@@ -71,18 +71,15 @@ export class TemplateGenerator<Component extends Object> {
    * @private
    */
   private findPropertyDocs(prop: keyof Component): string {
-    let docs: string;
-
-    try {
-      docs = docsJson.components
-        .find((component) => component.tag === this.tagName)
-        .props.find((p) => p.name === prop).docs;
-    } catch (e) {
+    const propAsString = String(prop);
+    const docs = docsJson?.components
+      .find((component) => component.tag === this.tagName)
+      ?.props.find((p) => p.name === propAsString)?.docs;
+    if (!docs) {
       throw new Error(
-        `Could not find a description for property "${prop}" of the component "${this.tagName}" in the "elements-stencil-docs.json". Make sure that the property exists. (${e})`,
+        `Could not find a description for property "${propAsString}" of the component "${this.tagName}" in the "elements-stencil-docs.json". Make sure that the property exists.`,
       );
     }
-
     return docs;
   }
 }
