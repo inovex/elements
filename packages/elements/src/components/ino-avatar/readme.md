@@ -26,13 +26,6 @@
 | `"icon-slot"` | For the icon to be displayed in the avatar. |
 
 
-## CSS Custom Properties
-
-| Name                | Description                        |
-| ------------------- | ---------------------------------- |
-| `--ino-avatar-size` | Width and height of the ino-avatar |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

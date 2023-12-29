@@ -2,14 +2,26 @@ import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
-
-import { decorateStoryWithClass } from '../utils';
+import { CssProperties } from '../types';
+import { cssColor, cssTime, decorateStoryWithClass } from '../utils';
 
 import './ino-carousel.scss';
+
+const CAROUSEL_CSS_PROPS: CssProperties = {
+  iconColor: cssColor(
+    '--ino-carousel-icon-color',
+    'Sets the color of the navigation buttons.',
+    '#fff',
+  ),
+  animationDuration: cssTime(
+    '--ino-carousel-animation-duration',
+    'Sets the duration of the slide animation.',
+    700,
+  ),
+};
 
 export default {
   title: 'Graphic/ino-carousel',
@@ -52,7 +64,7 @@ const template = new TemplateGenerator<Components.InoCarousel>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory();
+export const Playground = template.generatePlaygroundStory(CAROUSEL_CSS_PROPS);
 
 export const HideButtons = template.generateStoryForProp('hideButtons', true);
 export const Reverse = template.generateStoryForProp('reverse', true);

@@ -3,12 +3,54 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import {
+  cssColor,
+  cssText,
+  cssSize,
+  decorateStoryWithClass,
+  setArgs,
+} from '../utils';
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
+import { CssProperties } from '../types';
 
 import './ino-dialog.scss';
+
+const DIALOG_CSS_PROPS: CssProperties = {
+  backgroundColor: cssColor(
+    '--ino-dialog-background-color',
+    'Background color of the dialog.',
+    '#fff',
+  ),
+  width: cssSize('--ino-dialog-width', 'Width of the dialog.'),
+  minWidth: cssSize('--ino-dialog-min-width', 'Min width of the dialog.', 480),
+  maxWidth: cssSize('--ino-dialog-max-width', 'Max width of the dialog.', 552),
+  height: cssSize('--ino-dialog-height', 'Height of the dialog.'),
+  minHeight: cssSize('--ino-dialog-min-height', 'Min height of the dialog.'),
+  maxHeight: cssSize('--ino-dialog-max-height', 'Max height of the dialog.'),
+  padding: cssSize('--ino-dialog-padding', 'Padding of the dialog.', 62),
+  borderRadius: cssSize(
+    '--ino-dialog-border-radius',
+    'Border-radius of the dialog.',
+    17,
+  ),
+  boxShadow: cssText(
+    '--ino-dialog-box-shadow',
+    'Box shadow of the dialog.',
+    '0px 0px 22px rgba(93, 91, 105, 0.35)',
+  ),
+  border: cssText(
+    '--ino-dialog-border',
+    'Border shorthand of the dialog.',
+    '1px solid #2c02ff',
+  ),
+};
+
+type InoDialogExtended = Components.InoDialog & {
+  dataDialogId: string;
+  buttonText: string;
+};
 
 export default {
   title: 'Structure/ino-dialog',
@@ -74,12 +116,7 @@ export default {
     cancelText: 'cancel',
     icon: 'search',
   },
-} as Meta<Components.InoDialog>;
-
-type InoDialogExtended = Components.InoDialog & {
-  dataDialogId: string;
-  buttonText: string;
-};
+} as Meta<InoDialogExtended>;
 
 const template = new TemplateGenerator<InoDialogExtended>(
   'ino-dialog',
@@ -103,10 +140,10 @@ const template = new TemplateGenerator<InoDialogExtended>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory();
-Playground.args = {
+export const Playground = template.generatePlaygroundStory(DIALOG_CSS_PROPS);
+setArgs(Playground, {
   buttonText: 'Open Dialog',
-};
+});
 
 const templateConfirmationWithText = new TemplateGenerator<InoDialogExtended>(
   'ino-dialog',

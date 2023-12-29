@@ -27,16 +27,6 @@ Snackbars provide brief messages about app processes at the bottom of the screen
 | `hideEl`      | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<any>` |
 
 
-## CSS Custom Properties
-
-| Name                    | Description                 |
-| ----------------------- | --------------------------- |
-| `--ino-snackbar-bottom` | Distance to the bottom edge |
-| `--ino-snackbar-left`   | Distance to the left edge   |
-| `--ino-snackbar-right`  | Distance to the right edge  |
-| `--ino-snackbar-top`    | Distance to the top edge    |
-
-
 ## Dependencies
 
 ### Depends on

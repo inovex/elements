@@ -3,9 +3,6 @@
 
 @include list.deprecated-core-styles;
 
-/**
-  * @prop --ino-list-item-border-radius: Border radius of the list container, also effects the first and last list item
- */
 ino-list {
   --list-item-border-radius: (var(--ino-list-item-border-radius), 0);
 

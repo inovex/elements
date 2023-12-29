@@ -3,12 +3,6 @@
 @use '../base/theme';
 
 :host {
-  /**
-    * @prop --ino-icon-width: Width of the icon
-    * @prop --ino-icon-height: Height of the icon
-    * @prop --ino-icon-color: Color of the icon
-   */
-
   --icon-width: var(--ino-icon-width, 1em);
   --icon-height: var(--ino-icon-height, 1em);
   --icon-color: var(

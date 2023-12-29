@@ -3,10 +3,20 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import { cssSize, decorateStoryWithClass } from '../utils';
+
 import './ino-avatar.scss';
 
 import avatarImg from '../../assets/images/avatar.jpg';
+import { CssProperties } from '../types';
+
+const AVATAR_CSS_PROPS: CssProperties = {
+  size: cssSize(
+    '--ino-avatar-size',
+    'Width and height of the ino-avatar.',
+    138,
+  ),
+};
 
 export default {
   title: 'Graphic/ino-avatar',
@@ -18,8 +28,9 @@ export default {
         const handleCheckedChange = (e) => {
           const checkbox: HTMLInoCheckboxElement = e.target;
           const parentDiv = checkbox.closest('div');
-          const avatar: HTMLInoAvatarElement =
-            parentDiv.querySelector('ino-avatar');
+          const avatar: HTMLInoAvatarElement = parentDiv.querySelector(
+            'ino-avatar',
+          );
           checkbox.checked = e.detail;
           avatar.setAttribute('loading', checkbox.checked);
           if (checkbox.indeterminate) {
@@ -69,14 +80,17 @@ const template = new TemplateGenerator<Components.InoAvatar>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory();
+export const Playground = template.generatePlaygroundStory(AVATAR_CSS_PROPS);
 
 export const Interactive = template.generateStoryForProp('interactive', true);
 export const ColorSecondary = template.generateStoryForProp(
   'colorSecondary',
   true,
 );
-export const VariantDashed = template.generateStoryForProp('variant', 'dashed');
+export const VariantDashed1 = template.generateStoryForProp(
+  'variant',
+  'dashed',
+);
 export const VariantDashedInteractive = template.generateStoryForProp(
   'variant',
   'dashed',

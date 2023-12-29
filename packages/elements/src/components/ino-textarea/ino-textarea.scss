@@ -5,11 +5,6 @@
 @use '../base/new-theme' as theme;
 
 ino-textarea {
-  /**
-   * @prop --ino-textarea-outline-color: outline color of the textarea
-   * @prop --ino-textarea-caret-color: color of the caret
-   * @prop --ino-textarea-label-color: color of the label
-   */
   --textarea-outline-color: var(--ino-textarea-outline-color, #{theme.$p-5});
   --textarea-caret-color: var(--ino-textarea-caret-color, #{theme.$p-5});
   --textarea-label-color: var(--ino-textarea-label-color, #{theme.$p-5});

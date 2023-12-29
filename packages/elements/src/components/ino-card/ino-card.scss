@@ -9,16 +9,6 @@ $big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3),
   0 16px 32px 0 rgba(theme.color(dark), 0.14);
 
 ino-card {
-  /**
-   * @prop --ino-card-background-color: background color of the card
-   * @prop --ino-card-background-color--active: background color of the card if active
-   * @prop --ino-card-background-color--focus: background color of the card on focus
-   * @prop --ino-card-background-color--hover: background color of the card on hover
-   * @prop --ino-card-border-color: border color of the card
-   * @prop --ino-card-border-thickness: thickness of the border
-   * @prop --ino-card-checkmark-background-color: background color of the check mark
-   * @prop --ino-card-checkmark-color: check mark color
-   */
   --card-background-color: var(--ino-card-background-color, #fff);
   --card-background-color--active: var(
     --ino-card-background-color--active,

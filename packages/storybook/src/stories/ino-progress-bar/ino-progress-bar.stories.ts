@@ -1,9 +1,19 @@
 import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-import './ino-progress-bar.scss';
+import { cssColor, decorateStoryWithClass, setArgs } from '../utils';
 import { TemplateGenerator } from '../template-generator';
+import { CssProperties } from '../types';
+
+import './ino-progress-bar.scss';
+
+const PROGRESS_BAR_CSS_PROPS: CssProperties = {
+  barColor: cssColor(
+    '--progress-bar--bar-color',
+    'Color of the progress bar.',
+    '#4655ff',
+  ),
+};
 
 export default {
   title: 'Notification/ino-progress-bar',
@@ -34,11 +44,13 @@ const template = new TemplateGenerator<Components.InoProgressBar>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory();
-Playground.args = {
+export const Playground = template.generatePlaygroundStory(
+  PROGRESS_BAR_CSS_PROPS,
+);
+setArgs(Playground, {
   buffer: 0.9,
   progress: 0.4,
-};
+});
 
 export const Progress = template.generateStoryForProp('progress', 0.5);
 

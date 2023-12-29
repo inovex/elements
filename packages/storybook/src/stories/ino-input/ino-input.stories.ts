@@ -3,8 +3,30 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
-import { decorateStoryWithClass } from '../utils';
+import { cssColor, decorateStoryWithClass, setArgTypes } from '../utils';
+import { CssProperties } from '../types';
+
 import './ino-input.scss';
+
+const INPUT_CSS_PROPS: CssProperties = {
+  color: cssColor(
+    '--ino-input-color',
+    'Text color of the input.',
+    'rgba(0, 0, 0, 0.87)',
+  ),
+  caretColor: cssColor(
+    '--ino-input-caret-color',
+    'Color of the caret.',
+    '#4655ff',
+  ),
+  labelColor: cssColor(
+    '--ino-input-label-color',
+    'Color of the label.',
+    '#4655ff',
+  ),
+  lineColor: cssColor('--ino-input-line-color', 'Line color', '#4655ff'),
+  iconColor: cssColor('--ino-input-icon-color', 'Icon color', '#4655ff'),
+};
 
 export default {
   title: 'Input/ino-input',
@@ -90,20 +112,21 @@ const template = new TemplateGenerator<Components.InoInput>(
       type="${args.type}"
       unit="${args.unit}"
       value="${args.value}"
+      icon-leading
     >
+      <ino-icon slot="icon-leading" icon="search"></ino-icon>
     </ino-input>
   `,
 );
-export const Playground = template.generatePlaygroundStory();
-
-Playground.argTypes = {
+export const Playground = template.generatePlaygroundStory(INPUT_CSS_PROPS);
+setArgTypes(Playground, {
   type: {
     control: {
       type: 'select',
     },
     options: ['text', 'number', 'password', 'email'],
   },
-};
+});
 
 const templateType = new TemplateGenerator<Components.InoInput>(
   'ino-input',

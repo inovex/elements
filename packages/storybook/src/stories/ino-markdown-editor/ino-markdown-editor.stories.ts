@@ -3,10 +3,24 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import { cssSize, decorateStoryWithClass } from '../utils';
+import { CssProperties } from '../types';
+
 import './ino-markdown-editor.scss';
 
 const ID = 'editor-playground';
+
+const MARKDOWN_EDITOR_CSS_PROPS: CssProperties = {
+  minHeight: cssSize(
+    '--ino-markdown-editor-min-height',
+    'Min height of text editor.',
+    100,
+  ),
+  maxHeight: cssSize(
+    '--ino-markdown-editor-max-height',
+    'Max height of text editor.',
+  ),
+};
 
 export default {
   title: 'Input/ino-markdown-editor',
@@ -51,4 +65,6 @@ const template = new TemplateGenerator<Components.InoMarkdownEditor>(
     ></ino-markdown-editor>
   `,
 );
-export const Playground = template.generatePlaygroundStory();
+export const Playground = template.generatePlaygroundStory(
+  MARKDOWN_EDITOR_CSS_PROPS,
+);

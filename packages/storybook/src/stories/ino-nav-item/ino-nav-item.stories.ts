@@ -2,7 +2,27 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
+import { CssProperties } from '../types';
+import { cssColor, setArgs, setArgTypes } from '../utils';
 
+const NAV_ITEM_CSS_PROPS: CssProperties = {
+  color: cssColor('--ino-nav-item-color', 'Inactive color of icon.', '#39383c'),
+  colorActive: cssColor(
+    '--ino-nav-item-color-active',
+    'Active color of icon.',
+    '#4655ff',
+  ),
+  backgroundColor: cssColor(
+    '--ino-nav-item-background-color',
+    'Inactive color of the background of one item.',
+    '#fff',
+  ),
+  backgroundColorActive: cssColor(
+    '--ino-nav-item-background-color-active',
+    'Active color of the background of one item.',
+    '#dfdee6',
+  ),
+};
 export default {
   title: `Structure/ino-nav-item`,
   component: 'ino-nav-item',
@@ -19,7 +39,7 @@ type InoNavItemExtended = Components.InoNavItem & {
   icon: boolean;
 };
 
-const icon = html`<ino-icon icon="onboarding"></ino-icon>`; // eslint-disable-next-line no-unexpected-multiline
+const icon = html` <ino-icon icon="onboarding"></ino-icon> `; // eslint-disable-next-line no-unexpected-multiline
 
 const template = new TemplateGenerator<InoNavItemExtended>(
   'ino-nav-item',
@@ -40,18 +60,18 @@ const template = new TemplateGenerator<InoNavItemExtended>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory();
-Playground.args = {
+export const Playground = template.generatePlaygroundStory(NAV_ITEM_CSS_PROPS);
+setArgs(Playground, {
   icon: true,
-};
-Playground.argTypes = {
+});
+setArgTypes(Playground, {
   // hide custom attributes from table
   icon: {
     table: {
       disable: true,
     },
   },
-};
+});
 
 export const Text = template.generateStoryForProp('text', 'Some Text');
 export const Activated = template.generateStoryForProp('activated', true);

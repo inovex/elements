@@ -45,16 +45,6 @@ $extended-edged-borders: (
 }
 
 :host {
-  /**
-   * @prop --ino-fab-color: Text color
-   * @prop --fab-background-color: Background color
-   * @prop --fab-background-color-hover: Background color on hover
-   * @prop --fab-background-color-active: Background color if active
-   * @prop --fab-icon-color: Color of the slotted icon
-   * @prop --fab-color-disabled: Text color if disabled
-   * @prop --fab-background-color-disabled: Background color if disabled
-   * @prop --fab-icon-color-disabled: Color of the slotted icon if disabled
-   */
   --fab-color: var(--ino-fab-color, white);
   --fab-background-color: var(--ino-fab-background-color, #{theme.$p-6});
   --fab-background-color-hover: var(

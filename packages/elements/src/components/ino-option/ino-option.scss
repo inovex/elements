@@ -8,17 +8,6 @@
 $height: 2.85rem;
 
 ino-option {
-  /**
-   * @prop --ino-option-height: Height of the option container
-   * @prop --ino-option-selected-background-color: Background color if selected
-   * @prop --ino-option-selected-background-color-hover: Background color on hover if selected
-   * @prop --ino-option-selected-background-color-focus: Background color on focus if selected
-   * @prop --ino-option-selected-background-color-active: Background color if active and selected
-   * @prop --ino-option-deselected-background-color: Background color if deselected
-   * @prop --ino-option-deselected-background-color-hover: Background color on hover if deselected
-   * @prop --ino-option-deselected-background-color-focus: Background color on focus if deselected
-   * @prop --ino-option-deselected-background-color-active: Background color if active and deselected
-   */
   --height: var(--ino-option-height, #{$height});
   --option-selected-background-color: var(
     --ino-option-selected-background-color,

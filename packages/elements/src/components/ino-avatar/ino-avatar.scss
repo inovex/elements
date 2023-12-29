@@ -1,10 +1,6 @@
 @use '../base/typography-new' as typography;
 @use '../base/new-theme' as theme;
 
-/**
-  * @prop --ino-avatar-size: Width and height of the ino-avatar
-  */
-
 @mixin flex-center {
   display: flex;
   justify-content: center;

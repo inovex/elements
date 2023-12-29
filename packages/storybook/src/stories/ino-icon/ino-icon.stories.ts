@@ -3,10 +3,15 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-
 import ICONS from '../../../../elements/src/components/ino-icon/icons';
+import {
+  cssColor,
+  cssSize,
+  decorateStoryWithClass,
+  withIconControl,
+} from '../utils';
+import { CssProperties } from '../types';
 
-import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter(
@@ -18,8 +23,9 @@ const ICONS_WITHOUT_INTERNALS = ICONS.filter(
 ]);
 
 function copyToClipboard(text) {
-  const snackbar: HTMLInoSnackbarElement =
-    document.createElement('ino-snackbar');
+  const snackbar: HTMLInoSnackbarElement = document.createElement(
+    'ino-snackbar',
+  );
 
   navigator.clipboard
     .writeText(text)
@@ -51,6 +57,12 @@ const iconChips = ICON_IDS.map(
   `,
 );
 
+const ICON_CSS_PROPS: CssProperties = {
+  width: cssSize('--ino-icon-width', 'Width of the icon.', 2, 'em'),
+  height: cssSize('--ino-icon-height', 'Height of the icon.', 2, 'em'),
+  color: cssColor('--ino-icon-color', 'Color of the icon.', '#3d40f5'),
+};
+
 export default {
   title: 'Graphic/ino-icon',
   component: 'ino-icon',
@@ -66,7 +78,7 @@ export default {
     (story) => decorateStoryWithClass(story, 'story-icon'),
     (story) => {
       useEffect(() => {
-        const searchIconHandler = function (e) {
+        const searchIconHandler = function(e) {
           if (e.target.tagName.toLowerCase() !== 'ino-input') {
             return;
           }
@@ -120,13 +132,12 @@ const template = new TemplateGenerator<Components.InoIcon>(
       icon="${args.icon}"
       svg-title="${args.svgTitle}"
       src="${args.src}"
-      style="--icon-width: 30px; --icon-height: 30px;"
     >
     </ino-icon>
   `,
 );
 
-export const Playground = template.generatePlaygroundStory();
+export const Playground = template.generatePlaygroundStory(ICON_CSS_PROPS);
 withIconControl(Playground, 'icon', 'info');
 
 const templateAllIcons = new TemplateGenerator<Components.InoIcon>(

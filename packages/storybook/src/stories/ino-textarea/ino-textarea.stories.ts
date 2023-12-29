@@ -3,8 +3,28 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import { cssColor, decorateStoryWithClass, setArgs } from '../utils';
+import { CssProperties } from '../types';
+
 import './ino-textarea.scss';
+
+const TEXTAREA_CSS_PROPS: CssProperties = {
+  outlineColor: cssColor(
+    '--ino-textarea-outline-color',
+    'Outline color of the textarea.',
+    '#4655ff',
+  ),
+  caretColor: cssColor(
+    '--ino-textarea-caret-color',
+    'Color of the caret.',
+    '#4655ff',
+  ),
+  labelColor: cssColor(
+    '--ino-textarea-label-color',
+    'Color of the label.',
+    '#4655ff',
+  ),
+};
 
 export default {
   title: 'Input/ino-textarea',
@@ -86,12 +106,13 @@ const templateWithMaxLength = new TemplateGenerator<Components.InoTextarea>(
     ></ino-textarea>
   `,
 );
-export const Playground = templateWithMaxLength.generatePlaygroundStory();
-
-Playground.args = {
+export const Playground = templateWithMaxLength.generatePlaygroundStory(
+  TEXTAREA_CSS_PROPS,
+);
+setArgs(Playground, {
   showCharacterCounter: true,
   maxlength: 30,
-};
+});
 
 const templateLabels = new TemplateGenerator<Components.InoTextarea>(
   'ino-textarea',
