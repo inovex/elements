@@ -1,5 +1,7 @@
-import { Story } from '@storybook/web-components';
+import { ArgTypes, Args, Story, StoryFn } from '@storybook/web-components';
+import { ArgType } from '@storybook/addons';
 import docsJson from '../../elements-stencil-docs';
+import { CssProp, CssPropType, CssProperties } from './types';
 
 /**
  * A utility class that helps with creating type-safe stories
@@ -16,8 +18,13 @@ export class TemplateGenerator<Component extends Object> {
 
   /**
    * Generates the default template story.
+   *
+   * @param cssProps CSS variables to be controlled in the arg table
    */
-  public generatePlaygroundStory() {
+  public generatePlaygroundStory(cssProps?: CssProperties) {
+    if (cssProps) {
+      return this.generateTemplateWithCssProps(cssProps);
+    }
     return this.generateTemplate();
   }
 
@@ -32,8 +39,8 @@ export class TemplateGenerator<Component extends Object> {
     key: Key,
     value: Component[Key],
     otherProps?: Partial<Omit<Component, Key>>,
-  ) {
-    let argument: Component = { [key]: value } as unknown as Component;
+  ): StoryFn<Component> {
+    let argument: Component = ({ [key]: value } as unknown) as Component;
 
     if (otherProps) {
       argument = {
@@ -45,15 +52,18 @@ export class TemplateGenerator<Component extends Object> {
     return this.generateTemplate(key, argument);
   }
 
-  private generateTemplate(prop?: keyof Component, args?: Component) {
-    const BoundTemplate: Story<Component> = this.templateFn.bind({});
+  private generateTemplate(
+    prop?: keyof Component,
+    args?: Args,
+  ): StoryFn<Component> {
+    const storyFn: Story<Component> = this.templateFn.bind({});
 
     if (args) {
-      BoundTemplate.args = { ...args };
+      storyFn.args = { ...args } as Partial<Component>;
     }
 
     if (prop) {
-      BoundTemplate.parameters = {
+      storyFn.parameters = {
         docs: {
           description: {
             story: this.findPropertyDocs(prop),
@@ -62,7 +72,21 @@ export class TemplateGenerator<Component extends Object> {
       };
     }
 
-    return BoundTemplate;
+    return storyFn;
+  }
+
+  private generateTemplateWithCssProps(
+    cssProps: CssProperties,
+  ): StoryFn<Component> {
+    const storyFn: StoryFn<Component> = (args, ctx) => {
+      applyCssProps(cssProps, args, ctx.id);
+      return this.templateFn(args, ctx);
+    };
+    storyFn.args = { ...cssArgs(cssProps) } as Partial<Component>;
+    storyFn.argTypes = { ...cssArgTypes(cssProps) } as Partial<
+      ArgTypes<Component>
+    >;
+    return storyFn;
   }
 
   /**
@@ -86,3 +110,77 @@ export class TemplateGenerator<Component extends Object> {
     return docs;
   }
 }
+
+const cssArgs = (props: CssProperties): Args =>
+  Object.entries(props).reduce(
+    (acc, [k, p]) => ({ ...acc, [k]: p.defaultValue }),
+    {},
+  );
+
+const cssArgTypes = (props: CssProperties): ArgTypes =>
+  Object.entries(props).reduce(
+    (acc, [k, v]) => ({ ...acc, [k]: getInputType(v) }),
+    {},
+  );
+
+const getInputType = (prop: CssProp): ArgType => ({
+  name: prop.name,
+  description: prop.description + (prop.unit ? ` (Unit: ${prop.unit})` : ''),
+  control: {
+    type: getControlType(prop.type),
+    min: ['time', 'size'].includes(prop.type) ? 0 : undefined,
+  },
+  table: {
+    category: 'Custom CSS properties',
+    subcategory: getSubcategory(prop.type),
+  },
+});
+
+const getControlType = (propType: CssPropType): string => {
+  switch (propType) {
+    case 'color':
+      return 'color';
+    case 'size':
+    case 'time':
+    case 'number':
+      return 'number';
+    case 'text':
+    default:
+      return 'text';
+  }
+};
+
+const getSubcategory = (type: CssPropType): string => {
+  switch (type) {
+    case 'size':
+      return 'Sizes';
+    case 'color':
+      return 'Colors';
+    case 'time':
+      return 'Times';
+    case 'number':
+      return 'Numbers';
+    case 'text':
+    default:
+      return 'Others';
+  }
+};
+
+const applyCssProps = (props: CssProperties, args: Args, id?: string): void => {
+  Object.entries(props).forEach(([key, prop]) => {
+    const storyElement = (id
+      ? document.querySelector(`#anchor--${id}`)
+      : document.documentElement) as HTMLElement;
+    let value = args[key];
+    if (!value) {
+      storyElement.style.removeProperty(prop.name);
+      return;
+    }
+    if (prop.unit) {
+      value += prop.unit;
+    }
+    if (value) {
+      storyElement?.style.setProperty(prop.name, value as string);
+    }
+  });
+};
