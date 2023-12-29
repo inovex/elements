@@ -106,9 +106,8 @@ const templateWithMaxLength = new TemplateGenerator<Components.InoTextarea>(
     ></ino-textarea>
   `,
 );
-export const Playground = templateWithMaxLength.generatePlaygroundStory(
-  TEXTAREA_CSS_PROPS,
-);
+export const Playground =
+  templateWithMaxLength.generatePlaygroundStory(TEXTAREA_CSS_PROPS);
 setArgs(Playground, {
   showCharacterCounter: true,
   maxlength: 30,

@@ -43,23 +43,6 @@ It is based on the mdc-dialog and is fully customizable. The styling of a dialog
 | `"header"`  | content to replace default header of dialog |
 
 
-## CSS Custom Properties
-
-| Name                                    | Description                     |
-| --------------------------------------- | ------------------------------- |
-| `--ino-dialog-background-color`         | background color of the dialog  |
-| `--ino-dialog-border`                   | border shorthand of the dialog  |
-| `--ino-dialog-border-radius`            | border-radius of the dialog     |
-| `--ino-dialog-box-shadow`               | box-shadow of the dialog        |
-| `--ino-dialog-height`                   | height of the dialog            |
-| `--ino-dialog-max-height`               | max-height of the dialog        |
-| `--ino-dialog-max-width`                | max-width of the dialog         |
-| `--ino-dialog-min-height`               | min-height of the dialog        |
-| `--ino-dialog-min-width`                | min-width of the dialog         |
-| `--ino-dialog-overlay-background-color` | background color of the overlay |
-| `--ino-dialog-width`                    | width of the dialog             |
-
-
 ## Dependencies
 
 ### Used by

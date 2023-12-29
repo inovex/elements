@@ -197,54 +197,53 @@ export const NoHover = template.generateStoryForProp('noHover', true);
 export const SortColumnIdAndSortDirection = template.generatePlaygroundStory();
 export const StickyHeader = template.generateStoryForProp('stickyHeader', true);
 
-const templateSelectionWithCheckboxes = new TemplateGenerator<
-  Components.InoTable
->('ino-table', (args) => {
-  useEffect(() => {
-    const mainBox = document.getElementById(
-      'headerBox',
-    ) as Components.InoCheckbox;
+const templateSelectionWithCheckboxes =
+  new TemplateGenerator<Components.InoTable>('ino-table', () => {
+    useEffect(() => {
+      const mainBox = document.getElementById(
+        'headerBox',
+      ) as Components.InoCheckbox;
 
-    const checkboxHandler = (e) => {
-      const triggerCheckbox = e.target;
-      triggerCheckbox.checked = !triggerCheckbox.checked;
+      const checkboxHandler = (e) => {
+        const triggerCheckbox = e.target;
+        triggerCheckbox.checked = !triggerCheckbox.checked;
 
-      const checkboxes = Array.from(
-        document.querySelectorAll('.selectable-table tbody ino-checkbox'),
-      ) as Components.InoCheckbox[];
+        const checkboxes = Array.from(
+          document.querySelectorAll('.selectable-table tbody ino-checkbox'),
+        ) as Components.InoCheckbox[];
 
-      if (triggerCheckbox.id === 'headerBox') {
-        triggerCheckbox.indeterminate = false;
-        checkboxes.forEach((checkbox) => {
-          checkbox.checked = mainBox.checked;
-          const row = (checkbox as HTMLElement).closest('tr');
-          row.classList.toggle('ino-table__row--selected', mainBox.checked);
-        });
-      } else if (mainBox) {
-        const row = (triggerCheckbox as HTMLElement).closest('tr');
-        row.classList.toggle(
-          'ino-table__row--selected',
-          triggerCheckbox.checked,
-        );
+        if (triggerCheckbox.id === 'headerBox') {
+          triggerCheckbox.indeterminate = false;
+          checkboxes.forEach((checkbox) => {
+            checkbox.checked = mainBox.checked;
+            const row = (checkbox as HTMLElement).closest('tr');
+            row.classList.toggle('ino-table__row--selected', mainBox.checked);
+          });
+        } else if (mainBox) {
+          const row = (triggerCheckbox as HTMLElement).closest('tr');
+          row.classList.toggle(
+            'ino-table__row--selected',
+            triggerCheckbox.checked,
+          );
 
-        if (checkboxes.some((i) => i.checked)) {
-          mainBox.indeterminate = true;
-        } else {
-          const allChecked = checkboxes.every((i) => i.checked);
-          mainBox.checked = allChecked;
-          mainBox.indeterminate = allChecked;
+          if (checkboxes.some((i) => i.checked)) {
+            mainBox.indeterminate = true;
+          } else {
+            const allChecked = checkboxes.every((i) => i.checked);
+            mainBox.checked = allChecked;
+            mainBox.indeterminate = allChecked;
+          }
         }
-      }
-    };
+      };
 
-    const table = document.querySelector('.selectable-table');
-    table.addEventListener('checkedChange', checkboxHandler);
-    return () => table.removeEventListener('checkedChange', checkboxHandler);
-  });
+      const table = document.querySelector('.selectable-table');
+      table.addEventListener('checkedChange', checkboxHandler);
+      return () => table.removeEventListener('checkedChange', checkboxHandler);
+    });
 
-  return html`
-    <ino-table class="selectable-table">
-      ${unsafeHTML(/*html*/ `
+    return html`
+      <ino-table class="selectable-table">
+        ${unsafeHTML(/*html*/ `
         <tr slot="header-row">
           <td class="ino-table__cell--checkbox">
             <ino-checkbox id="headerBox" selection></ino-checkbox>
@@ -320,11 +319,12 @@ const templateSelectionWithCheckboxes = new TemplateGenerator<
           <td>Cell I5</td>
         </tr>
       `)}
-    </ino-table>
-  `;
-});
+      </ino-table>
+    `;
+  });
 
 /**
  * Use `ino-checkbox` elements in the first column for checkbox-selection
  */
-export const SelectionWithCheckboxes = templateSelectionWithCheckboxes.generatePlaygroundStory();
+export const SelectionWithCheckboxes =
+  templateSelectionWithCheckboxes.generatePlaygroundStory();

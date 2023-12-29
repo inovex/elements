@@ -49,15 +49,12 @@ export const decorateStoryWithClass = (
   story: () => StoryFnHtmlReturnType,
   className?: string,
 ): StoryFnHtmlReturnType => {
-  return html`
-    <div class="${className ?? ''}">${story()}</div>
-  `;
+  return html` <div class="${className ?? ''}">${story()}</div> `;
 };
 
 export const showSnackbar = (message: string) => {
-  const snackbar: HTMLInoSnackbarElement = document.createElement(
-    'ino-snackbar',
-  );
+  const snackbar: HTMLInoSnackbarElement =
+    document.createElement('ino-snackbar');
   snackbar.message = message;
   document.body.appendChild(snackbar);
   snackbar.addEventListener('hideEl', () => snackbar.remove());

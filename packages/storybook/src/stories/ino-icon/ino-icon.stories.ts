@@ -23,9 +23,8 @@ const ICONS_WITHOUT_INTERNALS = ICONS.filter(
 ]);
 
 function copyToClipboard(text) {
-  const snackbar: HTMLInoSnackbarElement = document.createElement(
-    'ino-snackbar',
-  );
+  const snackbar: HTMLInoSnackbarElement =
+    document.createElement('ino-snackbar');
 
   navigator.clipboard
     .writeText(text)
@@ -78,7 +77,7 @@ export default {
     (story) => decorateStoryWithClass(story, 'story-icon'),
     (story) => {
       useEffect(() => {
-        const searchIconHandler = function(e) {
+        const searchIconHandler = function (e) {
           if (e.target.tagName.toLowerCase() !== 'ino-input') {
             return;
           }

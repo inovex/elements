@@ -9,7 +9,7 @@ import { cssColor, cssSize, cssText, cssTime } from '../utils';
 
 import './ino-nav-drawer.scss';
 
-const openChangeHandle = function(e) {
+const openChangeHandle = function (e) {
   const el = e.target;
   if (el.tagName.toLowerCase() !== 'ino-nav-drawer') {
     return;
@@ -201,9 +201,8 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
   },
 );
 
-export const Playground = template.generatePlaygroundStory(
-  NAV_DRAWER_CSS_PROPS,
-);
+export const Playground =
+  template.generatePlaygroundStory(NAV_DRAWER_CSS_PROPS);
 export const AnchorRight = template.generateStoryForProp('anchor', 'right');
 export const Modal = template.generateStoryForProp('variant', 'modal', {
   open: false,

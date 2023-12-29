@@ -44,9 +44,8 @@ export default {
           (template) => template.id === triggerId,
         );
 
-        const currentSnackbars = document.body.getElementsByTagName(
-          'ino-snackbar',
-        );
+        const currentSnackbars =
+          document.body.getElementsByTagName('ino-snackbar');
 
         const snackbarWithIdExists = Array.from(currentSnackbars).some(
           (snackbar) => snackbar.id === triggerId,

@@ -40,7 +40,7 @@ export class TemplateGenerator<Component extends Object> {
     value: Component[Key],
     otherProps?: Partial<Omit<Component, Key>>,
   ): StoryFn<Component> {
-    let argument: Component = ({ [key]: value } as unknown) as Component;
+    let argument: Component = { [key]: value } as unknown as Component;
 
     if (otherProps) {
       argument = {
@@ -168,9 +168,9 @@ const getSubcategory = (type: CssPropType): string => {
 
 const applyCssProps = (props: CssProperties, args: Args, id?: string): void => {
   Object.entries(props).forEach(([key, prop]) => {
-    const storyElement = (id
-      ? document.querySelector(`#anchor--${id}`)
-      : document.documentElement) as HTMLElement;
+    const storyElement = (
+      id ? document.querySelector(`#anchor--${id}`) : document.documentElement
+    ) as HTMLElement;
     let value = args[key];
     if (!value) {
       storyElement.style.removeProperty(prop.name);

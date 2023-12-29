@@ -28,9 +28,8 @@ export default {
         const handleCheckedChange = (e) => {
           const checkbox: HTMLInoCheckboxElement = e.target;
           const parentDiv = checkbox.closest('div');
-          const avatar: HTMLInoAvatarElement = parentDiv.querySelector(
-            'ino-avatar',
-          );
+          const avatar: HTMLInoAvatarElement =
+            parentDiv.querySelector('ino-avatar');
           checkbox.checked = e.detail;
           avatar.setAttribute('loading', checkbox.checked);
           if (checkbox.indeterminate) {

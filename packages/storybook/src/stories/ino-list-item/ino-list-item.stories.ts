@@ -142,18 +142,10 @@ const templateGraphicAndMeta = new TemplateGenerator<InoListVariants>(
     <ino-list>
       <ino-list-item text="Lorem ipsum dolor sit">
         ${args.avatar && exampleImg}
-        ${args.checkbox &&
-          html`
-            <ino-checkbox slot="leading"></ino-checkbox>
-          `}
-        ${args.meta &&
-          html`
-            <p slot="trailing">$10.00</p>
-          `}
+        ${args.checkbox && html` <ino-checkbox slot="leading"></ino-checkbox> `}
+        ${args.meta && html` <p slot="trailing">$10.00</p> `}
         ${args.radio &&
-          html`
-            <ino-radio slot="leading" selection></ino-radio>
-          `}
+        html` <ino-radio slot="leading" selection></ino-radio> `}
       </ino-list-item>
     </ino-list>
   `,
