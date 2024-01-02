@@ -6,7 +6,7 @@ import { defaultLocale } from 'translations/config';
 export default function useTranslation() {
   const { localization } = useContext(LanguageContext);
   function t(key: string) {
-    let text: string | null = null;
+    let text: any = null;
     if (localization) {
       text = _get(localization.translations, key);
       if (!text) {
