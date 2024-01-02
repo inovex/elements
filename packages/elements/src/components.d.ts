@@ -262,6 +262,7 @@ export namespace Components {
         "value"?: string;
     }
     /**
+     * @deprecated Use the component `ino-list-item` together with the component `ino-checkbox` or `ino-radio` instead.
      * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
      * This component is used as child of `ino-list` and `ino-menu` components.
      * #### Restrictions
@@ -1892,6 +1893,7 @@ declare global {
         new (): HTMLInoChipElement;
     };
     /**
+     * @deprecated Use the component `ino-list-item` together with the component `ino-checkbox` or `ino-radio` instead.
      * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
      * This component is used as child of `ino-list` and `ino-menu` components.
      * #### Restrictions
@@ -2646,6 +2648,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     /**
+     * @deprecated Use the component `ino-list-item` together with the component `ino-checkbox` or `ino-radio` instead.
      * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
      * This component is used as child of `ino-list` and `ino-menu` components.
      * #### Restrictions
@@ -4245,6 +4248,7 @@ declare module "@stencil/core" {
              */
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
             /**
+             * @deprecated Use the component `ino-list-item` together with the component `ino-checkbox` or `ino-radio` instead.
              * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
              * This component is used as child of `ino-list` and `ino-menu` components.
              * #### Restrictions

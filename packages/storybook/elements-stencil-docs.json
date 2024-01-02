@@ -1618,10 +1618,14 @@
       "fileName": "ino-control-item.tsx",
       "tag": "ino-control-item",
       "readme": "# ino-control-item\n\n",
-      "overview": "A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n#### Restrictions\nPlease note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element",
+      "overview": "",
       "usage": {},
-      "docs": "A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n#### Restrictions\nPlease note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element",
+      "docs": "",
       "docsTags": [
+        {
+          "name": "deprecated",
+          "text": "Use the component `ino-list-item` together with the component `ino-checkbox` or `ino-radio` instead.\n\nA list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n#### Restrictions\nPlease note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element"
+        },
         {
           "name": "slot",
           "text": "default - Any element"
@@ -1641,6 +1645,7 @@
           "ino-radio"
         ]
       },
+      "deprecation": "Use the component `ino-list-item` together with the component `ino-checkbox` or `ino-radio` instead.\n\nA list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n#### Restrictions\nPlease note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element",
       "props": [
         {
           "name": "activated",
@@ -5977,7 +5982,7 @@
       "docsTags": [
         {
           "name": "slot",
-          "text": "leading - For the element to be prepended"
+          "text": "leading - For the element to be prepended. It's also the fallback for the default slot."
         },
         {
           "name": "slot",
@@ -6214,7 +6219,7 @@
       "slots": [
         {
           "name": "leading",
-          "docs": "For the element to be prepended"
+          "docs": "For the element to be prepended. It's also the fallback for the default slot."
         },
         {
           "name": "primary",
