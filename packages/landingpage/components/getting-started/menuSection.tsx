@@ -16,7 +16,9 @@ type MenuSectionProps = {
 function MenuSection({ title, children }: MenuSectionProps) {
   const id = title.toCamelCase();
 
-  const handleMenuSectionClick = (event: React.MouseEvent<HTMLHeadingElement>) => {
+  const handleMenuSectionClick = (
+    event: React.MouseEvent<HTMLHeadingElement>,
+  ) => {
     event.preventDefault();
     const targetElement = document.getElementById(id);
     if (!targetElement) return;
