@@ -1,11 +1,15 @@
+import { Meta } from '@storybook/web-components';
 import { Components, KeyValue } from '@inovex.de/elements';
-import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
-
+import Story from '../StoryWrapper';
 import './ino-autocomplete.scss';
 
-export default {
+const inputHandler = (ev: CustomEvent<KeyValue>) => {
+  (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
+};
+
+const Playground = {
   title: 'Input/ino-autocomplete',
   component: 'ino-autocomplete',
   parameters: {
@@ -14,6 +18,17 @@ export default {
     },
   },
   decorators: [(story) => decorateStoryWithClass(story)],
+  render: (args) => html` <div style="height: 300px;">
+      <ino-autocomplete
+        debounce="${args.debounce}"
+        .options=${args.options}
+        value="${args.value}"
+        @valueChange="${inputHandler}"
+        style="margin: 50px"
+      >
+        <ino-input></ino-input>
+      </ino-autocomplete>
+    </div>`,
   args: {
     debounce: 100,
     options: [
@@ -33,21 +48,12 @@ export default {
     value: '',
   },
 } as Meta<Components.InoAutocomplete>;
+export default Playground;
 
-const inputHandler = (ev: CustomEvent<KeyValue>) => {
-  (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
-};
-
-export const Playground: Story<Components.InoAutocomplete> = (args) => html`
-  <div style="height: 300px;">
-    <ino-autocomplete
-      debounce="${args.debounce}"
-      .options=${args.options}
-      value="${args.value}"
-      @valueChange="${inputHandler}"
-      style="margin: 50px"
-    >
-      <ino-input></ino-input>
-    </ino-autocomplete>
-  </div>
-`;
+export const Debounce = Story({
+  ...Playground,
+  docsFromProperty: 'debounce',
+  args: {
+    debounce: 500,
+  }
+})
