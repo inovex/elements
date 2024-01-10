@@ -1,15 +1,13 @@
-import { useEffect } from '@storybook/preview-api';
+import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
-import './ino-currency-input.scss';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 
-export default {
+const Playground = {
   title: 'Input/ino-currency-input',
   component: 'ino-currency-input',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-ino-currency-input'),
     (story) => {
       useEffect(() => {
         const eventHandler = (e) => e.target.setAttribute('value', e.detail);
@@ -27,16 +25,11 @@ export default {
     actions: {
       handles: ['valueChange .customizable-input'],
     },
+    docs: {
+      toc: false,
+    }
   },
-  args: {
-    value: '15.00',
-    currencyLocale: 'de-DE',
-  },
-};
-
-const template = new TemplateGenerator<Components.InoCurrencyInput>(
-  'ino-currency-input',
-  (args) => html`
+  render: (args) => html`
     <ino-currency-input
       value="${args.value}"
       currency-locale="${args.currencyLocale}"
@@ -51,25 +44,30 @@ const template = new TemplateGenerator<Components.InoCurrencyInput>(
       </ino-input>
     </ino-currency-input>
   `,
-);
-
-export const Playground = template.generatePlaygroundStory();
-
-Playground.argTypes = {
-  currencyLocale: {
-    control: 'radio',
-    options: ['de-DE', 'en-US'],
+  args: {
+    value: '15.00',
+    currencyLocale: 'de-DE',
   },
-  value: {
-    control: 'number',
-  },
-};
+  argTypes: {
+    currencyLocale: {
+      control: 'radio',
+      options: ['de-DE', 'en-US'],
+    },
+    value: {
+      control: 'number',
+    },
+  }
+} as Meta<Components.InoCurrencyInput>;
 
 /**
  * A supported locale for currency number formatting. If not given, it uses the global config.
  * See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
  */
-export const Locales = template.generatePlaygroundStory();
-Locales.args = {
-  currencyLocale: 'en-EN',
-};
+export const Locales = Story({
+  ...Playground,
+  args: {
+    currencyLocale: 'en-EN',
+  }
+});
+
+export default Playground;
