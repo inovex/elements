@@ -9,16 +9,20 @@ import {
 } from 'utils/context/staticPaths';
 import { Framework } from 'utils/frameworks';
 
+import styles from './guide.module.scss';
+
 const AngularGuidePage = () => {
   return (
-    <Layout
-      framework={Framework.ANGULAR}
-      sandboxUrl={
-        'https://codesandbox.io/s/github/inovex/elements-example-angular'
-      }
-    >
-      <AngularGuide />
-    </Layout>
+    <div className={styles['mdx-content']}>
+      <Layout
+        framework={Framework.ANGULAR}
+        sandboxUrl={
+          'https://codesandbox.io/s/github/inovex/elements-example-angular'
+        }
+      >
+        <AngularGuide />
+      </Layout>
+    </div>
   );
 };
 
