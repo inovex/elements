@@ -13,6 +13,8 @@ import {
 import docsJson from '../elements-stencil-docs.json';
 import theme from './theme';
 
+import DocumentationTemplate from './DocumentationTemplate.mdx';
+
 // Instead of using the custom elements manifest, use @pxtrn/storybook-addon-docs-stencil to extract argTypes of
 // custom elements of the stencil generated json docs. This works better  for (attributes / props), methods, events, slots.
 // Enforce @pxtrn/storybook-addon-docs-stencil to use component description instead of component readme
@@ -45,6 +47,7 @@ const preview = {
         format: "html",
       },
       toc: true, // 👈 Enables the table of contents for components stories
+      page: DocumentationTemplate,
     },
     options: {
       panelPosition: 'bottom',
