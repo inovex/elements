@@ -35,17 +35,25 @@ export default {
     },
   ],
   args: {
+    autoFocus: false,
+    autogrow: false,
     cols: 60,
-    rows: 5,
+    disabled: false,
+    error: false,
+    helperText: 'Helper message for text areax',
+    helperTextPersistent: false,
+    helperTextValidation: false,
     label: 'Label',
     minlength: 0,
     maxlength: 30,
-    disabled: false,
-    required: false,
+    name: 'textarea',
     outline: true,
-    showLabelHint: false,
-    autogrow: false,
+    placeholder: '',
+    required: false,
+    rows: 5,
     showCharacterCounter: false,
+    showLabelHint: false,
+    value: '',
   },
 } as Meta<Components.InoTextarea>;
 
@@ -54,6 +62,7 @@ const template = new TemplateGenerator<Components.InoTextarea>(
   (args) => html`
     <ino-textarea
       class="customizable-textarea"
+      autofocus="${args.autoFocus}"
       cols="${args.cols}"
       rows="${args.rows}"
       label="${args.label}"
@@ -63,7 +72,13 @@ const template = new TemplateGenerator<Components.InoTextarea>(
       required="${args.required}"
       show-label-hint="${args.showLabelHint}"
       autogrow="${args.autogrow}"
-    ></ino-textarea>
+      helper-text="${args.helperText}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
+      name="${args.name}"
+      value="${args.value}"
+      placeholder="${args.placeholder}"
+    />
   `,
 );
 
@@ -82,12 +97,18 @@ const templateWithMaxLength = new TemplateGenerator<Components.InoTextarea>(
       required="${args.required}"
       show-label-hint="${args.showLabelHint}"
       autogrow="${args.autogrow}"
+      helper-text="${args.helperText}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
       show-character-counter="${args.showCharacterCounter}"
-    ></ino-textarea>
+      name="${args.name}"
+      value="${args.value}"
+      placeholder="${args.placeholder}"
+      error="${args.error}"
+    />
   `,
 );
 export const Playground = templateWithMaxLength.generatePlaygroundStory();
-
 Playground.args = {
   showCharacterCounter: true,
   maxlength: 30,

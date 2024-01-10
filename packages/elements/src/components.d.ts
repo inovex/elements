@@ -42,6 +42,30 @@ export namespace Components {
          */
         "debounce": number;
         /**
+          * Disables this element.
+         */
+        "disabled"?: boolean;
+        /**
+          * Displays the input field as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
+          * The label of this input field.
+         */
+        "label"?: string;
+        /**
           * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
          */
         "noOptionsText": string;
@@ -49,6 +73,22 @@ export namespace Components {
           * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
         "options": string[] | KeyValue[];
+        /**
+          * Marks this element as required.
+         */
+        "required"?: boolean;
+        /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
         /**
           * The selected value.
          */
@@ -202,17 +242,53 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Displays the checkbox as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
           * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
+        /**
+          * The label of this checkbox.
+         */
+        "label"?: string;
         /**
           * The name of this element.
          */
         "name"?: string;
         /**
+          * Marks this element as required.
+         */
+        "required"?: boolean;
+        /**
           * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
          */
         "selection"?: boolean;
+        /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
         /**
           * The value of this element.
          */
@@ -377,15 +453,27 @@ export namespace Components {
          */
         "error"?: boolean;
         /**
-          * The helper text.
+          * @deprecated Use `helperText' instead.  The helper text.
          */
         "helper"?: string;
         /**
-          * Displays the helper permanently.
+          * @deprecated Use `helperTextPersistent' instead.  Displays the helper permanently.
          */
         "helperPersistent"?: boolean;
         /**
+          * The helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
           * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
+          * @deprecated Use `helperTextValidation' instead.  Styles the helper text as a validation message.
          */
         "helperValidation"?: boolean;
         /**
@@ -753,19 +841,31 @@ export namespace Components {
          */
         "getInputElement": () => Promise<HTMLInputElement>;
         /**
-          * The optional helper text.
+          * @deprecated Use `helperText' instead.  The optional helper text.
          */
         "helper"?: string;
         /**
-          * Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
+          * @deprecated Use `showCharacterCounter' instead.  Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
          */
         "helperCharacterCounter"?: boolean;
         /**
-          * Displays the helper permanently.
+          * @deprecated Use `helperTextPersistent' instead.  Displays the helper permanently.
          */
         "helperPersistent"?: boolean;
         /**
+          * The optional helper text.
+         */
+        "helperText": string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent": boolean;
+        /**
           * Styles the helper text as a validation message.
+         */
+        "helperTextValidation": boolean;
+        /**
+          * @deprecated Use `helperTextValidation' instead.  Styles the helper text as a validation message.
          */
         "helperValidation"?: boolean;
         /**
@@ -821,6 +921,10 @@ export namespace Components {
          */
         "setUserInputInterceptor": (fn: UserInputInterceptor) => Promise<void>;
         /**
+          * Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
+         */
+        "showCharacterCounter": boolean;
+        /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
@@ -871,6 +975,22 @@ export namespace Components {
          */
         "dragAndDropText"?: string;
         /**
+          * Displays the element as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
           * Sets the label of the select files button.
          */
         "label"?: string;
@@ -886,6 +1006,18 @@ export namespace Components {
           * Marks this element as required.
          */
         "required"?: boolean;
+        /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
     }
     /**
      * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
@@ -1200,9 +1332,21 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Displays the range input as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
           * The name of this element. Use the same name for radio groups
          */
         "name"?: string;
+        /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
         /**
           * The value of this element.
          */
@@ -1216,6 +1360,38 @@ export namespace Components {
           * Sets the alignment of the radios to either vertical or horizontal.
          */
         "alignment": Alignment;
+        /**
+          * Disables this element.
+         */
+        "disabled"?: boolean;
+        /**
+          * Displays the range input as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
+          * Marks this element as required.
+         */
+        "required"?: boolean;
+        /**
+          * Sets blur on the native element. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native element. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
         /**
           * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
          */
@@ -1233,6 +1409,22 @@ export namespace Components {
           * Restricts the slider to only allow discrete values.
          */
         "discrete"?: boolean;
+        /**
+          * Displays the range input as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
         /**
           * Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.
          */
@@ -1253,6 +1445,14 @@ export namespace Components {
           * Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.
          */
         "ranged": boolean;
+        /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
         /**
           * Should be used to make the component accessible. If the value is not user-friendly (e.g. a number to represent the day of the week), use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).  e.g.:  `const rangeEl = document.querySelector("ino-range")` `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
           * @param fn A function that maps the numeric value to a user-friendly string.
@@ -1360,6 +1560,14 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.
          */
         "showLabelHint"?: boolean;
@@ -1429,9 +1637,37 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Displays the switch as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
+          * The label of this switch.
+         */
+        "label"?: string;
+        /**
           * The name of this element.
          */
         "name"?: string;
+        /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
     }
     /**
      * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
@@ -1575,6 +1811,22 @@ export namespace Components {
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * Displays the text area as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
         /**
           * The optional floating label of this input field.
          */
@@ -2406,6 +2658,30 @@ declare namespace LocalJSX {
          */
         "debounce"?: number;
         /**
+          * Disables this element.
+         */
+        "disabled"?: boolean;
+        /**
+          * Displays the input field as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
+          * The label of this input field.
+         */
+        "label"?: string;
+        /**
           * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
          */
         "noOptionsText"?: string;
@@ -2417,6 +2693,14 @@ declare namespace LocalJSX {
           * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
         "options": string[] | KeyValue[];
+        /**
+          * Marks this element as required.
+         */
+        "required"?: boolean;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
         /**
           * The selected value.
          */
@@ -2574,9 +2858,29 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Displays the checkbox as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
           * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
+        /**
+          * The label of this checkbox.
+         */
+        "label"?: string;
         /**
           * The name of this element.
          */
@@ -2586,9 +2890,17 @@ declare namespace LocalJSX {
          */
         "onCheckedChange"?: (event: InoCheckboxCustomEvent<any>) => void;
         /**
+          * Marks this element as required.
+         */
+        "required"?: boolean;
+        /**
           * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
          */
         "selection"?: boolean;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
         /**
           * The value of this element.
          */
@@ -2769,15 +3081,27 @@ declare namespace LocalJSX {
          */
         "error"?: boolean;
         /**
-          * The helper text.
+          * @deprecated Use `helperText' instead.  The helper text.
          */
         "helper"?: string;
         /**
-          * Displays the helper permanently.
+          * @deprecated Use `helperTextPersistent' instead.  Displays the helper permanently.
          */
         "helperPersistent"?: boolean;
         /**
+          * The helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
           * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
+          * @deprecated Use `helperTextValidation' instead.  Styles the helper text as a validation message.
          */
         "helperValidation"?: boolean;
         /**
@@ -3149,19 +3473,31 @@ declare namespace LocalJSX {
          */
         "error"?: boolean;
         /**
-          * The optional helper text.
+          * @deprecated Use `helperText' instead.  The optional helper text.
          */
         "helper"?: string;
         /**
-          * Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
+          * @deprecated Use `showCharacterCounter' instead.  Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
          */
         "helperCharacterCounter"?: boolean;
         /**
-          * Displays the helper permanently.
+          * @deprecated Use `helperTextPersistent' instead.  Displays the helper permanently.
          */
         "helperPersistent"?: boolean;
         /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
           * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
+          * @deprecated Use `helperTextValidation' instead.  Styles the helper text as a validation message.
          */
         "helperValidation"?: boolean;
         /**
@@ -3217,6 +3553,10 @@ declare namespace LocalJSX {
          */
         "resetOnChange"?: boolean;
         /**
+          * Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
+         */
+        "showCharacterCounter"?: boolean;
+        /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
@@ -3267,6 +3607,22 @@ declare namespace LocalJSX {
          */
         "dragAndDropText"?: string;
         /**
+          * Displays the element as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
           * Sets the label of the select files button.
          */
         "label"?: string;
@@ -3289,6 +3645,10 @@ declare namespace LocalJSX {
           * Marks this element as required.
          */
         "required"?: boolean;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
     }
     /**
      * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
@@ -3627,6 +3987,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Displays the range input as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
           * The name of this element. Use the same name for radio groups
          */
         "name"?: string;
@@ -3648,9 +4012,33 @@ declare namespace LocalJSX {
          */
         "alignment"?: Alignment;
         /**
+          * Disables this element.
+         */
+        "disabled"?: boolean;
+        /**
+          * Displays the range input as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
           * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group. Contains the `value` of the selected `<ino-radio>`.
          */
         "onValueChange"?: (event: InoRadioGroupCustomEvent<number | string>) => void;
+        /**
+          * Marks this element as required.
+         */
+        "required"?: boolean;
         /**
           * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
          */
@@ -3668,6 +4056,22 @@ declare namespace LocalJSX {
           * Restricts the slider to only allow discrete values.
          */
         "discrete"?: boolean;
+        /**
+          * Displays the range input as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
         /**
           * Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.
          */
@@ -3891,6 +4295,26 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Displays the switch as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
+        /**
+          * The label of this switch.
+         */
+        "label"?: string;
+        /**
           * The name of this element.
          */
         "name"?: string;
@@ -4048,6 +4472,22 @@ declare namespace LocalJSX {
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * Displays the text area as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
+        /**
+          * The optional helper text.
+         */
+        "helperText"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperTextPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperTextValidation"?: boolean;
         /**
           * The optional floating label of this input field.
          */

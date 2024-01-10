@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host } from '@stencil/core';
-import classNames from 'classnames';
+import { CssClasses } from '../internal-types';
 
 /**
  * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
@@ -55,20 +55,26 @@ export class Label {
   );
 
   render() {
-    const hostClasses = classNames({
+    const hostClasses: CssClasses = {
       'ino-label--show-hint': this.showHint,
       'ino-label--outlined': this.outline,
       'ino-label--required': this.required,
       'ino-label--disabled': this.disabled,
-    });
+    };
 
-    const label = this.text ? (
-      <label htmlFor={this.for} class={'mdc-floating-label'}>
-        {this.text}
-      </label>
-    ) : (
-      ''
-    );
+    const label =
+      this.text != null ? (
+        <label
+          htmlFor={this.for}
+          class={{
+            'mdc-floating-label': true,
+          }}
+        >
+          {this.text}
+        </label>
+      ) : (
+        ''
+      );
 
     return (
       <Host class={hostClasses}>

@@ -5,10 +5,19 @@ import {
   Event,
   EventEmitter,
   Host,
+  Method,
   Prop,
+  Watch,
   h,
 } from '@stencil/core';
-import classNames from 'classnames';
+import { CssClasses } from '../internal-types';
+import { FormInputWithHelperText } from '../base/form-input/form-input-with-helper-text';
+import { MDCTextFieldHelperText } from '@material/textfield';
+import {
+  helperTextTemplate,
+  initHelperText,
+  updateValidityOnErrorChanged,
+} from '../base/form-input/helper-text';
 
 /**
  * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
@@ -19,10 +28,27 @@ import classNames from 'classnames';
   tag: 'ino-input-file',
   styleUrl: 'ino-input-file.scss',
 })
-export class InputFile implements ComponentInterface {
+export class InputFile implements FormInputWithHelperText, ComponentInterface {
   @Element() el!: HTMLInoInputFileElement;
 
+  private static HELPER_COUNTER = 0;
+
+  private static generateHelperTextId() {
+    return `file-input-helper-text__${InputFile.HELPER_COUNTER++}`;
+  }
+
+  private input: HTMLInputElement;
+  private mdcHelperText: MDCTextFieldHelperText;
+  private uniqueHelperId = InputFile.generateHelperTextId();
   private eventListeners: [string, EventListener | EventListenerObject][] = [];
+
+  get helperTextInstance() {
+    return this.mdcHelperText;
+  }
+
+  get nativeElement() {
+    return this.input;
+  }
 
   /**
    * The types of files accepted by the server.
@@ -55,6 +81,23 @@ export class InputFile implements ComponentInterface {
   @Prop() required?: boolean;
 
   /**
+   * Displays the element as invalid if set to true.
+   * This functionality might be useful if the input validation is (additionally) handled by the backend.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  onErrorChanged() {
+    updateValidityOnErrorChanged(this);
+  }
+
+  /**
+   * If true, an *optional* message is displayed if not required,
+   * otherwise a * marker is displayed if required
+   */
+  @Prop() showLabelHint?: boolean;
+
+  /**
    * Sets the label of the select files button.
    */
   @Prop() label?: string = 'Select file';
@@ -75,6 +118,53 @@ export class InputFile implements ComponentInterface {
   @Prop() dragAndDropSecondaryText?: string = 'or';
 
   /**
+   * The optional helper text.
+   */
+  @Prop() helperText?: string;
+
+  /**
+   * Displays the helper permanently.
+   */
+  @Prop() helperTextPersistent?: boolean;
+
+  @Watch('helperTextPersistent')
+  onHelperTextPeristentChanged(): void {
+    this.mdcHelperText?.foundationForTextField.setPersistent(
+      this.helperTextPersistent,
+    );
+  }
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() helperTextValidation?: boolean;
+
+  @Watch('helperTextValidation')
+  onHelperValidationChanged(): void {
+    this.mdcHelperText?.foundationForTextField.setValidation(
+      this.helperTextValidation,
+    );
+  }
+
+  /**
+   * Sets focus on the native `input`.
+   * Use this method instead of the global `input.focus()`.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.input?.focus();
+  }
+
+  /**
+   * Sets blur on the native `input`.
+   * Use this method instead of the global `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    this.input?.blur();
+  }
+
+  /**
    * Emits when the value changes.
    */
   @Event() changeFile!: EventEmitter<{
@@ -84,9 +174,22 @@ export class InputFile implements ComponentInterface {
 
   componentDidLoad(): void {
     this.configureDragAndDrop();
+    this.initHelperText();
+    this.handleInputProps();
+  }
+
+  private handleInputProps(): void {
+    this.onErrorChanged();
+  }
+
+  private initHelperText(): void {
+    this.mdcHelperText = initHelperText(this.el);
+    this.onHelperTextPeristentChanged();
+    this.onHelperValidationChanged();
   }
 
   disconnectedCallback(): void {
+    this.mdcHelperText.destroy();
     this.eventListeners.forEach((tuple) =>
       this.removeEventListeners(this.el, tuple[0], tuple[1]),
     );
@@ -160,18 +263,20 @@ export class InputFile implements ComponentInterface {
   }
 
   private selectFiles() {
-    const input = this.el.querySelector(
-      '.ino-input-file__native-element',
-    ) as HTMLElement;
-    input.click();
+    this.input.click();
   }
 
   render() {
-    const classes = classNames({
+    const classes: CssClasses = {
+      'ino-input-file': true,
       'ino-input-file__composer': !this.dragAndDrop,
       'ino-input-file__dnd': this.dragAndDrop,
       'ino-input-file__dnd-disabled': this.dragAndDrop && this.disabled,
-    });
+    };
+
+    const labelClass: CssClasses = {
+      'show-hint': this.showLabelHint && this.required,
+    };
 
     return (
       <Host>
@@ -191,9 +296,10 @@ export class InputFile implements ComponentInterface {
             icon-leading
           >
             <ino-icon icon="upload" slot="icon-leading" />
-            {this.label}
+            <span class={labelClass}>{this.label}</span>
           </ino-button>
           <input
+            ref={(input) => (this.input = input)}
             class="ino-input-file__native-element"
             accept={this.accept}
             disabled={this.disabled}
@@ -205,6 +311,7 @@ export class InputFile implements ComponentInterface {
             onChange={(e) => this.onFileChange(e)}
           />
         </div>
+        {helperTextTemplate(this.uniqueHelperId, this.helperText)}
       </Host>
     );
   }

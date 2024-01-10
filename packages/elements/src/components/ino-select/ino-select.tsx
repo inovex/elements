@@ -9,11 +9,13 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   Watch,
 } from '@stencil/core';
-import classNames from 'classnames';
+
 import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
+import { CssClasses } from '../internal-types';
 
 /**
  * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
@@ -112,7 +114,7 @@ export class Select implements ComponentInterface {
   @Watch('error')
   errorHandler(value?: boolean) {
     // The error property is necessary, because the default validation on form submit does not seem to work in angular projects.
-    if (this.disabled || !this.mdcSelectInstance) {
+    if (this.disabled || this.mdcSelectInstance == null) {
       return;
     }
 
@@ -127,9 +129,31 @@ export class Select implements ComponentInterface {
   }
 
   /**
+   * Sets focus on the native `input`.
+   * Use this method instead of the global `input.focus()`.
+   */
+  @Method()
+  async setFocus() {
+    this.anchorElement?.focus();
+  }
+
+  /**
+   * Sets blur on the native `input`.
+   * Use this method instead of the global `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    this.anchorElement?.blur();
+  }
+
+  /**
    * Emits when a selection changes. Contains new value in `event.detail`.
    */
   @Event() valueChange!: EventEmitter<string>;
+
+  private get anchorElement(): HTMLElement {
+    return this.el.querySelector('.mdc-select__anchor') as HTMLElement;
+  }
 
   connectedCallback() {
     // in case of usage e.g. in a popover this is necessary
@@ -157,15 +181,15 @@ export class Select implements ComponentInterface {
   }
 
   private create = () => {
-    if (!this.mdcSelectContainerEl) {
+    if (this.mdcSelectContainerEl == null) {
       return;
     }
 
     this.mdcSelectInstance = new MDCSelect(this.mdcSelectContainerEl);
 
-    if (this.value) {
+    if (this.value != null) {
       this.setSelectValue(this.value);
-    } else if (this.mdcSelectInstance?.value) {
+    } else if (this.mdcSelectInstance?.value != null) {
       this.value = this.mdcSelectInstance.value;
     }
 
@@ -174,10 +198,10 @@ export class Select implements ComponentInterface {
   };
 
   private setSelectValue(value: string) {
-    if (this.nativeInputElement) {
+    if (this.nativeInputElement != null) {
       this.nativeInputElement.value = value;
     }
-    if (this.mdcSelectInstance) {
+    if (this.mdcSelectInstance != null) {
       this.mdcSelectInstance.value = value;
     }
   }
@@ -220,25 +244,25 @@ export class Select implements ComponentInterface {
   render() {
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
 
-    const inoSelectClasses = classNames({
+    const inoSelectClasses: CssClasses = {
       'ino-select-outlined': this.outline,
-    });
+    };
 
-    const classSelect = classNames({
+    const classSelect: CssClasses = {
       'mdc-select': true,
       'mdc-select--disabled': this.disabled,
       'mdc-select--outlined': this.outline,
       'mdc-select--filled': !this.outline,
       'mdc-select--required': this.required,
       'mdc-select--with-leading-icon': leadingSlotHasContent,
-    });
+    };
 
-    const helperTextClasses = classNames({
+    const helperTextClasses: CssClasses = {
       'mdc-select-helper-text': true,
       'mdc-select-helper-text--validation-msg-persistent':
         this.helperPersistent,
       'mdc-select-helper-text--validation-msg': this.helperValidation,
-    });
+    };
 
     const hiddenInput = this.required ? (
       <input
@@ -247,7 +271,7 @@ export class Select implements ComponentInterface {
         ref={(el) => (this.nativeInputElement = el)}
         required={this.required}
         disabled={this.disabled}
-      ></input>
+      />
     ) : (
       ''
     );

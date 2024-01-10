@@ -10,19 +10,23 @@ A range component that allows the user select a number using a slider. It functi
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                                                           | Type      | Default     |
-| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled`   | `disabled`    | Disables this element.                                                                                                | `boolean` | `undefined` |
-| `discrete`   | `discrete`    | Restricts the slider to only allow discrete values.                                                                   | `boolean` | `undefined` |
-| `markers`    | `markers`     | Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.                            | `boolean` | `undefined` |
-| `max`        | `max`         | The max value of this element (**required**).                                                                         | `number`  | `undefined` |
-| `min`        | `min`         | The min value of this element.                                                                                        | `number`  | `0`         |
-| `name`       | `name`        | The name of this element.                                                                                             | `string`  | `undefined` |
-| `ranged`     | `ranged`      | Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.                                       | `boolean` | `false`     |
-| `step`       | `step`        | The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers. | `number`  | `1`         |
-| `value`      | `value`       | The value of this element. Only applicable if not in ranged mode.                                                     | `number`  | `undefined` |
-| `valueEnd`   | `value-end`   | The value of the right thumb. Only applicable in ranged mode.                                                         | `number`  | `undefined` |
-| `valueStart` | `value-start` | The value of the left thumb. Only applicable in ranged mode.                                                          | `number`  | `undefined` |
+| Property               | Attribute                | Description                                                                                                                                              | Type      | Default     |
+| ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`             | `disabled`               | Disables this element.                                                                                                                                   | `boolean` | `undefined` |
+| `discrete`             | `discrete`               | Restricts the slider to only allow discrete values.                                                                                                      | `boolean` | `undefined` |
+| `error`                | `error`                  | Displays the range input as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend. | `boolean` | `undefined` |
+| `helperText`           | `helper-text`            | The optional helper text.                                                                                                                                | `string`  | `undefined` |
+| `helperTextPersistent` | `helper-text-persistent` | Displays the helper permanently.                                                                                                                         | `boolean` | `undefined` |
+| `helperTextValidation` | `helper-text-validation` | Styles the helper text as a validation message.                                                                                                          | `boolean` | `undefined` |
+| `markers`              | `markers`                | Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.                                                               | `boolean` | `undefined` |
+| `max`                  | `max`                    | The max value of this element (**required**).                                                                                                            | `number`  | `undefined` |
+| `min`                  | `min`                    | The min value of this element.                                                                                                                           | `number`  | `0`         |
+| `name`                 | `name`                   | The name of this element.                                                                                                                                | `string`  | `undefined` |
+| `ranged`               | `ranged`                 | Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.                                                                          | `boolean` | `false`     |
+| `step`                 | `step`                   | The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers.                                    | `number`  | `1`         |
+| `value`                | `value`                  | The value of this element. Only applicable if not in ranged mode.                                                                                        | `number`  | `undefined` |
+| `valueEnd`             | `value-end`              | The value of the right thumb. Only applicable in ranged mode.                                                                                            | `number`  | `undefined` |
+| `valueStart`           | `value-start`            | The value of the left thumb. Only applicable in ranged mode.                                                                                             | `number`  | `undefined` |
 
 
 ## Events
@@ -35,6 +39,28 @@ A range component that allows the user select a number using a slider. It functi
 
 
 ## Methods
+
+### `setBlur() => Promise<void>`
+
+Sets blur on the native `input`.
+Use this method instead of the global `input.blur()`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the native `input`.
+Use this method instead of the global `input.focus()`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 ### `setValueToAriaTextMapperFn(fn: (value: number) => string) => Promise<void>`
 

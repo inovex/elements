@@ -20,6 +20,14 @@ export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete
   'noOptionsText',
   'options',
   'value',
+  'disabled',
+  'required',
+  'label',
+  'error',
+  'showLabelHint',
+  'helperText',
+  'helperTextPersistent',
+  'helperTextValidation',
   'valueChange'
 ],
 'value', 'v-value-change', 'valueChange');
@@ -77,6 +85,13 @@ export const InoCarouselSlide = /*@__PURE__*/ defineContainer<JSX.InoCarouselSli
 export const InoCheckbox = /*@__PURE__*/ defineContainer<JSX.InoCheckbox, JSX.InoCheckbox["checked"]>('ino-checkbox', undefined, [
   'checked',
   'disabled',
+  'required',
+  'label',
+  'error',
+  'showLabelHint',
+  'helperText',
+  'helperTextPersistent',
+  'helperTextValidation',
   'name',
   'value',
   'selection',
@@ -138,8 +153,11 @@ export const InoDatepicker = /*@__PURE__*/ defineContainer<JSX.InoDatepicker, JS
   'outline',
   'label',
   'helper',
+  'helperText',
   'helperPersistent',
+  'helperTextPersistent',
   'helperValidation',
+  'helperTextValidation',
   'inline',
   'range',
   'attachToBody',
@@ -245,9 +263,13 @@ export const InoInput = /*@__PURE__*/ defineContainer<JSX.InoInput, JSX.InoInput
   'disabled',
   'error',
   'helper',
+  'helperText',
   'helperCharacterCounter',
+  'showCharacterCounter',
   'helperPersistent',
+  'helperTextPersistent',
   'helperValidation',
+  'helperTextValidation',
   'label',
   'min',
   'max',
@@ -277,10 +299,15 @@ export const InoInputFile = /*@__PURE__*/ defineContainer<JSX.InoInputFile>('ino
   'multiple',
   'name',
   'required',
+  'error',
+  'showLabelHint',
   'label',
   'dragAndDrop',
   'dragAndDropText',
   'dragAndDropSecondaryText',
+  'helperText',
+  'helperTextPersistent',
+  'helperTextValidation',
   'changeFile'
 ]);
 
@@ -396,6 +423,7 @@ export const InoRadio = /*@__PURE__*/ defineContainer<JSX.InoRadio, JSX.InoRadio
   'disabled',
   'name',
   'value',
+  'error',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');
@@ -403,7 +431,13 @@ export const InoRadio = /*@__PURE__*/ defineContainer<JSX.InoRadio, JSX.InoRadio
 
 export const InoRadioGroup = /*@__PURE__*/ defineContainer<JSX.InoRadioGroup, JSX.InoRadioGroup["value"]>('ino-radio-group', undefined, [
   'value',
+  'required',
+  'disabled',
   'alignment',
+  'error',
+  'helperText',
+  'helperTextPersistent',
+  'helperTextValidation',
   'valueChange'
 ],
 'value', 'v-value-change', 'valueChange');
@@ -421,6 +455,10 @@ export const InoRange = /*@__PURE__*/ defineContainer<JSX.InoRange, JSX.InoRange
   'valueStart',
   'valueEnd',
   'step',
+  'error',
+  'helperText',
+  'helperTextPersistent',
+  'helperTextValidation',
   'valueChange',
   'valueStartChange',
   'valueEndChange'
@@ -486,8 +524,13 @@ export const InoSpinner = /*@__PURE__*/ defineContainer<JSX.InoSpinner>('ino-spi
 
 export const InoSwitch = /*@__PURE__*/ defineContainer<JSX.InoSwitch, JSX.InoSwitch["checked"]>('ino-switch', undefined, [
   'checked',
+  'label',
   'disabled',
+  'error',
   'name',
+  'helperText',
+  'helperTextPersistent',
+  'helperTextValidation',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');
@@ -551,6 +594,10 @@ export const InoTextarea = /*@__PURE__*/ defineContainer<JSX.InoTextarea, JSX.In
   'outline',
   'autogrow',
   'label',
+  'helperText',
+  'helperTextPersistent',
+  'helperTextValidation',
+  'error',
   'inoBlur',
   'valueChange'
 ],

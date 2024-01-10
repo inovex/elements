@@ -47,7 +47,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['opt-1', 'opt-2', 'opt-3'],
+      options: ['', 'opt-1', 'opt-2', 'opt-3'],
     },
     alignment: {
       control: {
@@ -57,8 +57,14 @@ export default {
     },
   },
   args: {
-    value: 'opt-2',
+    value: 'opt-1',
+    required: false,
     alignment: 'horizontal',
+    disabled: false,
+    error: false,
+    helperText: 'Helper text for radio group',
+    helperTextPersistent: false,
+    helperTextValidation: false,
   },
 } as Meta<Components.InoRadioGroup>;
 
@@ -69,6 +75,12 @@ const template = new TemplateGenerator<Components.InoRadioGroup>(
       id="radio-grp"
       value="${args.value}"
       alignment="${args.alignment}"
+      disabled="${args.disabled}"
+      required="${args.required}"
+      error="${args.error}"
+      helper-text="${args.helperText}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
     >
       <ino-radio value="opt-1">Opt 1</ino-radio>
       <ino-radio value="opt-2">Opt 2</ino-radio>

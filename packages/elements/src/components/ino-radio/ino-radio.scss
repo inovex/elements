@@ -17,6 +17,18 @@ $radio-active-color: #2c02ff;
 $radio-disabled-color: #cbd0e0;
 $radio-focus-color: #2d5dff4d;
 
+@mixin invalid() {
+  ~ label {
+    color: red;
+  }
+
+  .mdc-radio__background {
+    .mdc-radio__outer-circle {
+      border-color: red !important;
+    }
+  }
+}
+
 :host {
   .mdc-radio {
     @include radio.unchecked-stroke-color($radio-unchecked-color);
@@ -33,6 +45,10 @@ $radio-focus-color: #2d5dff4d;
     &:before,
     &:after {
       display: none;
+    }
+
+    &:has(.mdc-radio__native-control:invalid) {
+      @include invalid();
     }
   }
 
@@ -65,6 +81,12 @@ $radio-focus-color: #2d5dff4d;
   .mdc-radio__inner-circle {
     transform: scale(0.6);
     -webkit-transform: scale(0.6);
+  }
+}
+
+:host(.ino-radio--invalid) {
+  .mdc-radio {
+    @include invalid();
   }
 }
 

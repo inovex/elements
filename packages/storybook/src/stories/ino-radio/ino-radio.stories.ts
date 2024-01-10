@@ -34,6 +34,7 @@ export default {
   args: {
     checked: false,
     disabled: false,
+    error: false,
     name: 'radio-custom',
     value: 'radio-1',
   },
@@ -47,6 +48,7 @@ const template = new TemplateGenerator<Components.InoRadio>(
       disabled="${args.disabled}"
       name="${args.name}"
       value="${args.value}"
+      error="${args.error}"
     >
       Radio Button Label
     </ino-radio>

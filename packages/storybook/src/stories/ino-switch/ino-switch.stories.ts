@@ -15,6 +15,11 @@ export default {
   args: {
     checked: false,
     disabled: false,
+    error: false,
+    helperText: 'Helper text for switch',
+    helperTextPersistent: false,
+    helperTextValidation: false,
+    label: '',
     name: '',
   },
 } as Meta<Components.InoSwitch>;
@@ -23,9 +28,14 @@ const template = new TemplateGenerator<Components.InoSwitch>(
   'ino-switch',
   (args) => html`
     <ino-switch
+      label="${args.label}"
       checked="${args.checked}"
       disabled="${args.disabled}"
+      error="${args.error}"
       name="${args.name}"
+      helper-text="${args.helperText}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
       @checkedChange="${eventHandler}"
     >
       Switch Label

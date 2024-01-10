@@ -3,6 +3,7 @@
 @use '@material/floating-label/mdc-floating-label';
 @use '@material/textfield';
 @use '../base/new-theme' as theme;
+@use '../base/form-input';
 
 ino-textarea {
   /**
@@ -21,6 +22,7 @@ ino-textarea {
   .mdc-text-field {
     width: inherit;
     height: inherit;
+    @include form-input.helperText($invalidSelector: '&--invalid');
   }
 
   .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) {

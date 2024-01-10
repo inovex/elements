@@ -1,4 +1,4 @@
-import { MDCTextField } from '@material/textfield';
+import { MDCTextField, MDCTextFieldHelperText } from '@material/textfield';
 import {
   Component,
   ComponentInterface,
@@ -13,8 +13,14 @@ import {
   Method,
 } from '@stencil/core';
 import autosize from 'autosize';
-import classNames from 'classnames';
 import { generateUniqueId } from '../../util/component-utils';
+import { CssClasses } from '../internal-types';
+import {
+  helperTextTemplate,
+  initHelperText,
+  updateValidityOnErrorChanged,
+} from '../base/form-input/helper-text';
+import { FormInputWithHelperText } from '../base/form-input/form-input-with-helper-text';
 
 /**
  * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
@@ -26,20 +32,29 @@ import { generateUniqueId } from '../../util/component-utils';
   styleUrl: 'ino-textarea.scss',
   shadow: false,
 })
-export class Textarea implements ComponentInterface {
+export class Textarea implements FormInputWithHelperText, ComponentInterface {
+  @Element() el!: HTMLInoTextareaElement;
+
+  private static HELPER_COUNTER = 0;
+
+  private static generateHelperTextId() {
+    return `textarea-helper-text__${Textarea.HELPER_COUNTER++}`;
+  }
+
   private cursorPosition = 0;
-
-  /**
-   * Native Textarea Element
-   */
   private nativeTextareaElement?: HTMLTextAreaElement;
-
-  /**
-   * An internal instance of the material design textfield.
-   */
   private textfield: MDCTextField;
 
-  @Element() el!: HTMLInoTextareaElement;
+  private mdcHelperText: MDCTextFieldHelperText;
+  private uniqueHelperId = Textarea.generateHelperTextId();
+
+  get helperTextInstance() {
+    return this.mdcHelperText;
+  }
+
+  get nativeElement() {
+    return this.nativeTextareaElement;
+  }
 
   /**
    * The autofocus of this element.
@@ -126,6 +141,50 @@ export class Textarea implements ComponentInterface {
   @Prop() label?: string;
 
   /**
+   * The optional helper text.
+   */
+  @Prop() helperText?: string;
+
+  /**
+   * Displays the helper permanently.
+   */
+  @Prop() helperTextPersistent?: boolean;
+
+  @Watch('helperTextPersistent')
+  onHelperTextPeristentChanged(): void {
+    this.mdcHelperText?.foundationForTextField.setPersistent(
+      this.helperTextPersistent,
+    );
+  }
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() helperTextValidation?: boolean;
+
+  @Watch('helperTextValidation')
+  onHelperValidationChanged(): void {
+    this.mdcHelperText?.foundationForTextField.setValidation(
+      this.helperTextValidation,
+    );
+  }
+
+  /**
+   * Displays the text area as invalid if set to true.
+   * This functionality might be useful if the input validation is (additionally) handled by the backend.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  onErrorChanged() {
+    if (this.textfield == null) return;
+    updateValidityOnErrorChanged(this, {
+      setValid: () => this.setValid(),
+      setInvalid: () => this.setInvalid(),
+    });
+  }
+
+  /**
    * Emits when the textarea is blurred and validates email input
    */
   @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
@@ -135,7 +194,7 @@ export class Textarea implements ComponentInterface {
 
   @Watch('value')
   handleChange(value: string) {
-    if (this.nativeTextareaElement && this.textfield) {
+    if (this.nativeTextareaElement != null && this.textfield != null) {
       this.textfield.value = value;
       this.nativeTextareaElement.setSelectionRange(
         this.cursorPosition,
@@ -178,6 +237,10 @@ export class Textarea implements ComponentInterface {
     }
   }
 
+  componentWillLoad() {
+    this.inputID = generateUniqueId();
+  }
+
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
     if (this.autogrow) {
@@ -187,10 +250,24 @@ export class Textarea implements ComponentInterface {
     if (this.autoFocus) {
       this.textfield.focus();
     }
+
+    this.initHelperText();
+    this.handleInputProps();
+  }
+
+  private handleInputProps(): void {
+    this.onErrorChanged();
+  }
+
+  private initHelperText(): void {
+    this.mdcHelperText = initHelperText(this.el);
+    this.onHelperTextPeristentChanged();
+    this.onHelperValidationChanged();
   }
 
   disconnectedCallback() {
     this.textfield?.destroy();
+    this.mdcHelperText.destroy();
     this.destroyAutogrow();
   }
 
@@ -225,30 +302,37 @@ export class Textarea implements ComponentInterface {
   private handleNativeTextareaChange(e) {
     const value = e.target.value !== undefined ? e.target.value : '';
     this.cursorPosition = e.target.selectionStart;
-    if (this.nativeTextareaElement) {
+    if (this.nativeTextareaElement != null) {
       this.nativeTextareaElement.value = this.value || '';
     }
     this.valueChange.emit(value);
   }
 
-  componentWillLoad() {
-    this.inputID = generateUniqueId();
-  }
+  private setValid = () => {
+    this.textfield.valid = false;
+    this.textfield.useNativeValidation = false;
+  };
+
+  private setInvalid = (): void => {
+    this.textfield.valid = true;
+    this.textfield.useNativeValidation = true;
+    this.nativeTextareaElement.checkValidity();
+  };
 
   render() {
-    const hostClasses = classNames({
+    const hostClasses: CssClasses = {
       'ino-textarea--outline': this.outline,
-    });
+    };
 
-    const classes = classNames({
+    const classes: CssClasses = {
       'mdc-text-field': true,
       'mdc-text-field--textarea': true,
       'mdc-text-field--outlined': this.outline,
       'mdc-text-field--filled': !this.outline,
-      'mdc-text-field-fullwidth': !Boolean(this.cols),
-      'mdc-text-field--no-label': !this.label,
+      'mdc-text-field-fullwidth': this.cols == null,
+      'mdc-text-field--no-label': this.label == null,
       'mdc-text-field--with-internal-counter': Boolean(this.maxlength),
-    });
+    };
 
     return (
       <Host class={hostClasses}>
@@ -270,7 +354,7 @@ export class Textarea implements ComponentInterface {
             onInput={this.handleNativeTextareaChange.bind(this)}
             onBlur={this.handleBlur}
           />
-          {this.maxlength && (
+          {this.showCharacterCounter && this.maxlength && (
             <div class="mdc-text-field-character-counter">
               {this.value.length} / {this.maxlength}
             </div>
@@ -284,6 +368,7 @@ export class Textarea implements ComponentInterface {
             show-hint={this.showLabelHint}
           />
         </div>
+        {helperTextTemplate(this.uniqueHelperId, this.helperText)}
       </Host>
     );
   }

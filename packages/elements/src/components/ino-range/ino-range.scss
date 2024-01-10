@@ -3,6 +3,7 @@
 @use '@material/slider' as slider-mixins;
 @use '../base/new-theme' as theme;
 @use '@material/ripple';
+@use '../base/form-input';
 
 @include slider.core-styles;
 
@@ -16,8 +17,9 @@ ino-range {
     @include slider-mixins.thumb-ripple-color(theme.$transparent);
     @include slider-mixins.tick-mark-inactive-color(theme.$black);
     @include slider-mixins.value-indicator-text-color(theme.$white);
+    @include form-input.helperText($textPadding: 24px);
 
-    & .mdc-slider__track {
+    .mdc-slider__track {
       .mdc-slider__track--active,
       .mdc-slider__track--inactive {
         height: 2px;
@@ -26,7 +28,17 @@ ino-range {
       }
     }
 
-    & .mdc-slider__thumb-knob {
+    &:has(.mdc-slider__input:invalid) {
+      .mdc-slider__thumb-knob {
+        border: 1px var(--inovex-elements-error) solid;
+      }
+
+      .mdc-slider__track--active_fill {
+        border-color: var(--inovex-elements-error);
+      }
+    }
+
+    .mdc-slider__thumb-knob {
       height: 16px;
       width: 16px;
       border: 0px;

@@ -1,7 +1,28 @@
+@use '../base/form-input';
+
 ino-radio-group {
   .ino-radio-group-wrapper {
     width: fit-content;
     display: flex;
+
+    @include form-input.helperText(
+      $textPadding: 10px,
+      $invalidSelector: '&--touched:has(input:invalid)'
+    );
+
+    .hidden {
+      display: none;
+    }
+
+    &--touched {
+      &:has(input:invalid) {
+        ino-radio {
+          label {
+            color: red;
+          }
+        }
+      }
+    }
 
     &--vertical {
       flex-direction: column;

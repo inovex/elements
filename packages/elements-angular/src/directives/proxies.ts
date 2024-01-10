@@ -36,14 +36,15 @@ export declare interface InoAccordion extends Components.InoAccordion {
 
 
 @ProxyCmp({
-  inputs: ['debounce', 'noOptionsText', 'options', 'value']
+  inputs: ['debounce', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'label', 'noOptionsText', 'options', 'required', 'showLabelHint', 'value'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-autocomplete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['debounce', 'noOptionsText', 'options', 'value'],
+  inputs: ['debounce', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'label', 'noOptionsText', 'options', 'required', 'showLabelHint', 'value'],
 })
 export class InoAutocomplete {
   protected el: HTMLElement;
@@ -185,14 +186,15 @@ export declare interface InoCarouselSlide extends Components.InoCarouselSlide {}
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'indeterminate', 'name', 'selection', 'value']
+  inputs: ['checked', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'indeterminate', 'label', 'name', 'required', 'selection', 'showLabelHint', 'value'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'indeterminate', 'name', 'selection', 'value'],
+  inputs: ['checked', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'indeterminate', 'label', 'name', 'required', 'selection', 'showLabelHint', 'value'],
 })
 export class InoCheckbox {
   protected el: HTMLElement;
@@ -304,7 +306,7 @@ Contains typed input in `event.detail`
 
 
 @ProxyCmp({
-  inputs: ['appendTo', 'attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'inline', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'placeholder', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
+  inputs: ['appendTo', 'attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'helperValidation', 'hourStep', 'inline', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'placeholder', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
   methods: ['redraw', 'setFocus', 'setBlur']
 })
 @Component({
@@ -312,7 +314,7 @@ Contains typed input in `event.detail`
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['appendTo', 'attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'inline', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'placeholder', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
+  inputs: ['appendTo', 'attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'helperValidation', 'hourStep', 'inline', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'placeholder', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
 })
 export class InoDatepicker {
   protected el: HTMLElement;
@@ -515,7 +517,7 @@ export declare interface InoImgList extends Components.InoImgList {}
 
 
 @ProxyCmp({
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showCharacterCounter', 'showLabelHint', 'step', 'type', 'unit', 'value'],
   methods: ['getInputElement', 'setFocus', 'setBlur']
 })
 @Component({
@@ -523,7 +525,7 @@ export declare interface InoImgList extends Components.InoImgList {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showCharacterCounter', 'showLabelHint', 'step', 'type', 'unit', 'value'],
 })
 export class InoInput {
   protected el: HTMLElement;
@@ -553,14 +555,15 @@ Contains typed input in `event.detail`
 
 
 @ProxyCmp({
-  inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'label', 'multiple', 'name', 'required']
+  inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'label', 'multiple', 'name', 'required', 'showLabelHint'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-input-file',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'label', 'multiple', 'name', 'required'],
+  inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'label', 'multiple', 'name', 'required', 'showLabelHint'],
 })
 export class InoInputFile {
   protected el: HTMLElement;
@@ -896,14 +899,15 @@ export declare interface InoProgressBar extends Components.InoProgressBar {}
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'name', 'value']
+  inputs: ['checked', 'disabled', 'error', 'name', 'value'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'name', 'value'],
+  inputs: ['checked', 'disabled', 'error', 'name', 'value'],
 })
 export class InoRadio {
   protected el: HTMLElement;
@@ -925,14 +929,15 @@ This event will only be emitted if the current state of the radio button is fals
 
 
 @ProxyCmp({
-  inputs: ['alignment', 'value']
+  inputs: ['alignment', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'required', 'value'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-radio-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alignment', 'value'],
+  inputs: ['alignment', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'required', 'value'],
 })
 export class InoRadioGroup {
   protected el: HTMLElement;
@@ -954,15 +959,15 @@ Contains the `value` of the selected `<ino-radio>`.
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart'],
-  methods: ['setValueToAriaTextMapperFn']
+  inputs: ['disabled', 'discrete', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart'],
+  methods: ['setFocus', 'setBlur', 'setValueToAriaTextMapperFn']
 })
 @Component({
   selector: 'ino-range',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart'],
+  inputs: ['disabled', 'discrete', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart'],
 })
 export class InoRange {
   protected el: HTMLElement;
@@ -1048,7 +1053,8 @@ export declare interface InoSegmentGroup extends Components.InoSegmentGroup {
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
+  inputs: ['disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-select',
@@ -1131,14 +1137,15 @@ export declare interface InoSpinner extends Components.InoSpinner {}
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'name']
+  inputs: ['checked', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'label', 'name'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-switch',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'name'],
+  inputs: ['checked', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'label', 'name'],
 })
 export class InoSwitch {
   protected el: HTMLElement;
@@ -1282,7 +1289,7 @@ export declare interface InoTableHeaderCell extends Components.InoTableHeaderCel
 
 
 @ProxyCmp({
-  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value'],
+  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value'],
   methods: ['setFocus', 'setBlur']
 })
 @Component({
@@ -1290,7 +1297,7 @@ export declare interface InoTableHeaderCell extends Components.InoTableHeaderCel
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value'],
+  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'error', 'helperText', 'helperTextPersistent', 'helperTextValidation', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value'],
 })
 export class InoTextarea {
   protected el: HTMLElement;

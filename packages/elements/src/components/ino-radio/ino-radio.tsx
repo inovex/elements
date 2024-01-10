@@ -7,14 +7,16 @@ import {
   Event,
   EventEmitter,
   Host,
+  Method,
   Prop,
   Watch,
   h,
 } from '@stencil/core';
-import classnames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
+import { CssClasses } from '../internal-types';
+import { IsFormInput } from '../base/form-input/form-input-with-helper-text';
 
 /**
  * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
@@ -29,9 +31,13 @@ import { renderHiddenInput } from '../../util/helpers';
   styleUrl: 'ino-radio.scss',
   shadow: true,
 })
-export class Radio implements ComponentInterface {
+export class Radio implements IsFormInput, ComponentInterface {
   @Element() el!: HTMLInoRadioElement;
   private nativeInputEl!: HTMLInputElement;
+
+  get nativeElement() {
+    return this.nativeInputEl;
+  }
 
   /**
    * Initially marks this element as checked.
@@ -42,7 +48,7 @@ export class Radio implements ComponentInterface {
 
   @Watch('checked')
   checkedChanged(newChecked: boolean) {
-    if (this.radio) {
+    if (this.radio != null) {
       this.radio.checked = newChecked;
     }
   }
@@ -61,6 +67,35 @@ export class Radio implements ComponentInterface {
    * The value of this element.
    */
   @Prop() value?: string;
+
+  /**
+   * Displays the range input as invalid if set to true.
+   * This functionality might be useful if the input validation is (additionally) handled by the backend.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  onErrorChanged(): void {
+    this.nativeElement.setCustomValidity(this.error ? 'custom-error' : '');
+  }
+
+  /**
+   * Sets focus on the native `input`.
+   * Use this method instead of the global `input.focus()`.
+   */
+  @Method()
+  async setFocus() {
+    this.nativeInputEl.focus();
+  }
+
+  /**
+   * Sets blur on the native `input`.
+   * Use this method instead of the global `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    this.nativeInputEl.blur();
+  }
 
   /**
    * An internal instance of the material design radio.
@@ -92,6 +127,11 @@ export class Radio implements ComponentInterface {
       this.el.shadowRoot.querySelector('.mdc-form-field'),
     );
     this.formField.input = this.radio;
+    this.handleInputProps();
+  }
+
+  private handleInputProps(): void {
+    this.onErrorChanged();
   }
 
   disconnectedCallback() {
@@ -102,14 +142,14 @@ export class Radio implements ComponentInterface {
   render() {
     const { el, name, checked, value, disabled } = this;
 
-    const hostClasses = classnames({
+    const hostClasses: CssClasses = {
       'ino-radio--checked': checked,
-    });
+    };
 
-    const mdcClasses = classnames({
+    const mdcClasses: CssClasses = {
       'mdc-radio': true,
       'mdc-radio--disabled': disabled,
-    });
+    };
 
     renderHiddenInput(el, name, checked ? value : '', disabled);
 
