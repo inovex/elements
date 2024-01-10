@@ -86,16 +86,14 @@ export const Loading = Story({
 export const LeadingAndTrailingIcon = Story({
   ...Playground,
   render: () => html`
-  <div class="container">
-    <ino-button>
-      <ino-icon icon="info" slot="icon-leading"></ino-icon>
-      Label
-    </ino-button>
-    <ino-button>
-      <ino-icon icon="info" slot="icon-trailing"></ino-icon>
-      Label
-    </ino-button>
-  </div>
+  <ino-button>
+    <ino-icon icon="info" slot="icon-leading"></ino-icon>
+    Label
+  </ino-button>
+  <ino-button>
+    <ino-icon icon="info" slot="icon-trailing"></ino-icon>
+    Label
+  </ino-button>
 `})
 
 export default Playground;
