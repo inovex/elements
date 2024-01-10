@@ -1,17 +1,29 @@
+import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
-import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import Story from '../StoryWrapper';
 import './ino-button.scss';
 
-type Story = StoryObj;
-
-export default {
+const Playground = {
   title: 'Buttons/<ino-button>',
   component: 'ino-button',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-button')],
-  // will be used as default props for all stories
+  parameters: {
+    docs: {
+      source: {
+        format: 'html'
+      }
+    }
+  },
+  render: (args) => html`
+    <ino-button
+      variant="${args.variant}"
+      disabled="${args.disabled}"
+      dense="${args.dense}"
+      loading="${args.loading}"
+    >
+      Label
+    </ino-button>
+  `,
   args: {
     variant: 'filled',
     dense: false,
@@ -20,34 +32,59 @@ export default {
   },
 } as Meta<Components.InoButton>;
 
-// the basic template for the button component
-const template = new TemplateGenerator<Components.InoButton>(
-  'ino-button',
-  (args) => html`
-  <ino-button
-    variant="${args.variant}"
-    disabled="${args.disabled}"
-    dense="${args.dense}"
-    loading="${args.loading}"
-  >
-    Label
-  </ino-button>
-`,
-);
+export const Filled = Story({
+  ...Playground,
+  docsFromProperty: 'variant',
+  args: {
+    variant: 'filled'
+  }
+})
 
-//export const Playground = template.generatePlaygroundStory();
+export const Outlined = Story({
+  ...Playground,
+  docsFromProperty: 'variant',
+  args: {
+    variant: 'outlined'
+  }
+})
 
-export const Filled: Story = template.generateStoryForProp('variant', 'filled');
-export const Outlined: Story = template.generateStoryForProp('variant', 'outlined');
-export const Text: Story = template.generateStoryForProp('variant', 'text');
-export const Disabled: Story = template.generateStoryForProp('disabled', true);
-export const Dense: Story = template.generateStoryForProp('dense', true);
-export const Loading: Story = template.generateStoryForProp('loading', true);
+export const Text = Story({
+  ...Playground,
+  docsFromProperty: 'variant',
+  args: {
+    variant: 'text'
+  }
+})
+
+export const Disabled = Story({
+  ...Playground,
+  docsFromProperty: 'disabled',
+  args: {
+    disabled: true,
+  }
+})
+
+export const Dense = Story({
+  ...Playground,
+  docsFromProperty: 'dense',
+  args: {
+    dense: true,
+  }
+})
+
+export const Loading = Story({
+  ...Playground,
+  docsFromProperty: 'loading',
+  args: {
+    loading: true,
+  }
+})
 
 /**
  In order to include icons, use the `icon-leading` or `icon-trailing` slot
  */
-export const LeadingAndTrailingIcon: Story = {
+export const LeadingAndTrailingIcon = Story({
+  ...Playground,
   render: () => html`
   <div class="container">
     <ino-button>
@@ -59,5 +96,6 @@ export const LeadingAndTrailingIcon: Story = {
       Label
     </ino-button>
   </div>
-`
-}
+`})
+
+export default Playground;
