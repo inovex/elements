@@ -2,8 +2,8 @@ import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
-import './ino-accordion.scss';
 import Story from '../StoryWrapper';
+import './ino-accordion.scss';
 
 const eventHandler = (e: CustomEvent<boolean>) => {
   (e.target as HTMLInoAccordionElement).expanded = e.detail;
