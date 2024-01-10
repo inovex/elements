@@ -1,26 +1,25 @@
-.story-card {
-  .customizable-card {
-    margin-top: 12px;
-  }
 
-  .flex-cards {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.customizable-card {
+  margin-top: 12px;
+}
 
-    > ino-card {
-      flex: 1;
-      margin-right: 10px;
-      &:last-child {
-        margin-right: 0;
-      }
+.flex-cards {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > ino-card {
+    flex: 1;
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
     }
   }
+}
 
-  h4 {
-    margin-top: 52px;
-  }
+h4 {
+  margin-top: 52px;
 }
 
 .card-content--vertical {

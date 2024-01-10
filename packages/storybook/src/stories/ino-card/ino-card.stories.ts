@@ -1,18 +1,14 @@
+import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/preview-api';
-import { Meta, StoryObj } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import Story from '../StoryWrapper';
 import './ino-card.scss';
 
-type Story = StoryObj;
-
-export default {
+const Playground = {
   title: 'Structure/<ino-card>',
   component: 'ino-card',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-card'),
     (story) => {
       useEffect(() => {
         const handleClick = function (e) {
@@ -34,43 +30,49 @@ export default {
       return story();
     },
   ],
+  render: (args) => html`
+    <ino-card
+      class="customizable-card"
+      disable-elevation="${args.disableElevation}"
+      selected="${args.selected}"
+    >
+      <div slot="header" class="card-header">
+        <ino-icon icon="info" clickable></ino-icon>
+      </div>
+      <div slot="content" class="card-content--vertical">
+        <ino-img
+          src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+        ></ino-img>
+      </div>
+      <div slot="footer" class="sample-card-footer">
+        <ino-segment-group>
+          <ino-segment-button value="1">Read</ino-segment-button>
+          <ino-segment-button value="2">Bookmark</ino-segment-button>
+        </ino-segment-group>
+      </div>
+    </ino-card>
+  `,
   args: {
     disableElevation: false,
     selected: false,
   },
 } as Meta<Components.InoCard>;
 
-const template = new TemplateGenerator<Components.InoCard>(
-  'ino-card',
-  (args) => html`
-  <ino-card
-    class="customizable-card"
-    disable-elevation="${args.disableElevation}"
-    selected="${args.selected}"
-  >
-    <div slot="header" class="card-header">
-      <ino-icon icon="info" clickable></ino-icon>
-    </div>
-    <div slot="content" class="card-content--vertical">
-      <ino-img
-        src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-      ></ino-img>
-    </div>
-    <div slot="footer" class="sample-card-footer">
-      <ino-segment-group>
-        <ino-segment-button value="1">Read</ino-segment-button>
-        <ino-segment-button value="2">Bookmark</ino-segment-button>
-      </ino-segment-group>
-    </div>
-  </ino-card>
-`);
 
-export const DisabledElevation: Story = template.generateStoryForProp(
-  'disableElevation',
-  true,
-);
+export const DisabledElevation = Story({
+  ...Playground,
+  docsFromProperty: 'disableElevation',
+  args: {
+    disableElevation: true,
+  }
+}) 
 
-export const Selected: Story = template.generateStoryForProp(
-  'selected',
-  true,
-);
+export const Selected = Story({
+  ...Playground,
+  docsFromProperty: 'selected',
+  args: {
+    selected: true,
+  }
+})
+
+export default Playground;
