@@ -42,7 +42,7 @@ const preview = {
       // NEW: HIDE DECORATORS FROM STORY OUTPUT,
       // FIXME: disabled all decorator functions which are currently used for event handling
       source: {
-        // excludeDecorators: true,
+        format: "html",
       },
       toc: true, // 👈 Enables the table of contents for components stories
     },
