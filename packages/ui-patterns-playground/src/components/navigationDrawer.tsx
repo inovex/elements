@@ -35,7 +35,7 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
         ></InoImg>
         <p>Patterns</p>
       </div>
-      <InoList role="menubar" slot="content" aria-label="Main Navigation" >
+      <InoList role="menubar" slot="content" aria-label="Main Navigation">
         <Link to="/">
           <InoNavItem role="menuitem" text="Login" activated>
             <InoIcon icon="dashboard"></InoIcon>
