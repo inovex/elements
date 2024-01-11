@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
 import Story from '../StoryWrapper';
 import './ino-accordion.scss';
 
@@ -9,10 +8,9 @@ const eventHandler = (e: CustomEvent<boolean>) => {
   (e.target as HTMLInoAccordionElement).expanded = e.detail;
 };
 
-const Playground = {
+const inoAccordionMeta = {
   title: 'Structure/<ino-accordion>',
   component: 'ino-accordion',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-accordion')],
   parameters: {
     docs: {
       toc: false, // disabled because the ino-accordion also contains h3 headlines that are queried for the TOC
@@ -33,8 +31,14 @@ const Playground = {
   },
 } as Meta<Components.InoAccordion>;
 
+export default inoAccordionMeta;
+
+export const Default = Story({
+  ...inoAccordionMeta,
+});
+
 export const Expanded = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'expanded',
   args: {
     expanded: true,
@@ -42,11 +46,9 @@ export const Expanded = Story({
 });
 
 export const AccordionTitle = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'accordionTitle',
   args: {
     accordionTitle: 'Custom Title',
   },
 });
-
-export default Playground;
