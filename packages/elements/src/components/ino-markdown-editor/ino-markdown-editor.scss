@@ -1,11 +1,6 @@
 @use '../base/new-theme' as theme;
 @use '@material/textfield';
 
-/**
-  @prop --ino-markdown-editor-min-height: min-height of text editor. Default value is `100px`.
-  @prop --ino-markdown-editor-max-height: max-height of text editor Default value is `none`.
-*/
-
 // specific styles for the markdown editor dialog window that opens when having text selected and clicking the "create link" button
 .ino-dialog-section {
   display: flex;
@@ -25,6 +20,10 @@
 $border-radius: 10px;
 
 ino-markdown-editor {
+  /**
+   * @prop --ino-markdown-editor-min-height: Min height of text editor. [size:100]
+   * @prop --ino-markdown-editor-max-height: Max height of text editor. [size]
+   */
   .markdown-editor {
     border-radius: $border-radius;
 

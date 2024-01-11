@@ -4,6 +4,7 @@ import { useEffect } from '@storybook/client-api';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
+
 import './ino-avatar.scss';
 
 import avatarImg from '../../assets/images/avatar.jpg';
@@ -71,12 +72,17 @@ const template = new TemplateGenerator<Components.InoAvatar>(
 
 export const Playground = template.generatePlaygroundStory();
 
+console.log(Playground.argTypes);
+
 export const Interactive = template.generateStoryForProp('interactive', true);
 export const ColorSecondary = template.generateStoryForProp(
   'colorSecondary',
   true,
 );
-export const VariantDashed = template.generateStoryForProp('variant', 'dashed');
+export const VariantDashed1 = template.generateStoryForProp(
+  'variant',
+  'dashed',
+);
 export const VariantDashedInteractive = template.generateStoryForProp(
   'variant',
   'dashed',

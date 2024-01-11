@@ -2,6 +2,7 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
+import { setArgs, setArgTypes } from '../utils';
 
 export default {
   title: `Structure/ino-nav-item`,
@@ -19,7 +20,7 @@ type InoNavItemExtended = Components.InoNavItem & {
   icon: boolean;
 };
 
-const icon = html`<ino-icon icon="onboarding"></ino-icon>`; // eslint-disable-next-line no-unexpected-multiline
+const icon = html` <ino-icon icon="onboarding"></ino-icon> `; // eslint-disable-next-line no-unexpected-multiline
 
 const template = new TemplateGenerator<InoNavItemExtended>(
   'ino-nav-item',
@@ -41,17 +42,17 @@ const template = new TemplateGenerator<InoNavItemExtended>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.args = {
+setArgs(Playground, {
   icon: true,
-};
-Playground.argTypes = {
+});
+setArgTypes(Playground, {
   // hide custom attributes from table
   icon: {
     table: {
       disable: true,
     },
   },
-};
+});
 
 export const Text = template.generateStoryForProp('text', 'Some Text');
 export const Activated = template.generateStoryForProp('activated', true);

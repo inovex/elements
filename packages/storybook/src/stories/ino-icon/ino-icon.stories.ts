@@ -3,10 +3,9 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-
 import ICONS from '../../../../elements/src/components/ino-icon/icons';
-
 import { decorateStoryWithClass, withIconControl } from '../utils';
+
 import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter(
@@ -120,7 +119,6 @@ const template = new TemplateGenerator<Components.InoIcon>(
       icon="${args.icon}"
       svg-title="${args.svgTitle}"
       src="${args.src}"
-      style="--icon-width: 30px; --icon-height: 30px;"
     >
     </ino-icon>
   `,

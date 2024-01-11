@@ -28,9 +28,9 @@
 
 ## CSS Custom Properties
 
-| Name                | Description                        |
-| ------------------- | ---------------------------------- |
-| `--ino-avatar-size` | Width and height of the ino-avatar |
+| Name                | Description                                    |
+| ------------------- | ---------------------------------------------- |
+| `--ino-avatar-size` | Width and height of the ino-avatar. [size:138] |
 
 
 ----------------------------------------------

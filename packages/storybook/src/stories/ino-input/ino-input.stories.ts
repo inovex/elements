@@ -3,7 +3,8 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, setArgTypes } from '../utils';
+
 import './ino-input.scss';
 
 export default {
@@ -90,20 +91,21 @@ const template = new TemplateGenerator<Components.InoInput>(
       type="${args.type}"
       unit="${args.unit}"
       value="${args.value}"
+      icon-leading
     >
+      <ino-icon slot="icon-leading" icon="search"></ino-icon>
     </ino-input>
   `,
 );
 export const Playground = template.generatePlaygroundStory();
-
-Playground.argTypes = {
+setArgTypes(Playground, {
   type: {
     control: {
       type: 'select',
     },
     options: ['text', 'number', 'password', 'email'],
   },
-};
+});
 
 const templateType = new TemplateGenerator<Components.InoInput>(
   'ino-input',

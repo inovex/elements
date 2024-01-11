@@ -29,12 +29,12 @@ Snackbars provide brief messages about app processes at the bottom of the screen
 
 ## CSS Custom Properties
 
-| Name                    | Description                 |
-| ----------------------- | --------------------------- |
-| `--ino-snackbar-bottom` | Distance to the bottom edge |
-| `--ino-snackbar-left`   | Distance to the left edge   |
-| `--ino-snackbar-right`  | Distance to the right edge  |
-| `--ino-snackbar-top`    | Distance to the top edge    |
+| Name                    | Description                              |
+| ----------------------- | ---------------------------------------- |
+| `--ino-snackbar-bottom` | Distance to the bottom edge. [text:auto] |
+| `--ino-snackbar-left`   | Distance to the left edge. [text:auto]   |
+| `--ino-snackbar-right`  | Distance to the right edge. [text:0px]   |
+| `--ino-snackbar-top`    | Distance to the top edge. [text:0px]     |
 
 
 ## Dependencies

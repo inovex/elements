@@ -29,16 +29,16 @@ fully customize the appearance of the card.
 
 ## CSS Custom Properties
 
-| Name                                    | Description                            |
-| --------------------------------------- | -------------------------------------- |
-| `--ino-card-background-color`           | background color of the card           |
-| `--ino-card-background-color--active`   | background color of the card if active |
-| `--ino-card-background-color--focus`    | background color of the card on focus  |
-| `--ino-card-background-color--hover`    | background color of the card on hover  |
-| `--ino-card-border-color`               | border color of the card               |
-| `--ino-card-border-thickness`           | thickness of the border                |
-| `--ino-card-checkmark-background-color` | background color of the check mark     |
-| `--ino-card-checkmark-color`            | check mark color                       |
+| Name                                    | Description                                          |
+| --------------------------------------- | ---------------------------------------------------- |
+| `--ino-card-background-color`           | Background color of the card. [color:#fff]           |
+| `--ino-card-background-color--active`   | Background color of the card if active. [color:#fff] |
+| `--ino-card-background-color--focus`    | Background color of the card on focus. [color:#fff]  |
+| `--ino-card-background-color--hover`    | Background color of the card on hover. [color:#fff]  |
+| `--ino-card-border-color`               | Border color of the card. [color:#c1c1c1]            |
+| `--ino-card-border-thickness`           | Thickness of the border. [size:1]                    |
+| `--ino-card-checkmark-background-color` | Background Color of the check mark. [color:#fff]     |
+| `--ino-card-checkmark-color`            | Check mark color. [color:#3d40f5]                    |
 
 
 ## Dependencies

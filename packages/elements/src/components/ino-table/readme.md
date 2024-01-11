@@ -41,9 +41,9 @@ It currently supports different states (selected, active), sorting and loading i
 
 ## CSS Custom Properties
 
-| Name                     | Description           |
-| ------------------------ | --------------------- |
-| `--ino-table-row-height` | height of a table row |
+| Name                     | Description                      |
+| ------------------------ | -------------------------------- |
+| `--ino-table-row-height` | Height of a table row. [size:48] |
 
 
 ----------------------------------------------

@@ -66,11 +66,11 @@ Type: `Promise<void>`
 
 ## CSS Custom Properties
 
-| Name                           | Description                   |
-| ------------------------------ | ----------------------------- |
-| `--ino-textarea-caret-color`   | color of the caret            |
-| `--ino-textarea-label-color`   | color of the label            |
-| `--ino-textarea-outline-color` | outline color of the textarea |
+| Name                           | Description                                    |
+| ------------------------------ | ---------------------------------------------- |
+| `--ino-textarea-caret-color`   | Color of the caret. [color:#4655ff]            |
+| `--ino-textarea-label-color`   | Color of the label. [color:#4655ff]            |
+| `--ino-textarea-outline-color` | Outline color of the textarea. [color:#4655ff] |
 
 
 ## Dependencies

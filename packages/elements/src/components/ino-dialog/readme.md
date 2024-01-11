@@ -45,19 +45,19 @@ It is based on the mdc-dialog and is fully customizable. The styling of a dialog
 
 ## CSS Custom Properties
 
-| Name                                    | Description                     |
-| --------------------------------------- | ------------------------------- |
-| `--ino-dialog-background-color`         | background color of the dialog  |
-| `--ino-dialog-border`                   | border shorthand of the dialog  |
-| `--ino-dialog-border-radius`            | border-radius of the dialog     |
-| `--ino-dialog-box-shadow`               | box-shadow of the dialog        |
-| `--ino-dialog-height`                   | height of the dialog            |
-| `--ino-dialog-max-height`               | max-height of the dialog        |
-| `--ino-dialog-max-width`                | max-width of the dialog         |
-| `--ino-dialog-min-height`               | min-height of the dialog        |
-| `--ino-dialog-min-width`                | min-width of the dialog         |
-| `--ino-dialog-overlay-background-color` | background color of the overlay |
-| `--ino-dialog-width`                    | width of the dialog             |
+| Name                            | Description                                                           |
+| ------------------------------- | --------------------------------------------------------------------- |
+| `--ino-dialog-background-color` | Background color of the dialog. [color:#fff]                          |
+| `--ino-dialog-border`           | Border shorthand of the dialog. [text:1px solid #2c02ff]              |
+| `--ino-dialog-border-radius`    | Border radius of the dialog. [size:17]                                |
+| `--ino-dialog-box-shadow`       | Box shadow of the dialog. [text:0px 0px 22px rgba(93, 91, 105, 0.35)] |
+| `--ino-dialog-height`           | height of the dialog. [size]                                          |
+| `--ino-dialog-max-height`       | Max height of the dialog. [size]                                      |
+| `--ino-dialog-max-width`        | Max width of the dialog. [size:552]                                   |
+| `--ino-dialog-min-height`       | Min height of the dialog. [size]                                      |
+| `--ino-dialog-min-width`        | Min width of the dialog. [size:480]                                   |
+| `--ino-dialog-padding`          | Padding of the dialog. [size:62]                                      |
+| `--ino-dialog-width`            | Width of the dialog. [size]                                           |
 
 
 ## Dependencies

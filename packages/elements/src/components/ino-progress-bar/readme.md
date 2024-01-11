@@ -21,9 +21,9 @@ The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress
 
 ## CSS Custom Properties
 
-| Name                        | Description               |
-| --------------------------- | ------------------------- |
-| `--progress-bar--bar-color` | Color of the progress bar |
+| Name                        | Description                                |
+| --------------------------- | ------------------------------------------ |
+| `--progress-bar--bar-color` | Color of the progress bar. [color:#4655ff] |
 
 
 ----------------------------------------------

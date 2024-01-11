@@ -45,11 +45,11 @@ Use the custom `ino-option` component to add options to the select component. Th
 
 ## CSS Custom Properties
 
-| Name                      | Description                           |
-| ------------------------- | ------------------------------------- |
-| `--ino-border-radius`     | Border-radius of the open select menu |
-| `--ino-select-height`     | Height of the open select menu        |
-| `--ino-select-icon-color` | Icon color                            |
+| Name                      | Description                                           |
+| ------------------------- | ----------------------------------------------------- |
+| `--ino-border-radius`     | Border-radius of the open select menu. [size:0.7:rem] |
+| `--ino-select-height`     | Height of the open select menu. [size]                |
+| `--ino-select-icon-color` | Icon color. [color:#4655ff]                           |
 
 
 ## Dependencies

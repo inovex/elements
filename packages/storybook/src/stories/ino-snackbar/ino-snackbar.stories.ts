@@ -2,9 +2,17 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-import './ino-snackbar.scss';
+import { decorateStoryWithClass, setArgTypes } from '../utils';
 import { TemplateGenerator } from '../template-generator';
+
+import './ino-snackbar.scss';
+
+interface SnackbarPosition {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+}
 
 export default {
   title: 'Notification/ino-snackbar',
@@ -59,13 +67,15 @@ export default {
     type: 'info',
     id: 'snackbar-default',
     stayVisibleOnHover: false,
+    top: 0,
+    right: 0,
   },
 } as Meta<Components.InoSnackbar>;
 
 type InoSnackbarExtended = Components.InoSnackbar & {
   id: string;
   defaultSlot: string;
-};
+} & SnackbarPosition;
 
 const template = new TemplateGenerator<InoSnackbarExtended>(
   'ino-snackbar',
@@ -80,6 +90,12 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
         timeout="${args.timeout}"
         type="${args.type}"
         stay-visible-on-hover="${args.stayVisibleOnHover}"
+        style="
+          --ino-snackbar-top: ${args.top};
+          --ino-snackbar-right: ${args.right};
+          --ino-snackbar-bottom: ${args.bottom};
+          --ino-snackbar-left: ${args.left}
+        "
       >
         ${args.defaultSlot}
       </ino-snackbar>
@@ -88,7 +104,7 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.argTypes = {
+setArgTypes(Playground, {
   // hide custom attributes from table
   id: {
     table: {
@@ -100,7 +116,7 @@ Playground.argTypes = {
       disable: true,
     },
   },
-};
+});
 
 export const ActionText = template.generateStoryForProp('actionText', 'Show', {
   id: 'snackbar-actionText',

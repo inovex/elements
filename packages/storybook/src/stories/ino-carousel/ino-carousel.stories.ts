@@ -2,11 +2,9 @@ import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
-
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-carousel.scss';

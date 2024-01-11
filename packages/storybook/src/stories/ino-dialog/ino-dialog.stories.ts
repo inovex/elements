@@ -3,12 +3,17 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, setArgs } from '../utils';
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
 
 import './ino-dialog.scss';
+
+type InoDialogExtended = Components.InoDialog & {
+  dataDialogId: string;
+  buttonText: string;
+};
 
 export default {
   title: 'Structure/ino-dialog',
@@ -74,12 +79,7 @@ export default {
     cancelText: 'cancel',
     icon: 'search',
   },
-} as Meta<Components.InoDialog>;
-
-type InoDialogExtended = Components.InoDialog & {
-  dataDialogId: string;
-  buttonText: string;
-};
+} as Meta<InoDialogExtended>;
 
 const template = new TemplateGenerator<InoDialogExtended>(
   'ino-dialog',
@@ -104,9 +104,9 @@ const template = new TemplateGenerator<InoDialogExtended>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.args = {
+setArgs(Playground, {
   buttonText: 'Open Dialog',
-};
+});
 
 const templateConfirmationWithText = new TemplateGenerator<InoDialogExtended>(
   'ino-dialog',

@@ -3,7 +3,6 @@ import {
   applyPolyfills,
   defineCustomElements,
 } from '@inovex.de/elements/dist/loader';
-
 import './global.scss';
 import {
   extractArgTypes,
@@ -17,8 +16,15 @@ import theme from './theme';
 // custom elements of the stencil generated json docs. This works better  for (attributes / props), methods, events, slots.
 // Enforce @pxtrn/storybook-addon-docs-stencil to use component description instead of component readme
 // see https://github.com/pixtron/storybook-addon-docs-stencil/blob/e87eece216d22d0643057cf15aedb168d83734b7/src/index.ts#L215
-docsJson.components.forEach((c) => (c.readme = null));
-setStencilDocJson(docsJson);
+const docs = {
+  ...docsJson,
+  components: docsJson.components.map((c) => ({
+    ...c,
+    readme: null,
+    styles: [],
+  })),
+};
+setStencilDocJson(docs);
 
 // Alternative with a custom elements schema:
 // import customElements from '../docs/custom-elements-manifest.json';

@@ -32,9 +32,9 @@ Provide `two-lines` to set proper style attributes for list items having a prima
 
 ## CSS Custom Properties
 
-| Name                            | Description                                                                    |
-| ------------------------------- | ------------------------------------------------------------------------------ |
-| `--ino-list-item-border-radius` | Border radius of the list container, also effects the first and last list item |
+| Name                            | Description                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------- |
+| `--ino-list-item-border-radius` | Border radius of the list container, also effects the first and last list item. [size] |
 
 
 ## Dependencies

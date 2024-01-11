@@ -2,7 +2,8 @@ import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, setArgs } from '../utils';
+
 import './ino-option.scss';
 
 export default {
@@ -33,10 +34,10 @@ const template = new TemplateGenerator<Components.InoOption>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.args = {
+setArgs(Playground, {
   disabled: false,
   selected: false,
-};
+});
 
 export const DisabledOption = template.generateStoryForProp('disabled', true);
 export const SelectedOption = template.generateStoryForProp('selected', true);

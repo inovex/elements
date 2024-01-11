@@ -4,6 +4,7 @@ import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
 import inovexElementsLogo from '../../assets/images/elements.svg';
+
 import './ino-nav-drawer.scss';
 
 const openChangeHandle = function (e) {

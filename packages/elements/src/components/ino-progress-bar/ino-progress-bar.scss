@@ -5,11 +5,11 @@
 
 :host {
   /**
-   * @prop --progress-bar--bar-color: Color of the progress bar
+   * @prop --progress-bar--bar-color: Color of the progress bar. [color:#4655ff]
    */
-  --progress-bar--bar-color: #{theme.$p-5};
+  --ino-progress-bar-color: var(--progress-bar--bar-color, #{theme.$p-5});
 
   @include linear-progress.core-styles;
-  @include linear-progress.bar-color(var(--progress-bar--bar-color));
+  @include linear-progress.bar-color(var(--ino-progress-bar-color));
   @include linear-progress.buffer-color(theme.$n-2);
 }

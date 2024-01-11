@@ -27,9 +27,9 @@ in a grid-like format. It is based on the mdc-image-list component.
 
 ## CSS Custom Properties
 
-| Name                  | Description                |
-| --------------------- | -------------------------- |
-| `--ino-img-list-cols` | sets the number of columns |
+| Name                  | Description                            |
+| --------------------- | -------------------------------------- |
+| `--ino-img-list-cols` | Sets the number of columns. [number:3] |
 
 
 ----------------------------------------------

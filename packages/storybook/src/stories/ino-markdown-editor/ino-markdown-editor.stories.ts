@@ -4,6 +4,7 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
+
 import './ino-markdown-editor.scss';
 
 const ID = 'editor-playground';
@@ -48,7 +49,7 @@ const template = new TemplateGenerator<Components.InoMarkdownEditor>(
       id="${ID}"
       initial-value="${args.initialValue}"
       view-mode="${args.viewMode}"
-    ></ino-markdown-editor>
+    />
   `,
 );
 export const Playground = template.generatePlaygroundStory();

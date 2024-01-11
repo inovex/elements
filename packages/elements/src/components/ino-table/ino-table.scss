@@ -9,9 +9,8 @@
 
 ino-table {
   /**
-    * @prop --ino-table-row-height: height of a table row
-  */
-
+   * @prop --ino-table-row-height: Height of a table row. [size:48]
+   */
   @include table-row.core-styles;
   @include table-cell.core-styles;
 

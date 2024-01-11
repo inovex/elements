@@ -4,6 +4,7 @@ import { decorateStoryWithClass } from '../utils';
 import { useEffect } from '@storybook/client-api';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
+
 import './ino-table.scss';
 
 export default {
@@ -48,7 +49,8 @@ export default {
   },
 };
 
-const tableContent = html`<tr slot="header-row"></tr>
+const tableContent = html`
+  <tr slot="header-row"></tr>
   <ino-table-header-cell
     column-id="id"
     sort-start="asc"
@@ -144,7 +146,8 @@ const tableContent = html`<tr slot="header-row"></tr>
     <td>95%</td>
     <td>Some information</td>
     <td>Some information</td>
-  </tr> `;
+  </tr>
+`;
 
 const template = new TemplateGenerator<Components.InoTable>(
   'ino-table',
@@ -157,12 +160,14 @@ const template = new TemplateGenerator<Components.InoTable>(
       sticky-header="${args.stickyHeader}"
     >
       ${args.loading
-        ? html`<ino-progress-bar
-            slot="loading-indicator"
-            indeterminate
-            debounce="200"
-            active
-          ></ino-progress-bar>`
+        ? html`
+            <ino-progress-bar
+              slot="loading-indicator"
+              indeterminate
+              debounce="200"
+              active
+            ></ino-progress-bar>
+          `
         : html``}
       ${tableContent}
     </ino-table>
@@ -188,7 +193,7 @@ export const SortColumnIdAndSortDirection = template.generatePlaygroundStory();
 export const StickyHeader = template.generateStoryForProp('stickyHeader', true);
 
 const templateSelectionWithCheckboxes =
-  new TemplateGenerator<Components.InoTable>('ino-table', (args) => {
+  new TemplateGenerator<Components.InoTable>('ino-table', () => {
     useEffect(() => {
       const mainBox = document.getElementById(
         'headerBox',

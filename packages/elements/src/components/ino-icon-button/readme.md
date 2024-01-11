@@ -41,16 +41,16 @@ A rounded button component that contains an icon. It functions as a wrapper arou
 
 ## CSS Custom Properties
 
-| Name                                          | Description                                    |
-| --------------------------------------------- | ---------------------------------------------- |
-| `--ino-icon-button-background-active-color`   | base color of the active background            |
-| `--ino-icon-button-background-color`          | default color of the background                |
-| `--ino-icon-button-background-disabled-color` | base color of the background in disabled state |
-| `--ino-icon-button-icon-active-color`         | color of the active icon itself                |
-| `--ino-icon-button-icon-color`                | default color of the icon itself               |
-| `--ino-icon-button-icon-disabled-color`       | color of the icon itself in disabled state     |
-| `--ino-icon-button-icon-size`                 | size of the icon itself                        |
-| `--ino-icon-button-size`                      | size of the entire button                      |
+| Name                                          | Description                                                     |
+| --------------------------------------------- | --------------------------------------------------------------- |
+| `--ino-icon-button-background-active-color`   | Base color of the active background. [color:#4655ff]            |
+| `--ino-icon-button-background-color`          | Default color of the background. [color:transparent]            |
+| `--ino-icon-button-background-disabled-color` | Base color of the background in disabled state. [color:#100707] |
+| `--ino-icon-button-icon-active-color`         | Color of the active icon itself. [color:#4655ff]                |
+| `--ino-icon-button-icon-color`                | Default color of the icon itself. [color:#4655ff]               |
+| `--ino-icon-button-icon-disabled-color`       | Color of the icon itself in disabled state. [color:#100707]     |
+| `--ino-icon-button-icon-size`                 | Size of the icon itself. [size:24]                              |
+| `--ino-icon-button-size`                      | Size of the entire button. [size:48]                            |
 
 
 ## Dependencies

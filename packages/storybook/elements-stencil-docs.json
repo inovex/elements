@@ -464,7 +464,7 @@
         {
           "name": "--ino-avatar-size",
           "annotation": "prop",
-          "docs": "Width and height of the ino-avatar"
+          "docs": "Width and height of the ino-avatar. [size:138]"
         }
       ],
       "slots": [
@@ -816,42 +816,42 @@
         {
           "name": "--ino-card-background-color",
           "annotation": "prop",
-          "docs": "background color of the card"
+          "docs": "Background color of the card. [color:#fff]"
         },
         {
           "name": "--ino-card-background-color--active",
           "annotation": "prop",
-          "docs": "background color of the card if active"
+          "docs": "Background color of the card if active. [color:#fff]"
         },
         {
           "name": "--ino-card-background-color--focus",
           "annotation": "prop",
-          "docs": "background color of the card on focus"
+          "docs": "Background color of the card on focus. [color:#fff]"
         },
         {
           "name": "--ino-card-background-color--hover",
           "annotation": "prop",
-          "docs": "background color of the card on hover"
+          "docs": "Background color of the card on hover. [color:#fff]"
         },
         {
           "name": "--ino-card-border-color",
           "annotation": "prop",
-          "docs": "border color of the card"
+          "docs": "Border color of the card. [color:#c1c1c1]"
         },
         {
           "name": "--ino-card-border-thickness",
           "annotation": "prop",
-          "docs": "thickness of the border"
+          "docs": "Thickness of the border. [size:1]"
         },
         {
           "name": "--ino-card-checkmark-background-color",
           "annotation": "prop",
-          "docs": "background color of the check mark"
+          "docs": "Background Color of the check mark. [color:#fff]"
         },
         {
           "name": "--ino-card-checkmark-color",
           "annotation": "prop",
-          "docs": "check mark color"
+          "docs": "Check mark color. [color:#3d40f5]"
         }
       ],
       "slots": [
@@ -1052,12 +1052,12 @@
         {
           "name": "--ino-carousel-animation-duration",
           "annotation": "prop",
-          "docs": "sets the duration of the slide animation"
+          "docs": "Sets the duration of the slide animation. [time:700]"
         },
         {
           "name": "--ino-carousel-icon-color",
           "annotation": "prop",
-          "docs": "sets the color of the navigation buttons"
+          "docs": "Sets the color of the navigation buttons. [color:#fff]"
         }
       ],
       "slots": [
@@ -3048,57 +3048,57 @@
         {
           "name": "--ino-dialog-background-color",
           "annotation": "prop",
-          "docs": "background color of the dialog"
+          "docs": "Background color of the dialog. [color:#fff]"
         },
         {
           "name": "--ino-dialog-border",
           "annotation": "prop",
-          "docs": "border shorthand of the dialog"
+          "docs": "Border shorthand of the dialog. [text:1px solid #2c02ff]"
         },
         {
           "name": "--ino-dialog-border-radius",
           "annotation": "prop",
-          "docs": "border-radius of the dialog"
+          "docs": "Border radius of the dialog. [size:17]"
         },
         {
           "name": "--ino-dialog-box-shadow",
           "annotation": "prop",
-          "docs": "box-shadow of the dialog"
+          "docs": "Box shadow of the dialog. [text:0px 0px 22px rgba(93, 91, 105, 0.35)]"
         },
         {
           "name": "--ino-dialog-height",
           "annotation": "prop",
-          "docs": "height of the dialog"
+          "docs": "height of the dialog. [size]"
         },
         {
           "name": "--ino-dialog-max-height",
           "annotation": "prop",
-          "docs": "max-height of the dialog"
+          "docs": "Max height of the dialog. [size]"
         },
         {
           "name": "--ino-dialog-max-width",
           "annotation": "prop",
-          "docs": "max-width of the dialog"
+          "docs": "Max width of the dialog. [size:552]"
         },
         {
           "name": "--ino-dialog-min-height",
           "annotation": "prop",
-          "docs": "min-height of the dialog"
+          "docs": "Min height of the dialog. [size]"
         },
         {
           "name": "--ino-dialog-min-width",
           "annotation": "prop",
-          "docs": "min-width of the dialog"
+          "docs": "Min width of the dialog. [size:480]"
         },
         {
-          "name": "--ino-dialog-overlay-background-color",
+          "name": "--ino-dialog-padding",
           "annotation": "prop",
-          "docs": "background color of the overlay"
+          "docs": "Padding of the dialog. [size:62]"
         },
         {
           "name": "--ino-dialog-width",
           "annotation": "prop",
-          "docs": "width of the dialog"
+          "docs": "Width of the dialog. [size]"
         }
       ],
       "slots": [
@@ -3410,42 +3410,42 @@
         {
           "name": "--fab-background-color",
           "annotation": "prop",
-          "docs": "Background color"
+          "docs": "Background color. [color:#2d02ff]"
         },
         {
           "name": "--fab-background-color-active",
           "annotation": "prop",
-          "docs": "Background color if active"
+          "docs": "Background color if active. [color:#1801e1]"
         },
         {
           "name": "--fab-background-color-disabled",
           "annotation": "prop",
-          "docs": "Background color if disabled"
+          "docs": "Background color if disabled. [color:#b6b4c4]"
         },
         {
           "name": "--fab-background-color-hover",
           "annotation": "prop",
-          "docs": "Background color on hover"
+          "docs": "Background color on hover. [color:#4655ff]"
         },
         {
           "name": "--fab-color-disabled",
           "annotation": "prop",
-          "docs": "Text color if disabled"
+          "docs": "Text color if disabled. [color:#fff]"
         },
         {
           "name": "--fab-icon-color",
           "annotation": "prop",
-          "docs": "Color of the slotted icon"
+          "docs": "Color of the slotted icon. [color:#fff]"
         },
         {
           "name": "--fab-icon-color-disabled",
           "annotation": "prop",
-          "docs": "Color of the slotted icon if disabled"
+          "docs": "Color of the slotted icon if disabled. [color:#fff]"
         },
         {
           "name": "--ino-fab-color",
           "annotation": "prop",
-          "docs": "Text color"
+          "docs": "Text color. [color:#fff]"
         }
       ],
       "slots": [
@@ -3851,17 +3851,17 @@
         {
           "name": "--ino-icon-color",
           "annotation": "prop",
-          "docs": "Color of the icon"
+          "docs": "Color of the icon. [color:#3d40f5]"
         },
         {
           "name": "--ino-icon-height",
           "annotation": "prop",
-          "docs": "Height of the icon"
+          "docs": "Height of the icon. [size:2:em]"
         },
         {
           "name": "--ino-icon-width",
           "annotation": "prop",
-          "docs": "Width of the icon"
+          "docs": "Width of the icon. [size:2:em]"
         }
       ],
       "slots": [],
@@ -4115,42 +4115,42 @@
         {
           "name": "--ino-icon-button-background-active-color",
           "annotation": "prop",
-          "docs": "base color of the active background"
+          "docs": "Base color of the active background. [color:#4655ff]"
         },
         {
           "name": "--ino-icon-button-background-color",
           "annotation": "prop",
-          "docs": "default color of the background"
+          "docs": "Default color of the background. [color:transparent]"
         },
         {
           "name": "--ino-icon-button-background-disabled-color",
           "annotation": "prop",
-          "docs": "base color of the background in disabled state"
+          "docs": "Base color of the background in disabled state. [color:#100707]"
         },
         {
           "name": "--ino-icon-button-icon-active-color",
           "annotation": "prop",
-          "docs": "color of the active icon itself"
+          "docs": "Color of the active icon itself. [color:#4655ff]"
         },
         {
           "name": "--ino-icon-button-icon-color",
           "annotation": "prop",
-          "docs": "default color of the icon itself"
+          "docs": "Default color of the icon itself. [color:#4655ff]"
         },
         {
           "name": "--ino-icon-button-icon-disabled-color",
           "annotation": "prop",
-          "docs": "color of the icon itself in disabled state"
+          "docs": "Color of the icon itself in disabled state. [color:#100707]"
         },
         {
           "name": "--ino-icon-button-icon-size",
           "annotation": "prop",
-          "docs": "size of the icon itself"
+          "docs": "Size of the icon itself. [size:24]"
         },
         {
           "name": "--ino-icon-button-size",
           "annotation": "prop",
-          "docs": "size of the entire button"
+          "docs": "Size of the entire button. [size:48]"
         }
       ],
       "slots": [
@@ -4579,7 +4579,7 @@
         {
           "name": "--ino-img-list-cols",
           "annotation": "prop",
-          "docs": "sets the number of columns"
+          "docs": "Sets the number of columns. [number:3]"
         }
       ],
       "slots": [
@@ -5281,27 +5281,27 @@
         {
           "name": "--ino-input-caret-color",
           "annotation": "prop",
-          "docs": "color of the caret"
+          "docs": "Color of the caret. [color:#4655ff]"
         },
         {
           "name": "--ino-input-color",
           "annotation": "prop",
-          "docs": "text color of the input"
+          "docs": "Text color of the input. [color:rgba(0, 0, 0, 0.87)]"
         },
         {
           "name": "--ino-input-icon-color",
           "annotation": "prop",
-          "docs": "icon color"
+          "docs": "Icon color. [color:#4655ff]"
         },
         {
           "name": "--ino-input-label-color",
           "annotation": "prop",
-          "docs": "color of the label"
+          "docs": "Color of the label. [color:#4655ff]"
         },
         {
           "name": "--ino-input-line-color",
           "annotation": "prop",
-          "docs": "line color"
+          "docs": "Line color. [color:#4655ff]"
         }
       ],
       "slots": [
@@ -5599,12 +5599,12 @@
         {
           "name": "--ino-input-file-box-height",
           "annotation": "prop",
-          "docs": "Height of the drag and drop window"
+          "docs": "Height of the drag and drop window. [size:300]"
         },
         {
           "name": "--ino-input-file-box-width",
           "annotation": "prop",
-          "docs": "Width of the drag and drop window"
+          "docs": "Width of the drag and drop window. [size]"
         }
       ],
       "slots": [],
@@ -5869,7 +5869,7 @@
         {
           "name": "--ino-list-item-border-radius",
           "annotation": "prop",
-          "docs": "Border radius of the list container, also effects the first and last list item"
+          "docs": "Border radius of the list container, also effects the first and last list item. [size]"
         }
       ],
       "slots": [
@@ -6163,52 +6163,52 @@
         {
           "name": "--ino-list-item-deselected-background-color",
           "annotation": "prop",
-          "docs": "Background color of a deselected list item"
+          "docs": "Background color of a deselected list item. [color:rgba(255, 255, 255, 0)]"
         },
         {
           "name": "--ino-list-item-deselected-background-color-active",
           "annotation": "prop",
-          "docs": "Background color of a deselected list item if active"
+          "docs": "Background color of a deselected list item if active. [color:#f4f4f7]"
         },
         {
           "name": "--ino-list-item-deselected-background-color-focus",
           "annotation": "prop",
-          "docs": "Background color of a deselected list item if focused"
+          "docs": "Background color of a deselected list item if focused. [color:#f4f4f7]"
         },
         {
           "name": "--ino-list-item-deselected-background-color-hover",
           "annotation": "prop",
-          "docs": "Background color of a deselected list item on hover"
+          "docs": "Background color of a deselected list item on hover. [color:#f4f4f7]"
         },
         {
           "name": "--ino-list-item-deselected-color",
           "annotation": "prop",
-          "docs": "Text color of a deselected list item"
+          "docs": "Text color of a deselected list item. [color:#39383c]"
         },
         {
           "name": "--ino-list-item-selected-background-color",
           "annotation": "prop",
-          "docs": "Background color of a selected list item"
+          "docs": "Background color of a selected list item. [color:#f6fafe]"
         },
         {
           "name": "--ino-list-item-selected-background-color-active",
           "annotation": "prop",
-          "docs": "Background color of a selected list item if active"
+          "docs": "Background color of a selected list item if active. [color:#e2ecff]"
         },
         {
           "name": "--ino-list-item-selected-background-color-focus",
           "annotation": "prop",
-          "docs": "Background color of a selected list item if focused"
+          "docs": "Background color of a selected list item if focused. [color:#e2ecff]"
         },
         {
           "name": "--ino-list-item-selected-background-color-hover",
           "annotation": "prop",
-          "docs": "Background color of a selected list item on hover"
+          "docs": "Background color of a selected list item on hover. [color:#e2ecff]"
         },
         {
           "name": "--ino-list-item-selected-color",
           "annotation": "prop",
-          "docs": "Text color of a selected list item"
+          "docs": "Text color of a selected list item. [color:#4655ff]"
         }
       ],
       "slots": [
@@ -6404,12 +6404,12 @@
         {
           "name": "--ino-markdown-editor-max-height",
           "annotation": "prop",
-          "docs": "max-height of text editor Default value is `none`."
+          "docs": "Max height of text editor. [size]"
         },
         {
           "name": "--ino-markdown-editor-min-height",
           "annotation": "prop",
-          "docs": "min-height of text editor. Default value is `100px`."
+          "docs": "Min height of text editor. [size:100]"
         }
       ],
       "slots": [],
@@ -6734,42 +6734,42 @@
         {
           "name": "--ino-nav-drawer-background",
           "annotation": "prop",
-          "docs": "Background of the drawer."
+          "docs": "Background of the drawer. [color:#fff]"
         },
         {
           "name": "--ino-nav-drawer-height",
           "annotation": "prop",
-          "docs": "Height of the drawer."
+          "docs": "Height of the drawer. [size]"
         },
         {
           "name": "--ino-nav-drawer-mobile-width-open",
           "annotation": "prop",
-          "docs": "Mobile variant only! The width of the open drawer."
+          "docs": "Mobile variant only! The width of the open drawer. [size:171]"
         },
         {
           "name": "--ino-nav-drawer-text-color",
           "annotation": "prop",
-          "docs": "Color of text inside the drawer."
+          "docs": "Color of text inside the drawer. [color:#1801e1]"
         },
         {
           "name": "--ino-nav-drawer-timing-function",
           "annotation": "prop",
-          "docs": "Timing function of the slide animation of the drawer."
+          "docs": "Timing function of the slide animation of the drawer. [text:cubic-bezier(0.4, 0, 0.2, 1)]"
         },
         {
           "name": "--ino-nav-drawer-transition-duration",
           "annotation": "prop",
-          "docs": "Duration of the slide animation of the drawer."
+          "docs": "Duration of the slide animation of the drawer. [time:250]"
         },
         {
           "name": "--ino-nav-drawer-width-closed",
           "annotation": "prop",
-          "docs": "Docked variant only! The width of the collapsed drawer."
+          "docs": "Docked variant only! The width of the collapsed drawer. [size:72]"
         },
         {
           "name": "--ino-nav-drawer-width-open",
           "annotation": "prop",
-          "docs": "The width of the open drawer."
+          "docs": "The width of the open drawer. [size:250]"
         }
       ],
       "slots": [
@@ -6925,22 +6925,22 @@
         {
           "name": "--ino-nav-item-background-color",
           "annotation": "prop",
-          "docs": "Inactive color of the background of one item."
+          "docs": "Inactive color of the background of one item. [color:#fff]"
         },
         {
           "name": "--ino-nav-item-background-color-active",
           "annotation": "prop",
-          "docs": "Active color of the background of one item."
+          "docs": "Active color of the background of one item. [color:#dfdee6]"
         },
         {
           "name": "--ino-nav-item-color",
           "annotation": "prop",
-          "docs": "Inactive color of icon."
+          "docs": "Inactive color of icon. [color:#39383c]"
         },
         {
           "name": "--ino-nav-item-color-active",
           "annotation": "prop",
-          "docs": "Active color of icon."
+          "docs": "Active color of icon. [color:#4655ff]"
         }
       ],
       "slots": [
@@ -7069,47 +7069,47 @@
         {
           "name": "--ino-option-deselected-background-color",
           "annotation": "prop",
-          "docs": "Background color if deselected"
+          "docs": "Background color if deselected. [color:#fff]"
         },
         {
           "name": "--ino-option-deselected-background-color-active",
           "annotation": "prop",
-          "docs": "Background color if active and deselected"
+          "docs": "Background color if active and deselected. [color:#fff]"
         },
         {
           "name": "--ino-option-deselected-background-color-focus",
           "annotation": "prop",
-          "docs": "Background color on focus if deselected"
+          "docs": "Background color on focus if deselected. [color:#f4f4f7]"
         },
         {
           "name": "--ino-option-deselected-background-color-hover",
           "annotation": "prop",
-          "docs": "Background color on hover if deselected"
+          "docs": "Background color on hover if deselected. [color:#f4f4f7]"
         },
         {
           "name": "--ino-option-height",
           "annotation": "prop",
-          "docs": "Height of the option container"
+          "docs": "Height of the option container. [size:2.85:rem]"
         },
         {
           "name": "--ino-option-selected-background-color",
           "annotation": "prop",
-          "docs": "Background color if selected"
+          "docs": "Background color if selected. [color:#f6fafe]"
         },
         {
           "name": "--ino-option-selected-background-color-active",
           "annotation": "prop",
-          "docs": "Background color if active and selected"
+          "docs": "Background color if active and selected. [color:#beccff]"
         },
         {
           "name": "--ino-option-selected-background-color-focus",
           "annotation": "prop",
-          "docs": "Background color on focus if selected"
+          "docs": "Background color on focus if selected. [color:#e2ecff]"
         },
         {
           "name": "--ino-option-selected-background-color-hover",
           "annotation": "prop",
-          "docs": "Background color on hover if selected"
+          "docs": "Background color on hover if selected. [color:#e2ecff]"
         }
       ],
       "slots": [
@@ -7864,7 +7864,7 @@
         {
           "name": "--progress-bar--bar-color",
           "annotation": "prop",
-          "docs": "Color of the progress bar"
+          "docs": "Color of the progress bar. [color:#4655ff]"
         }
       ],
       "slots": [],
@@ -9025,17 +9025,17 @@
         {
           "name": "--ino-border-radius",
           "annotation": "prop",
-          "docs": "Border-radius of the open select menu"
+          "docs": "Border-radius of the open select menu. [size:0.7:rem]"
         },
         {
           "name": "--ino-select-height",
           "annotation": "prop",
-          "docs": "Height of the open select menu"
+          "docs": "Height of the open select menu. [size]"
         },
         {
           "name": "--ino-select-icon-color",
           "annotation": "prop",
-          "docs": "Icon color"
+          "docs": "Icon color. [color:#4655ff]"
         }
       ],
       "slots": [
@@ -9246,22 +9246,22 @@
         {
           "name": "--ino-snackbar-bottom",
           "annotation": "prop",
-          "docs": "Distance to the bottom edge"
+          "docs": "Distance to the bottom edge. [text:auto]"
         },
         {
           "name": "--ino-snackbar-left",
           "annotation": "prop",
-          "docs": "Distance to the left edge"
+          "docs": "Distance to the left edge. [text:auto]"
         },
         {
           "name": "--ino-snackbar-right",
           "annotation": "prop",
-          "docs": "Distance to the right edge"
+          "docs": "Distance to the right edge. [text:0px]"
         },
         {
           "name": "--ino-snackbar-top",
           "annotation": "prop",
-          "docs": "Distance to the top edge"
+          "docs": "Distance to the top edge. [text:0px]"
         }
       ],
       "slots": [],
@@ -9982,7 +9982,7 @@
         {
           "name": "--ino-table-row-height",
           "annotation": "prop",
-          "docs": "height of a table row"
+          "docs": "Height of a table row. [size:48]"
         }
       ],
       "slots": [
@@ -10788,17 +10788,17 @@
         {
           "name": "--ino-textarea-caret-color",
           "annotation": "prop",
-          "docs": "color of the caret"
+          "docs": "Color of the caret. [color:#4655ff]"
         },
         {
           "name": "--ino-textarea-label-color",
           "annotation": "prop",
-          "docs": "color of the label"
+          "docs": "Color of the label. [color:#4655ff]"
         },
         {
           "name": "--ino-textarea-outline-color",
           "annotation": "prop",
-          "docs": "outline color of the textarea"
+          "docs": "Outline color of the textarea. [color:#4655ff]"
         }
       ],
       "slots": [],

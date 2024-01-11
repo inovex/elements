@@ -93,13 +93,13 @@ Type: `Promise<void>`
 
 ## CSS Custom Properties
 
-| Name                      | Description             |
-| ------------------------- | ----------------------- |
-| `--ino-input-caret-color` | color of the caret      |
-| `--ino-input-color`       | text color of the input |
-| `--ino-input-icon-color`  | icon color              |
-| `--ino-input-label-color` | color of the label      |
-| `--ino-input-line-color`  | line color              |
+| Name                      | Description                                          |
+| ------------------------- | ---------------------------------------------------- |
+| `--ino-input-caret-color` | Color of the caret. [color:#4655ff]                  |
+| `--ino-input-color`       | Text color of the input. [color:rgba(0, 0, 0, 0.87)] |
+| `--ino-input-icon-color`  | Icon color. [color:#4655ff]                          |
+| `--ino-input-label-color` | Color of the label. [color:#4655ff]                  |
+| `--ino-input-line-color`  | Line color. [color:#4655ff]                          |
 
 
 ## Dependencies

@@ -3,8 +3,9 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass, showSnackbar } from '../utils';
-import './ino-select.scss';
 import { TemplateGenerator } from '../template-generator';
+
+import './ino-select.scss';
 
 const handleFormSubmission = (e) => {
   e.preventDefault();
@@ -77,27 +78,58 @@ const template = new TemplateGenerator<Components.InoSelect>(
       helper-persistent="${args.helperPersistent}"
       helper-validation="${args.helperValidation}"
     >
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
       <ino-option value="Option 1">Option 1</ino-option>
       <ino-option value="Option 2">Option 2</ino-option>
       <ino-option value="Option 3">Option 3</ino-option>
     </ino-select>
   `,
 );
+
+const templateWithoutIcon = new TemplateGenerator<Components.InoSelect>(
+  'ino-select',
+  (args) => html`
+    <ino-select
+      disabled="${args.disabled}"
+      name="${args.name}"
+      outline="${args.outline}"
+      label="${args.label}"
+      required="${args.required}"
+      show-label-hint="${args.showLabelHint}"
+      value="${args.value}"
+      error="${args.error}"
+      helper="${args.helper}"
+      helper-persistent="${args.helperPersistent}"
+      helper-validation="${args.helperValidation}"
+    >
+      <ino-option value="Option 1">Option 1</ino-option>
+      <ino-option value="Option 2">Option 2</ino-option>
+      <ino-option value="Option 3">Option 3</ino-option>
+    </ino-select>
+  `,
+);
+
 export const Playground = template.generatePlaygroundStory();
-export const Outlined = template.generateStoryForProp('outline', true);
-export const Disabled = template.generateStoryForProp('disabled', true);
-export const Error = template.generateStoryForProp('error', true);
-export const ShowLabelHint = template.generateStoryForProp(
+export const Outlined = templateWithoutIcon.generateStoryForProp(
+  'outline',
+  true,
+);
+export const Disabled = templateWithoutIcon.generateStoryForProp(
+  'disabled',
+  true,
+);
+export const Error = templateWithoutIcon.generateStoryForProp('error', true);
+export const ShowLabelHint = templateWithoutIcon.generateStoryForProp(
   'showLabelHint',
   true,
 );
-export const HelperMessage = template.generateStoryForProp(
+export const HelperMessage = templateWithoutIcon.generateStoryForProp(
   'helper',
   'My Helper Message',
   { helperPersistent: true },
 );
 
-export const HelperMessageValidation = template.generateStoryForProp(
+export const HelperMessageValidation = templateWithoutIcon.generateStoryForProp(
   'helperValidation',
   true,
   {
@@ -110,7 +142,7 @@ export const HelperMessageValidation = template.generateStoryForProp(
 
 const templateWithIcon = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
-  (args) => html`
+  () => html`
     <div style="height: 400px;">
       <ino-select label="Select with leading icon">
         <ino-icon slot="icon-leading" icon="user"></ino-icon>
@@ -137,7 +169,7 @@ export const WithIcon = templateWithIcon.generatePlaygroundStory();
 
 const templateForm = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
-  (args) => html`
+  () => html`
     <form>
       <p>Form should not submit if no value is selected</p>
       <ino-select required> ${optionsTemplate} </ino-select>

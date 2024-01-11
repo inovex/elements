@@ -44,10 +44,10 @@ The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org
 
 ## CSS Custom Properties
 
-| Name                               | Description                                          |
-| ---------------------------------- | ---------------------------------------------------- |
-| `--ino-markdown-editor-max-height` | max-height of text editor Default value is `none`.   |
-| `--ino-markdown-editor-min-height` | min-height of text editor. Default value is `100px`. |
+| Name                               | Description                           |
+| ---------------------------------- | ------------------------------------- |
+| `--ino-markdown-editor-max-height` | Max height of text editor. [size]     |
+| `--ino-markdown-editor-min-height` | Min height of text editor. [size:100] |
 
 
 ## Dependencies

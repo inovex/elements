@@ -1,9 +1,10 @@
 import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-import './ino-progress-bar.scss';
+import { decorateStoryWithClass, setArgs } from '../utils';
 import { TemplateGenerator } from '../template-generator';
+
+import './ino-progress-bar.scss';
 
 export default {
   title: 'Notification/ino-progress-bar',
@@ -35,10 +36,10 @@ const template = new TemplateGenerator<Components.InoProgressBar>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.args = {
+setArgs(Playground, {
   buffer: 0.9,
   progress: 0.4,
-};
+});
 
 export const Progress = template.generateStoryForProp('progress', 0.5);
 

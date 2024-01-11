@@ -34,17 +34,17 @@ An option component that can be used to add options to an ino-select component.
 
 ## CSS Custom Properties
 
-| Name                                              | Description                               |
-| ------------------------------------------------- | ----------------------------------------- |
-| `--ino-option-deselected-background-color`        | Background color if deselected            |
-| `--ino-option-deselected-background-color-active` | Background color if active and deselected |
-| `--ino-option-deselected-background-color-focus`  | Background color on focus if deselected   |
-| `--ino-option-deselected-background-color-hover`  | Background color on hover if deselected   |
-| `--ino-option-height`                             | Height of the option container            |
-| `--ino-option-selected-background-color`          | Background color if selected              |
-| `--ino-option-selected-background-color-active`   | Background color if active and selected   |
-| `--ino-option-selected-background-color-focus`    | Background color on focus if selected     |
-| `--ino-option-selected-background-color-hover`    | Background color on hover if selected     |
+| Name                                              | Description                                              |
+| ------------------------------------------------- | -------------------------------------------------------- |
+| `--ino-option-deselected-background-color`        | Background color if deselected. [color:#fff]             |
+| `--ino-option-deselected-background-color-active` | Background color if active and deselected. [color:#fff]  |
+| `--ino-option-deselected-background-color-focus`  | Background color on focus if deselected. [color:#f4f4f7] |
+| `--ino-option-deselected-background-color-hover`  | Background color on hover if deselected. [color:#f4f4f7] |
+| `--ino-option-height`                             | Height of the option container. [size:2.85:rem]          |
+| `--ino-option-selected-background-color`          | Background color if selected. [color:#f6fafe]            |
+| `--ino-option-selected-background-color-active`   | Background color if active and selected. [color:#beccff] |
+| `--ino-option-selected-background-color-focus`    | Background color on focus if selected. [color:#e2ecff]   |
+| `--ino-option-selected-background-color-hover`    | Background color on hover if selected. [color:#e2ecff]   |
 
 
 ## Dependencies

@@ -10,14 +10,14 @@ $big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3),
 
 ino-card {
   /**
-   * @prop --ino-card-background-color: background color of the card
-   * @prop --ino-card-background-color--active: background color of the card if active
-   * @prop --ino-card-background-color--focus: background color of the card on focus
-   * @prop --ino-card-background-color--hover: background color of the card on hover
-   * @prop --ino-card-border-color: border color of the card
-   * @prop --ino-card-border-thickness: thickness of the border
-   * @prop --ino-card-checkmark-background-color: background color of the check mark
-   * @prop --ino-card-checkmark-color: check mark color
+   * @prop --ino-card-background-color: Background color of the card. [color:#fff]
+   * @prop --ino-card-background-color--active: Background color of the card if active. [color:#fff]
+   * @prop --ino-card-background-color--focus: Background color of the card on focus. [color:#fff]
+   * @prop --ino-card-background-color--hover: Background color of the card on hover. [color:#fff]
+   * @prop --ino-card-border-color: Border color of the card. [color:#c1c1c1]
+   * @prop --ino-card-border-thickness: Thickness of the border. [size:1]
+   * @prop --ino-card-checkmark-background-color: Background Color of the check mark. [color:#fff]
+   * @prop --ino-card-checkmark-color: Check mark color. [color:#3d40f5]
    */
   --card-background-color: var(--ino-card-background-color, #fff);
   --card-background-color--active: var(

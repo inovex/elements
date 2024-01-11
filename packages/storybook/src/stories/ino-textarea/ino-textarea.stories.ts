@@ -3,7 +3,8 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, setArgs } from '../utils';
+
 import './ino-textarea.scss';
 
 export default {
@@ -87,15 +88,14 @@ const templateWithMaxLength = new TemplateGenerator<Components.InoTextarea>(
   `,
 );
 export const Playground = templateWithMaxLength.generatePlaygroundStory();
-
-Playground.args = {
+setArgs(Playground, {
   showCharacterCounter: true,
   maxlength: 30,
-};
+});
 
 const templateLabels = new TemplateGenerator<Components.InoTextarea>(
   'ino-textarea',
-  (args) => html`
+  () => html`
     <ino-textarea label="Floating label" cols="30" rows="3"></ino-textarea>
     <ino-textarea
       label="Floating label"

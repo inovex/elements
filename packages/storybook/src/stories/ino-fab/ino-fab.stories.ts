@@ -73,7 +73,7 @@ withIconControl(Playground, 'icon', 'add');
 
 const templateVariants = new TemplateGenerator<Components.InoFab>(
   'ino-fab',
-  (args) => html`
+  () => html`
     <div class="ino-fab-variants">
       <ino-fab tooltip-placement="none" label="Default Fab">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
