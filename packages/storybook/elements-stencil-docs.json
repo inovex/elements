@@ -2767,13 +2767,18 @@
         "ino-markdown-editor"
       ],
       "dependencies": [
+        "ino-icon-button",
         "ino-icon",
         "ino-button"
       ],
       "dependencyGraph": {
         "ino-dialog": [
+          "ino-icon-button",
           "ino-icon",
           "ino-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
         ],
         "ino-button": [
           "ino-spinner"
@@ -2878,7 +2883,7 @@
           "mutable": false,
           "attr": "close-icon",
           "reflectToAttr": false,
-          "docs": "Adds a close icon in the top right corner to close the `ino-dialog`",
+          "docs": "Adds a close icon in the top right corner to close the `ino-dialog`.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -3907,6 +3912,7 @@
       "encapsulation": "none",
       "dependents": [
         "ino-carousel",
+        "ino-dialog",
         "ino-markdown-editor",
         "ino-nav-drawer",
         "ino-snackbar",
@@ -3920,6 +3926,9 @@
           "ino-icon"
         ],
         "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-dialog": [
           "ino-icon-button"
         ],
         "ino-markdown-editor": [
@@ -6294,17 +6303,18 @@
           "ino-textarea"
         ],
         "ino-dialog": [
+          "ino-icon-button",
           "ino-icon",
           "ino-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
         ],
         "ino-button": [
           "ino-spinner"
         ],
         "ino-input": [
           "ino-label",
-          "ino-icon"
-        ],
-        "ino-icon-button": [
           "ino-icon"
         ],
         "ino-textarea": [

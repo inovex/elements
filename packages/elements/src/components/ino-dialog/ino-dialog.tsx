@@ -80,7 +80,7 @@ export class Dialog implements ComponentInterface {
   @Prop() cancelText?: string;
 
   /**
-   * Adds a close icon in the top right corner to close the `ino-dialog`
+   * Adds a close icon in the top right corner to close the `ino-dialog`.
    */
   @Prop() closeIcon = false;
 
@@ -198,11 +198,10 @@ export class Dialog implements ComponentInterface {
               ) : (
                 <div>
                   {this.closeIcon && (
-                    <ino-icon
+                    <ino-icon-button
                       class="close-icon"
-                      clickable={true}
                       icon="close"
-                      onClick={this.handleClose.bind(this)}
+                      onClickEl={this.handleClose.bind(this)}
                     />
                   )}
                   {hasHeaderSlot ? (

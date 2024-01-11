@@ -237,6 +237,13 @@ const customContentWithSlots = new TemplateGenerator<InoDialogExtended>(
   `,
 );
 
+export const WithCloseIcon = template.generateStoryForProp('closeIcon', true);
+WithCloseIcon.args = {
+  buttonText: 'With close icon',
+  dataDialogId: 'demo-with-close-icon-dialog',
+  closeIcon: true,
+};
+
 /**
  * By using `slot name="header"`, `slot name="body"` or `slot name="footer"` you can respectively replace the default `<header>`, `<section>` (body) or `<footer>` elements of the `ino-dialog` with your own custom content.
  *

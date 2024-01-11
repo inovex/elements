@@ -58,6 +58,7 @@ A rounded button component that contains an icon. It functions as a wrapper arou
 ### Used by
 
  - [ino-carousel](../ino-carousel)
+ - [ino-dialog](../ino-dialog)
  - [ino-markdown-editor](../ino-markdown-editor)
  - [ino-nav-drawer](../ino-nav-drawer)
  - [ino-snackbar](../ino-snackbar)
@@ -72,6 +73,7 @@ A rounded button component that contains an icon. It functions as a wrapper arou
 graph TD;
   ino-icon-button --> ino-icon
   ino-carousel --> ino-icon-button
+  ino-dialog --> ino-icon-button
   ino-markdown-editor --> ino-icon-button
   ino-nav-drawer --> ino-icon-button
   ino-snackbar --> ino-icon-button

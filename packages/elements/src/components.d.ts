@@ -483,7 +483,7 @@ export namespace Components {
          */
         "cancelText"?: string;
         /**
-          * Adds a close icon in the top right corner to close the `ino-dialog`
+          * Adds a close icon in the top right corner to close the `ino-dialog`.
          */
         "closeIcon": boolean;
         /**
@@ -2871,7 +2871,7 @@ declare namespace LocalJSX {
          */
         "cancelText"?: string;
         /**
-          * Adds a close icon in the top right corner to close the `ino-dialog`
+          * Adds a close icon in the top right corner to close the `ino-dialog`.
          */
         "closeIcon"?: boolean;
         /**

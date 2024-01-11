@@ -17,7 +17,7 @@ It is based on the mdc-dialog and is fully customizable. The styling of a dialog
 | `attachTo`    | `attach-to`   | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`                    | `undefined` |
 | `bodyText`    | `body-text`   | Adds a text to the body of the `ino-dialog`                                                                                                                            | `string`                    | `undefined` |
 | `cancelText`  | `cancel-text` | Adds a button with the given text to close the `ino-dialog`                                                                                                            | `string`                    | `undefined` |
-| `closeIcon`   | `close-icon`  | Adds a close icon in the top right corner to close the `ino-dialog`                                                                                                    | `boolean`                   | `false`     |
+| `closeIcon`   | `close-icon`  | Adds a close icon in the top right corner to close the `ino-dialog`.                                                                                                   | `boolean`                   | `false`     |
 | `dialogRole`  | `dialog-role` | The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.                        | `"alertdialog" \| "dialog"` | `'dialog'`  |
 | `dismissible` | `dismissible` | Close the dialog by clicking outside of the dialog.                                                                                                                    | `boolean`                   | `undefined` |
 | `fullwidth`   | `fullwidth`   | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean`                   | `undefined` |
@@ -69,14 +69,17 @@ It is based on the mdc-dialog and is fully customizable. The styling of a dialog
 
 ### Depends on
 
+- [ino-icon-button](../ino-icon-button)
 - [ino-icon](../ino-icon)
 - [ino-button](../ino-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-dialog --> ino-icon-button
   ino-dialog --> ino-icon
   ino-dialog --> ino-button
+  ino-icon-button --> ino-icon
   ino-button --> ino-spinner
   ino-markdown-editor --> ino-dialog
   style ino-dialog fill:#f9f,stroke:#333,stroke-width:4px
