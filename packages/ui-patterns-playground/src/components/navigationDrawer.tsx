@@ -35,14 +35,14 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
         ></InoImg>
         <p>Patterns</p>
       </div>
-      <InoList role="menubar" slot="content" aria-label="Main Navigation">
+      <InoList role="menubar" slot="content" aria-label="Main Navigation" >
         <Link to="/">
-          <InoNavItem role="menuitem" text="Login">
+          <InoNavItem role="menuitem" text="Login" activated>
             <InoIcon icon="dashboard"></InoIcon>
           </InoNavItem>
         </Link>
         <Link to="/mypatterna">
-          <InoNavItem role="menuitem" text="MyPatternA" activated>
+          <InoNavItem role="menuitem" text="MyPatternA">
             <InoIcon icon="number"></InoIcon>
           </InoNavItem>
         </Link>
