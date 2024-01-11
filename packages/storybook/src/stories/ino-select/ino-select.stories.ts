@@ -2,14 +2,8 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import {
-  cssColor,
-  cssSize,
-  decorateStoryWithClass,
-  showSnackbar,
-} from '../utils';
+import { decorateStoryWithClass, showSnackbar } from '../utils';
 import { TemplateGenerator } from '../template-generator';
-import { CssProperties } from '../types';
 
 import './ino-select.scss';
 
@@ -19,17 +13,6 @@ const handleFormSubmission = (e) => {
 };
 
 const handleSelect = (e) => e.target.setAttribute('value', e.detail);
-
-const SELECT_CSS_PROPS: CssProperties = {
-  height: cssSize('--ino-select-height', 'Height of the open select menu'),
-  iconColor: cssColor('--ino-select-icon-color', 'Icon color', '#4655ff'),
-  borderRadius: cssSize(
-    '--ino-border-radius',
-    'Border radius of the open select menu.',
-    0.7,
-    'rem',
-  ),
-};
 
 export default {
   title: 'Input/ino-select',
@@ -102,21 +85,51 @@ const template = new TemplateGenerator<Components.InoSelect>(
     </ino-select>
   `,
 );
-export const Playground = template.generatePlaygroundStory(SELECT_CSS_PROPS);
-export const Outlined = template.generateStoryForProp('outline', true);
-export const Disabled = template.generateStoryForProp('disabled', true);
-export const Error = template.generateStoryForProp('error', true);
-export const ShowLabelHint = template.generateStoryForProp(
+
+const templateWithoutIcon = new TemplateGenerator<Components.InoSelect>(
+  'ino-select',
+  (args) => html`
+    <ino-select
+      disabled="${args.disabled}"
+      name="${args.name}"
+      outline="${args.outline}"
+      label="${args.label}"
+      required="${args.required}"
+      show-label-hint="${args.showLabelHint}"
+      value="${args.value}"
+      error="${args.error}"
+      helper="${args.helper}"
+      helper-persistent="${args.helperPersistent}"
+      helper-validation="${args.helperValidation}"
+    >
+      <ino-option value="Option 1">Option 1</ino-option>
+      <ino-option value="Option 2">Option 2</ino-option>
+      <ino-option value="Option 3">Option 3</ino-option>
+    </ino-select>
+  `,
+);
+
+export const Playground = template.generatePlaygroundStory();
+export const Outlined = templateWithoutIcon.generateStoryForProp(
+  'outline',
+  true,
+);
+export const Disabled = templateWithoutIcon.generateStoryForProp(
+  'disabled',
+  true,
+);
+export const Error = templateWithoutIcon.generateStoryForProp('error', true);
+export const ShowLabelHint = templateWithoutIcon.generateStoryForProp(
   'showLabelHint',
   true,
 );
-export const HelperMessage = template.generateStoryForProp(
+export const HelperMessage = templateWithoutIcon.generateStoryForProp(
   'helper',
   'My Helper Message',
   { helperPersistent: true },
 );
 
-export const HelperMessageValidation = template.generateStoryForProp(
+export const HelperMessageValidation = templateWithoutIcon.generateStoryForProp(
   'helperValidation',
   true,
   {

@@ -39,6 +39,14 @@ the dimensions of the component as well as the duration of the slide transition.
 | `"default"` | One or more `ino-carousel-slide` |
 
 
+## CSS Custom Properties
+
+| Name                                | Description                                            |
+| ----------------------------------- | ------------------------------------------------------ |
+| `--ino-carousel-animation-duration` | Sets the duration of the slide animation. [time:700]   |
+| `--ino-carousel-icon-color`         | Sets the color of the navigation buttons. [color:#fff] |
+
+
 ## Dependencies
 
 ### Depends on

@@ -2,6 +2,10 @@
 @use '../base/typography';
 
 ino-input-file {
+  /**
+   * @prop --ino-input-file-box-height: Height of the drag and drop window. [size:300]
+   * @prop --ino-input-file-box-width: Width of the drag and drop window. [size]
+   */
   --input-file-box-height: var(--ino-input-file-box-height, 300px);
   --input-file-box-width: var(--ino-input-file-box-width, 100%);
 }

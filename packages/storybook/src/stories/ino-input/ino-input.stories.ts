@@ -3,30 +3,9 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
-import { cssColor, decorateStoryWithClass, setArgTypes } from '../utils';
-import { CssProperties } from '../types';
+import { decorateStoryWithClass, setArgTypes } from '../utils';
 
 import './ino-input.scss';
-
-const INPUT_CSS_PROPS: CssProperties = {
-  color: cssColor(
-    '--ino-input-color',
-    'Text color of the input.',
-    'rgba(0, 0, 0, 0.87)',
-  ),
-  caretColor: cssColor(
-    '--ino-input-caret-color',
-    'Color of the caret.',
-    '#4655ff',
-  ),
-  labelColor: cssColor(
-    '--ino-input-label-color',
-    'Color of the label.',
-    '#4655ff',
-  ),
-  lineColor: cssColor('--ino-input-line-color', 'Line color', '#4655ff'),
-  iconColor: cssColor('--ino-input-icon-color', 'Icon color', '#4655ff'),
-};
 
 export default {
   title: 'Input/ino-input',
@@ -118,7 +97,7 @@ const template = new TemplateGenerator<Components.InoInput>(
     </ino-input>
   `,
 );
-export const Playground = template.generatePlaygroundStory(INPUT_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 setArgTypes(Playground, {
   type: {
     control: {

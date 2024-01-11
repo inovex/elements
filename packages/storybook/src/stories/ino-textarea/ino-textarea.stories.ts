@@ -3,28 +3,9 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { cssColor, decorateStoryWithClass, setArgs } from '../utils';
-import { CssProperties } from '../types';
+import { decorateStoryWithClass, setArgs } from '../utils';
 
 import './ino-textarea.scss';
-
-const TEXTAREA_CSS_PROPS: CssProperties = {
-  outlineColor: cssColor(
-    '--ino-textarea-outline-color',
-    'Outline color of the textarea.',
-    '#4655ff',
-  ),
-  caretColor: cssColor(
-    '--ino-textarea-caret-color',
-    'Color of the caret.',
-    '#4655ff',
-  ),
-  labelColor: cssColor(
-    '--ino-textarea-label-color',
-    'Color of the label.',
-    '#4655ff',
-  ),
-};
 
 export default {
   title: 'Input/ino-textarea',
@@ -106,8 +87,7 @@ const templateWithMaxLength = new TemplateGenerator<Components.InoTextarea>(
     ></ino-textarea>
   `,
 );
-export const Playground =
-  templateWithMaxLength.generatePlaygroundStory(TEXTAREA_CSS_PROPS);
+export const Playground = templateWithMaxLength.generatePlaygroundStory();
 setArgs(Playground, {
   showCharacterCounter: true,
   maxlength: 30,
@@ -115,7 +95,7 @@ setArgs(Playground, {
 
 const templateLabels = new TemplateGenerator<Components.InoTextarea>(
   'ino-textarea',
-  (args) => html`
+  () => html`
     <ino-textarea label="Floating label" cols="30" rows="3"></ino-textarea>
     <ino-textarea
       label="Floating label"

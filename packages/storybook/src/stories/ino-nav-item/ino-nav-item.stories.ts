@@ -2,27 +2,8 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
-import { CssProperties } from '../types';
-import { cssColor, setArgs, setArgTypes } from '../utils';
+import { setArgs, setArgTypes } from '../utils';
 
-const NAV_ITEM_CSS_PROPS: CssProperties = {
-  color: cssColor('--ino-nav-item-color', 'Inactive color of icon.', '#39383c'),
-  colorActive: cssColor(
-    '--ino-nav-item-color-active',
-    'Active color of icon.',
-    '#4655ff',
-  ),
-  backgroundColor: cssColor(
-    '--ino-nav-item-background-color',
-    'Inactive color of the background of one item.',
-    '#fff',
-  ),
-  backgroundColorActive: cssColor(
-    '--ino-nav-item-background-color-active',
-    'Active color of the background of one item.',
-    '#dfdee6',
-  ),
-};
 export default {
   title: `Structure/ino-nav-item`,
   component: 'ino-nav-item',
@@ -60,7 +41,7 @@ const template = new TemplateGenerator<InoNavItemExtended>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(NAV_ITEM_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 setArgs(Playground, {
   icon: true,
 });

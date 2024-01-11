@@ -4,13 +4,7 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import ICONS from '../../../../elements/src/components/ino-icon/icons';
-import {
-  cssColor,
-  cssSize,
-  decorateStoryWithClass,
-  withIconControl,
-} from '../utils';
-import { CssProperties } from '../types';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-icon.scss';
 
@@ -55,12 +49,6 @@ const iconChips = ICON_IDS.map(
     </ino-chip>
   `,
 );
-
-const ICON_CSS_PROPS: CssProperties = {
-  width: cssSize('--ino-icon-width', 'Width of the icon.', 2, 'em'),
-  height: cssSize('--ino-icon-height', 'Height of the icon.', 2, 'em'),
-  color: cssColor('--ino-icon-color', 'Color of the icon.', '#3d40f5'),
-};
 
 export default {
   title: 'Graphic/ino-icon',
@@ -136,7 +124,7 @@ const template = new TemplateGenerator<Components.InoIcon>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(ICON_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'info');
 
 const templateAllIcons = new TemplateGenerator<Components.InoIcon>(

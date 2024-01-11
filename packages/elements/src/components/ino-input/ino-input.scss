@@ -60,6 +60,13 @@ $outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius
 
 /* Shared Styles */
 ino-input {
+  /**
+   * @prop --ino-input-color: Text color of the input. [color:rgba(0, 0, 0, 0.87)]
+   * @prop --ino-input-caret-color: Color of the caret. [color:#4655ff]
+   * @prop --ino-input-label-color: Color of the label. [color:#4655ff]
+   * @prop --ino-input-line-color: Line color. [color:#4655ff]
+   * @prop --ino-input-icon-color: Icon color. [color:#4655ff]
+   */
   --input-color: var(--ino-input-color, #{textfield.$ink-color});
   --input-caret-color: var(--ino-input-caret-color, #{theme.$p-5});
   --input-label-color: var(--ino-input-label-color, #{theme.$p-5});

@@ -1,6 +1,10 @@
 @use '../base/new-theme';
 
 ino-carousel {
+  /**
+   * @prop --ino-carousel-icon-color: Sets the color of the navigation buttons. [color:#fff]
+   * @prop --ino-carousel-animation-duration: Sets the duration of the slide animation. [time:700]
+   */
   --carousel-icon-color: var(--ino-carousel-icon-color, #fff);
   --carousel-animation-duration: var(--ino-carousel-animation-duration, 700ms);
   width: 700px;

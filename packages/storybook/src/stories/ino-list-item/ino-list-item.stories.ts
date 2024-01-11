@@ -1,55 +1,11 @@
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { cssColor, decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
-import { CssProperties } from '../types';
 
 import './ino-list-item.scss';
-
-const LIST_ITEM_CSS_PROPS: CssProperties = {
-  selectedColor: cssColor(
-    '--ino-list-item-selected-color',
-    'Text color of a selected list item.',
-  ),
-  selectedBackgroundColor: cssColor(
-    '--ino-list-item-selected-background-color',
-    'Background color of a selected list item.',
-  ),
-  selectedBackgroundColorHover: cssColor(
-    '--ino-list-item-selected-background-color-hover',
-    'Background color of a selected list item on hover.',
-  ),
-  selectedBackgroundColorActive: cssColor(
-    '--ino-list-item-selected-background-color-active',
-    'Background color of a selected list item if active.',
-  ),
-  selectedBackgroundColorFocus: cssColor(
-    '--ino-list-item-selected-background-color-focus',
-    'Background color of a selected list item if focused.',
-  ),
-  deselectedColor: cssColor(
-    '--ino-list-item-deselected-color',
-    'Text color of a deselected list item.',
-  ),
-  deselectedBackgroundColor: cssColor(
-    '--ino-list-item-deselected-background-color',
-    'Background color of a deselected list item.',
-  ),
-  deselectedBackgroundColorHover: cssColor(
-    '--ino-list-item-deselected-background-color-hover',
-    'Background color of a deselected list item on hover.',
-  ),
-  deselectedBackgroundColorActive: cssColor(
-    '--ino-list-item-deselected-background-color-active',
-    'Background color of a deselected list item if active.',
-  ),
-  deselectedBackgroundColorFocus: cssColor(
-    '--ino-list-item-deselected-background-color-focus',
-    'Background color of a deselected list item if focused.',
-  ),
-};
 
 export default {
   title: 'Structure/ino-list-item',
@@ -118,7 +74,7 @@ const template = new TemplateGenerator<Components.InoListItem>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(LIST_ITEM_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 
 export const Text = template.generateStoryForProp('text', 'simple-item');
 export const SecondaryText = template.generateStoryForProp(

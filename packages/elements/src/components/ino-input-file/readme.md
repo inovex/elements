@@ -34,6 +34,14 @@ This component replaces the native behaviour with a custom `ino-button` with log
 | `changeFile` | Emits when the value changes. | `CustomEvent<{ e: any; files: File[]; }>` |
 
 
+## CSS Custom Properties
+
+| Name                          | Description                                    |
+| ----------------------------- | ---------------------------------------------- |
+| `--ino-input-file-box-height` | Height of the drag and drop window. [size:300] |
+| `--ino-input-file-box-width`  | Width of the drag and drop window. [size]      |
+
+
 ## Dependencies
 
 ### Depends on

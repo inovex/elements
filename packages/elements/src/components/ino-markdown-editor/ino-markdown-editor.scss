@@ -20,6 +20,10 @@
 $border-radius: 10px;
 
 ino-markdown-editor {
+  /**
+   * @prop --ino-markdown-editor-min-height: Min height of text editor. [size:100]
+   * @prop --ino-markdown-editor-max-height: Max height of text editor. [size]
+   */
   .markdown-editor {
     border-radius: $border-radius;
 

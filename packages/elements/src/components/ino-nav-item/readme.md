@@ -30,6 +30,16 @@ This component is used as child of `ino-list` and `ino-menu` components.
 | `"default"` | Any element |
 
 
+## CSS Custom Properties
+
+| Name                                     | Description                                                 |
+| ---------------------------------------- | ----------------------------------------------------------- |
+| `--ino-nav-item-background-color`        | Inactive color of the background of one item. [color:#fff]  |
+| `--ino-nav-item-background-color-active` | Active color of the background of one item. [color:#dfdee6] |
+| `--ino-nav-item-color`                   | Inactive color of icon. [color:#39383c]                     |
+| `--ino-nav-item-color-active`            | Active color of icon. [color:#4655ff]                       |
+
+
 ## Dependencies
 
 ### Depends on

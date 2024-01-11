@@ -4,8 +4,6 @@ import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
 import inovexElementsLogo from '../../assets/images/elements.svg';
-import { CssProperties } from '../types';
-import { cssColor, cssSize, cssText, cssTime } from '../utils';
 
 import './ino-nav-drawer.scss';
 
@@ -45,45 +43,6 @@ const clickHandler = (e) => {
     el.activated = true;
     return;
   }
-};
-
-const NAV_DRAWER_CSS_PROPS: CssProperties = {
-  widthOpen: cssSize(
-    '--ino-nav-drawer-width-open',
-    'The width of the open drawer.',
-    250,
-  ),
-  widthClosed: cssSize(
-    '--ino-nav-drawer-width-closed',
-    'Docked variant only! The width of the collapsed drawer.',
-    72,
-  ),
-  mobileWidthOpen: cssSize(
-    '--ino-nav-drawer-mobile-width-open',
-    'Mobile variant only! The width of the open drawer.',
-    171,
-  ),
-  background: cssColor(
-    '--ino-nav-drawer-background',
-    'Background of the drawer.',
-    '#fff',
-  ),
-  height: cssSize('--ino-nav-drawer-height', 'Height of the drawer.'),
-  textColor: cssColor(
-    '--ino-nav-drawer-text-color',
-    'Color of text inside the drawer.',
-    '#1801e1',
-  ),
-  transitionDuration: cssTime(
-    '--ino-nav-drawer-transition-duration',
-    'Duration of the slide animation of the drawer.',
-    250,
-  ),
-  timingFunction: cssText(
-    '--ino-nav-drawer-timing-function',
-    'Timing function of the slide animation of the drawer.',
-    'cubic-bezier(0.4, 0, 0.2, 1)',
-  ),
 };
 
 export default {
@@ -201,8 +160,7 @@ const template = new TemplateGenerator<Components.InoNavDrawer>(
   },
 );
 
-export const Playground =
-  template.generatePlaygroundStory(NAV_DRAWER_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 export const AnchorRight = template.generateStoryForProp('anchor', 'right');
 export const Modal = template.generateStoryForProp('variant', 'modal', {
   open: false,

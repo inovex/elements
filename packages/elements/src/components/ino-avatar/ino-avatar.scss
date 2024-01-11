@@ -26,6 +26,9 @@
 }
 
 .ino-avatar {
+  /**
+   * @prop --ino-avatar-size: Width and height of the ino-avatar. [size:138]
+   */
   --avatar-size: var(--ino-avatar-size, 138px);
   @include flex-center;
   width: var(--avatar-size);

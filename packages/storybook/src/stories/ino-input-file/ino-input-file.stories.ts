@@ -3,20 +3,6 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
-import { CssProperties } from '../types';
-import { cssSize } from '../utils';
-
-const INPUT_FILE_CSS_PROPS: CssProperties = {
-  boxHeight: cssSize(
-    '--ino-input-file-box-height',
-    'Height of the drag and drop window.',
-    300,
-  ),
-  boxWidth: cssSize(
-    '--ino-input-file-box-width',
-    'Width of the drag and drop window.',
-  ),
-};
 
 export default {
   title: 'Input/ino-input-file',
@@ -78,6 +64,5 @@ const template = new TemplateGenerator<Components.InoInputFile>(
     ></ino-input-file>
   `,
 );
-export const Playground =
-  template.generatePlaygroundStory(INPUT_FILE_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 export const DragAndDrop = template.generateStoryForProp('dragAndDrop', true);

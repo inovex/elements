@@ -28,6 +28,9 @@
 }
 
 ino-img-list {
+  /**
+   * @prop --ino-img-list-cols: Sets the number of columns. [number:3]
+   */
   --img-list-cols: var(--ino-img-list-cols, 3);
 }
 

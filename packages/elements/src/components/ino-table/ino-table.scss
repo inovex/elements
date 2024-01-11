@@ -8,6 +8,9 @@
 @include data-table.theme-baseline;
 
 ino-table {
+  /**
+   * @prop --ino-table-row-height: Height of a table row. [size:48]
+   */
   @include table-row.core-styles;
   @include table-cell.core-styles;
 

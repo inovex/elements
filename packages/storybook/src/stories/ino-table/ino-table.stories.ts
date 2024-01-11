@@ -1,16 +1,11 @@
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { html } from 'lit-html';
-import { cssSize, decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import { useEffect } from '@storybook/client-api';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
-import { CssProperties } from '../types';
 
 import './ino-table.scss';
-
-const TABLE_CSS_PROPS: CssProperties = {
-  rowHeight: cssSize('--ino-table-row-height', 'Height of a table row.', 48),
-};
 
 export default {
   title: `Structure/ino-table`,
@@ -179,7 +174,7 @@ const template = new TemplateGenerator<Components.InoTable>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(TABLE_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 export const Loading = template.generateStoryForProp('loading', true);
 export const NoHover = template.generateStoryForProp('noHover', true);
 

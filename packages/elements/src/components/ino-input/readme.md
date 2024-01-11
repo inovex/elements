@@ -91,6 +91,17 @@ Type: `Promise<void>`
 | `"icon-trailing"` | For the icon to be appended  |
 
 
+## CSS Custom Properties
+
+| Name                      | Description                                          |
+| ------------------------- | ---------------------------------------------------- |
+| `--ino-input-caret-color` | Color of the caret. [color:#4655ff]                  |
+| `--ino-input-color`       | Text color of the input. [color:rgba(0, 0, 0, 0.87)] |
+| `--ino-input-icon-color`  | Icon color. [color:#4655ff]                          |
+| `--ino-input-label-color` | Color of the label. [color:#4655ff]                  |
+| `--ino-input-line-color`  | Line color. [color:#4655ff]                          |
+
+
 ## Dependencies
 
 ### Used by

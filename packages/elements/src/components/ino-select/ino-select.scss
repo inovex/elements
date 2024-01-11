@@ -29,6 +29,11 @@ $icon-drop-down-size: 24px;
 }
 
 ino-select {
+  /**
+   * @prop --ino-select-height: Height of the open select menu. [size]
+   * @prop --ino-select-icon-color: Icon color. [color:#4655ff]
+   * @prop --ino-border-radius: Border-radius of the open select menu. [size:0.7:rem]
+   */
   --select-height: auto;
   --select-icon-color: var(--ino-select-icon-color, #{theme.$p-5});
   --border-radius: var(var(--ino-border-radius), $border-radius);

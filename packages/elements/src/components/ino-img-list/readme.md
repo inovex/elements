@@ -25,6 +25,13 @@ in a grid-like format. It is based on the mdc-image-list component.
 | `"default"` | One or more `ino-img` with `imgListItem="true"` |
 
 
+## CSS Custom Properties
+
+| Name                  | Description                            |
+| --------------------- | -------------------------------------- |
+| `--ino-img-list-cols` | Sets the number of columns. [number:3] |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

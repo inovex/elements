@@ -2,49 +2,9 @@ import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { cssColor, decorateStoryWithClass, withIconControl } from '../utils';
-import { CssProperties } from '../types';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-fab.scss';
-
-const FAB_CSS_PROPS: CssProperties = {
-  color: cssColor('--ino-fab-color', 'Text color', '#fff'),
-  backgroundColor: cssColor(
-    '--ino-fab-background-color',
-    'Background color.',
-    '#2d02ff',
-  ),
-  backgroundColorHover: cssColor(
-    '--ino-fab-background-color-hover',
-    'Background color on hover.',
-    '#4655ff',
-  ),
-  backgroundColorActive: cssColor(
-    '--ino-fab-background-color-active',
-    'Background color if active.',
-    '#1801e1',
-  ),
-  iconColor: cssColor(
-    '--ino-fab-icon-color',
-    'Color of the slotted icon.',
-    '#fff',
-  ),
-  colorDisabled: cssColor(
-    '--ino-fab-color-disabled',
-    'Text color if disabled.',
-    '#fff',
-  ),
-  backgroundColorDisabled: cssColor(
-    '--ino-fab-background-color-disabled',
-    'Background color if disabled.',
-    '#b6b4c4',
-  ),
-  iconColorDisabled: cssColor(
-    '--ino-fab-icon-color-disabled',
-    'Color of the slotted icon if disabled.',
-    '#fff',
-  ),
-};
 
 export default {
   title: 'Buttons/ino-fab',
@@ -108,7 +68,7 @@ const template = new TemplateGenerator<Components.InoFab>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(FAB_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'add');
 
 const templateVariants = new TemplateGenerator<Components.InoFab>(

@@ -2,22 +2,10 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { cssText, decorateStoryWithClass, setArgTypes } from '../utils';
+import { decorateStoryWithClass, setArgTypes } from '../utils';
 import { TemplateGenerator } from '../template-generator';
-import { CssProperties } from '../types';
 
 import './ino-snackbar.scss';
-
-const SNACKBAR_CSS_PROPS: CssProperties = {
-  top: cssText('--ino-snackbar-top', 'Distance to the top edge.', '0px'),
-  right: cssText('--ino-snackbar-right', 'Distance to the right edge.', '0px'),
-  bottom: cssText(
-    '--ino-snackbar-bottom',
-    'Distance to the bottom edge.',
-    'auto',
-  ),
-  left: cssText('--ino-snackbar-left', 'Distance to the left edge.', 'auto'),
-};
 
 interface SnackbarPosition {
   top: number;
@@ -115,7 +103,7 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(SNACKBAR_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 setArgTypes(Playground, {
   // hide custom attributes from table
   id: {

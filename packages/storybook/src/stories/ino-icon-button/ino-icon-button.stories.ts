@@ -2,54 +2,9 @@ import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import {
-  cssColor,
-  cssSize,
-  decorateStoryWithClass,
-  withIconControl,
-} from '../utils';
-import { CssProperties } from '../types';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-icon-button.scss';
-
-const ICON_BUTTON_CSS_PROPS: CssProperties = {
-  size: cssSize('--ino-icon-button-size', 'Size of the entire button', 48),
-  iconSize: cssSize(
-    '--ino-icon-button-icon-size',
-    'Size of the icon itself.',
-    24,
-  ),
-  iconColor: cssColor(
-    '--ino-icon-button-icon-color',
-    'Default color of the icon itself.',
-    '#4655ff',
-  ),
-  backgroundColor: cssColor(
-    '--ino-icon-button-background-color',
-    'Default color of the background.',
-    'transparent',
-  ),
-  iconActiveColor: cssColor(
-    '--ino-icon-button-icon-active-color',
-    'Color of the active icon itself.',
-    '#4655ff',
-  ),
-  backgroundActiveColor: cssColor(
-    '--ino-icon-button-background-active-color',
-    'Base color of the active background.',
-    '#4655ff',
-  ),
-  iconDisabledColor: cssColor(
-    '--ino-icon-button-icon-disabled-color',
-    'Color of the icon itself in disabled state.',
-    '#100707',
-  ),
-  backgroundDisabledColor: cssColor(
-    '--ino-icon-button-background-disabled-color',
-    'Base color of the background in disabled state.',
-    '#100707',
-  ),
-};
 
 export default {
   title: 'Buttons/ino-icon-button',
@@ -82,9 +37,7 @@ const template = new TemplateGenerator<Components.InoIconButton>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(
-  ICON_BUTTON_CSS_PROPS,
-);
+export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'add');
 
 export const Filled = template.generateStoryForProp('filled', true);

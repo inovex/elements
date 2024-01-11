@@ -1,7 +1,15 @@
 import { ArgTypes, Args, Story, StoryFn } from '@storybook/web-components';
 import { ArgType } from '@storybook/addons';
-import docsJson from '../../elements-stencil-docs';
+import docsJson, {
+  JsonDocsComponent,
+  JsonDocsStyle,
+} from '../../elements-stencil-docs';
 import { CssProp, CssPropType, CssProperties } from './types';
+import { cssColor, cssNumber, cssSize, cssText, cssTime } from './utils';
+
+const STYLE_DOC_PATTERN = /^(?<desc>.*)\s*\[(?<meta>.*)\]$/;
+const META_PATTERN =
+  /^(?<type>color|size|time|number|text)(:(?<default>[^:]*)(:(?<unit>[^:]*))?)?$/;
 
 /**
  * A utility class that helps with creating type-safe stories
@@ -10,10 +18,14 @@ import { CssProp, CssPropType, CssProperties } from './types';
 export class TemplateGenerator<Component extends Object> {
   private readonly tagName: string;
   private readonly templateFn: Story<Component>;
+  private readonly doc: JsonDocsComponent | undefined;
 
   constructor(tagName: string, templateFn: Story<Component>) {
     this.tagName = tagName;
     this.templateFn = templateFn;
+    this.doc = docsJson.components.find(
+      (component) => component.tag === this.tagName,
+    );
   }
 
   /**
@@ -21,11 +33,22 @@ export class TemplateGenerator<Component extends Object> {
    *
    * @param cssProps CSS variables to be controlled in the arg table
    */
-  public generatePlaygroundStory(cssProps?: CssProperties) {
+  public generatePlaygroundStory() {
+    const cssProps = this.extractCssProperties();
     if (cssProps) {
       return this.generateTemplateWithCssProps(cssProps);
     }
     return this.generateTemplate();
+  }
+
+  private extractCssProperties(): CssProperties | undefined {
+    return this.doc?.styles.reduce(
+      (acc, cur) => ({
+        ...acc,
+        [formatPropKey(cur.name)]: buildCssProp(cur),
+      }),
+      {},
+    );
   }
 
   /**
@@ -111,6 +134,42 @@ export class TemplateGenerator<Component extends Object> {
   }
 }
 
+const buildCssProp = (
+  doc: JsonDocsStyle,
+): CssProp<string> | CssProp<number> => {
+  const docsGroups = doc.docs.match(STYLE_DOC_PATTERN)?.groups;
+  const desc = docsGroups?.['desc']?.trim() ?? '';
+  const meta = docsGroups?.['meta'];
+  if (!meta || !META_PATTERN.test(meta)) {
+    return cssText(doc.name, desc);
+  }
+  const metaGroups = meta.match(META_PATTERN)?.groups;
+  const type = metaGroups?.['type'];
+  const defaultValue = metaGroups?.['default'];
+  const unit = metaGroups?.['unit'];
+  switch (type) {
+    case 'color':
+      return cssColor(doc.name, desc, defaultValue);
+    case 'size':
+      return cssSize(doc.name, desc, valueAsNumber(defaultValue), unit);
+    case 'number':
+      return cssNumber(doc.name, desc, valueAsNumber(defaultValue));
+    case 'time':
+      return cssTime(doc.name, desc, valueAsNumber(defaultValue), unit);
+    case 'text':
+    default:
+      return cssText(doc.name, desc, defaultValue);
+  }
+};
+
+const valueAsNumber = (value: string | undefined): number | undefined => {
+  return value != null ? +value : undefined;
+};
+
+const formatPropKey = (key: string): string => {
+  return key.replace('/-/g', '');
+};
+
 const cssArgs = (props: CssProperties): Args =>
   Object.entries(props).reduce(
     (acc, [k, p]) => ({ ...acc, [k]: p.defaultValue }),
@@ -131,7 +190,7 @@ const getInputType = (prop: CssProp): ArgType => ({
     min: ['time', 'size'].includes(prop.type) ? 0 : undefined,
   },
   table: {
-    category: 'Custom CSS properties',
+    category: 'CSS Custom properties',
     subcategory: getSubcategory(prop.type),
   },
 });

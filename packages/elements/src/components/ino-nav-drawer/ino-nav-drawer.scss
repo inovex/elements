@@ -10,6 +10,16 @@
 @include list.deprecated-core-styles;
 
 :host {
+  /**
+   * @prop --ino-nav-drawer-width-open: The width of the open drawer. [size:250]
+   * @prop --ino-nav-drawer-width-closed: Docked variant only! The width of the collapsed drawer. [size:72]
+   * @prop --ino-nav-drawer-mobile-width-open: Mobile variant only! The width of the open drawer. [size:171]
+   * @prop --ino-nav-drawer-background: Background of the drawer. [color:#fff]
+   * @prop --ino-nav-drawer-height: Height of the drawer. [size]
+   * @prop --ino-nav-drawer-text-color: Color of text inside the drawer. [color:#1801e1]
+   * @prop --ino-nav-drawer-transition-duration: Duration of the slide animation of the drawer. [time:250]
+   * @prop --ino-nav-drawer-timing-function: Timing function of the slide animation of the drawer. [text:cubic-bezier(0.4, 0, 0.2, 1)]
+   */
   --nav-drawer-width-open: var(--ino-nav-drawer-width-open, 250px);
   --nav-drawer-width-closed: var(--ino-nav-drawer-width-closed, 72px);
   --nav-drawer-mobile-width-open: var(

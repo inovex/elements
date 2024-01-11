@@ -6,6 +6,19 @@
 $material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
 
 :host {
+  /**
+   * @prop --ino-dialog-background-color: Background color of the dialog. [color:#fff]
+   * @prop --ino-dialog-width: Width of the dialog. [size]
+   * @prop --ino-dialog-min-width: Min width of the dialog. [size:480]
+   * @prop --ino-dialog-max-width: Max width of the dialog. [size:552]
+   * @prop --ino-dialog-height: height of the dialog. [size]
+   * @prop --ino-dialog-min-height: Min height of the dialog. [size]
+   * @prop --ino-dialog-max-height: Max height of the dialog. [size]
+   * @prop --ino-dialog-padding: Padding of the dialog. [size:62]
+   * @prop --ino-dialog-border-radius: Border radius of the dialog. [size:17]
+   * @prop --ino-dialog-border: Border shorthand of the dialog. [text:1px solid #2c02ff]
+   * @prop --ino-dialog-box-shadow: Box shadow of the dialog. [text:0px 0px 22px rgba(93, 91, 105, 0.35)]
+   */
   $background-color: var(--ino-dialog-background-color, #fff);
   $width: var(--ino-dialog-width, auto);
   $min-width: var(--ino-dialog-min-width, 480px);

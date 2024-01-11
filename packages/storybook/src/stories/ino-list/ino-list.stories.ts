@@ -2,15 +2,6 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
-import { cssSize } from '../utils';
-import { CssProperties } from '../types';
-
-const LIST_CSS_PROPS: CssProperties = {
-  borderRadius: cssSize(
-    '--ino-list-item-border-radius',
-    'Border radius of the list container, also effects the first and last list item.',
-  ),
-};
 
 export default {
   title: 'Structure/ino-list ',
@@ -58,7 +49,7 @@ const template = new TemplateGenerator<Components.InoList>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(LIST_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 
 export const TwoLines = template.generateStoryForProp('twoLines', true);
 export const Dense = template.generateStoryForProp('dense', true);

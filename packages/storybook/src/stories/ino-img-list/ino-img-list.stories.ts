@@ -9,16 +9,6 @@ import forrestImg from '../../assets/images/forrest.jpg';
 import libertyImg from '../../assets/images/liberty.jpg';
 import trondheimImg from '../../assets/images/trondheim.jpg';
 import waterfallImg from '../../assets/images/waterfall.jpg';
-import { CssProperties } from '../types';
-import { cssNumber } from '../utils';
-
-const IMG_LIST_CSS_PROPS: CssProperties = {
-  listCols: cssNumber(
-    '--ino-img-list-cols',
-    'Sets the number of columns in masonry mode.',
-    3,
-  ),
-};
 
 export default {
   title: 'Graphic/ino-img-list',
@@ -42,7 +32,7 @@ const template = new TemplateGenerator<Components.InoImgList>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(IMG_LIST_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
 export const Masonry = template.generateStoryForProp('masonry', true);
 export const EncloseLabel = template.generateStoryForProp('encloseLabel', true);
 

@@ -39,6 +39,22 @@ This component is used as child of `ino-list` and `ino-menu` components.
 | `"trailing"`  | For the element to be appended                     |
 
 
+## CSS Custom Properties
+
+| Name                                                 | Description                                                                |
+| ---------------------------------------------------- | -------------------------------------------------------------------------- |
+| `--ino-list-item-deselected-background-color`        | Background color of a deselected list item. [color:rgba(255, 255, 255, 0)] |
+| `--ino-list-item-deselected-background-color-active` | Background color of a deselected list item if active. [color:#f4f4f7]      |
+| `--ino-list-item-deselected-background-color-focus`  | Background color of a deselected list item if focused. [color:#f4f4f7]     |
+| `--ino-list-item-deselected-background-color-hover`  | Background color of a deselected list item on hover. [color:#f4f4f7]       |
+| `--ino-list-item-deselected-color`                   | Text color of a deselected list item. [color:#39383c]                      |
+| `--ino-list-item-selected-background-color`          | Background color of a selected list item. [color:#f6fafe]                  |
+| `--ino-list-item-selected-background-color-active`   | Background color of a selected list item if active. [color:#e2ecff]        |
+| `--ino-list-item-selected-background-color-focus`    | Background color of a selected list item if focused. [color:#e2ecff]       |
+| `--ino-list-item-selected-background-color-hover`    | Background color of a selected list item on hover. [color:#e2ecff]         |
+| `--ino-list-item-selected-color`                     | Text color of a selected list item. [color:#4655ff]                        |
+
+
 ## Dependencies
 
 ### Used by

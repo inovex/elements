@@ -39,6 +39,13 @@ It currently supports different states (selected, active), sorting and loading i
 | `"loading-indicator"` | `<ino-progess-bar>` element used for an additional loading state.                |
 
 
+## CSS Custom Properties
+
+| Name                     | Description                      |
+| ------------------------ | -------------------------------- |
+| `--ino-table-row-height` | Height of a table row. [size:48] |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

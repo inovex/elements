@@ -3,20 +3,11 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { cssSize, decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-avatar.scss';
 
 import avatarImg from '../../assets/images/avatar.jpg';
-import { CssProperties } from '../types';
-
-const AVATAR_CSS_PROPS: CssProperties = {
-  size: cssSize(
-    '--ino-avatar-size',
-    'Width and height of the ino-avatar.',
-    138,
-  ),
-};
 
 export default {
   title: 'Graphic/ino-avatar',
@@ -79,7 +70,9 @@ const template = new TemplateGenerator<Components.InoAvatar>(
   `,
 );
 
-export const Playground = template.generatePlaygroundStory(AVATAR_CSS_PROPS);
+export const Playground = template.generatePlaygroundStory();
+
+console.log(Playground.argTypes);
 
 export const Interactive = template.generateStoryForProp('interactive', true);
 export const ColorSecondary = template.generateStoryForProp(

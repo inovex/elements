@@ -5,6 +5,16 @@
 @use '@material/ripple/ripple-theme';
 
 ino-icon-button {
+  /**
+   * @prop --ino-icon-button-size: Size of the entire button. [size:48]
+   * @prop --ino-icon-button-icon-size: Size of the icon itself. [size:24]
+   * @prop --ino-icon-button-icon-color: Default color of the icon itself. [color:#4655ff]
+   * @prop --ino-icon-button-background-color: Default color of the background. [color:transparent]
+   * @prop --ino-icon-button-icon-active-color: Color of the active icon itself. [color:#4655ff]
+   * @prop --ino-icon-button-background-active-color: Base color of the active background. [color:#4655ff]
+   * @prop --ino-icon-button-icon-disabled-color: Color of the icon itself in disabled state. [color:#100707]
+   * @prop --ino-icon-button-background-disabled-color: Base color of the background in disabled state. [color:#100707]
+   */
   $button-size: var(--ino-icon-button-size, 48px);
   $icon-size: var(--ino-icon-button-icon-size, 24px);
   $icon-color: var(--ino-icon-button-icon-color, theme.$p-5);

@@ -27,6 +27,20 @@ fully customize the appearance of the card.
 | `"header"`  | For the element to be placed in the card header |
 
 
+## CSS Custom Properties
+
+| Name                                    | Description                                          |
+| --------------------------------------- | ---------------------------------------------------- |
+| `--ino-card-background-color`           | Background color of the card. [color:#fff]           |
+| `--ino-card-background-color--active`   | Background color of the card if active. [color:#fff] |
+| `--ino-card-background-color--focus`    | Background color of the card on focus. [color:#fff]  |
+| `--ino-card-background-color--hover`    | Background color of the card on hover. [color:#fff]  |
+| `--ino-card-border-color`               | Border color of the card. [color:#c1c1c1]            |
+| `--ino-card-border-thickness`           | Thickness of the border. [size:1]                    |
+| `--ino-card-checkmark-background-color` | Background Color of the check mark. [color:#fff]     |
+| `--ino-card-checkmark-color`            | Check mark color. [color:#3d40f5]                    |
+
+
 ## Dependencies
 
 ### Depends on

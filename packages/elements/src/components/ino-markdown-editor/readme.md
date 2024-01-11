@@ -42,6 +42,14 @@ The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org
 | `viewModeChange` | Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail` | `CustomEvent<"markdown" \| "preview" \| "readonly">` |
 
 
+## CSS Custom Properties
+
+| Name                               | Description                           |
+| ---------------------------------- | ------------------------------------- |
+| `--ino-markdown-editor-max-height` | Max height of text editor. [size]     |
+| `--ino-markdown-editor-min-height` | Min height of text editor. [size:100] |
+
+
 ## Dependencies
 
 ### Depends on

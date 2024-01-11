@@ -36,6 +36,20 @@ FABs come in three types: regular, mini, and extended
 | `"icon-leading"` | For the icon to be prepended |
 
 
+## CSS Custom Properties
+
+| Name                              | Description                                         |
+| --------------------------------- | --------------------------------------------------- |
+| `--fab-background-color`          | Background color. [color:#2d02ff]                   |
+| `--fab-background-color-active`   | Background color if active. [color:#1801e1]         |
+| `--fab-background-color-disabled` | Background color if disabled. [color:#b6b4c4]       |
+| `--fab-background-color-hover`    | Background color on hover. [color:#4655ff]          |
+| `--fab-color-disabled`            | Text color if disabled. [color:#fff]                |
+| `--fab-icon-color`                | Color of the slotted icon. [color:#fff]             |
+| `--fab-icon-color-disabled`       | Color of the slotted icon if disabled. [color:#fff] |
+| `--ino-fab-color`                 | Text color. [color:#fff]                            |
+
+
 ## Dependencies
 
 ### Used by

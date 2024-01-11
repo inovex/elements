@@ -4,6 +4,9 @@
 @use '../base/new-theme' as theme;
 
 :host {
+  /**
+   * @prop --progress-bar--bar-color: Color of the progress bar. [color:#4655ff]
+   */
   --ino-progress-bar-color: var(--progress-bar--bar-color, #{theme.$p-5});
 
   @include linear-progress.core-styles;
