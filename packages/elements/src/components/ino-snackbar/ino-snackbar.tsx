@@ -153,6 +153,7 @@ export class Snackbar implements ComponentInterface {
           class={snackbarClasses}
           aria-live="assertive"
           aria-atomic="true"
+          role="alert"
         >
           <div class="mdc-snackbar__surface ino-snackbar-container">
             <div class="mdc-snackbar__actions ino-snackbar-icon-container">
