@@ -1,9 +1,7 @@
-import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { decorateStoryWithClass, withIconControl } from '../utils';
-
+import Story from '../StoryWrapper';
 import './ino-fab-set.scss';
 
 const clickHandler = (e: CustomEvent<void>) => {
@@ -13,15 +11,48 @@ const clickHandler = (e: CustomEvent<void>) => {
   fabSetEl.openDial = !fabSetEl.openDial;
 };
 
-export default {
+const InoFabSetMeta = {
   title: 'Buttons/<ino-fab-set>',
   component: 'ino-fab-set',
   parameters: {
     actions: {
       handles: ['click ino-fab'],
     },
+    docs: {
+      story: {
+        height: '300px',
+      },
+    },
   },
-  decorators: [(story) => decorateStoryWithClass(story)],
+  render: (args) => html`
+    <ino-fab-set
+      open-dial="${args.openDial}"
+      top-bottom-location="${args.topBottomLocation}"
+      left-right-location="${args.leftRightLocation}"
+      dial-direction="${args.dialDirection}"
+      @click="${clickHandler}"
+    >
+      <ino-icon
+        @clickEl="${clickHandler}"
+        icon="arrow_down"
+        slot="icon-opened"
+      ></ino-icon>
+      <ino-icon
+        @clickEl="${clickHandler}"
+        icon="arrow_up"
+        slot="icon-closed"
+      ></ino-icon>
+      <ino-fab label="First FAB">
+        <ino-icon slot="icon-leading" icon="star"></ino-icon>
+      </ino-fab>
+      <ino-fab label="Second FAB">
+        <ino-icon slot="icon-leading" icon="favorite"></ino-icon>
+      </ino-fab>
+      <ino-fab label="Third FAB">
+        <ino-icon slot="icon-leading" icon="info"></ino-icon>
+      </ino-fab>
+    </ino-fab-set>
+  `,
   args: {
     openDial: false,
     dialDirection: 'top',
@@ -30,42 +61,32 @@ export default {
   },
 } as Meta<Components.InoFabSet>;
 
-const template = new TemplateGenerator<
-  Components.InoFabSet & { iconOpened: string; iconClosed: string }
->(
-  'ino-fab-set',
-  (args) => html`
-    <div style="position: absolute">
-      <ino-fab-set
-        open-dial="${args.openDial}"
-        top-bottom-location="${args.topBottomLocation}"
-        left-right-location="${args.leftRightLocation}"
-        dial-direction="${args.dialDirection}"
-        @click="${clickHandler}"
-      >
-        <ino-icon
-          @clickEl="${clickHandler}"
-          icon="${args.iconOpened}"
-          slot="icon-opened"
-        ></ino-icon>
-        <ino-icon
-          @clickEl="${clickHandler}"
-          icon="${args.iconClosed}"
-          slot="icon-closed"
-        ></ino-icon>
-        <ino-fab label="First FAB">
-          <ino-icon slot="icon-leading" icon="star"></ino-icon>
-        </ino-fab>
-        <ino-fab label="Second FAB">
-          <ino-icon slot="icon-leading" icon="favorite"></ino-icon>
-        </ino-fab>
-        <ino-fab label="Third FAB">
-          <ino-icon slot="icon-leading" icon="info"></ino-icon>
-        </ino-fab>
-      </ino-fab-set>
-    </div>
-  `,
-);
-export const Playground = template.generatePlaygroundStory();
-withIconControl(Playground, 'iconOpened', '_fab_set_arrow_down');
-withIconControl(Playground, 'iconClosed', '_fab_set_arrow_up');
+export default InoFabSetMeta;
+
+export const Default = Story({
+  ...InoFabSetMeta,
+});
+
+export const DialDirection = Story({
+  ...Default,
+  docsFromProperty: 'dialDirection',
+  args: {
+    dialDirection: 'bottom'
+  }
+});
+
+export const LeftRightLocation = Story({
+  ...Default,
+  docsFromProperty: 'leftRightLocation',
+  args: {
+    leftRightLocation: 'right'
+  }
+});
+
+export const TopBottomLocation = Story({
+  ...Default,
+  docsFromProperty: 'topBottomLocation',
+  args: {
+    topBottomLocation: 'top'
+  }
+});
