@@ -27,31 +27,30 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
       'section[data-menu-section]',
     );
 
-    const sectionsTemp: Sections = {};
+    const sectionMap: Sections = {};
 
-    domSectionElements.forEach((section) => {
-      const headingElement = section.querySelector('h2');
-      if (headingElement) {
-        const headingText = headingElement.innerHTML.trim();
-        const key = headingText;
-        const value = headingText.toCamelCase();
-        sectionsTemp[key] = value;
+    domSectionElements.forEach((sectionElement) => {
+      if (sectionElement.id) {
+        const sectionTitle =
+          sectionElement.querySelector('h2')?.textContent?.trim() ||
+          sectionElement.id;
+          sectionMap[sectionTitle] = sectionElement.id;
       }
-      observer.observe(section);
+      observer.observe(sectionElement);
     });
 
-    setActiveSection(Object.values(sectionsTemp)[0]); // set the first section as active
-    setSections(sectionsTemp);
+    setActiveSection(Object.values(sectionMap)[0]); // set the first section as active
+    setSections(sectionMap);
 
     return () => observer.disconnect();
   }, []);
 
   function handleAnchorClick(
     event: React.MouseEvent<HTMLAnchorElement>,
-    section: string,
+    sectionId: string,
   ) {
     event.preventDefault();
-    const targetElement = document.querySelector(`#${section}`);
+    const targetElement = document.querySelector(`#${sectionId}`);
     if (!targetElement) return;
 
     const headerOffset = 80;
@@ -59,7 +58,7 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
     // Change the URL (because we're preventing the default anchor click behavior)
-    const newUrl = `${window.location.origin}${window.location.pathname}#${section}`;
+    const newUrl = `${window.location.origin}${window.location.pathname}#${sectionId}`;
     window.history.pushState(null, '', newUrl);
 
     // Using window.scrollTo() instead of element.scrollIntoView() because the latter doesn't support offsets
@@ -77,20 +76,19 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
       <nav className={styles.navigationMenu}>
         <h5>{title}</h5>
         <ul className={styles.sections}>
-          {sections &&
-            Object.entries(sections).map(([key, value]) => (
-              <li
-                key={key}
-                className={activeSection === value ? styles.active : ''}
+          {Object.entries(sections).map(([key, sectionId]) => (
+            <li
+              key={key}
+              className={activeSection === sectionId ? styles.active : ''}
+            >
+              <a
+                href={`#${sectionId}`}
+                onClick={(event) => handleAnchorClick(event, sectionId)}
               >
-                <a
-                  href={`#${value}`}
-                  onClick={(event) => handleAnchorClick(event, value)}
-                >
-                  {key}
-                </a>
-              </li>
-            ))}
+                {key}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </aside>
