@@ -34,7 +34,7 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
         const sectionTitle =
           sectionElement.querySelector('h2')?.textContent?.trim() ||
           sectionElement.id;
-          sectionMap[sectionTitle] = sectionElement.id;
+        sectionMap[sectionTitle] = sectionElement.id;
       }
       observer.observe(sectionElement);
     });
