@@ -6,12 +6,7 @@ import { useRouter } from 'next/router';
 import styles from './header.desktop.module.scss';
 import LocaleSwitcher from './localeSwitcher';
 import Navbar from './navbar';
-import dynamic from 'next/dynamic';
-
-const VersionSelectWithoutSSR = dynamic(
-  () => import('components/shared/versionSelect'),
-  { ssr: false },
-);
+import VersionSelect from '../../../shared/versionSelect';
 
 export default function HeaderDesktop() {
   const { locale } = useTranslation();
@@ -35,7 +30,7 @@ export default function HeaderDesktop() {
         </div>
         {isLibraryPage && (
           <div className={styles.versionContainer}>
-            <VersionSelectWithoutSSR />
+            <VersionSelect />
           </div>
         )}
         <div className={styles.language}>

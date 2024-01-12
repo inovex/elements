@@ -11,7 +11,7 @@ import LinkItem from '../../linkItem';
 import useTranslation from '../../../../utils/hooks/useTranslation';
 import { useRouter } from 'next/router';
 import ContactButton from '../../../shared/contactButton';
-import dynamic from 'next/dynamic';
+import VersionSelect from 'components/shared/versionSelect';
 
 const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -25,11 +25,6 @@ const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
     <rect y={11} width={24} height={4} rx={2} />
     <rect y={22} width={24} height={4} rx={2} />
   </svg>
-);
-
-const VersionSelectWithoutSSR = dynamic(
-  () => import('components/shared/versionSelect'),
-  { ssr: false },
 );
 
 export default function HeaderMobile() {
@@ -58,7 +53,7 @@ export default function HeaderMobile() {
     <>
       <div className={styles.menuIconContainer}>
         <MenuIcon className={styles.icon} onClick={toggleMenu} />
-        {isLibraryPage && <VersionSelectWithoutSSR />}
+        {isLibraryPage && <VersionSelect />}
       </div>
       <div
         ref={ref}

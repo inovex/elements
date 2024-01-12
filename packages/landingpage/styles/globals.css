@@ -47,10 +47,10 @@ ino-chip * {
   box-sizing: initial;
 }
 
-ino-select:not(.ino-select-loaded) * {
+ino-select:not(.hydrated) * {
   display: none;
 }
 
-ino-popover:not(.ino-popover-loaded) * {
+ino-popover:not(.hydrated) * {
   display: none !important;
 }

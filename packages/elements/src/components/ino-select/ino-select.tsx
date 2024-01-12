@@ -10,7 +10,6 @@ import {
   Host,
   Listen,
   Prop,
-  State,
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
@@ -110,8 +109,6 @@ export class Select implements ComponentInterface {
    */
   @Prop() error?: boolean;
 
-  @State() loaded = false;
-
   @Watch('error')
   errorHandler(value?: boolean) {
     // The error property is necessary, because the default validation on form submit does not seem to work in angular projects.
@@ -146,7 +143,6 @@ export class Select implements ComponentInterface {
   componentDidLoad() {
     this.create();
     this.optionsObserver.observe(this.mdcOptionsListEl, { childList: true });
-    this.loaded = true;
   }
 
   componentDidUpdate() {
@@ -226,7 +222,6 @@ export class Select implements ComponentInterface {
 
     const inoSelectClasses = classNames({
       'ino-select-outlined': this.outline,
-      'ino-select-loaded': this.loaded,
     });
 
     const classSelect = classNames({

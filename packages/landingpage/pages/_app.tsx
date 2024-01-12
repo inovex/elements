@@ -11,6 +11,9 @@ import { useEffect } from 'react';
 import { LanguageProvider } from 'utils/context/LanguageContext';
 import UiContextProvider from '../utils/context/UiContext';
 import { VersionProvider } from '../utils/context/VersionContext';
+import useDefaultLocale from '../translations/useDefaultLocale';
+import { useMount } from 'react-use';
+import { inDevEnvironment } from '../utils/in-dev-mode';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -18,6 +21,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       void defineCustomElements(window);
     });
   }, []);
+
+  const redirectToDefaultLocale = useDefaultLocale();
+  useMount(() => {
+    if (!inDevEnvironment) {
+      redirectToDefaultLocale();
+    }
+  });
 
   return (
     <UiContextProvider>
