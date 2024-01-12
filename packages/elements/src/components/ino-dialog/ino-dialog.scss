@@ -37,11 +37,11 @@ $material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
   @include dialog.scrim-color(theme.$p-4, 0.25);
 
   .mdc-dialog {
-    &__scrim {
+    .mdc-dialog__scrim {
       backdrop-filter: blur(5px);
     }
 
-    &__container {
+    .mdc-dialog__container {
       height: $height;
       min-height: $min-height;
       max-height: $max-height;
@@ -50,7 +50,7 @@ $material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
       min-width: $min-width;
     }
 
-    &__surface {
+    .mdc-dialog__surface {
       overflow: visible;
       min-height: unset;
       max-height: unset;
@@ -103,25 +103,23 @@ $material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
   .mdc-dialog {
     align-items: flex-end;
 
-    &__container {
+    .mdc-dialog__container {
       justify-content: unset;
       transform: translateY(100%);
       transition: transform 300ms ease-in-out;
       max-width: 100vw;
-    }
 
-    &__surface {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-      max-width: 100%;
-    }
-
-    &--open {
-      .mdc-dialog {
-        &__container {
-          transform: translateY(0px);
-        }
+      .mdc-dialog__surface {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        max-width: 100%;
       }
+    }
+  }
+
+  .mdc-dialog--open {
+    .mdc-dialog__container {
+      transform: translateY(0px);
     }
   }
 }
