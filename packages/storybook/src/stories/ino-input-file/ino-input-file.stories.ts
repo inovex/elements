@@ -1,10 +1,11 @@
-import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
+import { html } from 'lit-html';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 
-export default {
+
+const InoInputFileMeta = {
   title: 'Input/ino-input-file',
   component: 'ino-input-file',
   decorators: [
@@ -34,22 +35,7 @@ export default {
       handles: ['changeFile .customizable-input'],
     },
   },
-  args: {
-    accept: '',
-    autoFocus: false,
-    disabled: false,
-    multiple: false,
-    required: false,
-    label: 'Select a file to upload',
-    dragAndDrop: false,
-    dragAndDropText: 'Drag your files here',
-    dragAndDropSecondaryText: 'or',
-  },
-} as Meta<Components.InoInputFile>;
-
-const template = new TemplateGenerator<Components.InoInputFile>(
-  'ino-input-file',
-  (args) => html`
+  render: (args) => html`
     <ino-input-file
       class="customizable-input"
       accept="${args.accept}"
@@ -63,6 +49,96 @@ const template = new TemplateGenerator<Components.InoInputFile>(
       drag-and-drop-secondary-text="${args.dragAndDropSecondaryText}"
     ></ino-input-file>
   `,
-);
-export const Playground = template.generatePlaygroundStory();
-export const DragAndDrop = template.generateStoryForProp('dragAndDrop', true);
+  args: {
+    accept: '',
+    autoFocus: false,
+    disabled: false,
+    multiple: false,
+    required: false,
+    label: 'Select a file to upload',
+    dragAndDrop: false,
+    dragAndDropText: 'Drag your files here',
+    dragAndDropSecondaryText: 'or',
+  },
+} as Meta<Components.InoInputFile>;
+
+export default InoInputFileMeta;
+
+export const Default = Story({
+  ...InoInputFileMeta,
+});
+
+export const Accept = Story({
+  ...Default,
+  docsFromProperty: 'accept',
+  args: {
+    accept: 'png',
+  }
+});
+
+export const AutoFocus = Story({
+  ...Default,
+  docsFromProperty: 'autoFocus',
+  args: {
+    autoFocus: true,
+  }
+});
+
+export const Disabled = Story({
+  ...Default,
+  docsFromProperty: 'disabled',
+  args: {
+    disabled: true,
+  }
+});
+
+export const Required = Story({
+  ...Default,
+  docsFromProperty: 'required',
+  args: {
+    required: true,
+  }
+});
+
+export const Label = Story({
+  ...Default,
+  docsFromProperty: 'label',
+  args: {
+    label: 'upload a file here',
+  }
+});
+
+export const Multiple = Story({
+  ...Default,
+  docsFromProperty: 'multiple',
+  args: {
+    multiple: true,
+  }
+});
+
+export const DragAndDrop = Story({
+  ...Default,
+  docsFromProperty: 'dragAndDrop',
+  args: {
+    dragAndDrop: true,
+  }
+});
+
+export const DragAndDropText = Story({
+  ...Default,
+  docsFromProperty: 'dragAndDropText',
+  args: {
+    dragAndDrop: true,
+    dragAndDropText: 'click and drag here',
+  }
+});
+
+export const DragAndDropSecondaryText = Story({
+  ...Default,
+  docsFromProperty: 'dragAndDropSecondaryText',
+  args: {
+    dragAndDrop: true,
+    dragAndDropText: 'click and drag here',
+    dragAndDropSecondaryText: 'or click the button below',
+  }
+});
