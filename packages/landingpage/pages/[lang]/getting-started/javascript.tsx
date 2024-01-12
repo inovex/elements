@@ -9,11 +9,15 @@ import {
 } from 'utils/context/staticPaths';
 import { Framework } from 'utils/frameworks';
 
+import styles from './guide.module.scss';
+
 const JsGuidePage = () => {
   return (
-    <Layout framework={Framework.JS} sandboxUrl={''}>
-      <JavascriptGuide />
-    </Layout>
+    <div className={styles['mdx-content']}>
+      <Layout framework={Framework.JS} sandboxUrl={''}>
+        <JavascriptGuide />
+      </Layout>
+    </div>
   );
 };
 
