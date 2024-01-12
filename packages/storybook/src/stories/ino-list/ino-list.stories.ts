@@ -1,17 +1,7 @@
 import { Meta } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
-
-export default {
-  title: 'Structure/ino-list ',
-  component: 'ino-list',
-  args: {
-    dense: false,
-    twoLines: false,
-    avatar: false,
-  },
-} as Meta<Components.InoList>;
+import { html } from 'lit-html';
+import Story from '../StoryWrapper';
 
 const exampleImg = html`
   <ino-img
@@ -22,9 +12,10 @@ const exampleImg = html`
   ></ino-img>
 `;
 
-const template = new TemplateGenerator<Components.InoList>(
-  'ino-list',
-  (args) => html`
+const InoListMeta = {
+  title: 'Structure/ino-list ',
+  component: 'ino-list',
+  render: (args) => html`
     <ino-list
       dense="${args.dense}"
       two-lines="${args.twoLines}"
@@ -47,10 +38,39 @@ const template = new TemplateGenerator<Components.InoList>(
       >
     </ino-list>
   `,
-);
+  args: {
+    dense: false,
+    twoLines: false,
+    avatar: false,
+  },
+} as Meta<Components.InoList>;
 
-export const Playground = template.generatePlaygroundStory();
+export default InoListMeta;
 
-export const TwoLines = template.generateStoryForProp('twoLines', true);
-export const Dense = template.generateStoryForProp('dense', true);
-export const Avatar = template.generateStoryForProp('avatar', true);
+export const Default = Story({
+  ...InoListMeta,
+});
+
+export const TwoLines = Story({
+  ...Default,
+  docsFromProperty: 'twoLines',
+  args: {
+    twoLines: true,
+  }
+});
+
+export const Dense = Story({
+  ...Default,
+  docsFromProperty: 'dense',
+  args: {
+    dense: true,
+  }
+});
+
+export const Avatar = Story({
+  ...Default,
+  docsFromProperty: 'avatar',
+  args: {
+    avatar: true,
+  }
+});
