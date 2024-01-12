@@ -6,7 +6,7 @@ $header-height--shrunk: 80px;
   top: $header-height--shrunk - $header-height;
   position: sticky;
   background-color: var(--inovex-elements-white);
-  z-index: 999;
+  z-index: 99999;
   height: $header-height;
   display: flex;
   align-items: center;

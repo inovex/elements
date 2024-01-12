@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
 import 'utils/stringExtensions';
+import { InoTooltip } from '@elements';
 
 type MenuSectionProps = {
   title: string;
   children: ReactNode;
-  includeInNavigationMenu?: boolean;
+  level?: 'main' | 'sub'; // 'main' for main sections, 'sub' for subsections (subsections will not be listed in the navigationMenu.tsx)
 };
 
 /**
@@ -13,8 +14,10 @@ type MenuSectionProps = {
  * @param title The title of the section (that also functions as the id).
  * @param children The content to render within the section.
  */
-function MenuSection({ title, children }: MenuSectionProps) {
-  const id = title.toCamelCase();
+function MenuSection({ title, children, level = 'main' }: MenuSectionProps) {
+  // Sanitize the ID by replacing all non-word characters (this prevents querySelector errors when the id could contain special characters like "Install @inovex.de/elements" in the vue-guide.mdx)
+  const id = title.toCamelCase().replace(/[^\w-]/g, '-');
+  const isMainSection = level === 'main';
 
   const handleMenuSectionClick = (
     event: React.MouseEvent<HTMLHeadingElement>,
@@ -38,11 +41,24 @@ function MenuSection({ title, children }: MenuSectionProps) {
     });
   };
 
+  const HeadingTag = isMainSection ? 'h2' : 'h3';
+
   return (
-    <section data-menu-section id={id}>
-      <h2 onClick={handleMenuSectionClick} style={{ cursor: 'pointer' }}>
+    <section data-menu-section={isMainSection ? 'true' : undefined} id={id}>
+      <HeadingTag
+        id={`popover-heading-${id}`}
+        onClick={handleMenuSectionClick}
+        style={{ cursor: 'pointer' }}
+      >
         {title}
-      </h2>
+      </HeadingTag>
+      <InoTooltip
+        for={`popover-heading-${id}`}
+        placement="left"
+        trigger="mouseenter focus"
+      >
+        <b>#</b>
+      </InoTooltip>
       {children}
     </section>
   );

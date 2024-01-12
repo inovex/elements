@@ -109,7 +109,7 @@ import MenuSection from "components/getting-started/menuSection";
     ```
     </CH.Section>
 
-    ### Playground
+    <MenuSection title='Playground' level='sub'>
 
     Every component has a variety of powerful and unique properties. They are listed and explained in each component **Playground**:
 
@@ -130,7 +130,7 @@ import MenuSection from "components/getting-started/menuSection";
     <Hint>Hint: These are some of the properties of the `<InoInput>` component.</Hint>
 
     The Playground allows you to modify these properties and see the result in real time. Additionally, we provide examples about the usage of each component with its given properties.
-
+  </MenuSection>
       <StepIndicator step='5'>Following up on our login-form, we add a type and value property, setting it to a state object named _email_. Do the same for the password `<InoInput>`.</StepIndicator>
 
     ```tsx
@@ -155,7 +155,7 @@ import MenuSection from "components/getting-started/menuSection";
     </InoInput>
     ```
 
-  ## Events
+  <MenuSection title='Events' level='sub'>
 
   With the exact same approach, we use **Events**. They emit a certain value when the user does something that triggers our Event to fire. In other terms: Our event gives us a **reaction** to an **action** made by our User.
   In case of our `<InoInput>` the action is the user typing and our events reaction contains the typed input.
@@ -191,8 +191,9 @@ import MenuSection from "components/getting-started/menuSection";
   ```
 
   <Hint>Hint: while in our Playground the Event is called `valueChange`, we name it `onValueChange` inside of our `<InoInput>`. The reason for this is that we want to accomodate our naming similar to the react-way of naming events (e.g. onClick)</Hint>
+  </MenuSection>
 
-  ## Slots
+  <MenuSection title='Slots' level='sub'>
 
   Many components of the Elements Library have **slots**, that can be filled by other components or your own content to further customize its functionality or appearance.
   
@@ -220,8 +221,8 @@ import MenuSection from "components/getting-started/menuSection";
   ```
 
   Note that we indicated the position of the slot inside our `<InoIcon>` with `slot="icon-trailing"`.
-
-  ## CSS-Variables
+  </MenuSection>
+  <MenuSection title='CSS-Variables' level='sub'>
 
   In order to provide a CSS way of styling the inovex-elements, we sometimes provide custom properties, a.k.a. CSS-Variables.
   In the case of the `<ino-input>`, there are two variables we can use to change the appearance of our component: `--ino-input-line-color` to change the color of the underline and the `--ino-input-label-color` which changes the color of the floating label. They can be used like this:
@@ -232,7 +233,7 @@ import MenuSection from "components/getting-started/menuSection";
     --ino-input-label-color: blue;
   }
   ```
-
+  </MenuSection>
   </MenuSection>
   <MenuSection title="Finishing Touches">
 
