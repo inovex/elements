@@ -1,19 +1,28 @@
 import { Meta } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-import './ino-popover.scss';
-import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
+import { html } from 'lit-html';
+import Story from '../StoryWrapper';
+import './ino-popover.scss';
 
-export default {
+let POPOVER_COUNTER = 1;
+
+type InoPopoverExtended = Components.InoPopover & {
+  placementClass: string;
+};
+
+const InoPopoverMeta = {
   title: 'Notification/ino-popover',
   component: 'ino-popover',
   parameters: {
     actions: {
       handles: ['visibleChange ino-popover'],
     },
+    docs: {
+      story: {
+        height: '200px',
+      },
+    },
   },
-  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-popover')],
   argTypes: {
     placement: {
       control: {
@@ -53,33 +62,7 @@ export default {
       options: [true, false, 'initial', 'horizontal', 'vertical'],
     },
   },
-  args: {
-    controlled: false,
-    distance: 15,
-    for: 'popover-target',
-    interactive: false,
-    placement: 'top',
-    trigger: 'mouseenter',
-    colorScheme: 'light',
-    visible: false,
-    hideOnEsc: false,
-    hideOnBlur: false,
-    delay: 0,
-    arrow: false,
-    placementClass: '',
-    headerText: '',
-  },
-} as Meta;
-
-let POPOVER_COUNTER = 1;
-
-type InoPopoverExtended = Components.InoPopover & {
-  placementClass: string;
-};
-
-const template = new TemplateGenerator<InoPopoverExtended>(
-  'ino-popover',
-  (args) => {
+  render: (args) => {
     const id = `popover-${POPOVER_COUNTER++}`;
 
     return html`
@@ -111,21 +94,67 @@ const template = new TemplateGenerator<InoPopoverExtended>(
       </ino-popover>
     `;
   },
-);
+  args: {
+    controlled: false,
+    distance: 15,
+    for: 'popover-target',
+    interactive: false,
+    placement: 'top',
+    trigger: 'mouseenter',
+    colorScheme: 'light',
+    visible: false,
+    hideOnEsc: false,
+    hideOnBlur: false,
+    delay: 0,
+    arrow: false,
+    placementClass: '',
+    headerText: '',
+  },
+} as Meta<InoPopoverExtended>;
 
-export const Playground = template.generatePlaygroundStory();
-export const Arrow = template.generateStoryForProp('arrow', true);
-export const Placement = template.generateStoryForProp('placement', 'right', {
-  placementClass: 'styled-placement',
+export default InoPopoverMeta;
+
+export const Default = Story({
+  ...InoPopoverMeta,
 });
 
-export const AttachToBody = template.generateStoryForProp('attachToBody', true);
+export const Arrow = Story({
+  ...Default,
+  docsFromProperty: 'arrow',
+  args: {
+    arrow: true,
+  }
+});
 
-export const Distance = template.generateStoryForProp('distance', 30);
+export const Placement = Story({
+  ...Default,
+  docsFromProperty: 'placement',
+  args: {
+    placement: 'right',
+    placementClass: 'styled-placement'
+  }
+});
 
-const templateColors = new TemplateGenerator<InoPopoverExtended>(
-  'ino-popover',
-  (args) => {
+export const AttachToBody = Story({
+  ...Default,
+  docsFromProperty: 'attachToBody',
+  args: {
+    attachToBody: true,
+  }
+});
+
+export const Distance = Story({
+  ...Default,
+  docsFromProperty: 'distance',
+  args: {
+    distance: 30,
+  }
+});
+
+export const ColorSchemes = Story({
+  ...Default,
+  docsFromProperty: 'colorScheme',
+  render: (args) => {
     const idLight = 'popover-light';
     const idDark = 'popover-dark';
     const idPrimary = 'popover-primary';
@@ -192,23 +221,28 @@ const templateColors = new TemplateGenerator<InoPopoverExtended>(
       </ino-popover>
     `;
   },
-);
+});
 
-export const ColorSchemes = templateColors.generateStoryForProp(
-  'colorScheme',
-  'light',
-);
+export const Trigger = Story({
+  ...Default,
+  docsFromProperty: 'trigger',
+  args: {
+    trigger: 'click'
+  }
+});
 
-export const Trigger = template.generateStoryForProp('trigger', 'click');
+export const FollowCursor = Story({
+  ...Default,
+  docsFromProperty: 'followCursor',
+  args: {
+    followCursor: 'horizontal',
+  }
+});
 
-export const FollowCursor = template.generateStoryForProp(
-  'followCursor',
-  'horizontal',
-);
-
-const templateInteractive = new TemplateGenerator<InoPopoverExtended>(
-  'ino-popover',
-  () => html`
+export const Interactive = Story({
+  ...Default,
+  docsFromProperty: 'interactive',
+  render: () => html`
     <ino-popover
       trigger="click"
       for="popover-interactive-target"
@@ -227,16 +261,15 @@ const templateInteractive = new TemplateGenerator<InoPopoverExtended>(
       >Interactive Content
     </ino-button>
   `,
-);
+  args: {
+    interactive: true,
+  }
+});
 
-export const Interactions = templateInteractive.generateStoryForProp(
-  'interactive',
-  true,
-);
-
-const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
-  'ino-popover',
-  () => {
+export const Controlled = Story({
+  ...Default,
+  docsFromProperty: 'controlled',
+  render: () => {
     const eventHandler = (e: any) => {
       e.target?.setAttribute('visible', e.detail);
       (
@@ -266,11 +299,23 @@ const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
       </ino-popover>
     `;
   },
-);
+  args: {
+    controlled: true,
+  }
+});
 
-export const Visible = templateControlledPopover.generateStoryForProp(
-  'visible',
-  true,
-);
+export const Visible = Story({
+  ...Default,
+  docsFromProperty: 'visible',
+  args: {
+    visible: true,
+  }
+});
 
-export const Delay = template.generateStoryForProp('delay', [500, 200]);
+export const Delay = Story({
+  ...Default,
+  docsFromProperty: 'delay',
+  args: {
+    delay: [500, 200],
+  }
+});

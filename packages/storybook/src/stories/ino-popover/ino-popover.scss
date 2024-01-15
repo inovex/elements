@@ -1,24 +1,25 @@
-.story-ino-popover {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 1rem;
-  height: 130px;
+.sbdocs.sbdocs-content:has(#anchor--notification-ino-popover--default) {
+  [scale] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-  &:has(ino-button.styled-placement) {
-    align-items: center;
-    justify-content: flex-start;
+    &:has(ino-button.styled-placement) {
+      align-items: center;
+      justify-content: flex-start;
+    }
+  
+    &:has(ino-button.big-space) {
+      height: 250px;
+    }
+
+    .innerZoomElementWrapper > div > div {
+      overflow: unset;
+      
+      #root-inner {
+        display: flex;
+        gap: 5px;
+      }
+    }
   }
-
-  &:has(ino-button.big-space) {
-    height: 250px;
-  }
-}
-
-.interactive-popover {
-  width: 300px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 5px;
 }
