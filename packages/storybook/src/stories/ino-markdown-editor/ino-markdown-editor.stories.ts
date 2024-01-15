@@ -1,14 +1,13 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import Story from '../StoryWrapper';
+import { useEffect } from '@storybook/preview-api';
 import './ino-markdown-editor.scss';
 
 const ID = 'editor-playground';
 
-export default {
+const InoMarkdownEditorMeta = {
   title: 'Input/ino-markdown-editor',
   component: 'ino-markdown-editor',
   parameters: {
@@ -17,7 +16,6 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-markdown-editor'),
     (story) => {
       useEffect(() => {
         const viewModeChangeHandler = (e: CustomEvent<string>) => {
@@ -35,20 +33,21 @@ export default {
       return story();
     },
   ],
-  args: {
-    initialValue: '',
-    viewMode: 'preview',
-  },
-} as Meta;
-
-const template = new TemplateGenerator<Components.InoMarkdownEditor>(
-  'ino-markdown-editor',
-  (args) => html`
+  render: (args) => html`
     <ino-markdown-editor
       id="${ID}"
       initial-value="${args.initialValue}"
       view-mode="${args.viewMode}"
     ></ino-markdown-editor>
   `,
-);
-export const Playground = template.generatePlaygroundStory();
+  args: {
+    initialValue: '',
+    viewMode: 'preview',
+  },
+} as Meta;
+
+export default InoMarkdownEditorMeta;
+
+export const Default = Story({
+  ...InoMarkdownEditorMeta,
+});
