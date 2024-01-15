@@ -1,8 +1,8 @@
-import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
+import { html } from 'lit-html';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import inovexElementsLogo from '../../assets/images/elements.svg';
 import './ino-nav-drawer.scss';
 
@@ -44,7 +44,7 @@ const clickHandler = (e) => {
   }
 };
 
-export default {
+const InoNavDrawerMeta = {
   title: 'Structure/ino-nav-drawer',
   component: 'ino-nav-drawer',
   parameters: {
@@ -72,6 +72,67 @@ export default {
       return story();
     },
   ],
+  render: (args) => html`
+    <div class="story-nav-drawer__default">
+      <ino-nav-drawer
+        ?open=${args.open}
+        anchor="${args.anchor}"
+        variant="${args.variant}"
+        class="customizable-drawer"
+      >
+        <div slot="header">
+          <ino-img
+            slot="logo"
+            src=${inovexElementsLogo}
+            width="22"
+            height="31"
+            alt="inovex Elements Logo"
+          ></ino-img>
+          <p>inovex Elements</p>
+        </div>
+        <ino-list
+          role="menubar"
+          slot="content"
+          aria-label=${args.a11yLabels?.content}
+        >
+          <ino-nav-item role="menuitem" text="Home" activated>
+            <ino-icon icon="home"></ino-icon>
+          </ino-nav-item>
+          <ino-nav-item role="menuitem" text="Discover">
+            <ino-icon icon="discover"></ino-icon>
+          </ino-nav-item>
+          <ino-nav-item role="menuitem" text="First Steps">
+            <ino-icon icon="first_steps"></ino-icon>
+          </ino-nav-item>
+          <ino-nav-item role="menuitem" text="Library">
+            <ino-icon icon="library"></ino-icon>
+          </ino-nav-item>
+          <ino-nav-item role="menuitem" text="About Us">
+            <ino-icon icon="employee"></ino-icon>
+          </ino-nav-item>
+        </ino-list>
+        <ino-list
+          role="menubar"
+          slot="footer"
+          aria-label=${args.a11yLabels?.footer}
+        >
+          <ino-nav-item role="menuitem" text="Contact">
+            <ino-icon icon="message"></ino-icon>
+          </ino-nav-item>
+        </ino-list>
+
+        <main slot="app" class="main-content">
+          <ino-button fill="outline" dense class="toggle-nav"
+            >${args.a11yLabels?.toggleBtn}</ino-button
+          >
+          <br />
+          <br />
+          Your App goes here 🤘
+          <br /><br />
+        </main>
+      </ino-nav-drawer>
+    </div>
+  `,
   argTypes: {
     variant: {
       control: {
@@ -92,82 +153,42 @@ export default {
   },
 } as Meta<Components.InoNavDrawer>;
 
-const template = new TemplateGenerator<Components.InoNavDrawer>(
-  'ino-nav-drawer',
-  (args) => {
-    return html`
-      <div class="story-nav-drawer__default">
-        <ino-nav-drawer
-          ?open=${args.open}
-          anchor="${args.anchor}"
-          variant="${args.variant}"
-          class="customizable-drawer"
-        >
-          <div slot="header">
-            <ino-img
-              slot="logo"
-              src=${inovexElementsLogo}
-              width="22"
-              height="31"
-              alt="inovex Elements Logo"
-            ></ino-img>
-            <p>inovex Elements</p>
-          </div>
-          <ino-list
-            role="menubar"
-            slot="content"
-            aria-label=${args.a11yLabels?.content}
-          >
-            <ino-nav-item role="menuitem" text="Home" activated>
-              <ino-icon icon="home"></ino-icon>
-            </ino-nav-item>
-            <ino-nav-item role="menuitem" text="Discover">
-              <ino-icon icon="discover"></ino-icon>
-            </ino-nav-item>
-            <ino-nav-item role="menuitem" text="First Steps">
-              <ino-icon icon="first_steps"></ino-icon>
-            </ino-nav-item>
-            <ino-nav-item role="menuitem" text="Library">
-              <ino-icon icon="library"></ino-icon>
-            </ino-nav-item>
-            <ino-nav-item role="menuitem" text="About Us">
-              <ino-icon icon="employee"></ino-icon>
-            </ino-nav-item>
-          </ino-list>
-          <ino-list
-            role="menubar"
-            slot="footer"
-            aria-label=${args.a11yLabels?.footer}
-          >
-            <ino-nav-item role="menuitem" text="Contact">
-              <ino-icon icon="message"></ino-icon>
-            </ino-nav-item>
-          </ino-list>
+export default InoNavDrawerMeta;
 
-          <main slot="app" class="main-content">
-            <ino-button fill="outline" dense class="toggle-nav"
-              >${args.a11yLabels?.toggleBtn}</ino-button
-            >
-            <br />
-            <br />
-            Your App goes here 🤘
-            <br /><br />
-          </main>
-        </ino-nav-drawer>
-      </div>
-    `;
-  },
-);
-
-export const Playground = template.generatePlaygroundStory();
-export const AnchorRight = template.generateStoryForProp('anchor', 'right');
-export const Modal = template.generateStoryForProp('variant', 'modal', {
-  open: false,
+export const Default = Story({
+  ...InoNavDrawerMeta,
 });
-export const Dismissible = template.generateStoryForProp(
-  'variant',
-  'dismissible',
-);
-export const Mobile = template.generateStoryForProp('variant', 'mobile', {
-  open: false,
+
+export const AnchorRight = Story({
+  ...Default,
+  docsFromProperty: 'anchor',
+  args: {
+    anchor: 'right',
+  }
+});
+
+export const Modal = Story({
+  ...Default,
+  docsFromProperty: 'variant',
+  args: {
+    variant: 'modal',
+    open: false,
+  }
+});
+
+export const Dismissible = Story({
+  ...Default,
+  docsFromProperty: 'variant',
+  args: {
+    variant: 'dismissible',
+  }
+});
+
+export const Mobile = Story({
+  ...Default,
+  docsFromProperty: 'variant',
+  args: {
+    variant: 'mobile',
+    open: false,
+  }
 });
