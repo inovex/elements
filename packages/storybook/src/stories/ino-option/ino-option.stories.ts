@@ -1,22 +1,20 @@
 import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
-import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import Story from '../StoryWrapper';
 import './ino-option.scss';
 
-export default {
+const InoOptionMeta = {
   title: 'Input/ino-option',
   component: 'ino-option',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-option')],
-  args: {
-    value: 'some-id',
+  parameters: {
+    docs: {
+      story: {
+        height: '150px',
+      },
+    },
   },
-} as Meta<Components.InoOption>;
-
-const template = new TemplateGenerator<Components.InoOption>(
-  'ino-option',
-  (args) => html`
+  render: (args) => html`
     <div class="story-option">
       <ino-select label="My Select">
         <ino-option
@@ -30,13 +28,31 @@ const template = new TemplateGenerator<Components.InoOption>(
       </ino-select>
     </div>
   `,
-);
+  args: {
+    value: 'some-id',
+    disabled: false,
+    selected: false,
+  },
+} as Meta<Components.InoOption>;
 
-export const Playground = template.generatePlaygroundStory();
-Playground.args = {
-  disabled: false,
-  selected: false,
-};
+export default InoOptionMeta;
 
-export const DisabledOption = template.generateStoryForProp('disabled', true);
-export const SelectedOption = template.generateStoryForProp('selected', true);
+export const Default = Story({
+  ...InoOptionMeta,
+});
+
+export const DisabledOption = Story({
+  ...Default,
+  docsFromProperty: 'disabled',
+  args: {
+    disabled: true,
+  }
+});
+
+export const SelectedOption = Story({
+  ...Default,
+  docsFromProperty: 'selected',
+  args: {
+    selected: true,
+  }
+});
