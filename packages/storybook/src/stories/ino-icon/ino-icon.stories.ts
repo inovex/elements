@@ -2,11 +2,9 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { getIcons } from '../utils';
 import { TemplateGenerator } from '../template-generator';
-
 import ICONS from './../../../../elements/src/components/ino-icon/icons';
-
-import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter(
@@ -63,7 +61,6 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-icon'),
     (story) => {
       useEffect(() => {
         const searchIconHandler = function (e) {
@@ -101,6 +98,14 @@ export default {
       return story();
     },
   ],
+  argTypes: {
+    icon: {
+      control: {
+        type: 'select',
+      },
+      options: getIcons(),
+    },
+  },
   args: {
     clickable: true,
     colorSecondary: false,
@@ -127,7 +132,6 @@ const template = new TemplateGenerator<Components.InoIcon>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-withIconControl(Playground, 'icon', 'info');
 
 const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
   'ino-icon',
