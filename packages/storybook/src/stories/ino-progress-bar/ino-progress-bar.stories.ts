@@ -1,14 +1,12 @@
 import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import Story from '../StoryWrapper';
 import './ino-progress-bar.scss';
-import { TemplateGenerator } from '../template-generator';
 
-export default {
+const InoProgressBarMeta = {
   title: 'Notification/ino-progress-bar',
   component: 'ino-progress-bar',
-  decorators: [(s) => decorateStoryWithClass(s, 'story-ino-progress-bar')],
   argTypes: {
     buffer: {
       control: { min: 0, max: 1, step: 0.1 },
@@ -17,14 +15,7 @@ export default {
       control: { min: 0, max: 1, step: 0.1 },
     },
   },
-  args: {
-    indeterminate: false,
-  },
-} as Meta;
-
-const template = new TemplateGenerator<Components.InoProgressBar>(
-  'ino-progress-bar',
-  (args) => html`
+  render: (args) => html`
     <ino-progress-bar
       buffer="${args.buffer}"
       progress="${args.progress}"
@@ -32,19 +23,39 @@ const template = new TemplateGenerator<Components.InoProgressBar>(
     >
     </ino-progress-bar>
   `,
-);
+  args: {
+    indeterminate: false,
+    buffer: 0.9,
+    progress: 0.4,
+  },
+} as Meta<Components.InoProgressBar>;
 
-export const Playground = template.generatePlaygroundStory();
-Playground.args = {
-  buffer: 0.9,
-  progress: 0.4,
-};
+export default InoProgressBarMeta;
 
-export const Progress = template.generateStoryForProp('progress', 0.5);
+export const Default = Story({
+  ...InoProgressBarMeta,
+});
 
-export const Buffer = template.generateStoryForProp('buffer', 0.5);
+export const Progress = Story({
+  ...Default,
+  docsFromProperty: 'progress',
+  args: {
+    progress: 0.5,
+  }
+});
 
-export const Indeterminate = template.generateStoryForProp(
-  'indeterminate',
-  true,
-);
+export const Buffer = Story({
+  ...Default,
+  docsFromProperty: 'buffer',
+  args: {
+    buffer: 0.5,
+  }
+});
+
+export const Indeterminate = Story({
+  ...Default,
+  docsFromProperty: 'indeterminate',
+  args: {
+    indeterminate: true,
+  }
+});
