@@ -1,18 +1,16 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import Story from '../StoryWrapper';
+import { useEffect } from '@storybook/preview-api';
 import './ino-tab-bar.scss';
 
 const eventHandler = (e) => e.target.setAttribute('active-tab', e.detail);
 
-export default {
+const InoTabBarMeta = {
   title: 'Structure/ino-tab-bar',
   component: 'ino-tab-bar',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-tab-bar'),
     (story) => {
       useEffect(() => {
         const tabBars = document.querySelectorAll('ino-tab-bar');
@@ -27,23 +25,7 @@ export default {
       return story();
     },
   ],
-  args: {
-    activeTab: 0,
-    autoFocus: false,
-  },
-  argTypes: {
-    activeTab: {
-      control: {
-        type: 'select',
-      },
-      options: [0, 1, 2, 3],
-    },
-  },
-} as Meta<Components.InoTabBar>;
-
-const template = new TemplateGenerator<Components.InoTabBar>(
-  'ino-tab-bar',
-  (args) => html`
+  render: (args) => html`
     <ino-tab-bar
       id="customizable-tabbar"
       active-tab="${args.activeTab}"
@@ -67,7 +49,30 @@ const template = new TemplateGenerator<Components.InoTabBar>(
       ></ino-tab>
     </ino-tab-bar>
   `,
-);
+  argTypes: {
+    activeTab: {
+      control: {
+        type: 'select',
+      },
+      options: [0, 1, 2, 3],
+    },
+  },
+  args: {
+    activeTab: 0,
+    autoFocus: false,
+  },
+} as Meta<Components.InoTabBar>;
 
-export const Playground = template.generatePlaygroundStory();
-export const ActiveTab = template.generateStoryForProp('activeTab', 1);
+export default InoTabBarMeta;
+
+export const Default = Story({
+  ...InoTabBarMeta,
+});
+
+export const ActiveTab = Story({
+  ...Default,
+  docsFromProperty: 'activeTab',
+  args: {
+    activeTab: 1,
+  }
+});
