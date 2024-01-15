@@ -1,4 +1,11 @@
-.story-ino-table-header-cell {
+.sbdocs.sbdocs-content:has(#anchor--structure-ino-table-header-cell--default) {
+  [scale] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   ino-table {
     display: block;
     margin-bottom: 40px;
