@@ -1,12 +1,11 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import './ino-textarea.scss';
 
-export default {
+const InoTextareaMeta = {
   title: 'Input/ino-textarea',
   component: 'ino-textarea',
   parameters: {
@@ -18,7 +17,6 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-textarea'),
     (story) => {
       useEffect(() => {
         const eventHandler = (e) => e.target.setAttribute('value', e.detail);
@@ -34,6 +32,20 @@ export default {
       return story();
     },
   ],
+  render: (args) => html`
+    <ino-textarea
+      class="customizable-textarea"
+      cols="${args.cols}"
+      rows="${args.rows}"
+      label="${args.label}"
+      outline="${args.outline}"
+      minlength="${args.minlength}"
+      disabled="${args.disabled}"
+      required="${args.required}"
+      show-label-hint="${args.showLabelHint}"
+      autogrow="${args.autogrow}"
+    ></ino-textarea>
+  `,
   args: {
     cols: 60,
     rows: 5,
@@ -49,27 +61,63 @@ export default {
   },
 } as Meta<Components.InoTextarea>;
 
-const template = new TemplateGenerator<Components.InoTextarea>(
-  'ino-textarea',
-  (args) => html`
+export default InoTextareaMeta;
+
+export const Default = Story({
+  ...InoTextareaMeta,
+});
+
+export const Label = Story({
+  ...Default,
+  docsFromProperty: 'label',
+  render: () => html`
+    <ino-textarea label="Floating label" cols="30" rows="3"></ino-textarea>
     <ino-textarea
-      class="customizable-textarea"
-      cols="${args.cols}"
-      rows="${args.rows}"
-      label="${args.label}"
-      outline="${args.outline}"
-      minlength="${args.minlength}"
-      disabled="${args.disabled}"
-      required="${args.required}"
-      show-label-hint="${args.showLabelHint}"
-      autogrow="${args.autogrow}"
+      label="Floating label"
+      value="With value"
+      cols="30"
+      rows="3"
     ></ino-textarea>
   `,
-);
+});
 
-const templateWithMaxLength = new TemplateGenerator<Components.InoTextarea>(
-  'ino-textarea',
-  (args) => html`
+export const Disabled = Story({
+  ...Default,
+  docsFromProperty: 'disabled',
+  args: {
+    disabled: true,
+  }
+});
+
+export const Required = Story({
+  ...Default,
+  docsFromProperty: 'required',
+  args: {
+    required: true,
+    label: 'Label*',
+  }
+});
+
+export const Outline = Story({
+  ...Default,
+  docsFromProperty: 'outline',
+  args: {
+    outline: true,
+  }
+});
+
+export const ShowLabelHint = Story({
+  ...Default,
+  docsFromProperty: 'showLabelHint',
+  args: {
+    showLabelHint: true,
+  }
+});
+
+export const CharacterCount = Story({
+  ...Default,
+  docsFromProperty: 'showCharacterCounter',
+  render: (args) => html`
     <ino-textarea
       class="customizable-textarea"
       cols="${args.cols}"
@@ -85,47 +133,7 @@ const templateWithMaxLength = new TemplateGenerator<Components.InoTextarea>(
       show-character-counter="${args.showCharacterCounter}"
     ></ino-textarea>
   `,
-);
-export const Playground = templateWithMaxLength.generatePlaygroundStory();
-
-Playground.args = {
-  showCharacterCounter: true,
-  maxlength: 30,
-};
-
-const templateLabels = new TemplateGenerator<Components.InoTextarea>(
-  'ino-textarea',
-  (args) => html`
-    <ino-textarea label="Floating label" cols="30" rows="3"></ino-textarea>
-    <ino-textarea
-      label="Floating label"
-      value="With value"
-      cols="30"
-      rows="3"
-    ></ino-textarea>
-  `,
-);
-export const Labels = templateLabels.generateStoryForProp('label', '');
-
-export const Disabled = template.generateStoryForProp('disabled', true);
-export const Required = template.generateStoryForProp('required', true);
-
-Required.args = {
-  label: 'Label*',
-  required: true,
-};
-
-export const Outline = template.generateStoryForProp('outline', true);
-export const ShowLabelHint = template.generateStoryForProp(
-  'showLabelHint',
-  true,
-);
-export const Autogrow = template.generateStoryForProp('autogrow', true);
-export const CharacterCount = templateWithMaxLength.generateStoryForProp(
-  'showCharacterCounter',
-  true,
-);
-
-CharacterCount.args = {
-  showCharacterCounter: true,
-};
+  args: {
+    showCharacterCounter: true,
+  }
+});
