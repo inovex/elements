@@ -1,9 +1,9 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/preview-api';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
+import { useEffect } from '@storybook/preview-api';
 import { getIcons } from '../utils';
-import { TemplateGenerator } from '../template-generator';
+import Story from '../StoryWrapper';
 import ICONS from './../../../../elements/src/components/ino-icon/icons';
 import './ino-icon.scss';
 
@@ -49,7 +49,7 @@ const iconChips = ICON_IDS.map(
   `,
 );
 
-export default {
+const InoIconMeta = {
   title: 'Graphic/ino-icon',
   component: 'ino-icon',
   parameters: {
@@ -98,6 +98,18 @@ export default {
       return story();
     },
   ],
+  render: (args) => html`
+    <ino-icon
+      class="customizable-icon"
+      clickable="${args.clickable}"
+      color-secondary="${args.colorSecondary}"
+      icon="${args.icon}"
+      svg-title="${args.svgTitle}"
+      src="${args.src}"
+      style="--icon-width: 30px; --icon-height: 30px;"
+    >
+    </ino-icon>
+  `,
   argTypes: {
     icon: {
       control: {
@@ -115,27 +127,15 @@ export default {
   },
 } as Meta;
 
-const template = new TemplateGenerator<Components.InoIcon>(
-  'ino-icon',
-  (args) => html`
-    <ino-icon
-      class="customizable-icon"
-      clickable="${args.clickable}"
-      color-secondary="${args.colorSecondary}"
-      icon="${args.icon}"
-      svg-title="${args.svgTitle}"
-      src="${args.src}"
-      style="--icon-width: 30px; --icon-height: 30px;"
-    >
-    </ino-icon>
-  `,
-);
+export default InoIconMeta;
 
-export const Playground = template.generatePlaygroundStory();
+export const Default = Story({
+  ...InoIconMeta,
+});
 
-const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
-  'ino-icon',
-  () => html`
+export const AllIcons = Story({
+  ...Default,
+  render: () => html`
     <div class="story-icon">
       <div class="flex-parent-center">
         <ino-input class="icon-search-input" placeholder="Find icon">
@@ -146,5 +146,4 @@ const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
       </div>
     </div>
   `,
-);
-export const AllIcons = templateAllIcons.generatePlaygroundStory();
+});
