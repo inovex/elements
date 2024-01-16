@@ -2,8 +2,6 @@
   "packages": ["packages/*"],
   "version": "9.0.0",
   "npmClient": "yarn",
-  "useNx": true,
-  "useWorkspaces": true,
   "command": {
     "version": {
       "yes": true,
@@ -11,5 +9,6 @@
       "message": "chore: publish %s",
       "allowBranch": ["master"]
     }
-  }
+  },
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
 }

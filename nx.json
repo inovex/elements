@@ -9,14 +9,30 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build"],
-      "cache": true
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production"
+      ]
     },
     "test": {
-      "cache": true
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production"
+      ]
     },
     "lint": {
-      "cache": true
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        "{projectRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintrc.json"
+      ]
     }
   },
   "generators": {
@@ -61,5 +77,19 @@
     "version": {
       "conventionalCommits": true
     }
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [
+      "{workspaceRoot}/tsconfig.json",
+      "{workspaceRoot}/tsconfig.base.json"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.e2e.ts"
+    ]
   }
 }
