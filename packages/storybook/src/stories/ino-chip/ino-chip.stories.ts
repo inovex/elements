@@ -4,7 +4,7 @@ import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import './ino-chip.scss';
 
-const Playground = {
+const InoChipMeta = {
   title: 'Buttons/<ino-chip>',
   component: 'ino-chip',
   parameters: {
@@ -37,8 +37,14 @@ const Playground = {
   },
 } as Meta<Components.InoChip>;
 
+export default InoChipMeta;
+
+export const Default = Story({
+  ...InoChipMeta,
+});
+
 export const FillSolid = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'fill',
   args: {
     fill: 'solid'
@@ -46,7 +52,7 @@ export const FillSolid = Story({
 })
 
 export const FillOutline = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'fill',
   args: {
     fill: 'outline'
@@ -57,7 +63,7 @@ export const FillOutline = Story({
  In order to include icons, use the `icon-leading` or `icon-trailing` slot
  */
 export const Icons = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
   <div class="ino-chip-story">
     <ino-chip>
@@ -81,7 +87,7 @@ export const Icons = Story({
  * In order to use ino-chips as filter, use `selectable` on each element
  */
 export const Filter = Story({
-  ...Playground,
+  ...Default,
   render: () => {
     const values = ['Chip 1', 'Chip 2', 'Chip 3'];
     const selectedChips = new Set<string>();
@@ -119,7 +125,7 @@ export const Filter = Story({
  * In order to make ino-chip-elements removable, add `removable`. This will add a close icon on the right side of this chip which emits the `removeChip` event on click.
  */
 export const Remove = Story({
-  ...Playground,
+  ...Default,
   render: () => {
     const chips = ['Chip 1', 'Chip 2', 'Chip 3'];
 
@@ -141,11 +147,9 @@ export const Remove = Story({
 })
 
 export const NotClickable = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'clickable',
   args: {
     clickable: false,
   }
 })
-
-export default Playground;

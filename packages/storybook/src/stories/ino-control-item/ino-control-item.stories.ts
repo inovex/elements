@@ -5,7 +5,7 @@ import { useEffect } from '@storybook/preview-api';
 import Story from '../StoryWrapper';
 import './ino-control-item.scss';
 
-const Playground = {
+const InoControlItemMeta = {
   title: 'Structure/ino-control-item',
   component: 'ino-control-item',
   decorators: [
@@ -56,9 +56,14 @@ const Playground = {
   },
 } as Meta<Components.InoControlItem>;
 
+export default InoControlItemMeta;
+
+export const Default = Story({
+  ...InoControlItemMeta,
+});
 
 export const Roles = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'role',
   args: {
     role: 'radio'
@@ -66,7 +71,7 @@ export const Roles = Story({
 }) 
 
 export const Checked = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'checked',
   args: {
     checked: true
@@ -75,7 +80,7 @@ export const Checked = Story({
 
 
 export const Indeterminate = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'indeterminate',
   args: {
     indeterminate: true
@@ -83,7 +88,7 @@ export const Indeterminate = Story({
 })
 
 export const Activated = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'activated',
   args: {
     activated: true
@@ -91,7 +96,7 @@ export const Activated = Story({
 })
 
 export const Selected = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'selected',
   args: {
     selected: true
@@ -99,7 +104,7 @@ export const Selected = Story({
 })
 
 export const SecondaryText = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'secondaryText',
   args: {
     secondaryText: 'Some Secondary Text'
@@ -107,7 +112,7 @@ export const SecondaryText = Story({
 })
 
 export const Disabled = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'disabled',
   args: {
     disabled: true
@@ -115,11 +120,9 @@ export const Disabled = Story({
 })
 
 export const Trailing = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'trailing',
   args: {
     trailing: true
   }
 })
-
-export default Playground;

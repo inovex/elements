@@ -5,7 +5,7 @@ import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import './ino-card.scss';
 
-const Playground = {
+const InoCardMeta = {
   title: 'Structure/<ino-card>',
   component: 'ino-card',
   decorators: [
@@ -58,9 +58,14 @@ const Playground = {
   },
 } as Meta<Components.InoCard>;
 
+export default InoCardMeta;
+
+export const Default = Story({
+  ...InoCardMeta,
+});
 
 export const DisabledElevation = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'disableElevation',
   args: {
     disableElevation: true,
@@ -68,11 +73,9 @@ export const DisabledElevation = Story({
 }) 
 
 export const Selected = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'selected',
   args: {
     selected: true,
   }
 })
-
-export default Playground;

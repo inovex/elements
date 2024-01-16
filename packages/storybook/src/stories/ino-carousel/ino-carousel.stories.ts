@@ -14,7 +14,7 @@ const onSlideChanged = (ev: CustomEvent<string>) => {
   carouselEl.value = ev.detail;
 };
 
-const Playground = {
+const InoCarouselMeta = {
   title: 'Graphic/<ino-carousel>',
   component: 'ino-carousel',
   render: (args) => html`
@@ -45,8 +45,14 @@ const Playground = {
   },
 } as Meta<Components.InoCarousel>;
 
+export default InoCarouselMeta;
+
+export const Default = Story({
+  ...InoCarouselMeta,
+});
+
 export const HideButtons = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'hideButtons',
   args: {
     hideButtons: true
@@ -54,11 +60,9 @@ export const HideButtons = Story({
 })
 
 export const Reverse = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'reverse',
   args: {
     reverse: true
   }
 })
-
-export default Playground;

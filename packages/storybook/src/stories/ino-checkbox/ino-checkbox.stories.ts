@@ -6,7 +6,7 @@ import { useEffect } from '@storybook/preview-api';
 import Story from '../StoryWrapper';
 import './ino-checkbox.scss';
 
-const Playground = {
+const InoCheckboxMeta = {
   title: 'Input/ino-checkbox',
   component: 'ino-checkbox',
   decorators: [
@@ -54,8 +54,14 @@ const Playground = {
   },
 } as Meta<Components.InoCheckbox>;
 
+export default InoCheckboxMeta;
+
+export const Default = Story({
+  ...InoCheckboxMeta,
+});
+
 export const Checked = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'checked',
   args: {
     checked: true,
@@ -63,7 +69,7 @@ export const Checked = Story({
 });
 
 export const Selection = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'selection',
   args: {
     selection: true,
@@ -71,7 +77,7 @@ export const Selection = Story({
 });
 
 export const Indeterminate = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'indeterminate',
   args: {
     indeterminate: true,
@@ -79,11 +85,9 @@ export const Indeterminate = Story({
 });
 
 export const Disabled = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
   }
 });
-
-export default Playground;

@@ -4,7 +4,7 @@ import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import './ino-fab.scss';
 
-const Playground = {
+const InoFabMeta = {
   title: 'Buttons/<ino-fab>',
   component: 'ino-fab',
   render: (args) => html`
@@ -62,6 +62,12 @@ const Playground = {
   },
 } as Meta<Components.InoFab>;
 
+export default InoFabMeta;
+
+export const Default = Story({
+  ...InoFabMeta,
+});
+
 /**
  * In order to achive diffrent variations, use this properties:
  *
@@ -70,7 +76,7 @@ const Playground = {
  * - `disabled`: Disables the button
  */
 export const Variants = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
     <div class="ino-fab-variants">
       <ino-fab tooltip-placement="none" label="Default Fab">
@@ -101,7 +107,7 @@ export const Variants = Story({
  * - `none` = `top-left`
  */
 export const EdgePositions = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
     <div class="ino-fab-variants">
       <ino-fab label="top-left" edge-position="top-left">
@@ -122,5 +128,3 @@ export const EdgePositions = Story({
     </div>
   `
 })
-
-export default Playground;

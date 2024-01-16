@@ -4,7 +4,7 @@ import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import './ino-button.scss';
 
-const Playground = {
+const InoButtonMeta = {
   title: 'Buttons/<ino-button>',
   component: 'ino-button',
   parameters: {
@@ -32,8 +32,14 @@ const Playground = {
   },
 } as Meta<Components.InoButton>;
 
+export default InoButtonMeta;
+
+export const Default = Story({
+  ...InoButtonMeta,
+});
+
 export const Filled = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'variant',
   args: {
     variant: 'filled'
@@ -41,7 +47,7 @@ export const Filled = Story({
 })
 
 export const Outlined = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'variant',
   args: {
     variant: 'outlined'
@@ -49,7 +55,7 @@ export const Outlined = Story({
 })
 
 export const Text = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'variant',
   args: {
     variant: 'text'
@@ -57,7 +63,7 @@ export const Text = Story({
 })
 
 export const Disabled = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
@@ -65,7 +71,7 @@ export const Disabled = Story({
 })
 
 export const Dense = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'dense',
   args: {
     dense: true,
@@ -73,7 +79,7 @@ export const Dense = Story({
 })
 
 export const Loading = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'loading',
   args: {
     loading: true,
@@ -84,7 +90,7 @@ export const Loading = Story({
  In order to include icons, use the `icon-leading` or `icon-trailing` slot
  */
 export const LeadingAndTrailingIcon = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
   <ino-button>
     <ino-icon icon="info" slot="icon-leading"></ino-icon>
@@ -95,5 +101,3 @@ export const LeadingAndTrailingIcon = Story({
     Label
   </ino-button>
 `})
-
-export default Playground;

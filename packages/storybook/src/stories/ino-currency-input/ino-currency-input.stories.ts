@@ -4,7 +4,7 @@ import { html } from 'lit-html';
 import { useEffect } from '@storybook/preview-api';
 import Story from '../StoryWrapper';
 
-const Playground = {
+const InoCurrencyInputMeta = {
   title: 'Input/ino-currency-input',
   component: 'ino-currency-input',
   decorators: [
@@ -59,15 +59,18 @@ const Playground = {
   }
 } as Meta<Components.InoCurrencyInput>;
 
+export default InoCurrencyInputMeta;
+
+export const Default = Story({
+  ...InoCurrencyInputMeta,
+});
 /**
  * A supported locale for currency number formatting. If not given, it uses the global config.
  * See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
  */
 export const Locales = Story({
-  ...Playground,
+  ...Default,
   args: {
     currencyLocale: 'en-EN',
   }
 });
-
-export default Playground;

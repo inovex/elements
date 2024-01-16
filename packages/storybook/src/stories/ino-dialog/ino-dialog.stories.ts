@@ -19,7 +19,7 @@ const onSlideChanged = (ev: CustomEvent<string>) => {
   carouselEl.value = ev.detail;
 };
 
-const Playground = {
+const InoDialogMeta = {
   title: 'Structure/<ino-dialog>',
   component: 'ino-dialog',
   decorators: [
@@ -104,13 +104,18 @@ const Playground = {
   },
 } as Meta<InoDialogExtended>;
 
+export default InoDialogMeta;
+
+export const Default = Story({
+  ...InoDialogMeta,
+});
 /**
  * A Confirmation Dialog with Text requires an action to be taken in order for the dialog to be completed and closed.
  *
  * Contains a `headerText`, `bodyText`, `cancelText` and `actionText`.
  */
 export const ConfirmationDialogWithText = Story({
-  ...Playground,
+  ...Default,
   render: (args) => html`
     <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
       >${args.buttonText}</ino-button
@@ -146,7 +151,7 @@ export const ConfirmationDialogWithText = Story({
  * Contains a `ino-icon` (use `icon="iconID"` on the `ino-dialog` to select one of the given [ino-icons](https://elements.inovex.de/version/v8.0.0/?path=/docs/graphic-ino-icon--all-icons)), `headerText`, `bodyText`, `canceltext` and `actionText`.
  */
 export const ConfirmationDialogWithIcon = Story({
-  ...Playground,
+  ...Default,
   render: (args) => html`
     <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
       >${args.buttonText}</ino-button
@@ -181,7 +186,7 @@ export const ConfirmationDialogWithIcon = Story({
  * By using the default slot you can completely replace the elements of the `ino-dialog` with your own markdown.
  */
 export const UsingSlots = Story({
-  ...Playground,
+  ...Default,
   render: (args) => html`   
     <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
       >${args.buttonText}</ino-button
@@ -235,7 +240,7 @@ export const UsingSlots = Story({
 })
 
 export const FullWidth = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'fullwidth',
   args: {
     fullwidth: true,
@@ -245,7 +250,7 @@ export const FullWidth = Story({
 })
 
 export const Dismissible = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'dismissible',
   args: {
     dismissible: true,
@@ -259,11 +264,9 @@ export const Dismissible = Story({
  * Close the dialog and see the snackbar afterwards.
  */
 export const ClosingAction = Story({
-  ...Playground,
+  ...Default,
   args: {
     dataDialogId: 'demo-action-dialog',
     buttonText: 'open closing action Dialog',
   }
 })
-
-export default Playground;

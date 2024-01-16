@@ -7,7 +7,7 @@ import './ino-avatar.scss';
 
 import avatarImg from '../../assets/images/avatar.jpg';
 
-const Playground = {
+const InoAvatarMeta = {
   title: 'Graphic/<ino-avatar>',
   component: 'ino-avatar',
   decorators: [
@@ -62,8 +62,14 @@ const Playground = {
   },
 } as Meta<Components.InoAvatar>;
 
+export default InoAvatarMeta;
+
+export const Default = Story({
+  ...InoAvatarMeta,
+});
+
 export const Interactive = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'interactive',
   args: {
     interactive: true
@@ -71,7 +77,7 @@ export const Interactive = Story({
 });
 
 export const ColorSecondary = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'colorSecondary',
   args: {
     colorSecondary: true
@@ -79,7 +85,7 @@ export const ColorSecondary = Story({
 });
 
 export const VariantDashed = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'variant',
   args: {
     variant: 'dashed'
@@ -87,7 +93,7 @@ export const VariantDashed = Story({
 });
 
 export const VariantDashedInteractive = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'variant',
   args: {
     variant: 'dashed',
@@ -99,7 +105,7 @@ export const VariantDashedInteractive = Story({
  The initials of the avatar if the `src` is not defined or `img` fails to load.
  */
 export const Initials = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
     <ino-avatar 
       initials="JD" 
@@ -114,7 +120,7 @@ export const Initials = Story({
  Add icons to the ino-avatar element by adding a `slot` and an `icon`.
  */
 export const WithIcon = Story({
-  ...Playground,
+  ...Default,
   args: {
     initials: 'JD',
     interactive: false,
@@ -138,7 +144,7 @@ export const WithIcon = Story({
 })
 
 export const LoadingAvatar = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'loading',
   render: (args) => html`
     <div class="avatar-loading-container">
@@ -159,5 +165,3 @@ export const LoadingAvatar = Story({
     </div>
   `
 })
-
-export default Playground;

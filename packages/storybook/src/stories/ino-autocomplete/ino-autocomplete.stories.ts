@@ -9,7 +9,7 @@ const inputHandler = (ev: CustomEvent<KeyValue>) => {
   (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
 };
 
-const Playground = {
+const InoAutocompleteMeta = {
   title: 'Input/ino-autocomplete',
   component: 'ino-autocomplete',
   parameters: {
@@ -48,10 +48,14 @@ const Playground = {
     value: '',
   },
 } as Meta<Components.InoAutocomplete>;
-export default Playground;
+export default InoAutocompleteMeta;
+
+export const Default = Story({
+  ...InoAutocompleteMeta,
+});
 
 export const Debounce = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'debounce',
   args: {
     debounce: 500,

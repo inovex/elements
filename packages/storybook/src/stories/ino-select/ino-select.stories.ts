@@ -141,7 +141,7 @@ export const HelperMessageValidation = Story({
 export const WithIcon = Story({
   ...Default,
   docsFromProperty: 'helperValidation',
-  render: (args) => html`
+  render: () => html`
     <div style="height: 400px;">
       <ino-select label="Select with leading icon">
         <ino-icon slot="icon-leading" icon="user"></ino-icon>
@@ -167,7 +167,7 @@ export const WithIcon = Story({
 
 export const Form = Story({
   ...Default,
-  render: (args) => html`
+  render: () => html`
     <form>
       <p>Form should not submit if no value is selected</p>
       <ino-select required> ${optionsTemplate} </ino-select>

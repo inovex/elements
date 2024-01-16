@@ -12,7 +12,7 @@ const defaultDate = moment().format('YYYY-MM-DD');
 const minDate = moment().subtract(days, 'days').format('YYYY-MM-DD');
 const maxDate = moment().add(days, 'days').format('YYYY-MM-DD');
 
-const Playground = {
+const InoDatepickerMeta = {
   title: 'Input/ino-datepicker',
   component: 'ino-datepicker',
   parameters: {
@@ -84,8 +84,14 @@ const Playground = {
   },
 } as Meta<Components.InoDatepicker>;
 
+export default InoDatepickerMeta;
+
+export const Default = Story({
+  ...InoDatepickerMeta,
+});
+
 export const DateFormats = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'dateFormat',
   render: () => html`
     <ino-datepicker
@@ -112,7 +118,7 @@ export const DateFormats = Story({
 })
 
 export const TwelveHourTime = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'twelveHourTime',
   render: () => html`
     <ino-datepicker
@@ -146,7 +152,7 @@ export const TwelveHourTime = Story({
  * - `default-minute`: A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
  */
 export const Restrictions = Story({
-  ...Playground,
+  ...Default,
   render: (args) => html`
     <ino-datepicker
       label="Predefined value"
@@ -196,7 +202,7 @@ export const Restrictions = Story({
  * - `show-label-hint`: If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.
  */
 export const States = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
     <ino-datepicker label="Disabled" disabled></ino-datepicker>
     <ino-datepicker label="Required" required show-label-hint></ino-datepicker>
@@ -205,7 +211,7 @@ export const States = Story({
 })
 
 export const Inline = Story({
-  ...Playground,
+  ...Default,
   docsFromProperty: 'inline',
   render: () => html`
     <ino-datepicker
@@ -223,7 +229,7 @@ export const Inline = Story({
  * The language of the ino-datepicker can by set by `lang`
  */
 export const Locale = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
     <ino-datepicker 
       lang="en" 
@@ -244,7 +250,7 @@ export const Locale = Story({
 })
 
 export const MultipleTypes = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
     ${useEffect(registerInlineDatepickerHandler)}
     <div lang="de" class="datepicker-group">
@@ -280,7 +286,7 @@ export const MultipleTypes = Story({
  * The form should not submit as long as the date field is empty
  */
 export const RequiredForm = Story({
-  ...Playground,
+  ...Default,
   render: () => html`
     <form>
       <ino-datepicker
@@ -292,5 +298,3 @@ export const RequiredForm = Story({
     </form>
   `
 })
-
-export default Playground;
