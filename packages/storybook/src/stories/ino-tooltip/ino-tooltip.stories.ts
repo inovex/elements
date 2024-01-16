@@ -1,14 +1,13 @@
-import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-import { TemplateGenerator } from '../template-generator';
+import Story from '../StoryWrapper';
+
 import './ino-tooltip.scss';
 
-const meta: Meta = {
+const InoTooltipMeta = {
   title: 'Notification/ino-tooltip',
   component: 'ino-tooltip',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-tooltip')],
   argTypes: {
     for: {
       type: 'string',
@@ -48,22 +47,7 @@ const meta: Meta = {
       control: 'string',
     },
   },
-  args: {
-    headerText: '',
-    for: 'tooltip-target',
-    placement: 'top',
-    trigger: 'mouseenter focus',
-    colorScheme: 'primary',
-    delay: 0,
-    message: '',
-    arrow: false,
-  },
-};
-export default meta;
-
-const template = new TemplateGenerator<Components.InoTooltip>(
-  'ino-tooltip',
-  (args) => html`
+  render: (args) => html`
     <ino-button id="${args.for}">Trigger Element</ino-button>
     <ino-tooltip
       header-text="${args.headerText}"
@@ -76,33 +60,62 @@ const template = new TemplateGenerator<Components.InoTooltip>(
       >This is a tooltip</ino-tooltip
     >
   `,
-);
-
-//export const Playground = template.generatePlaygroundStory();
-
-export const HeaderText = template.generateStoryForProp(
-  'headerText',
-  'Headline',
-  {
-    for: 'tooltip-target-header',
+  args: {
+    headerText: '',
+    for: 'tooltip-target',
+    placement: 'top',
+    trigger: 'mouseenter focus',
+    colorScheme: 'primary',
+    delay: 0,
+    message: '',
+    arrow: false,
   },
-);
+} as Meta<Components.InoTooltip>; 
+export default InoTooltipMeta;
 
-export const Placement = template.generateStoryForProp('placement', 'right', {
-  for: 'tooltip-target-placement',
+export const Default = Story({
+  ...InoTooltipMeta,
 });
 
-export const Arrow = template.generateStoryForProp('arrow', true, {
-  for: 'tooltip-target-arrow',
+export const HeaderText = Story({
+  ...Default,
+  docsFromProperty: 'headerText',
+  args: {
+    headerText: 'HeaderText',
+    for: 'tooltip-target-header',
+  }
 });
 
-export const Trigger = template.generateStoryForProp('trigger', 'click', {
-  for: 'tooltip-target-trigger',
+export const Placement = Story({
+  ...Default,
+  docsFromProperty: 'placement',
+  args: {
+    placement: 'right',
+    for: 'tooltip-target-placement',
+  }
 });
 
-const templateColors = new TemplateGenerator<Components.InoTooltip>(
-  'ino-tooltip',
-  (args) => {
+export const Arrow = Story({
+  ...Default,
+  docsFromProperty: 'arrow',
+  args: {
+    arrow: true,
+    for: 'tooltip-target-arrow',
+  }
+});
+
+export const Trigger = Story({
+  ...Default,
+  docsFromProperty: 'trigger',
+  args: {
+    trigger: 'click',
+    for: 'tooltip-target-trigger',
+  }
+});
+
+export const ColorScheme = Story({
+  ...Default,
+  render: (args) => {
     const idLight = 'tooltip-light';
     const idDark = 'tooltip-dark';
     const idPrimary = 'tooltip-primary';
@@ -143,13 +156,13 @@ const templateColors = new TemplateGenerator<Components.InoTooltip>(
       </ino-tooltip>
     `;
   },
-);
+});
 
-export const ColorSchemes = templateColors.generateStoryForProp(
-  'colorScheme',
-  'light',
-);
-
-export const Delay = template.generateStoryForProp('delay', [500, 200], {
-  for: 'tooltip-target-delay',
+export const delay = Story({
+  ...Default,
+  docsFromProperty: 'delay',
+  args: {
+    delay: [500, 200],
+    for: 'tooltip-target-delay',
+  }
 });
