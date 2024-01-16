@@ -1,13 +1,22 @@
-.story-ino-snackbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
+.sbdocs.sbdocs-content:has(#anchor--notification-ino-snackbar--default) {
+  [scale] {
+    width: 100%;
+  }
 
-  .button__label {
+  [scale] > div > div > div > div {
+    position: relative;
+    overflow: visible;
+    padding: 10px;
+  }
+
+  .snackbar-template {
+    position: absolute;
+    inset: -200px;
+    z-index: 999;
     pointer-events: none;
   }
-  ino-button:not(:last-of-type) {
-    margin-bottom: 32px;
+
+  .hidden {
+    display: none;
   }
 }
