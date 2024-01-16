@@ -6,6 +6,8 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-snackbar.scss';
 import { TemplateGenerator } from '../template-generator';
 
+import inovexElementsLogo from '../../assets/images/elements.svg';
+
 export default {
   title: 'Notification/ino-snackbar',
   component: 'ino-snackbar',
@@ -128,3 +130,34 @@ export const StayVisibleOnHover = template.generateStoryForProp(
       'This snackbar stays visible on hover otherwise it will disappear in 5s',
   },
 );
+
+/**
+ * To add a custom icon inside the `ino-snackbar` element, follow these steps:
+ * 1. Inside the `ino-snackbar` element, insert an `img` or a similar element.
+ * 2. Assign a `slot` attribute to the `img` element and set it to `"icon"`.
+ * 3. Ensure that the custom icon has the desired size. In the example below, we set the width and height of the icon to 25px.
+ *
+ * Example usage of the `ino-snackbar` element with a custom icon:
+ */
+export const CustomIcon = (args: InoSnackbarExtended) => html`
+  <ino-button class="snackbar-trigger" data-template-id="${args.id}-custom"
+    >Show Custom Snackbar
+  </ino-button>
+  <template id="${args.id}-custom">
+    <ino-snackbar
+      id="${args.id}-custom"
+      action-text="${args.actionText}"
+      timeout="${args.timeout}"
+      type="${args.type}"
+      stay-visible-on-hover="${args.stayVisibleOnHover}"
+    >
+      <img
+        slot="icon"
+        src=${inovexElementsLogo}
+        alt="Custom Icon"
+        style="width: 25px; height: 25px;"
+      />
+      This snackbar uses a custom icon.
+    </ino-snackbar>
+  </template>
+`;

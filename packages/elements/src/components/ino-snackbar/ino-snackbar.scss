@@ -119,6 +119,10 @@ ino-snackbar {
     height: 30px;
     width: 30px;
 
+    &.slot-present {
+      background-color: transparent;
+    }
+
     ino-icon.ino-snackbar-icon {
       --ino-icon-color-primary: var(--snackbar-color);
     }

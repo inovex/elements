@@ -146,6 +146,9 @@ export class Snackbar implements ComponentInterface {
       'ino-snackbar-layout-container',
     );
 
+    // Check if a slot is present (used to remove the bg color for the icon container)
+    const slotPresent = !!this.el.querySelector('[slot]');
+
     return (
       <Host class={hostClasses}>
         <div
@@ -156,11 +159,17 @@ export class Snackbar implements ComponentInterface {
           role="alert"
         >
           <div class="mdc-snackbar__surface ino-snackbar-container">
-            <div class="mdc-snackbar__actions ino-snackbar-icon-container">
-              <ino-icon
-                class="ino-snackbar-icon"
-                icon={this.mapTypeToIconName(this.type)}
-              />
+            <div
+              class={`mdc-snackbar__actions ino-snackbar-icon-container ${
+                slotPresent ? 'slot-present' : ''
+              }`}
+            >
+              <slot name="icon">
+                <ino-icon
+                  class="ino-snackbar-icon"
+                  icon={this.mapTypeToIconName(this.type)}
+                />
+              </slot>
             </div>
             <div
               class="mdc-snackbar__label ino-snackbar-message-container"
