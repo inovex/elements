@@ -1,30 +1,19 @@
 import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass, withIconControl } from '../utils';
+import Story from '../StoryWrapper';
+import { getIcons } from '../utils';
 import './ino-icon-button.scss';
 
-export default {
+const InoIconButtonMeta = {
   title: 'Buttons/ino-icon-button',
   component: 'ino-icon-button',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-icon-button')],
   parameters: {
     actions: {
       handles: ['click ino-icon-button'],
     },
   },
-  args: {
-    activated: false,
-    disabled: false,
-    filled: false,
-    icon: 'add',
-  },
-} as Meta<Components.InoIconButton>;
-
-const template = new TemplateGenerator<Components.InoIconButton>(
-  'ino-icon-button',
-  (args) => html`
+  render: (args) => html`
     <ino-icon-button
       activated="${args.activated}"
       disabled="${args.disabled}"
@@ -34,11 +23,40 @@ const template = new TemplateGenerator<Components.InoIconButton>(
       <ino-icon icon="${args.icon}"></ino-icon>
     </ino-icon-button>
   `,
-);
+  argTypes: {
+    icon: {
+      control: {
+        type: 'select',
+      },
+      options: getIcons(),
+    }
+  },
+  args: {
+    activated: false,
+    disabled: false,
+    filled: false,
+    icon: 'add',
+  },
+} as Meta<Components.InoIconButton>;
 
-export const Playground = template.generatePlaygroundStory();
-withIconControl(Playground, 'icon', 'add');
+export default InoIconButtonMeta;
 
-export const Filled = template.generateStoryForProp('filled', true);
+export const Default = Story({
+  ...InoIconButtonMeta,
+});
 
-export const Activated = template.generateStoryForProp('activated', true);
+export const Filled = Story({
+  ...Default,
+  docsFromProperty: 'filled',
+  args: {
+    filled: true,
+  }
+});
+
+export const Activated = Story({
+  ...Default,
+  docsFromProperty: 'activated',
+  args: {
+    activated: true,
+  }
+});
