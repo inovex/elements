@@ -46,7 +46,11 @@ const preview = {
       source: {
         format: "html",
       },
-      toc: true, // 👈 Enables the table of contents for components stories
+      toc: { // 👈 Enables the table of contents for components stories
+        contentsSelector: '.sbdocs-content:not(div:has(#changelog)):not(div:has(#typography))', // disables toc on changelog & typography
+        headingSelector: 'h3', // only selects h3 headlines
+        ignoreSelector: '.docs-story > * :is(h3)' // ignore h3 headlines in stories
+      },
       page: DocumentationTemplate,
     },
     options: {

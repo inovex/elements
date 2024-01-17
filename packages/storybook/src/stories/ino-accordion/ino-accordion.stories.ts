@@ -11,11 +11,6 @@ const eventHandler = (e: CustomEvent<boolean>) => {
 const inoAccordionMeta = {
   title: 'Structure/<ino-accordion>',
   component: 'ino-accordion',
-  parameters: {
-    docs: {
-      toc: false, // disabled because the ino-accordion also contains h3 headlines that are queried for the TOC
-    },
-  },
   render: (args) => html` <ino-accordion
     expanded="${args.expanded}"
     accordion-title="${args.accordionTitle}"
