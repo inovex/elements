@@ -26,9 +26,8 @@ const InoNavItemMeta = {
     subText: '',
     activated: false,
     disabled: false,
-   
-  } as Meta<Components.InoNavItem>
-}
+  } as Meta<Components.InoNavItem>,
+};
 
 export default InoNavItemMeta;
 
@@ -41,16 +40,13 @@ export const Text = Story({
   docsFromProperty: 'text',
   render: (args) => html`
     <ino-list>
-      <ino-nav-item
-        class="customizable-nav-item"
-        text="${args.text}"
-      >
+      <ino-nav-item class="customizable-nav-item" text="${args.text}">
       </ino-nav-item>
     </ino-list>
   `,
   args: {
     text: 'Some Text',
-  }
+  },
 });
 
 export const TwoLines = Story({
@@ -69,7 +65,7 @@ export const TwoLines = Story({
   args: {
     text: 'Some Text',
     subText: 'Secondary Text 2',
-  }
+  },
 });
 
 export const Activated = Story({
@@ -88,7 +84,7 @@ export const Activated = Story({
   args: {
     text: 'Some Text',
     activated: true,
-  }
+  },
 });
 
 export const Disabled = Story({
@@ -107,7 +103,7 @@ export const Disabled = Story({
   args: {
     text: 'Some Text',
     disabled: true,
-  }
+  },
 });
 
 /**

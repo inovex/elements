@@ -46,7 +46,7 @@ export const DisabledOption = Story({
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  }
+  },
 });
 
 export const SelectedOption = Story({
@@ -54,5 +54,5 @@ export const SelectedOption = Story({
   docsFromProperty: 'selected',
   args: {
     selected: true,
-  }
+  },
 });

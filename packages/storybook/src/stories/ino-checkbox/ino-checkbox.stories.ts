@@ -1,4 +1,3 @@
-
 import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
@@ -65,7 +64,7 @@ export const Checked = Story({
   docsFromProperty: 'checked',
   args: {
     checked: true,
-  }
+  },
 });
 
 export const Selection = Story({
@@ -73,7 +72,7 @@ export const Selection = Story({
   docsFromProperty: 'selection',
   args: {
     selection: true,
-  }
+  },
 });
 
 export const Indeterminate = Story({
@@ -81,7 +80,7 @@ export const Indeterminate = Story({
   docsFromProperty: 'indeterminate',
   args: {
     indeterminate: true,
-  }
+  },
 });
 
 export const Disabled = Story({
@@ -89,5 +88,5 @@ export const Disabled = Story({
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  }
+  },
 });

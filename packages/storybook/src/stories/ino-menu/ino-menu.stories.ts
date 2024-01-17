@@ -35,6 +35,6 @@ export const Placement = Story({
   ...Default,
   docsFromProperty: 'placement',
   args: {
-    placement: 'left'
-  }
+    placement: 'left',
+  },
 });

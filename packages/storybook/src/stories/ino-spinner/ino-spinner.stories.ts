@@ -34,5 +34,5 @@ export const Type = Story({
   docsFromProperty: 'type',
   args: {
     type: 'bounce',
-  }
+  },
 });

@@ -76,7 +76,7 @@ export const Discrete = Story({
   docsFromProperty: 'discrete',
   args: {
     discrete: true,
-  }
+  },
 });
 
 export const Markers = Story({
@@ -85,7 +85,7 @@ export const Markers = Story({
   args: {
     markers: true,
     discrete: true,
-  }
+  },
 });
 
 export const Ranged = Story({
@@ -96,5 +96,5 @@ export const Ranged = Story({
     valueStart: 30,
     valueEnd: 70,
     discrete: true,
-  }
+  },
 });

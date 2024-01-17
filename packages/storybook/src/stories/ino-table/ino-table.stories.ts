@@ -175,7 +175,7 @@ export const Loading = Story({
   docsFromProperty: 'loading',
   args: {
     loading: true,
-  }
+  },
 });
 
 export const NoHover = Story({
@@ -183,7 +183,7 @@ export const NoHover = Story({
   docsFromProperty: 'noHover',
   args: {
     noHover: true,
-  }
+  },
 });
 
 /**
@@ -206,7 +206,7 @@ export const StickyHeader = Story({
   docsFromProperty: 'stickyHeader',
   args: {
     stickyHeader: true,
-  }
+  },
 });
 
 /**
@@ -334,6 +334,6 @@ export const SelectionWithCheckboxes = Story({
         </tr>
       `)}
       </ino-table>
-    `
-  }
+    `;
+  },
 });

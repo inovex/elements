@@ -164,7 +164,7 @@ export const AnchorRight = Story({
   docsFromProperty: 'anchor',
   args: {
     anchor: 'right',
-  }
+  },
 });
 
 export const Modal = Story({
@@ -173,7 +173,7 @@ export const Modal = Story({
   args: {
     variant: 'modal',
     open: false,
-  }
+  },
 });
 
 export const Dismissible = Story({
@@ -181,7 +181,7 @@ export const Dismissible = Story({
   docsFromProperty: 'variant',
   args: {
     variant: 'dismissible',
-  }
+  },
 });
 
 export const Mobile = Story({
@@ -190,5 +190,5 @@ export const Mobile = Story({
   args: {
     variant: 'mobile',
     open: false,
-  }
+  },
 });

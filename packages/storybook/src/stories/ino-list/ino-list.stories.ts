@@ -56,7 +56,7 @@ export const TwoLines = Story({
   docsFromProperty: 'twoLines',
   args: {
     twoLines: true,
-  }
+  },
 });
 
 export const Dense = Story({
@@ -64,7 +64,7 @@ export const Dense = Story({
   docsFromProperty: 'dense',
   args: {
     dense: true,
-  }
+  },
 });
 
 export const Avatar = Story({
@@ -72,5 +72,5 @@ export const Avatar = Story({
   docsFromProperty: 'avatar',
   args: {
     avatar: true,
-  }
+  },
 });

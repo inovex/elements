@@ -47,17 +47,17 @@ export const FillSolid = Story({
   ...Default,
   docsFromProperty: 'fill',
   args: {
-    fill: 'solid'
-  }
-})
+    fill: 'solid',
+  },
+});
 
 export const FillOutline = Story({
   ...Default,
   docsFromProperty: 'fill',
   args: {
-    fill: 'outline'
-  }
-})
+    fill: 'outline',
+  },
+});
 
 /**
  In order to include icons, use the `icon-leading` or `icon-trailing` slot
@@ -65,23 +65,23 @@ export const FillOutline = Story({
 export const Icons = Story({
   ...Default,
   render: () => html`
-  <div class="ino-chip-story">
-    <ino-chip>
-      Leading
-      <ino-icon slot="icon-leading" icon="star"></ino-icon>
-    </ino-chip>
-    <ino-chip>
-      Trailing
-      <ino-icon slot="icon-trailing" icon="star"></ino-icon>
-    </ino-chip>
-    <ino-chip>
-      <span>Leading & Trailing</span>
-      <ino-icon slot="icon-leading" icon="star"></ino-icon>
-      <ino-icon slot="icon-trailing" icon="star"></ino-icon>
-    </ino-chip>
-  </div>
-  `
-})
+    <div class="ino-chip-story">
+      <ino-chip>
+        Leading
+        <ino-icon slot="icon-leading" icon="star"></ino-icon>
+      </ino-chip>
+      <ino-chip>
+        Trailing
+        <ino-icon slot="icon-trailing" icon="star"></ino-icon>
+      </ino-chip>
+      <ino-chip>
+        <span>Leading & Trailing</span>
+        <ino-icon slot="icon-leading" icon="star"></ino-icon>
+        <ino-icon slot="icon-trailing" icon="star"></ino-icon>
+      </ino-chip>
+    </div>
+  `,
+});
 
 /**
  * In order to use ino-chips as filter, use `selectable` on each element
@@ -93,8 +93,8 @@ export const Filter = Story({
     const selectedChips = new Set<string>();
 
     const handleClick = (chip: HTMLInoChipElement | undefined) => {
-      if(!chip?.value) {
-        return
+      if (!chip?.value) {
+        return;
       }
       const isSelected = selectedChips.has(chip.value);
       chip.selected = !isSelected;
@@ -117,9 +117,9 @@ export const Filter = Story({
           </ino-chip>`,
         )}
       </div>
-    `
-  }
-})
+    `;
+  },
+});
 
 /**
  * In order to make ino-chip-elements removable, add `removable`. This will add a close icon on the right side of this chip which emits the `removeChip` event on click.
@@ -142,14 +142,14 @@ export const Remove = Story({
           </ino-chip>`,
         )}
       </div>
-    `
-  }
-})
+    `;
+  },
+});
 
 export const NotClickable = Story({
   ...Default,
   docsFromProperty: 'clickable',
   args: {
     clickable: false,
-  }
-})
+  },
+});

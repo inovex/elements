@@ -74,5 +74,5 @@ export const ActiveTab = Story({
   docsFromProperty: 'activeTab',
   args: {
     activeTab: 1,
-  }
+  },
 });

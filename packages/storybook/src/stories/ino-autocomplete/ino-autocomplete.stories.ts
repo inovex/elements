@@ -19,16 +19,16 @@ const InoAutocompleteMeta = {
   },
   decorators: [(story) => decorateStoryWithClass(story)],
   render: (args) => html` <div style="height: 300px;">
-      <ino-autocomplete
-        debounce="${args.debounce}"
-        .options=${args.options}
-        value="${args.value}"
-        @valueChange="${inputHandler}"
-        style="margin: 50px"
-      >
-        <ino-input></ino-input>
-      </ino-autocomplete>
-    </div>`,
+    <ino-autocomplete
+      debounce="${args.debounce}"
+      .options=${args.options}
+      value="${args.value}"
+      @valueChange="${inputHandler}"
+      style="margin: 50px"
+    >
+      <ino-input></ino-input>
+    </ino-autocomplete>
+  </div>`,
   args: {
     debounce: 100,
     options: [
@@ -59,5 +59,5 @@ export const Debounce = Story({
   docsFromProperty: 'debounce',
   args: {
     debounce: 500,
-  }
-})
+  },
+});

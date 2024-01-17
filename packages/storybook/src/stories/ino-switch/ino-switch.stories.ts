@@ -37,7 +37,7 @@ export const Checked = Story({
   docsFromProperty: 'checked',
   args: {
     checked: true,
-  }
+  },
 });
 
 export const Disabled = Story({
@@ -45,7 +45,7 @@ export const Disabled = Story({
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  }
+  },
 });
 
 /**

@@ -27,7 +27,7 @@ const InoCurrencyInputMeta = {
     },
     docs: {
       toc: false,
-    }
+    },
   },
   render: (args) => html`
     <ino-currency-input
@@ -56,7 +56,7 @@ const InoCurrencyInputMeta = {
     value: {
       control: 'number',
     },
-  }
+  },
 } as Meta<Components.InoCurrencyInput>;
 
 export default InoCurrencyInputMeta;
@@ -72,5 +72,5 @@ export const Locales = Story({
   ...Default,
   args: {
     currencyLocale: 'en-EN',
-  }
+  },
 });

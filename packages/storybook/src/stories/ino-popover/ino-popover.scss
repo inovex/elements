@@ -8,14 +8,14 @@
       align-items: center;
       justify-content: flex-start;
     }
-  
+
     &:has(ino-button.big-space) {
       height: 250px;
     }
 
     .innerZoomElementWrapper > div > div {
       overflow: unset;
-      
+
       #root-inner {
         display: flex;
         gap: 5px;

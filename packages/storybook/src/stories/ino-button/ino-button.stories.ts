@@ -10,9 +10,9 @@ const InoButtonMeta = {
   parameters: {
     docs: {
       source: {
-        format: 'html'
-      }
-    }
+        format: 'html',
+      },
+    },
   },
   render: (args) => html`
     <ino-button
@@ -42,49 +42,49 @@ export const Filled = Story({
   ...Default,
   docsFromProperty: 'variant',
   args: {
-    variant: 'filled'
-  }
-})
+    variant: 'filled',
+  },
+});
 
 export const Outlined = Story({
   ...Default,
   docsFromProperty: 'variant',
   args: {
-    variant: 'outlined'
-  }
-})
+    variant: 'outlined',
+  },
+});
 
 export const Text = Story({
   ...Default,
   docsFromProperty: 'variant',
   args: {
-    variant: 'text'
-  }
-})
+    variant: 'text',
+  },
+});
 
 export const Disabled = Story({
   ...Default,
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  }
-})
+  },
+});
 
 export const Dense = Story({
   ...Default,
   docsFromProperty: 'dense',
   args: {
     dense: true,
-  }
-})
+  },
+});
 
 export const Loading = Story({
   ...Default,
   docsFromProperty: 'loading',
   args: {
     loading: true,
-  }
-})
+  },
+});
 
 /**
  In order to include icons, use the `icon-leading` or `icon-trailing` slot
@@ -92,12 +92,13 @@ export const Loading = Story({
 export const LeadingAndTrailingIcon = Story({
   ...Default,
   render: () => html`
-  <ino-button>
-    <ino-icon icon="info" slot="icon-leading"></ino-icon>
-    Label
-  </ino-button>
-  <ino-button>
-    <ino-icon icon="info" slot="icon-trailing"></ino-icon>
-    Label
-  </ino-button>
-`})
+    <ino-button>
+      <ino-icon icon="info" slot="icon-leading"></ino-icon>
+      Label
+    </ino-button>
+    <ino-button>
+      <ino-icon icon="info" slot="icon-trailing"></ino-icon>
+      Label
+    </ino-button>
+  `,
+});

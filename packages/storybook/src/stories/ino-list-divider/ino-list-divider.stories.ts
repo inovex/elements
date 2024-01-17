@@ -36,7 +36,7 @@ export const Padded = Story({
   docsFromProperty: 'padded',
   args: {
     padded: true,
-  }
+  },
 });
 
 export const Inset = Story({
@@ -58,7 +58,7 @@ export const Inset = Story({
   `,
   args: {
     inset: true,
-  }
+  },
 });
 
 export const BetweenLists = Story({
@@ -80,5 +80,5 @@ export const BetweenLists = Story({
   `,
   args: {
     betweenLists: true,
-  }
+  },
 });

@@ -29,7 +29,7 @@ const InoIconButtonMeta = {
         type: 'select',
       },
       options: getIcons(),
-    }
+    },
   },
   args: {
     activated: false,
@@ -50,7 +50,7 @@ export const Filled = Story({
   docsFromProperty: 'filled',
   args: {
     filled: true,
-  }
+  },
 });
 
 export const Activated = Story({
@@ -58,5 +58,5 @@ export const Activated = Story({
   docsFromProperty: 'activated',
   args: {
     activated: true,
-  }
+  },
 });

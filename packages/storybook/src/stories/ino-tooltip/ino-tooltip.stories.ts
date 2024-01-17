@@ -70,7 +70,7 @@ const InoTooltipMeta = {
     message: '',
     arrow: false,
   },
-} as Meta<Components.InoTooltip>; 
+} as Meta<Components.InoTooltip>;
 export default InoTooltipMeta;
 
 export const Default = Story({
@@ -83,7 +83,7 @@ export const HeaderText = Story({
   args: {
     headerText: 'HeaderText',
     for: 'tooltip-target-header',
-  }
+  },
 });
 
 export const Placement = Story({
@@ -92,7 +92,7 @@ export const Placement = Story({
   args: {
     placement: 'right',
     for: 'tooltip-target-placement',
-  }
+  },
 });
 
 export const Arrow = Story({
@@ -101,7 +101,7 @@ export const Arrow = Story({
   args: {
     arrow: true,
     for: 'tooltip-target-arrow',
-  }
+  },
 });
 
 export const Trigger = Story({
@@ -110,7 +110,7 @@ export const Trigger = Story({
   args: {
     trigger: 'click',
     for: 'tooltip-target-trigger',
-  }
+  },
 });
 
 export const ColorScheme = Story({
@@ -164,5 +164,5 @@ export const delay = Story({
   args: {
     delay: [500, 200],
     for: 'tooltip-target-delay',
-  }
+  },
 });

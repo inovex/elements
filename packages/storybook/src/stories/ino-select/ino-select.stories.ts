@@ -90,32 +90,32 @@ export const Outline = Story({
   docsFromProperty: 'outline',
   args: {
     outline: true,
-  }
-})
+  },
+});
 
 export const Disabled = Story({
   ...Default,
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  }
-})
+  },
+});
 
 export const Error = Story({
   ...Default,
   docsFromProperty: 'error',
   args: {
     error: true,
-  }
-})
+  },
+});
 
 export const ShowLabelHint = Story({
   ...Default,
   docsFromProperty: 'showLabelHint',
   args: {
     showLabelHint: true,
-  }
-})
+  },
+});
 
 export const HelperMessage = Story({
   ...Default,
@@ -123,8 +123,8 @@ export const HelperMessage = Story({
   args: {
     helper: 'My Helper Message',
     helperPersistent: true,
-  }
-})
+  },
+});
 
 export const HelperMessageValidation = Story({
   ...Default,
@@ -135,8 +135,8 @@ export const HelperMessageValidation = Story({
     required: true,
     helper: 'This message will be highlighted when no option has been selected',
     helperPersistent: true,
-  }
-})
+  },
+});
 
 export const WithIcon = Story({
   ...Default,
@@ -163,7 +163,7 @@ export const WithIcon = Story({
       </ino-select>
     </div>
   `,
-})
+});
 
 export const Form = Story({
   ...Default,
@@ -174,4 +174,4 @@ export const Form = Story({
       <ino-button type="submit">Submit</ino-button>
     </form>
   `,
-})
+});

@@ -66,63 +66,62 @@ export const Roles = Story({
   ...Default,
   docsFromProperty: 'role',
   args: {
-    role: 'radio'
-  }
-}) 
+    role: 'radio',
+  },
+});
 
 export const Checked = Story({
   ...Default,
   docsFromProperty: 'checked',
   args: {
-    checked: true
-  }
-}) 
-
+    checked: true,
+  },
+});
 
 export const Indeterminate = Story({
   ...Default,
   docsFromProperty: 'indeterminate',
   args: {
-    indeterminate: true
-  }
-})
+    indeterminate: true,
+  },
+});
 
 export const Activated = Story({
   ...Default,
   docsFromProperty: 'activated',
   args: {
-    activated: true
-  }
-})
+    activated: true,
+  },
+});
 
 export const Selected = Story({
   ...Default,
   docsFromProperty: 'selected',
   args: {
-    selected: true
-  }
-})
+    selected: true,
+  },
+});
 
 export const SecondaryText = Story({
   ...Default,
   docsFromProperty: 'secondaryText',
   args: {
-    secondaryText: 'Some Secondary Text'
-  }
-})
+    secondaryText: 'Some Secondary Text',
+  },
+});
 
 export const Disabled = Story({
   ...Default,
   docsFromProperty: 'disabled',
   args: {
-    disabled: true
-  }
-})
+    disabled: true,
+  },
+});
 
 export const Trailing = Story({
   ...Default,
   docsFromProperty: 'trailing',
   args: {
-    trailing: true
-  }
-})
+    trailing: true,
+  },
+});

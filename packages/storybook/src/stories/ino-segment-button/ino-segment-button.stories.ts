@@ -51,7 +51,7 @@ export const EnableChecked = Story({
   docsFromProperty: 'checked',
   args: {
     checked: true,
-  } 
+  },
 });
 
 export const Disabled = Story({
@@ -59,7 +59,7 @@ export const Disabled = Story({
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  } 
+  },
 });
 
 export const Dense = Story({
@@ -67,5 +67,5 @@ export const Dense = Story({
   docsFromProperty: 'dense',
   args: {
     dense: true,
-  } 
+  },
 });

@@ -141,8 +141,8 @@ export const ConfirmationDialogWithText = Story({
     actionText: 'Delete account',
     dataDialogId: 'demo-conformation-with-text-dialog',
     buttonText: 'Open confirmation Dialog with text',
-  }
-})
+  },
+});
 
 /**
  * A Confirmation Dialog with Hero Icon requires an acknowledgement of the information from the user. User has to confirm with one klick on the primary button.
@@ -177,8 +177,8 @@ export const ConfirmationDialogWithIcon = Story({
     dataDialogId: 'demo-conformation-with-icon-dialog',
     buttonText: 'Open confirmation Dialog with icon',
     icon: 'message',
-  }
-})
+  },
+});
 
 /**
  * By using `slot name="header"`, `slot name="body"` or `slot name="footer"` you can respectively replace the default `<header>`, `<section>` (body) or `<footer>` elements of the `ino-dialog` with your own custom content.
@@ -187,7 +187,7 @@ export const ConfirmationDialogWithIcon = Story({
  */
 export const UsingSlots = Story({
   ...Default,
-  render: (args) => html`   
+  render: (args) => html`
     <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
       >${args.buttonText}</ino-button
     >
@@ -232,12 +232,12 @@ export const UsingSlots = Story({
         <ino-button variant="outlined">Button 3</ino-button>
       </footer>
     </ino-dialog>
-  `, 
+  `,
   args: {
     buttonText: 'Open Dialog with slot',
     dataDialogId: 'demo-custom-content-dialog',
-  }
-})
+  },
+});
 
 export const FullWidth = Story({
   ...Default,
@@ -246,8 +246,8 @@ export const FullWidth = Story({
     fullwidth: true,
     buttonText: 'Open full width Dialog',
     dataDialogId: 'demo-fullwidth-dialog',
-  }
-})
+  },
+});
 
 export const Dismissible = Story({
   ...Default,
@@ -256,8 +256,8 @@ export const Dismissible = Story({
     dismissible: true,
     buttonText: 'Open dismissible Dialog',
     dataDialogId: 'demo-dismissible-dialog',
-  }
-})
+  },
+});
 
 /**
  * Closing actions allow you to handle different button actions (like confirm, cancel, ...) using the `close` event listener on the dialog.
@@ -268,5 +268,5 @@ export const ClosingAction = Story({
   args: {
     dataDialogId: 'demo-action-dialog',
     buttonText: 'open closing action Dialog',
-  }
-})
+  },
+});

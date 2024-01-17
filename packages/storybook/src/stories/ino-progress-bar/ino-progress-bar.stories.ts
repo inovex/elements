@@ -41,7 +41,7 @@ export const Progress = Story({
   docsFromProperty: 'progress',
   args: {
     progress: 0.5,
-  }
+  },
 });
 
 export const Buffer = Story({
@@ -49,7 +49,7 @@ export const Buffer = Story({
   docsFromProperty: 'buffer',
   args: {
     buffer: 0.5,
-  }
+  },
 });
 
 export const Indeterminate = Story({
@@ -57,5 +57,5 @@ export const Indeterminate = Story({
   docsFromProperty: 'indeterminate',
   args: {
     indeterminate: true,
-  }
+  },
 });

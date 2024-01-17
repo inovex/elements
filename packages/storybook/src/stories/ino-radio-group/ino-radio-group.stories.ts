@@ -82,5 +82,5 @@ export const VerticalAlignment = Story({
   docsFromProperty: 'alignment',
   args: {
     alignment: 'vertical',
-  }
+  },
 });

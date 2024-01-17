@@ -75,16 +75,16 @@ export const Text = Story({
   ...Default,
   docsFromProperty: 'text',
   args: {
-    text: 'simple-item'
-  }
+    text: 'simple-item',
+  },
 });
 
 export const SecondaryText = Story({
   ...Default,
   docsFromProperty: 'secondaryText',
   args: {
-    secondaryText: 'Second line text'
-  }
+    secondaryText: 'Second line text',
+  },
 });
 
 export const Selected = Story({
@@ -92,7 +92,7 @@ export const Selected = Story({
   docsFromProperty: 'selected',
   args: {
     selected: true,
-  }
+  },
 });
 
 export const Activated = Story({
@@ -100,7 +100,7 @@ export const Activated = Story({
   docsFromProperty: 'activated',
   args: {
     activated: true,
-  }
+  },
 });
 
 export const Disabled = Story({
@@ -108,7 +108,7 @@ export const Disabled = Story({
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  }
+  },
 });
 
 /**

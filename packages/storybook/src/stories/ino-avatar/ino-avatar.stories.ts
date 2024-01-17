@@ -48,8 +48,8 @@ const InoAvatarMeta = {
       alt="${args.alt}"
       .loading="${args.loading}"
     >
-  </ino-avatar>
-`,
+    </ino-avatar>
+  `,
   args: {
     initials: 'JD',
     interactive: false,
@@ -72,24 +72,24 @@ export const Interactive = Story({
   ...Default,
   docsFromProperty: 'interactive',
   args: {
-    interactive: true
-  }
+    interactive: true,
+  },
 });
 
 export const ColorSecondary = Story({
   ...Default,
   docsFromProperty: 'colorSecondary',
   args: {
-    colorSecondary: true
-  }
+    colorSecondary: true,
+  },
 });
 
 export const VariantDashed = Story({
   ...Default,
   docsFromProperty: 'variant',
   args: {
-    variant: 'dashed'
-  }
+    variant: 'dashed',
+  },
 });
 
 export const VariantDashedInteractive = Story({
@@ -97,8 +97,8 @@ export const VariantDashedInteractive = Story({
   docsFromProperty: 'variant',
   args: {
     variant: 'dashed',
-    interactive: true
-  }
+    interactive: true,
+  },
 });
 
 /*
@@ -107,13 +107,9 @@ export const VariantDashedInteractive = Story({
 export const Initials = Story({
   ...Default,
   render: () => html`
-    <ino-avatar 
-      initials="JD" 
-      interactive="false" 
-      variant="solid" 
-      src="">
+    <ino-avatar initials="JD" interactive="false" variant="solid" src="">
     </ino-avatar>
-  `
+  `,
 });
 
 /**
@@ -141,7 +137,7 @@ export const WithIcon = Story({
       ></ino-icon>
     </ino-avatar>
   `,
-})
+});
 
 export const LoadingAvatar = Story({
   ...Default,
@@ -163,5 +159,5 @@ export const LoadingAvatar = Story({
         >Loading</ino-checkbox
       >
     </div>
-  `
-})
+  `,
+});

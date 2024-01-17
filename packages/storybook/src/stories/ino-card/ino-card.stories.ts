@@ -69,13 +69,13 @@ export const DisabledElevation = Story({
   docsFromProperty: 'disableElevation',
   args: {
     disableElevation: true,
-  }
-}) 
+  },
+});
 
 export const Selected = Story({
   ...Default,
   docsFromProperty: 'selected',
   args: {
     selected: true,
-  }
-})
+  },
+});

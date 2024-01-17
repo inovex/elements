@@ -61,7 +61,7 @@ export const Rounded = Story({
   docsFromProperty: 'rounded',
   args: {
     rounded: true,
-  }
+  },
 });
 
 export const FallbackIcon = Story({
@@ -69,5 +69,5 @@ export const FallbackIcon = Story({
   docsFromProperty: 'fallbackIcon',
   args: {
     src: 'https://cdn-images-1/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png',
-  }
+  },
 });

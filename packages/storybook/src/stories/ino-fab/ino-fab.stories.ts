@@ -93,7 +93,7 @@ export const Variants = Story({
       </ino-fab>
     </div>
   `,
-})
+});
 
 /**
  * In order to achive edges on the fab-button, add `edge-position`.
@@ -126,5 +126,5 @@ export const EdgePositions = Story({
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
     </div>
-  `
-})
+  `,
+});

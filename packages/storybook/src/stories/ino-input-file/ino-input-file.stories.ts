@@ -4,7 +4,6 @@ import { html } from 'lit-html';
 import { useEffect } from '@storybook/preview-api';
 import Story from '../StoryWrapper';
 
-
 const InoInputFileMeta = {
   title: 'Input/ino-input-file',
   component: 'ino-input-file',
@@ -73,7 +72,7 @@ export const Accept = Story({
   docsFromProperty: 'accept',
   args: {
     accept: 'png',
-  }
+  },
 });
 
 export const AutoFocus = Story({
@@ -81,7 +80,7 @@ export const AutoFocus = Story({
   docsFromProperty: 'autoFocus',
   args: {
     autoFocus: true,
-  }
+  },
 });
 
 export const Disabled = Story({
@@ -89,7 +88,7 @@ export const Disabled = Story({
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  }
+  },
 });
 
 export const Required = Story({
@@ -97,7 +96,7 @@ export const Required = Story({
   docsFromProperty: 'required',
   args: {
     required: true,
-  }
+  },
 });
 
 export const Label = Story({
@@ -105,7 +104,7 @@ export const Label = Story({
   docsFromProperty: 'label',
   args: {
     label: 'upload a file here',
-  }
+  },
 });
 
 export const Multiple = Story({
@@ -113,7 +112,7 @@ export const Multiple = Story({
   docsFromProperty: 'multiple',
   args: {
     multiple: true,
-  }
+  },
 });
 
 export const DragAndDrop = Story({
@@ -121,7 +120,7 @@ export const DragAndDrop = Story({
   docsFromProperty: 'dragAndDrop',
   args: {
     dragAndDrop: true,
-  }
+  },
 });
 
 export const DragAndDropText = Story({
@@ -130,7 +129,7 @@ export const DragAndDropText = Story({
   args: {
     dragAndDrop: true,
     dragAndDropText: 'click and drag here',
-  }
+  },
 });
 
 export const DragAndDropSecondaryText = Story({
@@ -140,5 +139,5 @@ export const DragAndDropSecondaryText = Story({
     dragAndDrop: true,
     dragAndDropText: 'click and drag here',
     dragAndDropSecondaryText: 'or click the button below',
-  }
+  },
 });

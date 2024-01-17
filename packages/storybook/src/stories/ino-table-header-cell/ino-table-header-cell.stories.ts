@@ -57,10 +57,10 @@ const InoTableHeaderCellMeta = {
   argTypes: {
     searchIcon: {
       control: {
-        type: 'select'
+        type: 'select',
       },
       options: getIcons(),
-    }
+    },
   },
   args: {
     autofocus: false,
@@ -84,7 +84,7 @@ export const Label = Story({
   docsFromProperty: 'label',
   args: {
     label: 'Search for XY...',
-  }
+  },
 });
 
 export const SortDirection = Story({
@@ -92,7 +92,7 @@ export const SortDirection = Story({
   docsFromProperty: 'sortDirection',
   args: {
     sortDirection: 'desc',
-  }
+  },
 });
 
 export const NotSortable = Story({
@@ -100,7 +100,7 @@ export const NotSortable = Story({
   docsFromProperty: 'notSortable',
   args: {
     notSortable: true,
-  }
+  },
 });
 
 export const SearchIcon = Story({
@@ -108,7 +108,7 @@ export const SearchIcon = Story({
   docsFromProperty: 'searchIcon',
   args: {
     searchIcon: 'search',
-  }
+  },
 });
 
 export const Searched = Story({
@@ -116,7 +116,7 @@ export const Searched = Story({
   docsFromProperty: 'searched',
   args: {
     searched: true,
-  }
+  },
 });
 
 /**

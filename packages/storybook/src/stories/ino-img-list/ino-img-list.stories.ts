@@ -31,7 +31,7 @@ const InoImgListMeta = {
 export default InoImgListMeta;
 
 export const Default = Story({
-  ...InoImgListMeta
+  ...InoImgListMeta,
 });
 
 export const Masonry = Story({
@@ -39,16 +39,16 @@ export const Masonry = Story({
   docsFromProperty: 'masonry',
   args: {
     masonry: true,
-  }
-})
+  },
+});
 
 export const EncloseLabel = Story({
   ...InoImgListMeta,
   docsFromProperty: 'encloseLabel',
   args: {
-    encloseLabel: true
-  }
-})
+    encloseLabel: true,
+  },
+});
 
 const sampleImg = html`
   <ino-img src=${beachImg} alt="beach" label="Label" img-list-item></ino-img>

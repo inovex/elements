@@ -86,7 +86,7 @@ export const Disabled = Story({
   docsFromProperty: 'disabled',
   args: {
     disabled: true,
-  }
+  },
 });
 
 export const Required = Story({
@@ -95,7 +95,7 @@ export const Required = Story({
   args: {
     required: true,
     label: 'Label*',
-  }
+  },
 });
 
 export const Outline = Story({
@@ -103,7 +103,7 @@ export const Outline = Story({
   docsFromProperty: 'outline',
   args: {
     outline: true,
-  }
+  },
 });
 
 export const ShowLabelHint = Story({
@@ -111,7 +111,7 @@ export const ShowLabelHint = Story({
   docsFromProperty: 'showLabelHint',
   args: {
     showLabelHint: true,
-  }
+  },
 });
 
 export const CharacterCount = Story({
@@ -135,5 +135,5 @@ export const CharacterCount = Story({
   `,
   args: {
     showCharacterCounter: true,
-  }
+  },
 });

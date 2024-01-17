@@ -71,22 +71,22 @@ export const DialDirection = Story({
   ...Default,
   docsFromProperty: 'dialDirection',
   args: {
-    dialDirection: 'bottom'
-  }
+    dialDirection: 'bottom',
+  },
 });
 
 export const LeftRightLocation = Story({
   ...Default,
   docsFromProperty: 'leftRightLocation',
   args: {
-    leftRightLocation: 'right'
-  }
+    leftRightLocation: 'right',
+  },
 });
 
 export const TopBottomLocation = Story({
   ...Default,
   docsFromProperty: 'topBottomLocation',
   args: {
-    topBottomLocation: 'top'
-  }
+    topBottomLocation: 'top',
+  },
 });

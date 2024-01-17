@@ -44,12 +44,14 @@ const preview = {
       // NEW: HIDE DECORATORS FROM STORY OUTPUT,
       // FIXME: disabled all decorator functions which are currently used for event handling
       source: {
-        format: "html",
+        format: 'html',
       },
-      toc: { // 👈 Enables the table of contents for components stories
-        contentsSelector: '.sbdocs-content:not(div:has(#changelog)):not(div:has(#typography))', // disables toc on changelog & typography
+      toc: {
+        // 👈 Enables the table of contents for components stories
+        contentsSelector:
+          '.sbdocs-content:not(div:has(#changelog)):not(div:has(#typography))', // disables toc on changelog & typography
         headingSelector: 'h3', // only selects h3 headlines
-        ignoreSelector: '.docs-story > * :is(h3)' // ignore h3 headlines in stories
+        ignoreSelector: '.docs-story > * :is(h3)', // ignore h3 headlines in stories
       },
       page: DocumentationTemplate,
     },
@@ -67,7 +69,7 @@ const preview = {
           ],
         ],
       },
-    }, 
-  }
+    },
+  },
 };
 export default preview;

@@ -123,7 +123,7 @@ export const Arrow = Story({
   docsFromProperty: 'arrow',
   args: {
     arrow: true,
-  }
+  },
 });
 
 export const Placement = Story({
@@ -131,8 +131,8 @@ export const Placement = Story({
   docsFromProperty: 'placement',
   args: {
     placement: 'right',
-    placementClass: 'styled-placement'
-  }
+    placementClass: 'styled-placement',
+  },
 });
 
 export const AttachToBody = Story({
@@ -140,7 +140,7 @@ export const AttachToBody = Story({
   docsFromProperty: 'attachToBody',
   args: {
     attachToBody: true,
-  }
+  },
 });
 
 export const Distance = Story({
@@ -148,7 +148,7 @@ export const Distance = Story({
   docsFromProperty: 'distance',
   args: {
     distance: 30,
-  }
+  },
 });
 
 export const ColorSchemes = Story({
@@ -227,8 +227,8 @@ export const Trigger = Story({
   ...Default,
   docsFromProperty: 'trigger',
   args: {
-    trigger: 'click'
-  }
+    trigger: 'click',
+  },
 });
 
 export const FollowCursor = Story({
@@ -236,7 +236,7 @@ export const FollowCursor = Story({
   docsFromProperty: 'followCursor',
   args: {
     followCursor: 'horizontal',
-  }
+  },
 });
 
 export const Interactive = Story({
@@ -263,7 +263,7 @@ export const Interactive = Story({
   `,
   args: {
     interactive: true,
-  }
+  },
 });
 
 export const Controlled = Story({
@@ -301,7 +301,7 @@ export const Controlled = Story({
   },
   args: {
     controlled: true,
-  }
+  },
 });
 
 export const Visible = Story({
@@ -309,7 +309,7 @@ export const Visible = Story({
   docsFromProperty: 'visible',
   args: {
     visible: true,
-  }
+  },
 });
 
 export const Delay = Story({
@@ -317,5 +317,5 @@ export const Delay = Story({
   docsFromProperty: 'delay',
   args: {
     delay: [500, 200],
-  }
+  },
 });

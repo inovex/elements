@@ -114,8 +114,8 @@ export const DateFormats = Story({
   `,
   args: {
     dateFormat: '',
-  }
-})
+  },
+});
 
 export const TwelveHourTime = Story({
   ...Default,
@@ -129,9 +129,9 @@ export const TwelveHourTime = Story({
     ></ino-datepicker>
   `,
   args: {
-    twelveHourTime: true
-  }
-})
+    twelveHourTime: true,
+  },
+});
 
 /**
  * Various restrictions like the ones shown
@@ -190,7 +190,7 @@ export const Restrictions = Story({
       default-minute="49"
     ></ino-datepicker>
   `,
-})
+});
 
 /**
  * Different states are achived by setting the properties `disabled`, `required` or `show-label-hint`.
@@ -208,7 +208,7 @@ export const States = Story({
     <ino-datepicker label="Required" required show-label-hint></ino-datepicker>
     <ino-datepicker label="Optional" show-label-hint></ino-datepicker>
   `,
-})
+});
 
 export const Inline = Story({
   ...Default,
@@ -222,8 +222,8 @@ export const Inline = Story({
   `,
   args: {
     inline: true,
-  }
-})
+  },
+});
 
 /**
  * The language of the ino-datepicker can by set by `lang`
@@ -231,10 +231,7 @@ export const Inline = Story({
 export const Locale = Story({
   ...Default,
   render: () => html`
-    <ino-datepicker 
-      lang="en" 
-      label="English">
-    </ino-datepicker>
+    <ino-datepicker lang="en" label="English"> </ino-datepicker>
     <ino-datepicker
       lang="de"
       date-format="d.m.Y"
@@ -245,9 +242,9 @@ export const Locale = Story({
       date-format="d.m.Y"
       range
       label="German range"
-  ></ino-datepicker>
+    ></ino-datepicker>
   `,
-})
+});
 
 export const MultipleTypes = Story({
   ...Default,
@@ -279,8 +276,8 @@ export const MultipleTypes = Story({
         </ino-radio-group>
       </main>
     </div>
-  `
-})
+  `,
+});
 
 /**
  * The form should not submit as long as the date field is empty
@@ -296,5 +293,5 @@ export const RequiredForm = Story({
       ></ino-datepicker>
       <ino-button type="submit">Submit</ino-button>
     </form>
-  `
-})
+  `,
+});

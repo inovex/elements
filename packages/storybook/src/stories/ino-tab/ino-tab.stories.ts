@@ -23,7 +23,7 @@ const InoTabMeta = {
         type: 'select',
       },
       options: getIcons(),
-    }
+    },
   },
   args: {
     indicatorContentWidth: false,
@@ -44,7 +44,7 @@ export const Stacked = Story({
   docsFromProperty: 'stacked',
   args: {
     stacked: true,
-  }
+  },
 });
 
 export const IndicatorContentWidth = Story({
@@ -52,5 +52,5 @@ export const IndicatorContentWidth = Story({
   docsFromProperty: 'indicatorContentWidth',
   args: {
     indicatorContentWidth: true,
-  }
+  },
 });

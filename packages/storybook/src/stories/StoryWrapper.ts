@@ -46,7 +46,6 @@ export default function Story<C extends object>(meta: MetaWrapper<C>) {
     });
   }
 
-
   return meta;
 }
 
