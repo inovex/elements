@@ -87,7 +87,6 @@
     z-index: 50;
     background-color: var(--inovex-elements-white);
     box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset;
-    color: var(--inovex-elements-primary);
   }
 
   #storybook-explorer-menu .sidebar-item + a:hover {
@@ -103,31 +102,25 @@
     background-color: var(--inovex-elements-white);
     box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset,
       rgb(var(--inovex-elements-primary) / 40%) 0 1px 9px 2px;
-    color: var(--inovex-elements-primary);
     z-index: 50;
   }
 
   /** Sidebar items */
-  #storybook-explorer-menu .sidebar-item:focus {
-    color: var(--inovex-elements-primary);
-  }
-
-  #storybook-explorer-menu .sidebar-item:focus svg {
-    color: var(--inovex-elements-primary);
-  }
-
   #storybook-explorer-menu .sidebar-item:hover {
     background-color: var(--inovex-elements-n-1);
   }
 
+  #storybook-explorer-menu .sidebar-item[data-selected='false'] a,
+  #storybook-explorer-menu .sidebar-item[data-selected='false'] svg {
+    color: var(--inovex-elements-n-6) !important;
+  }
+
   #storybook-explorer-menu .sidebar-item[data-selected='false']:focus {
-    color: var(--inovex-elements-primary);
     background-color: var(--inovex-elements-p-1);
   }
 
   #storybook-explorer-menu .sidebar-item[data-selected='true'],
   #storybook-explorer-menu .sidebar-item[data-selected='true']:focus {
-    color: var(--inovex-elements-primary);
     background-color: var(--inovex-elements-p-2);
   }
 
