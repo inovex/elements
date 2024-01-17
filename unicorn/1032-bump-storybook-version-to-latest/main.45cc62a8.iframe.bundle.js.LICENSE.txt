@@ -1,0 +1,5 @@
+/*!
+ * Crafted with ❤ by inovex GmbH
+ */
+
+/*!__STENCIL_STATIC_IMPORT_SWITCH__*/

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>@storybook/cli - Storybook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./sb-common-assets/fonts.css" />
+
+    <link href="./sb-manager/runtime.js" rel="modulepreload" />
+
+    
+    <link href="./sb-addons/essentials-controls-0/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-actions-1/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-backgrounds-2/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-viewport-3/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-toolbars-4/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-measure-5/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-outline-6/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/addons-7/post-current-story-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/config-8/manager-bundle.js" rel="modulepreload" />
+      <!DOCTYPE html>
+<html lang="en">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#2d02ff" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
+</html>
+
+<!-- Custom styles for the main area -->
+<script>
+  document.title = 'Showcase - inovex elements';
+  document.body.classList.add('inovex-elements-typo');
+  document.body.classList.add('inovex-elements-theme');
+</script>
+<style type="text/css">
+  div[role='menuitem'] {
+    color: var(--inovex-elements-p-4);
+  }
+
+  div[role='menuitem']:hover,
+  a[class^='css-glamorous-routedlink']:hover {
+    color: var(--inovex-elements-n-7);
+  }
+
+  a[class^='css-glamorous-routedlink'] {
+    color: var(--inovex-elements-n-7);
+  }
+
+  a > h3 {
+    color: var(--inovex-elements-p-7) !important;
+  }
+</style>
+
+<style type="text/css">
+  /** TODO: Add LATO Font here **/
+
+  /* Left side */
+  #storybook-explorer-menu {
+    font-weight: 500;
+  }
+
+  /** overwrite toolbar icon color & hover */
+  #storybook-explorer-menu button svg path {
+    fill: var(--inovex-elements-n-11);
+  }
+
+  #storybook-explorer-menu button:hover svg path {
+    fill: var(--inovex-elements-primary);
+  }
+
+  #storybook-explorer-menu .search-field {
+    margin-top: 0px;
+  }
+
+  #storybook-explorer-menu .sidebar-header {
+    display: none;
+  }
+
+  #storybook-explorer-menu .sidebar-subheading {
+    /* Title Small */
+    letter-spacing: 0.02px;
+    font-weight: 600;
+    color: var(--inovex-elements-n-7);
+    font-size: 14px;
+    margin-top: 32px;
+    margin-bottom: 6px;
+  }
+
+  #storybook-explorer-menu .sidebar-item {
+    color: rgb(16 19 22 / 90%);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 14px;
+    margin: 0 12px;
+    border-radius: 17px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: 0.15s ease-in-out;
+  }
+
+  /* skip to canvas button*/
+  #storybook-explorer-menu .sidebar-item + a {
+    margin-top: 3px;
+    z-index: 50;
+    background-color: var(--inovex-elements-white);
+    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset;
+  }
+
+  #storybook-explorer-menu .sidebar-item + a:hover {
+    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset;
+  }
+
+  #storybook-explorer-menu .sidebar-item + a:active {
+    background-color: var(--inovex-elements-primary);
+    color: var(--inovex-elements-white);
+  }
+
+  #storybook-explorer-menu .sidebar-item + a:focus {
+    background-color: var(--inovex-elements-white);
+    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset,
+      rgb(var(--inovex-elements-primary) / 40%) 0 1px 9px 2px;
+    z-index: 50;
+  }
+
+  /** Sidebar items */
+  #storybook-explorer-menu .sidebar-item:hover {
+    background-color: var(--inovex-elements-n-1);
+  }
+
+  #storybook-explorer-menu .sidebar-item[data-selected='false'] a,
+  #storybook-explorer-menu .sidebar-item[data-selected='false'] svg {
+    color: var(--inovex-elements-n-6) !important;
+  }
+
+  #storybook-explorer-menu .sidebar-item[data-selected='false']:focus {
+    background-color: var(--inovex-elements-p-1);
+  }
+
+  #storybook-explorer-menu .sidebar-item[data-selected='true'],
+  #storybook-explorer-menu .sidebar-item[data-selected='true']:focus {
+    background-color: var(--inovex-elements-p-2);
+  }
+
+  #storybook-explorer-menu .sidebar-item[data-selected='true'] svg {
+    color: var(--inovex-elements-primary);
+  }
+
+  /** all sidebar svgs  */
+  #storybook-explorer-menu svg {
+    color: var(--inovex-elements-n-5);
+  }
+
+  #storybook-explorer-menu .sidebar-header > div > a {
+    color: var(--inovex-elements-primary);
+    font-size: 20px;
+    letter-spacing: -0.0083333333em;
+  }
+
+  /** hide elements title in sidebar */
+  .sidebar-header {
+    display: none;
+  }
+
+  /** remove top-margin */
+  .search-field {
+    margin-top: 0;
+  }
+
+  /** main story content width */
+  .sbdocs.sbdocs-content {
+    max-width: 1018px;
+  }
+
+  /** bottom padding of main story content*/
+  div[role='main'] {
+    bottom: 10px !important;
+    top: 20px !important;
+    height: unset !important;
+  }
+
+  /** toolbar on bottom */
+  div[role='main'] > div > div > div > div:first-child {
+    background-color: var(--inovex-elements-white);
+  }
+
+  /** overwrite toolbar icon color & hover */
+  div[role='main'] > div > div > div > div:first-child button svg path {
+    fill: var(--inovex-elements-n-11);
+  }
+
+  div[role='main'] > div > div > div > div:first-child button:hover {
+    background-color: var(--inovex-elements-p-3);
+  }
+
+  div[role='main'] > div > div > div > div:first-child button:hover svg path {
+    fill: var(--inovex-elements-p-7);
+  }
+</style>
+ 
+
+    <style>
+      #storybook-root[hidden] {
+        display: none !important;
+      }
+    </style>
+
+    
+    <link href="./sb-addons/config-8/manager-bundle.css" rel="stylesheet" />
+    
+  </head>
+  <body>
+    <div id="root"></div>
+
+    
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "warnOnLegacyHierarchySeparator": true,
+  "buildStoriesJson": false,
+  "storyStoreV7": true,
+  "argTypeTargetsV7": true,
+  "legacyDecoratorFileOrder": false,
+  "disallowImplicitActionsInRenderV8": false
+};
+        
+      
+        
+          window['REFS'] = {};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "defaultName": "Docs",
+  "autodocs": true
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+    </script>
+    
+
+    <script type="module">
+      import './sb-manager/runtime.js';
+
+      
+      import './sb-addons/essentials-controls-0/manager-bundle.js';
+      
+      import './sb-addons/essentials-actions-1/manager-bundle.js';
+      
+      import './sb-addons/essentials-backgrounds-2/manager-bundle.js';
+      
+      import './sb-addons/essentials-viewport-3/manager-bundle.js';
+      
+      import './sb-addons/essentials-toolbars-4/manager-bundle.js';
+      
+      import './sb-addons/essentials-measure-5/manager-bundle.js';
+      
+      import './sb-addons/essentials-outline-6/manager-bundle.js';
+      
+      import './sb-addons/addons-7/post-current-story-bundle.js';
+      
+      import './sb-addons/config-8/manager-bundle.js';
+      
+    </script>
+
+    <link href="./sb-preview/runtime.js" rel="prefetch" as="script" />
+  </body>
+</html>
