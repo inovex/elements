@@ -98,7 +98,10 @@ export class IconButton implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.maybeCreateRipple();
+    // Delay ripple creation to ensure it initializes after the parent component (like ino-dialog) is fully rendered. Otherwise the ripple misaligns initially.
+    setTimeout(() => {
+      this.maybeCreateRipple();
+    }, 300);
   }
 
   disconnectedCallback() {
