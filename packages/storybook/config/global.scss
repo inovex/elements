@@ -12,3 +12,22 @@ body {
 .ino-story-composer {
   margin: 16px;
 }
+
+// Table of contents styling
+.toc-list .toc-list-item {
+  margin: 6px 0 6px 20px;
+}
+
+.toc-list .toc-list-item > a.toc-link {
+  color: #b6b4c4;
+}
+.toc-list .toc-list-item::before {
+  border-left: 2px solid #b6b4c4;
+}
+
+.toc-list .toc-list-item.is-active-li > a.is-active-link {
+  color: #4655ff;
+}
+.toc-list .toc-list-item.is-active-li::before {
+  border-left: 2px solid #4655ff;
+}
