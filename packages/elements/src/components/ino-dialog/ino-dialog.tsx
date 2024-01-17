@@ -192,7 +192,9 @@ export class Dialog implements ComponentInterface {
                     <slot name="header"></slot>
                   ) : (
                     <header>
-                      {this.icon && <ino-icon icon={this.icon} />}
+                      {this.icon && (
+                        <ino-icon class="header-icon" icon={this.icon} />
+                      )}
                       <h1 id="ino-dialog-title">{this.headerText}</h1>
                     </header>
                   )}
