@@ -7,7 +7,7 @@ import { getIcons } from '../utils';
 import './ino-img.scss';
 
 const InoImgMeta = {
-  title: 'Graphic/<ino-img>',
+  title: 'Graphic/ino-img',
   component: 'ino-img',
   render: (args) => html`
     <ino-img

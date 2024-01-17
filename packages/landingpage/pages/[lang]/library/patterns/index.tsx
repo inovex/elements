@@ -11,9 +11,7 @@ import PreviewBox from './preview-box';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
 import styles from './index.module.scss';
-import Custom404 from 'pages/[lang]/404';
-import { inDevEnvironment } from 'utils/in-dev-mode';
-import { MyPatternA, myPatternAHtml } from '@inovex.de/ui-patterns';
+import { Login, loginHtml } from '@inovex.de/ui-patterns';
 
 interface HighlightedCodes {
   [key: string]: string;
@@ -23,14 +21,6 @@ interface PatternsPageProps {
   highlightedCodes: HighlightedCodes;
   codeStrings: any;
 }
-
-const MockupLogin: React.FC = () => (
-  <div style={{ background: 'hotpink', height: '200px' }}>
-    Boilerplate stuff
-  </div>
-);
-
-const MockupSignUp: React.FC = () => <div>Mockup component for signup</div>;
 
 async function highlightCodeWithShiki(code: string) {
   const highlighter = await getHighlighter({ theme: 'github-dark-dimmed' });
@@ -45,39 +35,34 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
   codeStrings,
 }) => {
   const { t } = useTranslation();
-  //TODO: Remove this  check when we implemented the first official pattern
-  if (!inDevEnvironment) {
-    return <Custom404 />;
-  }
 
   return (
     <Page title={[t('common.meta.library')]}>
-      <div className={styles.header}>
-        <h5 className="title-m">Lorem ipsum dolor sit amet.</h5>
-        <h1 className="header-d3">
-          <b>Design Pattern</b>
-        </h1>
-        <p className="body-l">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua.
-        </p>
-        <div className={styles.divider} />
+      <div style={{ marginBottom: '8rem' }}>
+        <div className={styles.header}>
+          <h5 className="title-m">{t('designPatterns.header.top')}</h5>
+          <h1 className="header-d3">
+            <b>{t('designPatterns.header.title')}</b>
+          </h1>
+          <p className="body-l">{t('designPatterns.header.subtitle')}</p>
+          <div className={styles.divider} />
+        </div>
+        <PreviewBox
+          title={t('designPatterns.loginPattern.title')}
+          id="login"
+          description={t('designPatterns.loginPattern.description')}
+          previewComponent={<Login />}
+          highlightedCode={highlightedCodes.login}
+          rawCode={codeStrings.login}
+        />
       </div>
-      <PreviewBox
-        title="Login"
-        id="login"
-        description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-        previewComponent={<MyPatternA />}
-        highlightedCode={highlightedCodes.login}
-        rawCode={codeStrings.login}
-      />
     </Page>
   );
 };
+
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const codeStrings = {
-    login: myPatternAHtml,
+    login: loginHtml,
   };
 
   const { props: languageProperties } = getStaticLanguageProps(

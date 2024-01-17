@@ -8,7 +8,7 @@ import './ino-avatar.scss';
 import avatarImg from '../../assets/images/avatar.jpg';
 
 const InoAvatarMeta = {
-  title: 'Graphic/<ino-avatar>',
+  title: 'Graphic/ino-avatar',
   component: 'ino-avatar',
   decorators: [
     (story) => {

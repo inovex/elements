@@ -6,7 +6,7 @@ import Story from '../StoryWrapper';
 import './ino-range.scss';
 
 const InoRangeMeta = {
-  title: 'Input/<ino-range>',
+  title: 'Input/ino-range',
   component: 'ino-range',
   decorators: [
     (story) => {

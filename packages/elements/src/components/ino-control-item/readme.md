@@ -1,74 +1,16 @@
-# ino-list-item
+# ino-control-item
+
+
+<!-- Auto Generated Below -->
+
+
+## Overview
 
 A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
 
 This component is used as child of `ino-list` and `ino-menu` components.
-
-### Usage
-
-The component can be used as follows:
-
-```js
-document
-  .querySelector('ino-control-item')
-  .addEventListener('checkedChange', (e) =>
-    console.log(
-      'The element itself or the checkbox was clicked. Its new value is:',
-      e.detail,
-    ),
-  );
-```
-
-```html
-<ino-control-item
-  role="checkbox|radio"
-  checked="<boolean>"
-  disabled="<boolean>"
-  name="<string>"
-  value="<string>"
-  tab-index="<number>"
-  id="<string>"
-  activated
-  text="<string>"
-  secondary-text="<string>"
-  selected="<boolean>"
-  indeterminate="<boolean>"
-  oncheckedchange="handleCheckChange()"
-  trailing="<boolean>"
->
-  ...
-</ino-control-item>
-```
-
-**Slot:** This component supports icons and text as children. Just declare your icon or text inside of the `ino-control-item`-Element and it will be placed according to the `trailing`-Property.
-
-**Two lines:** For items having two lines, provide an `secondary-text` and make sure you set the `two-lines` attribute in the respective parent component (only available for `ino-list`).
-
-**Trailing:** Positions the control element at the end of the line
-
-### Restrictions
-
-Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element as shown below.
-
-```html
-<ino-control-item
-  role="checkbox"
-  trailing
-  text="Checkbox-Item with a leading icon"
->
-  <ino-icon icon="add" />
-</ino-control-item>
-
-<ino-control-item
-  role="checkbox"
-  text="Checkbox-Item with trailing metadata"
->
-  <p>Some Metadata</p>
-</ino-control-item>
-```
-
-<!-- Auto Generated Below -->
-
+#### Restrictions
+Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
 
 ## Properties
 

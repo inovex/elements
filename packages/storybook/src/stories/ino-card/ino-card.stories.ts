@@ -6,7 +6,7 @@ import Story from '../StoryWrapper';
 import './ino-card.scss';
 
 const InoCardMeta = {
-  title: 'Structure/<ino-card>',
+  title: 'Structure/ino-card',
   component: 'ino-card',
   decorators: [
     (story) => {

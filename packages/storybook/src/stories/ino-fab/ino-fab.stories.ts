@@ -5,7 +5,7 @@ import Story from '../StoryWrapper';
 import './ino-fab.scss';
 
 const InoFabMeta = {
-  title: 'Buttons/<ino-fab>',
+  title: 'Buttons/ino-fab',
   component: 'ino-fab',
   render: (args) => html`
     <ino-fab

@@ -20,7 +20,7 @@ const onSlideChanged = (ev: CustomEvent<string>) => {
 };
 
 const InoDialogMeta = {
-  title: 'Structure/<ino-dialog>',
+  title: 'Structure/ino-dialog',
   component: 'ino-dialog',
   decorators: [
     (story) => {

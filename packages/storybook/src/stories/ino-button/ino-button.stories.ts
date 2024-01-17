@@ -5,7 +5,7 @@ import Story from '../StoryWrapper';
 import './ino-button.scss';
 
 const InoButtonMeta = {
-  title: 'Buttons/<ino-button>',
+  title: 'Buttons/ino-button',
   component: 'ino-button',
   parameters: {
     docs: {

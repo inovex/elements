@@ -1,6 +1,9 @@
 import { Component, Prop, h, Host } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
+ */
 @Component({
   tag: 'ino-label',
   styleUrl: 'ino-label.scss',

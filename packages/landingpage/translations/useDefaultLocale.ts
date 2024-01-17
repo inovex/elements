@@ -23,12 +23,7 @@ function useDefaultLocale() {
 
   return () => {
     const initLang = getInitialLocale();
-    router.push({
-      pathname: router.pathname,
-      query: {
-        lang: initLang,
-      },
-    });
+    router.push(initLang);
   };
 }
 

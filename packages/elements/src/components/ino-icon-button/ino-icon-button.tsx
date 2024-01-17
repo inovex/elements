@@ -13,10 +13,15 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
-import { JSXBase } from '@stencil/core/internal';
 import { ButtonType } from '../types';
 
 /**
+ *
+ * A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
+ *
+ * ## Additional Hints
+ * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
+ *
  * @slot default - `<ino-icon>`
  */
 @Component({

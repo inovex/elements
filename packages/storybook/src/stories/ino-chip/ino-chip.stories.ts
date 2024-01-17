@@ -5,7 +5,7 @@ import Story from '../StoryWrapper';
 import './ino-chip.scss';
 
 const InoChipMeta = {
-  title: 'Buttons/<ino-chip>',
+  title: 'Buttons/ino-chip',
   component: 'ino-chip',
   parameters: {
     actions: {

@@ -9,7 +9,7 @@ const eventHandler = (e: CustomEvent<boolean>) => {
 };
 
 const inoAccordionMeta = {
-  title: 'Structure/<ino-accordion>',
+  title: 'Structure/ino-accordion',
   component: 'ino-accordion',
   render: (args) => html` <ino-accordion
     expanded="${args.expanded}"

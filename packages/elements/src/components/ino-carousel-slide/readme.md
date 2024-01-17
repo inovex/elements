@@ -1,9 +1,12 @@
 # ino-carousel-slide
 
-An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
 
 ## Properties
 

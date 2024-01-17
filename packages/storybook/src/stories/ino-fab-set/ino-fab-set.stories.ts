@@ -12,7 +12,7 @@ const clickHandler = (e: CustomEvent<void>) => {
 };
 
 const InoFabSetMeta = {
-  title: 'Buttons/<ino-fab-set>',
+  title: 'Buttons/ino-fab-set',
   component: 'ino-fab-set',
   parameters: {
     actions: {

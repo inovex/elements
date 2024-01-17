@@ -1,9 +1,13 @@
 # ino-checkbox
 
-A checkbox that allows the user to select one or more items from a set of options.
+
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
 
 ## Properties
 

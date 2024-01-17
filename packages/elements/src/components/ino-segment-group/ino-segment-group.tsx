@@ -14,6 +14,8 @@ import {
 import { generateUniqueId } from '../../util/component-utils';
 
 /**
+ * A button group that can be used as an alternative to drop-down menus.
+ *
  * @slot default - One or more `ino-segment-button`
  */
 @Component({

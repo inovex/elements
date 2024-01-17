@@ -25,4 +25,4 @@ if (args[2] === 'preBuild') {
   walk(packageJson);
 }
 
-fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n'); // newline to conform the prettier guidelines

@@ -10,6 +10,11 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+ *
+ * This component replaces the native behaviour with a custom `ino-button` with logic.
+ */
 @Component({
   tag: 'ino-input-file',
   styleUrl: 'ino-input-file.scss',

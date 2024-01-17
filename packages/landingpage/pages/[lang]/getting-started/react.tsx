@@ -9,16 +9,20 @@ import {
 } from 'utils/context/staticPaths';
 import { Framework } from 'utils/frameworks';
 
+import styles from './guide.module.scss';
+
 const ReactGuidePage = () => {
   return (
-    <Layout
-      framework={Framework.REACT}
-      sandboxUrl={
-        'https://codesandbox.io/embed/github/inovex/elements-example-react/tree/master/?fontsize=14&hidenavigation=1&theme=dark'
-      }
-    >
-      <ReactGuide />
-    </Layout>
+    <div className={styles['mdx-content']}>
+      <Layout
+        framework={Framework.REACT}
+        sandboxUrl={
+          'https://codesandbox.io/embed/github/inovex/elements-example-react/tree/master/?fontsize=14&hidenavigation=1&theme=dark'
+        }
+      >
+        <ReactGuide />
+      </Layout>
+    </div>
   );
 };
 
