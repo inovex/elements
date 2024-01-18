@@ -40,9 +40,20 @@ const StoryBookPage: NextPage<void> = () => {
     };
   }, []);
 
-  const iframeUrl = selectedVersion
-    ? `https://elements.inovex.de/version/${selectedVersion}/?path=/story/docs-welcome--page`
-    : initialUrl;
+  const iframeUrl = useMemo(() => {
+    if (initialUrl) {
+      const urlObj = new URL(initialUrl);
+      const path = urlObj.searchParams.get('path');
+
+      if (selectedVersion && path) {
+        return `https://elements.inovex.de/version/${selectedVersion}/?path=${path}`;
+      } else {
+        return initialUrl;
+      }
+    }
+
+    return undefined;
+  }, [initialUrl, selectedVersion]);
 
   return (
     <Page title={[t('common.meta.library')]}>
