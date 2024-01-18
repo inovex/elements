@@ -6402,6 +6402,16 @@
       ],
       "styles": [
         {
+          "name": "--ino-markdown-editor-h1-font-size",
+          "annotation": "prop",
+          "docs": "Font size of H1 headers. Default value is `32px`."
+        },
+        {
+          "name": "--ino-markdown-editor-h2-font-size",
+          "annotation": "prop",
+          "docs": "Font size of H2 headers. Default value is `28px`."
+        },
+        {
           "name": "--ino-markdown-editor-max-height",
           "annotation": "prop",
           "docs": "max-height of text editor Default value is `none`."
@@ -6410,6 +6420,11 @@
           "name": "--ino-markdown-editor-min-height",
           "annotation": "prop",
           "docs": "min-height of text editor. Default value is `100px`."
+        },
+        {
+          "name": "--ino-markdown-editor-paragraph-font-size",
+          "annotation": "prop",
+          "docs": "Font size of paragraph text. Default value is `16px`."
         }
       ],
       "slots": [],
