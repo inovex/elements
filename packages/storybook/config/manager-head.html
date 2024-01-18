@@ -16,25 +16,6 @@
   document.body.classList.add('inovex-elements-theme');
 </script>
 <style type="text/css">
-  div[role='menuitem'] {
-    color: var(--inovex-elements-p-4);
-  }
-
-  div[role='menuitem']:hover,
-  a[class^='css-glamorous-routedlink']:hover {
-    color: var(--inovex-elements-n-7);
-  }
-
-  a[class^='css-glamorous-routedlink'] {
-    color: var(--inovex-elements-n-7);
-  }
-
-  a > h3 {
-    color: var(--inovex-elements-p-7) !important;
-  }
-</style>
-
-<style type="text/css">
   /** TODO: Add LATO Font here **/
 
   /* Left side */
@@ -42,23 +23,7 @@
     font-weight: 500;
   }
 
-  /** overwrite toolbar icon color & hover */
-  #storybook-explorer-menu button svg path {
-    fill: var(--inovex-elements-n-11);
-  }
-
-  #storybook-explorer-menu button:hover svg path {
-    fill: var(--inovex-elements-primary);
-  }
-
-  #storybook-explorer-menu .search-field {
-    margin-top: 0px;
-  }
-
-  #storybook-explorer-menu .sidebar-header {
-    display: none;
-  }
-
+  /* siedar headlines (Docs, Structure, Input, Graphic, Buttons, Notification */
   #storybook-explorer-menu .sidebar-subheading {
     /* Title Small */
     letter-spacing: 0.02px;
@@ -69,10 +34,11 @@
     margin-bottom: 6px;
   }
 
+  /** Sidebar items */
+
+  /* all sidebar items (folders & doc pages & states) */
   #storybook-explorer-menu .sidebar-item {
-    color: rgb(16 19 22 / 90%);
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding: 6px 0 6px;
     font-size: 14px;
     margin: 0 12px;
     border-radius: 17px;
@@ -81,62 +47,24 @@
     transition: 0.15s ease-in-out;
   }
 
-  /* skip to canvas button*/
-  #storybook-explorer-menu .sidebar-item + a {
-    margin-top: 3px;
-    z-index: 50;
-    background-color: var(--inovex-elements-white);
-    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset;
-  }
-
-  #storybook-explorer-menu .sidebar-item + a:hover {
-    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset;
-  }
-
-  #storybook-explorer-menu .sidebar-item + a:active {
-    background-color: var(--inovex-elements-primary);
-    color: var(--inovex-elements-white);
-  }
-
-  #storybook-explorer-menu .sidebar-item + a:focus {
-    background-color: var(--inovex-elements-white);
-    box-shadow: var(--inovex-elements-primary) 0 0 0 1px inset,
-      rgb(var(--inovex-elements-primary) / 40%) 0 1px 9px 2px;
-    z-index: 50;
-  }
-
-  /** Sidebar items */
   #storybook-explorer-menu .sidebar-item:hover {
     background-color: var(--inovex-elements-n-1);
   }
 
-  #storybook-explorer-menu .sidebar-item[data-selected='false'] a,
-  #storybook-explorer-menu .sidebar-item[data-selected='false'] svg {
-    color: var(--inovex-elements-n-6) !important;
-  }
-
-  #storybook-explorer-menu .sidebar-item[data-selected='false']:focus {
-    background-color: var(--inovex-elements-p-1);
-  }
-
-  #storybook-explorer-menu .sidebar-item[data-selected='true'],
-  #storybook-explorer-menu .sidebar-item[data-selected='true']:focus {
+  /* Sidebar item selected */
+  #storybook-explorer-menu .sidebar-item[data-selected='true'] {
     background-color: var(--inovex-elements-p-2);
   }
 
   #storybook-explorer-menu .sidebar-item[data-selected='true'] svg {
-    color: var(--inovex-elements-primary);
+    color: var(--inovex-elements-primary) !important;
   }
 
-  /** all sidebar svgs  */
+   /* Sidebar item deselected */
+  #storybook-explorer-menu .sidebar-item[data-selected='false'] a,
+  #storybook-explorer-menu .sidebar-item[data-selected='false'] svg,
   #storybook-explorer-menu svg {
-    color: var(--inovex-elements-n-5);
-  }
-
-  #storybook-explorer-menu .sidebar-header > div > a {
-    color: var(--inovex-elements-primary);
-    font-size: 20px;
-    letter-spacing: -0.0083333333em;
+    color: var(--inovex-elements-n-6) !important;
   }
 
   /** hide elements title in sidebar */
@@ -148,11 +76,6 @@
   .search-field {
     margin-top: 0;
   }
-
-  /** main story content width */
-  .sbdocs.sbdocs-content {
-    max-width: 1018px;
-  } 
 
   /** bottom padding of main story content*/
   div[role='main'] {
@@ -183,7 +106,7 @@
   #storybook-panel-root {
     min-height: 700px !important;
   }
-   
+  
   .react-draggable:not(:nth-of-type(2n)) {
     margin-top: 11px !important;
   }
