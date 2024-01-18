@@ -152,12 +152,13 @@
   /** main story content width */
   .sbdocs.sbdocs-content {
     max-width: 1018px;
-  }
+  } 
 
   /** bottom padding of main story content*/
   div[role='main'] {
-    bottom: 10px !important;
-    top: 20px !important;
+    margin: 20px 0 10px;
+    bottom: 0px !important; 
+    top: 0px !important;
     height: unset !important;
   }
 
@@ -177,5 +178,13 @@
 
   div[role='main'] > div > div > div > div:first-child button:hover svg path {
     fill: var(--inovex-elements-p-7);
+  }
+
+  #storybook-panel-root {
+    min-height: 700px !important;
+  }
+   
+  .react-draggable:not(:nth-of-type(2n)) {
+    margin-top: 11px !important;
   }
 </style>

@@ -25,6 +25,7 @@ const config = {
     compilerOptions: {
       typeRoots: ['node_modules/@types', '../src/types'],
     },
+    reactDocgen: 'react-docgen',
   },
 
   webpackFinal: (config) => {
