@@ -1,12 +1,21 @@
 name: 'Deploy Release'
 
 on:
-  - workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      configuration:
+        description: 'Release configuration'
+        required: false
+        default: default
+        type: choice
+        options:
+          - dryRun
+          - default
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' || inputs.configuration == 'dryRun'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,9 +37,11 @@ jobs:
           git config --global user.email "${{ github.actor}}@users.noreply.github.com"
       - name: Build libs
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
-      - name: Version
+      - name: Version and Release
         shell: bash
-        run: yarn nx run workspace:version
+        run: |
+          yarn nx run workspace:release:${{ inputs.configuration }}
+          [[ ${{ inputs.configuration }} == 'dryRun' ]] && yarn nx run workspace:publish --dryRun
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -7,6 +7,16 @@ on:
       - packages/elements-angular/**
       - packages/elements-react/**
       - packages/elements-vue/**
+  workflow_dispatch:
+    inputs:
+      configuration:
+        description: 'Release configuration'
+        required: false
+        default: default
+        type: choice
+        options:
+          - dryRun
+          - default
 
 jobs:
   canary-release:
@@ -35,6 +45,8 @@ jobs:
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
       - name: Version
         shell: bash
-        run: yarn nx run workspace:version --configuration=prerelease
+        run: |
+          yarn nx release version prerelease --${{ inputs.configuration }}
+          yarn nx run workspace:publish --${{ inputs.configuration }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
