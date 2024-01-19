@@ -33,7 +33,7 @@ function addInoElementsModule(projectSourceRoot: Path): Rule {
 /**
  * Adds the paths to the icons of the Elements to the projects `angular.json` file.
  */
-function addIonicons(projectName: string, projectSourceRoot: Path): Rule {
+function addElementsIcons(projectName: string, projectSourceRoot: Path): Rule {
   return (host: Tree) => {
     const hasAppModule = host.exists(`${projectSourceRoot}/app/app.module.ts`);
 
@@ -78,7 +78,7 @@ export default function ngAdd(options: Options): Rule {
       // @inovex.de/elements-angular
       addElementsAngularToDependencies(),
       addInoElementsModule(sourcePath),
-      addIonicons(options.project, sourcePath),
+      addElementsIcons(options.project, sourcePath),
       // install freshly added dependencies
       installNodeDeps(),
     ]);

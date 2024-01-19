@@ -24,9 +24,9 @@ export function addElementsModuleImportToNgModule(host: Tree, modulePath: string
   const recorder = host.beginUpdate(modulePath);
   const moduleSource = getSourceFile(host, modulePath) as any;
 
-  const ionicModuleChange = insertImport(moduleSource, modulePath, 'InoElementsModule', '@inovex.de/elements-angular');
+  const elementsModuleChange = insertImport(moduleSource, modulePath, 'InoElementsModule', '@inovex.de/elements-angular');
 
-  applyToUpdateRecorder(recorder, [ionicModuleChange]);
+  applyToUpdateRecorder(recorder, [elementsModuleChange]);
 
   const metadataChange = addSymbolToNgModuleMetadata(moduleSource, modulePath, 'imports', 'InoElementsModule.forRoot()');
 
