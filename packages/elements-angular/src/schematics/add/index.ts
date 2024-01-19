@@ -1,16 +1,30 @@
 import { Path, join } from '@angular-devkit/core';
-import { chain, Rule, SchematicContext, SchematicsException, Tree } from "@angular-devkit/schematics";
+import {
+  chain,
+  Rule,
+  SchematicContext,
+  SchematicsException,
+  Tree,
+} from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
-import { addPackageToPackageJson } from "../utils/package";
-import { addElementsModuleImportToNgModule } from "../utils/ast";
-import { addAsset, getDefaultAngularAppName, getWorkspace } from "../utils/config";
+import { addPackageToPackageJson } from '../utils/package';
+import { addElementsModuleImportToNgModule } from '../utils/ast';
+import {
+  addAsset,
+  getDefaultAngularAppName,
+  getWorkspace,
+} from '../utils/config';
 
-import { Schema as Options } from './schema'
-
+import { Schema as Options } from './schema';
 
 function addElementsAngularToDependencies(): Rule {
   return (host: Tree) => {
-    addPackageToPackageJson(host, 'dependencies', '@inovex.de/elements-angular', 'latest');
+    addPackageToPackageJson(
+      host,
+      'dependencies',
+      '@inovex.de/elements-angular',
+      'latest',
+    );
     return host;
   };
 }
@@ -68,8 +82,10 @@ export default function ngAdd(options: Options): Rule {
     // @ts-ignore
     const project = workspace.projects[options.project];
 
-    if (!project || project["projectType"] !== 'application') {
-      throw new SchematicsException(`Elements add does not support project types other than "application".`);
+    if (!project || project['projectType'] !== 'application') {
+      throw new SchematicsException(
+        `Elements add does not support project types other than "application".`,
+      );
     }
 
     const sourcePath: Path = join(project.sourceRoot as Path);

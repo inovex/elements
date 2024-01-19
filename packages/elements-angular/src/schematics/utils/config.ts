@@ -17,9 +17,11 @@ function isAngularBrowserProject(projectConfig: any): boolean {
   if (projectConfig.projectType === 'application') {
     const buildConfig = projectConfig.architect.build;
     // Angular 16 and lower
-    const legacyAngularBuilder = buildConfig.builder === '@angular-devkit/build-angular:browser';
+    const legacyAngularBuilder =
+      buildConfig.builder === '@angular-devkit/build-angular:browser';
     // Angular 17+
-    const modernAngularBuilder = buildConfig.builder === '@angular-devkit/build-angular:application';
+    const modernAngularBuilder =
+      buildConfig.builder === '@angular-devkit/build-angular:application';
 
     return legacyAngularBuilder || modernAngularBuilder;
   }
@@ -53,10 +55,14 @@ function getAngularJson(config: any, projectName: string): any | never {
   }
 
   if (config.projectType !== 'application') {
-    throw new SchematicsException(`Invalid projectType for ${projectName}: ${config.projectType}`);
+    throw new SchematicsException(
+      `Invalid projectType for ${projectName}: ${config.projectType}`,
+    );
   } else {
     const buildConfig = projectConfig.architect.build;
-    throw new SchematicsException(`Invalid builder for ${projectName}: ${buildConfig.builder}`);
+    throw new SchematicsException(
+      `Invalid builder for ${projectName}: ${buildConfig.builder}`,
+    );
   }
 }
 
@@ -64,7 +70,7 @@ export function addAsset(
   host: Tree,
   projectName: string,
   architect: string,
-  asset: string | { glob: string; input: string; output: string }
+  asset: string | { glob: string; input: string; output: string },
 ): void {
   const config = readConfig(host);
   const angularJson = getAngularJson(config, projectName);
