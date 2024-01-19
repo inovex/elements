@@ -7,23 +7,6 @@
 </script>
 
 <style type="text/css">
-  #root > div > div:nth-child(2),
-  .markdown-body,
-  .ino-playground {
-    max-width: 980px;
-    margin-right: auto !important;
-    margin-left: auto !important;
-  }
-
-  .markdown-body img {
-    background-color: initial !important;
-  }
-
-  .contrast-background {
-    padding: 10px 0;
-    background-color: darkgray;
-  }
-
   /** overwrite toolbar icon color & hover */
   .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) button svg path {
     fill: var(--inovex-elements-n-11);
@@ -31,34 +14,6 @@
 
   .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) button:hover {
     background-color: var(--inovex-elements-p-3);
-  }
-
-  .sbdocs.sbdocs-preview
-    > div:first-child:not(.docs-story)
-    button:hover
-    svg
-    path {
-    fill: var(--inovex-elements-p-7);
-  }
-
-  /** disable scroll on toolbar */
-  .sbdocs.sbdocs-preview > div:first-child {
-    overflow-y: hidden;
-  }
-
-  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) a {
-    display: block;
-    max-height: 12px;
-    max-width: 28px;
-  }
-
-  /** Style open-in-new-tap button same way as the other buttons */
-  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) a svg path {
-    fill: var(--inovex-elements-n-11) !important;
-  }
-
-  .sbdocs.sbdocs-preview > div:first-child:not(.docs-story) a:hover svg path {
-    fill: var(--inovex-elements-primary) !important;
   }
 
   .sbdocs.sbdocs-wrapper {

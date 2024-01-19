@@ -1,13 +1,6 @@
 @use '../../../elements/src/components/base/mdc-customize';
 @use '../../../../node_modules/highlight.js/styles/github.css';
 
-body {
-  &,
-  .markdown-body {
-    @include mdc-customize.mdc-typo-base;
-  }
-}
-
 // Styles that apply to all stories
 .ino-story-composer {
   margin: 16px;
