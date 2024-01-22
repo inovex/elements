@@ -4,14 +4,21 @@
 @use '@material/menu/mdc-menu';
 @use '@material/select/mdc-select';
 @use '@material/select';
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 @use '../ino-label/ino-label';
+
+// Tailwind CSS Preflight border-style countermeasures (https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally)
+ino-select * {
+  border-style: none;
+}
 
 @include list.deprecated-core-styles;
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
 $border-radius: 0.7rem;
+
+$icon-drop-down-size: 24px;
 
 $filled-input-height: 56px;
 $filled-input-height-dense: 35px;
@@ -37,7 +44,7 @@ ino-select {
   * @prop --ino-border-radius: Border-radius of the open select menu
   */
   --select-height: auto;
-  --select-icon-color: var(--ino-select-icon-color, #{theme.color(primary)});
+  --select-icon-color: var(--ino-select-icon-color, #{theme.$p-5});
   --border-radius: var(var(--ino-border-radius), $border-radius);
 
   display: block;
@@ -73,24 +80,24 @@ ino-select {
     @include setIconColors(var(--select-icon-color));
 
     .mdc-select__anchor {
-      @include select.dropdown-icon-color(theme.color(primary));
+      @include select.dropdown-icon-color(theme.$p-5);
     }
   }
 
   .mdc-select {
     @include select.label-color(
       (
-        focus: theme.color(primary),
+        focus: theme.$p-5,
       )
     );
     @include select.bottom-line-color(
       (
-        focus: theme.color(primary),
+        focus: theme.$p-5,
       )
     );
     @include select.outline-color(
       (
-        focus: theme.color(primary),
+        focus: theme.$p-5,
       )
     );
     @include select.container-fill-color(
@@ -105,12 +112,12 @@ ino-select {
     }
 
     .mdc-select__dropdown-icon {
-      width: 24px;
-      height: 24px;
+      width: $icon-drop-down-size;
+      height: $icon-drop-down-size;
 
       ino-icon {
-        --icon-width: 24px;
-        --icon-height: 24px;
+        --icon-width: $icon-drop-down-size;
+        --icon-height: $icon-drop-down-size;
       }
     }
 
@@ -131,7 +138,7 @@ ino-select {
 
   // make sure the border-color is the default if focused and invalid
   .mdc-select.mdc-select--outlined.mdc-select--invalid.mdc-select--focused {
-    @include ino-label.outline-border-color(theme.color(primary));
+    @include ino-label.outline-border-color(theme.$p-5);
   }
 
   &:not(.ino-select-outlined) .mdc-select-helper-text {

@@ -1,8 +1,13 @@
 @use '../base/mdc-customize';
+@use '../base/new-theme' as theme;
 @use '@material/list';
 
 @include list.deprecated-core-styles;
 
 ino-list-divider {
   display: block;
+
+  .mdc-deprecated-list-divider {
+    border-bottom-color: theme.$n-2;
+  }
 }

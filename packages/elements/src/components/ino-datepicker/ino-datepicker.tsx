@@ -21,6 +21,15 @@ import { createPicker, PickerOption, PickerTypeKeys } from './picker-factory';
 import { Validator } from './validator';
 
 /**
+ * A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
+ *
+ * #### Types
+ * This datepicker can be used as a picker for different types:
+ * - date
+ * - time
+ * - datetime
+ * - month
+ *
  * @slot icon-leading - Leading `ino-icon` of the underyling ino-input (only for inline pickers)
  * @slot icon-trailing - Trailing `ino-icon` of the underyling ino-input (only for inline pickers)
  */

@@ -13,6 +13,8 @@ import {
 } from '@stencil/core';
 
 /**
+ * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
+ *
  * @slot default - One or more `ino-tab`
  */
 @Component({
@@ -30,13 +32,6 @@ export class TabBar implements ComponentInterface {
    */
   @Prop() activeTab?: number = 0;
 
-  @Watch('activeTab')
-  activeTabChangedWatcher(newTabIndex: number) {
-    if (this.mdcInstance) {
-      this.mdcInstance.activateTab(newTabIndex);
-    }
-  }
-
   /**
    * Autofocus of tab on activation.
    */
@@ -48,10 +43,27 @@ export class TabBar implements ComponentInterface {
    */
   @Event() activeTabChange!: EventEmitter;
 
+  @Watch('activeTab')
+  activeTabChangedWatcher(newTabIndex: number) {
+    if (this.mdcInstance) {
+      this.mdcInstance.activateTab(newTabIndex);
+      this.updateActiveTabState(newTabIndex);
+    }
+  }
+
+  private updateActiveTabState(activeTabIndex: number) {
+    const tabs: NodeListOf<HTMLInoTabElement> =
+      this.el.querySelectorAll('ino-tab');
+    tabs.forEach((tab, index) => {
+      tab.a11ySelected = index === activeTabIndex;
+    });
+  }
+
   componentDidLoad() {
     this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
     this.mdcInstance.focusOnActivate = this.autoFocus;
     this.mdcInstance.activateTab(this.activeTab);
+    this.updateActiveTabState(this.activeTab);
   }
 
   disconnectedCallback() {
@@ -66,12 +78,13 @@ export class TabBar implements ComponentInterface {
     );
     const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
     this.activeTabChange.emit(indexOfActivatedTab);
+    this.updateActiveTabState(indexOfActivatedTab);
   }
 
   render() {
     return (
       <Host>
-        <div class="mdc-tab-bar" role="tablist">
+        <div class="mdc-tab-bar" role="tablist" aria-orientation="horizontal">
           <div class="mdc-tab-scroller">
             <div class="mdc-tab-scroller__scroll-area">
               <div class="mdc-tab-scroller__scroll-content">

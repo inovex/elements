@@ -1,6 +1,12 @@
 import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ *
+ * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
+ *
+ * This component is used as child of `ino-list` and `ino-menu` components.
+ */
 @Component({
   tag: 'ino-list-divider',
   styleUrl: 'ino-list-divider.scss',

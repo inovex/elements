@@ -10,6 +10,12 @@ import {
 } from '@stencil/core';
 
 /**
+ * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
+ *
+ * This component is used as child of `ino-list` and `ino-menu` components.
+ * #### Restrictions
+ * Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
+ *
  * @slot default - Any element
  */
 @Component({

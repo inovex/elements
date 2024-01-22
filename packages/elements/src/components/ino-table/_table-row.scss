@@ -1,8 +1,8 @@
-@use '../base/theme';
+@use '../base/new-theme' as theme;
 
-$row-active-color: theme.color(secondary);
-$row-hover-border-color: #d4ddea; // TODO: Move color
-$row-alt-background-color: #f6f8fb; // TODO: Move color
+$row-active-color: #{theme.$success};
+$row-hover-border-color: #{theme.$n-3};
+$row-alt-background-color: #{theme.$n-1};
 $row-alt-hover-background-color: $row-alt-background-color;
 
 @mixin core-styles() {
@@ -28,7 +28,7 @@ $row-alt-hover-background-color: $row-alt-background-color;
     th,
     th:first-child,
     th:last-child {
-      border-color: rgba($row-active-color, 0.64);
+      border-color: $row-active-color;
     }
 
     &:hover {

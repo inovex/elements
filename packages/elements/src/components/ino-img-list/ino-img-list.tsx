@@ -9,6 +9,9 @@ import {
 import classNames from 'classnames';
 
 /**
+ * The ino-img-list component is used in combination with the ino-img component to display an array of images
+ * in a grid-like format. It is based on the mdc-image-list component.
+ *
  * @slot default - One or more `ino-img` with `imgListItem="true"`
  */
 @Component({

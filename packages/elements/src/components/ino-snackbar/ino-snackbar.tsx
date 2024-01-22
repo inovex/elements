@@ -12,6 +12,9 @@ import {
 import classNames from 'classnames';
 import { SnackbarType } from '../types';
 
+/**
+ * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+ */
 @Component({
   tag: 'ino-snackbar',
   styleUrl: 'ino-snackbar.scss',
@@ -150,6 +153,7 @@ export class Snackbar implements ComponentInterface {
           class={snackbarClasses}
           aria-live="assertive"
           aria-atomic="true"
+          role="alert"
         >
           <div class="mdc-snackbar__surface ino-snackbar-container">
             <div class="mdc-snackbar__actions ino-snackbar-icon-container">

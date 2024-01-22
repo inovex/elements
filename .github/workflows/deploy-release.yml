@@ -1,0 +1,36 @@
+name: 'Deploy Release'
+
+on:
+  - workflow_dispatch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Track master branch to make nx affected work
+        run: |
+          git branch --track main origin/master
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+          always-auth: true
+      - uses: ./.github/workflows/dependencies-install
+      - name: Setup Git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor}}@users.noreply.github.com"
+      - name: Build libs
+        run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
+      - name: Version
+        shell: bash
+        run: yarn nx run workspace:version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -16,6 +16,20 @@ import { KeyValue } from '../types';
 type Selection = { value: string | KeyValue };
 
 /**
+ * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
+ *
+ * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
+ * flexible to some extent compared to stateless components.
+ *
+ * ## Responsibilities
+ * The component handles the following tasks:
+ * - Management of the `value` property of the `<ino-input>` element.
+ * - Management of showing and hiding the different options based on the input.
+ * - Keyboard navigation among the options.
+ *
+ * ## Filtering
+ * The options are filtered using `.includes(...)`, which ignores case sensitivity.
+ *
  * @slot input - An `<ino-input>` element that will be controlled by this component
  */
 @Component({

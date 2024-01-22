@@ -6,6 +6,7 @@ import {
   InoSegmentGroup,
 } from '@elements';
 import styles from './preview-box.module.scss';
+import useTranslation from 'utils/hooks/useTranslation';
 
 type ViewMode = 'CodeMode' | 'PreviewMode';
 
@@ -131,6 +132,8 @@ export default function PreviewBox({
   const [selectedValue, setSelectedValue] = useState<ViewMode>('PreviewMode');
   const previewRef = useRef<HTMLDivElement>(null);
 
+  const { t } = useTranslation();
+
   const previewBoxHeight = useMemo(() => {
     if (!previewRef.current) return 0;
     return previewRef.current.getBoundingClientRect().height;
@@ -139,7 +142,9 @@ export default function PreviewBox({
   return (
     <div className={styles.patternsWrapper}>
       <h1 className="header-h1">{title}</h1>
+
       <p className="body-l">{description}</p>
+
       <div className={styles.segmentGroup}>
         <ViewModeSelection
           selectedValue={selectedValue}

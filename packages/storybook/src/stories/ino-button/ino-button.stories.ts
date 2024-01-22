@@ -6,7 +6,7 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-button.scss';
 
 export default {
-  title: 'Buttons/<ino-button>',
+  title: 'Buttons/ino-button',
   component: 'ino-button',
   decorators: [(story) => decorateStoryWithClass(story, 'story-button')],
   // will be used as default props for all stories
