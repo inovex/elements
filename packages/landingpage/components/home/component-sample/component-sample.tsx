@@ -2,10 +2,10 @@ import styles from './component-sample.module.scss';
 import {
   InoButton,
   InoChip,
-  InoControlItem,
   InoIcon,
   InoInput,
   InoList,
+  InoListItem,
   InoRange,
   InoSegmentButton,
   InoSegmentGroup,
@@ -18,6 +18,7 @@ import Link from 'next/link';
 import { MainRoutes } from 'utils/routes';
 import useTranslation from 'utils/hooks/useTranslation';
 import classNames from 'classnames';
+import { InoCheckbox, InoRadio } from '@inovex.de/elements-react';
 
 enum ChipValues {
   REACT = 'React',
@@ -118,18 +119,24 @@ export default function ComponentSample() {
             componentCategory="Structure"
           >
             <InoList two-lines="false">
-              <InoControlItem
-                role="checkbox"
-                checked={checkboxValue}
-                text="Checkbox"
-                onCheckedChange={(value) => setCheckboxValue(value.detail)}
-              ></InoControlItem>
-              <InoControlItem
-                role="radio"
-                checked={radioboxValue}
-                text="Radio Button"
-                onCheckedChange={(value) => setRadioboxValue(value.detail)}
-              ></InoControlItem>
+              <InoListItem>
+                <InoCheckbox
+                  name="checkbox"
+                  checked={checkboxValue}
+                  onCheckedChange={(value) => setCheckboxValue(value.detail)}
+                >
+                  Checkbox
+                </InoCheckbox>
+              </InoListItem>
+              <InoListItem>
+                <InoRadio
+                  name="radiobox"
+                  checked={radioboxValue}
+                  onCheckedChange={(value) => setRadioboxValue(value.detail)}
+                >
+                  Radio Button
+                </InoRadio>
+              </InoListItem>
             </InoList>
           </ComponentSampleCard>
         </div>

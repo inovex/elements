@@ -31,12 +31,12 @@ This component is used as child of `ino-list` and `ino-menu` components.
 
 ## Slots
 
-| Slot          | Description                                        |
-| ------------- | -------------------------------------------------- |
-| `"leading"`   | For the element to be prepended                    |
-| `"primary"`   | For the (text) element                             |
-| `"secondary"` | For the secondary text element in a two-lined list |
-| `"trailing"`  | For the element to be appended                     |
+| Slot          | Description                                                                   |
+| ------------- | ----------------------------------------------------------------------------- |
+| `"leading"`   | For the element to be prepended. It's also the fallback for the default slot. |
+| `"primary"`   | For the (text) element                                                        |
+| `"secondary"` | For the secondary text element in a two-lined list                            |
+| `"trailing"`  | For the element to be appended                                                |
 
 
 ## CSS Custom Properties

@@ -6,13 +6,18 @@ import {
   EventEmitter,
   Host,
   Prop,
+  State,
+  Watch,
   h,
 } from '@stencil/core';
 
 /**
+ * @deprecated Use the component `ino-list-item` together with the component `ino-checkbox` or `ino-radio` instead.
+ *
  * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
  *
  * This component is used as child of `ino-list` and `ino-menu` components.
+ *
  * #### Restrictions
  * Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
  *
@@ -24,8 +29,6 @@ import {
   shadow: false,
 })
 export class InoControlItem implements ComponentInterface {
-  private inputEl: HTMLInputElement;
-
   @Element() el!: HTMLInoControlItemElement;
 
   /**
@@ -99,46 +102,64 @@ export class InoControlItem implements ComponentInterface {
    */
   @Event() checkedChange!: EventEmitter;
 
+  @State() controlSlot: 'leading' | 'trailing' = 'leading';
+
+  @State() defaultSlot: 'leading' | 'trailing' | undefined = 'trailing';
+
+  @State() roleIntern: string;
+
+  @Watch('trailing')
+  onTrailingChanged(): void {
+    this.updateSlots();
+  }
+
+  @Watch('role')
+  onRoleChanged(): void {
+    if (this.role !== null) {
+      this.updateRole();
+    }
+  }
+
+  private updateSlots(): void {
+    this.controlSlot = this.trailing ? 'trailing' : 'leading';
+    this.defaultSlot =
+      this.el.children.length > 0
+        ? this.trailing
+          ? 'leading'
+          : 'trailing'
+        : undefined;
+  }
+
+  private updateRole(): void {
+    this.roleIntern = this.role;
+    this.el.removeAttribute('role');
+  }
+
   private changedHandler = (e: CustomEvent<boolean>) => {
     e.stopPropagation();
     this.checkedChange.emit(e.detail);
   };
 
-  private clickHandler = (e: MouseEvent) => {
-    e.stopPropagation();
-    if (this.disabled || e.target['tagName'] === 'INO-CHECKBOX') {
-      return;
-    }
-
-    this.inputEl.shadowRoot
-      .querySelector('input')
-      .dispatchEvent(new CustomEvent('input'));
-  };
+  componentWillLoad(): void | Promise<void> {
+    this.updateSlots();
+    this.updateRole();
+  }
 
   componentDidLoad() {
-    if (!['checkbox', 'radio'].includes(this.role))
+    if (!['checkbox', 'radio'].includes(this.roleIntern))
       console.warn(
-        `Given role ${this.role}is not valid, fallbacks to role radio`,
+        `Given role ${this.roleIntern} is not valid, fallbacks to role radio`,
       );
   }
 
   render() {
-    const controlItemPosition = this.trailing ? 'trailing' : 'leading';
-    const slotPosition =
-      this.el.children.length > 0
-        ? this.trailing
-          ? 'leading'
-          : 'trailing'
-        : '';
-
     const controlItemProps = {
-      slot: controlItemPosition,
+      slot: this.controlSlot,
       checked: this.checked,
       disabled: this.disabled,
       name: this.name,
       value: this.value,
       onCheckedChange: this.changedHandler,
-      ref: (inputEl) => (this.inputEl = inputEl),
     };
 
     return (
@@ -149,9 +170,8 @@ export class InoControlItem implements ComponentInterface {
           activated={this.activated}
           selected={this.selected}
           disabled={this.disabled}
-          onClick={this.clickHandler}
         >
-          {this.role === 'checkbox' ? (
+          {this.roleIntern === 'checkbox' ? (
             <ino-checkbox
               {...controlItemProps}
               indeterminate={this.indeterminate}
@@ -159,7 +179,7 @@ export class InoControlItem implements ComponentInterface {
           ) : (
             <ino-radio {...controlItemProps} />
           )}
-          <span slot={slotPosition}>
+          <span slot={this.defaultSlot}>
             <slot></slot>
           </span>
         </ino-list-item>
