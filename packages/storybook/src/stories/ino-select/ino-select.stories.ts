@@ -78,7 +78,7 @@ const template = new TemplateGenerator<Components.InoSelect>(
       helper-persistent="${args.helperPersistent}"
       helper-validation="${args.helperValidation}"
       dense="${args.dense}"
-  >
+    >
       <ino-option value="Option 1">Option 1</ino-option>
       <ino-option value="Option 2">Option 2</ino-option>
       <ino-option value="Option 3">Option 3</ino-option>
@@ -149,24 +149,19 @@ const templateForm = new TemplateGenerator<Components.InoSelect>(
 );
 export const Form = templateForm.generatePlaygroundStory();
 
-
 const templateDense = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
-  args => html`
-  <ino-select label="Select with leading icon" dense>
-    <ino-icon slot="icon-leading" icon="user"></ino-icon>
-    <ino-option value="Selected Option" selected>Selected Option</ino-option>
-    ${optionsTemplate}
-  </ino-select>
-  <ino-select
-    outline
-    label="Select with leading icon"
-    dense
-  >
-    <ino-icon slot="icon-leading" icon="user"></ino-icon>
-    <ino-option value="Selected Option" selected>Selected Option</ino-option>
-    ${optionsTemplate}
-  </ino-select>
-`);
+  (args) => html`
+    <ino-select label="Select with leading icon" dense>
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+    <ino-select outline label="Select with leading icon" dense>
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+  `,
+);
 export const Dense = templateDense.generateStoryForProp('dense', true);
-
