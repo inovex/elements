@@ -41,7 +41,6 @@ export class TemplateGenerator<Component extends Object> {
         ...otherProps,
       };
     }
-
     return this.generateTemplate(key, argument);
   }
 
@@ -61,7 +60,6 @@ export class TemplateGenerator<Component extends Object> {
         },
       };
     }
-
     return BoundTemplate;
   }
 

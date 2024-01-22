@@ -1,12 +1,12 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
+import { TemplateGenerator } from '../template-generator';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-dialog.scss';
 
@@ -18,7 +18,7 @@ export default {
     (story) => {
       useEffect(() => {
         // Open
-        const handleOpen = (e) => {
+        const handleOpen = (e: any) => {
           const dialog = document.getElementById(
             e.target.parentElement.getAttribute('data-dialog-id'),
           ) as HTMLInoDialogElement;
@@ -30,7 +30,7 @@ export default {
 
         // Close
         const dialogs = document.querySelectorAll('ino-dialog');
-        const handleClose = (e) => {
+        const handleClose = (e: any) => {
           e.target.open = false;
           if (e.target.id == 'demo-action-dialog') {
             const snackbar = document.createElement(
@@ -73,6 +73,7 @@ export default {
     actionText: 'submit',
     cancelText: 'cancel',
     icon: 'search',
+    closeIcon: false,
   },
 } as Meta<Components.InoDialog>;
 
@@ -98,6 +99,7 @@ const template = new TemplateGenerator<InoDialogExtended>(
       action-text="${args.actionText}"
       cancel-text="${args.cancelText}"
       icon="${args.icon}"
+      close-icon="${args.closeIcon}"
     >
     </ino-dialog>
   `,
@@ -234,6 +236,13 @@ const customContentWithSlots = new TemplateGenerator<InoDialogExtended>(
     </ino-dialog>
   `,
 );
+
+export const WithCloseIcon = template.generateStoryForProp('closeIcon', true);
+WithCloseIcon.args = {
+  buttonText: 'With close icon',
+  dataDialogId: 'demo-with-close-icon-dialog',
+  closeIcon: true,
+};
 
 /**
  * By using `slot name="header"`, `slot name="body"` or `slot name="footer"` you can respectively replace the default `<header>`, `<section>` (body) or `<footer>` elements of the `ino-dialog` with your own custom content.
