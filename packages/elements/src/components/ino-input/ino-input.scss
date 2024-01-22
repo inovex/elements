@@ -181,6 +181,7 @@ ino-input .mdc-text-field--filled.ino-input--dense {
   @include textfield.density(-1);
   @include textfield.height($filled-input-height-dense);
   align-items: end;
+  overflow: visible;
 
   .mdc-text-field__input {
     padding: $filled-input-padding-dense;
