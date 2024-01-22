@@ -6,13 +6,6 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 const camelCase = require('camelcase');
 
-/*
-const CUSTOM_ELEMENTS_JSON = require(path.join(
-  __dirname,
-  '../packages/storybook/custom-elements.json',
-));
-// */
-
 const CUSTOM_ELEMENTS_JSON = JSON.parse(
   fs
     .readFileSync(

@@ -45,8 +45,6 @@ jobs:
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
       - name: Version
         shell: bash
-        run: |
-          yarn nx release version prerelease --${{ inputs.configuration }}
-          yarn nx run workspace:publish --${{ inputs.configuration }}
+        run: yarn nx run workspace:release:${{ inputs.configuration }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

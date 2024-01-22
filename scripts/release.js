@@ -28,6 +28,9 @@ const packagesToPublish = [
     shell.exit(1);
   }
 
+  // check if user is logged in
+  if (shell.exec('npm whoami').code !== 0) shell.exit(1);
+
   if (isPreRelease) {
     shell.exec(`nx release version prerelease ${dryRunArg} --git-commit=false`);
   } else {
@@ -36,9 +39,6 @@ const packagesToPublish = [
   }
 
   if (shell.exec(`git push ${dryRunArg} --atomic --follow-tags`).code !== 0) shell.exit(1);
-
-  // check if user is logged in
-  if (shell.exec('npm whoami').code !== 0) shell.exit(1);
 
   const npmTag = isPreRelease ? 'canary' : 'latest';
   for (const npmPackage of packagesToPublish) {

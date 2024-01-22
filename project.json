@@ -2,18 +2,18 @@
   "name": "workspace",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "targets": {
-    "publish": {
+    "release": {
       "executor": "nx:run-commands",
       "dependsOn": ["^build"],
       "options": {
-        "command": "node ./scripts/publish.js dryRun={args.dryRun} canary={args.canary}"
+        "command": "node ./scripts/release.js dryRun={args.dryRun} canary={args.canary}"
       },
       "configurations": {
         "canary": {
-          "args": "canary=true"
+          "args": "--canary=true"
         },
         "dryRun": {
-          "args": "dryRun=true"
+          "args": "--dryRun=true"
         }
       }
     }
