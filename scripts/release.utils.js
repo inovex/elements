@@ -20,13 +20,13 @@ async function getLatestReleaseCommitSha() {
   try {
     const baseApiUrl = 'https://api.github.com/repos/inovex/elements/';
 
-    echo('-n', getIcon(2), 'Getting latest release tag ... ');
+    echo('-n', 'Getting latest release tag ... ');
     const { tag_name } = await (
       await fetch(`${baseApiUrl}releases/latest`)
     ).json();
     echo(tag_name, getIcon(1));
 
-    echo('-n', getIcon(2), 'Getting latest release commit sha ... ');
+    echo('-n', 'Getting latest release commit sha ... ');
     const { sha } = await (
       await fetch(`${baseApiUrl}commits/${tag_name}`)
     ).json();
@@ -44,7 +44,7 @@ async function getNextVersion() {
     preset: 'angular',
   });
   const nextVersion = semver.inc(version, releaseType);
-  echo('Next version:', nextVersion, ` (type: ${releaseType})`, getIcon(2));
+  echo('Next version:', nextVersion, ` (type: ${releaseType})`, getIcon(1));
   return nextVersion;
 }
 

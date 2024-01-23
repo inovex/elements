@@ -18,8 +18,8 @@ const isPreRelease = process.argv.some((a) => a.includes('canary=true'));
 const dryRunArg = isDryRun ? '--dry-run' : '';
 const npmTag = isPreRelease ? 'canary' : 'latest';
 
-const currentBranch = exec('git branch --show-current').trim();
-const isLoggedIntoNpm = exec('npm whoami').code === 0;
+const currentBranch = exec('git branch --show-current', { silent: true }).trim();
+const isLoggedIntoNpm = exec('npm whoami', { silent: true }).code === 0;
 const isMasterBranch = currentBranch !== 'master';
 
 const run = (command) => exec(command).code;
