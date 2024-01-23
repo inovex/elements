@@ -1,4 +1,5 @@
 @use '../base/typography-new' as typography;
+@use '../base/new-theme' as theme;
 
 $sideBorderWidth: 2px;
 
@@ -6,50 +7,50 @@ ino-nav-menu {
   .ino-nav-menu {
     position: sticky;
     top: 0;
-    border-left: $sideBorderWidth solid #ebecf0;
-    max-width: max-content;
+    border-left: $sideBorderWidth solid theme.$n-2;
+  }
 
-    &__title {
-      font-weight: bold;
-      @include typography.typo('body-l');
-      margin-bottom: 16px;
-      padding: 0 12px;
-    }
+  .ino-nav-menu .ino-nav-menu__title {
+    @include typography.typo('body-l');
+    font-weight: bold;
+    margin: 0px 0 15px;
+    padding: 0 10px;
+  }
 
-    &__sections {
-      padding: 0;
-      margin: 0;
+  .ino-nav-menu .ino-nav-menu__sections {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ino-nav-menu .ino-nav-menu__sections__section {
+    list-style: none;
+
+    a {
+      @include typography.typo('body-m');
+      padding: 2px 35px 3px 12px;
+      text-decoration: none;
+      word-break: break-all;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      border-bottom-right-radius: 14px;
+      color: theme.$black;
+    }
+  }
 
-      &__section {
-        list-style: none;
+  .ino-nav-menu .ino-nav-menu__sections__section:hover a {
+    background-color: theme.$n-1;
+  }
 
-        a {
-          @include typography.typo('body-m');
-          padding: 2px 12px;
-          text-decoration: none;
-          display: flex;
-          border-bottom-right-radius: 24px;
-          color: var(--inovex-elements-black);
-        }
+  .ino-nav-menu .ino-nav-menu__sections__section--active {
+    border-left: $sideBorderWidth solid theme.$p-6;
+    transform: translateX(#{-1 * $sideBorderWidth});
 
-        &:hover a {
-          background-color: var(--inovex-elements-n-1);
-        }
-
-        &--active {
-          border-left: $sideBorderWidth solid var(--inovex-elements-p-6);
-          transform: translateX(#{-1 * $sideBorderWidth});
-
-          a,
-          &:hover a {
-            background-color: var(--inovex-elements-n-2);
-            color: var(--inovex-elements-p-6);
-          }
-        }
-      }
+    a,
+    &:hover a {
+      background-color: theme.$n-2;
+      color: theme.$p-6;
     }
   }
 }
