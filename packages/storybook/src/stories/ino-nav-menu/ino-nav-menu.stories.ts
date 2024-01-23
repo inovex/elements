@@ -11,6 +11,22 @@ export default {
   title: `Structure/ino-nav-menu`,
   component: 'ino-nav-menu',
   decorators: [(story) => decorateStoryWithClass(story, 'story-ino-nav-menu')],
+  argTypes: {
+    intersectionObserverConfig: {
+      table: {
+        defaultValue: {
+          summary: "{ threshold: 0, rootMargin: '-30% 0px -70% 0px' }",
+        }
+      }
+    },
+    scrollOffset: {
+      table: {
+        defaultValue: {
+          summary: '80',
+        },
+      }
+    }
+  },
   args: {
     sections: sections,
     activeSection: 'section-1',
