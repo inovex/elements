@@ -6,13 +6,13 @@ const { version } = require('../package.json');
 function getIcon(iconType) {
   switch (Number(iconType)) {
     case 0:
-      return '❌';
+      return '❌ ';
     case 1:
-      return '✅';
+      return '✅ ';
     case 2:
-      return '☑️';
+      return '☑️ ';
     default:
-      return '⚠️';
+      return '⚠️ ';
   }
 }
 

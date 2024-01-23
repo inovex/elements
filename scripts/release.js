@@ -1,5 +1,4 @@
 const { echo, exec, exit } = require('shelljs');
-const { } = require('nx/bin/nx');
 const {
   getIcon,
   getLatestReleaseCommitSha,
@@ -22,7 +21,7 @@ const npmTag = isPreRelease ? 'canary' : 'latest';
 
 const currentBranch = exec('git branch --show-current', { silent: true }).trim();
 const isLoggedIntoNpm = exec('npm whoami', { silent: true }).code === 0;
-const isMasterBranch = currentBranch !== 'master';
+const isMasterBranch = currentBranch === 'master';
 const hasGitHubToken = checkGithubToken();
 
 const run = (command) => exec(command).code;
@@ -38,7 +37,7 @@ const getNxVersionCmd = (version) =>
   echo('Is logged into GitHub?:', getIcon(hasGitHubToken));
   echo('Used npm tag:', npmTag, getIcon(2));
 
-  if (isMasterBranch && !isDryRun) {
+  if (!isMasterBranch && !isDryRun) {
     echo(
       getIcon(0),
       `Release is only allowed on branch "master"! (current: ${currentBranch})`,
@@ -66,7 +65,7 @@ const getNxVersionCmd = (version) =>
   if (isPreRelease) {
     echo(`Running Pre-Release (Dry run: ${getIcon(isDryRun)})`);
     if (run(getNxVersionCmd('prerelease')) !== 0) {
-      echo(getIcon(0), ' nx release version prerelease failed! ', getIcon(0));
+      echo(getIcon(0), 'nx release version prerelease failed! ', getIcon(0));
       exit(1);
     }
   } else {
@@ -89,7 +88,7 @@ const getNxVersionCmd = (version) =>
 
   echo(getIcon(2), `Pushing git changes to ${currentBranch} ...\n`);
   if (run(`git push ${dryRunArg} --atomic --follow-tags`) !== 0) {
-    echo(`${getIcon(0)} Could not push changes to ${currentBranch}`);
+    echo(getIcon(0), 'Could not push changes to ', currentBranch);
     exit(1);
   }
 
