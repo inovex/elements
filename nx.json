@@ -58,10 +58,7 @@
       }
     },
     "version": {
-      "generatorOptions": {
-        "specifierSource": "conventional-commits",
-        "currentVersionResolver": "git-tag"
-      }
+      "conventionalCommits": true
     }
   }
 }
