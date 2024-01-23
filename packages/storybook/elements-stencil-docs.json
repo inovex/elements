@@ -7165,6 +7165,28 @@
       "dependencyGraph": {},
       "props": [
         {
+          "name": "sectionId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "section-id",
+          "reflectToAttr": false,
+          "docs": "Optional: ID of the section referenced by the `ino-nav-menu` component on your own.\nDefaults to the sectionName if not set.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "sectionName",
           "type": "string",
           "complexType": {

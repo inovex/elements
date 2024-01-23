@@ -56,7 +56,7 @@ export class NavMenu implements ComponentInterface {
   /**
    * Scroll offset of the sticky navigation menu.
    */
-  @Prop() scrollOffset = DEFAULT_SCROLL_OFFSET;
+  @Prop() scrollOffset: number = DEFAULT_SCROLL_OFFSET;
 
   /**
    * Config of the internal intersection observer.

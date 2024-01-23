@@ -1120,6 +1120,10 @@ export namespace Components {
      */
     interface InoNavMenuSection {
         /**
+          * Optional: ID of the section referenced by the `ino-nav-menu` component on your own. Defaults to the sectionName if not set.
+         */
+        "sectionId"?: string;
+        /**
           * Name of the section referenced by the `ino-nav-menu` component.
          */
         "sectionName": string;
@@ -4010,6 +4014,10 @@ declare namespace LocalJSX {
      * for use with the `ino-nav-menu` component.
      */
     interface InoNavMenuSection {
+        /**
+          * Optional: ID of the section referenced by the `ino-nav-menu` component on your own. Defaults to the sectionName if not set.
+         */
+        "sectionId"?: string;
         /**
           * Name of the section referenced by the `ino-nav-menu` component.
          */

@@ -40,3 +40,35 @@ const template = new TemplateGenerator<Components.InoNavMenuSection>(
 );
 
 export const Playground = template.generatePlaygroundStory();
+export const SectionName = template.generateStoryForProp(
+  'sectionName',
+  'Paragraph 1',
+);
+
+const templateSectionId = new TemplateGenerator<Components.InoNavMenuSection>(
+  'ino-nav-menu-section',
+  (args) => html`
+    <ino-nav-menu-section
+      section-name="${args.sectionName}"
+      section-id="${args.sectionId}"
+      show-title="${args.showTitle}"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+        ipsum dolor sit amet.
+      </p>
+    </ino-nav-menu-section>
+  `,
+);
+export const SectionIds = templateSectionId.generateStoryForProp(
+  'sectionId',
+  'randomID',
+);
+export const ShowTitle = template.generateStoryForProp('showTitle', false);
