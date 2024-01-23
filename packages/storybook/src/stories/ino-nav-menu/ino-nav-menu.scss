@@ -1,16 +1,23 @@
-#story--structure-ino-nav-menu--playground {
-  max-height: 250px;
-}
+// select storybook page for ino-nav-menu
+.sbdocs.sbdocs-content:has(#anchor--structure-ino-nav-menu--playground) {
 
-.story-ino-nav-menu {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 50px;
+  // select wrapper for every ino-nav-menu story
+  // max-height is needed to show stickyness of ino-nav-menu
+  [scale] {
+    width: 100%;
+    max-height: 250px;  
+  }
+  
+  [scale] .story-ino-nav-menu {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 50px;
+  }
 
-  aside {
+  [scale] aside {
     ino-nav-menu {
       display: flex;
       width: 150px;
