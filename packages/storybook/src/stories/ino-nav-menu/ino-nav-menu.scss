@@ -1,7 +1,13 @@
+#story--structure-ino-nav-menu--playground {
+  max-height: 250px;
+}
+
 .story-ino-nav-menu {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: stretch;
   gap: 50px;
 
   aside {

@@ -4,9 +4,10 @@
 $sideBorderWidth: 2px;
 
 ino-nav-menu {
+  position: sticky;
+  top: 0;
+
   .ino-nav-menu {
-    position: sticky;
-    top: 0;
     border-left: $sideBorderWidth solid theme.$n-2;
   }
 
