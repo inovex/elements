@@ -7,16 +7,6 @@ on:
       - packages/elements-angular/**
       - packages/elements-react/**
       - packages/elements-vue/**
-  workflow_dispatch:
-    inputs:
-      configuration:
-        description: 'Release configuration'
-        required: false
-        default: default
-        type: choice
-        options:
-          - dryRun
-          - default
 
 jobs:
   canary-release:
@@ -41,10 +31,12 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor}}@users.noreply.github.com"
+      - name: Set npm loglevel
+        run: npm config set loglevel warn
       - name: Build libs
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
-      - name: Version
+      - name: Version & Release
         shell: bash
-        run: yarn nx run workspace:release:${{ inputs.configuration }}
+        run: yarn nx run workspace:release:canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
