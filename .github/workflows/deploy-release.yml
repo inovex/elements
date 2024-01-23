@@ -5,12 +5,22 @@ on:
     inputs:
       configuration:
         description: 'Release configuration'
-        required: false
+        required: true
         default: default
         type: choice
         options:
           - dryRun
           - default
+      loglevel:
+        description: 'npm loglevel'
+        required: false
+        default: warn
+        type: choice
+        options:
+          - error
+          - warn
+          - notice
+          - verbose
 
 jobs:
   release:
@@ -24,8 +34,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Track master branch to make nx affected work
-        run: |
-          git branch --track main origin/master
+        run: git branch --track main origin/master
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
@@ -37,6 +46,8 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor}}@users.noreply.github.com"
+      - name: Set npm loglevel
+        run: npm config set loglevel ${{ inputs.loglevel }}
       - name: Build libs
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
       - name: Version and Release
