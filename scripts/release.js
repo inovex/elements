@@ -1,9 +1,11 @@
 const { echo, exec, exit } = require('shelljs');
+const { } = require('nx/bin/nx');
 const {
   getIcon,
   getLatestReleaseCommitSha,
   getNextVersion,
   runNpmPublish,
+  checkGithubToken,
 } = require('./release.utils');
 
 const packagesToPublish = [
@@ -21,6 +23,7 @@ const npmTag = isPreRelease ? 'canary' : 'latest';
 const currentBranch = exec('git branch --show-current', { silent: true }).trim();
 const isLoggedIntoNpm = exec('npm whoami', { silent: true }).code === 0;
 const isMasterBranch = currentBranch !== 'master';
+const hasGitHubToken = checkGithubToken();
 
 const run = (command) => exec(command).code;
 const getNxVersionCmd = (version) =>
@@ -32,20 +35,30 @@ const getNxVersionCmd = (version) =>
   echo('Is prerelease?:', getIcon(isPreRelease));
   echo('Is branch is master or dry-run?:', getIcon(isMasterBranch || isDryRun));
   echo('Is logged into npm?:', getIcon(isLoggedIntoNpm));
+  echo('Is logged into GitHub?:', getIcon(hasGitHubToken));
   echo('Used npm tag:', npmTag, getIcon(2));
 
   if (isMasterBranch && !isDryRun) {
     echo(
-      'Sorry, release is only on branch "master" allowed! (current:',
-      currentBranch,
+      getIcon(0),
+      `Release is only allowed on branch "master"! (current: ${currentBranch})`,
     );
     exit(1);
   }
 
-  if (!isLoggedIntoNpm && false) {
+  if (!isLoggedIntoNpm) {
     echo(
-      getIcon(2),
+      getIcon(0),
       'You need to login into NPM with the respective permissions if publishing to registry fails',
+    );
+    exit(1);
+  }
+
+  if (!hasGitHubToken) {
+    echo(getIcon('0'), 'No GitHub token was found', getIcon('0'));
+    echo(
+      getIcon(),
+      'You need to install the github cli locally and login via gh auth login!',
     );
     exit(1);
   }
@@ -84,5 +97,6 @@ const getNxVersionCmd = (version) =>
   for (const npmPackage of packagesToPublish) {
     runNpmPublish(npmPackage, npmTag, isDryRun);
   }
+
   exit(0);
 })();

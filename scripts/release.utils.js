@@ -69,9 +69,17 @@ function runNpmPublish(npmPackage, npmTag, isDryRun) {
   exit(1);
 }
 
+function checkGithubToken() {
+  // Try and resolve from the environment
+  if (process.env.GITHUB_TOKEN || process.env.GH_TOKEN) return true
+  // Check if GitHub cli is installed and use is logged in
+  return exec('gh auth status -h github.com', { silent: true }).code === 0
+}
+
 module.exports = {
   getIcon,
   getLatestReleaseCommitSha,
   getNextVersion,
   runNpmPublish,
+  checkGithubToken,
 };
