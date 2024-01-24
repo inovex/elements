@@ -10,7 +10,7 @@ import { ViewModeUnion } from '@inovex.de/elements';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  todos: Array<Todo>;
+  todos: Todo[];
   form: FormGroup;
   mode: ViewModeUnion = 'preview';
   myText = '# Hello World\nI go to home!\n## Foo Bar Text';
@@ -36,7 +36,7 @@ export class AppComponent {
     this.todos = this.todos.filter((currentTodo) => currentTodo !== todo);
   }
 
-  onViewModeChange(evt: any): void {
-    this.mode = evt.detail as ViewModeUnion;
+  onViewModeChange(evt: CustomEvent<ViewModeUnion>): void {
+    this.mode = evt.detail;
   }
 }
