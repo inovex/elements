@@ -8,6 +8,7 @@ import { MainRoutes } from 'utils/routes';
 import styles from './layout.module.scss';
 import NavigationMenu from './navigationMenu';
 import { useEffect, useState } from 'react';
+import { scrollToElement } from 'utils/scrollToElement';
 
 interface Props {
   children: React.ReactNode;
@@ -29,24 +30,11 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
     const handlePageLoad = () => {
       if (router.asPath.includes('#')) {
         const hash = window.location.hash.substring(1);
-        const targetElement = document.getElementById(hash);
-        if (targetElement) {
-          const headerOffset = 80;
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition =
-            elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth',
-          });
-        }
+        scrollToElement(hash);
       }
     };
 
-    // Scroll to the correct section on page load
     window.addEventListener('load', handlePageLoad);
-
     return () => window.removeEventListener('load', handlePageLoad);
   }, [router.asPath]);
 

@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import 'utils/stringExtensions';
 import { InoTooltip } from '@elements';
+import { scrollToElement } from 'utils/scrollToElement';
 
 type MenuSectionProps = {
   title: string;
@@ -23,22 +24,7 @@ function MenuSection({ title, children, level = 'main' }: MenuSectionProps) {
     event: React.MouseEvent<HTMLHeadingElement>,
   ) => {
     event.preventDefault();
-    const targetElement = document.getElementById(id);
-    if (!targetElement) return;
-
-    const headerOffset = 80;
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    // Change the URL (because we're preventing the default anchor click behavior)
-    const newUrl = `${window.location.origin}${window.location.pathname}#${id}`;
-    window.history.pushState(null, '', newUrl);
-
-    // Using window.scrollTo() instead of element.scrollIntoView() because the latter doesn't support offsets
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    });
+    scrollToElement(id);
   };
 
   const HeadingTag = isMainSection ? 'h2' : 'h3';

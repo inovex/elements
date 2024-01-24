@@ -15,7 +15,7 @@ export default function HeaderDesktop() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.headerInner}>
+      <div id="desktopHeaderInner" className={styles.headerInner}>
         <div className={styles.logo}>
           <Link
             href={{

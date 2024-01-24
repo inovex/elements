@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './navigationMenu.module.scss';
+import { scrollToElement } from 'utils/scrollToElement';
 
 // We use Record<string, string> instead of enum because we can iterate over it AND use it as a type
 export type Sections = Record<string, string>;
@@ -50,22 +51,7 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
     sectionId: string,
   ) {
     event.preventDefault();
-    const targetElement = document.querySelector(`#${sectionId}`);
-    if (!targetElement) return;
-
-    const headerOffset = 80;
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    // Change the URL (because we're preventing the default anchor click behavior)
-    const newUrl = `${window.location.origin}${window.location.pathname}#${sectionId}`;
-    window.history.pushState(null, '', newUrl);
-
-    // Using window.scrollTo() instead of element.scrollIntoView() because the latter doesn't support offsets
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    });
+    scrollToElement(sectionId);
   }
 
   // Return null if there are no sections
