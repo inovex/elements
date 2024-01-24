@@ -13,7 +13,7 @@ describe('InoSnackbar', () => {
   describe('Events', () => {
     it('should emit an actionClick event upon clicking the button', async () => {
       const actionEvent = await page.spyOnEvent('actionClick');
-      await inoSnackbar.setAttribute('action-text', 'my action');
+      inoSnackbar.setAttribute('action-text', 'my action');
       await page.waitForChanges();
       const actionButton = await page.find('.ino-snackbar-action-btn');
       await actionButton.click();
@@ -24,11 +24,12 @@ describe('InoSnackbar', () => {
 
     it('should emit a hideEl event upon closing the snackbar', async () => {
       const hideEvent = await page.spyOnEvent('hideEl');
-      const closeButton = await page.find('.ino-snackbar-close-btn');
-      await inoSnackbar.hover();
-      await page.waitForChanges();
-      await closeButton.hover();
-      await closeButton.click();
+      await page.evaluate(() => {
+        document.querySelector('ino-snackbar').dispatchEvent(new Event('hover'));
+        const btn = document.querySelector('.ino-snackbar-close-btn')
+        btn.dispatchEvent(new Event('hover'))
+        btn.dispatchEvent(new Event('click'))
+      });
 
       expect(hideEvent).toHaveReceivedEvent();
     });
