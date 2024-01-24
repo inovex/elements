@@ -14,11 +14,15 @@ const PACKAGES_TO_PUBLISH = [
 ];
 
 const isDryRun = process.argv.some((a) => a.includes('dryRun=true'));
-const isPreRelease = process.argv.some((a) => a.includes('releaseType=prerelease'));
+const isPreRelease = process.argv.some((a) =>
+  a.includes('releaseType=prerelease'),
+);
 const dryRunArg = isDryRun ? '--dry-run' : '';
 const npmTag = isPreRelease ? 'canary' : 'latest';
 
-const currentBranch = exec('git branch --show-current', { silent: true }).trim();
+const currentBranch = exec('git branch --show-current', {
+  silent: true,
+}).trim();
 const isLoggedIntoNpm = exec('npm whoami', { silent: true }).code === 0;
 const isMasterBranch = currentBranch === 'master';
 const hasGitHubToken = checkGithubToken();
@@ -30,7 +34,7 @@ function run(command: string) {
   return exec(command).code;
 }
 
-function getNxVersionCmd (version: string) {
+function getNxVersionCmd(version: string) {
   return `nx release version ${version} ${dryRunArg} --git-commit=false`;
 }
 
@@ -68,7 +72,7 @@ async function getLatestReleaseCommitSha(): Promise<string> {
     echo(getIcon(0), ' cannot get latest release commit sha! ', getIcon(0));
     exit(1);
   }
-  return ''
+  return '';
 }
 
 async function getNextVersion(): Promise<string> {
@@ -113,9 +117,9 @@ function runNpmPublish(npmPackage: string, npmTag: string, isDryRun: boolean) {
 
 function checkGithubToken() {
   // Try and resolve from the environment
-  if (process.env.GITHUB_TOKEN || process.env.GH_TOKEN) return true
+  if (process.env.GITHUB_TOKEN || process.env.GH_TOKEN) return true;
   // Check if GitHub cli is installed and use is logged in
-  return exec('gh auth status -h github.com', { silent: true }).code === 0
+  return exec('gh auth status -h github.com', { silent: true }).code === 0;
 }
 
 /**
