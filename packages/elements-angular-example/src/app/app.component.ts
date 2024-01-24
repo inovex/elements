@@ -36,7 +36,7 @@ export class AppComponent {
     this.todos = this.todos.filter((currentTodo) => currentTodo !== todo);
   }
 
-  onViewModeChange(evt: any): void {
+  onViewModeChange(evt): void {
     this.mode = evt.detail as ViewModeUnion;
   }
 }
