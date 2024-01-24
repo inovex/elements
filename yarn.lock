@@ -7368,6 +7368,42 @@
   dependencies:
     "@types/node" "*"
 
+"@types/conventional-changelog-core@*":
+  version "4.2.7"
+  resolved "https://registry.npmjs.org/@types/conventional-changelog-core/-/conventional-changelog-core-4.2.7.tgz#3aed55f4a0351f646bfd29df56bc876e07584340"
+  integrity sha512-owT5zzi5tfWkck1DC000YEs/yzNgTs1NGj3D2+SofHgGFNQAFeurz6uc/5di+ygSBu+CuHgHXbAkchdmCc9RuQ==
+  dependencies:
+    "@types/conventional-changelog-writer" "*"
+    "@types/conventional-commits-parser" "*"
+    "@types/conventional-recommended-bump" "*"
+    "@types/git-raw-commits" "*"
+    "@types/node" "*"
+    "@types/normalize-package-data" "*"
+
+"@types/conventional-changelog-writer@*":
+  version "4.0.10"
+  resolved "https://registry.npmjs.org/@types/conventional-changelog-writer/-/conventional-changelog-writer-4.0.10.tgz#6ae0975d02072efbbc87470493dfa6d8a38f1600"
+  integrity sha512-EK654IW1SBqTZSzN9+PlB6SKSYlDhsrCv1olfeEXvt/FHcmd7kvFWW0cFvMtnWalR/D7baYzY3FJ2TSt7UUySg==
+  dependencies:
+    "@types/conventional-commits-parser" "*"
+    "@types/node" "*"
+
+"@types/conventional-commits-parser@*":
+  version "3.0.6"
+  resolved "https://registry.npmjs.org/@types/conventional-commits-parser/-/conventional-commits-parser-3.0.6.tgz#9e2eb1c6933b8926c5b8233820f1f14a10b22b22"
+  integrity sha512-z4crlplLzL9uA5kbE4ZghAf5RbrEr1UL/uNGGgxYbJjI0jRBjuYKuasbo13ANZsSapLTM2DLZk6LDcjemow4qQ==
+  dependencies:
+    "@types/node" "*"
+
+"@types/conventional-recommended-bump@*", "@types/conventional-recommended-bump@^9.0.3":
+  version "9.0.3"
+  resolved "https://registry.npmjs.org/@types/conventional-recommended-bump/-/conventional-recommended-bump-9.0.3.tgz#ccb729dedb1415205f61adf09117f731f6ea75c1"
+  integrity sha512-rOZiRkTRNAPAqBotvm8+VTzILJMnMuad52/VhSjOVTP9Mrn3K+EiSeii/YC/FiPTp2mBTo45D9I3H6z6+EOfsw==
+  dependencies:
+    "@types/conventional-changelog-core" "*"
+    "@types/conventional-changelog-writer" "*"
+    "@types/conventional-commits-parser" "*"
+
 "@types/css-font-loading-module@^0.0.6":
   version "0.0.6"
   resolved "https://registry.npmjs.org/@types/css-font-loading-module/-/css-font-loading-module-0.0.6.tgz#1ac3417ed31eeb953134d29b56bca921644b87c0"
@@ -7445,6 +7481,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/git-raw-commits@*":
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/@types/git-raw-commits/-/git-raw-commits-2.0.4.tgz#29a77a82043b7baaba823f8b34ab10191df138e9"
+  integrity sha512-PYmTK156j6TilbwtnO2JErH4TCC1izpgP3kRE3KUX35bjBOD2A+syCGeercqHXBcM6wL+DU0WbJB2Gz8fPR+8A==
+  dependencies:
+    "@types/node" "*"
+
 "@types/glob@*":
   version "8.1.0"
   resolved "https://registry.npmjs.org/@types/glob/-/glob-8.1.0.tgz#b63e70155391b0584dce44e7ea25190bbc38f2fc"
@@ -7453,7 +7496,7 @@
     "@types/minimatch" "^5.1.2"
     "@types/node" "*"
 
-"@types/glob@^7.1.1":
+"@types/glob@^7.1.1", "@types/glob@~7.2.0":
   version "7.2.0"
   resolved "https://registry.npmjs.org/@types/glob/-/glob-7.2.0.tgz#bc1b5bf3aa92f25bd5dd39f35c57361bdce5b2eb"
   integrity sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==
@@ -7668,6 +7711,11 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-14.18.63.tgz#1788fa8da838dbb5f9ea994b834278205db6ca2b"
   integrity sha512-fAtCfv4jJg+ExtXhvCkCqUKZ+4ok/JQk01qDKhL5BDDoS3AxKXhV5/MAVUZyQnSEd2GT92fkgZl0pz0Q0AzcIQ==
 
+"@types/normalize-package-data@*":
+  version "2.4.4"
+  resolved "https://registry.npmjs.org/@types/normalize-package-data/-/normalize-package-data-2.4.4.tgz#56e2cc26c397c038fab0e3a917a12d5c5909e901"
+  integrity sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.2"
   resolved "https://registry.npmjs.org/@types/normalize-package-data/-/normalize-package-data-2.4.2.tgz#9b0e3e8533fe5024ad32d6637eb9589988b6fdca"
@@ -7846,6 +7894,14 @@
   dependencies:
     "@types/http-errors" "*"
     "@types/mime" "*"
+    "@types/node" "*"
+
+"@types/shelljs@^0.8.15":
+  version "0.8.15"
+  resolved "https://registry.npmjs.org/@types/shelljs/-/shelljs-0.8.15.tgz#22c6ab9dfe05cec57d8e6cb1a95ea173aee9fcac"
+  integrity sha512-vzmnCHl6hViPu9GNLQJ+DZFd6BQI2DBTUeOvYHqkWQLMfKAAQYMb/xAmZkTogZI/vqXHCWkqDRymDI5p0QTi5Q==
+  dependencies:
+    "@types/glob" "~7.2.0"
     "@types/node" "*"
 
 "@types/sockjs@^0.3.33":

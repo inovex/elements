@@ -4,13 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       configuration:
-        description: 'Release configuration'
+        description: 'Release mode'
         required: true
-        default: default
+        default: release
         type: choice
         options:
           - dryRun
-          - default
+          - prerelease
+          - release
       loglevel:
         description: 'npm loglevel'
         required: false
@@ -52,7 +53,7 @@ jobs:
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
       - name: Version and Release
         shell: bash
-        run: yarn nx run workspace:release:${{ inputs.configuration }}
+        run: yarn nx run workspace:publish:${{ inputs.configuration }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

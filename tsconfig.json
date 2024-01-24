@@ -11,7 +11,8 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "removeComments": false
+    "removeComments": false,
+    "resolveJsonModule": true,
   },
   "extends": "./tsconfig.base.json"
 }
