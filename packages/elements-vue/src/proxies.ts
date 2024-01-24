@@ -22,7 +22,7 @@ export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete
   'value',
   'valueChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoAvatar = /*@__PURE__*/ defineContainer<JSX.InoAvatar>('ino-avatar', undefined, [
@@ -64,7 +64,7 @@ export const InoCarousel = /*@__PURE__*/ defineContainer<JSX.InoCarousel, JSX.In
   'reverse',
   'valueChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoCarouselSlide = /*@__PURE__*/ defineContainer<JSX.InoCarouselSlide>('ino-carousel-slide', undefined, [
@@ -83,7 +83,7 @@ export const InoCheckbox = /*@__PURE__*/ defineContainer<JSX.InoCheckbox, JSX.In
   'indeterminate',
   'checkedChange'
 ],
-'checked', 'v-checked-change', 'checkedChange');
+'checked', 'v-checked-change');
 
 
 export const InoChip = /*@__PURE__*/ defineContainer<JSX.InoChip>('ino-chip', undefined, [
@@ -114,7 +114,7 @@ export const InoControlItem = /*@__PURE__*/ defineContainer<JSX.InoControlItem, 
   'trailing',
   'checkedChange'
 ],
-'checked', 'v-checked-change', 'checkedChange');
+'checked', 'v-checked-change');
 
 
 export const InoCurrencyInput = /*@__PURE__*/ defineContainer<JSX.InoCurrencyInput>('ino-currency-input', undefined, [
@@ -154,7 +154,7 @@ export const InoDatepicker = /*@__PURE__*/ defineContainer<JSX.InoDatepicker, JS
   'error',
   'valueChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoDialog = /*@__PURE__*/ defineContainer<JSX.InoDialog>('ino-dialog', undefined, [
@@ -269,7 +269,7 @@ export const InoInput = /*@__PURE__*/ defineContainer<JSX.InoInput, JSX.InoInput
   'inoFocus',
   'valueChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoInputFile = /*@__PURE__*/ defineContainer<JSX.InoInputFile>('ino-input-file', undefined, [
@@ -400,7 +400,7 @@ export const InoRadio = /*@__PURE__*/ defineContainer<JSX.InoRadio, JSX.InoRadio
   'value',
   'checkedChange'
 ],
-'checked', 'v-checked-change', 'checkedChange');
+'checked', 'v-checked-change');
 
 
 export const InoRadioGroup = /*@__PURE__*/ defineContainer<JSX.InoRadioGroup, JSX.InoRadioGroup["value"]>('ino-radio-group', undefined, [
@@ -408,7 +408,7 @@ export const InoRadioGroup = /*@__PURE__*/ defineContainer<JSX.InoRadioGroup, JS
   'alignment',
   'valueChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoRange = /*@__PURE__*/ defineContainer<JSX.InoRange, JSX.InoRange["value"]>('ino-range', undefined, [
@@ -427,7 +427,7 @@ export const InoRange = /*@__PURE__*/ defineContainer<JSX.InoRange, JSX.InoRange
   'valueStartChange',
   'valueEndChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoSegmentButton = /*@__PURE__*/ defineContainer<JSX.InoSegmentButton, JSX.InoSegmentButton["checked"]>('ino-segment-button', undefined, [
@@ -439,7 +439,7 @@ export const InoSegmentButton = /*@__PURE__*/ defineContainer<JSX.InoSegmentButt
   'type',
   'checkedChange'
 ],
-'checked', 'v-checked-change', 'checkedChange');
+'checked', 'v-checked-change');
 
 
 export const InoSegmentGroup = /*@__PURE__*/ defineContainer<JSX.InoSegmentGroup, JSX.InoSegmentGroup["value"]>('ino-segment-group', undefined, [
@@ -447,7 +447,7 @@ export const InoSegmentGroup = /*@__PURE__*/ defineContainer<JSX.InoSegmentGroup
   'value',
   'valueChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect, JSX.InoSelect["value"]>('ino-select', undefined, [
@@ -464,7 +464,7 @@ export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect, JSX.InoSel
   'error',
   'valueChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoSnackbar = /*@__PURE__*/ defineContainer<JSX.InoSnackbar>('ino-snackbar', undefined, [
@@ -492,7 +492,7 @@ export const InoSwitch = /*@__PURE__*/ defineContainer<JSX.InoSwitch, JSX.InoSwi
   'name',
   'checkedChange'
 ],
-'checked', 'v-checked-change', 'checkedChange');
+'checked', 'v-checked-change');
 
 
 export const InoTab = /*@__PURE__*/ defineContainer<JSX.InoTab>('ino-tab', undefined, [
@@ -556,7 +556,7 @@ export const InoTextarea = /*@__PURE__*/ defineContainer<JSX.InoTextarea, JSX.In
   'inoBlur',
   'valueChange'
 ],
-'value', 'v-value-change', 'valueChange');
+'value', 'v-value-change');
 
 
 export const InoTooltip = /*@__PURE__*/ defineContainer<JSX.InoTooltip>('ino-tooltip', undefined, [

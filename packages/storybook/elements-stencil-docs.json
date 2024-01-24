@@ -1,8 +1,8 @@
 {
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.3.0",
-    "typescriptVersion": "5.1.6"
+    "version": "4.9.1",
+    "typescriptVersion": "5.2.2"
   },
   "components": [
     {
@@ -8445,13 +8445,9 @@
             "signature": "(fn: (value: number) => string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "fn A function that maps the numeric value to a user-friendly string."
-                  }
-                ],
-                "text": "A function that maps the numeric value to a user-friendly string."
+                "name": "fn",
+                "type": "(value: number) => string",
+                "docs": "A function that maps the numeric value to a user-friendly string."
               }
             ],
             "references": {
@@ -8463,7 +8459,13 @@
             "return": "Promise<void>"
           },
           "signature": "setValueToAriaTextMapperFn(fn: (value: number) => string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "fn",
+              "type": "(value: number) => string",
+              "docs": "A function that maps the numeric value to a user-friendly string."
+            }
+          ],
           "docs": "Should be used to make the component accessible.\nIf the value is not user-friendly (e.g. a number to represent the day of the week),\nuse this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).\n\ne.g.:\n\n`const rangeEl = document.querySelector(\"ino-range\")`\n`rangeEl.setFnToMapValueToAriaText((value: number) => value + \". day in this week\")`",
           "docsTags": [
             {
@@ -10352,13 +10354,9 @@
             "signature": "(searchable: boolean) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "searchable true, if the cell should be searchable, false otherwise."
-                  }
-                ],
-                "text": "true, if the cell should be searchable, false otherwise."
+                "name": "searchable",
+                "type": "boolean",
+                "docs": "true, if the cell should be searchable, false otherwise."
               }
             ],
             "references": {
@@ -10370,7 +10368,13 @@
             "return": "Promise<void>"
           },
           "signature": "setSearchable(searchable: boolean) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "searchable",
+              "type": "boolean",
+              "docs": "true, if the cell should be searchable, false otherwise."
+            }
+          ],
           "docs": "Updates the search behaviour of this cell.",
           "docsTags": [
             {
