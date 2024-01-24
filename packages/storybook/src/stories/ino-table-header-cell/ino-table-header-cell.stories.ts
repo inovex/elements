@@ -140,7 +140,9 @@ const templateSearchWithSelection =
       useEffect(() => {
         const checkboxes = document.querySelectorAll('ino-checkbox');
         const checkedHandler = (e) =>
-          ((e.target as Components.InoCheckbox).checked = (e as CustomEvent).detail);
+          ((e.target as Components.InoCheckbox).checked = (
+            e as CustomEvent
+          ).detail);
         checkboxes.forEach(() =>
           addEventListener('checkedChange', checkedHandler),
         );

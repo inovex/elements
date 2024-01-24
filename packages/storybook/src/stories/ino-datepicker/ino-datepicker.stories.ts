@@ -24,8 +24,7 @@ export default {
     (story) => decorateStoryWithClass(story, 'story-datepicker'),
     (story) => {
       useEffect(() => {
-        const eventHandler = (e) =>
-          e.target.setAttribute('value', e.detail);
+        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
         document.addEventListener('valueChange', eventHandler);
         return () => document.removeEventListener('valueChange', eventHandler);
       });
