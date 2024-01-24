@@ -8,6 +8,14 @@
 
 Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
 
+#### Usage Notes:
+
+The `ino-snackbar` component can display an icon inside it, which can be customized as follows:
+
+- **Default Icon Behavior**: If no element is provided in the `icon-slot`, the component displays a default icon based on the `type` property. Each `type` corresponds to a specific `ino-icon`.
+- **Custom Icon (`<ino-icon>`)**: You can provide a custom `ino-icon` in the `icon-slot` to replace the default icon. Simply add `<ino-icon>` with your desired icon name to the `icon-slot`.
+- **Other Custom Elements (e.g., `<img>`)**: If you want to use a different element like an `<img>` as the icon, place it inside the `icon-slot`. This will override the default `ino-icon`. For example, `<img slot="icon-slot" src="your-icon-path" />`.
+
 ## Properties
 
 | Property             | Attribute               | Description                                                                                                                             | Type                             | Default     |
@@ -27,14 +35,11 @@ Snackbars provide brief messages about app processes at the bottom of the screen
 | `hideEl`      | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<any>` |
 
 
-## CSS Custom Properties
+## Slots
 
-| Name                    | Description                 |
-| ----------------------- | --------------------------- |
-| `--ino-snackbar-bottom` | Distance to the bottom edge |
-| `--ino-snackbar-left`   | Distance to the left edge   |
-| `--ino-snackbar-right`  | Distance to the right edge  |
-| `--ino-snackbar-top`    | Distance to the top edge    |
+| Slot          | Description                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| `"icon-slot"` | Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`. |
 
 
 ## Dependencies

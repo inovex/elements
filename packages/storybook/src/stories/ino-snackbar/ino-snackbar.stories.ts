@@ -133,13 +133,32 @@ export const StayVisibleOnHover = template.generateStoryForProp(
 
 /**
  * To add a custom icon inside the `ino-snackbar` element, follow these steps:
- * 1. Inside the `ino-snackbar` element, insert an `img` or a similar element.
- * 2. Assign a `slot` attribute to the `img` element and set it to `"icon"`.
- * 3. Ensure that the custom icon has the desired size. In the example below, we set the width and height of the icon to 25px.
+ * 1. Inside the `ino-snackbar` element, insert an `ino-icon` or a similar element (e.g. `img`).
+ * 2. Assign a `slot` attribute to the custom element and set it to `"icon-slot"`.
  *
- * Example usage of the `ino-snackbar` element with a custom icon:
+ * Example usage of the `ino-snackbar` element with a custom ino-icon:
  */
 export const CustomIcon = (args: InoSnackbarExtended) => html`
+  <ino-button class="snackbar-trigger" data-template-id="${args.id}-ino-icon"
+    >Show Custom Snackbar
+  </ino-button>
+  <template id="${args.id}-ino-icon">
+    <ino-snackbar
+      id="${args.id}-ino-icon"
+      action-text="${args.actionText}"
+      timeout="${args.timeout}"
+      type="${args.type}"
+      stay-visible-on-hover="${args.stayVisibleOnHover}"
+    >
+      <ino-icon slot="icon-slot" icon="star"></ino-icon>
+      This snackbar uses a custom ino-icon.
+    </ino-snackbar>
+  </template>
+`;
+/*
+ * Ensure that the custom element has the desired size. In the example below, we set the width and height of the img icon to 25px.
+ */
+export const CustomElements = (args: InoSnackbarExtended) => html`
   <ino-button class="snackbar-trigger" data-template-id="${args.id}-custom"
     >Show Custom Snackbar
   </ino-button>
@@ -152,12 +171,12 @@ export const CustomIcon = (args: InoSnackbarExtended) => html`
       stay-visible-on-hover="${args.stayVisibleOnHover}"
     >
       <img
-        slot="icon"
+        slot="icon-slot"
         src=${inovexElementsLogo}
         alt="Custom Icon"
         style="width: 25px; height: 25px;"
       />
-      This snackbar uses a custom icon.
+      This snackbar uses a custom img.
     </ino-snackbar>
   </template>
 `;

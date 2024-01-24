@@ -14,6 +14,16 @@ import { SnackbarType } from '../types';
 
 /**
  * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+ *
+ * #### Usage Notes:
+ *
+ * The `ino-snackbar` component can display an icon inside it, which can be customized as follows:
+ *
+ * - **Default Icon Behavior**: If no element is provided in the `icon-slot`, the component displays a default icon based on the `type` property. Each `type` corresponds to a specific `ino-icon`.
+ * - **Custom Icon (`<ino-icon>`)**: You can provide a custom `ino-icon` in the `icon-slot` to replace the default icon. Simply add `<ino-icon>` with your desired icon name to the `icon-slot`.
+ * - **Other Custom Elements (e.g., `<img>`)**: If you want to use a different element like an `<img>` as the icon, place it inside the `icon-slot`. This will override the default `ino-icon`. For example, `<img slot="icon-slot" src="your-icon-path" />`.
+ *
+ * @slot icon-slot - Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`.
  */
 @Component({
   tag: 'ino-snackbar',
@@ -138,17 +148,22 @@ export class Snackbar implements ComponentInterface {
 
   render() {
     const hasActionText = Boolean(this.actionText);
+    const slotElement = this.el.querySelector('[slot="icon-slot"]');
+
+    const isInoIcon = slotElement?.tagName === 'INO-ICON';
+    const isCustomIcon = slotElement && !isInoIcon; // e.g. <img> or <svg>
 
     const hostClasses = classNames(`ino-snackbar--type-${this.type}`);
-
     const snackbarClasses = classNames(
       'mdc-snackbar',
       'ino-snackbar-layout-container',
     );
-
-    // Check if a slot is present (used to remove the bg color for the icon container)
-    const slotPresent = !!this.el.querySelector('[slot]');
-
+    const snackbarIconClasses = classNames(
+      'mdc-snackbar__actions ino-snackbar-icon-container',
+      {
+        'custom-icon': isCustomIcon,
+      },
+    );
     return (
       <Host class={hostClasses}>
         <div
@@ -159,17 +174,17 @@ export class Snackbar implements ComponentInterface {
           role="alert"
         >
           <div class="mdc-snackbar__surface ino-snackbar-container">
-            <div
-              class={`mdc-snackbar__actions ino-snackbar-icon-container ${
-                slotPresent ? 'slot-present' : ''
-              }`}
-            >
-              <slot name="icon">
+            <div class={snackbarIconClasses}>
+              {isCustomIcon ? (
+                <slot name="icon-slot" />
+              ) : isInoIcon ? (
+                <slot name="icon-slot" />
+              ) : (
                 <ino-icon
                   class="ino-snackbar-icon"
                   icon={this.mapTypeToIconName(this.type)}
                 />
-              </slot>
+              )}
             </div>
             <div
               class="mdc-snackbar__label ino-snackbar-message-container"
