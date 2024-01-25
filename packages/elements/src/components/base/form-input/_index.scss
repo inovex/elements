@@ -1,0 +1,36 @@
+@use '@material/textfield/helper-text';
+@use '@material/textfield/mdc-text-field';
+@use '@material/select';
+@use '@material/select/mdc-select';
+
+@include helper-text.helper-text-core-styles;
+
+$helperTextColor: rgba(0, 0, 0, 0.6);
+
+@mixin helperText($textPadding: 0, $invalidSelector: '&:has(input:invalid)') {
+  ~ .mdc-text-field-helper-line {
+    padding-left: $textPadding;
+
+    .mdc-text-field-helper-text {
+      color: $helperTextColor;
+
+      &--empty {
+        display: none;
+      }
+
+      &--validation-msg {
+        display: none;
+      }
+    }
+  }
+
+  #{$invalidSelector} {
+    ~ .mdc-text-field-helper-line {
+      .mdc-text-field-helper-text--validation-msg {
+        display: block;
+        color: var(--inovex-elements-error) !important;
+        opacity: 1;
+      }
+    }
+  }
+}

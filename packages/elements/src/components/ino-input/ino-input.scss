@@ -2,12 +2,12 @@
 @use '@material/textfield/mdc-text-field';
 @use '@material/textfield';
 @use '@material/textfield/icon';
-@use '@material/textfield/helper-text';
 @use '@material/floating-label/mdc-floating-label';
 @use '@material/floating-label';
 @use '@material/notched-outline/mdc-notched-outline';
 @use '../base/new-theme' as theme;
 @use '../base/typography';
+@use '../base/form-input';
 
 // Tailwind CSS Preflight border-style countermeasures (https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally)
 ino-input * {
@@ -81,6 +81,7 @@ ino-input {
   .mdc-text-field {
     @include textfield.ink-color(var(--input-color));
     @include textfield.height(56px);
+    @include form-input.helperText($invalidSelector: '&--invalid');
   }
 
   & * {
@@ -210,12 +211,6 @@ ino-input .mdc-text-field--outlined {
   }
 
   @include setIconMargins((0 $icon-padding-to-text 0 $icon-padding-to-text));
-}
-
-ino-input {
-  .mdc-text-field + .mdc-text-field-helper-line {
-    padding-left: 0;
-  }
 }
 
 // Custom number arrows

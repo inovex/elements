@@ -18,7 +18,7 @@ export default {
           }
 
           const fileNames = e.detail.files
-            .map((f) => [f.name, f.type, f.size + ' bytes'].join(', '))
+            .map((f: File) => [f.name, f.type, f.size + ' bytes'].join(', '))
             .join('\n');
           alert(fileNames);
         };
@@ -38,12 +38,18 @@ export default {
     accept: '',
     autoFocus: false,
     disabled: false,
-    multiple: false,
-    required: false,
-    label: 'Select a file to upload',
     dragAndDrop: false,
     dragAndDropText: 'Drag your files here',
     dragAndDropSecondaryText: 'or',
+    error: false,
+    helperText: 'Helper text for file input',
+    helperTextPersistent: false,
+    helperTextValidation: false,
+    label: 'Select a file to upload',
+    multiple: false,
+    name: 'file-select',
+    required: false,
+    showLabelHint: true,
   },
 } as Meta<Components.InoInputFile>;
 
@@ -61,7 +67,13 @@ const template = new TemplateGenerator<Components.InoInputFile>(
       drag-and-drop="${args.dragAndDrop}"
       drag-and-drop-text="${args.dragAndDropText}"
       drag-and-drop-secondary-text="${args.dragAndDropSecondaryText}"
-    ></ino-input-file>
+      show-label-hint="${args.showLabelHint}"
+      helper-text="${args.helperText}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
+      name="${args.name}"
+      error="${args.error}"
+    />
   `,
 );
 export const Playground = template.generatePlaygroundStory();

@@ -38,9 +38,16 @@ export default {
   args: {
     checked: true,
     disabled: false,
+    error: false,
+    helperText: 'Helper text for checkbox',
+    helperTextPersistent: false,
+    helperTextValidation: false,
     indeterminate: false,
+    label: '',
     name: 'my-name',
+    required: false,
     selection: false,
+    showLabelHint: false,
     value: 'my-value',
   },
 } as Meta<Components.InoCheckbox>;
@@ -50,14 +57,21 @@ const template = new TemplateGenerator<Components.InoCheckbox>(
   'ino-checkbox',
   (args) => html`
     <ino-checkbox
+      label="${args.label}"
       checked="${args.checked}"
       disabled="${args.disabled}"
       indeterminate="${args.indeterminate}"
       name="${args.name}"
       selection="${args.selection}"
       value="${args.value}"
+      error="${args.error}"
+      required="${args.required}"
+      show-label-hint="${args.showLabelHint}"
+      helper-text="${args.helperText}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
     >
-      Label
+      ${args.label ? undefined : 'Label'}
     </ino-checkbox>
   `,
 );

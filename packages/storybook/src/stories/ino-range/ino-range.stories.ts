@@ -38,6 +38,10 @@ export default {
   args: {
     disabled: false,
     discrete: false,
+    error: false,
+    helperText: 'Helper text for range',
+    helperTextPersistent: false,
+    helperTextValidation: false,
     min: 0,
     max: 100,
     value: 50,
@@ -67,6 +71,10 @@ const template = new TemplateGenerator<Components.InoRange>(
       ranged="${args.ranged}"
       value-start="${args.valueStart}"
       value-end="${args.valueEnd}"
+      error="${args.error}"
+      helper-text="${args.helperText}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
     >
     </ino-range>
   `,

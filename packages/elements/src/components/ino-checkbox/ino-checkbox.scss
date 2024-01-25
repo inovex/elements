@@ -1,8 +1,9 @@
 @use '../base/mdc-customize';
+@use '../base/theme';
+@use '../base/form-input';
 @use '@material/form-field/mdc-form-field';
 @use '@material/checkbox/mdc-checkbox';
 @use '@material/checkbox';
-@use '../base/theme';
 
 $primary-dark: #2c02ff;
 $primary-base: #4b4eff;
@@ -18,55 +19,104 @@ $disabled-color: $grey-light;
 $ink-color: $white;
 $focus-shadow-color: $primary-light;
 $focus-border-color: $primary-base;
+$label-color: rgba(0, 0, 0, 0.6);
+
+@mixin labelHint() {
+  label {
+    &.show-hint {
+      &:after {
+        content: '*';
+      }
+    }
+  }
+
+  &:not(.ino-checkbox--required) label.show-hint:after {
+    content: ' - Optional' + '\a0';
+    font-style: italic;
+    color: lighten($label-color, 30);
+  }
+}
+
+@mixin invalid() {
+  label {
+    color: var(--inovex-elements-error);
+  }
+
+  .mdc-checkbox {
+    .mdc-checkbox__native-control {
+      ~ .mdc-checkbox__background {
+        --mdc-checkbox-unchecked-color: var(--inovex-elements-error);
+        --mdc-checkbox-checked-color: var(--inovex-elements-error);
+      }
+    }
+  }
+}
 
 :host {
-  .mdc-checkbox {
-    @include checkbox.container-colors(
-      $unchecked-color,
-      $white,
-      $checked-color,
-      $checked-color
-    );
-    @include checkbox.disabled-container-colors(
-      $disabled-color,
-      $white,
-      $disabled-color,
-      $disabled-color
-    );
+  .mdc-form-field {
+    @include labelHint();
+    @include form-input.helperText($textPadding: 10px);
 
-    &:before,
-    &:after {
-      display: none; // Remove ripple effect
+    &:has(.mdc-checkbox__native-control:invalid) {
+      @include invalid();
     }
-  }
 
-  .mdc-checkbox__background {
-    border: 1.5px solid;
-    border-radius: 5px;
-    width: 21px;
-    height: 21px;
-    top: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
-    left: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
-  }
+    .mdc-checkbox {
+      @include checkbox.container-colors(
+        $unchecked-color,
+        $white,
+        $checked-color,
+        $checked-color
+      );
+      @include checkbox.disabled-container-colors(
+        $disabled-color,
+        $white,
+        $disabled-color,
+        $disabled-color
+      );
 
-  .mdc-checkbox__checkmark {
-    inset: 3.3px 0 0 2.5px;
-    width: 13px;
-    path {
-      stroke-linejoin: round;
-      stroke-linecap: round;
+      &:before,
+      &:after {
+        display: none; // Remove ripple effect
+      }
+
+      &__native-control {
+        &:invalid {
+          label {
+            color: var(--inovex-elements-error);
+          }
+        }
+      }
+
+      &__background {
+        border: 1.5px solid;
+        border-radius: 5px;
+        width: 21px;
+        height: 21px;
+        top: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
+        left: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
+      }
+
+      &__checkmark {
+        inset: 3.3px 0 0 2.5px;
+        width: 13px;
+        path {
+          stroke-linejoin: round;
+          stroke-linecap: round;
+        }
+      }
+
+      &__mixedmark {
+        @include checkbox.ink-color($white);
+        width: 65%;
+        background-color: $white;
+        border-radius: 50px;
+      }
+
+      &--disabled ~ label {
+        color: $disabled-color;
+      }
     }
-  }
-
-  .mdc-checkbox__mixedmark {
-    @include checkbox.ink-color($white);
-    width: 65%;
-    background-color: $white;
-    border-radius: 50px;
-  }
-
-  .mdc-checkbox--disabled ~ label {
-    color: $disabled-color;
   }
 
   .ino-checkbox-selection {

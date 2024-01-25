@@ -11,8 +11,15 @@ import {
   Watch,
   Method,
 } from '@stencil/core';
-import classNames from 'classnames';
 import { preventEvent } from '../../util/component-utils';
+import { CssClasses } from '../internal-types';
+import {
+  helperTextTemplate,
+  initHelperText,
+  updateValidityOnErrorChanged,
+} from '../base/form-input/helper-text';
+import { FormInputWithHelperText } from '../base/form-input/form-input-with-helper-text';
+import { MDCTextFieldHelperText } from '@material/textfield';
 
 /**
  * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
@@ -22,11 +29,27 @@ import { preventEvent } from '../../util/component-utils';
   styleUrl: 'ino-range.scss',
   shadow: false,
 })
-export class Range implements ComponentInterface {
+export class Range implements FormInputWithHelperText, ComponentInterface {
+  private static HELPER_COUNTER = 0;
+
+  private static generateHelperTextId() {
+    return `range-helper-text__${Range.HELPER_COUNTER++}`;
+  }
+
   private sliderEl: HTMLDivElement;
   private inputElStart: HTMLInputElement; // default knob
   private inputElEnd: HTMLInputElement; // is the right knob in ranged mode
   private sliderInstance!: MDCSlider;
+  private mdcHelperText: MDCTextFieldHelperText;
+  private uniqueHelperId = Range.generateHelperTextId();
+
+  get helperTextInstance() {
+    return this.mdcHelperText;
+  }
+
+  get nativeElement() {
+    return this.ranged ? this.inputElStart : this.inputElEnd;
+  }
 
   @Element() el!: HTMLInoRangeElement;
 
@@ -105,6 +128,46 @@ export class Range implements ComponentInterface {
   @Prop() step?: number = 1;
 
   /**
+   * Displays the range input as invalid if set to true.
+   * This functionality might be useful if the input validation is (additionally) handled by the backend.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  onErrorChanged(): void {
+    updateValidityOnErrorChanged(this);
+  }
+
+  /**
+   * The optional helper text.
+   */
+  @Prop() helperText?: string;
+
+  /**
+   * Displays the helper permanently.
+   */
+  @Prop() helperTextPersistent?: boolean;
+
+  @Watch('helperTextPersistent')
+  onHelperTextPeristentChanged(): void {
+    this.mdcHelperText?.foundationForTextField.setPersistent(
+      this.helperTextPersistent,
+    );
+  }
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() helperTextValidation?: boolean;
+
+  @Watch('helperTextValidation')
+  onHelperTextValidationChanged(): void {
+    this.mdcHelperText?.foundationForTextField.setValidation(
+      this.helperTextValidation,
+    );
+  }
+
+  /**
    * Emits when the value changes (not in ranged mode).
    */
   @Event() valueChange!: EventEmitter<number>;
@@ -118,6 +181,24 @@ export class Range implements ComponentInterface {
    * Emits when the end (right) value of the interval changes (in ranged mode).
    */
   @Event() valueEndChange!: EventEmitter<number>;
+
+  /**
+   * Sets focus on the native `input`.
+   * Use this method instead of the global `input.focus()`.
+   */
+  @Method()
+  async setFocus() {
+    this.nativeElement?.focus();
+  }
+
+  /**
+   * Sets blur on the native `input`.
+   * Use this method instead of the global `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    this.nativeElement?.blur();
+  }
 
   componentDidLoad() {
     /**
@@ -134,6 +215,20 @@ export class Range implements ComponentInterface {
 
     this.sliderInstance.listen('MDCSlider:change', preventEvent);
     this.sliderInstance.listen('MDCSlider:input', this.handleInput);
+
+    this.mdcHelperText = initHelperText(this.el);
+    this.initHelperText();
+    this.handleInputProps();
+  }
+
+  private handleInputProps(): void {
+    this.onErrorChanged();
+  }
+
+  private initHelperText(): void {
+    this.mdcHelperText = initHelperText(this.el);
+    this.onHelperTextPeristentChanged();
+    this.onHelperTextValidationChanged();
   }
 
   disconnectedCallback() {
@@ -184,13 +279,13 @@ export class Range implements ComponentInterface {
   }
 
   render() {
-    const sliderClasses = classNames({
+    const sliderClasses: CssClasses = {
       'mdc-slider': true,
       'mdc-slider--discrete': this.discrete,
       'mdc-slider--tick-marks': this.markers,
       'mdc-slider--disabled': this.disabled,
       'mdc-slider--range': this.ranged,
-    });
+    };
 
     return (
       <Host>
@@ -240,6 +335,7 @@ export class Range implements ComponentInterface {
             </div>
           )}
         </div>
+        {helperTextTemplate(this.uniqueHelperId, this.helperText)}
       </Host>
     );
   }

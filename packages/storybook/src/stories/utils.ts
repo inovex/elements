@@ -1,4 +1,4 @@
-import { Story } from '@storybook/web-components';
+import { ArgTypes, Story } from '@storybook/web-components';
 import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
 import { html } from 'lit-html';
 import ICONS from '../../../elements/src/components/ino-icon/icons';
@@ -48,7 +48,7 @@ export const decorateStoryWithClass = (
   story: () => StoryFnHtmlReturnType,
   className?: string,
 ): StoryFnHtmlReturnType => {
-  return html`<div class="${className ?? ''}">${story()}</div>`;
+  return html` <div class="${className ?? ''}">${story()}</div> `;
 };
 
 export const showSnackbar = (message: string) => {
@@ -58,3 +58,26 @@ export const showSnackbar = (message: string) => {
   document.body.appendChild(snackbar);
   snackbar.addEventListener('hideEl', () => snackbar.remove());
 };
+
+export const hideDeprecatedHelper = (): ArgTypes => ({
+  helper: {
+    table: {
+      disable: true,
+    },
+  },
+  helperCharacterCounter: {
+    table: {
+      disable: true,
+    },
+  },
+  helperPersistent: {
+    table: {
+      disable: true,
+    },
+  },
+  helperValidation: {
+    table: {
+      disable: true,
+    },
+  },
+});

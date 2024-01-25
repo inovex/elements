@@ -14,10 +14,15 @@ import {
   h,
   Method,
 } from '@stencil/core';
-import classNames from 'classnames';
 import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 import { InputType, UserInputInterceptor } from '../types';
+import { FormInputWithHelperText } from '../base/form-input/form-input-with-helper-text';
+import {
+  helperTextTemplate,
+  initHelperText,
+  updateValidityOnErrorChanged,
+} from '../base/form-input/helper-text';
 
 /**
  * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
@@ -32,7 +37,7 @@ import { InputType, UserInputInterceptor } from '../types';
   styleUrl: 'ino-input.scss',
   shadow: false,
 })
-export class Input implements ComponentInterface {
+export class Input implements FormInputWithHelperText, ComponentInterface {
   @Element() el!: HTMLInoInputElement;
 
   private nativeInputEl?: HTMLInputElement;
@@ -72,6 +77,14 @@ export class Input implements ComponentInterface {
     return `input-helper-text__${Input.HELPER_COUNTER++}`;
   }
 
+  get helperTextInstance() {
+    return this.mdcHelperText;
+  }
+
+  get nativeElement() {
+    return this.nativeInputEl;
+  }
+
   /**
    * The autocomplete property of this element.
    */
@@ -100,41 +113,79 @@ export class Input implements ComponentInterface {
   @Prop() error?: boolean;
 
   @Watch('error')
-  errorHandler(invalid?: boolean) {
-    if (this.disabled || !this.mdcTextfield) {
-      return;
-    }
-
-    if (invalid) {
-      this.mdcTextfield.valid = false;
-      this.mdcTextfield.useNativeValidation = false;
-    } else {
-      this.mdcTextfield.valid = true;
-      this.mdcTextfield.useNativeValidation = true;
-      this.nativeInputEl.checkValidity();
-    }
+  onErrorChanged() {
+    if (this.mdcTextfield == null) return;
+    updateValidityOnErrorChanged(this, {
+      setValid: () => this.setValid(),
+      setInvalid: () => this.setInvalid(),
+    });
   }
 
   /**
+   * @deprecated Use `helperText' instead.
+   *
    * The optional helper text.
    */
   @Prop() helper?: string;
 
   /**
+   * The optional helper text.
+   */
+  @Prop() helperText: string;
+
+  /**
+   * @deprecated Use `showCharacterCounter' instead.
+   *
    * Displays the number of characters. The maxlength-property must be set.
    * This helper text will be displayed persistently.
    */
   @Prop() helperCharacterCounter?: boolean;
 
   /**
+   * Displays the number of characters. The maxlength-property must be set.
+   * This helper text will be displayed persistently.
+   */
+  @Prop() showCharacterCounter: boolean;
+
+  /**
+   * @deprecated Use `helperTextPersistent' instead.
+   *
    * Displays the helper permanently.
    */
   @Prop() helperPersistent?: boolean;
 
   /**
+   * Displays the helper permanently.
+   */
+  @Prop() helperTextPersistent: boolean;
+
+  @Watch('helperPersistent')
+  @Watch('helperTextPersistent')
+  onHelperTextPeristentChanged(): void {
+    this.mdcHelperText.foundationForTextField.setPersistent(
+      this.helperTextPersistentIntern,
+    );
+  }
+
+  /**
+   * @deprecated Use `helperTextValidation' instead.
+   *
    * Styles the helper text as a validation message.
    */
   @Prop() helperValidation?: boolean;
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() helperTextValidation: boolean;
+
+  @Watch('helperValidation')
+  @Watch('helperTextValidation')
+  onHelperTextValidationChanged(): void {
+    this.mdcHelperText.foundationForTextField.setValidation(
+      this.error || this.helperTextValidation,
+    );
+  }
 
   /**
    * The optional floating label of this input field.
@@ -245,7 +296,7 @@ export class Input implements ComponentInterface {
     e.stopPropagation();
   }
 
-  @Listen('focus')
+  @Listen('focus', {})
   focusListener() {
     this.mdcTextfield?.focus();
   }
@@ -269,13 +320,6 @@ export class Input implements ComponentInterface {
       this.mdcTextfield.useNativeValidation = false;
     }
 
-    if (this.helper) {
-      const helperTextEl = document.querySelector(
-        '.mdc-text-field-helper-text',
-      );
-      this.mdcHelperText = new MDCTextFieldHelperText(helperTextEl);
-    }
-
     if (
       hasSlotContent(this.el, 'ino-icon-leading') ||
       hasSlotContent(this.el, 'ino-icon-trailing')
@@ -290,13 +334,25 @@ export class Input implements ComponentInterface {
       this.setFocus();
     }
 
-    if (this.dataList) {
+    if (this.dataList != null) {
       this.nativeInputEl.setAttribute('list', this.dataList);
       // see https://github.com/ionic-team/stencil/issues/1582
     }
 
-    this.errorHandler(this.error);
     this.el.setAttribute('tabindex', '-1');
+
+    this.initHelperText();
+    this.handleInputProps();
+  }
+
+  private handleInputProps(): void {
+    this.onErrorChanged();
+  }
+
+  private initHelperText(): void {
+    this.mdcHelperText = initHelperText(this.el);
+    this.onHelperTextPeristentChanged();
+    this.onHelperTextValidationChanged();
   }
 
   componentDidRender() {
@@ -373,7 +429,7 @@ export class Input implements ComponentInterface {
   private handleNativeInputChange = (e) => {
     let value = e.target.value;
 
-    if (this.userInputInterceptorFn) {
+    if (this.userInputInterceptorFn != null) {
       value = this.userInputInterceptorFn(value);
       this.textfieldValue = value || '';
     }
@@ -390,15 +446,15 @@ export class Input implements ComponentInterface {
     }
   };
 
-  private handleBlur = (e) => {
+  private handleBlur = () => {
     if (this.type === 'email') {
       this.mdcTextfield.valid = this.nativeInputEl.checkValidity();
     }
-    this.inoBlur.emit(e);
+    this.inoBlur.emit();
   };
 
-  private handleFocus = (e) => {
-    this.inoFocus.emit(e);
+  private handleFocus = () => {
+    this.inoFocus.emit();
   };
 
   private handleInputNumberArrowClick = (shouldIncrement: boolean) => {
@@ -408,7 +464,7 @@ export class Input implements ComponentInterface {
       : stepWithFallback * -1;
 
     const value = Number(this.value.replace(',', '.'));
-    const precision = value ? getPrecision(value) : 0;
+    const precision = value != null ? getPrecision(value) : 0;
     const opts = {
       minimumFractionDigits: precision,
       maximumFractionDigits: precision,
@@ -423,32 +479,41 @@ export class Input implements ComponentInterface {
   // Internal getters and setters
   // ----
 
+  private get helperTextIntern(): string {
+    return this.helperText ?? this.helper;
+  }
+
+  private get helperTextPersistentIntern(): boolean {
+    return this.helperTextPersistent ?? this.helperPersistent;
+  }
+
+  private get showCharacterCounterIntern(): boolean {
+    return this.showCharacterCounter ?? this.helperCharacterCounter;
+  }
+
   private set textfieldValue(value: string) {
-    if (this.mdcTextfield) {
+    if (this.mdcTextfield != null) {
       this.mdcTextfield.value = value;
     }
-    if (this.nativeInputEl) {
+    if (this.nativeInputEl != null) {
       this.nativeInputEl.value = value;
     }
   }
 
+  private setValid = () => {
+    this.mdcTextfield.valid = false;
+    this.mdcTextfield.useNativeValidation = false;
+  };
+
+  private setInvalid = (): void => {
+    this.mdcTextfield.valid = true;
+    this.mdcTextfield.useNativeValidation = true;
+    this.nativeInputEl.checkValidity();
+  };
+
   // ----
   // Rendering
   // ----
-
-  private helperTextTemplate() {
-    const classHelperText = classNames({
-      'mdc-text-field-helper-text': true,
-      'mdc-text-field-helper-text--persistent': this.helperPersistent,
-      'mdc-text-field-helper-text--validation-msg': !!this.helperValidation,
-    });
-
-    return (
-      <div class={classHelperText} id={this.uniqueHelperId} aria-hidden="true">
-        {this.helper}
-      </div>
-    );
-  }
 
   private characterCounterTemplate() {
     return (
@@ -459,15 +524,15 @@ export class Input implements ComponentInterface {
   }
 
   render() {
-    const hasHelperText = Boolean(this.helper);
+    const hasHelperText = Boolean(this.helperTextIntern);
     const hasCharacterCounter = Boolean(
-      this.helperCharacterCounter && !Number.isNaN(this.maxlength),
+      this.showCharacterCounterIntern && !Number.isNaN(this.maxlength),
     );
 
     const leadingIconSlot = hasSlotContent(this.el, 'icon-leading');
     const trailingIconSlot = hasSlotContent(this.el, 'icon-trailing');
 
-    const classTextfield = classNames({
+    const classTextfield: Record<string, boolean> = {
       'ino-input__composer': true,
       'mdc-text-field': true,
       'mdc-text-field--disabled': this.disabled,
@@ -476,11 +541,13 @@ export class Input implements ComponentInterface {
       'mdc-text-field--outlined': this.outline,
       'mdc-text-field--box': !this.outline,
       'mdc-text-field--with-leading-icon': leadingIconSlot,
-      'mdc-text-field--with-trailing-icon': trailingIconSlot || this.unit,
-      'mdc-text-field--no-label': !this.label,
+      'mdc-text-field--with-trailing-icon':
+        trailingIconSlot || this.unit != null,
+      'mdc-text-field--no-label': this.label == null,
       'mdc-text-field--has-helpertext': hasHelperText,
-      'mdc-text-field--has-helpertext-persistent': this.helperPersistent,
-    });
+      'mdc-text-field--has-helpertext-persistent':
+        this.helperTextPersistentIntern,
+    };
 
     return (
       <Host>
@@ -515,8 +582,8 @@ export class Input implements ComponentInterface {
             required={this.required}
             type={this.type}
             value={this.value}
-            aria-controls={this.helper && this.uniqueHelperId}
-            aria-describedby={this.helper && this.uniqueHelperId}
+            aria-controls={this.helperTextIntern && this.uniqueHelperId}
+            aria-describedby={this.helperTextIntern && this.uniqueHelperId}
             onInput={this.handleNativeInputChange.bind(this)}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
@@ -547,10 +614,11 @@ export class Input implements ComponentInterface {
             </span>
           )}
         </span>
-        <div class="mdc-text-field-helper-line">
-          {hasHelperText && this.helperTextTemplate()}
-          {hasCharacterCounter && this.characterCounterTemplate()}
-        </div>
+        {helperTextTemplate(
+          this.uniqueHelperId,
+          this.helperText,
+          hasCharacterCounter && this.characterCounterTemplate(),
+        )}
       </Host>
     );
   }

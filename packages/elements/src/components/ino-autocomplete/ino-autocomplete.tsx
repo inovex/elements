@@ -7,11 +7,13 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   Watch,
 } from '@stencil/core';
 import autoComplete from '@tarekraafat/autocomplete.js';
 import { KeyValue } from '../types';
+import { FormInputWithHelperText } from '../base/form-input/form-input-with-helper-text';
 
 type Selection = { value: string | KeyValue };
 
@@ -37,7 +39,9 @@ type Selection = { value: string | KeyValue };
   styleUrl: 'ino-autocomplete.scss',
   shadow: false,
 })
-export class Autocomplete implements ComponentInterface {
+export class Autocomplete
+  implements FormInputWithHelperText, ComponentInterface
+{
   @Element() el: HTMLInoAutocompleteElement;
 
   private listEl: HTMLDivElement;
@@ -83,10 +87,114 @@ export class Autocomplete implements ComponentInterface {
     // checken ob val mit einer der optionen übereinstimmt
     // grayInputText true setzen wenn nicht gleich
 
-    if (this.inoInputEl) this.inoInputEl.value = val;
-    if (this.inputEl)
+    if (this.inoInputEl != null) {
+      this.inoInputEl.value = val;
+    }
+    if (this.inputEl != null) {
       this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
+    }
+
     this.styleInputSelected();
+  }
+
+  /**
+   * Disables this element.
+   */
+  @Prop() disabled?: boolean;
+
+  @Watch('disabled')
+  onDisabledChanged(): void {
+    this.inoInputEl.disabled = this.disabled;
+  }
+
+  /**
+   * Marks this element as required.
+   */
+  @Prop() required?: boolean;
+
+  @Watch('required')
+  onRequiredChanged(): void {
+    this.inoInputEl.required = this.required;
+  }
+
+  /**
+   * The label of this input field.
+   */
+  @Prop() label?: string;
+
+  @Watch('label')
+  onLabelChanged(): void {
+    this.inoInputEl.label = this.label;
+  }
+
+  /**
+   * Displays the input field as invalid if set to true.
+   * This functionality might be useful if the input validation is (additionally) handled by the backend.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  onErrorChanged(): void {
+    this.inoInputEl.error = this.error;
+  }
+
+  /**
+   * If true, an *optional* message is displayed if not required,
+   * otherwise a * marker is displayed if required
+   */
+  @Prop() showLabelHint?: boolean;
+
+  @Watch('showLabelHint')
+  onShowLabelHintChanged(): void {
+    this.inoInputEl.showLabelHint = this.showLabelHint;
+  }
+
+  /**
+   * The optional helper text.
+   */
+  @Prop() helperText?: string;
+
+  @Watch('helperText')
+  onHelperTextChanged(): void {
+    this.inoInputEl.helperText = this.helperText;
+  }
+
+  /**
+   * Displays the helper permanently.
+   */
+  @Prop() helperTextPersistent?: boolean;
+
+  @Watch('helperTextPersistent')
+  onHelperTextPeristentChanged(): void {
+    this.inoInputEl.helperTextPersistent = this.helperTextPersistent;
+  }
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() helperTextValidation?: boolean;
+
+  @Watch('helperTextValidation')
+  onHelperTextValidationChanged(): void {
+    this.inoInputEl.helperTextValidation = this.helperTextValidation;
+  }
+
+  /**
+   * Sets focus on the native `input`.
+   * Use this method instead of the global `input.focus()`.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.inoInputEl?.setFocus();
+  }
+
+  /**
+   * Sets blur on the native `input`.
+   * Use this method instead of the global `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    this.inoInputEl?.setBlur();
   }
 
   /**
@@ -118,7 +226,7 @@ export class Autocomplete implements ComponentInterface {
           : match.value) === query,
     );
 
-    if (exactMatch) {
+    if (exactMatch != null) {
       this.valueChange.emit(exactMatch.value);
     } else {
       this.valueChange.emit(null);
@@ -129,6 +237,22 @@ export class Autocomplete implements ComponentInterface {
   componentDidLoad() {
     this.initComponents();
     this.initAutocomplete();
+    this.initHelperText();
+    this.handleInputProps();
+  }
+
+  private initHelperText(): void {
+    this.onHelperTextChanged();
+    this.onHelperTextPeristentChanged();
+    this.onHelperTextValidationChanged();
+  }
+
+  private handleInputProps(): void {
+    this.onLabelChanged();
+    this.onRequiredChanged();
+    this.onDisabledChanged();
+    this.onShowLabelHintChanged();
+    this.onErrorChanged();
   }
 
   connectedCallback() {
@@ -154,9 +278,12 @@ export class Autocomplete implements ComponentInterface {
     );
 
     this.inoInputEl = this.el.querySelector('ino-input');
-    this.inputEl = this.el.querySelector('input');
+    if (!this.inoInputEl.hasAttribute('label')) {
+      this.inoInputEl.label = '';
+    }
+    this.inputEl = this.inoInputEl.querySelector('input');
 
-    if (!this.inoInputEl) {
+    if (this.inoInputEl == null) {
       throw new Error(
         `[ino-autocomplete] No <ino-input> element found in default slot.`,
       );
@@ -206,26 +333,25 @@ export class Autocomplete implements ComponentInterface {
 
     this.autocomplete = new autoComplete(options);
 
-    if (this.value) this.onValueChange(this.value);
+    if (this.value != null) this.onValueChange(this.value);
   }
 
   private createNoMatchMessage(query: string): HTMLDivElement {
     const message = document.createElement('div');
-    message.setAttribute(
-      'class',
+    message.classList.add(
       'ino-autocomplete__list-item ino-autocomplete__list-item--no-match',
     );
     // Add message text content
-    message.innerHTML = `<span>${this.noOptionsText.replace(
-      '$',
-      query,
-    )}</span>`;
+    message.innerHTML = `
+    <span>
+      ${this.noOptionsText.replace('$', query)}
+    </span>`;
 
     return message;
   }
 
   private resetInput(): void {
-    if (this.inoInputEl) this.inoInputEl.value = '';
+    if (this.inoInputEl != null) this.inoInputEl.value = '';
   }
 
   private static isKeyValue(value: string | KeyValue): value is KeyValue {
@@ -236,13 +362,14 @@ export class Autocomplete implements ComponentInterface {
 
   private styleInputSelected = () =>
     this.inoInputEl?.classList.remove(Autocomplete.UNSELECTED_INPUT_CLASS);
+
   private styleInputUnselected = () =>
     this.inoInputEl?.classList.add(Autocomplete.UNSELECTED_INPUT_CLASS);
 
   render() {
     return (
       <Host>
-        <slot></slot>
+        <slot />
         <div ref={(el) => (this.listEl = el)}></div>
       </Host>
     );

@@ -3,7 +3,7 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, hideDeprecatedHelper } from '../utils';
 import './ino-input.scss';
 
 export default {
@@ -38,25 +38,27 @@ export default {
     dataList: '',
     disabled: false,
     error: false,
-    helper: 'Helper message',
-    helperCharacterCounter: false,
-    helperPersistent: false,
-    helperValidation: false,
+    helperText: 'Helper message',
+    helperTextPersistent: false,
+    helperTextValidation: false,
     label: 'Input label',
     min: '',
     max: '',
     maxlength: 100,
     outline: false,
     name: '',
-    pattern: '*',
+    pattern: 'abc',
     placeholder: '',
     required: false,
+    showCharacterCounter: false,
     showLabelHint: false,
-    size: 0,
     step: 5,
     type: 'text',
     unit: '',
     value: '',
+  },
+  argTypes: {
+    ...hideDeprecatedHelper(),
   },
 } as Meta<Components.InoInput>;
 
@@ -71,10 +73,10 @@ const template = new TemplateGenerator<Components.InoInput>(
       data-list="${args.dataList}"
       disabled="${args.disabled}"
       error="${args.error}"
-      helper="${args.helper}"
-      helper-character-counter="${args.helperCharacterCounter}"
-      helper-persistent="${args.helperPersistent}"
-      helper-validation="${args.helperValidation}"
+      helper-text="${args.helperText}"
+      show-character-counter="${args.showCharacterCounter}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
       label="${args.label}"
       min="${args.min}"
       max="${args.max}"
@@ -85,7 +87,6 @@ const template = new TemplateGenerator<Components.InoInput>(
       placeholder="${args.placeholder}"
       required="${args.required}"
       show-label-hint="${args.showLabelHint}"
-      size=${args.size}
       step="${args.step}"
       type="${args.type}"
       unit="${args.unit}"

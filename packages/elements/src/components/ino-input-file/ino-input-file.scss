@@ -1,5 +1,6 @@
 @use '../base/theme';
 @use '../base/typography';
+@use '../base/form-input';
 
 ino-input-file {
   /**
@@ -11,45 +12,58 @@ ino-input-file {
 }
 
 ino-input-file {
-  .ino-input-file__native-element {
-    visibility: hidden;
-    height: 0;
-    width: 0;
-  }
+  .ino-input-file {
+    padding: 0;
+    @include form-input.helperText();
 
-  .ino-input-file__dnd {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border: 2px dashed theme.color(primary);
-    border-radius: 20px;
-    height: var(--input-file-box-height);
-    width: var(--input-file-box-width);
-
-    .ino-input-file__dnd-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      margin-bottom: 15px;
-
-      label {
-        color: theme.color(primary);
-        @include typography.font($size: l);
+    .ino-input-file__button {
+      .show-hint {
+        &:after {
+          content: '*';
+        }
       }
     }
 
-    &.ino-input-file__dnd-dragover:not(.ino-input-file__dnd-disabled) {
-      background-color: lighten(theme.color(primary), 38%);
+    .ino-input-file__native-element {
+      visibility: hidden;
+      height: 0;
+      width: 0;
     }
 
-    &.ino-input-file__dnd-disabled {
-      background-color: theme.color(light, light);
-      border: 2px solid theme.color(light, light);
-      label {
-        color: theme.color(dark);
+    &.ino-input-file__dnd {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      border: 2px dashed theme.color(primary);
+      border-radius: 20px;
+      height: var(--input-file-box-height);
+      width: var(--input-file-box-width);
+
+      .ino-input-file__dnd-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 15px;
+
+        label {
+          color: theme.color(primary);
+          @include typography.font($size: l);
+        }
+      }
+
+      &.ino-input-file__dnd-dragover:not(.ino-input-file__dnd-disabled) {
+        background-color: lighten(theme.color(primary), 38%);
+      }
+
+      &.ino-input-file__dnd-disabled {
+        background-color: theme.color(light, light);
+        border: 2px solid theme.color(light, light);
+        label {
+          color: theme.color(dark);
+        }
       }
     }
   }

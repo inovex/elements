@@ -7,14 +7,25 @@ import {
   Event,
   EventEmitter,
   Host,
+  Method,
   Prop,
   Watch,
   h,
 } from '@stencil/core';
-import classNames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
+import { CssClasses } from '../internal-types';
+import {
+  HasHelperText,
+  IsFormInput,
+} from '../base/form-input/form-input-with-helper-text';
+import { MDCTextFieldHelperText } from '@material/textfield';
+import {
+  helperTextTemplate,
+  initHelperText,
+  updateValidityOnErrorChanged,
+} from '../base/form-input/helper-text';
 
 /**
  * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
@@ -26,12 +37,31 @@ import { renderHiddenInput } from '../../util/helpers';
   styleUrl: 'ino-checkbox.scss',
   shadow: true,
 })
-export class Checkbox implements ComponentInterface {
+export class Checkbox
+  implements IsFormInput, HasHelperText, ComponentInterface
+{
+  @Element() el!: HTMLInoCheckboxElement;
+
+  private static HELPER_COUNTER = 0;
+
+  private static generateHelperTextId() {
+    return `checkbox-helper-text__${Checkbox.HELPER_COUNTER++}`;
+  }
+
   private checkboxInstance: MDCCheckbox;
   private formField: MDCFormField;
   private nativeInputEl!: HTMLInputElement;
+  private checkboxId = `ino-checkbox-id_${generateUniqueId()}`;
+  private mdcHelperText: MDCTextFieldHelperText;
+  private uniqueHelperId = Checkbox.generateHelperTextId();
 
-  @Element() el!: HTMLInoCheckboxElement;
+  get helperTextInstance() {
+    return this.mdcHelperText;
+  }
+
+  get nativeElement() {
+    return this.nativeInputEl;
+  }
 
   /**
    * Marks this element as checked. (**unmanaged**)
@@ -40,7 +70,7 @@ export class Checkbox implements ComponentInterface {
 
   @Watch('checked')
   checkedChanged(newChecked: boolean) {
-    if (this.checkboxInstance) {
+    if (this.checkboxInstance != null) {
       this.checkboxInstance.checked = newChecked;
     }
   }
@@ -49,6 +79,80 @@ export class Checkbox implements ComponentInterface {
    * Disables this element.
    */
   @Prop() disabled?: boolean;
+
+  /**
+   * Marks this element as required.
+   */
+  @Prop() required?: boolean;
+
+  /**
+   * The label of this checkbox.
+   */
+  @Prop() label?: string;
+
+  /**
+   * Displays the checkbox as invalid if set to true.
+   * This functionality might be useful if the input validation is (additionally) handled by the backend.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  onErrorChanged() {
+    updateValidityOnErrorChanged(this);
+  }
+
+  /**
+   * If true, an *optional* message is displayed if not required,
+   * otherwise a * marker is displayed if required
+   */
+  @Prop() showLabelHint?: boolean;
+
+  /**
+   * The optional helper text.
+   */
+  @Prop() helperText?: string;
+
+  /**
+   * Displays the helper permanently.
+   */
+  @Prop() helperTextPersistent?: boolean;
+
+  @Watch('helperTextPersistent')
+  onHelperTextPeristentChanged(): void {
+    this.mdcHelperText?.foundationForTextField.setPersistent(
+      this.helperTextPersistent,
+    );
+  }
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() helperTextValidation?: boolean;
+
+  @Watch('helperTextValidation')
+  onHelperTextValidationChanged(): void {
+    this.mdcHelperText?.foundationForTextField.setValidation(
+      this.helperTextValidation,
+    );
+  }
+
+  /**
+   * Sets focus on the native `input`.
+   * Use this method instead of the global `input.focus()`.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.nativeInputEl.focus();
+  }
+
+  /**
+   * Sets blur on the native `input`.
+   * Use this method instead of the global `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    this.nativeInputEl?.blur();
+  }
 
   /**
    * The name of this element.
@@ -80,8 +184,6 @@ export class Checkbox implements ComponentInterface {
     this.checkboxInstance.indeterminate = newValue;
   }
 
-  private checkboxId = `ino-checkbox-id_${generateUniqueId()}`;
-
   componentDidLoad() {
     this.checkboxInstance = new MDCCheckbox(
       this.el.shadowRoot.querySelector('.mdc-checkbox'),
@@ -90,14 +192,26 @@ export class Checkbox implements ComponentInterface {
       this.el.shadowRoot.querySelector('.mdc-form-field'),
     );
     this.formField.input = this.checkboxInstance;
-
     if (this.indeterminate) {
       this.checkboxInstance.indeterminate = true;
     }
+    this.initHelperText();
+    this.handleInputProps();
+  }
+
+  private handleInputProps(): void {
+    this.onErrorChanged();
+  }
+
+  private initHelperText(): void {
+    this.mdcHelperText = initHelperText(this.el.shadowRoot);
+    this.onHelperTextPeristentChanged();
+    this.onHelperTextValidationChanged();
   }
 
   disconnectedCallback() {
     this.checkboxInstance?.destroy();
+    this.mdcHelperText?.destroy();
     this.formField?.destroy();
   }
 
@@ -113,20 +227,24 @@ export class Checkbox implements ComponentInterface {
   };
 
   render() {
-    const { el, name, checked, value, disabled } = this;
+    const { el, name, checked, value, disabled, required } = this;
 
-    const checkboxClasses = classNames({
+    const formfieldClasses: CssClasses = {
+      'mdc-form-field': true,
+    };
+
+    const checkboxClasses: CssClasses = {
       'mdc-checkbox': true,
       'mdc-checkbox--disabled': disabled,
       'ino-checkbox-selection': this.selection,
       'ino-checkbox--indeterminate': this.indeterminate,
-    });
+    };
 
     renderHiddenInput(el, name, checked ? value : '', disabled);
 
     return (
       <Host>
-        <div class="mdc-form-field">
+        <div class={formfieldClasses}>
           <div class={checkboxClasses}>
             <input
               type="checkbox"
@@ -137,6 +255,7 @@ export class Checkbox implements ComponentInterface {
               ref={(input) => (this.nativeInputEl = input as HTMLInputElement)}
               onChange={(e) => e.stopPropagation()}
               onInput={this.handleInput}
+              required={required}
             />
             <div class="mdc-checkbox__background">
               <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
@@ -150,10 +269,14 @@ export class Checkbox implements ComponentInterface {
               <div class="mdc-checkbox__mixedmark" />
             </div>
           </div>
-          <label htmlFor={this.checkboxId}>
-            <slot></slot>
+          <label
+            htmlFor={this.checkboxId}
+            class={{ 'show-hint': this.showLabelHint }}
+          >
+            {this.label || <slot />}
           </label>
         </div>
+        {helperTextTemplate(this.uniqueHelperId, this.helperText)}
       </Host>
     );
   }

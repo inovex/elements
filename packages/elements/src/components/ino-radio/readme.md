@@ -18,6 +18,7 @@ Clicking on the radio button triggers an event that contains the boolean value `
 | ---------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
 | `checked`  | `checked`  | Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically. | `boolean` | `false`     |
 | `disabled` | `disabled` | Disables this element.                                                                                                                                     | `boolean` | `undefined` |
+| `error`    | `error`    | Displays the range input as invalid if set to true. This functionality might be useful if the input validation is (additionally) handled by the backend.   | `boolean` | `undefined` |
 | `name`     | `name`     | The name of this element. Use the same name for radio groups                                                                                               | `string`  | `undefined` |
 | `value`    | `value`    | The value of this element.                                                                                                                                 | `string`  | `undefined` |
 
@@ -27,6 +28,31 @@ Clicking on the radio button triggers an event that contains the boolean value `
 | Event           | Description                                                                                                                                                                | Type               |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false. | `CustomEvent<any>` |
+
+
+## Methods
+
+### `setBlur() => Promise<void>`
+
+Sets blur on the native `input`.
+Use this method instead of the global `input.blur()`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the native `input`.
+Use this method instead of the global `input.focus()`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Slots

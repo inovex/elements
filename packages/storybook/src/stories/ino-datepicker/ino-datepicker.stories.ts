@@ -4,7 +4,7 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import moment from 'moment';
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, hideDeprecatedHelper } from '../utils';
 import './ino-datepicker.scss';
 import { registerInlineDatepickerHandler } from './utils';
 
@@ -36,9 +36,9 @@ export default {
     attachToBody: true,
     disabled: false,
     dateFormat: 'Y-m-d',
-    helper: 'Helper text to describe the input',
-    helperPersistent: false,
-    helperValidation: false,
+    helperText: 'Helper text to describe the input',
+    helperTextPersistent: false,
+    helperTextValidation: false,
     inline: false,
     label: 'Label',
     min: minDate,
@@ -52,6 +52,9 @@ export default {
     type: 'date',
     value: defaultDate,
   },
+  argTypes: {
+    ...hideDeprecatedHelper(),
+  },
 } as Meta<Components.InoDatepicker>;
 
 const template = new TemplateGenerator<Components.InoDatepicker>(
@@ -62,10 +65,10 @@ const template = new TemplateGenerator<Components.InoDatepicker>(
       attach-to-body="${args.attachToBody}"
       disabled="${args.disabled}"
       date-format="${args.dateFormat}"
-      helper="${args.helper}"
+      helper-text="${args.helperText}"
       inline="${args.inline}"
-      helper-persistent="${args.helperPersistent}"
-      helper-validation="${args.helperValidation}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
       label="${args.label}"
       min="${args.min}"
       max="${args.max}"
@@ -77,7 +80,7 @@ const template = new TemplateGenerator<Components.InoDatepicker>(
       twelve-hour-time="${args.twelveHourTime}"
       type="${args.type}"
       value="${args.value}"
-    ></ino-datepicker>
+    />
   `,
 );
 export const Playground = template.generatePlaygroundStory();

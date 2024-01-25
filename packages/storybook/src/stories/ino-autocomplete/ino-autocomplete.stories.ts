@@ -15,6 +15,14 @@ export default {
   },
   decorators: [(story) => decorateStoryWithClass(story)],
   args: {
+    label: 'Label',
+    required: false,
+    showLabelHint: false,
+    disabled: false,
+    error: false,
+    helperText: 'Helper text for autocomplete',
+    helperTextPersistent: false,
+    helperTextValidation: false,
     debounce: 100,
     options: [
       {
@@ -46,8 +54,16 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
       value="${args.value}"
       @valueChange="${inputHandler}"
       style="margin: 50px"
+      label="${args.label}"
+      required="${args.required}"
+      show-label-hint="${args.showLabelHint}"
+      error="${args.error}"
+      disabled="${args.disabled}"
+      helper-text="${args.helperText}"
+      helper-text-persistent="${args.helperTextPersistent}"
+      helper-text-validation="${args.helperTextValidation}"
     >
-      <ino-input></ino-input>
+      <ino-input />
     </ino-autocomplete>
   </div>
 `;

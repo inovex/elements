@@ -19,6 +19,7 @@ import { hasSlotContent } from '../../util/component-utils';
 import { getDatepickerLocale } from './local';
 import { createPicker, PickerOption, PickerTypeKeys } from './picker-factory';
 import { Validator } from './validator';
+import { FormInputWithHelperText } from '../base/form-input/form-input-with-helper-text';
 
 /**
  * A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
@@ -38,7 +39,7 @@ import { Validator } from './validator';
   styleUrl: 'ino-datepicker.scss',
   shadow: false,
 })
-export class Datepicker implements ComponentInterface {
+export class Datepicker implements FormInputWithHelperText, ComponentInterface {
   @Element() el!: HTMLInoDatepickerElement;
 
   private flatpickr!: Instance;
@@ -140,19 +141,40 @@ export class Datepicker implements ComponentInterface {
   @Prop() label?: string;
 
   /**
+   * @deprecated Use `helperText' instead.
+   *
    * The helper text.
    */
   @Prop() helper?: string;
 
   /**
+   * The helper text.
+   */
+  @Prop() helperText?: string;
+
+  /**
+   * @deprecated Use `helperTextPersistent' instead.
+   *
    * Displays the helper permanently.
    */
   @Prop() helperPersistent?: boolean;
 
   /**
+   * Displays the helper permanently.
+   */
+  @Prop() helperTextPersistent?: boolean;
+
+  /**
+   * @deprecated Use `helperTextValidation' instead.
+   *
    * Styles the helper text as a validation message.
    */
   @Prop() helperValidation?: boolean;
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() helperTextValidation?: boolean;
 
   /**
    * Displays the datepicker inlined.
@@ -282,7 +304,7 @@ export class Datepicker implements ComponentInterface {
     this.flatpickr?.set('hourIncrement', value);
   }
 
-  @Listen('click')
+  @Listen('click', {})
   inoInputClickedHandler(e) {
     const target = e.target;
 
@@ -322,13 +344,10 @@ export class Datepicker implements ComponentInterface {
       return;
     }
 
-    switch (value) {
-      case true:
-      case false:
-        this.isValid = !value;
-        break;
-      default:
-        this.validate();
+    if (value != null) {
+      this.isValid = !value;
+    } else {
+      this.validate();
     }
   }
 
@@ -376,12 +395,9 @@ export class Datepicker implements ComponentInterface {
     this.maybeCreate();
   }
 
-  componentWillLoad() {
-    this.value && this.errorHandler(this.error);
-  }
-
   componentDidLoad() {
     this.maybeCreate();
+    this.errorHandler(this.error);
   }
 
   disconnectedCallback() {
@@ -404,7 +420,7 @@ export class Datepicker implements ComponentInterface {
     }
     const target = this.el.querySelector('ino-input') as HTMLElement;
 
-    if (this.disabled || !target) {
+    if (this.disabled || target == null) {
       return;
     }
 
@@ -421,7 +437,7 @@ export class Datepicker implements ComponentInterface {
       onValueUpdate: (_, newValue) => this.valueChange.emit(newValue),
     };
 
-    if (this.appendTo) {
+    if (this.appendTo != null) {
       sharedOptions.appendTo = document.getElementById(this.appendTo);
     }
     if (this.inline) {
@@ -430,9 +446,9 @@ export class Datepicker implements ComponentInterface {
     }
 
     const typeSpecificOptions: PickerOption = createPicker(this.type, {
-      defaultHour: !this.value && this.defaultHour,
-      defaultMinute: !this.value && this.defaultMinute,
-      defaultDate: !this.value && this.defaultDate,
+      defaultHour: this.value == null && this.defaultHour,
+      defaultMinute: this.value == null && this.defaultMinute,
+      defaultDate: this.value == null && this.defaultDate,
       enableTime: true,
       time_24hr: !this.twelveHourTime,
       minuteIncrement: this.minuteStep,
@@ -448,7 +464,7 @@ export class Datepicker implements ComponentInterface {
     const options = { ...sharedOptions, ...typeSpecificOptions };
     this.flatpickr = flatpickr(target, options);
 
-    if (this.value) {
+    if (this.value != null) {
       this.flatpickr?.setDate(this.value);
     }
   }
@@ -456,6 +472,18 @@ export class Datepicker implements ComponentInterface {
   private maybeDispose() {
     this.flatpickr?.destroy();
     this.flatpickr = null;
+  }
+
+  private get helperTextIntern(): string {
+    return this.helperText ?? this.helper;
+  }
+
+  private get helperTextPersistentIntern(): boolean {
+    return this.helperTextPersistent ?? this.helperPersistent;
+  }
+
+  private get helperTextValidationIntern(): boolean {
+    return this.helperTextValidation ?? this.helperValidation;
   }
 
   render() {
@@ -475,11 +503,11 @@ export class Datepicker implements ComponentInterface {
           error={!this.isValid}
           icon-leading
           value={this.value}
-          helper={this.helper}
+          helperText={this.helperTextIntern}
+          helper-text-persistent={this.helperTextPersistentIntern}
+          helper-text-validation={this.helperTextValidationIntern}
           placeholder={this.placeholder}
           outline={this.outline}
-          helper-persistent={this.helperPersistent}
-          helper-validation={this.helperValidation}
           show-label-hint={this.showLabelHint}
           onValueChange={(e) => this.valueChange.emit(e.detail)}
           ref={(inoInputEl) => (this.inoInputEl = inoInputEl)}
