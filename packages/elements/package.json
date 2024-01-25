@@ -41,6 +41,10 @@
   "files": [
     "dist/"
   ],
+  "scripts": {
+    "test:e2e": "stencil test --e2e --no-build",
+    "test:ino-range-e2e": "stencil test --e2e --no-build -t 'ino-range.e2e.ts'"
+  },
   "dependencies": {
     "@hedgedoc/markdown-it-task-lists": "^1.0.3",
     "@material/button": "^13.0.0",

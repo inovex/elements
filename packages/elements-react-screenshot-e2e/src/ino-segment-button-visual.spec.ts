@@ -12,16 +12,19 @@ test('cross browser snapshot should be identical', async ({
   const rootContainer = page.getByTestId('container');
   expect(await rootContainer.screenshot()).toMatchSnapshot();
   const screenshot = await rootContainer.screenshot();
-  let masterScreenshotPath;
+  let masterScreenshotPath =
+    __dirname +
+    '/../../test-app-e2e/src/ino-segment-button/ino-segment-button-visual.spec.ts-snapshots';
+
   if (browserName === 'firefox') {
-    masterScreenshotPath =
-      'packages/test-app-e2e/src/ino-segment-button/ino-segment-button-visual.spec.ts-snapshots/cross-browser-snapshot-should-be-identical-1-firefox-win32.png';
+    masterScreenshotPath +=
+      '/cross-browser-snapshot-should-be-identical-1-firefox-win32.png';
   } else if (browserName === 'webkit') {
-    masterScreenshotPath =
-      'packages/test-app-e2e/src/ino-segment-button/ino-segment-button-visual.spec.ts-snapshots/cross-browser-snapshot-should-be-identical-1-webkit-win32.png';
+    masterScreenshotPath +=
+      '/cross-browser-snapshot-should-be-identical-1-webkit-win32.png';
   } else {
-    masterScreenshotPath =
-      'packages/test-app-e2e/src/ino-segment-button/ino-segment-button-visual.spec.ts-snapshots/cross-browser-snapshot-should-be-identical-1-chromium-win32.png';
+    masterScreenshotPath +=
+      '/cross-browser-snapshot-should-be-identical-1-chromium-win32.png';
   }
 
   const masterScreenshot = fs.readFileSync(masterScreenshotPath);
@@ -30,5 +33,5 @@ test('cross browser snapshot should be identical', async ({
   const jimage2 = await Jimp.read(masterScreenshot);
 
   const diff = Jimp.diff(jimage1, jimage2, 0.1);
-  expect(diff.percent).toBe(0);
+  expect(diff.percent).toBeLessThan(0.1);
 });

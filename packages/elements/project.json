@@ -38,6 +38,9 @@
         },
         "screenshot": {
           "command": "stencil test --e2e --screenshot --no-build"
+        },
+        "comparison-e2e": {
+          "command": "stencil test --e2e --no-build --spec packages/elements/src/components/ino-range/ino-range.e2e.ts"
         }
       }
     },

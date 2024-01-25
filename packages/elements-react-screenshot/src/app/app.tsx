@@ -32,7 +32,7 @@ export function App() {
               ranged={true}
               min={0}
               max={100}
-              value-start={50}
+              value-start={20}
               value-end={70}
             ></InoRange>
           </div>

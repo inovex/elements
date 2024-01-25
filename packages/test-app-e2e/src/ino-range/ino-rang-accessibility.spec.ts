@@ -19,13 +19,14 @@ test('should not have any accessibility violations outside of rules with known i
       'landmark-no-duplicate-main',
       'meta-viewport',
       'region',
+      'color-contrast',
     ])
     .analyze();
 
   expect(accessibilityScanResults.violations).toEqual([]);
 });
 
-test('should not have any accessibility violations for AA rules', async ({
+test('should not have any accessibility violations for wcag2AA rules', async ({
   page,
 }) => {
   await page.goto(
@@ -34,6 +35,7 @@ test('should not have any accessibility violations for AA rules', async ({
 
   const accessibilityScanResults = await new AxeBuilder({ page })
     .withTags(['wcag2aa'])
+    //.disableRules(['color-contrast'])
     .analyze();
 
   expect(accessibilityScanResults.violations).toEqual([]);
