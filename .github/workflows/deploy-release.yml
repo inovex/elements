@@ -34,6 +34,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.PUSH_PAT }}
       - name: Track master branch to make nx affected work
         run: git branch --track main origin/master
       - uses: actions/setup-node@v3
