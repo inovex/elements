@@ -2,6 +2,8 @@ name: 'Deploy Pre-Release'
 
 on:
   push:
+    branches:
+      - master
     paths:
       - packages/elements/**
       - packages/elements-angular/**
