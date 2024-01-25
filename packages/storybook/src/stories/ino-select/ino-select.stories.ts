@@ -110,7 +110,7 @@ export const HelperMessageValidation = template.generateStoryForProp(
 
 const templateWithIcon = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
-  (args) => html`
+  () => html`
     <div style="height: 400px;">
       <ino-select label="Select with leading icon">
         <ino-icon slot="icon-leading" icon="user"></ino-icon>
@@ -137,7 +137,7 @@ export const WithIcon = templateWithIcon.generatePlaygroundStory();
 
 const templateForm = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
-  (args) => html`
+  () => html`
     <form>
       <p>Form should not submit if no value is selected</p>
       <ino-select required> ${optionsTemplate} </ino-select>

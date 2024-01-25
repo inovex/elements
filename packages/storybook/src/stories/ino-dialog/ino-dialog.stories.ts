@@ -18,7 +18,7 @@ export default {
     (story) => {
       useEffect(() => {
         // Open
-        const handleOpen = (e: any) => {
+        const handleOpen = (e) => {
           const dialog = document.getElementById(
             e.target.parentElement.getAttribute('data-dialog-id'),
           ) as HTMLInoDialogElement;
@@ -30,7 +30,7 @@ export default {
 
         // Close
         const dialogs = document.querySelectorAll('ino-dialog');
-        const handleClose = (e: any) => {
+        const handleClose = (e) => {
           e.target.open = false;
           if (e.target.id == 'demo-action-dialog') {
             const snackbar = document.createElement(

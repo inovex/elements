@@ -86,7 +86,7 @@ export const Searched = template.generateStoryForProp('searched', true);
 const templateSearchWithDatepicker =
   new TemplateGenerator<Components.InoTableHeaderCell>(
     'ino-table-header-cell',
-    (args) => html`
+    () => html`
       ${useEffect(registerInlineDatepickerHandler)}
       <ino-table>
         <tr slot="header-row">
@@ -128,7 +128,7 @@ const templateSearchWithDatepicker =
   );
 
 /**
- * Use a `ino-datepicker` element inside of a `ino-table-header-cell` element to show a search with a datepicker on click
+ * Use a `ino-datepicker` element inside a `ino-table-header-cell` element to show a search with a datepicker on click
  */
 export const SearchWithDatepicker =
   templateSearchWithDatepicker.generatePlaygroundStory();
@@ -136,16 +136,18 @@ export const SearchWithDatepicker =
 const templateSearchWithSelection =
   new TemplateGenerator<Components.InoTableHeaderCell>(
     'ino-table-header-cell',
-    (args) => {
+    () => {
       useEffect(() => {
         const checkboxes = document.querySelectorAll('ino-checkbox');
         const checkedHandler = (e) =>
-          ((e.target as Components.InoCheckbox).checked = (e as any).detail);
-        checkboxes.forEach((c) =>
+          ((e.target as Components.InoCheckbox).checked = (
+            e as CustomEvent
+          ).detail);
+        checkboxes.forEach(() =>
           addEventListener('checkedChange', checkedHandler),
         );
         return () =>
-          checkboxes.forEach((c) =>
+          checkboxes.forEach(() =>
             removeEventListener('checkedChange', checkedHandler),
           );
       });
