@@ -34,8 +34,21 @@ function run(command: string) {
   return exec(command).code;
 }
 
-function getNxVersionCmd(version: string) {
-  return `nx release version ${version} ${dryRunArg} --git-commit=false`;
+function getNxVersionCmd(
+  version: string,
+  dryRun?: boolean,
+  createTag?: boolean,
+  stageChanges?: boolean,
+) {
+  const base = ['nx release version', version, '--git-commit=false'];
+
+  if (dryRun) base.push('--dry-run');
+
+  if (createTag) base.push('--git-tag');
+
+  if (stageChanges) base.push('--stage-changes');
+
+  return base.join(' ');
 }
 
 function getIcon(iconType?: number | boolean) {
@@ -161,15 +174,20 @@ function checkGithubToken() {
 
   if (isPreRelease) {
     echo(`Running Pre-Release (Dry run: ${getIcon(isDryRun)})`);
-    if (run(getNxVersionCmd('prerelease')) !== 0) {
+    if (run(getNxVersionCmd('prerelease', isDryRun, true)) !== 0) {
       echo(getIcon(0), 'nx release version prerelease failed! ', getIcon(0));
+      exit(1);
+    }
+
+    echo(getIcon(2), `Pushing git changes to ${currentBranch} ...\n`);
+    if (run(`git push ${dryRunArg} --atomic --follow-tags`) !== 0) {
+      echo(getIcon(0), 'Could not push changes to ', currentBranch);
       exit(1);
     }
   } else {
     const version = await getNextVersion();
     const sha = await getLatestReleaseCommitSha();
-    const versionCmd =
-      getNxVersionCmd(version) + ' --stage-changes --git-tag=false';
+    const versionCmd = getNxVersionCmd(version, isDryRun, false, true);
     const changelogCmd = `nx release changelog ${version} ${dryRunArg} --from ${sha}`;
 
     echo(
@@ -181,12 +199,6 @@ function checkGithubToken() {
       echo(getIcon(0), ` ${versionCmd} failed! `, getIcon(0));
       exit(1);
     }
-  }
-
-  echo(getIcon(2), `Pushing git changes to ${currentBranch} ...\n`);
-  if (run(`git push ${dryRunArg} --atomic --follow-tags`) !== 0) {
-    echo(getIcon(0), 'Could not push changes to ', currentBranch);
-    exit(1);
   }
 
   echo(getIcon(2), 'Publishing all packages to NPM ...\n');
