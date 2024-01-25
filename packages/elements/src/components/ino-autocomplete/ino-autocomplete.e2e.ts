@@ -40,7 +40,6 @@ describe('InoAutocomplete', () => {
     `);
     inoAutocomplete = await page.find('ino-autocomplete');
     inoAutocomplete.setProperty('options', OPTIONS);
-    await page.keyboard.press('Tab');
 
     await page.waitForChanges();
     inputEl = await page.find('#my-input');
@@ -48,7 +47,7 @@ describe('InoAutocomplete', () => {
   });
 
   it('should hide menu on render', async () => {
-    expect(menu.isVisible()).toBeFalsy();
+    expect(await menu.isVisible()).toBeFalsy();
   });
 
   it('should show menu if input is clicked', async () => {
