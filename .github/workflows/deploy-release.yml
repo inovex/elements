@@ -37,13 +37,13 @@ jobs:
           token: ${{ secrets.PUSH_PAT }}
       - name: Track master branch to make nx affected work
         run: git branch --track main origin/master
-      - uses: actions/setup-node@v3
+      - uses: ./.github/workflows/dependencies-install
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org
           scope: '@inovex.de' # important for yarn
           always-auth: true
-      - uses: ./.github/workflows/dependencies-install
       - name: Setup Git
         run: |
           git config --global user.name "${{ github.actor }}"
