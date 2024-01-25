@@ -47,6 +47,7 @@ describe('InoAutocomplete', () => {
   });
 
   it('should hide menu on render', async () => {
+    await page.waitForChanges();
     expect(await menu.isVisible()).toBeFalsy();
   });
 

@@ -43,5 +43,6 @@ export const config: Config = {
       includePaths: ['../../node_modules'].map((d) => join(__dirname, d)),
     }),
   ],
+  maxConcurrentWorkers: 4,
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
