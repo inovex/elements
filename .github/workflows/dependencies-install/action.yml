@@ -1,9 +1,9 @@
-name: "Install node dependencies"
-description: "Installs the node dependencies of inovex-elements packages"
+name: 'Install node dependencies'
+description: 'Installs the node dependencies of inovex-elements packages'
 author: 'Benjamin Pagelsdorf'
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - uses: actions/setup-node@v4
       with:
