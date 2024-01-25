@@ -9247,7 +9247,28 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-snackbar-bottom",
+          "annotation": "prop",
+          "docs": "Distance to the bottom edge"
+        },
+        {
+          "name": "--ino-snackbar-left",
+          "annotation": "prop",
+          "docs": "Distance to the left edge"
+        },
+        {
+          "name": "--ino-snackbar-right",
+          "annotation": "prop",
+          "docs": "Distance to the right edge"
+        },
+        {
+          "name": "--ino-snackbar-top",
+          "annotation": "prop",
+          "docs": "Distance to the top edge"
+        }
+      ],
       "slots": [
         {
           "name": "icon-slot",

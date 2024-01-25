@@ -42,6 +42,16 @@ The `ino-snackbar` component can display an icon inside it, which can be customi
 | `"icon-slot"` | Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`. |
 
 
+## CSS Custom Properties
+
+| Name                    | Description                 |
+| ----------------------- | --------------------------- |
+| `--ino-snackbar-bottom` | Distance to the bottom edge |
+| `--ino-snackbar-left`   | Distance to the left edge   |
+| `--ino-snackbar-right`  | Distance to the right edge  |
+| `--ino-snackbar-top`    | Distance to the top edge    |
+
+
 ## Dependencies
 
 ### Depends on

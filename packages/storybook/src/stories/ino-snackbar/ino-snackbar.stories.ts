@@ -156,7 +156,7 @@ export const CustomIcon = (args: InoSnackbarExtended) => html`
   </template>
 `;
 /*
- * Ensure that the custom element has the desired size. In the example below, we set the width and height of the img icon to 25px.
+ * Ensure that the custom element has the desired size. In the example below, we set the width and height of the img icon to 20px.
  */
 export const CustomElements = (args: InoSnackbarExtended) => html`
   <ino-button class="snackbar-trigger" data-template-id="${args.id}-custom"
@@ -174,7 +174,7 @@ export const CustomElements = (args: InoSnackbarExtended) => html`
         slot="icon-slot"
         src=${inovexElementsLogo}
         alt="Custom Icon"
-        style="width: 25px; height: 25px;"
+        style="width: 20px; height: 20px;"
       />
       This snackbar uses a custom img.
     </ino-snackbar>

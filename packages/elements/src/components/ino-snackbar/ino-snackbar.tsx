@@ -11,6 +11,7 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 import { SnackbarType } from '../types';
+import { hasSlotContent } from '../../util/component-utils';
 
 /**
  * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
@@ -148,21 +149,12 @@ export class Snackbar implements ComponentInterface {
 
   render() {
     const hasActionText = Boolean(this.actionText);
-    const slotElement = this.el.querySelector('[slot="icon-slot"]');
-
-    const isInoIcon = slotElement?.tagName === 'INO-ICON';
-    const isCustomIcon = slotElement && !isInoIcon; // e.g. <img> or <svg>
+    const hasSlot = hasSlotContent(this.el, 'icon-slot');
 
     const hostClasses = classNames(`ino-snackbar--type-${this.type}`);
     const snackbarClasses = classNames(
       'mdc-snackbar',
       'ino-snackbar-layout-container',
-    );
-    const snackbarIconClasses = classNames(
-      'mdc-snackbar__actions ino-snackbar-icon-container',
-      {
-        'custom-icon': isCustomIcon,
-      },
     );
     return (
       <Host class={hostClasses}>
@@ -174,10 +166,8 @@ export class Snackbar implements ComponentInterface {
           role="alert"
         >
           <div class="mdc-snackbar__surface ino-snackbar-container">
-            <div class={snackbarIconClasses}>
-              {isCustomIcon ? (
-                <slot name="icon-slot" />
-              ) : isInoIcon ? (
+            <div class="mdc-snackbar__actions ino-snackbar-icon-container">
+              {hasSlot ? (
                 <slot name="icon-slot" />
               ) : (
                 <ino-icon
