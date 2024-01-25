@@ -150,7 +150,7 @@ function checkGithubToken() {
     exit(1);
   }
 
-  if (!hasGitHubToken) {
+  if (!isPreRelease && !hasGitHubToken) {
     echo(getIcon(0), 'No GitHub token was found', getIcon(0));
     echo(
       getIcon(),
