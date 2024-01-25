@@ -11,10 +11,10 @@
       "defaultConfiguration": "dryRun",
       "configurations": {
         "release": {
-          "args": "--releaseType=release --dryRun=true"
+          "args": "--releaseType=release --dryRun=false"
         },
         "prerelease": {
-          "args": "--releaseType=prerelease --dryRun=true"
+          "args": "--releaseType=prerelease --dryRun=false"
         },
         "dryRun": {
           "args": "--releaseType=release --dryRun=true"
