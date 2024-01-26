@@ -107,7 +107,7 @@ Playground.argTypes = {
 
 const templateType = new TemplateGenerator<Components.InoInput>(
   'ino-input',
-  (args) => html`
+  () => html`
     <ino-input placeholder="type = text"></ino-input>
     <ino-input placeholder="type = email" type="email"></ino-input>
     <ino-input type="number" placeholder="type = number"></ino-input>
@@ -134,7 +134,7 @@ export const Types = templateType.generatePlaygroundStory();
 
 const templateStates = new TemplateGenerator<Components.InoInput>(
   'ino-input',
-  (args) => html`
+  () => html`
     <ino-input placeholder="Disabled" disabled></ino-input>
     <ino-input label="Optional" show-label-hint></ino-input>
     <ino-input label="Required" required show-label-hint></ino-input>
@@ -161,7 +161,7 @@ export const States = templateStates.generatePlaygroundStory();
 
 const templateLabels = new TemplateGenerator<Components.InoInput>(
   'ino-input',
-  (args) => html`
+  () => html`
     <ino-input label="Floating label"></ino-input>
     <ino-input label="Floating label" value="With value"></ino-input>
 
@@ -184,7 +184,7 @@ export const Labels = templateLabels.generatePlaygroundStory();
 
 const templateHelperTexts = new TemplateGenerator<Components.InoInput>(
   'ino-input',
-  (args) => html`
+  () => html`
     <ino-input
       placeholder="Helper text on focus (default)"
       helper="Helper text"
@@ -219,7 +219,7 @@ export const HelperTexts = templateHelperTexts.generatePlaygroundStory();
 
 const templateIcons = new TemplateGenerator<Components.InoInput>(
   'ino-input',
-  (args) => html`
+  () => html`
     <ino-input icon-leading label="Leading icon">
       <ino-icon slot="icon-leading" icon="search"></ino-icon>
     </ino-input>
@@ -248,7 +248,7 @@ export const Icons = templateIcons.generatePlaygroundStory();
 
 const templateDataList = new TemplateGenerator<Components.InoInput>(
   'ino-input',
-  (args) => html`
+  () => html`
     <ino-input label="Datalist" data-list="languages">
       <datalist id="languages">
         <option>HTML</option>
@@ -267,7 +267,7 @@ export const DataList = templateDataList.generatePlaygroundStory();
 
 const templateNumberFormats = new TemplateGenerator<Components.InoInput>(
   'ino-input',
-  (args) => html`
+  () => html`
     <ino-input
       type="number"
       decimal-places="2"
@@ -291,7 +291,7 @@ export const NumberFormats = templateNumberFormats.generatePlaygroundStory();
 
 const templateMetadata = new TemplateGenerator<Components.InoInput>(
   'ino-input',
-  (args) => html`
+  () => html`
     <ino-input value="2" type="number" unit="h" label="Hours input"></ino-input>
   `,
 );

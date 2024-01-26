@@ -73,7 +73,7 @@ withIconControl(Playground, 'icon', 'add');
 
 const templateVariants = new TemplateGenerator<Components.InoFab>(
   'ino-fab',
-  (args) => html`
+  () => html`
     <div class="ino-fab-variants">
       <ino-fab tooltip-placement="none" label="Default Fab">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
@@ -91,7 +91,7 @@ const templateVariants = new TemplateGenerator<Components.InoFab>(
   `,
 );
 /**
- * In order to achive diffrent variations, use this properties:
+ * In order to achieve different variations, use these properties:
  *
  * - `mini`: Optional, modifies the FAB to a smaller size
  * - `extended`: Optional, modifies the FAB to wider size which includes a text label.
@@ -101,7 +101,7 @@ export const Variants = templateVariants.generatePlaygroundStory();
 
 const templateEdgePositions = new TemplateGenerator<Components.InoFab>(
   'ino-fab',
-  (args) => html`
+  () => html`
     <div class="ino-fab-variants">
       <ino-fab label="top-left" edge-position="top-left">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>

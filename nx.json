@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "affected": {
     "defaultBase": "origin/master"
   },
@@ -33,5 +34,31 @@
       "style": "scss"
     }
   },
-  "cacheDirectory": ".nx-cache"
+  "cacheDirectory": ".nx-cache",
+  "release": {
+    "projects": [
+      "elements",
+      "elements-angular",
+      "elements-react",
+      "elements-vue",
+      "storybook",
+      "elements-angular-example",
+      "elements-react-example",
+      "elements-vue-example",
+      "ui-patterns",
+      "ui-patterns-playground"
+    ],
+    "git": {
+      "commitMessage": "chore: publish {version}"
+    },
+    "changelog": {
+      "projectChangelogs": false,
+      "workspaceChangelog": {
+        "createRelease": "github"
+      }
+    },
+    "version": {
+      "conventionalCommits": true
+    }
+  }
 }

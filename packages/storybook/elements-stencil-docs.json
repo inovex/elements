@@ -2767,13 +2767,18 @@
         "ino-markdown-editor"
       ],
       "dependencies": [
+        "ino-icon-button",
         "ino-icon",
         "ino-button"
       ],
       "dependencyGraph": {
         "ino-dialog": [
+          "ino-icon-button",
           "ino-icon",
           "ino-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
         ],
         "ino-button": [
           "ino-spinner"
@@ -2794,7 +2799,7 @@
           "mutable": false,
           "attr": "action-text",
           "reflectToAttr": false,
-          "docs": "Adds a button with the given text to proceed with an action`",
+          "docs": "Adds a button with the given text to proceed with an action",
           "docsTags": [],
           "values": [
             {
@@ -2865,6 +2870,28 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "closeIcon",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "close-icon",
+          "reflectToAttr": false,
+          "docs": "Adds a close icon in the top right corner to close the `ino-dialog`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -3899,6 +3926,7 @@
       "encapsulation": "none",
       "dependents": [
         "ino-carousel",
+        "ino-dialog",
         "ino-markdown-editor",
         "ino-nav-drawer",
         "ino-snackbar",
@@ -3912,6 +3940,9 @@
           "ino-icon"
         ],
         "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-dialog": [
           "ino-icon-button"
         ],
         "ino-markdown-editor": [
@@ -6286,17 +6317,18 @@
           "ino-textarea"
         ],
         "ino-dialog": [
+          "ino-icon-button",
           "ino-icon",
           "ino-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
         ],
         "ino-button": [
           "ino-spinner"
         ],
         "ino-input": [
           "ino-label",
-          "ino-icon"
-        ],
-        "ino-icon-button": [
           "ino-icon"
         ],
         "ino-textarea": [

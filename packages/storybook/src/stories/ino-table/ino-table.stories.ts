@@ -188,7 +188,7 @@ export const SortColumnIdAndSortDirection = template.generatePlaygroundStory();
 export const StickyHeader = template.generateStoryForProp('stickyHeader', true);
 
 const templateSelectionWithCheckboxes =
-  new TemplateGenerator<Components.InoTable>('ino-table', (args) => {
+  new TemplateGenerator<Components.InoTable>('ino-table', () => {
     useEffect(() => {
       const mainBox = document.getElementById(
         'headerBox',
@@ -207,11 +207,11 @@ const templateSelectionWithCheckboxes =
           checkboxes.forEach((checkbox) => {
             checkbox.checked = mainBox.checked;
             const row = (checkbox as HTMLElement).closest('tr');
-            row.classList.toggle('ino-table__row--selected', mainBox.checked);
+            row?.classList.toggle('ino-table__row--selected', mainBox.checked);
           });
         } else if (mainBox) {
           const row = (triggerCheckbox as HTMLElement).closest('tr');
-          row.classList.toggle(
+          row?.classList.toggle(
             'ino-table__row--selected',
             triggerCheckbox.checked,
           );
@@ -227,8 +227,8 @@ const templateSelectionWithCheckboxes =
       };
 
       const table = document.querySelector('.selectable-table');
-      table.addEventListener('checkedChange', checkboxHandler);
-      return () => table.removeEventListener('checkedChange', checkboxHandler);
+      table?.addEventListener('checkedChange', checkboxHandler);
+      return () => table?.removeEventListener('checkedChange', checkboxHandler);
     });
 
     return html`

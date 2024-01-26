@@ -334,14 +334,14 @@ The value can be found in `event.detail`
 
 
 @ProxyCmp({
-  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'closeIcon', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
 })
 @Component({
   selector: 'ino-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open'],
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'closeIcon', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open'],
 })
 export class InoDialog {
   protected el: HTMLElement;
