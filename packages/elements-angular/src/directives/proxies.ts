@@ -793,14 +793,14 @@ export declare interface InoNavItem extends Components.InoNavItem {}
 
 
 @ProxyCmp({
-  inputs: ['activeSection', 'intersectionObserverConfig', 'menuTitle', 'scrollOffset', 'sections']
+  inputs: ['activeSection', 'intersectionObserverConfig', 'menuTitle', 'scrollOffset', 'sectionIds', 'sectionsContainerId']
 })
 @Component({
   selector: 'ino-nav-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['activeSection', 'intersectionObserverConfig', 'menuTitle', 'scrollOffset', 'sections'],
+  inputs: ['activeSection', 'intersectionObserverConfig', 'menuTitle', 'scrollOffset', 'sectionIds', 'sectionsContainerId'],
 })
 export class InoNavMenu {
   protected el: HTMLElement;

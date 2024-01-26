@@ -5,11 +5,12 @@ import {
   EventEmitter,
   Host,
   Prop,
+  State,
   Watch,
   h,
 } from '@stencil/core';
 import { addAnchorToLocation, scrollToAnchor } from '../../util/scroll-utils';
-import { buildSectionId, sectionExists } from './ino-nav-menu-helper';
+import { sectionExists } from './ino-nav-menu-helper';
 
 const DEFAULT_OBSERVER_OPTIONS: IntersectionObserverInit = {
   threshold: 0,
@@ -39,15 +40,21 @@ export class NavMenu implements ComponentInterface {
   @Prop() menuTitle!: string;
 
   /**
-   * Section names that should appear in the navigation menu. If no value is provided,
-   * the component will automatically look up all `ino-nav-menu-section` components on the current page.
-   * If any of the provided section names is invalid, a warning will be logged in the browser console.
+   * Section IDs of corresponding sections that should appear in the navigation menu.
+   * Use this if you want specific section to be shown in `ino-nav-menu`.
+   * If any of the provided section IDs is invalid, a warning will be logged in the browser console.
    */
-  @Prop() sections?: string[];
+  @Prop() sectionIds?: string[];
+
+  /**
+   * ID of the container which holds the sections.
+   * If no `sectionIds` are provided, the component will automatically look up all `ino-nav-menu-section` components in this container.
+   */
+  @Prop() sectionsContainerId?: string;
 
   /**
    * To specify the selected section, utilize the `buildSectionId` helper function to generate a
-   * unique section ID based on the section name. This ID must be provided when configuring the
+   * unique section ID based on the section name if no ID was specified. This ID must be provided when configuring the
    * component. The section ID can be set to null if no section should be selected initially or
    * when operating in autodetect mode (means no sections provided).
    */
@@ -71,7 +78,7 @@ export class NavMenu implements ComponentInterface {
     }
   }
 
-  @Watch('sections')
+  @Watch('sectionIds')
   onSectionsChanged(): void {
     this.observer.disconnect();
     this.initSectionsAndObserver();
@@ -84,35 +91,34 @@ export class NavMenu implements ComponentInterface {
   @Event({ bubbles: false }) activeSectionChanged!: EventEmitter<string>;
 
   private lastEmittedSection: string;
-  private sectionById: Record<string, string> = {};
   private observer: IntersectionObserver;
-
-  private get sectionIds(): string[] {
-    return Object.keys(this.sectionById);
-  }
+  
+  @State() sectionObjs: Record<string, string>[];
 
   componentWillLoad(): void | Promise<void> {
-    if (!this.autodetectSections && this.sections.length > 0) {
+    if ((!this.autodetectSections && this.sectionIds.length > 0)) {
       this.initSectionsAndObserver();
+      this.scrollAfterInit();
     }
   }
 
   componentDidLoad(): void {
-    setTimeout(() => {
-      if (this.autodetectSections) {
-        this.initSectionsAndObserver();
-      }
-      this.scollAfterInit();
-    }, 0);
+    if (this.autodetectSections) {
+      this.initSectionsAndObserver();
+    }
   }
 
   private get autodetectSections(): boolean {
-    return this.sections === undefined || this.sections === null;
+    return this.sectionIds === undefined || this.sectionIds === null;
   }
 
   private get sectionsIntern(): string[] {
-    return !this.autodetectSections ? this.sections : this.findSections();
+    return !this.autodetectSections ? this.sectionIds : this.findSections();
   }
+
+  private get sectionContainer(): HTMLElement {
+    return document.getElementById(this.sectionsContainerId);
+  } 
 
   private initSectionsAndObserver(): void {
     this.initSections();
@@ -120,21 +126,37 @@ export class NavMenu implements ComponentInterface {
   }
 
   private initSections() {
-    this.sectionById = this.sectionsIntern
-      .map((name) => ({ id: buildSectionId(name), name }))
+    if(this.sectionsIntern === null || this.sectionsIntern === undefined){
+      return
+    }
+
+    this.sectionObjs = this.sectionsIntern
       .filter((section) => {
-        const valid = this.autodetectSections || sectionExists(section.id);
+        const valid = this.autodetectSections || sectionExists(section);
         if (!valid) {
           console.warn(
-            `[ino-nav-menu] Section '${section.name}' with ID '${section.id}' not found.`,
+            `[ino-nav-menu] Section with ID '${section}' not found.`,
           );
         }
         return valid;
       })
-      .reduce((acc, cur) => ({ ...acc, [cur.id]: cur.name }), {});
+      .map(id => {
+        const htmlEl = document.getElementById(id) as HTMLInoNavMenuSectionElement;
+        return {id: htmlEl.id, name: htmlEl.title}
+      })
     if (this.autodetectSections) {
-      this.emitActiveSection(buildSectionId(this.sectionsIntern[0]));
+      this.emitActiveSection(this.sectionsIntern[0]);
     }
+  }
+
+  private findSections(): string[] {
+    const sections: string[] = [];
+    Array.from(this.sectionContainer
+      .querySelectorAll('ino-nav-menu-section'))
+      .forEach((section: HTMLInoNavMenuSectionElement) => {
+        sections.push(section.sectionId);
+      });
+    return sections;
   }
 
   private initIntersectionObserver() {
@@ -142,7 +164,7 @@ export class NavMenu implements ComponentInterface {
       this.updateActiveEntry,
       this.intersectionObserverConfig,
     );
-    this.sectionIds.forEach((x) =>
+    this.sectionsIntern.forEach((x) =>
       this.observer.observe(document.getElementById(x)),
     );
   }
@@ -150,16 +172,6 @@ export class NavMenu implements ComponentInterface {
   private emitActiveSection(sectionId: string): void {
     this.lastEmittedSection = sectionId;
     this.activeSectionChanged.emit(sectionId);
-  }
-
-  private findSections(): string[] {
-    const sections: string[] = [];
-    document
-      .querySelectorAll('[ino-nav-menu-section]')
-      .forEach((node: HTMLElement) => {
-        sections.push(node.title);
-      });
-    return sections;
   }
 
   private scrollToSection(
@@ -171,8 +183,12 @@ export class NavMenu implements ComponentInterface {
     }
   }
 
-  private scollAfterInit(): void {
+  private scrollAfterInit(): void {
     let sectionId: string;
+    // check if url has # to jump to
+    if(!location.hash.includes('#')){
+      return
+    }
     if (this.isLocationWithValidAnchor()) {
       sectionId = location.hash.replace(/#/, '');
       this.emitActiveSection(sectionId);
@@ -207,31 +223,44 @@ export class NavMenu implements ComponentInterface {
     );
   };
 
+  private renderSections = (): HTMLElement => {
+    if(this.sectionObjs === null || this.sectionObjs === undefined) {
+      // possible skeleton loading here
+      return (
+        <div class="loading"></div>
+      )
+    }
+    return (
+      <ul class="ino-nav-menu__sections">
+        {this.sectionObjs.map((el, i) => (
+          <li
+            class={{
+              'ino-nav-menu__sections__section': true,
+              'ino-nav-menu__sections__section--active':
+                this.activeSection === el.id,
+            }}
+            key={i}
+          >
+            <a
+              href={`#${el.id}`}
+              onClick={(e) => this.handleAnchorClick(e, el.id)}
+            >
+              {el.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
   render() {
     return (
       <Host>
         <nav class="ino-nav-menu" style={{ top: DEFAULT_SCROLL_OFFSET + 'px' }}>
           <h3 class="ino-nav-menu__title">{this.menuTitle}</h3>
-          <ul class="ino-nav-menu__sections">
-            {this.sectionIds.map((id, i) => (
-              <li
-                class={{
-                  'ino-nav-menu__sections__section': true,
-                  'ino-nav-menu__sections__section--active':
-                    this.activeSection === id,
-                }}
-                key={i}
-              >
-                <a
-                  href={`#${id}`}
-                  onClick={(e) => this.handleAnchorClick(e, id)}
-                >
-                  {this.sectionById[id]}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {this.renderSections()}
         </nav>
+        <slot></slot>
       </Host>
     );
   }

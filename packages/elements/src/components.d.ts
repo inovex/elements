@@ -1094,7 +1094,7 @@ export namespace Components {
      */
     interface InoNavMenu {
         /**
-          * To specify the selected section, utilize the `buildSectionId` helper function to generate a unique section ID based on the section name. This ID must be provided when configuring the component. The section ID can be set to null if no section should be selected initially or when operating in autodetect mode (means no sections provided).
+          * To specify the selected section, utilize the `buildSectionId` helper function to generate a unique section ID based on the section name if no ID was specified. This ID must be provided when configuring the component. The section ID can be set to null if no section should be selected initially or when operating in autodetect mode (means no sections provided).
          */
         "activeSection": string | null;
         /**
@@ -1110,9 +1110,13 @@ export namespace Components {
          */
         "scrollOffset": number;
         /**
-          * Section names that should appear in the navigation menu. If no value is provided, the component will automatically look up all `ino-nav-menu-section` components on the current page. If any of the provided section names is invalid, a warning will be logged in the browser console.
+          * Section IDs of corresponding sections that should appear in the navigation menu. Use this if you want specific section to be shown in `ino-nav-menu`. If any of the provided section IDs is invalid, a warning will be logged in the browser console.
          */
-        "sections"?: string[];
+        "sectionIds"?: string[];
+        /**
+          * ID of the container which holds the sections. If no `sectionIds` are provided, the component will automatically look up all `ino-nav-menu-section` components in this container.
+         */
+        "sectionsContainerId"?: string;
     }
     /**
      * This component is designed to construct sections specifically intended
@@ -3985,7 +3989,7 @@ declare namespace LocalJSX {
      */
     interface InoNavMenu {
         /**
-          * To specify the selected section, utilize the `buildSectionId` helper function to generate a unique section ID based on the section name. This ID must be provided when configuring the component. The section ID can be set to null if no section should be selected initially or when operating in autodetect mode (means no sections provided).
+          * To specify the selected section, utilize the `buildSectionId` helper function to generate a unique section ID based on the section name if no ID was specified. This ID must be provided when configuring the component. The section ID can be set to null if no section should be selected initially or when operating in autodetect mode (means no sections provided).
          */
         "activeSection"?: string | null;
         /**
@@ -4005,9 +4009,13 @@ declare namespace LocalJSX {
          */
         "scrollOffset"?: number;
         /**
-          * Section names that should appear in the navigation menu. If no value is provided, the component will automatically look up all `ino-nav-menu-section` components on the current page. If any of the provided section names is invalid, a warning will be logged in the browser console.
+          * Section IDs of corresponding sections that should appear in the navigation menu. Use this if you want specific section to be shown in `ino-nav-menu`. If any of the provided section IDs is invalid, a warning will be logged in the browser console.
          */
-        "sections"?: string[];
+        "sectionIds"?: string[];
+        /**
+          * ID of the container which holds the sections. If no `sectionIds` are provided, the component will automatically look up all `ino-nav-menu-section` components in this container.
+         */
+        "sectionsContainerId"?: string;
     }
     /**
      * This component is designed to construct sections specifically intended

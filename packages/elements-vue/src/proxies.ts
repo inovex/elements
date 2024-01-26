@@ -355,7 +355,8 @@ export const InoNavItem = /*@__PURE__*/ defineContainer<JSX.InoNavItem>('ino-nav
 
 export const InoNavMenu = /*@__PURE__*/ defineContainer<JSX.InoNavMenu>('ino-nav-menu', undefined, [
   'menuTitle',
-  'sections',
+  'sectionIds',
+  'sectionsContainerId',
   'activeSection',
   'scrollOffset',
   'intersectionObserverConfig',

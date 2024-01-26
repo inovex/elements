@@ -28,6 +28,7 @@ export class NavMenuSection implements ComponentInterface {
   @Prop() showTitle = true;
 
   private setSectionId = (): string => {
+    // check if sectionId should be build from sectionName or was set by the consumer
     if (this.sectionId.trim().length === 0 || this.sectionId === undefined) {
       return buildSectionId(this.sectionName);
     }
