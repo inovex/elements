@@ -9198,33 +9198,6 @@
           "required": false
         },
         {
-          "name": "dialogRole",
-          "type": "\"alert\" | \"alertdialog\"",
-          "complexType": {
-            "original": "'alert' | 'alertdialog'",
-            "resolved": "\"alert\" | \"alertdialog\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "dialog-role",
-          "reflectToAttr": false,
-          "docs": "The role of the dialog. Can be either 'dialog' or 'alertdialog'.\nThe 'alertdialog' role should be used for important messages that requires user interaction.",
-          "docsTags": [],
-          "default": "'alert'",
-          "values": [
-            {
-              "value": "alert",
-              "type": "string"
-            },
-            {
-              "value": "alertdialog",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "message",
           "type": "string",
           "complexType": {
@@ -9244,6 +9217,33 @@
           "deprecation": "",
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "snackbarRole",
+          "type": "\"alert\" | \"alertdialog\"",
+          "complexType": {
+            "original": "'alert' | 'alertdialog'",
+            "resolved": "\"alert\" | \"alertdialog\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "snackbar-role",
+          "reflectToAttr": false,
+          "docs": "The role of the dialog. Can be either 'dialog' or 'alertdialog'.\nThe 'alertdialog' role should be used for important messages that requires user interaction.",
+          "docsTags": [],
+          "default": "'alert'",
+          "values": [
+            {
+              "value": "alert",
+              "type": "string"
+            },
+            {
+              "value": "alertdialog",
               "type": "string"
             }
           ],

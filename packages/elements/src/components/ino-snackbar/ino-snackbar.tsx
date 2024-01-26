@@ -59,7 +59,7 @@ export class Snackbar implements ComponentInterface {
    * The role of the dialog. Can be either 'dialog' or 'alertdialog'.
    * The 'alertdialog' role should be used for important messages that requires user interaction.
    */
-  @Prop() dialogRole?: 'alert' | 'alertdialog' = 'alert';
+  @Prop() snackbarRole?: 'alert' | 'alertdialog' = 'alert';
 
   /**
    * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
@@ -173,7 +173,7 @@ export class Snackbar implements ComponentInterface {
     );
 
     const snackbarAttrs =
-      this.dialogRole === 'alertdialog'
+      this.snackbarRole === 'alertdialog'
         ? {
             role: 'alertdialog',
             'aria-modal': true,
@@ -207,8 +207,10 @@ export class Snackbar implements ComponentInterface {
                 {this.message ? this.message : <slot />}
               </div>
               {hasActionText && (
-                <div>
+                <div class="ino-snackbar-action-container">
                   <ino-button
+                    variant='outlined'
+                    dense
                     onClick={this.actionClick.emit}
                     class="ino-snackbar-action-btn"
                   >

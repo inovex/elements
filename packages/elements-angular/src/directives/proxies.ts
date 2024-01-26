@@ -1080,14 +1080,14 @@ export declare interface InoSelect extends Components.InoSelect {
 
 
 @ProxyCmp({
-  inputs: ['a11yLabels', 'actionText', 'dialogRole', 'message', 'stayVisibleOnHover', 'timeout', 'type']
+  inputs: ['a11yLabels', 'actionText', 'message', 'snackbarRole', 'stayVisibleOnHover', 'timeout', 'type']
 })
 @Component({
   selector: 'ino-snackbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['a11yLabels', 'actionText', 'dialogRole', 'message', 'stayVisibleOnHover', 'timeout', 'type'],
+  inputs: ['a11yLabels', 'actionText', 'message', 'snackbarRole', 'stayVisibleOnHover', 'timeout', 'type'],
 })
 export class InoSnackbar {
   protected el: HTMLElement;

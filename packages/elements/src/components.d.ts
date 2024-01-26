@@ -1398,14 +1398,14 @@ export namespace Components {
          */
         "actionText"?: string;
         /**
-          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important messages that requires user interaction.
-         */
-        "dialogRole"?: 'alert' | 'alertdialog';
-        /**
           * [DEPRECATED] Please use the default slot instead The text message to display.
           * @deprecated
          */
         "message"?: string;
+        /**
+          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important messages that requires user interaction.
+         */
+        "snackbarRole"?: 'alert' | 'alertdialog';
         /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
@@ -4250,10 +4250,6 @@ declare namespace LocalJSX {
          */
         "actionText"?: string;
         /**
-          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important messages that requires user interaction.
-         */
-        "dialogRole"?: 'alert' | 'alertdialog';
-        /**
           * [DEPRECATED] Please use the default slot instead The text message to display.
           * @deprecated
          */
@@ -4266,6 +4262,10 @@ declare namespace LocalJSX {
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */
         "onHideEl"?: (event: InoSnackbarCustomEvent<any>) => void;
+        /**
+          * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important messages that requires user interaction.
+         */
+        "snackbarRole"?: 'alert' | 'alertdialog';
         /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */

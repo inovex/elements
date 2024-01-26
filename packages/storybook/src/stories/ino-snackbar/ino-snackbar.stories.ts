@@ -69,7 +69,7 @@ const InoSnackbarMeta = {
         timeout="${args.timeout}"
         type="${args.type}"
         stay-visible-on-hover="${args.stayVisibleOnHover}"
-        dialogRole="${args.dialogRole}"
+        snackbarRole="${args.snackbarRole}"
         a11yLabels="
         ${args.a11yLabels}"
       >
