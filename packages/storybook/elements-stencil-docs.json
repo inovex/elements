@@ -9165,7 +9165,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "The aria-labels used for type as well as close icon button.",
+          "docs": "The aria-labels used to provide accessible snackbar context as well as close icon button label.",
           "docsTags": [],
           "default": "{\n    snackbarLabel: this.type,\n    closeLabel: 'Close notification',\n  }",
           "values": [

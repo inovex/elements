@@ -67,7 +67,7 @@ export class Snackbar implements ComponentInterface {
   @Prop() stayVisibleOnHover?: boolean = false;
 
   /**
-   * The aria-labels used for type as well as close icon button.
+   * The aria-labels used to provide accessible snackbar context as well as close icon button label.
    */
   @Prop() a11yLabels?: SnackbarLabels = {
     snackbarLabel: this.type,

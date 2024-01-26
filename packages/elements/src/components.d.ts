@@ -1390,7 +1390,7 @@ export namespace Components {
      */
     interface InoSnackbar {
         /**
-          * The aria-labels used for type as well as close icon button.
+          * The aria-labels used to provide accessible snackbar context as well as close icon button label.
          */
         "a11yLabels"?: SnackbarLabels;
         /**
@@ -4242,7 +4242,7 @@ declare namespace LocalJSX {
      */
     interface InoSnackbar {
         /**
-          * The aria-labels used for type as well as close icon button.
+          * The aria-labels used to provide accessible snackbar context as well as close icon button label.
          */
         "a11yLabels"?: SnackbarLabels;
         /**
