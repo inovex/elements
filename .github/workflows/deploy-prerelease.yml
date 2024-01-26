@@ -2,6 +2,8 @@ name: 'Deploy Pre-Release'
 
 on:
   push:
+    branches:
+      - master
     paths:
       - packages/elements/**
       - packages/elements-angular/**
@@ -31,10 +33,12 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor}}@users.noreply.github.com"
+      - name: Set npm loglevel
+        run: npm config set loglevel warn
       - name: Build libs
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
-      - name: Version
+      - name: Version & Release
         shell: bash
-        run: yarn nx run workspace:version --configuration=prerelease
+        run: yarn nx run workspace:publish:prerelease
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

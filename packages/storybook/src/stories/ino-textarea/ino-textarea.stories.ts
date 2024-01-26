@@ -95,7 +95,7 @@ Playground.args = {
 
 const templateLabels = new TemplateGenerator<Components.InoTextarea>(
   'ino-textarea',
-  (args) => html`
+  () => html`
     <ino-textarea label="Floating label" cols="30" rows="3"></ino-textarea>
     <ino-textarea
       label="Floating label"

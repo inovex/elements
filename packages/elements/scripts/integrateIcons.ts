@@ -2,11 +2,11 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import camelCase from 'camelcase';
 
-type SvgMetadata = {
+interface SvgMetadata {
   name: string;
   filename: string;
   importName: string;
-};
+}
 
 const BASE_PATH = '.';
 const ROOT_DIR = path.join(__dirname, '..');

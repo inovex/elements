@@ -12,8 +12,8 @@ import {
   Prop,
   Watch,
 } from '@stencil/core';
-import { DialogCloseAction, DialogSubmitAction } from '../types';
 import { hasSlotContent } from '../../util/component-utils';
+import { DialogCloseAction, DialogSubmitAction } from '../types';
 
 const DIALOG_ACTION_ATTRIBUTE = 'data-ino-dialog-action';
 
@@ -80,7 +80,12 @@ export class Dialog implements ComponentInterface {
   @Prop() cancelText?: string;
 
   /**
-   * Adds a button with the given text to proceed with an action`
+   * Adds a close icon in the top right corner to close the `ino-dialog`.
+   */
+  @Prop() closeIcon = false;
+
+  /**
+   * Adds a button with the given text to proceed with an action
    */
   @Prop() actionText?: string;
 
@@ -97,7 +102,7 @@ export class Dialog implements ComponentInterface {
   @Listen('keyup', { target: 'body' })
   handleKeyUp(event: KeyboardEvent) {
     if (event.key === 'Escape' && this.open) {
-      this.close.emit('close');
+      this.handleClose();
     }
   }
 
@@ -150,6 +155,10 @@ export class Dialog implements ComponentInterface {
     this.mdcDialog?.destroy();
   }
 
+  private handleClose() {
+    this.close.emit('close');
+  }
+
   private handleDialogClick(e: Event): void {
     if (!e.target) {
       return;
@@ -188,6 +197,13 @@ export class Dialog implements ComponentInterface {
                 <slot></slot>
               ) : (
                 <div>
+                  {this.closeIcon && (
+                    <ino-icon-button
+                      class="close-icon"
+                      icon="close"
+                      onClickEl={this.handleClose.bind(this)}
+                    />
+                  )}
                   {hasHeaderSlot ? (
                     <slot name="header"></slot>
                   ) : (
@@ -210,7 +226,7 @@ export class Dialog implements ComponentInterface {
                       {this.cancelText && (
                         <ino-button
                           variant="outlined"
-                          onClick={() => this.close.emit('close')}
+                          onClick={this.handleClose.bind(this)}
                         >
                           {this.cancelText}
                         </ino-button>
@@ -231,7 +247,7 @@ export class Dialog implements ComponentInterface {
           </div>
           <div
             class="mdc-dialog__scrim"
-            onClick={() => this.dismissible && this.close.emit('close')}
+            onClick={() => this.dismissible && this.handleClose()}
           />
         </div>
       </Host>

@@ -2,55 +2,31 @@
   "name": "workspace",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "targets": {
-    "version": {
-      "executor": "@jscutlery/semver:version",
-      "options": {
-        "syncVersions": true,
-        "skipProjectChangelog": true,
-        "dryRun": false,
-        "push": false,
-        "commitMessageFormat": "chore: publish {version}",
-        "postTargets": ["deploy-npm", "deploy-github"]
-      },
-      "configurations": {
-        "prerelease": {
-          "releaseAs": "prerelease",
-          "skipRootChangelog": true,
-          "postTargets": ["deploy-npm"],
-          "push": false
-        }
-      }
-    },
-    "deploy-npm": {
+    "publish": {
       "executor": "nx:run-commands",
-      "dependsOn": [
-        {
-          "projects": [
-            "elements",
-            "elements-angular",
-            "elements-react",
-            "elements-vue"
-          ],
-          "target": "build"
+      "dependsOn": ["^build"],
+      "options": {
+        "command": "ts-node ./scripts/publish.ts dryRun={args.dryRun} releaseType={args.releaseType}"
+      },
+      "defaultConfiguration": "dryRun",
+      "configurations": {
+        "release": {
+          "args": "--releaseType=release --dryRun=false"
+        },
+        "prerelease": {
+          "args": "--releaseType=prerelease --dryRun=false"
+        },
+        "dryRun": {
+          "args": "--releaseType=release --dryRun=true"
         }
-      ],
-      "options": {
-        "commands": [
-          "npm publish -w packages/elements",
-          "npm publish -w packages/elements-angular",
-          "npm publish -w packages/elements-react",
-          "npm publish -w packages/elements-vue"
-        ],
-        "parallel": false
-      }
-    },
-    "deploy-github": {
-      "executor": "@jscutlery/semver:github",
-      "options": {
-        "tag": "{tag}",
-        "notes": "{notes}"
       }
     }
   },
+  "implicitDependencies": [
+    "elements",
+    "elements-angular",
+    "elements-react",
+    "elements-vue"
+  ],
   "tags": []
 }

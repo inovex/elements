@@ -70,12 +70,13 @@ graph TD;
   ino-markdown-editor --> ino-icon
   ino-markdown-editor --> ino-popover
   ino-markdown-editor --> ino-textarea
+  ino-dialog --> ino-icon-button
   ino-dialog --> ino-icon
   ino-dialog --> ino-button
+  ino-icon-button --> ino-icon
   ino-button --> ino-spinner
   ino-input --> ino-label
   ino-input --> ino-icon
-  ino-icon-button --> ino-icon
   ino-textarea --> ino-label
   style ino-markdown-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```

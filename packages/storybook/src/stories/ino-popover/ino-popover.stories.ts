@@ -237,7 +237,7 @@ export const Interactions = templateInteractive.generateStoryForProp(
 const templateControlledPopover = new TemplateGenerator<InoPopoverExtended>(
   'ino-popover',
   () => {
-    const eventHandler = (e: any) => {
+    const eventHandler = (e) => {
       e.target?.setAttribute('visible', e.detail);
       (
         document.querySelector('#controlled-checkbox') as HTMLInputElement
