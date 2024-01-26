@@ -209,7 +209,7 @@ export class Snackbar implements ComponentInterface {
               {hasActionText && (
                 <div class="ino-snackbar-action-container">
                   <ino-button
-                    variant='outlined'
+                    variant="outlined"
                     dense
                     onClick={this.actionClick.emit}
                     class="ino-snackbar-action-btn"
