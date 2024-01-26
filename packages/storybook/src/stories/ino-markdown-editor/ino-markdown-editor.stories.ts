@@ -21,7 +21,7 @@ const InoMarkdownEditorMeta = {
           const editor = document.getElementById(
             ID,
           ) as HTMLInoMarkdownEditorElement;
-          editor.viewMode = e.detail as any;
+          editor.viewMode = e.detail as (typeof editor)['viewMode'];
         };
         document.addEventListener('viewModeChange', viewModeChangeHandler);
 

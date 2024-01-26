@@ -55,7 +55,8 @@
       "options": {
         "commands": [
           "tsc -p packages/elements-angular/tsconfig.schematics.json --outDir packages/elements-angular/dist/schematics",
-          "shx cp packages/elements-angular/src/schematics/collection.json packages/elements-angular/dist/schematics"
+          "shx cp packages/elements-angular/src/schematics/collection.json packages/elements-angular/dist/schematics",
+          "shx cp packages/elements-angular/src/schematics/add/schema.json packages/elements-angular/dist/schematics/add"
         ],
         "parallel": false
       }

@@ -6,6 +6,8 @@ import Story from '../StoryWrapper';
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
+import { TemplateGenerator } from '../template-generator';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-dialog.scss';
 
@@ -84,6 +86,7 @@ const InoDialogMeta = {
       action-text="${args.actionText}"
       cancel-text="${args.cancelText}"
       icon="${args.icon}"
+      close-icon="${args.closeIcon}"
     >
     </ino-dialog>
   `,
@@ -101,6 +104,7 @@ const InoDialogMeta = {
     icon: 'search',
     buttonText: 'Open Dialog',
     dataDialogId: 'ino-dialog-1',
+    closeICon: false,
   },
 } as Meta<InoDialogExtended>;
 
@@ -233,11 +237,18 @@ export const UsingSlots = Story({
       </footer>
     </ino-dialog>
   `,
-  args: {
-    buttonText: 'Open Dialog with slot',
-    dataDialogId: 'demo-custom-content-dialog',
-  },
-});
+);
+
+/**
+ * By using `slot name="header"`, `slot name="body"` or `slot name="footer"` you can respectively replace the default `<header>`, `<section>` (body) or `<footer>` elements of the `ino-dialog` with your own custom content.
+ *
+ * By using the default slot you can completely replace the elements of the `ino-dialog` with your own markdown.
+ */
+export const UsingSlots = customContentWithSlots.generatePlaygroundStory();
+UsingSlots.args = {
+  buttonText: 'Open Dialog with slot',
+  dataDialogId: 'demo-custom-content-dialog',
+};
 
 export const FullWidth = Story({
   ...Default,
@@ -256,6 +267,14 @@ export const Dismissible = Story({
     dismissible: true,
     buttonText: 'Open dismissible Dialog',
     dataDialogId: 'demo-dismissible-dialog',
+  },
+});
+
+export const WithCloseIcon = Story({
+  ...Default,
+  docsFromProperty: 'closeIcon',
+  args: {
+    closeIcon: true,
   },
 });
 

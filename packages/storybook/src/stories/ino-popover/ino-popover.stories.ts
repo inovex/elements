@@ -270,7 +270,7 @@ export const Controlled = Story({
   ...Default,
   docsFromProperty: 'controlled',
   render: () => {
-    const eventHandler = (e: any) => {
+    const eventHandler = (e) => {
       e.target?.setAttribute('visible', e.detail);
       (
         document.querySelector('#controlled-checkbox') as HTMLInputElement

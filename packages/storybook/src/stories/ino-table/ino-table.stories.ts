@@ -232,11 +232,11 @@ export const SelectionWithCheckboxes = Story({
         checkboxes.forEach((checkbox) => {
           checkbox.checked = mainBox.checked;
           const row = (checkbox as HTMLElement).closest('tr');
-          row.classList.toggle('ino-table__row--selected', mainBox.checked);
+          row?.classList.toggle('ino-table__row--selected', mainBox.checked);
         });
       } else if (mainBox) {
         const row = (triggerCheckbox as HTMLElement).closest('tr');
-        row.classList.toggle(
+        row?.classList.toggle(
           'ino-table__row--selected',
           triggerCheckbox.checked,
         );

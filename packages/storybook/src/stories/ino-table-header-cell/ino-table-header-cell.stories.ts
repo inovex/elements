@@ -166,20 +166,22 @@ export const SearchWithDatepicker = Story({
 });
 
 /**
- * Use a `ino-list` element inside of a `ino-table-header-cell` element to show a list selection on click
+ * Use a `ino-list` element inside a `ino-table-header-cell` element to show a list selection on click
  */
 export const SearchWithSelection = Story({
   ...Default,
-  render: (args) => {
+  render: () => {
     useEffect(() => {
       const checkboxes = document.querySelectorAll('ino-checkbox');
       const checkedHandler = (e) =>
-        ((e.target as Components.InoCheckbox).checked = (e as any).detail);
-      checkboxes.forEach((c) =>
+        ((e.target as Components.InoCheckbox).checked = (
+            e as CustomEvent
+          ).detail);
+      checkboxes.forEach(() =>
         addEventListener('checkedChange', checkedHandler),
       );
       return () =>
-        checkboxes.forEach((c) =>
+        checkboxes.forEach(() =>
           removeEventListener('checkedChange', checkedHandler),
         );
     });
