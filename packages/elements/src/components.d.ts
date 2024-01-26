@@ -464,6 +464,9 @@ export namespace Components {
     /**
      * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
      * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     * #### Usage Notes
+     * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+     * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
      */
     interface InoDialog {
         /**
@@ -1934,6 +1937,9 @@ declare global {
     /**
      * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
      * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     * #### Usage Notes
+     * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+     * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
      */
     interface HTMLInoDialogElement extends Components.InoDialog, HTMLStencilElement {
     }
@@ -2848,6 +2854,9 @@ declare namespace LocalJSX {
     /**
      * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
      * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     * #### Usage Notes
+     * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+     * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
      */
     interface InoDialog {
         /**
@@ -2894,6 +2903,10 @@ declare namespace LocalJSX {
           * Emits an event upon closing the dialog
          */
         "onClose"?: (event: InoDialogCustomEvent<DialogCloseAction>) => void;
+        /**
+          * Emits an event when the dialog is opened.
+         */
+        "onDialogOpen"?: (event: InoDialogCustomEvent<void>) => void;
         /**
           * Opens the dialog if set to true
          */
@@ -4272,6 +4285,9 @@ declare module "@stencil/core" {
             /**
              * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
              * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+             * #### Usage Notes
+             * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+             * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
              */
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             /**

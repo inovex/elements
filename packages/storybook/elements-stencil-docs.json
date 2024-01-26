@@ -2741,9 +2741,9 @@
       "fileName": "ino-dialog.tsx",
       "tag": "ino-dialog",
       "readme": "# ino-dialog\n\n",
-      "overview": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.",
+      "overview": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.\n\n#### Usage Notes\n\n- **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.\n- **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.",
       "usage": {},
-      "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.",
+      "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.\n\n#### Usage Notes\n\n- **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.\n- **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.",
       "docsTags": [
         {
           "name": "slot",
@@ -3041,6 +3041,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emits an event upon closing the dialog",
+          "docsTags": []
+        },
+        {
+          "event": "dialogOpen",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits an event when the dialog is opened.",
           "docsTags": []
         }
       ],

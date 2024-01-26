@@ -9,6 +9,11 @@
 The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
 It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
 
+#### Usage Notes
+
+- **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+- **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
+
 ## Properties
 
 | Property      | Attribute     | Description                                                                                                                                                            | Type                        | Default     |
@@ -27,10 +32,11 @@ It is based on the mdc-dialog and is fully customizable. The styling of a dialog
 
 ## Events
 
-| Event    | Description                                                  | Type                  |
-| -------- | ------------------------------------------------------------ | --------------------- |
-| `action` | Emits an event upon clicking the action button of the dialog | `CustomEvent<string>` |
-| `close`  | Emits an event upon closing the dialog                       | `CustomEvent<string>` |
+| Event        | Description                                                  | Type                  |
+| ------------ | ------------------------------------------------------------ | --------------------- |
+| `action`     | Emits an event upon clicking the action button of the dialog | `CustomEvent<string>` |
+| `close`      | Emits an event upon closing the dialog                       | `CustomEvent<string>` |
+| `dialogOpen` | Emits an event when the dialog is opened.                    | `CustomEvent<void>`   |
 
 
 ## Slots
