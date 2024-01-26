@@ -1,9 +1,9 @@
 import { Story } from '@storybook/web-components';
 import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
 import { html } from 'lit-html';
-import ICONS from '../../../elements/src/components/ino-icon/icons';
+import ICONS from '@inovex.de/elements/src/components/ino-icon/icons';
 
-export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
+const maybeCreateStoryArgs = <T>(story: Story<T>): void => {
   if (!story.args) {
     story.args = {};
   }
@@ -18,12 +18,15 @@ export const withIconControl = <T>(
   defaultValue?: string,
 ) => {
   maybeCreateStoryArgs(story);
-  story.args[propertyName] = defaultValue || '';
-  story.argTypes[propertyName] = {
-    control: {
-      type: 'select',
+  story.args = { ...story.args, [propertyName]: defaultValue || '' };
+  story.argTypes = {
+    ...story.args,
+    [propertyName]: {
+      control: {
+        type: 'select',
+      },
+      options: getIcons(),
     },
-    options: getIcons(),
   };
 };
 
@@ -33,22 +36,26 @@ export const withSortDirection = <T>(
   defaultValue?: string,
 ) => {
   maybeCreateStoryArgs(story);
-  story.args[propertyName] = defaultValue || '';
-  story.argTypes[propertyName] = {
-    options: ['desc', 'asc'],
-    control: {
-      type: 'select',
+  story.args = { ...story.args, [propertyName]: defaultValue || '' };
+  story.argTypes = {
+    ...story.args,
+    [propertyName]: {
+      options: ['desc', 'asc'],
+      control: {
+        type: 'select',
+      },
     },
   };
 };
 
-export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
+export const getIcons = () =>
+  ICONS.filter((icon: string) => !icon.startsWith('_'));
 
 export const decorateStoryWithClass = (
   story: () => StoryFnHtmlReturnType,
   className?: string,
 ): StoryFnHtmlReturnType => {
-  return html`<div class="${className ?? ''}">${story()}</div>`;
+  return html` <div class="${className ?? ''}">${story()}</div> `;
 };
 
 export const showSnackbar = (message: string) => {

@@ -13,32 +13,34 @@ import MenuSection from "components/getting-started/menuSection";
 
       Let's get you up to speed quickly with the usage of the inovex Elements to create a simple login page.
     </div>
-    <Image
-    width={92}
-    height={80}
-    src={`/react-icon.svg`}
-    alt="An icon of the React logo"
-    style={{
-      borderRadius: '12px',
-    }}
-  />
+    <div style={{ position: 'relative', height: '80px', width: '92px' }}>
+      <Image
+        fill
+        src={`/react-icon.svg`}
+        alt="An icon of the React logo"
+        style={{
+          borderRadius: '12px',
+        }}
+      />
+    </div>
   </div>
 
-  <Image
-    width={420}
-    height={260}
-    src={`/login-form.png`}
-    alt="A screenshot of the login form"
-    style={{
-      display: 'block',
-      height: 'auto',
-      width: '100%',
-      maxWidth: '420px',
-      borderRadius: '12px',
-      boxShadow: '2px 2px 8px 3px rgba(0, 0, 0, 0.14)',
-      margin: '60px auto 0',
-    }}
-  />
+  <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <div style={{ position: 'relative', height: '260px', width: '420px' }}>
+      <Image
+        src={`/login-form.png`}
+        priority
+        fill
+        alt="A screenshot of the login form"
+        style={{
+          display: 'block',
+          borderRadius: '12px',
+          boxShadow: '2px 2px 8px 3px rgba(0, 0, 0, 0.14)',
+          margin: '60px auto 0',
+        }}
+      />
+    </div>
+  </div>
 
   </section>
 
