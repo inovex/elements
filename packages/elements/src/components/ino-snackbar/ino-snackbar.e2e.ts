@@ -35,5 +35,12 @@ describe('InoSnackbar', () => {
 
       expect(hideEvent).toHaveReceivedEvent();
     });
+
+    it('should close snackbar on pressing ESC key', async () => {
+      const hideEvent = await page.spyOnEvent('hideEl');
+      page.keyboard.press('Escape');
+      await page.waitForChanges();
+      expect(hideEvent).toHaveReceivedEvent();
+    });
   });
 });

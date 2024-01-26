@@ -7,6 +7,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Prop,
 } from '@stencil/core';
 import classNames from 'classnames';
@@ -85,9 +86,17 @@ export class Snackbar implements ComponentInterface {
    */
   @Event() hideEl!: EventEmitter;
 
+
+  @Listen('keyup', { target: 'body' })
+  handleKeyUp(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      this.hideEl.emit();
+    }
+  }
+
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
-    this.snackbarInstance.closeOnEscape = true;
+
     this.snackbarElement.addEventListener(
       'MDCSnackbar:closing',
       this.handleSnackbarHide,
