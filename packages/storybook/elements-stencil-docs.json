@@ -497,7 +497,8 @@
       "encapsulation": "none",
       "dependents": [
         "ino-dialog",
-        "ino-input-file"
+        "ino-input-file",
+        "ino-snackbar"
       ],
       "dependencies": [
         "ino-spinner"
@@ -510,6 +511,9 @@
           "ino-button"
         ],
         "ino-input-file": [
+          "ino-button"
+        ],
+        "ino-snackbar": [
           "ino-button"
         ]
       },
@@ -9128,18 +9132,50 @@
       "dependents": [],
       "dependencies": [
         "ino-icon",
+        "ino-button",
         "ino-icon-button"
       ],
       "dependencyGraph": {
         "ino-snackbar": [
           "ino-icon",
+          "ino-button",
           "ino-icon-button"
+        ],
+        "ino-button": [
+          "ino-spinner"
         ],
         "ino-icon-button": [
           "ino-icon"
         ]
       },
       "props": [
+        {
+          "name": "a11yLabels",
+          "type": "{ snackbarLabel: string; closeLabel: string; }",
+          "complexType": {
+            "original": "SnackbarLabels",
+            "resolved": "{ snackbarLabel: string; closeLabel: string; }",
+            "references": {
+              "SnackbarLabels": {
+                "location": "import",
+                "path": "../types",
+                "id": "src/components/types.ts::SnackbarLabels"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The aria-labels used for type as well as close icon button.",
+          "docsTags": [],
+          "default": "{\n    snackbarLabel: this.type,\n    closeLabel: 'Close notification',\n  }",
+          "values": [
+            {
+              "type": "{ snackbarLabel: string; closeLabel: string; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "actionText",
           "type": "string",
@@ -9155,6 +9191,33 @@
           "docsTags": [],
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "dialogRole",
+          "type": "\"alert\" | \"alertdialog\"",
+          "complexType": {
+            "original": "'alert' | 'alertdialog'",
+            "resolved": "\"alert\" | \"alertdialog\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dialog-role",
+          "reflectToAttr": false,
+          "docs": "The role of the dialog. Can be either 'dialog' or 'alertdialog'.\nThe 'alertdialog' role should be used for important messages that requires user interaction.",
+          "docsTags": [],
+          "default": "'alert'",
+          "values": [
+            {
+              "value": "alert",
+              "type": "string"
+            },
+            {
+              "value": "alertdialog",
               "type": "string"
             }
           ],
@@ -11378,6 +11441,11 @@
     },
     "src/components/types.ts::SnackbarType": {
       "declaration": "export type SnackbarType = 'info' | 'success' | 'error';",
+      "docstring": "",
+      "path": "src/components/types.ts"
+    },
+    "src/components/types.ts::SnackbarLabels": {
+      "declaration": "{\n  snackbarLabel: string;\n  closeLabel: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },

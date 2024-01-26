@@ -10,8 +10,8 @@ import {
   Prop,
 } from '@stencil/core';
 import classNames from 'classnames';
-import { SnackbarType } from '../types';
 import { hasSlotContent } from '../../util/component-utils';
+import { SnackbarLabels, SnackbarType } from '../types';
 
 /**
  * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
@@ -55,9 +55,24 @@ export class Snackbar implements ComponentInterface {
   @Prop() timeout?: number = 5000;
 
   /**
+   * The role of the dialog. Can be either 'dialog' or 'alertdialog'.
+   * The 'alertdialog' role should be used for important messages that requires user interaction.
+   */
+  @Prop() dialogRole?: 'alert' | 'alertdialog' = 'alert';
+
+
+  /**
    * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
    */
   @Prop() stayVisibleOnHover?: boolean = false;
+
+  /**
+   * The aria-labels used for type as well as close icon button.
+   */
+  @Prop() a11yLabels?: SnackbarLabels = {
+    snackbarLabel: this.type,
+    closeLabel: 'Close notification',
+  };
 
   /**
    * Event that emits as soon as the action button is clicked.
@@ -72,6 +87,7 @@ export class Snackbar implements ComponentInterface {
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
+    this.snackbarInstance.closeOnEscape = true;
     this.snackbarElement.addEventListener(
       'MDCSnackbar:closing',
       this.handleSnackbarHide,
@@ -148,14 +164,21 @@ export class Snackbar implements ComponentInterface {
       'mdc-snackbar',
       'ino-snackbar-layout-container',
     );
+
+    const snackbarAttrs = this.dialogRole === 'alertdialog' ? {
+       'role': 'alertdialog',
+       'aria-modal': true,
+       'aria-label': this.a11yLabels.snackbarLabel,
+    } : {
+      'role': 'alert',
+    }
+
     return (
       <Host class={hostClasses}>
         <div
           ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
-          aria-live="assertive"
-          aria-atomic="true"
-          role="alert"
+          {...snackbarAttrs}
         >
           <div class="mdc-snackbar__surface ino-snackbar-container">
             <div class="mdc-snackbar__actions ino-snackbar-icon-container">
@@ -163,6 +186,7 @@ export class Snackbar implements ComponentInterface {
                 <slot name="icon-slot" />
               ) : (
                 <ino-icon
+                  aria-hidden="true"
                   class="ino-snackbar-icon"
                   icon={this.mapTypeToIconName(this.type)}
                 />
@@ -170,24 +194,24 @@ export class Snackbar implements ComponentInterface {
             </div>
             <div
               class="mdc-snackbar__label ino-snackbar-message-container"
-              aria-atomic="false"
             >
               <div class="ino-snackbar-text-container">
                 {this.message ? this.message : <slot />}
               </div>
               {hasActionText && (
                 <div>
-                  <button
-                    onClick={this.actionClick.emit}
-                    class="ino-snackbar-action-btn"
-                  >
-                    {this.actionText}
-                  </button>
-                </div>
-              )}
-            </div>
+                    <ino-button
+                      onClick={this.actionClick.emit}
+                      class="ino-snackbar-action-btn"
+                    >
+                      {this.actionText}
+                    </ino-button>
+                  </div>
+                )}
+          </div>
           </div>
           <ino-icon-button
+            aria-label={this.a11yLabels.closeLabel}
             onClick={this.handleSnackbarHide}
             icon="close"
             class="ino-snackbar-close-btn"
