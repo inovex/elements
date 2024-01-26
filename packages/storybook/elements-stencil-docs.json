@@ -9392,7 +9392,14 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "keyup",
+          "target": "body",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "src/components/ino-spinner/ino-spinner.tsx",

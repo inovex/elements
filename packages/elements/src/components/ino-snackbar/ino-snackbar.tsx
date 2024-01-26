@@ -61,7 +61,6 @@ export class Snackbar implements ComponentInterface {
    */
   @Prop() dialogRole?: 'alert' | 'alertdialog' = 'alert';
 
-
   /**
    * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
    */
@@ -85,7 +84,6 @@ export class Snackbar implements ComponentInterface {
    * Listen to this event to hide or destroy this element.
    */
   @Event() hideEl!: EventEmitter;
-
 
   @Listen('keyup', { target: 'body' })
   handleKeyUp(event: KeyboardEvent) {
@@ -174,13 +172,16 @@ export class Snackbar implements ComponentInterface {
       'ino-snackbar-layout-container',
     );
 
-    const snackbarAttrs = this.dialogRole === 'alertdialog' ? {
-       'role': 'alertdialog',
-       'aria-modal': true,
-       'aria-label': this.a11yLabels.snackbarLabel,
-    } : {
-      'role': 'alert',
-    }
+    const snackbarAttrs =
+      this.dialogRole === 'alertdialog'
+        ? {
+            role: 'alertdialog',
+            'aria-modal': true,
+            'aria-label': this.a11yLabels.snackbarLabel,
+          }
+        : {
+            role: 'alert',
+          };
 
     return (
       <Host class={hostClasses}>
@@ -201,23 +202,21 @@ export class Snackbar implements ComponentInterface {
                 />
               )}
             </div>
-            <div
-              class="mdc-snackbar__label ino-snackbar-message-container"
-            >
+            <div class="mdc-snackbar__label ino-snackbar-message-container">
               <div class="ino-snackbar-text-container">
                 {this.message ? this.message : <slot />}
               </div>
               {hasActionText && (
                 <div>
-                    <ino-button
-                      onClick={this.actionClick.emit}
-                      class="ino-snackbar-action-btn"
-                    >
-                      {this.actionText}
-                    </ino-button>
-                  </div>
-                )}
-          </div>
+                  <ino-button
+                    onClick={this.actionClick.emit}
+                    class="ino-snackbar-action-btn"
+                  >
+                    {this.actionText}
+                  </ino-button>
+                </div>
+              )}
+            </div>
           </div>
           <ino-icon-button
             aria-label={this.a11yLabels.closeLabel}
