@@ -4,9 +4,7 @@
 /**
   @prop --ino-markdown-editor-min-height: min-height of text editor. Default value is `100px`.
   @prop --ino-markdown-editor-max-height: max-height of text editor Default value is `none`.
-  @prop --ino-markdown-editor-paragraph-font-size: Font size of paragraph text. Default value is `16px`.
-  @prop --ino-markdown-editor-h1-font-size: Font size of H1 headers. Default value is `32px`.
-  @prop --ino-markdown-editor-h2-font-size: Font size of H2 headers. Default value is `28px`.
+  @prop --ino-markdown-editor-font-size: Base font size for all text elements, which scales other font sizes accordingly. Default value is `16px`.
 
 */
 
@@ -148,19 +146,20 @@ ino-markdown-editor {
   }
 
   .ProseMirror {
+    --base-font-size: var(--ino-markdown-editor-font-size, 16px);
     min-height: var(--ino-markdown-editor-min-height, 100px);
     padding: 15px;
     border-radius: 4px;
     border: 1px solid theme.$n-2;
     color: rgba(0, 0, 0, 0.87);
-    font-size: var(--ino-markdown-editor-paragraph-font-size, 1rem);
+    font-size: var(--base-font-size);
 
     h1 {
-      font-size: var(--ino-markdown-editor-h1-font-size, 2rem);
+      font-size: calc(var(--base-font-size) * 2);
     }
 
     h2 {
-      font-size: var(--ino-markdown-editor-h2-font-size, 1.75rem);
+      font-size: calc(var(--base-font-size) * 1.75);
     }
 
     &:hover:not(&-focused) {
