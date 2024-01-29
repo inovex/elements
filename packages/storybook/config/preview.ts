@@ -14,9 +14,9 @@ import docsJson from '../elements-stencil-docs.json';
 import theme from './theme';
 
 import DocumentationTemplate from './DocumentationTemplate.mdx';
-import { StencilJsonDocs } from "@pxtrn/storybook-addon-docs-stencil/dist/types";
+import { StencilJsonDocs } from '@pxtrn/storybook-addon-docs-stencil/dist/types';
 
-const StencilDocsJson = docsJson as unknown as StencilJsonDocs
+const StencilDocsJson = docsJson as unknown as StencilJsonDocs;
 
 // Instead of using the custom elements manifest, use @pxtrn/storybook-addon-docs-stencil to extract argTypes of
 // custom elements of the stencil generated json docs. This works better  for (attributes / props), methods, events, slots.

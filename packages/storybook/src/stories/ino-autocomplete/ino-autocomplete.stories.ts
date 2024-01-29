@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/web-components';
 import { Components, KeyValue } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
 import Story from '../StoryWrapper';
 import './ino-autocomplete.scss';
 
@@ -17,7 +16,6 @@ const InoAutocompleteMeta = {
       handles: ['valueChange'],
     },
   },
-  decorators: [(story) => decorateStoryWithClass(story)],
   render: (args) => html` <div style="height: 300px;">
     <ino-autocomplete
       debounce="${args.debounce}"

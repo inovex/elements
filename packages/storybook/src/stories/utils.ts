@@ -1,5 +1,4 @@
-import { StoryObj, Story } from '@storybook/web-components';
-import { html } from 'lit-html';
+import { StoryObj } from '@storybook/web-components';
 import ICONS from '@inovex.de/elements/src/components/ino-icon/icons';
 
 export const maybeCreateStoryArgs = <T>(story: StoryObj<T>) => {
@@ -27,7 +26,7 @@ export const withIconControl = <T>(
 };
 
 export const withSortDirection = <T>(
-  story: Story<T>,
+  story: StoryObj<T>,
   propertyName: string,
   defaultValue?: string,
 ) => {
@@ -42,13 +41,6 @@ export const withSortDirection = <T>(
 };
 
 export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
-
-export const decorateStoryWithClass = (
-  story: () => any,
-  className?: string,
-): any => {
-  return html`<div class="${className ?? ''}">${story()}</div>`;
-};
 
 export const showSnackbar = (message: string) => {
   const snackbar: HTMLInoSnackbarElement =

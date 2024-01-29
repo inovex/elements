@@ -249,11 +249,13 @@ export const SelectionWithCheckboxes = Story({
           mainBox.indeterminate = allChecked;
         }
       }
+    };
 
+    useEffect(() => {
       const table = document.querySelector('.selectable-table');
       table?.addEventListener('checkedChange', checkboxHandler);
       return () => table?.removeEventListener('checkedChange', checkboxHandler);
-    };
+    }, []);
 
     return html`
       <ino-table class="selectable-table">

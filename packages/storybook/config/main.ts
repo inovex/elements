@@ -1,4 +1,4 @@
-import { StorybookConfig } from "@storybook/web-components-vite";
+import { StorybookConfig } from '@storybook/web-components-vite';
 import remarkGfm from 'remark-gfm';
 
 const config: StorybookConfig = {
@@ -31,7 +31,7 @@ const config: StorybookConfig = {
       },
     },
     '@storybook/addon-essentials',
-    '@pxtrn/storybook-addon-docs-stencil'
+    '@pxtrn/storybook-addon-docs-stencil',
   ],
 
   docs: {

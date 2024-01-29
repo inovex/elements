@@ -175,8 +175,8 @@ export const SearchWithSelection = Story({
       const checkboxes = document.querySelectorAll('ino-checkbox');
       const checkedHandler = (e) =>
         ((e.target as Components.InoCheckbox).checked = (
-            e as CustomEvent
-          ).detail);
+          e as CustomEvent
+        ).detail);
       checkboxes.forEach(() =>
         addEventListener('checkedChange', checkedHandler),
       );

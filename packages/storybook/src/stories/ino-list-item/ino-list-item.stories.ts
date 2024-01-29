@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/web-components';
-import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { useEffect } from '@storybook/preview-api';
 import Story from '../StoryWrapper';

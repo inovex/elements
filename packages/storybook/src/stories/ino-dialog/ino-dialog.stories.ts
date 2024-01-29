@@ -6,8 +6,6 @@ import Story from '../StoryWrapper';
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
 
 import './ino-dialog.scss';
 
@@ -237,19 +235,7 @@ export const UsingSlots = Story({
       </footer>
     </ino-dialog>
   `,
-);
-
-/**
- * By using `slot name="header"`, `slot name="body"` or `slot name="footer"` you can respectively replace the default `<header>`, `<section>` (body) or `<footer>` elements of the `ino-dialog` with your own custom content.
- *
- * By using the default slot you can completely replace the elements of the `ino-dialog` with your own markdown.
- */
-export const UsingSlots = customContentWithSlots.generatePlaygroundStory();
-UsingSlots.args = {
-  buttonText: 'Open Dialog with slot',
-  dataDialogId: 'demo-custom-content-dialog',
-};
-
+});
 export const FullWidth = Story({
   ...Default,
   docsFromProperty: 'fullwidth',
