@@ -1,11 +1,12 @@
-.story-option-group {
-  ino-select {
-    margin-bottom: 30px;
-  }
+.sbdocs.sbdocs-content:has(#anchor--input-ino-option-group--default) {
+  [scale] {
+    width: 400px;
+    display: flex;
+    justify-content: center;
 
-  margin-bottom: 300px;
-
-  .story-option-group-customizable {
-    margin-bottom: 150px;
+    .innerZoomElementWrapper > div > div {
+      width: 250px;
+      overflow: unset;
+    }
   }
 }

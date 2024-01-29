@@ -1,20 +1,28 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
 
 import './ino-dialog.scss';
 
-export default {
+type InoDialogExtended = Components.InoDialog & {
+  dataDialogId: string;
+  buttonText: string;
+};
+
+const onSlideChanged = (ev: CustomEvent<string>) => {
+  const carouselEl = ev.target as HTMLInoCarouselElement;
+  carouselEl.value = ev.detail;
+};
+
+const InoDialogMeta = {
   title: 'Structure/ino-dialog',
   component: 'ino-dialog',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-dialog'),
     (story) => {
       useEffect(() => {
         // Open
@@ -61,30 +69,7 @@ export default {
       return story();
     },
   ],
-  args: {
-    attachTo: '.story-dialog',
-    open: false,
-    dialogRole: 'dialog',
-    fullwidth: false,
-    dismissible: true,
-    headerText: 'Hi, I am a headline',
-    bodyText:
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, conset',
-    actionText: 'submit',
-    cancelText: 'cancel',
-    icon: 'search',
-    closeIcon: false,
-  },
-} as Meta<Components.InoDialog>;
-
-type InoDialogExtended = Components.InoDialog & {
-  dataDialogId: string;
-  buttonText: string;
-};
-
-const template = new TemplateGenerator<InoDialogExtended>(
-  'ino-dialog',
-  (args) => html`
+  render: (args) => html`
     <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
       >${args.buttonText}</ino-button
     >
@@ -103,16 +88,37 @@ const template = new TemplateGenerator<InoDialogExtended>(
     >
     </ino-dialog>
   `,
-);
+  args: {
+    attachTo: '',
+    open: false,
+    dialogRole: 'dialog',
+    fullwidth: false,
+    dismissible: true,
+    headerText: 'Hi, I am a headline',
+    bodyText:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, conset',
+    actionText: 'submit',
+    cancelText: 'cancel',
+    icon: 'search',
+    buttonText: 'Open Dialog',
+    dataDialogId: 'ino-dialog-1',
+    closeICon: false,
+  },
+} as Meta<InoDialogExtended>;
 
-export const Playground = template.generatePlaygroundStory();
-Playground.args = {
-  buttonText: 'Open Dialog',
-};
+export default InoDialogMeta;
 
-const templateConfirmationWithText = new TemplateGenerator<InoDialogExtended>(
-  'ino-dialog',
-  (args) => html`
+export const Default = Story({
+  ...InoDialogMeta,
+});
+/**
+ * A Confirmation Dialog with Text requires an action to be taken in order for the dialog to be completed and closed.
+ *
+ * Contains a `headerText`, `bodyText`, `cancelText` and `actionText`.
+ */
+export const ConfirmationDialogWithText = Story({
+  ...Default,
+  render: (args) => html`
     <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
       >${args.buttonText}</ino-button
     >
@@ -129,28 +135,26 @@ const templateConfirmationWithText = new TemplateGenerator<InoDialogExtended>(
     >
     </ino-dialog>
   `,
-);
+  args: {
+    headerText: 'Do you really want to delete your account?',
+    bodyText:
+      'After deleting your account, you will no longer be able to access your saved items.',
+    cancelText: 'Cancel',
+    actionText: 'Delete account',
+    dataDialogId: 'demo-conformation-with-text-dialog',
+    buttonText: 'Open confirmation Dialog with text',
+  },
+});
 
 /**
- * A Confirmation Dialog with Text requires an action to be taken in order for the dialog to be completed and closed.
+ * A Confirmation Dialog with Hero Icon requires an acknowledgement of the information from the user. User has to confirm with one klick on the primary button.
  *
- * Contains a `headerText`, `bodyText`, `cancelText` and `actionText`.
+ *
+ * Contains a `ino-icon` (use `icon="iconID"` on the `ino-dialog` to select one of the given [ino-icons](https://elements.inovex.de/version/v8.0.0/?path=/docs/graphic-ino-icon--all-icons)), `headerText`, `bodyText`, `canceltext` and `actionText`.
  */
-export const ConfirmationDialogWithText =
-  templateConfirmationWithText.generatePlaygroundStory();
-ConfirmationDialogWithText.args = {
-  headerText: 'Do you really want to delete your account?',
-  bodyText:
-    'After deleting your account, you will no longer be able to access your saved items.',
-  cancelText: 'Cancel',
-  actionText: 'Delete account',
-  dataDialogId: 'demo-conformation-with-text-dialog',
-  buttonText: 'Open confirmation Dialog with text',
-};
-
-const templateConfirmationWithIcon = new TemplateGenerator<InoDialogExtended>(
-  'ino-dialog',
-  (args) => html`
+export const ConfirmationDialogWithIcon = Story({
+  ...Default,
+  render: (args) => html`
     <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
       >${args.buttonText}</ino-button
     >
@@ -167,29 +171,25 @@ const templateConfirmationWithIcon = new TemplateGenerator<InoDialogExtended>(
     >
     </ino-dialog>
   `,
-);
+  args: {
+    headerText: 'Perfect! You almost made it...',
+    bodyText:
+      'A confirmation email is on the way. Please click on the link in the email to complete the registration and secure your discount code.',
+    actionText: 'Confirm',
+    dataDialogId: 'demo-conformation-with-icon-dialog',
+    buttonText: 'Open confirmation Dialog with icon',
+    icon: 'message',
+  },
+});
 
 /**
- * A Confirmation Dialog with Hero Icon requires an acknowledgement of the information from the user. User has to confirm with one klick on the primary button.
+ * By using `slot name="header"`, `slot name="body"` or `slot name="footer"` you can respectively replace the default `<header>`, `<section>` (body) or `<footer>` elements of the `ino-dialog` with your own custom content.
  *
- *
- * Contains a `ino-icon` (use `icon="iconID"` on the `ino-dialog` to select one of the given [ino-icons](https://elements.inovex.de/version/v8.0.0/?path=/docs/graphic-ino-icon--all-icons)), `headerText`, `bodyText`, `canceltext` and `actionText`.
+ * By using the default slot you can completely replace the elements of the `ino-dialog` with your own markdown.
  */
-export const ConfirmationDialogWithIcon =
-  templateConfirmationWithIcon.generatePlaygroundStory();
-ConfirmationDialogWithIcon.args = {
-  headerText: 'Perfect! You almost made it...',
-  bodyText:
-    'A confirmation email is on the way. Please click on the link in the email to complete the registration and secure your discount code.',
-  actionText: 'Confirm',
-  dataDialogId: 'demo-conformation-with-icon-dialog',
-  buttonText: 'Open confirmation Dialog with icon',
-  icon: 'message',
-};
-
-const customContentWithSlots = new TemplateGenerator<InoDialogExtended>(
-  'ino-dialog',
-  (args) => html`
+export const UsingSlots = Story({
+  ...Default,
+  render: (args) => html`
     <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
       >${args.buttonText}</ino-button
     >
@@ -235,50 +235,43 @@ const customContentWithSlots = new TemplateGenerator<InoDialogExtended>(
       </footer>
     </ino-dialog>
   `,
-);
+});
+export const FullWidth = Story({
+  ...Default,
+  docsFromProperty: 'fullwidth',
+  args: {
+    fullwidth: true,
+    buttonText: 'Open full width Dialog',
+    dataDialogId: 'demo-fullwidth-dialog',
+  },
+});
 
-export const WithCloseIcon = template.generateStoryForProp('closeIcon', true);
-WithCloseIcon.args = {
-  buttonText: 'With close icon',
-  dataDialogId: 'demo-with-close-icon-dialog',
-  closeIcon: true,
-};
+export const Dismissible = Story({
+  ...Default,
+  docsFromProperty: 'dismissible',
+  args: {
+    dismissible: true,
+    buttonText: 'Open dismissible Dialog',
+    dataDialogId: 'demo-dismissible-dialog',
+  },
+});
 
-/**
- * By using `slot name="header"`, `slot name="body"` or `slot name="footer"` you can respectively replace the default `<header>`, `<section>` (body) or `<footer>` elements of the `ino-dialog` with your own custom content.
- *
- * By using the default slot you can completely replace the elements of the `ino-dialog` with your own markdown.
- */
-export const UsingSlots = customContentWithSlots.generatePlaygroundStory();
-UsingSlots.args = {
-  buttonText: 'Open Dialog with slot',
-  dataDialogId: 'demo-custom-content-dialog',
-};
-
-const onSlideChanged = (ev: CustomEvent<string>) => {
-  const carouselEl = ev.target as HTMLInoCarouselElement;
-  carouselEl.value = ev.detail;
-};
-
-export const FullWidth = template.generateStoryForProp('fullwidth', true);
-FullWidth.args = {
-  fullwidth: true,
-  buttonText: 'Open full width Dialog',
-  dataDialogId: 'demo-fullwidth-dialog',
-};
-
-export const Dismissible = template.generateStoryForProp('dismissible', true);
-Dismissible.args = {
-  buttonText: 'Open dismissible Dialog',
-  dataDialogId: 'demo-dismissible-dialog',
-};
+export const WithCloseIcon = Story({
+  ...Default,
+  docsFromProperty: 'closeIcon',
+  args: {
+    closeIcon: true,
+  },
+});
 
 /**
  * Closing actions allow you to handle different button actions (like confirm, cancel, ...) using the `close` event listener on the dialog.
  * Close the dialog and see the snackbar afterwards.
  */
-export const ClosingAction = template.generatePlaygroundStory();
-ClosingAction.args = {
-  dataDialogId: 'demo-action-dialog',
-  buttonText: 'open closing action Dialog',
-};
+export const ClosingAction = Story({
+  ...Default,
+  args: {
+    dataDialogId: 'demo-action-dialog',
+    buttonText: 'open closing action Dialog',
+  },
+});

@@ -1,8 +1,15 @@
-.story-textarea {
-  display: flex;
-  justify-content: space-around;
+.sbdocs.sbdocs-content:has(#anchor--input-ino-textarea--default) {
+  [scale] {
+    width: 100%;
+  }
+
   ino-textarea {
     margin-top: 15px;
     margin-bottom: 15px;
+  }
+
+  #story--input-ino-textarea--label-inner #root-inner {
+    display: flex;
+    gap: 15px;
   }
 }

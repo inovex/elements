@@ -1,9 +1,7 @@
-import { Story } from '@storybook/web-components';
-import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
-import { html } from 'lit-html';
+import { StoryObj } from '@storybook/web-components';
 import ICONS from '@inovex.de/elements/src/components/ino-icon/icons';
 
-const maybeCreateStoryArgs = <T>(story: Story<T>): void => {
+const maybeCreateStoryArgs = <T>(story: StoryObj<T>): void => {
   if (!story.args) {
     story.args = {};
   }
@@ -13,7 +11,7 @@ const maybeCreateStoryArgs = <T>(story: Story<T>): void => {
 };
 
 export const withIconControl = <T>(
-  story: Story<T>,
+  story: StoryObj<T>,
   propertyName: string,
   defaultValue?: string,
 ) => {
@@ -31,7 +29,7 @@ export const withIconControl = <T>(
 };
 
 export const withSortDirection = <T>(
-  story: Story<T>,
+  story: StoryObj<T>,
   propertyName: string,
   defaultValue?: string,
 ) => {
@@ -50,13 +48,6 @@ export const withSortDirection = <T>(
 
 export const getIcons = () =>
   ICONS.filter((icon: string) => !icon.startsWith('_'));
-
-export const decorateStoryWithClass = (
-  story: () => StoryFnHtmlReturnType,
-  className?: string,
-): StoryFnHtmlReturnType => {
-  return html` <div class="${className ?? ''}">${story()}</div> `;
-};
 
 export const showSnackbar = (message: string) => {
   const snackbar: HTMLInoSnackbarElement =

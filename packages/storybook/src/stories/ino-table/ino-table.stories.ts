@@ -1,52 +1,10 @@
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-import { useEffect } from '@storybook/client-api';
+import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
-import { TemplateGenerator } from '../template-generator';
+import { html } from 'lit';
+import Story from '../StoryWrapper';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { useEffect } from '@storybook/preview-api';
 import './ino-table.scss';
-
-export default {
-  title: `Structure/ino-table`,
-  component: 'ino-table',
-  inline: true,
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-ino-table'),
-    (story) => {
-      useEffect(() => {
-        const tables = document.querySelectorAll('ino-table');
-        const sortChangeHandler = (e) => {
-          const { columnId, sortDirection } = e.detail;
-          e.target.sortColumnId = columnId;
-          e.target.sortDirection = sortDirection;
-        };
-        tables.forEach((t) =>
-          t.addEventListener('sortChange', sortChangeHandler),
-        );
-        return () =>
-          tables.forEach((t) =>
-            t.removeEventListener('sortChange', sortChangeHandler),
-          );
-      });
-      return story();
-    },
-  ],
-  argTypes: {
-    sortColumnId: {
-      options: ['id', 'name', 'release', 'box-office', 'rating'],
-      control: {
-        type: 'select',
-      },
-    },
-  },
-  args: {
-    loading: false,
-    sortColumnId: 'id',
-    noHover: false,
-    stickyHeader: false,
-    sortDirection: 'asc',
-  },
-};
 
 const tableContent = html`<tr slot="header-row"></tr>
   <ino-table-header-cell
@@ -146,9 +104,31 @@ const tableContent = html`<tr slot="header-row"></tr>
     <td>Some information</td>
   </tr> `;
 
-const template = new TemplateGenerator<Components.InoTable>(
-  'ino-table',
-  (args) => html`
+const InoTableMeta = {
+  title: 'Structure/ino-table',
+  component: 'ino-table',
+  inline: true,
+  decorators: [
+    (story) => {
+      useEffect(() => {
+        const tables = document.querySelectorAll('ino-table');
+        const sortChangeHandler = (e) => {
+          const { columnId, sortDirection } = e.detail;
+          e.target.sortColumnId = columnId;
+          e.target.sortDirection = sortDirection;
+        };
+        tables.forEach((t) =>
+          t.addEventListener('sortChange', sortChangeHandler),
+        );
+        return () =>
+          tables.forEach((t) =>
+            t.removeEventListener('sortChange', sortChangeHandler),
+          );
+      });
+      return story();
+    },
+  ],
+  render: (args) => html`
     <ino-table
       loading="${args.loading}"
       sort-column-id="${args.sortColumnId}"
@@ -167,11 +147,44 @@ const template = new TemplateGenerator<Components.InoTable>(
       ${tableContent}
     </ino-table>
   `,
-);
+  argTypes: {
+    sortColumnId: {
+      options: ['id', 'name', 'release', 'box-office', 'rating'],
+      control: {
+        type: 'select',
+      },
+    },
+  },
+  args: {
+    loading: false,
+    sortColumnId: 'id',
+    noHover: false,
+    stickyHeader: false,
+    sortDirection: 'asc',
+  },
+} as Meta<Components.InoTable>;
 
-export const Playground = template.generatePlaygroundStory();
-export const Loading = template.generateStoryForProp('loading', true);
-export const NoHover = template.generateStoryForProp('noHover', true);
+export default InoTableMeta;
+
+export const Default = Story({
+  ...InoTableMeta,
+});
+
+export const Loading = Story({
+  ...Default,
+  docsFromProperty: 'loading',
+  args: {
+    loading: true,
+  },
+});
+
+export const NoHover = Story({
+  ...Default,
+  docsFromProperty: 'noHover',
+  args: {
+    noHover: true,
+  },
+});
 
 /**
  * For table sorting there are two needed props:
@@ -184,52 +197,65 @@ export const NoHover = template.generateStoryForProp('noHover', true);
  *
  * Sorting-logic needs to be implemented by user.
  */
-export const SortColumnIdAndSortDirection = template.generatePlaygroundStory();
-export const StickyHeader = template.generateStoryForProp('stickyHeader', true);
+export const SortColumnIdAndSortDirection = Story({
+  ...Default,
+});
 
-const templateSelectionWithCheckboxes =
-  new TemplateGenerator<Components.InoTable>('ino-table', () => {
-    useEffect(() => {
-      const mainBox = document.getElementById(
-        'headerBox',
-      ) as Components.InoCheckbox;
+export const StickyHeader = Story({
+  ...Default,
+  docsFromProperty: 'stickyHeader',
+  args: {
+    stickyHeader: true,
+  },
+});
 
-      const checkboxHandler = (e) => {
-        const triggerCheckbox = e.target;
-        triggerCheckbox.checked = !triggerCheckbox.checked;
+/**
+ * Use `ino-checkbox` elements in the first column for checkbox-selection
+ */
+export const SelectionWithCheckboxes = Story({
+  ...Default,
+  render: () => {
+    const mainBox = document.getElementById(
+      'headerBox',
+    ) as Components.InoCheckbox;
 
-        const checkboxes = Array.from(
-          document.querySelectorAll('.selectable-table tbody ino-checkbox'),
-        ) as Components.InoCheckbox[];
+    const checkboxHandler = (e) => {
+      const triggerCheckbox = e.target;
+      triggerCheckbox.checked = !triggerCheckbox.checked;
 
-        if (triggerCheckbox.id === 'headerBox') {
-          triggerCheckbox.indeterminate = false;
-          checkboxes.forEach((checkbox) => {
-            checkbox.checked = mainBox.checked;
-            const row = (checkbox as HTMLElement).closest('tr');
-            row?.classList.toggle('ino-table__row--selected', mainBox.checked);
-          });
-        } else if (mainBox) {
-          const row = (triggerCheckbox as HTMLElement).closest('tr');
-          row?.classList.toggle(
-            'ino-table__row--selected',
-            triggerCheckbox.checked,
-          );
+      const checkboxes = Array.from(
+        document.querySelectorAll('.selectable-table tbody ino-checkbox'),
+      ) as Components.InoCheckbox[];
 
-          if (checkboxes.some((i) => i.checked)) {
-            mainBox.indeterminate = true;
-          } else {
-            const allChecked = checkboxes.every((i) => i.checked);
-            mainBox.checked = allChecked;
-            mainBox.indeterminate = allChecked;
-          }
+      if (triggerCheckbox.id === 'headerBox') {
+        triggerCheckbox.indeterminate = false;
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = mainBox.checked;
+          const row = (checkbox as HTMLElement).closest('tr');
+          row?.classList.toggle('ino-table__row--selected', mainBox.checked);
+        });
+      } else if (mainBox) {
+        const row = (triggerCheckbox as HTMLElement).closest('tr');
+        row?.classList.toggle(
+          'ino-table__row--selected',
+          triggerCheckbox.checked,
+        );
+
+        if (checkboxes.some((i) => i.checked)) {
+          mainBox.indeterminate = true;
+        } else {
+          const allChecked = checkboxes.every((i) => i.checked);
+          mainBox.checked = allChecked;
+          mainBox.indeterminate = allChecked;
         }
-      };
+      }
+    };
 
+    useEffect(() => {
       const table = document.querySelector('.selectable-table');
       table?.addEventListener('checkedChange', checkboxHandler);
       return () => table?.removeEventListener('checkedChange', checkboxHandler);
-    });
+    }, []);
 
     return html`
       <ino-table class="selectable-table">
@@ -311,10 +337,5 @@ const templateSelectionWithCheckboxes =
       `)}
       </ino-table>
     `;
-  });
-
-/**
- * Use `ino-checkbox` elements in the first column for checkbox-selection
- */
-export const SelectionWithCheckboxes =
-  templateSelectionWithCheckboxes.generatePlaygroundStory();
+  },
+});
