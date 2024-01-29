@@ -1,7 +1,7 @@
 import { StoryObj } from '@storybook/web-components';
 import ICONS from '@inovex.de/elements/src/components/ino-icon/icons';
 
-export const maybeCreateStoryArgs = <T>(story: StoryObj<T>) => {
+const maybeCreateStoryArgs = <T>(story: StoryObj<T>): void => {
   if (!story.args) {
     story.args = {};
   }
@@ -16,12 +16,15 @@ export const withIconControl = <T>(
   defaultValue?: string,
 ) => {
   maybeCreateStoryArgs(story);
-  story.args[propertyName] = defaultValue || '';
-  story.argTypes[propertyName] = {
-    control: {
-      type: 'select',
+  story.args = { ...story.args, [propertyName]: defaultValue || '' };
+  story.argTypes = {
+    ...story.args,
+    [propertyName]: {
+      control: {
+        type: 'select',
+      },
+      options: getIcons(),
     },
-    options: getIcons(),
   };
 };
 
@@ -31,16 +34,20 @@ export const withSortDirection = <T>(
   defaultValue?: string,
 ) => {
   maybeCreateStoryArgs(story);
-  story.args[propertyName] = defaultValue || '';
-  story.argTypes[propertyName] = {
-    options: ['desc', 'asc'],
-    control: {
-      type: 'select',
+  story.args = { ...story.args, [propertyName]: defaultValue || '' };
+  story.argTypes = {
+    ...story.args,
+    [propertyName]: {
+      options: ['desc', 'asc'],
+      control: {
+        type: 'select',
+      },
     },
   };
 };
 
-export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
+export const getIcons = () =>
+  ICONS.filter((icon: string) => !icon.startsWith('_'));
 
 export const showSnackbar = (message: string) => {
   const snackbar: HTMLInoSnackbarElement =

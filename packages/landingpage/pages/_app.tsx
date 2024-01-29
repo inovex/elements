@@ -9,10 +9,11 @@ import {
 } from '@inovex.de/elements/dist/loader';
 import { useEffect } from 'react';
 import { LanguageProvider } from 'utils/context/LanguageContext';
-import useDefaultLocale from '../translations/useDefaultLocale';
-import { useMount } from 'react-use';
 import UiContextProvider from '../utils/context/UiContext';
 import { VersionProvider } from '../utils/context/VersionContext';
+import useDefaultLocale from '../translations/useDefaultLocale';
+import { useMount } from 'react-use';
+import { inDevEnvironment } from '../utils/in-dev-mode';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -22,7 +23,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   const redirectToDefaultLocale = useDefaultLocale();
-  useMount(redirectToDefaultLocale);
+  useMount(() => {
+    if (!inDevEnvironment) {
+      redirectToDefaultLocale();
+    }
+  });
 
   return (
     <UiContextProvider>

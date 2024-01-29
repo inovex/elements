@@ -117,7 +117,7 @@ export default function ComponentSample() {
             componentName="Control Item"
             componentCategory="Structure"
           >
-            <InoList two-lines="false">
+            <div>
               <InoControlItem
                 role="checkbox"
                 checked={checkboxValue}
@@ -130,7 +130,7 @@ export default function ComponentSample() {
                 text="Radio Button"
                 onCheckedChange={(value) => setRadioboxValue(value.detail)}
               ></InoControlItem>
-            </InoList>
+            </div>
           </ComponentSampleCard>
         </div>
         <div className={styles.segmentgroup}>

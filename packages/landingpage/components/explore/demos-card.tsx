@@ -20,7 +20,7 @@ const DemoCard: FunctionComponent<Props> = ({
     contentClassName={styles.content}
     content={
       <>
-        <div>{frameworkIcon}</div>
+        <div className={styles.icon}>{frameworkIcon}</div>
         <div className={classNames(styles.name, 'title-l')}>
           {frameworkName}
         </div>

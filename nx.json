@@ -37,6 +37,7 @@
   "cacheDirectory": ".nx-cache",
   "release": {
     "projects": [
+      "workspace",
       "elements",
       "elements-angular",
       "elements-react",
