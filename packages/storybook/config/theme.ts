@@ -1,6 +1,11 @@
 import { create } from '@storybook/theming';
 import '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
-const version = require('../package.json').version;
+
+interface PackageJson {
+  version: string
+}
+
+const version = (import('../package.json') as unknown as PackageJson).version;
 
 export default create({
   base: 'light',
