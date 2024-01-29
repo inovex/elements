@@ -93,6 +93,8 @@ const template = new TemplateGenerator<Components.InoNavMenu>(
 `}
 );
 
+export const Playground = template.generatePlaygroundStory();
+
 const templateSections = new TemplateGenerator<Components.InoNavMenu>(
   'ino-nav-menu',
   (args) => {
@@ -122,9 +124,35 @@ const templateSections = new TemplateGenerator<Components.InoNavMenu>(
   `}
 );
 
-export const Playground = template.generatePlaygroundStory();
 export const Sections = templateSections.generateStoryForProp('sectionIds', sections);
 export const ActiveSection = template.generateStoryForProp('activeSection', 'section-2');
 export const MenuTitle = template.generateStoryForProp('menuTitle', 'Contents');
 export const IntersectionObserverConfig = template.generateStoryForProp('intersectionObserverConfig', {threshold: 2, rootMargin: '-50% 0px -50% 0px'});
 export const ScrollOffset = template.generateStoryForProp('scrollOffset', 20);
+
+const templateLoading = new TemplateGenerator<Components.InoNavMenu>(
+  'ino-nav-menu',
+  (args) => {
+    templateCounter++;
+    return html`
+    <aside>
+      <ino-nav-menu
+        menu-title="${args.menuTitle}"
+        @activeSectionChanged="${activeSectionChanged}"
+        loading="${args.loading}"
+      ></ino-nav-menu> 
+    </aside>
+    <div class="sections" id="sections-playground-${templateCounter}">
+      <ino-switch
+        checked="true"
+        name="sticky-switch"
+        @checkedChange="${switchHandler}"
+      >
+        Show stickyness of ino-nav-menu
+      </ino-switch>
+      ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
+    </div>
+  `}
+);
+
+export const Loading = templateLoading.generateStoryForProp('loading', true);

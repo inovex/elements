@@ -359,6 +359,7 @@ export const InoNavMenu = /*@__PURE__*/ defineContainer<JSX.InoNavMenu>('ino-nav
   'sectionsContainerId',
   'activeSection',
   'scrollOffset',
+  'loading',
   'intersectionObserverConfig',
   'activeSectionChanged'
 ]);

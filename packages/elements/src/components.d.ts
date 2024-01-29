@@ -1102,6 +1102,10 @@ export namespace Components {
          */
         "intersectionObserverConfig": IntersectionObserverInit;
         /**
+          * Overrides the `ino-nav-menu`'s loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the `ino-nav-menu` will not show any loading animations.  By default, the loading animation will be shown only during the section-fetching/autodetection process.
+         */
+        "loading"?: boolean;
+        /**
           * Title of the navigation menu.
          */
         "menuTitle": string;
@@ -3996,6 +4000,10 @@ declare namespace LocalJSX {
           * Config of the internal intersection observer.
          */
         "intersectionObserverConfig"?: IntersectionObserverInit;
+        /**
+          * Overrides the `ino-nav-menu`'s loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the `ino-nav-menu` will not show any loading animations.  By default, the loading animation will be shown only during the section-fetching/autodetection process.
+         */
+        "loading"?: boolean;
         /**
           * Title of the navigation menu.
          */

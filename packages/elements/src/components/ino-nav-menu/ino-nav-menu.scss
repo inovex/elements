@@ -1,5 +1,6 @@
 @use '../base/typography-new' as typography;
 @use '../base/new-theme' as theme;
+@use '../base/animation' as animation;
 
 $sideBorderWidth: 2px;
 
@@ -28,6 +29,8 @@ ino-nav-menu {
 
   .ino-nav-menu .ino-nav-menu__sections__section {
     list-style: none;
+    position: relative;
+    width: 100%;
 
     a {
       @include typography.typo('body-m');
@@ -38,6 +41,15 @@ ino-nav-menu {
       border-bottom-right-radius: 14px;
       color: theme.$black;
     }
+
+    & .skeleton-loader {
+      @include animation.skeleton-loading;
+    }
+  }
+
+  // needs a set height to display loading
+  .ino-nav-menu .ino-nav-menu__sections__section:has(.skeleton-loader){
+    height: 27px;
   }
 
   .ino-nav-menu .ino-nav-menu__sections__section:hover a {

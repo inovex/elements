@@ -42,12 +42,19 @@ export class NavMenu implements ComponentInterface {
     return this.sectionIds === undefined || this.sectionIds === null;
   }
 
-  private get sectionsIntern(): string[] {
-    return !this.autodetectSections ? this.sectionIds : this.findSections();
+  private get sectionsIntern(): string[] | false {
+    if(!this.autodetectSections) {
+      return this.sectionIds
+    } else if (this.autodetectSections && this.sectionContainer) {
+      return this.findSections();
+    } else {
+      return 
+    }
   }
 
-  private get sectionContainer(): HTMLElement {
-    return document.getElementById(this.sectionsContainerId);
+  private get sectionContainer(): HTMLElement | false {
+    const container = document.getElementById(this.sectionsContainerId);
+    return (container === undefined || container === null)? false : container;
   } 
 
   /**
@@ -80,6 +87,15 @@ export class NavMenu implements ComponentInterface {
    * Scroll offset of the sticky navigation menu.
    */
   @Prop() scrollOffset: number = DEFAULT_SCROLL_OFFSET;
+
+  /**
+   * Overrides the `ino-nav-menu`'s loading animation behavior.
+   * When set to true, the loading animation is displayed indefinitely.
+   * When set to false, the `ino-nav-menu` will not show any loading animations.
+   *
+   * By default, the loading animation will be shown only during the section-fetching/autodetection process.
+   */
+  @Prop() loading?: boolean = true;
 
   /**
    * Config of the internal intersection observer.
@@ -133,7 +149,7 @@ export class NavMenu implements ComponentInterface {
   }
 
   private initSections() {
-    if(this.sectionsIntern === null || this.sectionsIntern === undefined){
+    if(!this.sectionsIntern){
       return
     }
 
@@ -151,13 +167,22 @@ export class NavMenu implements ComponentInterface {
         const htmlEl = document.getElementById(id) as HTMLInoNavMenuSectionElement;
         return {id: htmlEl.id, name: htmlEl.title}
       })
+
+    // sections are fetched, deactivate loading if active
+    if(this.loading) {
+      this.loading = false;
+    }
+
     if (this.autodetectSections) {
       this.emitActiveSection(this.sectionsIntern[0]);
     }
   }
 
-  private findSections(): string[] {
+  private findSections(): string[] | false {
     const sections: string[] = [];
+    if(!this.sectionContainer) {
+      return false
+    }
     Array.from(this.sectionContainer
       .querySelectorAll('ino-nav-menu-section'))
       .forEach((section: HTMLInoNavMenuSectionElement) => {
@@ -176,6 +201,9 @@ export class NavMenu implements ComponentInterface {
       this.updateActiveEntry,
       this.intersectionObserverConfig,
     );
+    if(!this.sectionsIntern){
+      return
+    }
     this.sectionsIntern.forEach((x) =>
       this.observer.observe(document.getElementById(x)),
     );
@@ -235,42 +263,55 @@ export class NavMenu implements ComponentInterface {
     );
   };
 
-  private renderSections = (): HTMLElement => {
-    if(this.sectionObjs === null || this.sectionObjs === undefined) {
-      // possible skeleton loading here
-      return (
-        <div class="ino-nav-menu__sections__section loading"></div>
-      )
-    }
+  private renderSectionPoint = (el, i) => {
     return (
-      <ul class="ino-nav-menu__sections">
-        {this.sectionObjs.map((el, i) => (
-          <li
-            class={{
-              'ino-nav-menu__sections__section': true,
-              'ino-nav-menu__sections__section--active':
-                this.activeSection === el.id,
-            }}
-            key={i}
-          >
-            <a
-              href={`#${el.id}`}
-              onClick={(e) => this.handleAnchorClick(e, el.id)}
-            >
-              {el.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <li
+        class={{
+          'ino-nav-menu__sections__section': true,
+          'ino-nav-menu__sections__section--active':
+            this.activeSection === el.id,
+        }}
+        key={i}
+      >
+        <a
+          href={`#${el.id}`}
+          onClick={(e) => this.handleAnchorClick(e, el.id)}
+        >
+          {el.name}
+        </a>
+      </li>
     )
   }
 
+  private renderLoadingSkeleton = () => {
+    // 3 placeholder Elements with loading animation
+    const n = 3;
+
+    const skeletonLoaderElements = Array.from({ length: n }, (_) => {
+      return (
+      <li class="ino-nav-menu__sections__section">
+        <div class="skeleton-loader"></div>
+      </li>
+    )});
+
+    return skeletonLoaderElements;
+  }
+
   render() {
+    const loadingPlaceholder = this.loading? this.renderLoadingSkeleton() : null;
+    const isFetching = (this.sectionObjs === null || this.sectionObjs === undefined);
+
     return (
       <Host>
         <nav class="ino-nav-menu" style={{ top: DEFAULT_SCROLL_OFFSET + 'px' }}>
           <h3 class="ino-nav-menu__title">{this.menuTitle}</h3>
-          {this.renderSections()}
+            <ul class="ino-nav-menu__sections">
+              {isFetching?
+               loadingPlaceholder
+                :
+                this.sectionObjs.map((el, i) => this.renderSectionPoint(el, i))
+              }
+            </ul>
         </nav>
         <slot></slot>
       </Host>
