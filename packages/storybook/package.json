@@ -41,47 +41,24 @@
   "dependencies": {
     "@inovex.de/elements": "^9.0.1",
     "lit": "^3.1.0",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "moment": "^2.24.0",
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.6",
-    "@babel/plugin-proposal-optional-chaining": "^7.17.12",
-    "@babel/plugin-transform-typescript": "^7.17.12",
-    "@babel/preset-env": "^7.23.6",
-    "@babel/preset-typescript": "^7.23.3",
-    "@mdx-js/react": "^1.6.22",
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.0",
-    "@storybook/addon-actions": "^7.6.6",
     "@storybook/addon-docs": "^7.6.6",
     "@storybook/addon-essentials": "^7.6.6",
-    "@storybook/addon-links": "^7.6.6",
-    "@storybook/addon-styling-webpack": "^0.0.6",
-    "@storybook/addon-viewport": "^7.6.6",
-    "@storybook/theming": "^7.6.6",
-    "@storybook/builder-vite": "^7.6.6",
     "@storybook/blocks": "^7.6.6",
+    "@storybook/builder-vite": "^7.6.6",
     "@storybook/manager-api": "^7.6.6",
+    "@storybook/theming": "^7.6.6",
     "@storybook/web-components": "^7.6.6",
-    "@storybook/web-components-webpack5": "^7.6.6",
     "@storybook/web-components-vite": "^7.6.6",
-    "@types/node": "^16.0.0",
-    "babel-loader": "8.2.5",
-    "chalk": "^2.4.2",
-    "core-js": "^3.2.1",
-    "css-loader": "^0.28.0",
+    "@types/lodash-es": "^4.17.12",
     "eslint-plugin-storybook": "^0.6.15",
-    "prettier": "^1.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.49.7",
-    "sass-loader": "^12.6.0",
-    "story-description-loader": "^1.0.0",
-    "typescript": "^4.5.5",
-    "webpack": "^5.0.0"
-  },
-  "resolutions": {
-    "uglify-js": "3.6.4"
+    "typescript": "^4.5.5"
   }
 }

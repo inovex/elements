@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/web-components';
 import docsJson from '../../elements-stencil-docs';
-import { merge } from 'lodash';
+import { merge } from 'lodash-es';
 
 export interface MetaWrapper<T> extends Meta<T> {
   docsFromProperty?: keyof T;
