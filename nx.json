@@ -50,7 +50,7 @@
       "ui-patterns-playground"
     ],
     "git": {
-      "commitMessage": "chore: publish {version}"
+      "commitMessage": "chore: publish {version} [no ci]"
     },
     "changelog": {
       "projectChangelogs": false,
