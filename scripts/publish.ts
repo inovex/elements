@@ -39,14 +39,14 @@ function getNxVersionCmd(
   dryRun?: boolean,
   createTag?: boolean,
   stageChanges?: boolean,
+  usePreid?: boolean,
 ) {
   const base = ['nx release version', version, '--git-commit=false'];
 
   if (dryRun) base.push('--dry-run');
-
   if (createTag) base.push('--git-tag');
-
   if (stageChanges) base.push('--stage-changes');
+  if (usePreid) base.push('--preid next');
 
   return base.join(' ');
 }
@@ -91,6 +91,7 @@ async function getLatestReleaseCommitSha(): Promise<string> {
 async function getNextVersion(): Promise<string> {
   const { releaseType } = await conventionalRecommendedBump({
     preset: 'angular',
+    skipUnstable: true,
   });
   if (!releaseType) {
     echo(getIcon(0), 'ReleaseType could not be determine');
@@ -174,7 +175,7 @@ function checkGithubToken() {
 
   if (isPreRelease) {
     echo(`Running Pre-Release (Dry run: ${getIcon(isDryRun)})`);
-    if (run(getNxVersionCmd('prerelease', isDryRun, true)) !== 0) {
+    if (run(getNxVersionCmd('prerelease', isDryRun, true, false, true)) !== 0) {
       echo(getIcon(0), 'nx release version prerelease failed! ', getIcon(0));
       exit(1);
     }
