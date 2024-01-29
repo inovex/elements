@@ -161,7 +161,7 @@ function checkGithubToken() {
       getIcon(0),
       'You need to login into NPM with the respective permissions if publishing to registry fails',
     );
-    exit(1);
+    if (!isDryRun) exit(1);
   }
 
   if (!isPreRelease && !hasGitHubToken) {
@@ -170,7 +170,7 @@ function checkGithubToken() {
       getIcon(),
       'You need to install the github cli locally and login via gh auth login!',
     );
-    exit(1);
+    if (!isDryRun) exit(1);
   }
 
   if (isPreRelease) {
