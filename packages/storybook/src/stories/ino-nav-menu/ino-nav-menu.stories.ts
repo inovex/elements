@@ -7,6 +7,11 @@ import './ino-nav-menu.scss';
 
 const sections = ['Section 1', 'Section 2', 'Section 3'];
 
+const switchHandler = (e: CustomEvent<boolean>) => {
+  (e.target as HTMLInoSwitchElement).checked = e.detail;
+  (e.target as HTMLInoSwitchElement).closest('.sections')?.classList.toggle('show-full-height');
+}
+
 export default {
   title: `Structure/ino-nav-menu`,
   component: 'ino-nav-menu',
@@ -31,18 +36,18 @@ export default {
     }
   },
   args: {
-    activeSection: 'section-1',
     menuTitle: 'Sections',
     scrollOffset: 80,
   },
 } as Meta<Components.InoNavMenu>;
 
-const activeSectionChanged = (x: CustomEvent<string>) =>
-  console.log('active section changed: ' + x.detail);
+const activeSectionChanged = (e: CustomEvent<string>) => {
+  (e.target as HTMLInoNavMenuElement).setAttribute('active-section', e.detail);
+}
 
 const renderSection = (name: string, counter: number) => {
-  return html
-  `<ino-nav-menu-section section-name="${name}" section-id="${buildSectionId(name)}-${counter}">
+  return html`
+    <ino-nav-menu-section section-name="${name}" section-id="${buildSectionId(name)}-${counter}">
       <p>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
         nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
@@ -54,34 +59,72 @@ const renderSection = (name: string, counter: number) => {
         et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
         takimata sanctus est Lorem ipsum dolor sit amet.
       </p>
-    </ino-nav-menu-section>`
+    </ino-nav-menu-section>
+  `
 }
 
 let templateCounter = 0;
+
 const template = new TemplateGenerator<Components.InoNavMenu>(
+  'ino-nav-menu',
+  (args) => {
+  templateCounter++;
+  return html`
+  <aside>
+    <ino-nav-menu
+      menu-title="${args.menuTitle}"
+      active-section="${args.activeSection}"
+      sections-container-id="sections-playground-${templateCounter}"
+      .intersection-observer-config="${args.intersectionObserverConfig}"
+      scroll-offset="${args.scrollOffset}"
+      @activeSectionChanged="${activeSectionChanged}"
+    ></ino-nav-menu>
+  </aside>
+  <div class="sections" id="sections-playground-${templateCounter}">
+    <ino-switch
+      checked="true"
+      name="sticky-switch"
+      @checkedChange="${switchHandler}"
+    >
+      Show Stickyness of ino-nav-menu
+    </ino-switch>
+    ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
+  </div>
+`}
+);
+
+const templateSections = new TemplateGenerator<Components.InoNavMenu>(
   'ino-nav-menu',
   (args) => {
     templateCounter++;
     return html`
-      <div class="sections" id="sections-playground-${templateCounter}">
-        ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
-      </div>
-      <aside>
-        <ino-nav-menu
-          menu-title="${args.menuTitle}"
-          active-section="${args.activeSection}"
-          sections-container-id="sections-playground-${templateCounter}"
-          .intersection-observer-config="${args.intersectionObserverConfig}"
-          scroll-offset="${args.scrollOffset}"
-          @activeSectionChanged="${activeSectionChanged}"
-        />
-      </aside>
+    <aside>
+      <ino-nav-menu
+        sections="['section-1-2', 'section-2-2', 'section-1-2']"
+        menu-title="${args.menuTitle}"
+        active-section="${args.activeSection}"
+        sections-container-id="sections-playground-${templateCounter}"
+        .intersection-observer-config="${args.intersectionObserverConfig}"
+        scroll-offset="${args.scrollOffset}"
+        @activeSectionChanged="${activeSectionChanged}"
+      ></ino-nav-menu> 
+    </aside>
+    <div class="sections" id="sections-playground-${templateCounter}">
+      <ino-switch
+        checked="true"
+        name="sticky-switch"
+        @checkedChange="${switchHandler}"
+      >
+        Show stickyness of ino-nav-menu
+      </ino-switch>
+      ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
+    </div>
   `}
 );
 
 export const Playground = template.generatePlaygroundStory();
-export const Sections = template.generateStoryForProp('sectionIds', sections);
+export const Sections = templateSections.generateStoryForProp('sectionIds', sections);
 export const ActiveSection = template.generateStoryForProp('activeSection', 'section-2');
-export const MenuTitle = template.generateStoryForProp('menuTitle', 'Sticky navigation');
+export const MenuTitle = template.generateStoryForProp('menuTitle', 'Contents');
 export const IntersectionObserverConfig = template.generateStoryForProp('intersectionObserverConfig', {threshold: 2, rootMargin: '-50% 0px -50% 0px'});
 export const ScrollOffset = template.generateStoryForProp('scrollOffset', 20);

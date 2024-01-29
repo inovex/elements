@@ -7,11 +7,15 @@
     width: 100%;
     max-height: 250px;  
   }
+
+  [scale]:has(.show-full-height) {
+    max-height: unset;  
+  }
   
   [scale] .story-ino-nav-menu {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: stretch;
     gap: 50px;

@@ -34,6 +34,22 @@ const DEFAULT_SCROLL_OFFSET = 80;
   shadow: false,
 })
 export class NavMenu implements ComponentInterface {
+  private lastEmittedSection: string;
+  private observer: IntersectionObserver;
+  private sectionObserver: MutationObserver;
+
+  private get autodetectSections(): boolean {
+    return this.sectionIds === undefined || this.sectionIds === null;
+  }
+
+  private get sectionsIntern(): string[] {
+    return !this.autodetectSections ? this.sectionIds : this.findSections();
+  }
+
+  private get sectionContainer(): HTMLElement {
+    return document.getElementById(this.sectionsContainerId);
+  } 
+
   /**
    * Title of the navigation menu.
    */
@@ -89,36 +105,27 @@ export class NavMenu implements ComponentInterface {
    * into the viewport. This event can be utilized to update the `activeSection` property.
    */
   @Event({ bubbles: false }) activeSectionChanged!: EventEmitter<string>;
-
-  private lastEmittedSection: string;
-  private observer: IntersectionObserver;
   
   @State() sectionObjs: Record<string, string>[];
 
   componentWillLoad(): void | Promise<void> {
     if ((!this.autodetectSections && this.sectionIds.length > 0)) {
-      this.initSectionsAndObserver();
-      this.scrollAfterInit();
+      this.initSectionsRenderObserver();
     }
   }
 
   componentDidLoad(): void {
     if (this.autodetectSections) {
-      this.initSectionsAndObserver();
+      this.initSectionsRenderObserver();
     }
   }
 
-  private get autodetectSections(): boolean {
-    return this.sectionIds === undefined || this.sectionIds === null;
+  private checkForRenderedSections = (mutationsList) => {
+    if (mutationsList.some(mutation => mutation.type === 'childList' && mutation.addedNodes.length > 0)) {
+      this.initSectionsAndObserver();
+      this.scrollAfterInit();
+    }
   }
-
-  private get sectionsIntern(): string[] {
-    return !this.autodetectSections ? this.sectionIds : this.findSections();
-  }
-
-  private get sectionContainer(): HTMLElement {
-    return document.getElementById(this.sectionsContainerId);
-  } 
 
   private initSectionsAndObserver(): void {
     this.initSections();
@@ -157,6 +164,11 @@ export class NavMenu implements ComponentInterface {
         sections.push(section.sectionId);
       });
     return sections;
+  }
+
+  private initSectionsRenderObserver() {
+    this.sectionObserver = new MutationObserver(this.checkForRenderedSections);
+    this.sectionObserver.observe(document.body, { childList: true, subtree: true });
   }
 
   private initIntersectionObserver() {
@@ -227,7 +239,7 @@ export class NavMenu implements ComponentInterface {
     if(this.sectionObjs === null || this.sectionObjs === undefined) {
       // possible skeleton loading here
       return (
-        <div class="loading"></div>
+        <div class="ino-nav-menu__sections__section loading"></div>
       )
     }
     return (
