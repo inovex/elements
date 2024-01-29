@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    tags-ignore:
+      - v*
     paths:
       - packages/elements/**
       - packages/elements-angular/**
@@ -11,17 +13,24 @@ on:
       - packages/elements-vue/**
 
 jobs:
-  canary-release:
+  check-commit:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure that that prerelease not executed for releases with tags
+        run: git describe --exact-match HEAD
+  prerelease:
+    runs-on: ubuntu-latest
+    needs:
+      - check-commit
+    if: ${{ failure() && github.ref == 'refs/heads/master' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Track master branch to make nx affected work
-        run: |
-          git branch --track main origin/master
+        run: git branch --track main origin/master
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
