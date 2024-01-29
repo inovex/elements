@@ -34,19 +34,19 @@ function run(command: string) {
   return exec(command).code;
 }
 
-function getNxVersionCmd(
-  version: string,
-  dryRun?: boolean,
-  createTag?: boolean,
-  stageChanges?: boolean,
-  usePreid?: boolean,
-) {
+function getNxVersionCmd(options: {
+  version: string;
+  dryRun?: boolean;
+  createTag?: boolean;
+  stageChanges?: boolean;
+  usePreid?: boolean;
+}) {
   const base = ['nx release version', version, '--git-commit=false'];
 
-  if (dryRun) base.push('--dry-run');
-  if (createTag) base.push('--git-tag');
-  if (stageChanges) base.push('--stage-changes');
-  if (usePreid) base.push('--preid next');
+  if (options.dryRun) base.push('--dry-run');
+  if (options.createTag) base.push('--git-tag');
+  if (options.stageChanges) base.push('--stage-changes');
+  if (options.usePreid) base.push('--preid next');
 
   return base.join(' ');
 }
@@ -174,8 +174,15 @@ function checkGithubToken() {
   }
 
   if (isPreRelease) {
+    const versionCmd = getNxVersionCmd({
+      version: 'prerelease',
+      dryRun: isDryRun,
+      createTag: true,
+      usePreid: true,
+    });
+
     echo(`Running Pre-Release (Dry run: ${getIcon(isDryRun)})`);
-    if (run(getNxVersionCmd('prerelease', isDryRun, true, false, true)) !== 0) {
+    if (run(versionCmd) !== 0) {
       echo(getIcon(0), 'nx release version prerelease failed! ', getIcon(0));
       exit(1);
     }
@@ -188,7 +195,11 @@ function checkGithubToken() {
   } else {
     const version = await getNextVersion();
     const sha = await getLatestReleaseCommitSha();
-    const versionCmd = getNxVersionCmd(version, isDryRun, false, true);
+    const versionCmd = getNxVersionCmd({
+      version,
+      dryRun: isDryRun,
+      stageChanges: true,
+    });
     const changelogCmd = `nx release changelog ${version} ${dryRunArg} --from ${sha}`;
 
     echo(

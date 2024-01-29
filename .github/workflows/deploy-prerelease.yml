@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check if commit has tag
+      - name: Ensure that that prerelease not executed for releases with tags
         run: git describe --exact-match HEAD
   prerelease:
     runs-on: ubuntu-latest
