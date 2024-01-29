@@ -7,10 +7,10 @@ const { version } = require('../package.json');
  * constants
  */
 const PACKAGES_TO_PUBLISH = [
-  'elements',
-  'elements-angular',
-  'elements-react',
-  'elements-vue',
+  'packages/elements',
+  'packages/elements-angular',
+  'packages/elements-react',
+  'packages/elements-vue',
 ];
 
 const isDryRun = process.argv.some((a) => a.includes('dryRun=true'));
@@ -91,6 +91,7 @@ async function getLatestReleaseCommitSha(): Promise<string> {
 async function getNextVersion(): Promise<string> {
   const { releaseType } = await conventionalRecommendedBump({
     preset: 'angular',
+    path: PACKAGES_TO_PUBLISH,
     skipUnstable: true,
   });
   if (!releaseType) {
@@ -110,7 +111,7 @@ async function getNextVersion(): Promise<string> {
 
 function runNpmPublish(npmPackage: string, npmTag: string, isDryRun: boolean) {
   const dryRunArg = isDryRun ? '--dry-run' : '';
-  const publishCmd = `npm publish -w packages/${npmPackage} --tag ${npmTag} ${dryRunArg}`;
+  const publishCmd = `npm publish -w ${npmPackage} --tag ${npmTag} ${dryRunArg}`;
 
   if (exec(publishCmd).code === 0) {
     echo(`@inovex.de/${npmPackage} ${getIcon(1)}\n`);
