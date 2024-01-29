@@ -793,7 +793,8 @@ export declare interface InoNavItem extends Components.InoNavItem {}
 
 
 @ProxyCmp({
-  inputs: ['activeSection', 'intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionIds', 'sectionsContainerId']
+  inputs: ['activeSection', 'intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionIds', 'sectionsContainerId'],
+  methods: ['reInitSections']
 })
 @Component({
   selector: 'ino-nav-menu',

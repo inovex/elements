@@ -1110,6 +1110,10 @@ export namespace Components {
          */
         "menuTitle": string;
         /**
+          * Use to manually inflict another initiation of the sections and their observers
+         */
+        "reInitSections": () => Promise<void>;
+        /**
           * Scroll offset of the sticky navigation menu.
          */
         "scrollOffset": number;

@@ -7,6 +7,7 @@ import {
   Prop,
   State,
   Watch,
+  Method,
   h,
 } from '@stencil/core';
 import { addAnchorToLocation, scrollToAnchor } from '../../util/scroll-utils';
@@ -113,6 +114,7 @@ export class NavMenu implements ComponentInterface {
   @Watch('sectionIds')
   onSectionsChanged(): void {
     this.observer.disconnect();
+    this.sectionObserver.disconnect();
     this.initSectionsAndObserver();
   }
 
@@ -123,6 +125,16 @@ export class NavMenu implements ComponentInterface {
   @Event({ bubbles: false }) activeSectionChanged!: EventEmitter<string>;
   
   @State() sectionObjs: Record<string, string>[];
+
+  /**
+   * Use to manually inflict another initiation of the sections and their observers
+   */
+  @Method()
+  async reInitSections(): Promise<void> {
+    this.observer.disconnect();
+    this.sectionObserver.disconnect();
+    this.initSectionsAndObserver();
+  }
 
   componentWillLoad(): void | Promise<void> {
     if ((!this.autodetectSections && this.sectionIds.length > 0)) {

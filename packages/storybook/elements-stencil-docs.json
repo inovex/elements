@@ -7171,7 +7171,30 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "reInitSections",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "reInitSections() => Promise<void>",
+          "parameters": [],
+          "docs": "Use to manually inflict another initiation of the sections and their observers",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "activeSectionChanged",
