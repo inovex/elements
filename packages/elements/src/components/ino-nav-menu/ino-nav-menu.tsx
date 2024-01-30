@@ -67,7 +67,7 @@ export class NavMenu implements ComponentInterface {
    */
   private get sectionContainer(): HTMLElement | false {
     if(this.sectionsContainerId === undefined || this.sectionsContainerId === null) {
-      console.warn('No sectionContainerID found. If you want to autodetect section in a container, please provide ino-nav-menu with the ID of the container which should be search in')
+      console.warn('No sectionContainerID found. If you want to autodetect section in a container, please provide ino-nav-menu with a container ID')
       return false
     }
     const container = document.getElementById(this.sectionsContainerId);
@@ -196,8 +196,8 @@ export class NavMenu implements ComponentInterface {
         return valid;
       })
       .map(id => {
-        const htmlEl = document.getElementById(id) as HTMLInoNavMenuSectionElement;
-        return {id: htmlEl.id, name: htmlEl.title}
+        const htmlEl = document.getElementById(id) as HTMLElement;
+        return {id: id, name: htmlEl.title}
       })
 
     // sections are fetched, deactivate loading if active
@@ -221,6 +221,7 @@ export class NavMenu implements ComponentInterface {
         // check if sectionID was set(or empty), else use buildSectionID function to get section IDs
         if (section.sectionId === undefined || section.sectionId === null || section.sectionId.trim().length <= 0){
           sections.push(buildSectionId(section.sectionName))
+          return
         }
         // use sectionIDs set by the consumer
         sections.push(section.sectionId);
