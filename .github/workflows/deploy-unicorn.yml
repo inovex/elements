@@ -46,7 +46,7 @@ jobs:
       - name: Get changed files
         if: steps.current-commit.outputs.sha != steps.last-commit.outputs.sha
         id: changed-files
-        uses: tj-actions/changed-files@v32
+        uses: tj-actions/changed-files@v41
         with:
           sha: ${{ steps.current-commit.outputs.sha }}
           base_sha: ${{ steps.last-commit.outputs.sha }}
