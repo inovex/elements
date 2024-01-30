@@ -1,7 +1,7 @@
 const { echo, exec, exit } = require('shelljs');
 const conventionalRecommendedBump = require('conventional-recommended-bump');
 const semver = require('semver');
-const { version } = require('../package.json');
+const { version: workspaceVersion } = require('../package.json');
 
 /**
  * constants
@@ -99,7 +99,7 @@ async function getNextVersion(): Promise<string> {
     exit(1);
   }
 
-  const nextVersion = semver.inc(version, releaseType!);
+  const nextVersion = semver.inc(workspaceVersion, releaseType!);
   if (nextVersion === null) {
     echo(getIcon(0), 'Next version could not be calculated!');
     exit(1);
