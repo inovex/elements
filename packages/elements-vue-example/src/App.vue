@@ -4,31 +4,19 @@
     <ino-nav-drawer
       :open="isNavOpen"
       anchor="left"
-      @openChange="({detail}) => isNavOpen = detail"
+      @openChange="({ detail }) => (isNavOpen = detail)"
     >
       <ino-list slot="content">
-        <ino-nav-item
-          text="My Todo List"
-          @click="changeTab(0)"
-        >
+        <ino-nav-item text="My Todo List" @click="changeTab(0)">
           <ino-icon icon="menu" />
         </ino-nav-item>
-        <ino-nav-item
-          text="My V-Card"
-          @click="changeTab(1)"
-        >
+        <ino-nav-item text="My V-Card" @click="changeTab(1)">
           <ino-icon icon="user" />
         </ino-nav-item>
-        <ino-nav-item
-          text="Contact me"
-          @click="changeTab(2)"
-        >
+        <ino-nav-item text="Contact me" @click="changeTab(2)">
           <ino-icon icon="onboarding" />
         </ino-nav-item>
-        <ino-nav-item
-          text="Gallery"
-          @click="changeTab(3)"
-        >
+        <ino-nav-item text="Gallery" @click="changeTab(3)">
           <ino-icon icon="camera" />
         </ino-nav-item>
       </ino-list>
@@ -37,32 +25,17 @@
         <ino-tab-bar
           class="tab-bar"
           :active-tab="currentTab"
-          @activeTabChange="({detail}) => currentTab = detail"
+          @activeTabChange="({ detail }) => (currentTab = detail)"
         >
-          <ino-tab
-            icon="menu"
-            label="My Todo List"
-          />
-          <ino-tab
-            icon="user"
-            label="My V-Card"
-          />
-          <ino-tab
-            icon="onboarding"
-            label="Contact me"
-          />
-          <ino-tab
-            icon="camera"
-            label="Gallery"
-          />
+          <ino-tab icon="menu" label="My Todo List" />
+          <ino-tab icon="user" label="My V-Card" />
+          <ino-tab icon="onboarding" label="Contact me" />
+          <ino-tab icon="camera" label="Gallery" />
         </ino-tab-bar>
 
         <ToDoList v-show="currentTab === 0" />
         <VCard v-show="currentTab === 1" />
-        <ContactForm
-          v-show="currentTab === 2"
-          @submit="onContactFormSubmit"
-        />
+        <ContactForm v-show="currentTab === 2" @submit="onContactFormSubmit" />
         <ImageGallery v-show="currentTab === 3" />
       </main>
     </ino-nav-drawer>
@@ -73,7 +46,7 @@
       :name="contractFormData.name"
       :birthday="contractFormData.birthday"
       :message="contractFormData.message"
-      @close="() => contractFormData = undefined"
+      @close="() => (contractFormData = undefined)"
     />
     <ino-snackbar
       v-if="showSnackbar"
@@ -81,19 +54,26 @@
         Welcome to the elements example project for Vue.js.
         Have fun by exploring the element components!"
       stay-visible-on-hover
-      @hideEl="() => showSnackbar = false"
+      @hideEl="() => (showSnackbar = false)"
     />
   </div>
 </template>
 
 <script>
-
-import { InoIcon, InoList, InoNavDrawer, InoNavItem, InoSnackbar, InoTab, InoTabBar } from "@inovex.de/elements-vue";
-import ContactForm from "./components/ContactForm.vue";
-import ImageGallery from "./components/ImageGallery.vue";
-import VCard from "./components/VCard.vue";
-import ToDoList from "./components/ToDoList.vue";
-import SampleDialog from "./components/SampleDialog.vue";
+import {
+  InoIcon,
+  InoList,
+  InoNavDrawer,
+  InoNavItem,
+  InoSnackbar,
+  InoTab,
+  InoTabBar,
+} from '@inovex.de/elements-vue';
+import ContactForm from './components/ContactForm.vue';
+import ImageGallery from './components/ImageGallery.vue';
+import VCard from './components/VCard.vue';
+import ToDoList from './components/ToDoList.vue';
+import SampleDialog from './components/SampleDialog.vue';
 
 export default {
   name: 'ExampleApp',
@@ -109,16 +89,16 @@ export default {
     ContactForm,
     VCard,
     ToDoList,
-    SampleDialog
+    SampleDialog,
   },
   data: () => ({
     currentTab: 0,
     contractFormData: undefined,
     isNavOpen: true,
-    showSnackbar: true
+    showSnackbar: true,
   }),
   methods: {
-    onTabChange({detail}) {
+    onTabChange({ detail }) {
       this.changeTab(detail);
     },
     changeTab(tabId) {
@@ -126,8 +106,8 @@ export default {
     },
     onContactFormSubmit(data) {
       this.contractFormData = data;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -143,6 +123,6 @@ export default {
 }
 
 main {
-  margin: 2vh 7vw 5vh 3vw
+  margin: 2vh 7vw 5vh 3vw;
 }
 </style>
