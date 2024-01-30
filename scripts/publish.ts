@@ -181,7 +181,7 @@ function checkGithubToken() {
       createTag: true,
       usePreid: true,
     });
-    echo('Run command: ' + versionCmd);
+
     echo(`Running Pre-Release (Dry run: ${getIcon(isDryRun)})`);
     if (run(versionCmd) !== 0) {
       echo(getIcon(0), 'nx release version prerelease failed! ', getIcon(0));
