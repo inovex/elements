@@ -1,16 +1,16 @@
 const { echo, exec, exit } = require('shelljs');
 const conventionalRecommendedBump = require('conventional-recommended-bump');
 const semver = require('semver');
-const { version } = require('../package.json');
+const { version: workspaceVersion } = require('../package.json');
 
 /**
  * constants
  */
 const PACKAGES_TO_PUBLISH = [
-  'elements',
-  'elements-angular',
-  'elements-react',
-  'elements-vue',
+  'packages/elements',
+  'packages/elements-angular',
+  'packages/elements-react',
+  'packages/elements-vue',
 ];
 
 const isDryRun = process.argv.some((a) => a.includes('dryRun=true'));
@@ -41,7 +41,7 @@ function getNxVersionCmd(options: {
   stageChanges?: boolean;
   usePreid?: boolean;
 }) {
-  const base = ['nx release version', version, '--git-commit=false'];
+  const base = ['nx release version', options.version, '--git-commit=false'];
 
   if (options.dryRun) base.push('--dry-run');
   if (options.createTag) base.push('--git-tag');
@@ -91,6 +91,7 @@ async function getLatestReleaseCommitSha(): Promise<string> {
 async function getNextVersion(): Promise<string> {
   const { releaseType } = await conventionalRecommendedBump({
     preset: 'angular',
+    path: PACKAGES_TO_PUBLISH,
     skipUnstable: true,
   });
   if (!releaseType) {
@@ -98,7 +99,7 @@ async function getNextVersion(): Promise<string> {
     exit(1);
   }
 
-  const nextVersion = semver.inc(version, releaseType!);
+  const nextVersion = semver.inc(workspaceVersion, releaseType!);
   if (nextVersion === null) {
     echo(getIcon(0), 'Next version could not be calculated!');
     exit(1);
@@ -110,7 +111,7 @@ async function getNextVersion(): Promise<string> {
 
 function runNpmPublish(npmPackage: string, npmTag: string, isDryRun: boolean) {
   const dryRunArg = isDryRun ? '--dry-run' : '';
-  const publishCmd = `npm publish -w packages/${npmPackage} --tag ${npmTag} ${dryRunArg}`;
+  const publishCmd = `npm publish -w ${npmPackage} --tag ${npmTag} ${dryRunArg}`;
 
   if (exec(publishCmd).code === 0) {
     echo(`@inovex.de/${npmPackage} ${getIcon(1)}\n`);

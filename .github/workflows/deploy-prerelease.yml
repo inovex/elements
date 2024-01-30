@@ -13,17 +13,20 @@ on:
       - packages/elements-vue/**
 
 jobs:
-  check-commit:
+  check:
     runs-on: ubuntu-latest
+    outputs:
+      hasTag: ${{ steps.checkForTag.outputs.hasTag }}
     steps:
       - uses: actions/checkout@v4
-      - name: Ensure that that prerelease not executed for releases with tags
-        run: git describe --exact-match HEAD
+      - id: checkForTag
+        name: Ensure that that prerelease not executed for releases with tags
+        run: git describe --exact-match HEAD || echo "hasTag=false" >> "$GITHUB_OUTPUT"
   prerelease:
     runs-on: ubuntu-latest
     needs:
-      - check-commit
-    if: ${{ failure() && github.ref == 'refs/heads/master' }}
+      - check
+    if: ${{ needs.check.outputs.hasTag == 'false' && github.ref == 'refs/heads/master' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
