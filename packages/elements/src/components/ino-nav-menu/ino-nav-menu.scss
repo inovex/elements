@@ -3,6 +3,7 @@
 @use '../base/animation' as animation;
 
 $sideBorderWidth: 2px;
+$borderRadius: 14px;
 
 ino-nav-menu {
   position: sticky;
@@ -38,12 +39,13 @@ ino-nav-menu {
       text-decoration: none;
       word-break: break-all;
       display: flex;
-      border-bottom-right-radius: 14px;
+      border-bottom-right-radius: $borderRadius;
       color: theme.$black;
     }
 
     & .skeleton-loader {
       @include animation.skeleton-loading;
+      border-bottom-right-radius: $borderRadius;
     }
   }
 
