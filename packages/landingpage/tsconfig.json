@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "react": [ "./node_modules/@types/react" ],
+      "react": ["./node_modules/@types/react"],
       "@elements": ["utils/elementsWrapper.ts"],
       "@assets/*": ["public/*"],
       "@styles/*": ["styles/*"]

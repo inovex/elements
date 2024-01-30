@@ -3,6 +3,7 @@ dist/
 www/
 vendor/
 
+.angular
 .nx-cache/
 /.nx/cache
 .idea/
@@ -24,5 +25,6 @@ packages/elements-react/src/components/**
 packages/elements-angular/src/directives/**
 packages/elements-vue/src/**
 packages/storybook/elements-stencil-docs.json
+packages/storybook/custom-elements.json
 
 assets/
