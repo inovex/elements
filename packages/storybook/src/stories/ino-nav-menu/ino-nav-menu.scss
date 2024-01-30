@@ -1,18 +1,18 @@
 // select storybook page for ino-nav-menu
-.sbdocs.sbdocs-content:has(#anchor--structure-ino-nav-menu--playground) {
+.sbdocs.sbdocs-content:has(#story--structure-ino-nav-menu--default--primary) {
 
   // select wrapper for every ino-nav-menu story
   // max-height is needed to show stickyness of ino-nav-menu
   [scale] {
     width: 100%;
-    max-height: 250px;  
+    max-height: 250px;
   }
 
   [scale]:has(.show-full-height) {
     max-height: unset;  
   }
   
-  [scale] .story-ino-nav-menu {
+  [scale] #root-inner {
     position: relative;
     display: flex;
     flex-direction: row-reverse;

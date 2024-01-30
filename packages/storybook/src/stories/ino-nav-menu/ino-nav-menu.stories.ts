@@ -1,21 +1,66 @@
-import { Components, buildSectionId } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
+import { Components, buildSectionId } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import Story from '../StoryWrapper';
 import './ino-nav-menu.scss';
 
 const sections = ['Section 1', 'Section 2', 'Section 3'];
+let templateCounter = 0;
 
 const switchHandler = (e: CustomEvent<boolean>) => {
   (e.target as HTMLInoSwitchElement).checked = e.detail;
   (e.target as HTMLInoSwitchElement).closest('.sections')?.classList.toggle('show-full-height');
 }
 
-export default {
-  title: `Structure/ino-nav-menu`,
+const activeSectionChanged = (e: CustomEvent<string>) => {
+  (e.target as HTMLInoNavMenuElement).setAttribute('active-section', e.detail);
+}
+
+const renderSection = (name: string, counter: number) => {
+  return html`
+    <ino-nav-menu-section section-name="${name}" section-id="${buildSectionId(name)}-${counter}">
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.
+      </p>
+    </ino-nav-menu-section>
+  `
+}
+
+const inoNavMenuMeta = {
+  title: 'Structure/ino-nav-menu',
   component: 'ino-nav-menu',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-nav-menu')],
+  render: (args) => {
+    templateCounter++;
+    return html`
+    <aside>
+      <ino-nav-menu
+        menu-title="${args.menuTitle}"
+        active-section="${args.activeSection}"
+        sections-container-id="sections-playground-${templateCounter}"
+        .intersection-observer-config="${args.intersectionObserverConfig}"
+        scroll-offset="${args.scrollOffset}"
+        @activeSectionChanged="${activeSectionChanged}"
+      ></ino-nav-menu>
+    </aside>
+    <div class="sections" id="sections-playground-${templateCounter}">
+      <ino-switch
+        checked="true"
+        name="sticky-switch"
+        @checkedChange="${switchHandler}"
+      >
+        Show Stickyness of ino-nav-menu
+      </ino-switch>
+      ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
+    </div>
+  `},
   argTypes: {
     intersectionObserverConfig: {
       table: {
@@ -41,63 +86,16 @@ export default {
   },
 } as Meta<Components.InoNavMenu>;
 
-const activeSectionChanged = (e: CustomEvent<string>) => {
-  (e.target as HTMLInoNavMenuElement).setAttribute('active-section', e.detail);
-}
+export default inoNavMenuMeta;
 
-const renderSection = (name: string, counter: number) => {
-  return html`
-    <ino-nav-menu-section section-name="${name}" section-id="${buildSectionId(name)}-${counter}">
-      <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-        takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
-    </ino-nav-menu-section>
-  `
-}
+export const Default = Story({
+  ...inoNavMenuMeta,
+});
 
-let templateCounter = 0;
-
-const template = new TemplateGenerator<Components.InoNavMenu>(
-  'ino-nav-menu',
-  (args) => {
-  templateCounter++;
-  return html`
-  <aside>
-    <ino-nav-menu
-      menu-title="${args.menuTitle}"
-      active-section="${args.activeSection}"
-      sections-container-id="sections-playground-${templateCounter}"
-      .intersection-observer-config="${args.intersectionObserverConfig}"
-      scroll-offset="${args.scrollOffset}"
-      @activeSectionChanged="${activeSectionChanged}"
-    ></ino-nav-menu>
-  </aside>
-  <div class="sections" id="sections-playground-${templateCounter}">
-    <ino-switch
-      checked="true"
-      name="sticky-switch"
-      @checkedChange="${switchHandler}"
-    >
-      Show Stickyness of ino-nav-menu
-    </ino-switch>
-    ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
-  </div>
-`}
-);
-
-export const Playground = template.generatePlaygroundStory();
-
-const templateSections = new TemplateGenerator<Components.InoNavMenu>(
-  'ino-nav-menu',
-  (args) => {
+export const Sections = Story({
+  ...Default,
+  docsFromProperty: 'sectionIds',
+  render: (args) => {
     templateCounter++;
     return html`
     <aside>
@@ -106,8 +104,6 @@ const templateSections = new TemplateGenerator<Components.InoNavMenu>(
         menu-title="${args.menuTitle}"
         active-section="${args.activeSection}"
         sections-container-id="sections-playground-${templateCounter}"
-        .intersection-observer-config="${args.intersectionObserverConfig}"
-        scroll-offset="${args.scrollOffset}"
         @activeSectionChanged="${activeSectionChanged}"
       ></ino-nav-menu> 
     </aside>
@@ -121,18 +117,50 @@ const templateSections = new TemplateGenerator<Components.InoNavMenu>(
       </ino-switch>
       ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
     </div>
-  `}
-);
+  `},
+  args: {
+    menuTitle: 'Sections',
+    activeSection: 'section-1',
+    sectionIds: sections,
+  }
+})
 
-export const Sections = templateSections.generateStoryForProp('sectionIds', sections);
-export const ActiveSection = template.generateStoryForProp('activeSection', 'section-2');
-export const MenuTitle = template.generateStoryForProp('menuTitle', 'Contents');
-export const IntersectionObserverConfig = template.generateStoryForProp('intersectionObserverConfig', {threshold: 2, rootMargin: '-50% 0px -50% 0px'});
-export const ScrollOffset = template.generateStoryForProp('scrollOffset', 20);
+export const ActiveSection = Story({
+  ...Default,
+  docsFromProperty: 'sectionIds',
+  args: {
+    activeSection: `section-2-${templateCounter}`
+  }
+});
 
-const templateLoading = new TemplateGenerator<Components.InoNavMenu>(
-  'ino-nav-menu',
-  (args) => {
+export const MenuTitle = Story({
+  ...Default,
+  docsFromProperty: 'sectionIds',
+  args: {
+    menuTitle: 'Contents'
+  }
+});
+
+export const IntersectionObserverConfig = Story({
+  ...Default,
+  docsFromProperty: 'sectionIds',
+  args: {
+    intersectionObserverConfig: {threshold: 2, rootMargin: '-50% 0px -50% 0px'}
+  }
+});
+
+export const ScrollOffset = Story({
+  ...Default,
+  docsFromProperty: 'sectionIds',
+  args: {
+    scrollOffset: 20
+  }
+});
+
+export const Loading = Story({
+  ...Default,
+  docsFromProperty: 'sectionIds',
+  render: (args) => {
     templateCounter++;
     return html`
     <aside>
@@ -152,7 +180,9 @@ const templateLoading = new TemplateGenerator<Components.InoNavMenu>(
       </ino-switch>
       ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
     </div>
-  `}
-);
-
-export const Loading = templateLoading.generateStoryForProp('loading', true);
+  `},
+  args: {
+    menuTitle: 'Sections',
+    loading: true
+  }
+});
