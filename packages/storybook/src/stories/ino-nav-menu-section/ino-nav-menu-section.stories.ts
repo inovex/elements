@@ -1,25 +1,13 @@
 import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import Story from '../StoryWrapper';
 import './ino-nav-menu-section.scss';
 
-export default {
-  title: `Structure/ino-nav-menu-section`,
+const inoNavMenuSectionMeta = {
+  title: 'Structure/ino-nav-menu-section',
   component: 'ino-nav-menu-section',
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-ino-nav-menu-section'),
-  ],
-  args: {
-    sectionName: 'Section',
-    showTitle: true,
-  },
-} as Meta<Components.InoNavMenuSection>;
-
-const template = new TemplateGenerator<Components.InoNavMenuSection>(
-  'ino-nav-menu-section',
-  (args) => html`
+  render: (args) => html`
     <ino-nav-menu-section
       section-name="${args.sectionName}"
       show-title="${args.showTitle}"
@@ -37,17 +25,30 @@ const template = new TemplateGenerator<Components.InoNavMenuSection>(
       </p>
     </ino-nav-menu-section>
   `,
-);
+  args: {
+    sectionName: 'Section',
+    showTitle: true,
+  },
+} as Meta<Components.InoNavMenuSection>;
 
-export const Playground = template.generatePlaygroundStory();
-export const SectionName = template.generateStoryForProp(
-  'sectionName',
-  'Paragraph 1',
-);
+export default inoNavMenuSectionMeta;
 
-const templateSectionId = new TemplateGenerator<Components.InoNavMenuSection>(
-  'ino-nav-menu-section',
-  (args) => html`
+export const Default = Story({
+  ...inoNavMenuSectionMeta,
+});
+
+export const SectionName = Story({
+  ...Default,
+  docsFromProperty: 'sectionName',
+  args: {
+    sectionName: 'Paragraph 1',
+  },
+});
+
+export const SectionIds = Story({
+  ...Default,
+  docsFromProperty: 'sectionId',
+  render: (args) => html`
     <ino-nav-menu-section
       section-name="${args.sectionName}"
       section-id="${args.sectionId}"
@@ -66,9 +67,17 @@ const templateSectionId = new TemplateGenerator<Components.InoNavMenuSection>(
       </p>
     </ino-nav-menu-section>
   `,
-);
-export const SectionIds = templateSectionId.generateStoryForProp(
-  'sectionId',
-  'randomID',
-);
-export const ShowTitle = template.generateStoryForProp('showTitle', false);
+  args: {
+    sectionId: 'randomID',
+    sectionName: 'Section',
+    showTitle: true,
+  },
+});
+
+export const ShowTitle = Story({
+  ...Default,
+  docsFromProperty: 'showTitle',
+  args: {
+    showTitle: false,
+  },
+});
