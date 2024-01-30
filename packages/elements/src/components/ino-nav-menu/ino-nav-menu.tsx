@@ -291,7 +291,6 @@ export class NavMenu implements ComponentInterface {
   };
 
   private isLocationWithValidAnchor = (): boolean => {
-    // wenn sectionID nicht gesetzt, bzw wenn sectionContainerID gesetzt ist, lieber sectionIntern benutzen
     if(!this.sectionsIntern){
       return false
     }
