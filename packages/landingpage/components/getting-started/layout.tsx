@@ -47,12 +47,13 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
         </InoSegmentGroup>
       </div>
       <div className={styles.container}>
-        <article>{children}</article>
+        <article id="guide-sections">{children}</article>
         <aside>
           <InoNavMenu
             menuTitle={(frameworkName + ' guide').toUpperCase()}
             activeSection={activeSection}
             onActiveSectionChanged={(e) => setActiveSection(e.detail)}
+            sectionsContainerId='guide-sections'
           />
         </aside>
         <div className={styles.sandbox}>

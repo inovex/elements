@@ -11,7 +11,7 @@ import {
   h,
 } from '@stencil/core';
 import { addAnchorToLocation, scrollToAnchor } from '../../util/scroll-utils';
-import { sectionExists } from './ino-nav-menu-helper';
+import { buildSectionId, sectionExists } from './ino-nav-menu-helper';
 
 const DEFAULT_OBSERVER_OPTIONS: IntersectionObserverInit = {
   threshold: 0,
@@ -39,23 +39,43 @@ export class NavMenu implements ComponentInterface {
   private observer: IntersectionObserver;
   private sectionObserver: MutationObserver;
 
+  /**
+   * Component checks if sectionIDs are provided. Will set to autodetection if non are provided
+   */
   private get autodetectSections(): boolean {
     return this.sectionIds === undefined || this.sectionIds === null;
   }
 
+  /**
+   * sectionsIntern represent the IDs of the section which ino-nav-menu should display.
+   * Will use the IDs from sectionIds if given, or autodetect them via findSections in the sectionContainer
+   * 
+   */
   private get sectionsIntern(): string[] | false {
     if(!this.autodetectSections) {
       return this.sectionIds
     } else if (this.autodetectSections && this.sectionContainer) {
       return this.findSections();
     } else {
-      return 
+      return false
     }
   }
 
+  /**
+   * Container in which autodetect will search for sections
+   * Will return false if no sectionContainerId was provided or no container with the given ID was found
+   */
   private get sectionContainer(): HTMLElement | false {
+    if(this.sectionsContainerId === undefined || this.sectionsContainerId === null) {
+      console.warn('No sectionContainerID found. If you want to autodetect section in a container, please provide ino-nav-menu with the ID of the container which should be search in')
+      return false
+    }
     const container = document.getElementById(this.sectionsContainerId);
-    return (container === undefined || container === null)? false : container;
+    if (container === undefined || container === null) {
+      console.warn(`No container with the id ${this.sectionsContainerId} was found`)
+      return false
+    } 
+    return container;
   } 
 
   /**
@@ -198,6 +218,11 @@ export class NavMenu implements ComponentInterface {
     Array.from(this.sectionContainer
       .querySelectorAll('ino-nav-menu-section'))
       .forEach((section: HTMLInoNavMenuSectionElement) => {
+        // check if sectionID was set(or empty), else use buildSectionID function to get section IDs
+        if (section.sectionId === undefined || section.sectionId === null || section.sectionId.trim().length <= 0){
+          sections.push(buildSectionId(section.sectionName))
+        }
+        // use sectionIDs set by the consumer
         sections.push(section.sectionId);
       });
     return sections;
@@ -266,7 +291,11 @@ export class NavMenu implements ComponentInterface {
   };
 
   private isLocationWithValidAnchor = (): boolean => {
-    return this.sectionIds.some((id) => `#${id}` === location.hash);
+    // wenn sectionID nicht gesetzt, bzw wenn sectionContainerID gesetzt ist, lieber sectionIntern benutzen
+    if(!this.sectionsIntern){
+      return false
+    }
+    return this.sectionsIntern.some((id) => `#${id}` === location.hash);
   };
 
   private isActiveSectionSet = (): boolean => {
