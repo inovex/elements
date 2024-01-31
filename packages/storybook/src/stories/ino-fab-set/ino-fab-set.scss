@@ -1,0 +1,6 @@
+// only selects Stories of ino-fab-set without decorating stories with wrapper classes
+.sbdocs.sbdocs-content:has(#anchor--buttons-ino-fab-set--default) {
+  [scale] {
+    width: 100%;
+  }
+}

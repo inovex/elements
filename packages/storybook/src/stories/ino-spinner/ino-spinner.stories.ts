@@ -1,25 +1,12 @@
-import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-import { TemplateGenerator } from '../template-generator';
-import './ino-spinner.scss';
+import Story from '../StoryWrapper';
 
-export default {
+const InoSpinnerMeta = {
   title: 'Notification/ino-spinner',
   component: 'ino-spinner',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-spinner')],
-  args: {
-    modal: false,
-    type: 'tile',
-    height: 40,
-    width: 40,
-  },
-} as Meta;
-
-const template = new TemplateGenerator<Components.InoSpinner>(
-  'ino-spinner',
-  (args) => html`
+  render: (args) => html`
     <ino-spinner
       height="${args.height}"
       modal="${args.modal}"
@@ -28,7 +15,24 @@ const template = new TemplateGenerator<Components.InoSpinner>(
     >
     </ino-spinner>
   `,
-);
+  args: {
+    modal: false,
+    type: 'tile',
+    height: 40,
+    width: 40,
+  },
+} as Meta<Components.InoSpinner>;
 
-export const Playground = template.generatePlaygroundStory();
-export const Type = template.generateStoryForProp('type', 'bounce');
+export default InoSpinnerMeta;
+
+export const Default = Story({
+  ...InoSpinnerMeta,
+});
+
+export const Type = Story({
+  ...Default,
+  docsFromProperty: 'type',
+  args: {
+    type: 'bounce',
+  },
+});

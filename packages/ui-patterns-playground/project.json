@@ -1,56 +1,56 @@
 {
-    "name": "ui-patterns-playground",
-    "projectType": "application",
-    "sourceRoot": "packages/ui-patterns-playground/src",
-    "tags": [],
-    "targets": {
-      "build": {
-        "executor": "nx:run-commands",
-        "outputs": ["{projectRoot}/dist"],
-        "options": {
-          "cwd": "packages/ui-patterns-playground",
-          "commands": ["vite build"]
-        }
+  "name": "ui-patterns-playground",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "packages/ui-patterns-playground/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "packages/ui-patterns-playground",
+        "commands": ["vite build"]
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/ui-patterns-playground"
       },
-      "start": {
-        "executor": "nx:run-commands",
-        "options": {
-          "cwd": "packages/ui-patterns-playground"
+      "defaultConfiguration": "dev",
+      "configurations": {
+        "dev": {
+          "command": "vite --port 4500"
         },
-        "defaultConfiguration": "dev",
-        "configurations": {
-          "dev": {
-            "command": "vite --port 4500"
-          },
-          "prod": {
-            "command": "vite preview --port 4500"
-          }
+        "prod": {
+          "command": "vite preview --port 4500"
         }
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/ui-patterns-playground",
+        "command": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
       },
-      "lint": {
-        "executor": "nx:run-commands",
-        "options": {
-          "cwd": "packages/ui-patterns-playground",
-          "command": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
-        },
-        "configurations": {
-          "fix": {
-            "command": "eslint . --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0"
-          }
+      "configurations": {
+        "fix": {
+          "command": "eslint . --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0"
         }
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/ui-patterns-playground",
+        "command": "shx rm -rf dist"
       },
-      "clean": {
-        "executor": "nx:run-commands",
-        "options": {
-          "cwd": "packages/ui-patterns-playground",
-          "command": "shx rm -rf dist"
-        },
-        "configurations": {
-          "nodejs": {
-            "command": "shx rm -rf node_modules"
-          }
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
         }
       }
     }
   }
-  
+}

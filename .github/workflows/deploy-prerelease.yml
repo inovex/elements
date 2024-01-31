@@ -2,6 +2,10 @@ name: 'Deploy Pre-Release'
 
 on:
   push:
+    branches:
+      - master
+    tags-ignore:
+      - v*
     paths:
       - packages/elements/**
       - packages/elements-angular/**
@@ -9,17 +13,27 @@ on:
       - packages/elements-vue/**
 
 jobs:
-  canary-release:
+  check:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    outputs:
+      hasTag: ${{ steps.checkForTag.outputs.hasTag }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: checkForTag
+        name: Ensure that that prerelease not executed for releases with tags
+        run: git describe --exact-match HEAD || echo "hasTag=false" >> "$GITHUB_OUTPUT"
+  prerelease:
+    runs-on: ubuntu-latest
+    needs:
+      - check
+    if: ${{ needs.check.outputs.hasTag == 'false' && github.ref == 'refs/heads/master' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Track master branch to make nx affected work
-        run: |
-          git branch --track main origin/master
+        run: git branch --track main origin/master
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
@@ -31,10 +45,12 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor}}@users.noreply.github.com"
+      - name: Set npm loglevel
+        run: npm config set loglevel warn
       - name: Build libs
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
-      - name: Version
+      - name: Version & Release
         shell: bash
-        run: yarn nx run workspace:version --configuration=prerelease
+        run: yarn nx run workspace:publish:prerelease
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

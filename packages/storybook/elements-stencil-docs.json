@@ -2767,13 +2767,18 @@
         "ino-markdown-editor"
       ],
       "dependencies": [
+        "ino-icon-button",
         "ino-icon",
         "ino-button"
       ],
       "dependencyGraph": {
         "ino-dialog": [
+          "ino-icon-button",
           "ino-icon",
           "ino-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
         ],
         "ino-button": [
           "ino-spinner"
@@ -2794,7 +2799,7 @@
           "mutable": false,
           "attr": "action-text",
           "reflectToAttr": false,
-          "docs": "Adds a button with the given text to proceed with an action`",
+          "docs": "Adds a button with the given text to proceed with an action",
           "docsTags": [],
           "values": [
             {
@@ -2865,6 +2870,28 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "closeIcon",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "close-icon",
+          "reflectToAttr": false,
+          "docs": "Adds a close icon in the top right corner to close the `ino-dialog`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -3885,6 +3912,7 @@
       "encapsulation": "none",
       "dependents": [
         "ino-carousel",
+        "ino-dialog",
         "ino-markdown-editor",
         "ino-nav-drawer",
         "ino-snackbar",
@@ -3898,6 +3926,9 @@
           "ino-icon"
         ],
         "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-dialog": [
           "ino-icon-button"
         ],
         "ino-markdown-editor": [
@@ -6248,9 +6279,9 @@
       "fileName": "ino-markdown-editor.tsx",
       "tag": "ino-markdown-editor",
       "readme": "# ino-markdown-editor\n\n\n",
-      "overview": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code | Task list |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * Support of task list syntax (`- [x] MyToDoTask`)\n * No support of image syntax. __Images are not allowed!__",
+      "overview": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code | Task list |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * Support of task list syntax (`- [x] MyToDoTask`)\n * No support of image syntax. __Images are not allowed!__\n\n### Font Size Scaling\n\nThe font sizes within the Markdown Editor are scaled based on the CSS variable `--ino-markdown-editor-font-size`. This variable sets the base font size, and other font sizes are scaled accordingly.\n\n#### Base Font Size Variable\n`--ino-markdown-editor-font-size`: Sets the base font size for all text elements. Default is `16px`.\n\n#### Scaling Factors\n\n| Element | Scaling Factor | Calculated Size (Example) |\n|---------|----------------|---------------------------|\n| Base Font Size | 1x | Base size (e.g., 16px) |\n| Header 1 (h1) | 2x | Double the base size (e.g., 32px) |\n| Header 2 (h2) | 1.75x | 1.75 times the base size (e.g., 28px) |",
       "usage": {},
-      "docs": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code | Task list |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * Support of task list syntax (`- [x] MyToDoTask`)\n * No support of image syntax. __Images are not allowed!__",
+      "docs": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code | Task list |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * Support of task list syntax (`- [x] MyToDoTask`)\n * No support of image syntax. __Images are not allowed!__\n\n### Font Size Scaling\n\nThe font sizes within the Markdown Editor are scaled based on the CSS variable `--ino-markdown-editor-font-size`. This variable sets the base font size, and other font sizes are scaled accordingly.\n\n#### Base Font Size Variable\n`--ino-markdown-editor-font-size`: Sets the base font size for all text elements. Default is `16px`.\n\n#### Scaling Factors\n\n| Element | Scaling Factor | Calculated Size (Example) |\n|---------|----------------|---------------------------|\n| Base Font Size | 1x | Base size (e.g., 16px) |\n| Header 1 (h1) | 2x | Double the base size (e.g., 32px) |\n| Header 2 (h2) | 1.75x | 1.75 times the base size (e.g., 28px) |",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
@@ -6272,17 +6303,18 @@
           "ino-textarea"
         ],
         "ino-dialog": [
+          "ino-icon-button",
           "ino-icon",
           "ino-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
         ],
         "ino-button": [
           "ino-spinner"
         ],
         "ino-input": [
           "ino-label",
-          "ino-icon"
-        ],
-        "ino-icon-button": [
           "ino-icon"
         ],
         "ino-textarea": [
@@ -6401,6 +6433,11 @@
         }
       ],
       "styles": [
+        {
+          "name": "--ino-markdown-editor-font-size",
+          "annotation": "prop",
+          "docs": "Base font size for all text elements, which scales other font sizes accordingly. Default value is `16px`."
+        },
         {
           "name": "--ino-markdown-editor-max-height",
           "annotation": "prop",

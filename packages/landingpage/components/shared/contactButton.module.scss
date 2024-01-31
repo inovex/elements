@@ -1,0 +1,11 @@
+.contactButton {
+  display: flex;
+
+  .button {
+    margin: auto;
+
+    .label {
+      white-space: nowrap;
+    }
+  }
+}

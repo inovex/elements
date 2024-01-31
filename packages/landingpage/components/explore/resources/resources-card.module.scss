@@ -38,12 +38,19 @@
     rgba(190, 204, 255, 0.2) -26.15%,
     rgba(190, 204, 255, 0) 136.49%
   );
+
+  .imageContainer {
+    position: relative;
+    width: 213px;
+    height: 124px;
+
+    .Image {
+      mix-blend-mode: multiply;
+      object-fit: contain;
+    }
+  }
 }
 
-.Image {
-  mix-blend-mode: multiply;
-  object-fit: contain;
-}
 .content {
   padding: 16px 0 16px 32px;
   color: var(--inovex-elements-p-11);

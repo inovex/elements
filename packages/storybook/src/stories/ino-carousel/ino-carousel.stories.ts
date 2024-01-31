@@ -1,38 +1,23 @@
-import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
+import Story from '../StoryWrapper';
 
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';
 import nidarosImg from '../../assets/images/nidaros.jpg';
 
-import { decorateStoryWithClass } from '../utils';
-
 import './ino-carousel.scss';
-
-export default {
-  title: 'Graphic/ino-carousel',
-  component: 'ino-carousel',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-carousel')],
-  args: {
-    value: 0,
-    autoplay: true,
-    hideButtons: false,
-    infinite: true,
-    intermission: 2000,
-    reverse: false,
-  },
-} as Meta;
 
 const onSlideChanged = (ev: CustomEvent<string>) => {
   const carouselEl = ev.target as HTMLInoCarouselElement;
   carouselEl.value = ev.detail;
 };
 
-const template = new TemplateGenerator<Components.InoCarousel>(
-  'ino-carousel',
-  (args) => html`
+const InoCarouselMeta = {
+  title: 'Graphic/ino-carousel',
+  component: 'ino-carousel',
+  render: (args) => html`
     <div class="ino-carousel-example">
       <ino-carousel
         class="customizable-carousel"
@@ -50,9 +35,34 @@ const template = new TemplateGenerator<Components.InoCarousel>(
       </ino-carousel>
     </div>
   `,
-);
+  args: {
+    value: '0',
+    autoplay: true,
+    hideButtons: false,
+    infinite: true,
+    intermission: 2000,
+    reverse: false,
+  },
+} as Meta<Components.InoCarousel>;
 
-export const Playground = template.generatePlaygroundStory();
+export default InoCarouselMeta;
 
-export const HideButtons = template.generateStoryForProp('hideButtons', true);
-export const Reverse = template.generateStoryForProp('reverse', true);
+export const Default = Story({
+  ...InoCarouselMeta,
+});
+
+export const HideButtons = Story({
+  ...Default,
+  docsFromProperty: 'hideButtons',
+  args: {
+    hideButtons: true,
+  },
+});
+
+export const Reverse = Story({
+  ...Default,
+  docsFromProperty: 'reverse',
+  args: {
+    reverse: true,
+  },
+});

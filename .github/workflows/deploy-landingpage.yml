@@ -22,8 +22,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: landingpage
-          path:
-            packages/landingpage/out/
+          path: packages/landingpage/out/
 
   deploy-landingpage:
     runs-on: ubuntu-latest

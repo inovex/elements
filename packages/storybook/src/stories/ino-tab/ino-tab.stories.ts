@@ -1,24 +1,13 @@
-import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass, withIconControl } from '../utils';
+import { getIcons } from '../utils';
+import Story from '../StoryWrapper';
 
-export default {
-  title: `Structure/ino-tab`,
+const InoTabMeta = {
+  title: 'Structure/ino-tab',
   component: 'ino-tab',
-  decorators: [(story) => decorateStoryWithClass(story)],
-  args: {
-    indicatorContentWidth: false,
-    stacked: false,
-    icon: 'info',
-    a11yControls: 'panel-id',
-  },
-} as Meta<Components.InoTab>;
-
-const template = new TemplateGenerator<Components.InoTab>(
-  'ino-tab',
-  (args) => html`
+  render: (args) => html`
     <ino-tab
       icon="${args.icon}"
       indicator-content-width="${args.indicatorContentWidth}"
@@ -28,13 +17,40 @@ const template = new TemplateGenerator<Components.InoTab>(
       Label
     </ino-tab>
   `,
-);
+  argTypes: {
+    icon: {
+      control: {
+        type: 'select',
+      },
+      options: getIcons(),
+    },
+  },
+  args: {
+    indicatorContentWidth: false,
+    stacked: false,
+    icon: 'info',
+    a11yControls: 'panel-id',
+  },
+} as Meta<Components.InoTab>;
 
-export const Playground = template.generatePlaygroundStory();
-withIconControl(Playground, 'icon', 'info');
+export default InoTabMeta;
 
-export const Stacked = template.generateStoryForProp('stacked', true);
-export const IndicatorContentWidth = template.generateStoryForProp(
-  'indicatorContentWidth',
-  true,
-);
+export const Default = Story({
+  ...InoTabMeta,
+});
+
+export const Stacked = Story({
+  ...Default,
+  docsFromProperty: 'stacked',
+  args: {
+    stacked: true,
+  },
+});
+
+export const IndicatorContentWidth = Story({
+  ...Default,
+  docsFromProperty: 'indicatorContentWidth',
+  args: {
+    indicatorContentWidth: true,
+  },
+});
