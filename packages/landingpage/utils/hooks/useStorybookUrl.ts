@@ -1,37 +1,42 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useVersion } from '../context/VersionContext';
+import { inDevEnvironment } from 'utils/in-dev-mode';
 
-export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--page';
+// TODO: Remove 'docs-welcome--page' as soon as 9.0.2 storybook is deployed
+export const WELCOME_PAGE_PLACEHOLDER = inDevEnvironment
+  ? 'docs-welcome--docs'
+  : 'docs-welcome--page';
 
 export const useStorybookUrl = () => {
   const { selectedVersion } = useVersion();
   const { query, isReady } = useRouter();
-  const [iFrameStartURl, setIFrameStartURl] = useState<string | null>(null);
-
-  const [storybookUrl, setStorybookUrl] = useState<string | undefined>(
-    undefined,
+  const [initialStorybookUrl, setInitialStorybookUrl] = useState<string | null>(
+    null,
   );
 
   useEffect(() => {
-    const urlFromEnv = process.env.NEXT_PUBLIC_STORYBOOK_URL;
-    const url = selectedVersion
-      ? urlFromEnv?.replace('latest', selectedVersion)
-      : urlFromEnv;
-    setStorybookUrl(url);
-  }, [selectedVersion]);
+    if (!isReady) return;
 
-  const fromLandingpageToStorybookUrl = (
-    query?: string | null,
-  ): string | null => {
-    if (!storybookUrl) return null;
-    return `${storybookUrl}?path=/docs/${query ?? WELCOME_PAGE_PLACEHOLDER}`;
-  };
+    if (!process.env.NEXT_PUBLIC_STORYBOOK_URL)
+      throw new Error(
+        'NEXT_PUBLIC_STORYBOOK_URL not found in environment variables.',
+      );
 
-  useEffect(() => {
-    if (iFrameStartURl || !isReady) return;
-    setIFrameStartURl(fromLandingpageToStorybookUrl(query.element as string));
-  }, [isReady, query.element, selectedVersion]);
+    let baseStorybookUrl = process.env.NEXT_PUBLIC_STORYBOOK_URL;
 
-  return { initialUrl: iFrameStartURl, fromLandingpageToStorybookUrl };
+    if (selectedVersion) {
+      baseStorybookUrl = baseStorybookUrl.replace('latest', selectedVersion);
+    }
+
+    const newUrl = [
+      baseStorybookUrl,
+      '?path=/docs/',
+      query.element ?? WELCOME_PAGE_PLACEHOLDER,
+    ].join('');
+
+    setInitialStorybookUrl(newUrl);
+  }, [isReady, selectedVersion]);
+
+  return initialStorybookUrl;
 };
