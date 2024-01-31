@@ -99,9 +99,11 @@ export class Snackbar implements ComponentInterface {
         '[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.',
       );
     }
+    console.log('ino-snackbar loaded: ', this.el.id);
   }
 
   disconnectedCallback() {
+    console.log('ino-snackbar disconnected: ', this.el.id);
     this.snackbarInstance?.destroy();
     this.snackbarElement.removeEventListener(
       'MDCSnackbar:closing',
@@ -131,6 +133,7 @@ export class Snackbar implements ComponentInterface {
   };
 
   private handleSnackbarHide = (e) => {
+    console.log('Snackbar hiding event: ', this.el.id);
     this.hideEl.emit();
     e.stopPropagation();
   };
