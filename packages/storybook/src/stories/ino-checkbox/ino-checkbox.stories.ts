@@ -1,17 +1,14 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-
-import { decorateStoryWithClass } from '../utils';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import './ino-checkbox.scss';
 
-export default {
+const InoCheckboxMeta = {
   title: 'Input/ino-checkbox',
   component: 'ino-checkbox',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-checkbox'),
     (story) => {
       useEffect(() => {
         const handleCheckedChange = (e) => {
@@ -34,21 +31,7 @@ export default {
       return story();
     },
   ],
-  // will be used as default props for all stories
-  args: {
-    checked: true,
-    disabled: false,
-    indeterminate: false,
-    name: 'my-name',
-    selection: false,
-    value: 'my-value',
-  },
-} as Meta<Components.InoCheckbox>;
-
-// the basic template for the checkbox component
-const template = new TemplateGenerator<Components.InoCheckbox>(
-  'ino-checkbox',
-  (args) => html`
+  render: (args) => html`
     <ino-checkbox
       checked="${args.checked}"
       disabled="${args.disabled}"
@@ -60,17 +43,50 @@ const template = new TemplateGenerator<Components.InoCheckbox>(
       Label
     </ino-checkbox>
   `,
-);
+  args: {
+    checked: true,
+    disabled: false,
+    indeterminate: false,
+    name: 'my-name',
+    selection: false,
+    value: 'my-value',
+  },
+} as Meta<Components.InoCheckbox>;
 
-export const Playground = template.generatePlaygroundStory();
+export default InoCheckboxMeta;
 
-export const Checked = template.generateStoryForProp('checked', true);
+export const Default = Story({
+  ...InoCheckboxMeta,
+});
 
-export const Selection = template.generateStoryForProp('selection', true);
+export const Checked = Story({
+  ...Default,
+  docsFromProperty: 'checked',
+  args: {
+    checked: true,
+  },
+});
 
-export const Indeterminate = template.generateStoryForProp(
-  'indeterminate',
-  true,
-);
+export const Selection = Story({
+  ...Default,
+  docsFromProperty: 'selection',
+  args: {
+    selection: true,
+  },
+});
 
-export const Disabled = template.generateStoryForProp('disabled', true);
+export const Indeterminate = Story({
+  ...Default,
+  docsFromProperty: 'indeterminate',
+  args: {
+    indeterminate: true,
+  },
+});
+
+export const Disabled = Story({
+  ...Default,
+  docsFromProperty: 'disabled',
+  args: {
+    disabled: true,
+  },
+});

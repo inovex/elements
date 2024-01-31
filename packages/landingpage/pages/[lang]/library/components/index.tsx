@@ -1,6 +1,6 @@
 import openInNew from '@assets/open-in-new.svg';
 import { InoButton, InoIcon, InoSpinner } from '@elements';
-import { merge } from 'lodash';
+import { merge as _merge } from 'lodash-es';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useContext, useEffect, useMemo } from 'react';
 import Page from '../../../../components/layout/page';
@@ -14,20 +14,15 @@ import {
 import { useStorybookUrl } from '../../../../utils/hooks/useStorybookUrl';
 import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 import useTranslation from '../../../../utils/hooks/useTranslation';
-import { useVersion } from '../../../../utils/context/VersionContext';
 import styles from './index.module.scss';
 
 const StoryBookPage: NextPage<void> = () => {
   const { t } = useTranslation();
   const { hideFooter } = useContext(UiContext) as UiContextType;
-  const { selectedVersion } = useVersion();
 
   const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
   const currentStory = useStorybookUrlSyncer();
-  const url = useMemo(
-    () => (currentStory ? fromLandingpageToStorybookUrl(currentStory) : null),
-    [currentStory],
-  );
+  const storybookUrl = fromLandingpageToStorybookUrl(currentStory);
 
   useEffect(() => {
     // prevent scrolling of body while in storybook
@@ -40,28 +35,13 @@ const StoryBookPage: NextPage<void> = () => {
     };
   }, []);
 
-  const iframeUrl = useMemo(() => {
-    if (initialUrl) {
-      const urlObj = new URL(initialUrl);
-      const path = urlObj.searchParams.get('path');
-
-      if (selectedVersion && path) {
-        return `https://elements.inovex.de/version/${selectedVersion}/?path=${path}`;
-      } else {
-        return initialUrl;
-      }
-    }
-
-    return undefined;
-  }, [initialUrl, selectedVersion]);
-
   return (
     <Page title={[t('common.meta.library')]}>
       <div className={styles.container}>
-        {url && (
+        {storybookUrl && (
           <a
             className={styles.openExternallyButton}
-            href={url}
+            href={storybookUrl}
             target="_blank"
             rel="noreferrer"
           >
@@ -76,9 +56,9 @@ const StoryBookPage: NextPage<void> = () => {
           </a>
         )}
         {!initialUrl && <InoSpinner type="circle"></InoSpinner>}
-        {iframeUrl && (
+        {storybookUrl && (
           <iframe
-            src={iframeUrl}
+            src={storybookUrl}
             style={{
               position: 'absolute',
               left: 0,
@@ -101,7 +81,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const languagePaths = getStaticLanguagePaths().paths;
   const elementPaths = languagePaths.map(() => ({ params: { element: '' } }));
   const langXElementPaths = languagePaths.map((path, index) =>
-    merge(path, elementPaths[index]),
+    _merge(path, elementPaths[index]),
   );
 
   return {

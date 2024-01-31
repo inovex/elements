@@ -7,15 +7,19 @@ import {
 } from 'react';
 
 export interface VersionContextType {
-  selectedVersion: string;
-  setSelectedVersion: (value: string) => void;
+  selectedVersion: string | undefined;
+  setSelectedVersion: (value: string | undefined) => void;
   versions: string[];
 }
 
-export const VersionContext = createContext<VersionContextType | null>(null);
+export const VersionContext = createContext<VersionContextType | undefined>(
+  undefined,
+);
 
 export const VersionProvider = ({ children }: { children: ReactNode }) => {
-  const [selectedVersion, setSelectedVersion] = useState<string>('');
+  const [selectedVersion, setSelectedVersion] = useState<string | undefined>(
+    undefined,
+  );
   const [versions, setVersions] = useState<string[]>([]);
 
   useEffect(() => {

@@ -47,6 +47,14 @@ ino-chip * {
   box-sizing: initial;
 }
 
+ino-select:not(.hydrated) * {
+  display: none;
+}
+
+ino-popover:not(.hydrated) * {
+  display: none !important;
+}
+
 .section-container {
   display: flex;
   flex-direction: column;

@@ -467,7 +467,7 @@ export namespace Components {
      */
     interface InoDialog {
         /**
-          * Adds a button with the given text to proceed with an action`
+          * Adds a button with the given text to proceed with an action
          */
         "actionText"?: string;
         /**
@@ -482,6 +482,10 @@ export namespace Components {
           * Adds a button with the given text to close the `ino-dialog`
          */
         "cancelText"?: string;
+        /**
+          * Adds a close icon in the top right corner to close the `ino-dialog`.
+         */
+        "closeIcon": boolean;
         /**
           * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
          */
@@ -2851,7 +2855,7 @@ declare namespace LocalJSX {
      */
     interface InoDialog {
         /**
-          * Adds a button with the given text to proceed with an action`
+          * Adds a button with the given text to proceed with an action
          */
         "actionText"?: string;
         /**
@@ -2866,6 +2870,10 @@ declare namespace LocalJSX {
           * Adds a button with the given text to close the `ino-dialog`
          */
         "cancelText"?: string;
+        /**
+          * Adds a close icon in the top right corner to close the `ino-dialog`.
+         */
+        "closeIcon"?: boolean;
         /**
           * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
          */

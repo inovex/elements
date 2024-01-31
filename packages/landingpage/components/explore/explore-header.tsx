@@ -12,16 +12,12 @@ export default function ExploreHeader() {
           <b>{t('header.title')}</b>
         </h1>
         <p className={classNames('title-l', styles.subtitle)}>
-          {' '}
           {t('header.subtitle')}
         </p>
       </div>
-      <Image
-        width={461}
-        height={326}
-        src={`/explore.svg`}
-        alt="explore-image"
-      ></Image>
+      <div className={styles.image}>
+        <Image src={`/explore.svg`} alt="explore-image" fill priority={false} />
+      </div>
     </div>
   );
 }
