@@ -4,15 +4,10 @@
       type="text"
       placeholder="What to do ..."
       :value="inputText"
-      @valueChange="({detail}) => inputText = detail"
+      @valueChange="({ detail }) => (inputText = detail)"
       @keyup.enter="onAdd"
     >
-      <ino-icon
-        slot="icon-trailing"
-        clickable
-        icon="add"
-        @clickEl="onAdd"
-      />
+      <ino-icon slot="icon-trailing" clickable icon="add" @clickEl="onAdd" />
     </ino-input>
     <ino-list :key="Date.now()">
       <ino-list-item
@@ -20,10 +15,7 @@
         :key="todo.id"
         :text="todo.text"
       >
-        <ino-checkbox
-          slot="leading"
-          @checkedChange="onCheckedChange(todo)"
-        />
+        <ino-checkbox slot="leading" @checkedChange="onCheckedChange(todo)" />
         <ino-tooltip
           slot="trailing"
           label="Remove item"
@@ -70,47 +62,59 @@
       >
         Reset ToDo list
       </ino-button>
-      <ino-button @click="clearToDoList">
-        Clear ToDo list
-      </ino-button>
+      <ino-button @click="clearToDoList"> Clear ToDo list </ino-button>
     </div>
   </div>
 </template>
 
 <script>
-
 import {
   InoButton,
   InoCheckbox,
-  InoIcon, InoIconButton, InoInput,
-  InoList, InoListDivider, InoListItem, InoTooltip,
-} from "@inovex.de/elements-vue";
+  InoIcon,
+  InoIconButton,
+  InoInput,
+  InoList,
+  InoListDivider,
+  InoListItem,
+  InoTooltip,
+} from '@inovex.de/elements-vue';
 
-const initialToDoList = [{
-  id: Math.floor(Date.now() * Math.random()),
-  text: 'Go to the grocery store',
-  checked: false
-}, {
-  id: Math.floor(Date.now() * Math.random()),
-  text: 'Clean up desk',
-  checked: false
-}, {
-  id: Math.floor(Date.now() * Math.random()),
-  text: 'Fix bug',
-  checked: true
-}];
+const initialToDoList = [
+  {
+    id: Math.floor(Date.now() * Math.random()),
+    text: 'Go to the grocery store',
+    checked: false,
+  },
+  {
+    id: Math.floor(Date.now() * Math.random()),
+    text: 'Clean up desk',
+    checked: false,
+  },
+  {
+    id: Math.floor(Date.now() * Math.random()),
+    text: 'Fix bug',
+    checked: true,
+  },
+];
 
 export default {
-  name: "ToDoList",
+  name: 'ToDoList',
   components: {
-    InoButton, InoList, InoListItem,
-    InoCheckbox, InoTooltip, InoIconButton,
-    InoInput, InoIcon, InoListDivider,
+    InoButton,
+    InoList,
+    InoListItem,
+    InoCheckbox,
+    InoTooltip,
+    InoIconButton,
+    InoInput,
+    InoIcon,
+    InoListDivider,
   },
   data() {
     return {
       todos: [],
-      inputText: ''
+      inputText: '',
     };
   },
   computed: {
@@ -121,8 +125,8 @@ export default {
       return this.todos.filter((todo) => todo.checked);
     },
     isResetButtonDisabled() {
-      return JSON.stringify(this.todos) === JSON.stringify(initialToDoList)
-    }
+      return JSON.stringify(this.todos) === JSON.stringify(initialToDoList);
+    },
   },
   mounted() {
     this.resetToDoList();
@@ -136,7 +140,7 @@ export default {
       this.todos.push({
         id: Math.floor(Date.now() * Math.random()),
         text: this.inputText,
-        checked: false
+        checked: false,
       });
       this.inputText = '';
     },
@@ -151,9 +155,9 @@ export default {
     },
     resetToDoList() {
       this.todos = JSON.parse(JSON.stringify(initialToDoList));
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

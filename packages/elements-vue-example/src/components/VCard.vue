@@ -1,9 +1,7 @@
 <template>
   <ino-card>
     <div slot="header">
-      <div class="header-h1">
-        Header
-      </div>
+      <div class="header-h1">Header</div>
       <div class="flex-content">
         <ino-img
           class="my-avatar"
@@ -16,9 +14,8 @@
       </div>
     </div>
     <div slot="content">
-      <div class="header-h1">
-        Content
-      </div>>
+      <div class="header-h1">Content</div>
+      >
       <ino-table>
         <tr>
           <td>ID</td>
@@ -38,31 +35,24 @@
       </ino-table>
     </div>
     <div slot="footer">
-      <div class="header-h1">
-        Footery
-      </div>
+      <div class="header-h1">Footery</div>
       <ino-button>Click me!</ino-button>
     </div>
   </ino-card>
 </template>
 
 <script>
-import {
-  InoButton,
-  InoCard,
-  InoImg,
-  InoTable,
-} from "@inovex.de/elements-vue";
+import { InoButton, InoCard, InoImg, InoTable } from '@inovex.de/elements-vue';
 
 export default {
-  name: "VCard",
+  name: 'VCard',
   components: {
     InoTable,
     InoButton,
     InoCard,
     InoImg,
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -73,7 +63,7 @@ export default {
 }
 
 .header-h1 {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   display: block;
 }
 </style>

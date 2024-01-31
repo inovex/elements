@@ -22,6 +22,7 @@ export default function Header() {
               height: 'auto',
               objectFit: 'contain',
             }}
+            priority
           />
         </div>
         <div className={styles.headerContainer}>

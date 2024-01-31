@@ -17,60 +17,60 @@ inputs:
     default: 'false'
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
-  - if: inputs.upload-core-artifacts != 'false'
-    name: Upload elements artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: elements
-      path: packages/elements/dist/
+    - if: inputs.upload-core-artifacts != 'false'
+      name: Upload elements artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements
+        path: packages/elements/dist/
 
-  - if: inputs.upload-core-artifacts != 'false'
-    name: Upload elements-react artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: elements-react
-      path: packages/elements-react/dist/
+    - if: inputs.upload-core-artifacts != 'false'
+      name: Upload elements-react artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements-react
+        path: packages/elements-react/dist/
 
-  - if: inputs.upload-core-artifacts != 'false'
-    name: Upload elements-angular artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: elements-angular
-      path: packages/elements-angular/dist/
+    - if: inputs.upload-core-artifacts != 'false'
+      name: Upload elements-angular artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements-angular
+        path: packages/elements-angular/dist/
 
-  - if: inputs.upload-core-artifacts != 'false'
-    name: Upload elements-vue artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: elements-vue
-      path: packages/elements-vue/dist/
+    - if: inputs.upload-core-artifacts != 'false'
+      name: Upload elements-vue artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements-vue
+        path: packages/elements-vue/dist/
 
-  - if: inputs.upload-storybook-artifact != 'false'
-    name: Upload storybook artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: storybook
-      path: packages/storybook/dist/
+    - if: inputs.upload-storybook-artifact != 'false'
+      name: Upload storybook artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: storybook
+        path: packages/storybook/dist/
 
-  - if: inputs.upload-example-artifacts != 'false'
-    name: Upload elements-angular-example artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: elements-angular-example
-      path: packages/elements-angular-example/dist/
+    - if: inputs.upload-example-artifacts != 'false'
+      name: Upload elements-angular-example artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements-angular-example
+        path: packages/elements-angular-example/dist/
 
-  - if: inputs.upload-example-artifacts != 'false'
-    name: Upload elements-react-example artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: elements-react-example
-      path: packages/elements-react-example/dist/
+    - if: inputs.upload-example-artifacts != 'false'
+      name: Upload elements-react-example artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements-react-example
+        path: packages/elements-react-example/dist/
 
-  - if: inputs.upload-example-artifacts != 'false'
-    name: Upload elements-vue-example artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: elements-vue-example
-      path: packages/elements-vue-example/dist/
+    - if: inputs.upload-example-artifacts != 'false'
+      name: Upload elements-vue-example artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements-vue-example
+        path: packages/elements-vue-example/dist/
