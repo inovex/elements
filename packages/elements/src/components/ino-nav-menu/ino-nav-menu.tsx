@@ -156,24 +156,20 @@ export class NavMenu implements ComponentInterface {
     this.initSectionsAndObserver();
   }
 
-  componentWillLoad(): void | Promise<void> {
-    if ((!this.autodetectSections && this.sectionIds.length > 0)) {
-      this.initSectionsRenderObserver();
-    }
+  componentDidLoad(): void | Promise<void> {
+    // this.initSectionsRenderObserver();
+    this.initSectionsAndObserver();
+    this.scrollAfterInit();
   }
 
-  componentDidLoad(): void {
-    if (this.autodetectSections) {
-      this.initSectionsRenderObserver();
-    }
-  }
-
-  private checkForRenderedSections = (mutationsList) => {
-    if (mutationsList.some(mutation => mutation.type === 'childList' && mutation.addedNodes.length > 0)) {
-      this.initSectionsAndObserver();
-      this.scrollAfterInit();
-    }
-  }
+  // private checkForRenderedSections = (mutationsList) => {
+  //   console.log('mutationList', mutationsList);
+    
+  //   if (mutationsList.some(mutation => mutation.type === 'childList' && mutation.addedNodes.length > 0 && mutation.target.id === this.sectionsContainerId)) {
+  //     this.initSectionsAndObserver();
+  //     this.scrollAfterInit();
+  //   }
+  // }
 
   private initSectionsAndObserver(): void {
     this.initSections();
@@ -196,7 +192,11 @@ export class NavMenu implements ComponentInterface {
         return valid;
       })
       .map(id => {
+        console.log('id', id)
         const htmlEl = document.getElementById(id) as HTMLElement;
+        console.log('htmlEl', htmlEl)
+        console.log('htmlEl.id', htmlEl.id)
+        console.log('htmlEl.title', htmlEl.title)
         return {id: id, name: htmlEl.title}
       })
 
@@ -229,10 +229,10 @@ export class NavMenu implements ComponentInterface {
     return sections;
   }
 
-  private initSectionsRenderObserver() {
-    this.sectionObserver = new MutationObserver(this.checkForRenderedSections);
-    this.sectionObserver.observe(document.body, { childList: true, subtree: true });
-  }
+  // private initSectionsRenderObserver() {
+  //   this.sectionObserver = new MutationObserver(this.checkForRenderedSections);
+  //   this.sectionObserver.observe(document.body, { childList: true, subtree: true });
+  // }
 
   private initIntersectionObserver() {
     this.observer = new IntersectionObserver(
