@@ -170,7 +170,8 @@ export const InoDialog = /*@__PURE__*/ defineContainer<JSX.InoDialog>('ino-dialo
   'actionText',
   'icon',
   'close',
-  'action'
+  'action',
+  'dialogOpen'
 ]);
 
 
