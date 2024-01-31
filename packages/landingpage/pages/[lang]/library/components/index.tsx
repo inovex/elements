@@ -22,7 +22,13 @@ const StoryBookPage: NextPage<void> = () => {
 
   const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
   const currentStory = useStorybookUrlSyncer();
-  const storybookUrl = fromLandingpageToStorybookUrl(currentStory);
+  const storybookUrl = fromLandingpageToStorybookUrl(currentStory); //useMemo doesnt work because currentStory always stays at null, until it defaults to welcome page
+  /*
+   * const storybookUrl = useMemo(() => {
+   * return fromLandingpageToStorybookUrl(currentStory);
+   * }, [currentStory]);
+   */
+  console.log('storybookUrl setting the query to: ', currentStory);
 
   useEffect(() => {
     // prevent scrolling of body while in storybook
@@ -56,6 +62,7 @@ const StoryBookPage: NextPage<void> = () => {
           </a>
         )}
         {!initialUrl && <InoSpinner type="circle"></InoSpinner>}
+        {/* fixed by using initialUrl instead of storybookUrl */}
         {storybookUrl && (
           <iframe
             src={storybookUrl}

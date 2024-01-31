@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useVersion } from '../context/VersionContext';
+import { inDevEnvironment } from 'utils/in-dev-mode';
 
-export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--page';
+export const WELCOME_PAGE_PLACEHOLDER = inDevEnvironment
+  ? 'docs-welcome--docs'
+  : 'docs-welcome--page';
 
 export const useStorybookUrl = () => {
   const { selectedVersion } = useVersion();
@@ -25,6 +28,7 @@ export const useStorybookUrl = () => {
     query?: string | null,
   ): string | null => {
     if (!storybookUrl) return null;
+    console.log('query currently is: ', query)
     return `${storybookUrl}?path=/docs/${query ?? WELCOME_PAGE_PLACEHOLDER}`;
   };
 

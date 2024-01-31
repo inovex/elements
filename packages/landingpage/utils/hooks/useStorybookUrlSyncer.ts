@@ -16,6 +16,7 @@ export const useStorybookUrlSyncer = () => {
 
   useMount(() => {
     function onMessage(event: MessageEvent<PostCurrentStoryMessage>) {
+      // console.log("recieved message: ", event) <- infinite loop
       if (
         (!inDevEnvironment && event.origin !== window.location.origin) || // check for origin
         event.data?.type !== POST_CURRENT_STORY_TYPE // check for message type
