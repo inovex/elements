@@ -28,11 +28,10 @@ function Demos() {
             key={key}
             frameworkIcon={
               <Image
-                height={40}
-                width={40}
                 src={IconByFramework[key as Framework]}
                 alt={key + ' logo'}
                 className={styles.framework}
+                fill
               />
             }
             frameworkName={NameByFramework[key as Framework]}

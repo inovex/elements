@@ -1,12 +1,11 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import './ino-radio.scss';
 
-export default {
+const InoRadioMeta = {
   title: 'Input/ino-radio',
   component: 'ino-radio',
   parameters: {
@@ -15,7 +14,6 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-radio'),
     (story) => {
       useEffect(() => {
         const eventHandler = (e) => e.target.setAttribute('checked', e.detail);
@@ -31,17 +29,7 @@ export default {
       return story();
     },
   ],
-  args: {
-    checked: false,
-    disabled: false,
-    name: 'radio-custom',
-    value: 'radio-1',
-  },
-} as Meta<Components.InoRadio>;
-
-const template = new TemplateGenerator<Components.InoRadio>(
-  'ino-radio',
-  (args) => html`
+  render: (args) => html`
     <ino-radio
       checked="${args.checked}"
       disabled="${args.disabled}"
@@ -51,13 +39,32 @@ const template = new TemplateGenerator<Components.InoRadio>(
       Radio Button Label
     </ino-radio>
   `,
-);
+  args: {
+    checked: false,
+    disabled: false,
+    name: 'radio-custom',
+    value: 'radio-1',
+  },
+} as Meta<Components.InoRadio>;
 
-export const Playground = template.generatePlaygroundStory();
+export default InoRadioMeta;
 
-/**
- * Default unchecked state of this element.
- */
-export const Unchecked = template.generatePlaygroundStory();
-export const Checked = template.generateStoryForProp('checked', true);
-export const Disabled = template.generateStoryForProp('disabled', true);
+export const Default = Story({
+  ...InoRadioMeta,
+});
+
+export const Checked = Story({
+  ...Default,
+  docsFromProperty: 'checked',
+  args: {
+    checked: true,
+  },
+});
+
+export const Disabled = Story({
+  ...Default,
+  docsFromProperty: 'disabled',
+  args: {
+    disabled: true,
+  },
+});

@@ -1,25 +1,13 @@
 <template>
-  <form
-    id="contact-form"
-    @submit="showFormData"
-  >
+  <form id="contact-form" @submit="showFormData">
     <ino-radio-group :value="gender">
-      <ino-radio
-        value="m"
-        @checkedChange="() => gender = 'm'"
-      >
+      <ino-radio value="m" @checkedChange="() => (gender = 'm')">
         male
       </ino-radio>
-      <ino-radio
-        value="f"
-        @checkedChange="() => gender = 'f'"
-      >
+      <ino-radio value="f" @checkedChange="() => (gender = 'f')">
         female
       </ino-radio>
-      <ino-radio
-        value="o"
-        @checkedChange="() => gender = 'o'"
-      >
+      <ino-radio value="o" @checkedChange="() => (gender = 'o')">
         other
       </ino-radio>
     </ino-radio-group>
@@ -29,13 +17,9 @@
       label="Select your title"
       name="title"
       required
-      @valueChange="({detail}) => selectedTitle = detail"
+      @valueChange="({ detail }) => (selectedTitle = detail)"
     >
-      <ino-option
-        v-for="(title, i) in availableTitles"
-        :key="i"
-        :value="title"
-      >
+      <ino-option v-for="(title, i) in availableTitles" :key="i" :value="title">
         {{ title }}
       </ino-option>
     </ino-select>
@@ -47,12 +31,9 @@
       placeholder="Enter your name"
       required
       type="text"
-      @valueChange="({detail}) => name = detail"
+      @valueChange="({ detail }) => (name = detail)"
     >
-      <ino-icon
-        slot="icon-leading"
-        icon="user"
-      />
+      <ino-icon slot="icon-leading" icon="user" />
     </ino-input>
     <ino-datepicker
       v-model="birthday"
@@ -65,7 +46,7 @@
       type="date"
       name="birthday"
       required
-      @valueChange="({detail}) => birthday = detail"
+      @valueChange="({ detail }) => (birthday = detail)"
     />
     <ino-textarea
       v-model="message"
@@ -83,7 +64,7 @@
       <ino-switch
         v-model="outlineStyle"
         name="outline-style"
-        @checkedChange="({detail}) => outlineStyle = detail"
+        @checkedChange="({ detail }) => (outlineStyle = detail)"
       >
         Use outline style
       </ino-switch>
@@ -107,11 +88,11 @@ import {
   InoRadioGroup,
   InoSelect,
   InoSwitch,
-  InoTextarea
-} from "@inovex.de/elements-vue";
+  InoTextarea,
+} from '@inovex.de/elements-vue';
 
 export default {
-  name: "ContactForm",
+  name: 'ContactForm',
   components: {
     InoSwitch,
     InoButton,
@@ -142,16 +123,16 @@ export default {
         title: this.selectedTitle,
         name: this.name,
         birthday: this.birthday,
-        message: this.message
+        message: this.message,
       });
     },
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
 #contact-form > * {
-  margin: .5rem .5rem 1.5rem .5rem;
+  margin: 0.5rem 0.5rem 1.5rem 0.5rem;
 }
 
 .form-btn-bar {

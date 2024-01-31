@@ -1,9 +1,7 @@
-import { Story } from '@storybook/web-components';
-import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
-import { html } from 'lit-html';
-import ICONS from '../../../elements/src/components/ino-icon/icons';
+import { StoryObj } from '@storybook/web-components';
+import ICONS from '@inovex.de/elements/src/components/ino-icon/icons';
 
-export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
+const maybeCreateStoryArgs = <T>(story: StoryObj<T>): void => {
   if (!story.args) {
     story.args = {};
   }
@@ -13,43 +11,43 @@ export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
 };
 
 export const withIconControl = <T>(
-  story: Story<T>,
+  story: StoryObj<T>,
   propertyName: string,
   defaultValue?: string,
 ) => {
   maybeCreateStoryArgs(story);
-  story.args[propertyName] = defaultValue || '';
-  story.argTypes[propertyName] = {
-    control: {
-      type: 'select',
+  story.args = { ...story.args, [propertyName]: defaultValue || '' };
+  story.argTypes = {
+    ...story.args,
+    [propertyName]: {
+      control: {
+        type: 'select',
+      },
+      options: getIcons(),
     },
-    options: getIcons(),
   };
 };
 
 export const withSortDirection = <T>(
-  story: Story<T>,
+  story: StoryObj<T>,
   propertyName: string,
   defaultValue?: string,
 ) => {
   maybeCreateStoryArgs(story);
-  story.args[propertyName] = defaultValue || '';
-  story.argTypes[propertyName] = {
-    options: ['desc', 'asc'],
-    control: {
-      type: 'select',
+  story.args = { ...story.args, [propertyName]: defaultValue || '' };
+  story.argTypes = {
+    ...story.args,
+    [propertyName]: {
+      options: ['desc', 'asc'],
+      control: {
+        type: 'select',
+      },
     },
   };
 };
 
-export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
-
-export const decorateStoryWithClass = (
-  story: () => StoryFnHtmlReturnType,
-  className?: string,
-): StoryFnHtmlReturnType => {
-  return html`<div class="${className ?? ''}">${story()}</div>`;
-};
+export const getIcons = () =>
+  ICONS.filter((icon: string) => !icon.startsWith('_'));
 
 export const showSnackbar = (message: string) => {
   const snackbar: HTMLInoSnackbarElement =

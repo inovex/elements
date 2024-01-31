@@ -1,6 +1,12 @@
-.story-ino-input {
-  ino-input {
-    margin-top: 15px;
-    margin-bottom: 15px;
+.sbdocs.sbdocs-content:has(#anchor--input-ino-input--default) {
+  [scale] {
+    width: 100%;
+  }
+
+  #story--input-ino-input--states-inner #root-inner,
+  #story--input-ino-input--labels-inner #root-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 }

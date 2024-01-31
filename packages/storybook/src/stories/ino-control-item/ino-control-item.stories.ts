@@ -1,17 +1,14 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import './ino-control-item.scss';
 
-export default {
+const InoControlItemMeta = {
   title: 'Structure/ino-control-item',
   component: 'ino-control-item',
   decorators: [
-    (story) => decorateStoryWithClass(story),
     (story) => {
       useEffect(() => {
         const checkedChangeHandler = (e: CustomEvent<boolean>) => {
@@ -30,22 +27,7 @@ export default {
       return story();
     },
   ],
-  args: {
-    activated: false,
-    checked: false,
-    disabled: false,
-    indeterminate: false,
-    role: 'checkbox',
-    secondaryText: '',
-    selected: false,
-    text: 'Text',
-    trailing: false,
-  },
-} as Meta<Components.InoControlItem>;
-
-const template = new TemplateGenerator<Components.InoControlItem>(
-  'ino-control-item',
-  (args) => html`
+  render: (args) => html`
     <ino-list two-lines="${args.secondaryText || false}">
       <ino-control-item
         activated="${args.activated}"
@@ -61,21 +43,85 @@ const template = new TemplateGenerator<Components.InoControlItem>(
       </ino-control-item>
     </ino-list>
   `,
-);
+  args: {
+    activated: false,
+    checked: false,
+    disabled: false,
+    indeterminate: false,
+    role: 'checkbox',
+    secondaryText: '',
+    selected: false,
+    text: 'Text',
+    trailing: false,
+  },
+} as Meta<Components.InoControlItem>;
 
-export const Playground = template.generatePlaygroundStory();
+export default InoControlItemMeta;
 
-export const Roles = template.generateStoryForProp('role', 'radio');
-export const Checked = template.generateStoryForProp('checked', true);
-export const Indeterminate = template.generateStoryForProp(
-  'indeterminate',
-  true,
-);
-export const Activated = template.generateStoryForProp('activated', true);
-export const Selected = template.generateStoryForProp('selected', true);
-export const SecondaryText = template.generateStoryForProp(
-  'secondaryText',
-  'Some Secondary Text',
-);
-export const Disabled = template.generateStoryForProp('disabled', true);
-export const Trailing = template.generateStoryForProp('trailing', true);
+export const Default = Story({
+  ...InoControlItemMeta,
+});
+
+export const Roles = Story({
+  ...Default,
+  docsFromProperty: 'role',
+  args: {
+    role: 'radio',
+  },
+});
+
+export const Checked = Story({
+  ...Default,
+  docsFromProperty: 'checked',
+  args: {
+    checked: true,
+  },
+});
+
+export const Indeterminate = Story({
+  ...Default,
+  docsFromProperty: 'indeterminate',
+  args: {
+    indeterminate: true,
+  },
+});
+
+export const Activated = Story({
+  ...Default,
+  docsFromProperty: 'activated',
+  args: {
+    activated: true,
+  },
+});
+
+export const Selected = Story({
+  ...Default,
+  docsFromProperty: 'selected',
+  args: {
+    selected: true,
+  },
+});
+
+export const SecondaryText = Story({
+  ...Default,
+  docsFromProperty: 'secondaryText',
+  args: {
+    secondaryText: 'Some Secondary Text',
+  },
+});
+
+export const Disabled = Story({
+  ...Default,
+  docsFromProperty: 'disabled',
+  args: {
+    disabled: true,
+  },
+});
+
+export const Trailing = Story({
+  ...Default,
+  docsFromProperty: 'trailing',
+  args: {
+    trailing: true,
+  },
+});

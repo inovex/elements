@@ -97,7 +97,7 @@ $material-dialog-box-shadow: 0px 0px 22px rgba(93, 91, 105, 0.35);
 }
 
 :host(.ino-dialog--fullwidth) {
-  --ino-dialog-width: 100%;
+  --ino-dialog-max-width: 100%;
   --ino-dialog-height: calc(100% - 80px);
 
   .mdc-dialog {

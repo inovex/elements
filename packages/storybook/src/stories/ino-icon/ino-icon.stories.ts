@@ -1,12 +1,9 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-
-import ICONS from '../../../../elements/src/components/ino-icon/icons';
-
-import { decorateStoryWithClass, withIconControl } from '../utils';
+import { useEffect } from '@storybook/preview-api';
+import { getIcons } from '../utils';
+import Story from '../StoryWrapper';
+import ICONS from './../../../../elements/src/components/ino-icon/icons';
 import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter(
@@ -51,7 +48,7 @@ const iconChips = ICON_IDS.map(
   `,
 );
 
-export default {
+const InoIconMeta = {
   title: 'Graphic/ino-icon',
   component: 'ino-icon',
   parameters: {
@@ -63,7 +60,6 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-icon'),
     (story) => {
       useEffect(() => {
         const searchIconHandler = function (e) {
@@ -101,18 +97,7 @@ export default {
       return story();
     },
   ],
-  args: {
-    clickable: true,
-    colorSecondary: false,
-    icon: 'info',
-    svgTitle: 'svg-Title',
-    src: 'scr-url',
-  },
-} as Meta;
-
-const template = new TemplateGenerator<Components.InoIcon>(
-  'ino-icon',
-  (args) => html`
+  render: (args) => html`
     <ino-icon
       class="customizable-icon"
       clickable="${args.clickable}"
@@ -124,14 +109,32 @@ const template = new TemplateGenerator<Components.InoIcon>(
     >
     </ino-icon>
   `,
-);
+  argTypes: {
+    icon: {
+      control: {
+        type: 'select',
+      },
+      options: getIcons(),
+    },
+  },
+  args: {
+    clickable: true,
+    colorSecondary: false,
+    icon: 'info',
+    svgTitle: 'svg-Title',
+    src: 'scr-url',
+  },
+} as Meta;
 
-export const Playground = template.generatePlaygroundStory();
-withIconControl(Playground, 'icon', 'info');
+export default InoIconMeta;
 
-const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
-  'ino-icon',
-  () => html`
+export const Default = Story({
+  ...InoIconMeta,
+});
+
+export const AllIcons = Story({
+  ...Default,
+  render: () => html`
     <div class="story-icon">
       <div class="flex-parent-center">
         <ino-input class="icon-search-input" placeholder="Find icon">
@@ -142,5 +145,4 @@ const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
       </div>
     </div>
   `,
-);
-export const AllIcons = templateAllIcons.generatePlaygroundStory();
+});

@@ -4,6 +4,8 @@
 /**
   @prop --ino-markdown-editor-min-height: min-height of text editor. Default value is `100px`.
   @prop --ino-markdown-editor-max-height: max-height of text editor Default value is `none`.
+  @prop --ino-markdown-editor-font-size: Base font size for all text elements, which scales other font sizes accordingly. Default value is `16px`.
+
 */
 
 // specific styles for the markdown editor dialog window that opens when having text selected and clicking the "create link" button
@@ -144,11 +146,21 @@ ino-markdown-editor {
   }
 
   .ProseMirror {
+    --base-font-size: var(--ino-markdown-editor-font-size, 16px);
     min-height: var(--ino-markdown-editor-min-height, 100px);
     padding: 15px;
     border-radius: 4px;
     border: 1px solid theme.$n-2;
     color: rgba(0, 0, 0, 0.87);
+    font-size: var(--base-font-size);
+
+    h1 {
+      font-size: calc(var(--base-font-size) * 2);
+    }
+
+    h2 {
+      font-size: calc(var(--base-font-size) * 1.75);
+    }
 
     &:hover:not(&-focused) {
       border-color: theme.$n-4;

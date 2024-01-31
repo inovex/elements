@@ -32,7 +32,7 @@ inputs:
     default: 'example-projects'
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements artifact

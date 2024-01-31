@@ -8,7 +8,7 @@ import path, { join } from 'path';
 import remarkGfm from 'remark-gfm';
 
 const theme = JSON.parse(
-  await readFile('../../node_modules/shiki/themes/github-light.json')
+  await readFile('../../node_modules/shiki/themes/github-light.json'),
 );
 
 const __dirname = path.resolve();
@@ -38,9 +38,9 @@ const nextConfiguration = {
             globOptions: {
               ignore: ['**/*.{html,md}'],
             },
-          }
+          },
         ],
-      })
+      }),
     );
 
     return config;
@@ -64,7 +64,7 @@ const withMDX = nextMdx({
         remarkCodeHike,
         {
           autoImport: false,
-          theme: "github-dark-dimmed",
+          theme: 'github-dark-dimmed',
           showCopyButton: true,
         },
       ],
@@ -76,10 +76,9 @@ const withMDX = nextMdx({
   },
 });
 
-
 const plugins = [withImages, withMDX, withHtml];
 
 export default plugins.reduce(
   (config, plugin) => plugin(config),
-  nextConfiguration
+  nextConfiguration,
 ); // merge configs
