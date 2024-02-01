@@ -348,7 +348,7 @@ export class InoDialog {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['close', 'action']);
+    proxyOutputs(this, this.el, ['close', 'action', 'dialogOpen']);
   }
 }
 
@@ -365,6 +365,10 @@ export declare interface InoDialog extends Components.InoDialog {
    * Emits an event upon clicking the action button of the dialog
    */
   action: EventEmitter<CustomEvent<IInoDialogDialogSubmitAction>>;
+  /**
+   * Emits an event when the dialog is opened.
+   */
+  dialogOpen: EventEmitter<CustomEvent<void>>;
 }
 
 

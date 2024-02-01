@@ -2,7 +2,7 @@ import openInNew from '@assets/open-in-new.svg';
 import { InoButton, InoIcon, InoSpinner } from '@elements';
 import { merge as _merge } from 'lodash-es';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { useContext, useEffect, useMemo } from 'react';
+import { useContext, useEffect } from 'react';
 import Page from '../../../../components/layout/page';
 import { Locale_File } from '../../../../translations/types';
 import { LangContext } from '../../../../types/langContext';
@@ -12,17 +12,16 @@ import {
   getStaticLanguageProps,
 } from '../../../../utils/context/staticPaths';
 import { useStorybookUrl } from '../../../../utils/hooks/useStorybookUrl';
-import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 import useTranslation from '../../../../utils/hooks/useTranslation';
 import styles from './index.module.scss';
+import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
 
 const StoryBookPage: NextPage<void> = () => {
   const { t } = useTranslation();
   const { hideFooter } = useContext(UiContext) as UiContextType;
 
-  const { initialUrl, fromLandingpageToStorybookUrl } = useStorybookUrl();
-  const currentStory = useStorybookUrlSyncer();
-  const storybookUrl = fromLandingpageToStorybookUrl(currentStory);
+  useStorybookUrlSyncer();
+  const storybookUrl = useStorybookUrl();
 
   useEffect(() => {
     // prevent scrolling of body while in storybook
@@ -55,7 +54,7 @@ const StoryBookPage: NextPage<void> = () => {
             </InoButton>
           </a>
         )}
-        {!initialUrl && <InoSpinner type="circle"></InoSpinner>}
+        {!storybookUrl && <InoSpinner type="circle"></InoSpinner>}
         {storybookUrl && (
           <iframe
             src={storybookUrl}
