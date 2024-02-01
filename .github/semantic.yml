@@ -257,11 +257,15 @@ scopes:
   - storybook|ino-tooltip
   - elements
   - elements-angular
+  - elements-angular-example
   - elements-react
+  - elements-react-example
   - elements-vue
+  - elements-vue-example
   - storybook
   - landingpage
   - ui-patterns
-  - elements-vue-example
+  - ui-patterns-playground
   - '*'
   - deps
+  - dev-deps
