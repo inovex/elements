@@ -61,7 +61,7 @@ const InoSnackbarMeta = {
     <ino-button class="snackbar-trigger" data-template-id="${args.id}">
       Show Snackbar
     </ino-button>
-    <div class="snackbar-template hidden" id="${args.id}">
+    <div class="hidden" id="${args.id}">
       <ino-snackbar
         id="${args.id}"
         action-text="${args.actionText}"
