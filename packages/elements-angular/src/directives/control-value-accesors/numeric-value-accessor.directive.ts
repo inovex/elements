@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueAccessorDirective } from "./value-accessor.directive";
 
 @Directive({
-  selector: 'ino-input[type=number], ino-range:not([ranged])',
+  selector: 'ino-input[type=number],ino-range:not([ranged])',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
