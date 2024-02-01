@@ -9113,10 +9113,15 @@
       "fileName": "ino-snackbar.tsx",
       "tag": "ino-snackbar",
       "readme": "# ino-snackbar\n\n",
-      "overview": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component",
+      "overview": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.",
       "usage": {},
-      "docs": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component",
-      "docsTags": [],
+      "docs": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon-slot - Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`."
+        }
+      ],
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
@@ -9315,7 +9320,12 @@
           "docs": "Distance to the top edge"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "icon-slot",
+          "docs": "Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`."
+        }
+      ],
       "parts": [],
       "listeners": []
     },

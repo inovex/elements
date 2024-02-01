@@ -6,7 +6,7 @@
 
 ## Overview
 
-Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
 
 ## Properties
 
@@ -25,6 +25,13 @@ Snackbars provide brief messages about app processes at the bottom of the screen
 | ------------- | ----------------------------------------------------------------------------------------------------- | ------------------ |
 | `actionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<any>` |
 | `hideEl`      | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot          | Description                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| `"icon-slot"` | Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`. |
 
 
 ## CSS Custom Properties
