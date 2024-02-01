@@ -37,3 +37,5 @@ export const InoSpinner = importElement('InoSpinner');
 export const InoCarousel = importElement('InoCarousel');
 export const InoCarouselSlide = importElement('InoCarouselSlide');
 export const InoIconButton = importElement('InoIconButton');
+export const InoNavMenu = importElement('InoNavMenu');
+export const InoNavMenuSection = importElement('InoNavMenuSection');

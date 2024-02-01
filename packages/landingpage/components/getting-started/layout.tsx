@@ -1,5 +1,4 @@
-import { InoButton, InoSegmentButton, InoSegmentGroup } from '@elements';
-import { InoNavMenu } from '@inovex.de/elements-react';
+import { InoButton, InoSegmentButton, InoSegmentGroup, InoNavMenu } from '@elements';
 import Page from 'components/layout/page';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
