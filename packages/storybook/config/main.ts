@@ -21,6 +21,10 @@ const config: StorybookConfig = {
 
   addons: [
     {
+      name: '@storybook/addon-essentials',
+      options: { docs: false }, // docs addon is added explicitly below, so we can disable it here
+    },
+    {
       name: '@storybook/addon-docs',
       options: {
         mdxPluginOptions: {
@@ -30,7 +34,6 @@ const config: StorybookConfig = {
         },
       },
     },
-    '@storybook/addon-essentials',
     '@pxtrn/storybook-addon-docs-stencil',
   ],
 

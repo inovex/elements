@@ -47,19 +47,19 @@
   },
   "devDependencies": {
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.0",
-    "@storybook/addon-docs": "^7.6.6",
-    "@storybook/addon-essentials": "^7.6.6",
-    "@storybook/blocks": "^7.6.6",
-    "@storybook/builder-vite": "^7.6.6",
-    "@storybook/manager-api": "^7.6.6",
-    "@storybook/theming": "^7.6.6",
-    "@storybook/web-components": "^7.6.6",
-    "@storybook/web-components-vite": "^7.6.6",
+    "@storybook/addon-docs": "^7.6.12",
+    "@storybook/addon-essentials": "^7.6.12",
+    "@storybook/blocks": "^7.6.12",
+    "@storybook/builder-vite": "^7.6.12",
+    "@storybook/manager-api": "^7.6.12",
+    "@storybook/theming": "^7.6.12",
+    "@storybook/web-components": "^7.6.12",
+    "@storybook/web-components-vite": "^7.6.12",
     "@types/lodash-es": "^4.17.12",
     "eslint-plugin-storybook": "^0.6.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.6.4",
+    "storybook": "^7.6.12",
     "typescript": "^4.5.5"
   }
 }
