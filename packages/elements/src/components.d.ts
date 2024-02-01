@@ -793,7 +793,7 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * Styles the input field as outlined element.
+          * Styles the input field as outlined element.  This property is immutable which means that it should not be changed after its first initialization. Changing this property at runtime causes problems in combination with the floating label. You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
          */
         "outline"?: boolean;
         /**
@@ -3225,7 +3225,7 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: InoInputCustomEvent<string>) => void;
         /**
-          * Styles the input field as outlined element.
+          * Styles the input field as outlined element.  This property is immutable which means that it should not be changed after its first initialization. Changing this property at runtime causes problems in combination with the floating label. You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
          */
         "outline"?: boolean;
         /**

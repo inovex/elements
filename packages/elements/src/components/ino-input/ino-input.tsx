@@ -163,8 +163,20 @@ export class Input implements ComponentInterface {
 
   /**
    * Styles the input field as outlined element.
+   *
+   * This property is immutable which means that it should not be changed after its first initialization.
+   * Changing this property at runtime causes problems in combination with the floating label.
+   * You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
    */
   @Prop() outline?: boolean;
+
+  @Watch('outline')
+  handleOutlineChange(oldVal: boolean, newVal: boolean) {
+    if (oldVal !== newVal)
+      console.warn(
+        `Changing the 'outline' property at runtime is not recommended. Read more about it here: https://github.com/inovex/elements/issues/1216`,
+      );
+  }
 
   /**
    * The validation pattern of this element.
