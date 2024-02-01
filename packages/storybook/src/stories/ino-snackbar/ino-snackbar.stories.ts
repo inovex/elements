@@ -29,17 +29,18 @@ const InoSnackbarMeta = {
           const button = e.target.closest('.snackbar-trigger');
           if (button) {
             const snackbarId = button.getAttribute('data-template-id');
-            const snackbarTemplate = document.getElementById(snackbarId);
-            if (snackbarTemplate) {
-              snackbarTemplate.classList.remove('hidden');
+            const snackbarWrapper = document.getElementById(snackbarId);
+            if (snackbarWrapper) {
+              snackbarWrapper.classList.remove('hidden');
             }
           }
         };
 
         const snackbarHideHandler = (e) => {
-          const snackbarTemplate = e.target.closest('.snackbar-template');
-          if (snackbarTemplate) {
-            snackbarTemplate.classList.add('hidden');
+          const snackbarElement = e.target.closest('ino-snackbar');
+          if (snackbarElement) {
+            const snackbarWrapper = snackbarElement.parentElement;
+            snackbarWrapper.classList.add('hidden');
           }
         };
 
