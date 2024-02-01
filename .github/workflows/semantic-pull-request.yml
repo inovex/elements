@@ -30,6 +30,8 @@ jobs:
             ci
             chore
             revert
+            deps
+            dev-deps
           # Configure which scopes are allowed.
           scopes: |
             elements|ino-accordion
@@ -144,8 +146,6 @@ jobs:
             ui-patterns
             ui-patterns-playground
             '*'
-            deps
-            dev-deps
           # Configure that a scope must always be provided.
           requireScope: false
           # Configure which scopes are disallowed in PR titles. For instance by setting
