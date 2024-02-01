@@ -1,11 +1,5 @@
 import { NextPage } from 'next';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { LangContext } from '../../../../types/langContext';
-import {
-  getStaticLanguagePaths,
-  getStaticLanguageProps,
-} from '../../../../utils/context/staticPaths';
-import { Locale_File } from '../../../../translations/types';
+import { GetStaticProps } from 'next';
 import { getHighlighter } from 'shiki';
 import PreviewBox from './preview-box';
 import Page from 'components/layout/page';
@@ -60,15 +54,10 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async () => {
   const codeStrings = {
     login: loginHtml,
   };
-
-  const { props: languageProperties } = getStaticLanguageProps(
-    ctx as LangContext,
-    Locale_File.LIBRARY,
-  );
 
   const highlightedCodes: HighlightedCodes = {};
   for (const [label, code] of Object.entries(codeStrings)) {
@@ -76,15 +65,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   }
   return {
     props: {
-      ...languageProperties,
       highlightedCodes,
       codeStrings,
     },
   };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return getStaticLanguagePaths();
 };
 
 export default PatternsPage;

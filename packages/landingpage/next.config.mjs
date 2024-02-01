@@ -28,6 +28,10 @@ const nextConfiguration = {
       },
     ],
   },
+  i18n: {
+    locales: ['en', 'de'],
+    defaultLocale : 'en',
+  },
   webpack: (config) => {
     config.plugins.push(
       new CopyWebpackPlugin({

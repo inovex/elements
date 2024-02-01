@@ -1,17 +1,20 @@
-import { useContext } from 'react';
-import { LanguageContext } from 'utils/context/LanguageContext';
+import locales from '../../translations/locales';
 import { get as _get } from 'lodash-es';
-import { defaultLocale } from 'translations/config';
+import { useRouter } from 'next/router';
 
 export default function useTranslation() {
-  const { localization } = useContext(LanguageContext);
+  const { locale, defaultLocale } = useRouter();
+  const lang = locale ?? defaultLocale ?? 'en';
+  // @ts-ignore
+  const translation = locales[lang];
+
   function t(key: string) {
     let text: any = null;
-    if (localization) {
-      text = _get(localization.translations, key);
+    if (translation) {
+      text = _get(translation, key);
       if (!text) {
-        throw new Error(
-          `Translation '${key}' for locale '${localization.locale}' not found.`,
+        console.log(
+          `Translation '${key}' for locale '${lang}' not found.`,
         );
       }
     }
@@ -20,6 +23,6 @@ export default function useTranslation() {
 
   return {
     t,
-    locale: localization ? localization.locale : defaultLocale,
+    locale: lang,
   };
 }

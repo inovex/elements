@@ -5,19 +5,14 @@ import Activity from 'components/about/activity';
 import { GithubCommitsPerMonth, GithubParticipation } from 'types/github';
 import Contributors from 'components/about/contributors/contributors';
 import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { Locale_File, Localization } from 'translations/types';
-import { LangContext } from 'types/langContext';
-import {
-  getStaticLanguagePaths,
-  getStaticLanguageProps,
-} from 'utils/context/staticPaths';
+import { GetStaticProps, NextPage } from 'next';
+import { Localization } from 'translations/types';
 import { de, enUS } from 'date-fns/locale';
 import { Supported_Locales } from 'translations/config';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
-import { ElementsContributor } from '../../../types/contributors';
-import { inDevEnvironment } from '../../../utils/in-dev-mode';
+import { ElementsContributor } from '../../types/contributors';
+import { inDevEnvironment } from '../../utils/in-dev-mode';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
@@ -87,7 +82,7 @@ async function getCommitPerMonth(
 interface Params {
   users: ElementsContributor[];
   commitsPerMonth: GithubCommitsPerMonth;
-  localization: Localization;
+  translations: Localization['translations'];
 }
 
 export const About: NextPage<Params> = ({
@@ -113,18 +108,10 @@ export const About: NextPage<Params> = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async ({  locale }) => {
   const users = await getGitHubContributers();
-  const { localization } = getStaticLanguageProps(
-    ctx as LangContext,
-    Locale_File.ABOUT,
-  ).props;
-  const commitsPerMonth = await getCommitPerMonth(localization.locale);
-
-  return { props: { users, commitsPerMonth, localization } };
+  const commitsPerMonth = await getCommitPerMonth(locale!);
+  return { props: { users, commitsPerMonth } };
 };
-
-export const getStaticPaths: GetStaticPaths = async () =>
-  getStaticLanguagePaths();
 
 export default About;

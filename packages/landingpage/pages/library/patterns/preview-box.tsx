@@ -6,7 +6,6 @@ import {
   InoSegmentGroup,
 } from '@elements';
 import styles from './preview-box.module.scss';
-import useTranslation from 'utils/hooks/useTranslation';
 
 type ViewMode = 'CodeMode' | 'PreviewMode';
 
@@ -131,8 +130,6 @@ export default function PreviewBox({
 }: PreviewBoxProps) {
   const [selectedValue, setSelectedValue] = useState<ViewMode>('PreviewMode');
   const previewRef = useRef<HTMLDivElement>(null);
-
-  const { t } = useTranslation();
 
   const previewBoxHeight = useMemo(() => {
     if (!previewRef.current) return 0;
