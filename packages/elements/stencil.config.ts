@@ -10,6 +10,9 @@ export const config: Config = {
   buildEs5: false,
   extras: {
     initializeNextTick: true,
+    // we need this flag to enable our components to be lazy loaded in vite environments (e.g. our storybook)
+    // see: https://github.com/storybookjs/storybook/issues/25704
+    experimentalImportInjection: true,
   },
   globalScript: join(__dirname, 'src/util/import-fonts.ts'),
   globalStyle: join(__dirname, 'src/global/styles.scss'),
