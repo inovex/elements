@@ -1,3 +1,17 @@
+## 9.1.0 (2024-02-02)
+
+
+### 🩹 Fixes
+
+- **elements-angular:** directives matching multiple components ([#1215](https://github.com/inovex/elements/pull/1215))
+- **landingpage:** routing of shared storybook links doesn't work ([#1183](https://github.com/inovex/elements/pull/1183))
+- **storybook:** restore typography page ([#1229](https://github.com/inovex/elements/pull/1229))
+
+### ❤️  Thank You
+
+- Jan-Niklas
+- Tobias Heim Galindo @TobiasHeimGalindo
+
 ## 9.0.1 (2024-01-25)
 
 

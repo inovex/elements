@@ -1,8 +1,8 @@
 {
   "name": "elements-angular-example",
-  "version": "9.0.1",
+  "version": "9.1.0",
   "private": true,
   "dependencies": {
-    "@inovex.de/elements-angular": "^9.0.1"
+    "@inovex.de/elements-angular": "^9.1.0"
   }
 }
