@@ -22,8 +22,6 @@ jobs:
         uses: ./.github/workflows/dependencies-install
       - name: Check format
         run: yarn format
-        env:
-          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Check lint
         run: yarn lint
         env:
