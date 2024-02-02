@@ -17,6 +17,7 @@ jobs:
         run: yarn nx run landingpage:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
 
       - name: Upload build output ⬆️
         uses: actions/upload-artifact@v2

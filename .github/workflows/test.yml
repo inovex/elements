@@ -24,10 +24,16 @@ jobs:
         run: yarn format
       - name: Check lint
         run: yarn lint
+        env:
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Build all projects
         run: yarn build
+        env:
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Test all projects
         run: yarn test
+        env:
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Upload build artifacts for canary release
         uses: ./.github/workflows/artifacts-upload
         with:
