@@ -30,7 +30,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-nav-drawer',
   styleUrl: 'ino-nav-drawer.scss',
-  shadow: { delegatesFocus: true },
+  shadow: true,
 })
 export class NavDrawer implements ComponentInterface {
   /**
