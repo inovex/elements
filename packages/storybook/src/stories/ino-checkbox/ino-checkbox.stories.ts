@@ -9,10 +9,9 @@ const InoCheckboxMeta = {
   title: 'Input/ino-checkbox',
   component: 'ino-checkbox',
   render: (args) => {
-
     const [checked, setChecked] = useState(args.checked);
 
-    function handleCheckboxChange(ev: CustomEvent<boolean>){
+    function handleCheckboxChange(ev: CustomEvent<boolean>) {
       setChecked(ev.detail);
     }
 

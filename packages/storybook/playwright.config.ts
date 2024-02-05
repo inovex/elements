@@ -6,7 +6,7 @@ import { workspaceRoot } from '@nx/devkit';
 // @ts-ignore
 const __filename = fileURLToPath(import.meta.url);
 
-const STORYBOOK_URL = 'http://localhost:6006'
+const STORYBOOK_URL = 'http://localhost:6006';
 
 // For CI, you may want to set BASE_URL to the deployed application.
 const baseURL = process.env['BASE_URL'] || STORYBOOK_URL; // storybook URL

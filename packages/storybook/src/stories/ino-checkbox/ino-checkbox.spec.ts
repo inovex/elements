@@ -1,9 +1,8 @@
-import { expect, Locator, test } from "@playwright/test";
+import { expect, Locator, test } from '@playwright/test';
 import { goToStory } from '../test-utils';
 
 test.describe('ino-checkbox', () => {
-
-  let checkbox: Locator
+  let checkbox: Locator;
 
   test.beforeEach(({ page }) => {
     checkbox = page.getByRole('checkbox');
