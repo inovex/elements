@@ -55,6 +55,22 @@
           "command": "shx rm -rf node_modules"
         }
       }
+    },
+    "test": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/packages/storybook"],
+      "options": {
+        "config": "packages/storybook/playwright.config.ts"
+      },
+      "defaultConfiguration": "headless",
+      "configurations": {
+        "headless": {
+          "headed": false
+        },
+        "headed": {
+          "headed": true
+        }
+      }
     }
   }
 }
