@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useVersion } from '../context/VersionContext';
-import { inDevEnvironment } from 'utils/in-dev-mode';
 
-// TODO: Remove 'docs-welcome--page' as soon as 9.0.2 storybook is deployed
-export const WELCOME_PAGE_PLACEHOLDER = inDevEnvironment
-  ? 'docs-welcome--docs'
-  : 'docs-welcome--page';
-
+export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--docs'
 export const useStorybookUrl = () => {
   const { selectedVersion } = useVersion();
   const { query, isReady } = useRouter();
