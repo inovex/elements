@@ -1,48 +1,35 @@
 import { Meta } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { useEffect } from '@storybook/preview-api';
+import { useState } from '@storybook/preview-api';
 import Story from '../StoryWrapper';
 import './ino-checkbox.scss';
 
 const InoCheckboxMeta = {
   title: 'Input/ino-checkbox',
   component: 'ino-checkbox',
-  decorators: [
-    (story) => {
-      useEffect(() => {
-        const handleCheckedChange = (e) => {
-          const checkbox: HTMLInoCheckboxElement = e.target;
-          checkbox.checked = e.detail;
-          if (checkbox.indeterminate) {
-            checkbox.indeterminate = false;
-          }
-        };
+  render: (args) => {
 
-        const checkboxes = document.querySelectorAll('ino-checkbox');
-        checkboxes.forEach((c) =>
-          c.addEventListener('checkedChange', handleCheckedChange),
-        );
-        return () =>
-          checkboxes.forEach((c) =>
-            c.removeEventListener('checkedChange', handleCheckedChange),
-          );
-      });
-      return story();
-    },
-  ],
-  render: (args) => html`
-    <ino-checkbox
-      checked="${args.checked}"
-      disabled="${args.disabled}"
-      indeterminate="${args.indeterminate}"
-      name="${args.name}"
-      selection="${args.selection}"
-      value="${args.value}"
-    >
-      Label
-    </ino-checkbox>
-  `,
+    const [checked, setChecked] = useState(args.checked);
+
+    function handleCheckboxChange(ev: CustomEvent<boolean>){
+      setChecked(ev.detail);
+    }
+
+    return html`
+      <ino-checkbox
+        checked="${checked}"
+        disabled="${args.disabled}"
+        indeterminate="${args.indeterminate}"
+        name="${args.name}"
+        selection="${args.selection}"
+        value="${args.value}"
+        @checkedChange="${handleCheckboxChange}"
+      >
+        Label
+      </ino-checkbox>
+    `;
+  },
   args: {
     checked: true,
     disabled: false,

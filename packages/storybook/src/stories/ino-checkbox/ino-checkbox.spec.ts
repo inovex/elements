@@ -1,16 +1,31 @@
-import { expect, test } from '@playwright/test';
+import { expect, Locator, test } from "@playwright/test";
 import { goToStory } from '../test-utils';
 
 test.describe('ino-checkbox', () => {
-  test('checkbox can be changed by click', async ({ page }) => {
-    await goToStory(page, ['input', 'ino-checkbox', 'default']);
 
-    const checkbox = page.getByRole('checkbox');
+  let checkbox: Locator
+
+  test.beforeEach(({ page }) => {
+    checkbox = page.getByRole('checkbox');
+  });
+
+  test('can be toggled properly', async ({ page }) => {
+    await goToStory(page, ['input', 'ino-checkbox', 'default']);
 
     await expect(checkbox).toBeChecked();
 
     await checkbox.click();
 
     await expect(checkbox).not.toBeChecked();
+  });
+
+  test('disabling prevents a change of checked', async ({ page }) => {
+    await goToStory(page, ['input', 'ino-checkbox', 'disabled']);
+
+    await expect(checkbox).toBeChecked();
+    await expect(checkbox).toBeDisabled();
+    await checkbox.click({ force: true });
+
+    await expect(checkbox).toBeChecked();
   });
 });
