@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useVersion } from '../context/VersionContext';
 
-export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--docs'
+export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--docs';
 export const useStorybookUrl = () => {
   const { selectedVersion } = useVersion();
   const { query, isReady } = useRouter();
