@@ -60,7 +60,9 @@
       "executor": "@nx/playwright:playwright",
       "outputs": ["{workspaceRoot}/dist/.playwright/packages/storybook"],
       "options": {
-        "config": "packages/storybook/playwright.config.ts"
+        "config": "packages/storybook/playwright.config.ts",
+        "browser": "chromium",
+        "skipInstall": true
       },
       "defaultConfiguration": "headless",
       "configurations": {
