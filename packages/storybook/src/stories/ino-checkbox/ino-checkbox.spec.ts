@@ -1,13 +1,16 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test';
+import { goToStory } from '../test-utils';
 
-test('Login Form inputs', async ({ page }) => {
-  await page.goto('http://localhost:6006/iframe.html?id=input-ino-checkbox--default');
+test.describe('ino-checkbox', () => {
+  test('checkbox can be changed by click', async ({ page }) => {
+    await goToStory(page, ['input', 'ino-checkbox', 'default']);
 
-  const checkbox = page.getByRole('checkbox')
+    const checkbox = page.getByRole('checkbox');
 
-  await expect(checkbox).toBeChecked()
+    await expect(checkbox).toBeChecked();
 
-  await checkbox.click()
+    await checkbox.click();
 
-  await expect(checkbox).not.toBeChecked()
+    await expect(checkbox).not.toBeChecked();
+  });
 });

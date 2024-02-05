@@ -40,5 +40,9 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
+
+  features: {
+    buildStoriesJson: true, // generate index.json including all story ids that are used by the tests
+  },
 };
 export default config;
