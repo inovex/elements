@@ -45,11 +45,11 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 
 ## CSS Custom Properties
 
-| Name                | Description        |
-| ------------------- | ------------------ |
-| `--ino-icon-color`  | Color of the icon  |
-| `--ino-icon-height` | Height of the icon |
-| `--ino-icon-width`  | Width of the icon  |
+| Name                | Description                        |
+| ------------------- | ---------------------------------- |
+| `--ino-icon-color`  | Color of the icon. [color:#3d40f5] |
+| `--ino-icon-height` | Height of the icon. [size:1em]     |
+| `--ino-icon-width`  | Width of the icon. [size:1em]      |
 
 
 ## Dependencies
