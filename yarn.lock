@@ -5620,6 +5620,17 @@
   resolved "https://registry.npmjs.org/@nx/nx-win32-x64-msvc/-/nx-win32-x64-msvc-17.3.0-beta.8.tgz#819726fe824edb9cf29bbd3a8a8a7e61eeb81550"
   integrity sha512-fhCISCtAi6TcKMSKPsMUx2NP/TOUxRAxpCq0asus+PRcRQPhe+eNbgVVWacM7liGyHGPb2/adZste2RJjJLEew==
 
+"@nx/playwright@17.3.0-beta.8":
+  version "17.3.0-beta.8"
+  resolved "https://registry.npmjs.org/@nx/playwright/-/playwright-17.3.0-beta.8.tgz#3b9a1985ff4602206f7f9d728c69aadd2d32b259"
+  integrity sha512-tIs6YXhXZZ19BkVpAvHbuOLhjfrN3WpVBl00ZYFiCOOKs4OTe99D1Uy2WaGczkrzVd+b6kfZDTaWTWnEDbxfQg==
+  dependencies:
+    "@nx/devkit" "17.3.0-beta.8"
+    "@nx/eslint" "17.3.0-beta.8"
+    "@nx/js" "17.3.0-beta.8"
+    minimatch "9.0.3"
+    tslib "^2.3.0"
+
 "@nx/storybook@17.3.0-beta.8":
   version "17.3.0-beta.8"
   resolved "https://registry.npmjs.org/@nx/storybook/-/storybook-17.3.0-beta.8.tgz#12700554aca893c8dec2957043c8162876622df9"
@@ -5849,6 +5860,13 @@
     open "^9.1.0"
     picocolors "^1.0.0"
     tslib "^2.6.0"
+
+"@playwright/test@^1.36.0":
+  version "1.41.2"
+  resolved "https://registry.npmjs.org/@playwright/test/-/test-1.41.2.tgz#bd9db40177f8fd442e16e14e0389d23751cdfc54"
+  integrity sha512-qQB9h7KbibJzrDpkXkYvsmiDJK14FULCCZgEcoe2AvFAS64oCirWTwzTlAYEbKaRxWs5TFesE1Na6izMv3HfGg==
+  dependencies:
+    playwright "1.41.2"
 
 "@popperjs/core@^2.9.0":
   version "2.11.8"
@@ -12150,6 +12168,11 @@ eslint-plugin-no-null@^1.0.2:
   resolved "https://registry.npmjs.org/eslint-plugin-no-null/-/eslint-plugin-no-null-1.0.2.tgz#1236a812391390a1877ad4007c26e745341c951f"
   integrity sha512-uRDiz88zCO/2rzGfgG15DBjNsgwWtWiSo4Ezy7zzajUgpnFIqd1TjepKeRmJZHEfBGu58o2a8S0D7vglvvhkVA==
 
+eslint-plugin-playwright@^0.15.3:
+  version "0.15.3"
+  resolved "https://registry.npmjs.org/eslint-plugin-playwright/-/eslint-plugin-playwright-0.15.3.tgz#9fd8753688351bcaf41797eb6a7df8807fd5eb1b"
+  integrity sha512-LQMW5y0DLK5Fnpya7JR1oAYL2/7Y9wDiYw6VZqlKqcRGSgjbVKNqxraphk7ra1U3Bb5EK444xMgUlQPbMg2M1g==
+
 eslint-plugin-prettier@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-5.0.1.tgz#a3b399f04378f79f066379f544e42d6b73f11515"
@@ -13135,6 +13158,11 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
+
+fsevents@2.3.2:
+  version "2.3.2"
+  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
+  integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
 
 fsevents@^2.1.2, fsevents@^2.3.2, fsevents@~2.3.2:
   version "2.3.3"
@@ -18849,6 +18877,20 @@ pkg-dir@^7.0.0:
   integrity sha512-Ie9z/WINcxxLp27BKOCHGde4ITq9UklYKDzVo1nhk5sqGEXU3FpkwP5GM2voTGJkGd9B3Otl+Q4uwSOeSUtOBA==
   dependencies:
     find-up "^6.3.0"
+
+playwright-core@1.41.2:
+  version "1.41.2"
+  resolved "https://registry.npmjs.org/playwright-core/-/playwright-core-1.41.2.tgz#db22372c708926c697acc261f0ef8406606802d9"
+  integrity sha512-VaTvwCA4Y8kxEe+kfm2+uUUw5Lubf38RxF7FpBxLPmGe5sdNkSg5e3ChEigaGrX7qdqT3pt2m/98LiyvU2x6CA==
+
+playwright@1.41.2:
+  version "1.41.2"
+  resolved "https://registry.npmjs.org/playwright/-/playwright-1.41.2.tgz#4e760b1c79f33d9129a8c65cc27953be6dd35042"
+  integrity sha512-v0bOa6H2GJChDL8pAeLa/LZC4feoAMbSQm1/jF/ySsWWoaNItvrMP7GEkvEEFyCTUYKMxjQKaTSg5up7nR6/8A==
+  dependencies:
+    playwright-core "1.41.2"
+  optionalDependencies:
+    fsevents "2.3.2"
 
 please-upgrade-node@^3.2.0:
   version "3.2.0"

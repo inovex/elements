@@ -1,8 +1,18 @@
 {
-  "extends": ["../../.eslintrc.json", "plugin:storybook/recommended"],
+  "extends": [
+    "../../.eslintrc.json",
+    "plugin:playwright/recommended",
+    "plugin:storybook/recommended"
+  ],
   "ignorePatterns": ["!**/*"],
   "rules": {
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.spec.{ts,js,tsx,jsx}"],
+      "rules": {}
+    }
+  ]
 }
