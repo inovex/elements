@@ -1,6 +1,9 @@
 import { Directive } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { fsDirectiveSelector, FsValueAccessorDirective as ProxyDirective } from '@inovex.de/elements-angular/shared';
+import {
+  fsDirectiveSelector,
+  FsValueAccessorDirective as ProxyDirective,
+} from '@inovex.de/elements-angular/shared';
 
 @Directive({
   selector: fsDirectiveSelector,
@@ -11,6 +14,6 @@ import { fsDirectiveSelector, FsValueAccessorDirective as ProxyDirective } from 
       multi: true,
     },
   ],
-  standalone: false
+  standalone: true,
 })
 export class FsValueAccessorDirective extends ProxyDirective {}

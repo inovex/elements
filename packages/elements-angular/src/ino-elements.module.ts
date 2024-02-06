@@ -7,7 +7,6 @@ import {
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { InoElementsConfig } from '@inovex.de/elements';
 import { DIRECTIVES } from './directives/proxies-list';
-
 import { appInitialize, ConfigToken } from './app-initialize';
 import {
   BooleanValueAccessorDirective,

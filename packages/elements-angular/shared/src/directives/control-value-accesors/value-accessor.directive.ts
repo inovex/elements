@@ -1,6 +1,7 @@
-import { ElementRef } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
+@Directive()
 export class ValueAccessorDirective implements ControlValueAccessor {
   protected lastValue: any;
   constructor(protected el: ElementRef) {}

@@ -11,7 +11,6 @@ const angularStandaloneTargetPath = join(
   '../../elements-angular/standalone/src/directives',
 );
 
-
 export default [
   angularOutputTarget({
     componentCorePackage: '@inovex.de/elements',
@@ -24,6 +23,5 @@ export default [
     outputType: 'standalone',
     customElementsDir: 'dist/components',
     directivesProxyFile: `${angularStandaloneTargetPath}/proxies.ts`,
-    directivesArrayFile: `${angularStandaloneTargetPath}/proxies-list.ts`,
-  })
+  }),
 ];

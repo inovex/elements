@@ -31,11 +31,13 @@ export const config: Config = {
     {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'single-export-module',
-      copy: [{
-        src: '../scripts/custom-elements',
-        dest: 'dist/components',
-        warn: true
-      }],
+      copy: [
+        {
+          src: '../scripts/custom-elements',
+          dest: 'dist/components',
+          warn: true,
+        },
+      ],
     },
     { type: 'docs-readme' },
     {

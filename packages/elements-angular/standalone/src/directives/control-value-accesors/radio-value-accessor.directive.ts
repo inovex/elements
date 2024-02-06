@@ -1,6 +1,9 @@
 import { Directive } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { radioDirectiveSelector, RadioValueAccessorDirective as ProxyDirective } from '@inovex.de/elements-angular/shared';
+import {
+  radioDirectiveSelector,
+  RadioValueAccessorDirective as ProxyDirective,
+} from '@inovex.de/elements-angular/shared';
 
 @Directive({
   selector: radioDirectiveSelector,
@@ -11,6 +14,6 @@ import { radioDirectiveSelector, RadioValueAccessorDirective as ProxyDirective }
       multi: true,
     },
   ],
-  standalone: false
+  standalone: true,
 })
 export class RadioValueAccessorDirective extends ProxyDirective {}
