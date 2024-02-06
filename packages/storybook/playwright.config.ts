@@ -36,5 +36,4 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
   },
-  timeout: 15000, // 15 sec timeout for each test
 });
