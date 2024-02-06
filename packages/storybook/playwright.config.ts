@@ -35,5 +35,5 @@ export default defineConfig({
     url: STORYBOOK_URL,
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
-  }
+  },
 });
