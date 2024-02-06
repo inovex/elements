@@ -21,10 +21,21 @@ export const config: Config = {
   sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
   taskQueue: 'async',
+  validatePrimaryPackageOutputTarget: true,
   outputTargets: [
     {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
+      isPrimaryPackageOutputTarget: true,
+    },
+    {
+      type: 'dist-custom-elements',
+      customElementsExportBehavior: 'single-export-module',
+      copy: [{
+        src: '../scripts/custom-elements',
+        dest: 'dist/components',
+        warn: true
+      }],
     },
     { type: 'docs-readme' },
     {
