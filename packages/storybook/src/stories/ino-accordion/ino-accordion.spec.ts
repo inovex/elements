@@ -9,17 +9,16 @@ test.describe('ino-accordion', () => {
   });
 
   test('can be expanded properly', async ({ page }) => {
-
     await goToStory(page, ['structure', 'ino-accordion', 'default']);
 
-    const text = page.getByText('Lorem ipsum dolor sit amet')
+    const text = page.getByText('Lorem ipsum dolor sit amet');
 
-    await expect(expandButton).toHaveAttribute('aria-expanded', 'false')
-    await expect(text).toBeHidden()
+    await expect(expandButton).toHaveAttribute('aria-expanded', 'false');
+    await expect(text).toBeHidden();
 
-    await expandButton.click()
+    await expandButton.click();
 
-    await expect(expandButton).toHaveAttribute('aria-expanded', 'true')
-    await expect(text).toBeVisible()
+    await expect(expandButton).toHaveAttribute('aria-expanded', 'true');
+    await expect(text).toBeVisible();
   });
 });
