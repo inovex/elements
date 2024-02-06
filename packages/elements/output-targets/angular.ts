@@ -6,9 +6,24 @@ const angularTargetPath = join(
   '../../elements-angular/src/directives',
 );
 
-export default angularOutputTarget({
-  componentCorePackage: '@inovex.de/elements',
-  outputType: 'component',
-  directivesProxyFile: `${angularTargetPath}/proxies.ts`,
-  directivesArrayFile: `${angularTargetPath}/proxies-list.ts`,
-});
+const angularStandaloneTargetPath = join(
+  __dirname,
+  '../../elements-angular/standalone/src/directives',
+);
+
+
+export default [
+  angularOutputTarget({
+    componentCorePackage: '@inovex.de/elements',
+    outputType: 'component',
+    directivesProxyFile: `${angularTargetPath}/proxies.ts`,
+    directivesArrayFile: `${angularTargetPath}/proxies-list.ts`,
+  }),
+  angularOutputTarget({
+    componentCorePackage: '@inovex.de/elements',
+    outputType: 'standalone',
+    customElementsDir: 'dist/components',
+    directivesProxyFile: `${angularStandaloneTargetPath}/proxies.ts`,
+    directivesArrayFile: `${angularStandaloneTargetPath}/proxies-list.ts`,
+  })
+];

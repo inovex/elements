@@ -1,6 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-import AngularOutputTarget from './output-targets/angular';
+import AngularOutputTargets from './output-targets/angular';
 import ReactOutputTarget from './output-targets/react';
 import VueOutputTarget from './output-targets/vue';
 import JsonDocsOutputTarget from './output-targets/json-docs';
@@ -45,7 +45,7 @@ export const config: Config = {
         'https://github.com/inovex/elements//tree/master/packages/elements',
     },
     JsonDocsOutputTarget,
-    AngularOutputTarget,
+    ...AngularOutputTargets,
     ReactOutputTarget,
     VueOutputTarget,
   ],

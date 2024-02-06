@@ -46,6 +46,14 @@
       "es2015": "./dist/fesm2015/inovex.de-elements-angular.mjs",
       "node": "./dist/fesm2015/inovex.de-elements-angular.mjs",
       "default": "./dist/fesm2020/inovex.de-elements-angular.mjs"
+    },
+    "./standalone": {
+      "types": "./dist/standalone/index.d.ts",
+      "esm2020": "./dist/esm2020/standalone/inovex.de-elements-angular-standalone.mjs",
+      "es2020": "./dist/fesm2020/inovex.de-elements-angular-standalone.mjs",
+      "es2015": "./dist/fesm2015/inovex.de-elements-angular-standalone.mjs",
+      "node": "./dist/fesm2015/inovex.de-elements-angular-standalone.mjs",
+      "default": "./dist/fesm2020/inovex.de-elements-angular-standalone.mjs"
     }
   }
 }
