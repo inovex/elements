@@ -6,7 +6,6 @@ export async function goToStory(
   page: Page,
   storyDescription: StoryDescription,
 ) {
-  // TODO: check if story exists by checking keys in /dist/index.json
 
   const [category, name, story] = storyDescription;
 

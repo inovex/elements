@@ -28,6 +28,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
+  reporter: process.env.CI ? 'dot' : 'list',
   /* Run your local dev server before starting the tests */
   webServer: {
     command: 'yarn nx run storybook:start',
