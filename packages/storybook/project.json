@@ -68,8 +68,12 @@
         "headless": {
           "headed": false
         },
-        "headed": {
-          "headed": true
+        "ui": {
+          "ui": true
+        },
+        "debug": {
+          "headed": true,
+          "debug": true
         }
       }
     }
