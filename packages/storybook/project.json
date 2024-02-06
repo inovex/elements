@@ -61,7 +61,8 @@
       "outputs": ["{workspaceRoot}/dist/.playwright/packages/storybook"],
       "options": {
         "config": "packages/storybook/playwright.config.ts",
-        "browser": "chromium"
+        "browser": "chromium",
+        "timeout": 15000
       },
       "defaultConfiguration": "headless",
       "configurations": {

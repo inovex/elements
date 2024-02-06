@@ -35,6 +35,5 @@ export default defineConfig({
     url: STORYBOOK_URL,
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
-  },
-  timeout: 15000, // 15 sec timeout for each test
+  }
 });
