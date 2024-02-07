@@ -16,9 +16,12 @@ const activeSectionChanged = (e: CustomEvent<string>) => {
   (e.target as HTMLInoNavMenuElement).setAttribute('active-section', e.detail);
 }
 
-const renderSection = (name: string, counter: number) => {
+const renderSection = (name: string, counter: number, key: number) => {
   return html`
-    <ino-nav-menu-section section-name="${name}" section-id="${buildSectionId(name)}-${counter}">
+    <ino-nav-menu-section 
+      section-name="${name}" 
+      section-id="${buildSectionId(name)}-${counter}"
+      order-position="${key}">
       <p>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
         nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
@@ -58,7 +61,7 @@ const inoNavMenuMeta = {
       >
         Show Stickyness of ino-nav-menu
       </ino-switch>
-      ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
+      ${sections.map((sectionName, index) => renderSection(sectionName, templateCounter, index))}
     </div>
   `},
   argTypes: {

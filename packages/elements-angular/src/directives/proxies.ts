@@ -823,25 +823,31 @@ into the viewport. This event can be utilized to update the `activeSection` prop
 
 
 @ProxyCmp({
-  inputs: ['sectionId', 'sectionName', 'showTitle']
+  inputs: ['orderPosition', 'sectionId', 'sectionName', 'showTitle']
 })
 @Component({
   selector: 'ino-nav-menu-section',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['sectionId', 'sectionName', 'showTitle'],
+  inputs: ['orderPosition', 'sectionId', 'sectionName', 'showTitle'],
 })
 export class InoNavMenuSection {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['sectionReady']);
   }
 }
 
 
-export declare interface InoNavMenuSection extends Components.InoNavMenuSection {}
+export declare interface InoNavMenuSection extends Components.InoNavMenuSection {
+  /**
+   * Emits the section ID on finished loading.
+   */
+  sectionReady: EventEmitter<CustomEvent<{key: number, id: string, title: string}>>;
+}
 
 
 @ProxyCmp({

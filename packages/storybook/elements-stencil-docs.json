@@ -7231,6 +7231,27 @@
       "dependencyGraph": {},
       "props": [
         {
+          "name": "orderPosition",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "order-position",
+          "reflectToAttr": false,
+          "docs": "Is used to determine the position of this section inside of ino-nav-menu",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
           "name": "sectionId",
           "type": "string",
           "complexType": {
@@ -7297,7 +7318,22 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "sectionReady",
+          "detail": "{ key: number; id: string; title: string; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{key: number, id: string, title: string}",
+            "resolved": "{ key: number; id: string; title: string; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits the section ID on finished loading.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],

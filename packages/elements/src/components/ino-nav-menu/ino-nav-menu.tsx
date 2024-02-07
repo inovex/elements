@@ -11,7 +11,7 @@ import {
   h,
 } from '@stencil/core';
 import { addAnchorToLocation, scrollToAnchor } from '../../util/scroll-utils';
-import { buildSectionId, sectionExists } from './ino-nav-menu-helper';
+import { sectionExists } from './ino-nav-menu-helper';
 
 const DEFAULT_OBSERVER_OPTIONS: IntersectionObserverInit = {
   threshold: 0,
@@ -35,48 +35,125 @@ const DEFAULT_SCROLL_OFFSET = 80;
   shadow: false,
 })
 export class NavMenu implements ComponentInterface {
-  private lastEmittedSection: string;
   private observer: IntersectionObserver;
-  private sectionObserver: MutationObserver;
 
   /**
-   * Component checks if sectionIDs are provided. Will set to autodetection if non are provided
+   * sectionsIntern represent the found section which ino-nav-menu should display.
+   * Will use the IDs from sectionIds if given, or autodetect them in the sectionContainer via the `sectionReady` Events emitted by ino-nav-menu-sections
+   * 
    */
-  private get autodetectSections(): boolean {
-    return this.sectionIds === undefined || this.sectionIds === null;
+  @State() sectionsIntern: Record<number, {id: string, title: string}> = {};
+
+  @Watch('sectionsIntern')
+  onSectionInternChange(newSectionsIntern) {
+    const isSectionInternEmpty = Object.keys(newSectionsIntern).length <= 0
+    this.setLoading();
+    if(!isSectionInternEmpty && !this.loading) {
+      // emit first section as active after all sections are fetched
+      // TODO: find out how to know, when all sections are fetched
+      this.emitActiveSection(this.sectionsIntern[0].id);
+    }
+  }
+
+  private setLoading = () => {
+    // in autodetect loading will be repeatedly set false, because we don't know the amount of sections
+    const isSectionInternEmpty = Object.keys(this.sectionsIntern).length <= 0;
+    if(this.autodetect && !isSectionInternEmpty) {
+      this.loading = false;
+      return
+    }
+
+    // loading will only stop until all sectionIds are represented in sectionIntern => less rerender
+    if(!this.autodetect && this.allIdsPresentInSectionIntern()) {
+      this.loading = false;
+      return 
+    }
+    this.loading = true;
+  }
+
+  private allIdsPresentInSectionIntern = (): boolean => {
+    const renderRecord = []
+    for(const index in this.sectionsIntern) {
+      renderRecord.push(this.sectionIds.includes(this.sectionsIntern[index].id))
+    }
+    if (renderRecord.includes(false)) {
+      return false
+    }
+    return true
+  }
+
+   /**
+   * `autodetect = true`, will listen for `sectionFinish` Events on the container with the `sectionContainerId`
+   * triggers a rerender if `autodetect` changes (ex: sectionIds get defined)
+   */
+  @State() autodetect = false;
+
+  @Watch('autodetect')
+  onAutodetectChange(shouldAutodetect: boolean, oldAutodetect: boolean) {
+    // do nothing if no changes
+    if(shouldAutodetect === oldAutodetect) {
+      return
+    }
+
+    // empty sectionIntern before mode-switch because a refetch is needed
+    this.sectionsIntern = {};
+
+    if (shouldAutodetect){
+      this.updateSectionListener(this.sectionsContainerId);
+      return
+    } 
+
+    // remove preexisting eventListener
+    //this.sectionsContainer.removeEventListener('sectionReady', this.autodetectSection);
+    // use sectionIds to init Sections
+    this.initSectionsAndObserver(this.sectionIds);
+    this.scrollAfterInit();
+  }
+
+  private autodetectSection = (e: CustomEvent<{key: number, id: string, title: string}>) => { 
+    // if autodetect true
+    const newSection = {
+      id: e.detail.id,
+      title: e.detail.title,
+    }
+
+    // check if newSection already exists 
+    if (e.detail.key in this.sectionsIntern) {
+      return
+    }
+    // add section to corresponding key, to ensure the correct order
+    this.sectionsIntern = {
+      ...this.sectionsIntern,
+      [e.detail.key]: newSection
+    };
   }
 
   /**
-   * sectionsIntern represent the IDs of the section which ino-nav-menu should display.
-   * Will use the IDs from sectionIds if given, or autodetect them via findSections in the sectionContainer
-   * 
+   * sets the section according to the given sectionIds. If no ids are provided, switches to autodetect-mode
    */
-  private get sectionsIntern(): string[] | false {
-    if(!this.autodetectSections) {
-      return this.sectionIds
-    } else if (this.autodetectSections && this.sectionContainer) {
-      return this.findSections();
-    } else {
-      return false
+  private setSectionsFromProps = (ids: string[]) => {
+    if(ids.length <= 0){
+      console.warn('no sectionIds provided, change mode to autodetect')
+      this.autodetect = true;
+      return
     }
+
+    ids.forEach((id, index) => {
+      const newSectionElement = document.getElementById(id);
+      const newSection = {
+        id: newSectionElement.id,
+        title: newSectionElement.title,
+      }
+      this.sectionsIntern[index] = newSection;
+    });
+
+    this.emitActiveSection(this.sectionsIntern[0].id);
   }
 
   /**
    * Container in which autodetect will search for sections
-   * Will return false if no sectionContainerId was provided or no container with the given ID was found
    */
-  private get sectionContainer(): HTMLElement | false {
-    if(this.sectionsContainerId === undefined || this.sectionsContainerId === null) {
-      console.warn('No sectionContainerID found. If you want to autodetect section in a container, please provide ino-nav-menu with a container ID')
-      return false
-    }
-    const container = document.getElementById(this.sectionsContainerId);
-    if (container === undefined || container === null) {
-      console.warn(`No container with the id ${this.sectionsContainerId} was found`)
-      return false
-    } 
-    return container;
-  } 
+  private sectionsContainer: HTMLElement;
 
   /**
    * Title of the navigation menu.
@@ -90,11 +167,39 @@ export class NavMenu implements ComponentInterface {
    */
   @Prop() sectionIds?: string[];
 
+  @Watch('sectionIds')
+  onSectionIdsChange(newSectionIds: string[]) {
+    this.observer.disconnect();
+    this.setSectionsFromProps(newSectionIds);
+  }
+
   /**
    * ID of the container which holds the sections.
    * If no `sectionIds` are provided, the component will automatically look up all `ino-nav-menu-section` components in this container.
    */
   @Prop() sectionsContainerId?: string;
+
+  @Watch('sectionsContainerId')
+  onSectionsContainerIdChange(newID: string) {
+    this.updateSectionListener(newID);
+  }
+
+  private updateSectionListener = (sectionContainerId: string) => {
+    //this.sectionsContainer.removeEventListener('sectionReady', this.autodetectSection);
+    if(sectionContainerId === undefined || sectionContainerId === null) {
+      console.warn('No sectionsContainerId found. If you want to autodetect section in a container, please provide ino-nav-menu with a sectionscontainerId')
+      return
+    }
+
+    // get new sectionsContainer
+    this.sectionsContainer = document.getElementById(sectionContainerId)
+    if (this.sectionsContainer === undefined || this.sectionsContainer === null) {
+      console.warn(`No container with the id "${sectionContainerId}" was found`)
+      return
+    }     
+   
+    this.sectionsContainer.addEventListener('sectionReady', this.autodetectSection);
+  }
 
   /**
    * To specify the selected section, utilize the `buildSectionId` helper function to generate a
@@ -104,6 +209,13 @@ export class NavMenu implements ComponentInterface {
    */
   @Prop() activeSection: string | null;
 
+  @Watch('activeSection')
+  onActiveSectionChanged(newActiveSection: string, oldActiveSection: string): void {
+    if (oldActiveSection !== newActiveSection) {
+      this.scrollToSection(newActiveSection);
+    }
+  }
+  
   /**
    * Scroll offset of the sticky navigation menu.
    */
@@ -123,28 +235,13 @@ export class NavMenu implements ComponentInterface {
    */
   @Prop() intersectionObserverConfig = DEFAULT_OBSERVER_OPTIONS;
 
-  @Watch('activeSection')
-  onActiveSectionChanged(): void {
-    if (this.lastEmittedSection !== this.activeSection) {
-      this.lastEmittedSection = this.activeSection;
-      this.scrollToSection(this.activeSection);
-    }
-  }
-
-  @Watch('sectionIds')
-  onSectionsChanged(): void {
-    this.observer.disconnect();
-    this.sectionObserver.disconnect();
-    this.initSectionsAndObserver();
-  }
 
   /**
    * Emits the section ID when the corresponding section is selected by scrolling
    * into the viewport. This event can be utilized to update the `activeSection` property.
    */
   @Event({ bubbles: false }) activeSectionChanged!: EventEmitter<string>;
-  
-  @State() sectionObjs: Record<string, string>[];
+
 
   /**
    * Use to manually inflict another initiation of the sections and their observers
@@ -152,103 +249,32 @@ export class NavMenu implements ComponentInterface {
   @Method()
   async reInitSections(): Promise<void> {
     this.observer.disconnect();
-    this.sectionObserver.disconnect();
-    this.initSectionsAndObserver();
-  }
-
-  componentDidLoad(): void | Promise<void> {
-    // this.initSectionsRenderObserver();
-    this.initSectionsAndObserver();
+    this.initSectionsAndObserver(this.sectionIds);
     this.scrollAfterInit();
   }
 
-  // private checkForRenderedSections = (mutationsList) => {
-  //   console.log('mutationList', mutationsList);
-    
-  //   if (mutationsList.some(mutation => mutation.type === 'childList' && mutation.addedNodes.length > 0 && mutation.target.id === this.sectionsContainerId)) {
-  //     this.initSectionsAndObserver();
-  //     this.scrollAfterInit();
-  //   }
-  // }
+  connectedCallback(): void | Promise<void> {
+    // check if autodetect mode is necessary
+    this.autodetect = this.sectionIds === undefined || this.sectionIds === null;
+  }
 
-  private initSectionsAndObserver(): void {
-    this.initSections();
+  private initSectionsAndObserver(ids: string[]): void {
+    this.setSectionsFromProps(ids);
     this.initIntersectionObserver();
   }
-
-  private initSections() {
-    if(!this.sectionsIntern){
-      return
-    }
-
-    this.sectionObjs = this.sectionsIntern
-      .filter((section) => {
-        const valid = this.autodetectSections || sectionExists(section);
-        if (!valid) {
-          console.warn(
-            `[ino-nav-menu] Section with ID '${section}' not found.`,
-          );
-        }
-        return valid;
-      })
-      .map(id => {
-        console.log('id', id)
-        const htmlEl = document.getElementById(id) as HTMLElement;
-        console.log('htmlEl', htmlEl)
-        console.log('htmlEl.id', htmlEl.id)
-        console.log('htmlEl.title', htmlEl.title)
-        return {id: id, name: htmlEl.title}
-      })
-
-    // sections are fetched, deactivate loading if active
-    if(this.loading) {
-      this.loading = false;
-    }
-
-    if (this.autodetectSections) {
-      this.emitActiveSection(this.sectionsIntern[0]);
-    }
-  }
-
-  private findSections(): string[] | false {
-    const sections: string[] = [];
-    if(!this.sectionContainer) {
-      return false
-    }
-    Array.from(this.sectionContainer
-      .querySelectorAll('ino-nav-menu-section'))
-      .forEach((section: HTMLInoNavMenuSectionElement) => {
-        // check if sectionID was set(or empty), else use buildSectionID function to get section IDs
-        if (section.sectionId === undefined || section.sectionId === null || section.sectionId.trim().length <= 0){
-          sections.push(buildSectionId(section.sectionName))
-          return
-        }
-        // use sectionIDs set by the consumer
-        sections.push(section.sectionId);
-      });
-    return sections;
-  }
-
-  // private initSectionsRenderObserver() {
-  //   this.sectionObserver = new MutationObserver(this.checkForRenderedSections);
-  //   this.sectionObserver.observe(document.body, { childList: true, subtree: true });
-  // }
 
   private initIntersectionObserver() {
     this.observer = new IntersectionObserver(
       this.updateActiveEntry,
       this.intersectionObserverConfig,
     );
-    if(!this.sectionsIntern){
-      return
+
+    for(const index in this.sectionsIntern) {
+      this.observer.observe(document.getElementById(this.sectionsIntern[index].id))
     }
-    this.sectionsIntern.forEach((x) =>
-      this.observer.observe(document.getElementById(x)),
-    );
   }
 
   private emitActiveSection(sectionId: string): void {
-    this.lastEmittedSection = sectionId;
     this.activeSectionChanged.emit(sectionId);
   }
 
@@ -295,7 +321,9 @@ export class NavMenu implements ComponentInterface {
     if(!this.sectionsIntern){
       return false
     }
-    return this.sectionsIntern.some((id) => `#${id}` === location.hash);
+    for(const index in this.sectionsIntern){
+      return this.sectionsIntern[index].id.includes(location.hash.replace('#', ''));
+    }
   };
 
   private isActiveSectionSet = (): boolean => {
@@ -304,24 +332,31 @@ export class NavMenu implements ComponentInterface {
     );
   };
 
-  private renderSectionPoint = (el, i) => {
-    return (
-      <li
-        class={{
-          'ino-nav-menu__sections__section': true,
-          'ino-nav-menu__sections__section--active':
-            this.activeSection === el.id,
-        }}
-        key={i}
-      >
-        <a
-          href={`#${el.id}`}
-          onClick={(e) => this.handleAnchorClick(e, el.id)}
+  private renderSectionPoints = () => {
+    if(Object.keys(this.sectionsIntern).length <= 0) {
+      return null
+    }
+
+    const sectionEls = Object.values(this.sectionsIntern).map((section, index) => {
+      return (
+        <li
+          class={{
+            'ino-nav-menu__sections__section': true,
+            'ino-nav-menu__sections__section--active':
+              this.activeSection === section.id,
+          }}
+          key={index}
         >
-          {el.name}
-        </a>
-      </li>
-    )
+          <a
+            href={`#${section.id}`}
+            onClick={(e) => this.handleAnchorClick(e, section.id)}
+          >
+            {section.title}
+          </a>
+        </li>
+      )
+    })
+    return sectionEls
   }
 
   private renderLoadingSkeleton = () => {
@@ -339,18 +374,16 @@ export class NavMenu implements ComponentInterface {
   }
 
   render() {
-    const loadingPlaceholder = this.loading? this.renderLoadingSkeleton() : null;
-    const isFetching = (this.sectionObjs === null || this.sectionObjs === undefined);
 
     return (
       <Host>
         <nav class="ino-nav-menu" style={{ top: DEFAULT_SCROLL_OFFSET + 'px' }}>
           <h3 class="ino-nav-menu__title">{this.menuTitle}</h3>
             <ul class="ino-nav-menu__sections">
-              {isFetching?
-               loadingPlaceholder
+              {this.loading?
+               this.renderLoadingSkeleton()
                 :
-                this.sectionObjs.map((el, i) => this.renderSectionPoint(el, i))
+                this.renderSectionPoints()
               }
             </ul>
         </nav>

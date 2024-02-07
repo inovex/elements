@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
+import { Component, ComponentInterface, Host, Prop, h, Event, EventEmitter } from '@stencil/core';
 import { buildSectionId } from '../ino-nav-menu/ino-nav-menu-helper';
 
 /**
@@ -27,7 +27,18 @@ export class NavMenuSection implements ComponentInterface {
    */
   @Prop() showTitle = true;
 
-  private setSectionId = (): string => {
+  /**
+   * Emits the section ID on finished loading.
+   */
+  @Event() sectionReady!: EventEmitter<{key: number, id: string, title: string}>;
+
+  /**
+   * Is used to determine the position of this section inside of ino-nav-menu
+   */
+  @Prop() orderPosition!: number;
+
+
+  private getSectionId = (): string => {
     // check if sectionId should be build from sectionName or was set by the consumer
     if (this.sectionId.trim().length === 0 || this.sectionId === undefined) {
       return buildSectionId(this.sectionName);
@@ -35,11 +46,16 @@ export class NavMenuSection implements ComponentInterface {
     return this.sectionId;
   };
 
+  componentDidLoad(): void {
+    this.sectionReady.emit({key: this.orderPosition, id: this.getSectionId(), title: this.sectionName});
+  }
+
   render() {
     return (
       <Host>
         <section
-          id={this.setSectionId()}
+          key={this.orderPosition}
+          id={this.getSectionId()}
           title={this.sectionName}
           ino-nav-menu-section
         >

@@ -1132,6 +1132,10 @@ export namespace Components {
      */
     interface InoNavMenuSection {
         /**
+          * Is used to determine the position of this section inside of ino-nav-menu
+         */
+        "orderPosition": number;
+        /**
           * Optional: ID of the section referenced by the `ino-nav-menu` component on your own. Defaults to the sectionName if not set.
          */
         "sectionId"?: string;
@@ -1816,6 +1820,10 @@ export interface InoNavDrawerCustomEvent<T> extends CustomEvent<T> {
 export interface InoNavMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoNavMenuElement;
+}
+export interface InoNavMenuSectionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoNavMenuSectionElement;
 }
 export interface InoOptionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -4034,6 +4042,14 @@ declare namespace LocalJSX {
      * for use with the `ino-nav-menu` component.
      */
     interface InoNavMenuSection {
+        /**
+          * Emits the section ID on finished loading.
+         */
+        "onSectionReady"?: (event: InoNavMenuSectionCustomEvent<{key: number, id: string, title: string}>) => void;
+        /**
+          * Is used to determine the position of this section inside of ino-nav-menu
+         */
+        "orderPosition": number;
         /**
           * Optional: ID of the section referenced by the `ino-nav-menu` component on your own. Defaults to the sectionName if not set.
          */
