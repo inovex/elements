@@ -14,7 +14,7 @@ jobs:
     outputs:
       scopes: ${{ steps.scopes.outputs.scopes }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: node commit-scope-enum.js
       - id: scopes
         run: echo "scopes=$(cat commit-scopes.txt)" >> "$GITHUB_OUTPUT"
@@ -25,7 +25,7 @@ jobs:
     needs:
       - get_scopes
     steps:
-      - uses: amannn/action-semantic-pull-request@v4
+      - uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
