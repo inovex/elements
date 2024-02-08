@@ -118,7 +118,7 @@ export const Sections = Story({
       >
         Show stickyness of ino-nav-menu
       </ino-switch>
-      ${sections.map((sectionName) => renderSection(sectionName, templateCounter))}
+      ${sections.map((sectionName, index) => renderSection(sectionName, templateCounter, index))}
     </div>
   `},
   args: {
