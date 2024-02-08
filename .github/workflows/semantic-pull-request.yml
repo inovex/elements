@@ -8,9 +8,22 @@ on:
       - synchronize
 
 jobs:
+  get_scopes:
+    name: Load valid commit scopes from repo
+    runs-on: ubuntu-latest
+    outputs:
+      scopes: ${{ steps.scopes.outputs.scopes }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: node commit-scope-enum.js
+      - id: scopes
+        run: echo "scopes=$(cat commit-scopes.txt)" >> "$GITHUB_OUTPUT"
+
   main:
     name: Confirm semantic PR title
     runs-on: ubuntu-latest
+    needs:
+      - get_scopes
     steps:
       - uses: amannn/action-semantic-pull-request@v4
         env:
@@ -33,119 +46,7 @@ jobs:
             deps
             dev-deps
           # Configure which scopes are allowed.
-          scopes: |
-            elements|ino-accordion
-            elements|ino-autocomplete
-            elements|ino-avatar
-            elements|ino-button
-            elements|ino-card
-            elements|ino-carousel
-            elements|ino-carousel-slide
-            elements|ino-checkbox
-            elements|ino-chip
-            elements|ino-chip-set
-            elements|ino-control-item
-            elements|ino-currency-input
-            elements|ino-datepicker
-            elements|ino-dialog
-            elements|ino-fab
-            elements|ino-fab-set
-            elements|ino-icon
-            elements|ino-icon-button
-            elements|ino-img
-            elements|ino-img-list
-            elements|ino-input
-            elements|ino-input-file
-            elements|ino-label
-            elements|ino-list
-            elements|ino-list-divider
-            elements|ino-list-item
-            elements|ino-markdown-editor
-            elements|ino-menu
-            elements|ino-nav-drawer
-            elements|ino-nav-item
-            elements|ino-option
-            elements|ino-option-group
-            elements|ino-popover
-            elements|ino-progress-bar
-            elements|ino-radio
-            elements|ino-radio-group
-            elements|ino-range
-            elements|ino-segment-button
-            elements|ino-segment-group
-            elements|ino-select
-            elements|ino-sidebar
-            elements|ino-snackbar
-            elements|ino-spinner
-            elements|ino-switch
-            elements|ino-tab
-            elements|ino-tab-bar
-            elements|ino-table
-            elements|ino-table-cell
-            elements|ino-table-row
-            elements|ino-textarea
-            elements|ino-tooltip
-            storybook|ino-autocomplete
-            storybook|ino-button
-            storybook|ino-card
-            storybook|ino-carousel
-            storybook|ino-carousel-slide
-            storybook|ino-checkbox
-            storybook|ino-chip
-            storybook|ino-chip-set
-            storybook|ino-control-item
-            storybook|ino-currency-input
-            storybook|ino-datepicker
-            storybook|ino-dialog
-            storybook|ino-fab
-            storybook|ino-fab-set
-            storybook|ino-icon
-            storybook|ino-icon-button
-            storybook|ino-img
-            storybook|ino-img-list
-            storybook|ino-input
-            storybook|ino-input-file
-            storybook|ino-label
-            storybook|ino-list
-            storybook|ino-list-divider
-            storybook|ino-list-item
-            storybook|ino-markdown-editor
-            storybook|ino-menu
-            storybook|ino-nav-drawer
-            storybook|ino-nav-item
-            storybook|ino-option
-            storybook|ino-option-group
-            storybook|ino-popover
-            storybook|ino-progress-bar
-            storybook|ino-radio
-            storybook|ino-radio-group
-            storybook|ino-range
-            storybook|ino-segment-button
-            storybook|ino-segment-group
-            storybook|ino-select
-            storybook|ino-sidebar
-            storybook|ino-snackbar
-            storybook|ino-spinner
-            storybook|ino-switch
-            storybook|ino-tab
-            storybook|ino-tab-bar
-            storybook|ino-table
-            storybook|ino-table-cell
-            storybook|ino-table-row
-            storybook|ino-textarea
-            storybook|ino-tooltip
-            elements
-            elements-angular
-            elements-angular-example
-            elements-react
-            elements-react-example
-            elements-vue
-            elements-vue-example
-            storybook
-            landingpage
-            ui-patterns
-            ui-patterns-playground
-            '*'
+          scopes: ${{ needs.get_scopes.outputs.scopes }}
           # Configure that a scope must always be provided.
           requireScope: false
           # Configure which scopes are disallowed in PR titles. For instance by setting
