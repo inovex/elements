@@ -30,6 +30,8 @@ $edged-border: 24px 0 24px 24px;
 }
 
 ino-button {
+  display: inline-block;
+
   .button {
     display: flex;
     flex-direction: row;
