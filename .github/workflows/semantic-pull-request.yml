@@ -1,7 +1,6 @@
 name: 'Lint PR'
 
 on:
-  workflow_dispatch:
   pull_request_target:
     types:
       - opened
@@ -9,23 +8,19 @@ on:
       - synchronize
 
 jobs:
-  get_scopes:
-    name: Load valid commit scopes from repo
-    runs-on: ubuntu-latest
-    outputs:
-      scopes: ${{ steps.scopes.outputs.scopes }}
-    steps:
-      - uses: actions/checkout@v4
-      - run: node commit-scope-enum.js
-      - id: scopes
-        run: echo "scopes=$(cat commit-scopes.txt)" >> "$GITHUB_OUTPUT"
-
   main:
     name: Confirm semantic PR title
     runs-on: ubuntu-latest
-    needs:
-      - get_scopes
     steps:
+      - uses: actions/checkout@v4
+      - name: Load valid commit scopes from repo
+        id: scopes
+        run: |
+          node commit-scope-enum.js
+          delimiter="EOF"
+          echo "OUT<<${delimiter}" >> $GITHUB_OUTPUT
+          cat commit-scopes.txt >> $GITHUB_OUTPUT
+          echo "${delimiter}" >> $GITHUB_OUTPUT
       - uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,7 +42,7 @@ jobs:
             deps
             dev-deps
           # Configure which scopes are allowed.
-          scopes: ${{ needs.get_scopes.outputs.scopes }}
+          scopes: ${{ steps.scopes.outputs.OUT }}
           # Configure that a scope must always be provided.
           requireScope: false
           # Configure which scopes are disallowed in PR titles. For instance by setting
