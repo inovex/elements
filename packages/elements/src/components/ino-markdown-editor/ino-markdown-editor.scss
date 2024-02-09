@@ -203,12 +203,18 @@ ino-markdown-editor {
       list-style: none;
     }
 
-    :is(ul, ol)[data-type='taskList'] {
-      padding-left: 12px;
-
+    :is(ul, ol) {
       p {
         margin: 0;
       }
+
+      li {
+        margin: 2px 0;
+      }
+    }
+
+    :is(ul, ol)[data-type='taskList'] {
+      padding-left: 12px;
 
       li {
         display: flex;
