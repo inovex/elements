@@ -207,6 +207,10 @@ ino-markdown-editor {
       p {
         margin: 0;
       }
+
+      li {
+        margin: 2px 0;
+      }
     }
 
     :is(ul, ol)[data-type='taskList'] {
