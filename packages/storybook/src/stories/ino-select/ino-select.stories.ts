@@ -45,31 +45,7 @@ const InoSelectMeta = {
       return story();
     },
   ],
-  args: {
-    disabled: false,
-    label: 'Select label',
-    name: 'select-1',
-    outline: false,
-    required: false,
-    showLabelHint: false,
-    value: 'Option 1',
-    error: false,
-    helper: '',
-    helperPersistent: false,
-    helperValidation: false,
-    dense: false,
-  },
-} as Meta<Components.InoSelect>;
-
-const optionsTemplate = html`
-  <ino-option value="Option 1">Option 1</ino-option>
-  <ino-option value="Option 2">Option 2</ino-option>
-  <ino-option value="Option 3">Option 3</ino-option>
-`;
-
-const template = new TemplateGenerator<Components.InoSelect>(
-  'ino-select',
-  (args) => html`
+  render: (args) => html`
     <ino-select
       disabled="${args.disabled}"
       name="${args.name}"
@@ -87,8 +63,7 @@ const template = new TemplateGenerator<Components.InoSelect>(
       <ino-option value="Option 1">Option 1</ino-option>
       <ino-option value="Option 2">Option 2</ino-option>
       <ino-option value="Option 3">Option 3</ino-option>
-    </ino-select>
-  `,
+    </ino-select>`,
   args: {
     disabled: false,
     label: 'Select label',
@@ -101,6 +76,7 @@ const template = new TemplateGenerator<Components.InoSelect>(
     helper: '',
     helperPersistent: false,
     helperValidation: false,
+    dense: false,
   },
 } as Meta<Components.InoSelect>;
 
@@ -199,12 +175,12 @@ export const Form = Story({
       <ino-button type="submit">Submit</ino-button>
     </form>
   `,
-);
-export const Form = templateForm.generatePlaygroundStory();
+});
 
-const templateDense = new TemplateGenerator<Components.InoSelect>(
-  'ino-select',
-  (args) => html`
+export const Dense = Story({
+  ...Default,
+  docsFromProperty: 'dense',
+  render: () => html`
     <ino-select label="Select with leading icon" dense>
       <ino-icon slot="icon-leading" icon="user"></ino-icon>
       <ino-option value="Selected Option" selected>Selected Option</ino-option>
@@ -216,5 +192,7 @@ const templateDense = new TemplateGenerator<Components.InoSelect>(
       ${optionsTemplate}
     </ino-select>
   `,
-);
-export const Dense = templateDense.generateStoryForProp('dense', true);
+  args: {
+    dense: true,
+  }
+});
