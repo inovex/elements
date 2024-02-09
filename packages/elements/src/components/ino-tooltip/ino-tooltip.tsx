@@ -111,7 +111,7 @@ export class Tooltip implements ComponentInterface {
 
   /**
    * Returns the internally used tippy.js instance
-   * For more informations see: https://atomiks.github.io/tippyjs/
+   * For more information see: https://atomiks.github.io/tippyjs/
    */
   @Method()
   async getTippyInstance(): Promise<any> {
@@ -119,6 +119,15 @@ export class Tooltip implements ComponentInterface {
   }
 
   // Lifecycle
+  async connectedCallback() {
+    console.log('connectedCallback');
+    //if (this.target) await this.create();
+  }
+
+  disconnectedCallback() {
+    console.log('disconnectedCallback');
+    //this.dispose();
+  }
 
   async componentDidLoad() {
     await this.create();
@@ -128,13 +137,14 @@ export class Tooltip implements ComponentInterface {
     this.for ? document.getElementById(this.for) : this.el.parentElement;
 
   private async create() {
-    await this.dispose();
+    this.dispose();
 
     this.target = this.retrieveTarget();
 
-    if (!this.target) {
-      // Wait 1 sec for the host element to be rendered
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Wait up to 1 sec for the host element to be rendered
+    for (let i = 0; i < 5; i++) {
+      if (this.target) break;
+      await new Promise((resolve) => setTimeout(resolve, 200));
       this.target = this.retrieveTarget();
     }
 
@@ -164,9 +174,9 @@ export class Tooltip implements ComponentInterface {
     }
   }
 
-  private async dispose() {
+  private dispose() {
     if (this.tooltipInstance) {
-      await this.tooltipInstance.destroy();
+      this.tooltipInstance.destroy();
 
       this.target.removeEventListener('keyup', this.onEnterTarget.bind(this));
       this.target.removeEventListener(
