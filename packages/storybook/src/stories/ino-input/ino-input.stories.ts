@@ -30,77 +30,36 @@ const InoInputMeta = {
       ],
     },
   },
-  args: {
-    autocomplete: 'off',
-    autoFocus: false,
-    dataList: '',
-    disabled: false,
-    error: false,
-    helper: 'Helper message',
-    helperCharacterCounter: false,
-    helperPersistent: false,
-    helperValidation: false,
-    label: 'Input label',
-    min: '',
-    max: '',
-    maxlength: 100,
-    outline: false,
-    name: '',
-    pattern: '*',
-    placeholder: '',
-    required: false,
-    showLabelHint: false,
-    size: 0,
-    step: 5,
-    type: 'text',
-    unit: '',
-    value: '',
-    dense: false,
-  },
-} as Meta<Components.InoInput>;
-
-const template = new TemplateGenerator<Components.InoInput>(
-  'ino-input',
-  (args) => html`
-    <ino-input
-      class="customizable-input"
-      id="customizable-input"
-      autocomplete="${args.autocomplete}"
-      autofocus="${args.autoFocus}"
-      data-list="${args.dataList}"
-      disabled="${args.disabled}"
-      error="${args.error}"
-      helper="${args.helper}"
-      helper-character-counter="${args.helperCharacterCounter}"
-      helper-persistent="${args.helperPersistent}"
-      helper-validation="${args.helperValidation}"
-      label="${args.label}"
-      min="${args.min}"
-      max="${args.max}"
-      maxlength="${args.maxlength}"
-      name="${args.name}"
-      outline="${args.outline}"
-      pattern="${args.pattern}"
-      placeholder="${args.placeholder}"
-      required="${args.required}"
-      show-label-hint="${args.showLabelHint}"
-      size=${args.size}
-      step="${args.step}"
-      type="${args.type}"
-      unit="${args.unit}"
-      value="${args.value}"
-      dense="${args.dense}"
-    >
-    </ino-input>
-  `,
-  parameters: {
-    actions: {
-      handles: [
-        'iconClick .customizable-input',
-        'valueChange .customizable-input',
-      ],
-    },
-  },
+  render: (args) => html`<ino-input
+    class="customizable-input"
+    id="customizable-input"
+    autocomplete="${args.autocomplete}"
+    autofocus="${args.autoFocus}"
+    data-list="${args.dataList}"
+    disabled="${args.disabled}"
+    error="${args.error}"
+    helper="${args.helper}"
+    helper-character-counter="${args.helperCharacterCounter}"
+    helper-persistent="${args.helperPersistent}"
+    helper-validation="${args.helperValidation}"
+    label="${args.label}"
+    min="${args.min}"
+    max="${args.max}"
+    maxlength="${args.maxlength}"
+    name="${args.name}"
+    outline="${args.outline}"
+    pattern="${args.pattern}"
+    placeholder="${args.placeholder}"
+    required="${args.required}"
+    show-label-hint="${args.showLabelHint}"
+    size=${args.size}
+    step="${args.step}"
+    type="${args.type}"
+    unit="${args.unit}"
+    value="${args.value}"
+    dense="${args.dense}"
+  >
+  </ino-input>`,
   argTypes: {
     type: {
       control: {
@@ -134,6 +93,7 @@ const template = new TemplateGenerator<Components.InoInput>(
     type: 'text',
     unit: '',
     value: '',
+    dense: false,
   },
 } as Meta<Components.InoInput>;
 
@@ -326,12 +286,15 @@ export const MetaData = Story({
   render: () => html`
     <ino-input value="2" type="number" unit="h" label="Hours input"></ino-input>
   `,
-);
-export const Metadata = templateMetadata.generateStoryForProp('unit', 'h');
+  args: {
+    unit: 'h',
+  }
+});
 
-const templateDense = new TemplateGenerator<Components.InoInput>(
-  'ino-input',
-  (args) => html`
+export const Dense = Story({
+  ...Default,
+  docsFromProperty: 'dense',
+  render: () => html`
     <ino-input label="optional" show-label-hint dense="true"></ino-input>
     <ino-input
       icon-leading
@@ -359,6 +322,7 @@ const templateDense = new TemplateGenerator<Components.InoInput>(
       <ino-icon slot="icon-trailing" icon="add"></ino-icon>
     </ino-input>
   `,
-);
-
-export const Dense = templateDense.generateStoryForProp('dense', true);
+  args: {
+    dense: true,
+  }
+});
