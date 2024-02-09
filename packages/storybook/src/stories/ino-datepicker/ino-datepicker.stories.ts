@@ -1,18 +1,18 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import moment from 'moment';
-import { decorateStoryWithClass } from '../utils';
-import './ino-datepicker.scss';
 import { registerInlineDatepickerHandler } from './utils';
+import './ino-datepicker.scss';
 
 const days = 5;
 const defaultDate = moment().format('YYYY-MM-DD');
 const minDate = moment().subtract(days, 'days').format('YYYY-MM-DD');
 const maxDate = moment().add(days, 'days').format('YYYY-MM-DD');
-export default {
+
+const InoDatepickerMeta = {
   title: 'Input/ino-datepicker',
   component: 'ino-datepicker',
   parameters: {
@@ -21,42 +21,16 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-datepicker'),
     (story) => {
       useEffect(() => {
-        const eventHandler = (e: any) =>
-          e.target.setAttribute('value', e.detail);
+        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
         document.addEventListener('valueChange', eventHandler);
         return () => document.removeEventListener('valueChange', eventHandler);
       });
       return story();
     },
   ],
-  args: {
-    attachToBody: true,
-    disabled: false,
-    dateFormat: 'Y-m-d',
-    helper: 'Helper text to describe the input',
-    helperPersistent: false,
-    helperValidation: false,
-    inline: false,
-    label: 'Label',
-    min: minDate,
-    max: maxDate,
-    outline: false,
-    range: false,
-    required: false,
-    error: false,
-    showLabelHint: false,
-    twelveHourTime: false,
-    type: 'date',
-    value: defaultDate,
-  },
-} as Meta<Components.InoDatepicker>;
-
-const template = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  (args) => html`
+  render: (args) => html`
     <ino-datepicker
       class="customizable-picker"
       attach-to-body="${args.attachToBody}"
@@ -79,12 +53,46 @@ const template = new TemplateGenerator<Components.InoDatepicker>(
       value="${args.value}"
     ></ino-datepicker>
   `,
-);
-export const Playground = template.generatePlaygroundStory();
+  args: {
+    attachToBody: true,
+    disabled: false,
+    dateFormat: 'Y-m-d',
+    helper: 'Helper text to describe the input',
+    helperPersistent: false,
+    helperValidation: false,
+    inline: false,
+    label: 'Label',
+    min: minDate,
+    max: maxDate,
+    outline: false,
+    range: false,
+    required: false,
+    error: false,
+    showLabelHint: false,
+    twelveHourTime: false,
+    type: 'date',
+    value: defaultDate,
+  },
+  argTypes: {
+    type: {
+      control: {
+        type: 'select',
+      },
+      options: ['datetime', 'month', 'date', 'time'],
+    },
+  },
+} as Meta<Components.InoDatepicker>;
 
-const templateFormats = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  () => html`
+export default InoDatepickerMeta;
+
+export const Default = Story({
+  ...InoDatepickerMeta,
+});
+
+export const DateFormats = Story({
+  ...Default,
+  docsFromProperty: 'dateFormat',
+  render: () => html`
     <ino-datepicker
       type="datetime"
       date-format="H:i d.m.Y"
@@ -103,15 +111,15 @@ const templateFormats = new TemplateGenerator<Components.InoDatepicker>(
       label="Month"
     ></ino-datepicker>
   `,
-);
-export const DateFormats = templateFormats.generateStoryForProp(
-  'dateFormat',
-  '',
-);
+  args: {
+    dateFormat: '',
+  },
+});
 
-const templateTwelveHourTime = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  () => html`
+export const TwelveHourTime = Story({
+  ...Default,
+  docsFromProperty: 'twelveHourTime',
+  render: () => html`
     <ino-datepicker
       type="time"
       date-format="h:i K"
@@ -119,15 +127,32 @@ const templateTwelveHourTime = new TemplateGenerator<Components.InoDatepicker>(
       twelve-hour-time
     ></ino-datepicker>
   `,
-);
-export const TwelveHourTime = templateTwelveHourTime.generateStoryForProp(
-  'twelveHourTime',
-  true,
-);
+  args: {
+    twelveHourTime: true,
+  },
+});
 
-const templateRestrictions = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  (args) => html`
+/**
+ * Various restrictions like the ones shown
+ * can be achieved by setting the properties `min`, `max`, `value`, `hour-step`, `minute-step`, `default-hour` or `default-minute` values.
+ *
+ * - `min`: The minimum date that a user can start picking from (inclusive).
+ *
+ * - `max`: The maximum date that a user can pick to (inclusive).
+ *
+ * - `value`: The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
+ *
+ * - `hour-step`: Adjusts the step for the hour input (incl. scrolling) Default is 1
+ *
+ * - `minute-step`: Adjusts the step for the minute input (incl. scrolling) Default is 5
+ *
+ * - `default-hour`: A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
+ *
+ * - `default-minute`: A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
+ */
+export const Restrictions = Story({
+  ...Default,
+  render: (args) => html`
     <ino-datepicker
       label="Predefined value"
       date-format="Y-m-d"
@@ -164,35 +189,8 @@ const templateRestrictions = new TemplateGenerator<Components.InoDatepicker>(
       default-minute="49"
     ></ino-datepicker>
   `,
-);
-/**
- * Various restrictions like the ones shown
- * can be achieved by setting the properties `min`, `max`, `value`, `hour-step`, `minute-step`, `default-hour` or `default-minute` values.
- *
- * - `min`: The minimum date that a user can start picking from (inclusive).
- *
- * - `max`: The maximum date that a user can pick to (inclusive).
- *
- * - `value`: The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
- *
- * - `hour-step`: Adjusts the step for the hour input (incl. scrolling) Default is 1
- *
- * - `minute-step`: Adjusts the step for the minute input (incl. scrolling) Default is 5
- *
- * - `default-hour`: A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
- *
- * - `default-minute`: A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
- */
-export const Restrictions = templateRestrictions.generatePlaygroundStory();
+});
 
-const templateStates = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  () => html`
-    <ino-datepicker label="Disabled" disabled></ino-datepicker>
-    <ino-datepicker label="Required" required show-label-hint></ino-datepicker>
-    <ino-datepicker label="Optional" show-label-hint></ino-datepicker>
-  `,
-);
 /**
  * Different states are achived by setting the properties `disabled`, `required` or `show-label-hint`.
  *
@@ -202,24 +200,37 @@ const templateStates = new TemplateGenerator<Components.InoDatepicker>(
  *
  * - `show-label-hint`: If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.
  */
-export const States = templateStates.generatePlaygroundStory();
+export const States = Story({
+  ...Default,
+  render: () => html`
+    <ino-datepicker label="Disabled" disabled></ino-datepicker>
+    <ino-datepicker label="Required" required show-label-hint></ino-datepicker>
+    <ino-datepicker label="Optional" show-label-hint></ino-datepicker>
+  `,
+});
 
-const templateInline = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  () => html`
+export const Inline = Story({
+  ...Default,
+  docsFromProperty: 'inline',
+  render: () => html`
     <ino-datepicker
       style="width: 340px"
       label="Inline"
       inline="true"
     ></ino-datepicker>
   `,
-);
-export const Inline = templateInline.generateStoryForProp('inline', true);
+  args: {
+    inline: true,
+  },
+});
 
-const templateLocale = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  () => html`
-    <ino-datepicker lang="en" label="English"></ino-datepicker>
+/**
+ * The language of the ino-datepicker can by set by `lang`
+ */
+export const Locale = Story({
+  ...Default,
+  render: () => html`
+    <ino-datepicker lang="en" label="English"> </ino-datepicker>
     <ino-datepicker
       lang="de"
       date-format="d.m.Y"
@@ -232,15 +243,11 @@ const templateLocale = new TemplateGenerator<Components.InoDatepicker>(
       label="German range"
     ></ino-datepicker>
   `,
-);
-/**
- * The language of the ino-datepicker can by set by `lang`
- */
-export const Locale = templateLocale.generatePlaygroundStory();
+});
 
-const templateMultipleTypes = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  () => html`
+export const MultipleTypes = Story({
+  ...Default,
+  render: () => html`
     ${useEffect(registerInlineDatepickerHandler)}
     <div lang="de" class="datepicker-group">
       <aside>
@@ -269,12 +276,14 @@ const templateMultipleTypes = new TemplateGenerator<Components.InoDatepicker>(
       </main>
     </div>
   `,
-);
-export const MultipleTypes = templateMultipleTypes.generatePlaygroundStory();
+});
 
-const templateRequiredForm = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepicker',
-  () => html`
+/**
+ * The form should not submit as long as the date field is empty
+ */
+export const RequiredForm = Story({
+  ...Default,
+  render: () => html`
     <form>
       <ino-datepicker
         class="required-datepicker"
@@ -284,17 +293,4 @@ const templateRequiredForm = new TemplateGenerator<Components.InoDatepicker>(
       <ino-button type="submit">Submit</ino-button>
     </form>
   `,
-);
-/**
- * The form should not submit as long as the date field is empty
- */
-export const RequiredForm = templateRequiredForm.generatePlaygroundStory();
-
-Playground.argTypes = {
-  type: {
-    control: {
-      type: 'select',
-    },
-    options: ['datetime', 'month', 'date', 'time'],
-  },
-};
+});

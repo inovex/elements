@@ -1,3 +1,42 @@
+## 9.1.0 (2024-02-02)
+
+
+### 🩹 Fixes
+
+- **elements-angular:** directives matching multiple components ([#1215](https://github.com/inovex/elements/pull/1215))
+- **landingpage:** routing of shared storybook links doesn't work ([#1183](https://github.com/inovex/elements/pull/1183))
+- **storybook:** restore typography page ([#1229](https://github.com/inovex/elements/pull/1229))
+
+### ❤️  Thank You
+
+- Jan-Niklas
+- Tobias Heim Galindo @TobiasHeimGalindo
+
+## 9.0.1 (2024-01-25)
+
+
+### 🚀 Features
+
+- **elements:** apply new design of markdown-editor ([#1173](https://github.com/inovex/elements/pull/1173))
+- **elements:** dialog close icon ([#1147](https://github.com/inovex/elements/pull/1147))
+- **ui-patterns:** add login-pattern and finalize patterns page ([#1135](https://github.com/inovex/elements/pull/1135))
+
+### 🩹 Fixes
+
+- **elements:** prevent tailwind from overwriting border-styles ([#1143](https://github.com/inovex/elements/pull/1143))
+- **elements-angular:** make ng-add work with newer angular versions ([#1149](https://github.com/inovex/elements/pull/1149))
+- **landingpage:** not accessible via url ([#1131](https://github.com/inovex/elements/pull/1131))
+- **landingpage:** remove initial query param ([3ab7c219](https://github.com/inovex/elements/commit/3ab7c219))
+
+### ❤️  Thank You
+
+- André Ehlert @iandi09
+- Benjamin Pagelsdorf
+- Jan-Niklas
+- Jan-Niklas Voß
+- MariaLStefan @MariaLStefan
+- Tobias Heim Galindo @TobiasHeimGalindo
+
 # Changelog
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).

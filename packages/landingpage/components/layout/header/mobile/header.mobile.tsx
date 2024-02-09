@@ -10,7 +10,7 @@ import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
 import useTranslation from '../../../../utils/hooks/useTranslation';
 import { useRouter } from 'next/router';
-import { ContactButton } from '../../../shared/contactButton';
+import ContactButton from '../../../shared/contactButton';
 import VersionSelect from 'components/shared/versionSelect';
 
 const MenuIcon = (props: SVGProps<SVGSVGElement>) => (

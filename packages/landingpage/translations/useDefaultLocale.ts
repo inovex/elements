@@ -27,4 +27,6 @@ function useDefaultLocale() {
   };
 }
 
+const isDevMode = () => process?.env?.NODE_ENV !== 'development' ?? true;
+
 export default useDefaultLocale;

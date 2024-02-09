@@ -1,13 +1,15 @@
-.story-ino-snackbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
-
-  .button__label {
-    pointer-events: none;
+.sbdocs.sbdocs-content:has(#anchor--notification-ino-snackbar--default) {
+  [scale] {
+    width: 100%;
   }
-  ino-button:not(:last-of-type) {
-    margin-bottom: 32px;
+
+  [scale] > div > div > div > div {
+    position: relative;
+    overflow: visible;
+    padding: 10px;
+  }
+
+  .hidden {
+    display: none;
   }
 }

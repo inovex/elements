@@ -1,8 +1,9 @@
 import React from 'react';
-import { InoSelect, InoOption } from '@elements';
 import { useVersion } from 'utils/context/VersionContext';
+import { InoOption, InoSelect } from '@elements';
+import styles from './versionSelect.module.scss';
 
-export default function VersionSelect() {
+const VersionSelect = () => {
   const { selectedVersion, setSelectedVersion, versions } = useVersion();
 
   const handleVersionChange = (e: CustomEvent) => {
@@ -16,8 +17,9 @@ export default function VersionSelect() {
       value={selectedVersion}
       onValueChange={handleVersionChange}
       outline
+      className={styles.versionSelect}
     >
-      <div style={{ maxHeight: '200px' }}>
+      <div className={styles.options}>
         {versions.map((version, i) => (
           <InoOption key={i} value={version}>
             {version}
@@ -26,4 +28,6 @@ export default function VersionSelect() {
       </div>
     </InoSelect>
   );
-}
+};
+
+export default VersionSelect;

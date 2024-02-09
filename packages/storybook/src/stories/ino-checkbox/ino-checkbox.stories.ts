@@ -1,40 +1,34 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
-
-import { decorateStoryWithClass } from '../utils';
+import { useState } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import './ino-checkbox.scss';
 
-export default {
+const InoCheckboxMeta = {
   title: 'Input/ino-checkbox',
   component: 'ino-checkbox',
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-checkbox'),
-    (story) => {
-      useEffect(() => {
-        const handleCheckedChange = (e) => {
-          const checkbox: HTMLInoCheckboxElement = e.target;
-          checkbox.checked = e.detail;
-          if (checkbox.indeterminate) {
-            checkbox.indeterminate = false;
-          }
-        };
+  render: (args) => {
+    const [checked, setChecked] = useState(args.checked);
 
-        const checkboxes = document.querySelectorAll('ino-checkbox');
-        checkboxes.forEach((c) =>
-          c.addEventListener('checkedChange', handleCheckedChange),
-        );
-        return () =>
-          checkboxes.forEach((c) =>
-            c.removeEventListener('checkedChange', handleCheckedChange),
-          );
-      });
-      return story();
-    },
-  ],
-  // will be used as default props for all stories
+    function handleCheckboxChange(ev: CustomEvent<boolean>) {
+      setChecked(ev.detail);
+    }
+
+    return html`
+      <ino-checkbox
+        checked="${checked}"
+        disabled="${args.disabled}"
+        indeterminate="${args.indeterminate}"
+        name="${args.name}"
+        selection="${args.selection}"
+        value="${args.value}"
+        @checkedChange="${handleCheckboxChange}"
+      >
+        Label
+      </ino-checkbox>
+    `;
+  },
   args: {
     checked: true,
     disabled: false,
@@ -45,32 +39,40 @@ export default {
   },
 } as Meta<Components.InoCheckbox>;
 
-// the basic template for the checkbox component
-const template = new TemplateGenerator<Components.InoCheckbox>(
-  'ino-checkbox',
-  (args) => html`
-    <ino-checkbox
-      checked="${args.checked}"
-      disabled="${args.disabled}"
-      indeterminate="${args.indeterminate}"
-      name="${args.name}"
-      selection="${args.selection}"
-      value="${args.value}"
-    >
-      Label
-    </ino-checkbox>
-  `,
-);
+export default InoCheckboxMeta;
 
-export const Playground = template.generatePlaygroundStory();
+export const Default = Story({
+  ...InoCheckboxMeta,
+});
 
-export const Checked = template.generateStoryForProp('checked', true);
+export const Checked = Story({
+  ...Default,
+  docsFromProperty: 'checked',
+  args: {
+    checked: true,
+  },
+});
 
-export const Selection = template.generateStoryForProp('selection', true);
+export const Selection = Story({
+  ...Default,
+  docsFromProperty: 'selection',
+  args: {
+    selection: true,
+  },
+});
 
-export const Indeterminate = template.generateStoryForProp(
-  'indeterminate',
-  true,
-);
+export const Indeterminate = Story({
+  ...Default,
+  docsFromProperty: 'indeterminate',
+  args: {
+    indeterminate: true,
+  },
+});
 
-export const Disabled = template.generateStoryForProp('disabled', true);
+export const Disabled = Story({
+  ...Default,
+  docsFromProperty: 'disabled',
+  args: {
+    disabled: true,
+  },
+});

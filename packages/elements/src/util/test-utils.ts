@@ -13,7 +13,6 @@ export const setPropertyOfEl = <Component extends HTMLElement>(
   props: Partial<Component>,
 ) => {
   return page.$eval(selector, (el: Component) => {
-    console.log(props);
     Object.assign(el, props);
   });
 };

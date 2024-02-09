@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-angular",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "author": "Sven Lindauer <slindauer@inovex.de>",
   "description": "Angular library for @inovex.de/elements to use the components in Angular projects",
   "contributors": [
@@ -14,21 +14,16 @@
     "url": "https://github.com/inovex/elements/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^15.1.0",
-    "@angular/core": "^15.1.0",
-    "@angular/forms": "15.1.5",
-    "rxjs": "7.5.7",
-    "@angular-devkit/schematics": "15.1.6",
-    "@angular-devkit/core": "15.1.6"
+    "@angular/core": ">=14.0.0",
+    "@angular/forms": ">=14.0.0",
+    "@angular/router": ">=14.0.0",
+    "rxjs": ">=7.5.0"
   },
   "dependencies": {
-    "@inovex.de/elements": "^9.0.0",
+    "@inovex.de/elements": "^9.1.0",
     "tslib": "^2.3.0"
   },
-  "schematics": "./schematics/collection.json",
-  "ng-add": {
-    "save": "dependencies"
-  },
+  "schematics": "./dist/schematics/collection.json",
   "sideEffects": false,
   "files": [
     "dist/",

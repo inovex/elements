@@ -2,17 +2,23 @@ import useTranslation from '../../utils/hooks/useTranslation';
 import Link from 'next/link';
 import { SubRoutes } from '../../utils/routes';
 import { InoButton } from '@elements';
+import styles from './contactButton.module.scss';
+import React from 'react';
 
-export function ContactButton() {
+const ContactButton = () => {
   const { t, locale } = useTranslation();
   return (
     <Link
-      style={{ display: 'flex' }}
+      className={styles.contactButton}
       href={`/${locale}#${SubRoutes.HOME_CONTACT}`}
     >
-      <InoButton style={{ margin: 'auto' }}>
-        <span>{t('common.navigation.contact.name')}</span>
+      <InoButton className={styles.button}>
+        <span className={styles.label}>
+          {t('common.navigation.contact.name')}
+        </span>
       </InoButton>
     </Link>
   );
-}
+};
+
+export default ContactButton;

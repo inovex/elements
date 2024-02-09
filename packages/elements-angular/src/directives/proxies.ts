@@ -334,21 +334,21 @@ The value can be found in `event.detail`
 
 
 @ProxyCmp({
-  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'closeIcon', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open']
 })
 @Component({
   selector: 'ino-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open'],
+  inputs: ['actionText', 'attachTo', 'bodyText', 'cancelText', 'closeIcon', 'dialogRole', 'dismissible', 'fullwidth', 'headerText', 'icon', 'open'],
 })
 export class InoDialog {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['close', 'action']);
+    proxyOutputs(this, this.el, ['close', 'action', 'dialogOpen']);
   }
 }
 
@@ -365,6 +365,10 @@ export declare interface InoDialog extends Components.InoDialog {
    * Emits an event upon clicking the action button of the dialog
    */
   action: EventEmitter<CustomEvent<IInoDialogDialogSubmitAction>>;
+  /**
+   * Emits an event when the dialog is opened.
+   */
+  dialogOpen: EventEmitter<CustomEvent<void>>;
 }
 
 

@@ -464,10 +464,13 @@ export namespace Components {
     /**
      * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
      * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     * #### Usage Notes
+     * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+     * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
      */
     interface InoDialog {
         /**
-          * Adds a button with the given text to proceed with an action`
+          * Adds a button with the given text to proceed with an action
          */
         "actionText"?: string;
         /**
@@ -482,6 +485,10 @@ export namespace Components {
           * Adds a button with the given text to close the `ino-dialog`
          */
         "cancelText"?: string;
+        /**
+          * Adds a close icon in the top right corner to close the `ino-dialog`.
+         */
+        "closeIcon": boolean;
         /**
           * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
          */
@@ -1002,6 +1009,16 @@ export namespace Components {
      *  * Support of strikethrough syntax (`~~TextToStrike~~`)
      *  * Support of task list syntax (`- [x] MyToDoTask`)
      *  * No support of image syntax. __Images are not allowed!__
+     * ### Font Size Scaling
+     * The font sizes within the Markdown Editor are scaled based on the CSS variable `--ino-markdown-editor-font-size`. This variable sets the base font size, and other font sizes are scaled accordingly.
+     * #### Base Font Size Variable
+     * `--ino-markdown-editor-font-size`: Sets the base font size for all text elements. Default is `16px`.
+     * #### Scaling Factors
+     * | Element | Scaling Factor | Calculated Size (Example) |
+     * |---------|----------------|---------------------------|
+     * | Base Font Size | 1x | Base size (e.g., 16px) |
+     * | Header 1 (h1) | 2x | Double the base size (e.g., 32px) |
+     * | Header 2 (h2) | 1.75x | 1.75 times the base size (e.g., 28px) |
      */
     interface InoMarkdownEditor {
         /**
@@ -1377,7 +1394,7 @@ export namespace Components {
         "value"?: string;
     }
     /**
-     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
      */
     interface InoSnackbar {
         /**
@@ -1942,6 +1959,9 @@ declare global {
     /**
      * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
      * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     * #### Usage Notes
+     * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+     * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
      */
     interface HTMLInoDialogElement extends Components.InoDialog, HTMLStencilElement {
     }
@@ -2103,6 +2123,16 @@ declare global {
      *  * Support of strikethrough syntax (`~~TextToStrike~~`)
      *  * Support of task list syntax (`- [x] MyToDoTask`)
      *  * No support of image syntax. __Images are not allowed!__
+     * ### Font Size Scaling
+     * The font sizes within the Markdown Editor are scaled based on the CSS variable `--ino-markdown-editor-font-size`. This variable sets the base font size, and other font sizes are scaled accordingly.
+     * #### Base Font Size Variable
+     * `--ino-markdown-editor-font-size`: Sets the base font size for all text elements. Default is `16px`.
+     * #### Scaling Factors
+     * | Element | Scaling Factor | Calculated Size (Example) |
+     * |---------|----------------|---------------------------|
+     * | Base Font Size | 1x | Base size (e.g., 16px) |
+     * | Header 1 (h1) | 2x | Double the base size (e.g., 32px) |
+     * | Header 2 (h2) | 1.75x | 1.75 times the base size (e.g., 28px) |
      */
     interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
     }
@@ -2245,7 +2275,7 @@ declare global {
         new (): HTMLInoSelectElement;
     };
     /**
-     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
      */
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
     }
@@ -2856,10 +2886,13 @@ declare namespace LocalJSX {
     /**
      * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
      * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+     * #### Usage Notes
+     * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+     * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
      */
     interface InoDialog {
         /**
-          * Adds a button with the given text to proceed with an action`
+          * Adds a button with the given text to proceed with an action
          */
         "actionText"?: string;
         /**
@@ -2874,6 +2907,10 @@ declare namespace LocalJSX {
           * Adds a button with the given text to close the `ino-dialog`
          */
         "cancelText"?: string;
+        /**
+          * Adds a close icon in the top right corner to close the `ino-dialog`.
+         */
+        "closeIcon"?: boolean;
         /**
           * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
          */
@@ -2902,6 +2939,10 @@ declare namespace LocalJSX {
           * Emits an event upon closing the dialog
          */
         "onClose"?: (event: InoDialogCustomEvent<DialogCloseAction>) => void;
+        /**
+          * Emits an event when the dialog is opened.
+         */
+        "onDialogOpen"?: (event: InoDialogCustomEvent<void>) => void;
         /**
           * Opens the dialog if set to true
          */
@@ -3417,6 +3458,16 @@ declare namespace LocalJSX {
      *  * Support of strikethrough syntax (`~~TextToStrike~~`)
      *  * Support of task list syntax (`- [x] MyToDoTask`)
      *  * No support of image syntax. __Images are not allowed!__
+     * ### Font Size Scaling
+     * The font sizes within the Markdown Editor are scaled based on the CSS variable `--ino-markdown-editor-font-size`. This variable sets the base font size, and other font sizes are scaled accordingly.
+     * #### Base Font Size Variable
+     * `--ino-markdown-editor-font-size`: Sets the base font size for all text elements. Default is `16px`.
+     * #### Scaling Factors
+     * | Element | Scaling Factor | Calculated Size (Example) |
+     * |---------|----------------|---------------------------|
+     * | Base Font Size | 1x | Base size (e.g., 16px) |
+     * | Header 1 (h1) | 2x | Double the base size (e.g., 32px) |
+     * | Header 2 (h2) | 1.75x | 1.75 times the base size (e.g., 28px) |
      */
     interface InoMarkdownEditor {
         /**
@@ -3839,7 +3890,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     /**
-     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+     * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
      */
     interface InoSnackbar {
         /**
@@ -4288,6 +4339,9 @@ declare module "@stencil/core" {
             /**
              * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
              * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+             * #### Usage Notes
+             * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+             * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
              */
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             /**
@@ -4384,6 +4438,16 @@ declare module "@stencil/core" {
              *  * Support of strikethrough syntax (`~~TextToStrike~~`)
              *  * Support of task list syntax (`- [x] MyToDoTask`)
              *  * No support of image syntax. __Images are not allowed!__
+             * ### Font Size Scaling
+             * The font sizes within the Markdown Editor are scaled based on the CSS variable `--ino-markdown-editor-font-size`. This variable sets the base font size, and other font sizes are scaled accordingly.
+             * #### Base Font Size Variable
+             * `--ino-markdown-editor-font-size`: Sets the base font size for all text elements. Default is `16px`.
+             * #### Scaling Factors
+             * | Element | Scaling Factor | Calculated Size (Example) |
+             * |---------|----------------|---------------------------|
+             * | Base Font Size | 1x | Base size (e.g., 16px) |
+             * | Header 1 (h1) | 2x | Double the base size (e.g., 32px) |
+             * | Header 2 (h2) | 1.75x | 1.75 times the base size (e.g., 28px) |
              */
             "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
             /**
@@ -4456,7 +4520,7 @@ declare module "@stencil/core" {
              */
             "ino-select": LocalJSX.InoSelect & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
             /**
-             * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+             * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
              */
             "ino-snackbar": LocalJSX.InoSnackbar & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
             /**

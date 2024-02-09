@@ -1,22 +1,13 @@
 import { Meta } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
 import { Components } from '@inovex.de/elements';
-import { TemplateGenerator } from '../template-generator';
+import { html } from 'lit-html';
+import Story from '../StoryWrapper';
 import './ino-menu.scss';
 
-export default {
-  title: `Structure/ino-menu`,
+const InoMenuMeta = {
+  title: 'Structure/ino-menu',
   component: 'ino-menu',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-menu')],
-  args: {
-    placement: 'auto',
-  },
-} as Meta<Components.InoMenu>;
-
-const template = new TemplateGenerator<Components.InoMenu>(
-  'ino-menu',
-  (args) => html`
+  render: (args) => html`
     <ino-card disable-elevation>
       <div class="row" slot="header">
         <p>Open Menu</p>
@@ -29,6 +20,21 @@ const template = new TemplateGenerator<Components.InoMenu>(
       </div>
     </ino-card>
   `,
-);
+  args: {
+    placement: 'auto',
+  },
+} as Meta<Components.InoMenu>;
 
-export const Playground = template.generatePlaygroundStory();
+export default InoMenuMeta;
+
+export const Default = Story({
+  ...InoMenuMeta,
+});
+
+export const Placement = Story({
+  ...Default,
+  docsFromProperty: 'placement',
+  args: {
+    placement: 'left',
+  },
+});

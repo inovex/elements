@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
+import { html } from 'lit-html';
+import Story from '../StoryWrapper';
 
 import beachImg from '../../assets/images/beach.jpg';
 import fjordImg from '../../assets/images/fjord.jpg';
@@ -10,18 +10,10 @@ import libertyImg from '../../assets/images/liberty.jpg';
 import trondheimImg from '../../assets/images/trondheim.jpg';
 import waterfallImg from '../../assets/images/waterfall.jpg';
 
-export default {
+const InoImgListMeta = {
   title: 'Graphic/ino-img-list',
   component: 'ino-img-list',
-  args: {
-    encloseLabel: false,
-    masonry: false,
-  },
-} as Meta;
-
-const template = new TemplateGenerator<Components.InoImgList>(
-  'ino-img-list',
-  (args) => html`
+  render: (args) => html`
     <ino-img-list
       enclose-label="${args.encloseLabel}"
       masonry="${args.masonry}"
@@ -30,11 +22,33 @@ const template = new TemplateGenerator<Components.InoImgList>(
       ${sampleImg6}
     </ino-img-list>
   `,
-);
+  args: {
+    encloseLabel: false,
+    masonry: false,
+  },
+} as Meta<Components.InoImgList>;
 
-export const Playground = template.generatePlaygroundStory();
-export const Masonry = template.generateStoryForProp('masonry', true);
-export const EncloseLabel = template.generateStoryForProp('encloseLabel', true);
+export default InoImgListMeta;
+
+export const Default = Story({
+  ...InoImgListMeta,
+});
+
+export const Masonry = Story({
+  ...InoImgListMeta,
+  docsFromProperty: 'masonry',
+  args: {
+    masonry: true,
+  },
+});
+
+export const EncloseLabel = Story({
+  ...InoImgListMeta,
+  docsFromProperty: 'encloseLabel',
+  args: {
+    encloseLabel: true,
+  },
+});
 
 const sampleImg = html`
   <ino-img src=${beachImg} alt="beach" label="Label" img-list-item></ino-img>

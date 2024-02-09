@@ -5,7 +5,7 @@ import App from './App.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <div className="inovex-elements-theme inovex-elements-typo">
+    <div className="inovex-elements-theme inovex-elements-typo h-full">
       <App />
     </div>
   </React.StrictMode>,
