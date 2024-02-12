@@ -78,6 +78,7 @@ export default function HeaderMobile() {
                   <div className={styles.menuItem}>
                     <LinkItem
                       url={mainRouteUrl}
+                      noMargin={true}
                       name={t(`common.navigation.${mainRouteName}.name`)}
                     />
                     <InoIcon

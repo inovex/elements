@@ -34,7 +34,7 @@ p.linkDense {
   font-weight: lighter !important;
   font-size: large !important;
   margin: 0;
-  padding: 10px 15px;
+  padding: 10px 0 10px 15px;
   transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
 }
 p.footerDense {
@@ -44,7 +44,7 @@ p.footerDense {
 }
 p.linkSubItem {
   @extend .linkDense;
-  border-radius: 99px 0px 99px 99px;
+  border-radius: 99px 0 99px 99px;
 
   &:hover {
     color: var(--inovex-elements-p-6);
@@ -53,7 +53,7 @@ p.linkSubItem {
 }
 
 @media only screen and (max-width: 1000px) {
-  p:not(.linkDense) {
+  p:not(.linkDense, .noMargin) {
     margin: 21px 0 0;
   }
 }
