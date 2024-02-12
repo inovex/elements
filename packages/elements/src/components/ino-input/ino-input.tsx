@@ -414,14 +414,14 @@ export class Input implements ComponentInterface {
       maximumFractionDigits: precision,
     };
 
-    let nextValue = value + Number(stepWithFallback)
+    let nextValue = value + Number(stepWithFallback);
     if (nextValue > Number(this.max)) {
-      nextValue = Number(this.max)
+      nextValue = Number(this.max);
     } else if (nextValue < Number(this.min)) {
-      nextValue = Number(this.min)
+      nextValue = Number(this.min);
     }
 
-    const formattedValue = new Intl.NumberFormat([], opts).format(nextValue,);
+    const formattedValue = new Intl.NumberFormat([], opts).format(nextValue);
     if (this.value !== formattedValue) this.valueChange.emit(formattedValue);
   };
 
