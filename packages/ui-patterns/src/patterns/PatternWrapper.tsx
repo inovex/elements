@@ -1,9 +1,13 @@
+import { forwardRef } from 'react';
+
 interface PatternWrapperProps {
   htmlContent: string;
 }
 
-const PatternWrapper = ({ htmlContent }: PatternWrapperProps) => {
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-};
+const PatternWrapper = forwardRef<HTMLDivElement, PatternWrapperProps>(
+  ({ htmlContent }, ref) => (
+    <div ref={ref} dangerouslySetInnerHTML={{ __html: htmlContent }} />
+  ),
+);
 
 export default PatternWrapper;
