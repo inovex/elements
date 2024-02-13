@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/blocks';
+import { ColorPalette, ColorItem} from "@storybook/blocks"
+
+<Meta title="Docs/Styleguide/Colors" />
+
+<ColorPalette>
+  <ColorItem
+    title="Basics"
+    subtitle="White, Black, Transparent"
+    colors={{ White: '#fff', Black: '#000', Transparent: 'rgba(255, 255, 255, 0)' }}
+  />
+  <ColorItem
+    title="Primary Blue"
+    subtitle="Brand Color and Interaction State"
+    colors={{
+      Primary: '#2c02ff',
+      PrimaryFocus: '#2d5dff4d',
+    }}
+  />
+  <ColorItem
+    title="Primary Palette"
+    subtitle="From Light to Dark"
+    colors={{
+      P1: '#f6fafe',
+      P2: '#e2ecff',
+      P3: '#beccff',
+      P4: '#8aa1ff',
+      P5: '#4655ff',
+      P6: '#2d02ff',
+      P7: '#1801e1',
+      P8: '#0801c4',
+      P9: '#0106a6',
+      P10: '#000e88',
+      P11: '#00126a',
+      P12: '#00124d',
+    }}
+  />
+   <ColorItem
+    title="Neutral Palette"
+    subtitle="From Light to Dark"
+    colors={{
+      N1: '#f4f4f7',
+      N2: '#dfdee6',
+      N3: '#cac8d5',
+      N4: '#b6b4c4',
+      N5: '#a3a0b3',
+      N6: '#908da2',
+      N7: '#7e7b91',
+      N8: '#6d6a80',
+      N9: '#5d5b69',
+      N10: '#4c4b52',
+      N11: '#39383c',
+      N12: '#191919',
+    }}
+  />
+   <ColorItem
+    title="Informational Colors"
+    subtitle="Alerts & Notices"
+    colors={{ Informational: '#2d5dff', InformationalLight: '#d6e0ff' }}
+  />
+  <ColorItem
+    title="Success Colors"
+    subtitle="Positive Feedback"
+    colors={{ Success: '#6cf070', SuccessLight: '#d7fad8' }}
+  />
+  <ColorItem
+    title="Error Colors"
+    subtitle="Alerts & Errors"
+    colors={{ Error: '#ff2e54', ErrorLight: '#ffd6de' }}
+  />
+  <ColorItem
+    title="Warning Colors"
+    subtitle="Cautionary Signals"
+    colors={{ Warning: '#ffa42e', WarningLight: '#ffeed6' }}
+  />
+</ColorPalette>
