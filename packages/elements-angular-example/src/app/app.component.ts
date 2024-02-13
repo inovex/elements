@@ -14,6 +14,7 @@ export class AppComponent {
   form: FormGroup;
   mode: ViewModeUnion = 'preview';
   myText = '# Hello World\nI go to home!\n## Foo Bar Text';
+  isMenuOpen = true;
 
   constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todos = this.todoService.getRandomTodos();
@@ -38,5 +39,9 @@ export class AppComponent {
 
   onViewModeChange(evt: Event): void {
     this.mode = (evt as CustomEvent).detail as ViewModeUnion;
+  }
+
+  onOpenChange(evt: Event):void {
+    this.isMenuOpen = (evt as CustomEvent).detail
   }
 }
