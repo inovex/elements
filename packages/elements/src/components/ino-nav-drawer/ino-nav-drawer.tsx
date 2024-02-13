@@ -38,6 +38,7 @@ export class NavDrawer implements ComponentInterface {
    */
   private drawerInstance: MDCDrawer;
   private drawerEl: HTMLElement;
+  private reinitialize: boolean;
   @Element() el!: HTMLInoNavDrawerElement;
 
   /**
@@ -63,6 +64,16 @@ export class NavDrawer implements ComponentInterface {
    */
   @Prop() variant?: NavDrawerVariant = 'docked';
 
+  @Watch('variant')
+  variantChanged(newVariant: NavDrawerVariant) {
+    if (newVariant === 'mobile') {
+      this.activateMobileMode();
+    } else {
+      this.deactivateMobileMode();
+    }
+    this.reinitialize = true;
+  }
+
   /**
    * The aria-labels used for content and footer nav elements.
    * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
@@ -73,23 +84,34 @@ export class NavDrawer implements ComponentInterface {
     toggleBtn: 'Toggle Navigation',
   };
 
-  @Watch('variant')
-  variantChanged(newVariant: NavDrawerVariant) {
-    if (newVariant === 'mobile') {
-      this.activateMobileMode();
-    } else {
-      this.deactivateMobileMode();
+  /**
+   * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
+   */
+  @Event() openChange!: EventEmitter<boolean>;
+
+  // This listener ensures that only the most recently clicked/selected list item appears as "activated"
+  @Listen('clickEl')
+  handleListItemClick(event: CustomEvent) {
+    const listItem: HTMLInoListItemElement = event.detail;
+
+    if (!listItem || listItem.tagName !== 'INO-LIST-ITEM') {
+      return;
+    }
+
+    this.deactivateAllItems();
+    listItem.activated = true;
+  }
+
+  componentDidUpdate() {
+    if (this.reinitialize) {
+      this.drawerInstance?.destroy();
+      this.initDrawerInstance();
+      this.reinitialize = false;
     }
   }
 
   componentDidLoad() {
-    this.drawerInstance = new MDCDrawer(
-      this.el.shadowRoot.querySelector('.mdc-drawer'),
-    );
-    // set initial value of open state
-    if (this.drawerInstance) {
-      this.drawerInstance.open = this.open || false;
-    }
+    this.initDrawerInstance();
     this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
     this.initTabindex('content');
     this.initTabindex('footer');
@@ -107,6 +129,16 @@ export class NavDrawer implements ComponentInterface {
     this.drawerInstance?.destroy();
   }
 
+  private initDrawerInstance(): void {
+    this.drawerInstance = new MDCDrawer(
+      this.el.shadowRoot.querySelector('.mdc-drawer'),
+    );
+    // set initial value of open state
+    if (this.drawerInstance) {
+      this.drawerInstance.open = this.open || false;
+    }
+  }
+
   private activateMobileMode() {
     const navItems = this.el.querySelectorAll('ino-nav-item');
     navItems.forEach((item) => {
@@ -120,29 +152,12 @@ export class NavDrawer implements ComponentInterface {
       item.classList.remove('mobile-nav-item');
     });
   }
-  // This listener ensures that only the most recently clicked/selected list item appears as "activated"
-  @Listen('clickEl')
-  handleListItemClick(event: CustomEvent) {
-    const listItem: HTMLInoListItemElement = event.detail;
-
-    if (!listItem || listItem.tagName !== 'INO-LIST-ITEM') {
-      return;
-    }
-
-    this.deactivateAllItems();
-    listItem.activated = true;
-  }
 
   private deactivateAllItems() {
     const allItems: NodeListOf<HTMLInoListItemElement> =
       this.el.querySelectorAll('ino-list-item');
     allItems.forEach((item) => (item.activated = false));
   }
-
-  /**
-   * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
-   */
-  @Event() openChange!: EventEmitter<boolean>;
 
   private closeDrawer = (e: Event) => {
     e.preventDefault();
