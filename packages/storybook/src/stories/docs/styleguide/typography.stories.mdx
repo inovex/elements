@@ -1,66 +1,82 @@
-import './styles.scss'
-import {Meta} from "@storybook/addon-docs";
+import { Meta, Typeset } from '@storybook/blocks';
 
-<Meta title={'Docs/Styleguide/Typography'}/>
+<Meta title="Docs/Styleguide/Typography" />
 
-<h1 id="typography" class="display">Typography</h1>
+export const typography = {
+  type: {
+    primary: '"Lato", "Verdana", sans-serif',
+  },
+ weight: {
+    regular: '400',
+    medium: '500',
+    bold: '600',
+    extrabold: '700',
+  },
+};
 
-<div class="typo-box">
-  <div class="typo-description">
-    <p class="title-l">Display</p>
-    <p class="body-s">Short, important text or numerals; work best on Large Screens; (optional: choosing a more expressive font e.g. handwritten - script style)</p>
-  </div>
-  <div>
-    <h1 class="display no-top-margin">D1 Display Large</h1>
-    <h2 class="display">D2 Display Medium</h2>
-    <h3 class="display">D3 Display Small</h3>
-  </div>
-</div>
+export const SampleText = 'Lorem ipsum dolor sit amet';
 
-<div class="typo-box">
-  <div class="typo-description">
-    <p class="title-l">Headlines</p>
-    <p class="body-s">Short, high-emphasis text on smaller screens, important regions of content; (optional: can also use an expressive typeface)</p>
-  </div>
-  <div>
-    <h1 class="no-top-margin">H1 Headline Large</h1>
-    <h2>H2 Headline Medium</h2>
-    <h3>H3 Headline Small</h3>
-  </div>
-</div>
+# Typography
 
-<div class="typo-box">
-  <div class="typo-description">
-    <p class="title-l no-top-margin">Titles</p>
-    <p class="body-s">Smaller than Headlines - Usage for medium-emphasis, short text; divide secondary passages of text or secondary content</p>
-  </div>
-  <div>
-    <h4 class="no-top-margin">H4 Title Large</h4>
-    <h5>H5 Title Medium</h5>
-    <h6>H6 Title Small</h6>
-  </div>
-</div>
+Our typography system is designed to establish clear hierarchies, promote readability, and create a coherent visual experience across our digital platforms.
 
-<div class="typo-box">
-  <div class="typo-description">
-    <p class="title-l no-top-margin">Labels</p>
-    <p class="body-s">Text inside components, very small text in the content body e. g. Captions; should enable quick reading at small sizes</p>
-  </div>
-  <div>
-    <div class="label-l">Label Large</div>
-    <div class="label-m">Label Medium</div>
-    <div class="label-s">Label Small</div>
-  </div>
-</div>
+**Fonts**: *Lato, Verdana, sans-serif*
 
-<div class="typo-box">
-  <div class="typo-description">
-    <p class="title-l no-top-margin">Body</p>
-    <p class="body-s">used for longer passages of text</p>
-  </div>
-  <div>
-    <div class="body-l">Body Large</div>
-    <div class="body-m">Body Medium</div>
-    <div class="body-s">Body Small</div>
-  </div>
-</div>
+**Weights:** *400(regular), 500(medium), 600(bold), 700(extrabold)*
+
+### Body
+**Purpose:** Main text for extended reading  
+**Weight:** Regular (400)  
+**Sizes:** Small (12px), Medium (14px), Large (16px)  
+
+<Typeset fontSizes={[12, 14, 16]} fontWeight={typography.weight.regular} sampleText={SampleText} fontFamily={typography.type.primary} />
+
+### Labels
+**Purpose:** Text for UI components and captions  
+**Weight:** Medium (500)  
+**Sizes:** Small (10px), Medium (12px), Large (14px)  
+
+<Typeset fontSizes={[10, 12, 14]} fontWeight={typography.weight.medium} sampleText={SampleText} fontFamily={typography.type.primary} />
+
+### Titles
+**Purpose:** Headings for sections and content divisions  
+**Weight:** Bold (600)   
+**Sizes:** Small (14px), Medium (16px), Large (20px)  
+
+<Typeset fontSizes={[14, 16, 20]} fontWeight={typography.weight.bold} sampleText={SampleText} fontFamily={typography.type.primary} />
+
+### Headlines
+**Purpose:** Attention-grabbing text for key information  
+**Weight:** Regular (400)   
+**Sizes:** Small (25px), Medium (28px), Large (32px)   
+
+<Typeset fontSizes={[25, 28, 32]} fontWeight={typography.weight.regular} sampleText={SampleText} fontFamily={typography.type.primary} />
+
+### Display
+**Purpose:** Impactful text for banners and large displays  
+**Weight:** Extrabold (700)  
+**Sizes:** Small (40px), Medium (51px), Large (64px)  
+
+<Typeset fontSizes={[40, 51, 64]} fontWeight={typography.weight.extrabold} sampleText={SampleText} fontFamily={typography.type.primary} />
+
+### Font Sizes
+Our font sizes from 10px to 64px.
+
+<Typeset
+  fontSizes={[
+    12,
+    14,
+    16,
+    20,
+    25,
+    28,
+    32,
+    40,
+    51,
+    64,
+  ]}
+  fontWeight={typography.weight.extrabold}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
