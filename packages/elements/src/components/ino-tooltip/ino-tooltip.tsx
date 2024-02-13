@@ -30,7 +30,7 @@ export class Tooltip implements ComponentInterface {
   @Element() el!: HTMLInoTooltipElement;
 
   /**
-   * Adds a optional header text to the `ino-tooltip`
+   * Adds an optional header text to the `ino-tooltip`
    */
   @Prop() headerText?: string;
 
@@ -48,17 +48,17 @@ export class Tooltip implements ComponentInterface {
    */
   @Prop() placement: Placement = 'auto';
 
-  /**
-   * Shows an arrow
-   */
-  @Prop() arrow = false;
-
   @Watch('placement')
   async onPlacementChange() {
     this.tooltipInstance?.setProps({
       placement: this.placement,
     });
   }
+
+  /**
+   * Shows an arrow
+   */
+  @Prop() arrow = false;
 
   /**
    * The target id the tooltip belongs to.
@@ -76,6 +76,11 @@ export class Tooltip implements ComponentInterface {
    * Multiple triggers possible by separating them with a space.
    */
   @Prop() trigger: TooltipTrigger = 'mouseenter focus';
+
+  @Watch('trigger')
+  async triggerChanged() {
+    await this.create();
+  }
 
   /**
    * The delay in milliseconds before `ino-tooltip` shows up or hides.
@@ -96,9 +101,18 @@ export class Tooltip implements ComponentInterface {
     });
   }
 
-  @Watch('trigger')
-  async triggerChanged() {
-    await this.create();
+  /**
+   * Disables the `ino-tooltip`
+   */
+  @Prop() disabled: boolean = false;
+
+  @Watch('disabled')
+  onDisabledChange(newVal: boolean) {
+    if (newVal) {
+      this.tooltipInstance?.disable();
+    } else {
+      this.tooltipInstance?.enable();
+    }
   }
 
   /**
@@ -119,15 +133,6 @@ export class Tooltip implements ComponentInterface {
   }
 
   // Lifecycle
-  async connectedCallback() {
-    console.log('connectedCallback');
-    //if (this.target) await this.create();
-  }
-
-  disconnectedCallback() {
-    console.log('disconnectedCallback');
-    //this.dispose();
-  }
 
   async componentDidLoad() {
     await this.create();
@@ -171,6 +176,10 @@ export class Tooltip implements ComponentInterface {
 
     if (this.trigger.includes('hover')) {
       this.target.addEventListener('mouseleave', this.onLeaveTarget.bind(this));
+    }
+
+    if (this.disabled) {
+      this.tooltipInstance?.disable();
     }
   }
 

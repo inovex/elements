@@ -1663,15 +1663,19 @@ export namespace Components {
          */
         "delay"?: number | [number, number];
         /**
+          * Disables the `ino-tooltip`
+         */
+        "disabled": boolean;
+        /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "for"?: string;
         /**
-          * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
+          * Returns the internally used tippy.js instance For more information see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
         /**
-          * Adds a optional header text to the `ino-tooltip`
+          * Adds an optional header text to the `ino-tooltip`
          */
         "headerText"?: string;
         /**
@@ -4170,11 +4174,15 @@ declare namespace LocalJSX {
          */
         "delay"?: number | [number, number];
         /**
+          * Disables the `ino-tooltip`
+         */
+        "disabled"?: boolean;
+        /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "for"?: string;
         /**
-          * Adds a optional header text to the `ino-tooltip`
+          * Adds an optional header text to the `ino-tooltip`
          */
         "headerText"?: string;
         /**
