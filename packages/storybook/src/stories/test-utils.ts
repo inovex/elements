@@ -10,3 +10,15 @@ export async function goToStory(
 
   await page.goto(`/iframe.html?id=${category}-${name}--${story}`);
 }
+
+export function interceptCustomEvent<T>(page: Page, eventName: string) {
+  return page.evaluate((eventName) => {
+    return new Promise<T>((resolve) => {
+      const listener = (data: CustomEvent<T>) => {
+        document.removeEventListener(eventName, listener);
+        resolve(data.detail);
+      };
+      document.addEventListener(eventName, listener);
+    });
+  }, eventName);
+}
