@@ -16,25 +16,25 @@
     <p>inovex Elements</p>
   </div>
   <ino-list role="menubar" slot="content" aria-label="Main Navigation">
-    <ino-nav-item id="m-home" role="menuitem" text="Home" activated="">
+    <ino-nav-item role="menuitem" text="Home">
       <ino-icon icon="home"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen" for="m-home">Home</ino-tooltip>
+      <ino-tooltip [disabled]="isMenuOpen">Home</ino-tooltip>
     </ino-nav-item>
-    <ino-nav-item id="m-discover" role="menuitem" text="Discover">
+    <ino-nav-item role="menuitem" text="Discover">
       <ino-icon icon="discover"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen" for="m-discover">Discover</ino-tooltip>
+      <ino-tooltip [disabled]="isMenuOpen">Discover</ino-tooltip>
     </ino-nav-item>
-    <ino-nav-item id="m-first_steps" role="menuitem" text="First Steps">
+    <ino-nav-item role="menuitem" text="First Steps">
       <ino-icon icon="first_steps"></ino-icon>
       <ino-tooltip [disabled]="isMenuOpen">First Steps</ino-tooltip>
     </ino-nav-item>
-    <ino-nav-item id="m-library"  role="menuitem" text="Library">
+    <ino-nav-item role="menuitem" text="Library">
       <ino-icon icon="library"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen" for="m-library">Library</ino-tooltip>
+      <ino-tooltip [disabled]="isMenuOpen">Library</ino-tooltip>
     </ino-nav-item>
-    <ino-nav-item id="m-employee" role="menuitem" text="About Us">
+    <ino-nav-item role="menuitem" text="About Us">
       <ino-icon icon="employee"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen" for="m-employee">About Us</ino-tooltip>
+      <ino-tooltip [disabled]="isMenuOpen">About Us</ino-tooltip>
     </ino-nav-item>
   </ino-list>
   <ino-list role="menubar" slot="footer" aria-label="Footer Navigation">
@@ -64,14 +64,17 @@
       </div>
 
       <ino-list>
-        <ino-list-item *ngFor="let todo of todos; index as i" [text]="todo.name">
+        <ino-list-item
+          *ngFor="let todo of todos; index as i"
+          [text]="todo.name"
+        >
           <ino-checkbox slot="leading" (click)="delete(todo)"></ino-checkbox>
           <ino-button
             variant="outlined"
             dense="true"
             slot="trailing"
             (click)="delete(todo)"
-          >Delete</ino-button
+            >Delete</ino-button
           >
         </ino-list-item>
       </ino-list>
@@ -86,7 +89,7 @@
 
     <div class="btn-box">
       <ino-button (click)="toggleInputState()"
-      >{{
+        >{{
           this.form.controls['todoName'].disabled ? 'Enable' : 'Disable'
         }}
         Input</ino-button

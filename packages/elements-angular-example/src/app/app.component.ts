@@ -41,7 +41,7 @@ export class AppComponent {
     this.mode = (evt as CustomEvent).detail as ViewModeUnion;
   }
 
-  onOpenChange(evt: Event):void {
-    this.isMenuOpen = (evt as CustomEvent).detail
+  onOpenChange(evt: Event): void {
+    this.isMenuOpen = (evt as CustomEvent).detail;
   }
 }
