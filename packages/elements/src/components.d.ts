@@ -1667,11 +1667,11 @@ export namespace Components {
          */
         "for"?: string;
         /**
-          * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
+          * Returns the internally used tippy.js instance For more information see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
         /**
-          * Adds a optional header text to the `ino-tooltip`
+          * Adds an optional header text to the `ino-tooltip`
          */
         "headerText"?: string;
         /**
@@ -4174,7 +4174,7 @@ declare namespace LocalJSX {
          */
         "for"?: string;
         /**
-          * Adds a optional header text to the `ino-tooltip`
+          * Adds an optional header text to the `ino-tooltip`
          */
         "headerText"?: string;
         /**
