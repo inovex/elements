@@ -5,19 +5,18 @@ interface PatternWrapperProps {
   onMount?: (el: HTMLElement) => () => void;
 }
 
-function PatternWrapper({htmlContent, onMount}: PatternWrapperProps) {
-
+function PatternWrapper({ htmlContent, onMount }: PatternWrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!containerRef.current || !onMount) return;
 
-    if(!containerRef.current || !onMount) return
-
-    return onMount(containerRef.current)
-
+    return onMount(containerRef.current);
   }, []);
 
-  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+  return (
+    <div ref={containerRef} dangerouslySetInnerHTML={{ __html: htmlContent }} />
+  );
 }
 
 export default PatternWrapper;
