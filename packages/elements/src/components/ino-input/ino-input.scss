@@ -17,6 +17,10 @@ ino-input * {
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
 $padding-top: 24px;
+$font-size: 1rem; // 14px
+$font-size-floating-label: 0.857rem; // 12px
+$font-size-dense: 0.857rem; // 12px
+$font-size-dense-floating-label: 0.714rem; // 10px
 
 $icon-padding-to-text: 12px;
 $icon-padding-to-border: 6px;
@@ -25,15 +29,15 @@ $icon-padding-to-bottom-dense: 15px;
 $icon-padding-to-border-dense: 0px;
 
 $filled-input-height: 56px;
-$filled-input-height-dense: 30px;
-$filled-input-padding-dense: calc($padding-top - 22px) 0 0;
+$filled-input-height-dense: fit-content;
+$filled-input-padding-dense: 0 0 2px 1px;
 $filled-selected-text-height-dense: 25px;
 
 $outline-input-height: 40px;
 $outline-input-height-dense: 30px;
 $outline-shape-radius: $outline-input-height / 2;
 $outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius
-  $outline-shape-radius 0;
+$outline-shape-radius 0;
 
 @mixin setIconColors($color) {
   .mdc-text-field__icon {
@@ -184,22 +188,27 @@ ino-input .mdc-text-field--filled {
 // filled dense
 ino-input .mdc-text-field--filled.ino-input--dense {
   @include textfield.density(-1);
-  @include textfield.height($filled-input-height-dense);
   align-items: end;
   overflow: visible;
+  height: $filled-input-height-dense;
 
   .mdc-text-field__input {
     padding: $filled-input-padding-dense;
     height: $filled-selected-text-height-dense;
+    font-size: $font-size-dense;
+    box-sizing: border-box;
   }
 
   .mdc-floating-label {
     display: unset;
     padding-bottom: 2px;
+    font-size: $font-size-dense;
   }
 
   .mdc-floating-label.mdc-floating-label--float-above {
     margin-top: 3px;
+    font-size: $font-size-dense-floating-label;
+    letter-spacing: 0.043rem;
   }
 
   &:has(.mdc-text-field__icon.mdc-text-field__icon--leading) {
@@ -262,6 +271,18 @@ ino-input .mdc-text-field--outlined {
 ino-input .mdc-text-field--outlined.ino-input--dense {
   @include textfield.outlined-height($outline-input-height-dense);
 
+  .mdc-text-field__input {
+    font-size: 0.857rem;
+  }
+
+  .mdc-floating-label {
+    font-size: 0.857rem;
+  }
+
+  .mdc-floating-label.mdc-floating-label--float-above {
+    font-size: 0.714rem;
+  }
+
   &[class*='--with-leading-icon'] .mdc-floating-label {
     left: 21px;
   }
@@ -281,12 +302,13 @@ ino-input[type='number'] {
   @include hideNativeNumberInputArrows();
 
   .arrow-container {
+    align-self: flex-end;
     position: relative;
     display: flex;
     flex-direction: column;
     right: 5px;
-    top: -15%;
-    height: 50%;
+
+    height: 45%;
 
     .ino-num-arrows {
       --ino-icon-height: 5px;
@@ -300,4 +322,29 @@ ino-input[type='number'] {
       }
     }
   }
+
+  .ino-input--dense .arrow-container {
+    bottom: 5px;
+    .ino-num-arrows {
+      --ino-icon-height: 4px;
+      padding: 1px 0;
+    }
+  } 
+
+  .mdc-text-field--outlined .arrow-container {
+    justify-content: center;
+    height: 100%;
+    bottom: 0px;
+    top: 0;
+    right: -5px;
+  } 
+
+  .mdc-text-field--outlined.ino-input--dense .arrow-container {
+    right: -10px;
+
+    .ino-num-arrows {
+      --ino-icon-height: 4px;
+      padding: 1px 0;
+    }
+  } 
 }
