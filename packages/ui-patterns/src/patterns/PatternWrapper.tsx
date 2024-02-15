@@ -1,13 +1,23 @@
-import { forwardRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface PatternWrapperProps {
   htmlContent: string;
+  onMount?: (el: HTMLElement) => () => void;
 }
 
-const PatternWrapper = forwardRef<HTMLDivElement, PatternWrapperProps>(
-  ({ htmlContent }, ref) => (
-    <div ref={ref} dangerouslySetInnerHTML={{ __html: htmlContent }} />
-  ),
-);
+function PatternWrapper({htmlContent, onMount}: PatternWrapperProps) {
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+
+    if(!containerRef.current || !onMount) return
+
+    return onMount(containerRef.current)
+
+  }, []);
+
+  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+}
 
 export default PatternWrapper;
