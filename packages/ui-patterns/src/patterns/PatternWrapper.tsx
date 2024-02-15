@@ -12,7 +12,7 @@ function PatternWrapper({ htmlContent, onMount }: PatternWrapperProps) {
     if (!containerRef.current || !onMount) return;
 
     return onMount(containerRef.current);
-  }, []);
+  }, [onMount]);
 
   return (
     <div ref={containerRef} dangerouslySetInnerHTML={{ __html: htmlContent }} />
