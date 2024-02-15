@@ -30,7 +30,12 @@ ino-nav-item {
     color: var(--nav-item-color);
     @include typography.typo(label-l);
 
+    &__text {
+      display: block !important;
+    }
+
     &__secondary-text {
+      display: block !important;
       @include typography.typo(label-l);
     }
 
