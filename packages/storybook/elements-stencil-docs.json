@@ -11018,7 +11018,7 @@
           "mutable": false,
           "attr": "header-text",
           "reflectToAttr": false,
-          "docs": "Adds a optional header text to the `ino-tooltip`",
+          "docs": "Adds an optional header text to the `ino-tooltip`",
           "docsTags": [],
           "values": [
             {
@@ -11245,7 +11245,7 @@
           },
           "signature": "getTippyInstance() => Promise<any>",
           "parameters": [],
-          "docs": "Returns the internally used tippy.js instance\nFor more informations see: https://atomiks.github.io/tippyjs/",
+          "docs": "Returns the internally used tippy.js instance\nFor more information see: https://atomiks.github.io/tippyjs/",
           "docsTags": []
         }
       ],
