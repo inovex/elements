@@ -36,7 +36,6 @@ ino-nav-item {
 
     &__secondary-text {
       display: block !important;
-      @include typography.typo(label-l);
     }
 
     // icon
