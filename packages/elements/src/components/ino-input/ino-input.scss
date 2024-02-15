@@ -17,6 +17,7 @@ ino-input * {
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
 $padding-top: 24px;
+$padding-top-dense: 12px;
 $font-size: 1rem; // 14px
 $font-size-floating-label: 0.857rem; // 12px
 $font-size-dense: 0.857rem; // 12px
@@ -24,9 +25,9 @@ $font-size-dense-floating-label: 0.714rem; // 10px
 
 $icon-padding-to-text: 12px;
 $icon-padding-to-border: 6px;
-$icon-padding-to-text-dense: 6px;
-$icon-padding-to-bottom-dense: 15px;
-$icon-padding-to-border-dense: 0px;
+$icon-padding-to-text-dense: 5px;
+$icon-padding-to-bottom-dense: 0px;
+$icon-padding-to-border-dense: 2px;
 
 $filled-input-height: 56px;
 $filled-input-height-dense: fit-content;
@@ -209,6 +210,15 @@ ino-input .mdc-text-field--filled.ino-input--dense {
     margin-top: 3px;
     font-size: $font-size-dense-floating-label;
     letter-spacing: 0.043rem;
+  }
+
+  .mdc-text-field__icon {
+    padding: $padding-top-dense 0 0 0;
+
+    ino-icon {
+      --icon-height: 0.8em;
+      --icon-width: 0.8em;
+    }
   }
 
   &:has(.mdc-text-field__icon.mdc-text-field__icon--leading) {
