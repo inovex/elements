@@ -204,7 +204,11 @@ export class Tooltip implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div ref={(el) => this.contentEl = el} class="ino-tooltip__composer" role="tooltip">
+        <div
+          ref={(el) => (this.contentEl = el)}
+          class="ino-tooltip__composer"
+          role="tooltip"
+        >
           <div class="ino-tooltip__inner">
             {this.headerText && <header>{this.headerText}</header>}
             {this.label ?? <slot />}
