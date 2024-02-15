@@ -70,11 +70,11 @@
       "configurations": {
         "ci": {
           "forbidOnly": true,
-          "globalTimeout": 30000,
           "headed": false,
           "quiet": true,
           "passWithNoTests": false,
-          "skipInstall": true
+          "skipInstall": true,
+          "timeout": 30000
         },
         "headless": {
           "headed": false
