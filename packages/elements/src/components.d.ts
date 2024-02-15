@@ -1663,10 +1663,6 @@ export namespace Components {
          */
         "delay"?: number | [number, number];
         /**
-          * Disables the `ino-tooltip`
-         */
-        "disabled": boolean;
-        /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "for"?: string;
@@ -4173,10 +4169,6 @@ declare namespace LocalJSX {
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
          */
         "delay"?: number | [number, number];
-        /**
-          * Disables the `ino-tooltip`
-         */
-        "disabled"?: boolean;
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */

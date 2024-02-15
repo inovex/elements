@@ -567,7 +567,6 @@ export const InoTooltip = /*@__PURE__*/ defineContainer<JSX.InoTooltip>('ino-too
   'for',
   'trigger',
   'delay',
-  'disabled',
   'label'
 ]);
 

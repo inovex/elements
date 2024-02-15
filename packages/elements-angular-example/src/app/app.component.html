@@ -18,23 +18,23 @@
   <ino-list role="menubar" slot="content" aria-label="Main Navigation">
     <ino-nav-item role="menuitem" text="Home">
       <ino-icon icon="home"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen">Home</ino-tooltip>
+      <ino-tooltip *ngIf="!isMenuOpen">Home</ino-tooltip>
     </ino-nav-item>
     <ino-nav-item role="menuitem" text="Discover">
       <ino-icon icon="discover"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen">Discover</ino-tooltip>
+      <ino-tooltip *ngIf="!isMenuOpen">Discover</ino-tooltip>
     </ino-nav-item>
     <ino-nav-item role="menuitem" text="First Steps">
       <ino-icon icon="first_steps"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen">First Steps</ino-tooltip>
+      <ino-tooltip *ngIf="!isMenuOpen">First Steps</ino-tooltip>
     </ino-nav-item>
     <ino-nav-item role="menuitem" text="Library">
       <ino-icon icon="library"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen">Library</ino-tooltip>
+      <ino-tooltip *ngIf="!isMenuOpen">Library</ino-tooltip>
     </ino-nav-item>
     <ino-nav-item role="menuitem" text="About Us">
       <ino-icon icon="employee"></ino-icon>
-      <ino-tooltip [disabled]="isMenuOpen">About Us</ino-tooltip>
+      <ino-tooltip *ngIf="!isMenuOpen">About Us</ino-tooltip>
     </ino-nav-item>
   </ino-list>
   <ino-list role="menubar" slot="footer" aria-label="Footer Navigation">

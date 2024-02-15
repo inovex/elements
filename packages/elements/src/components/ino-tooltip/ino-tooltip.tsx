@@ -26,6 +26,7 @@ import { TooltipTrigger, TippyThemes } from '../types';
 export class Tooltip implements ComponentInterface {
   private tooltipInstance!: Instance;
   private target!: HTMLElement | null;
+  private contentEl!: HTMLElement | null;
 
   @Element() el!: HTMLInoTooltipElement;
 
@@ -102,20 +103,6 @@ export class Tooltip implements ComponentInterface {
   }
 
   /**
-   * Disables the `ino-tooltip`
-   */
-  @Prop() disabled: boolean = false;
-
-  @Watch('disabled')
-  onDisabledChange(newVal: boolean) {
-    if (newVal) {
-      this.tooltipInstance?.disable();
-    } else {
-      this.tooltipInstance?.enable();
-    }
-  }
-
-  /**
    * The text shown in the tooltip.
    *
    * [DEPRECATED] Please use the default slot instead
@@ -133,6 +120,10 @@ export class Tooltip implements ComponentInterface {
   }
 
   // Lifecycle
+
+  disconnectedCallback() {
+    this.dispose();
+  }
 
   async componentDidLoad() {
     await this.create();
@@ -160,7 +151,7 @@ export class Tooltip implements ComponentInterface {
     }
 
     const options = {
-      content: this.el,
+      content: this.contentEl,
       duration: 100,
       delay: this.delay,
       placement: this.placement,
@@ -176,10 +167,6 @@ export class Tooltip implements ComponentInterface {
 
     if (this.trigger.includes('hover')) {
       this.target.addEventListener('mouseleave', this.onLeaveTarget.bind(this));
-    }
-
-    if (this.disabled) {
-      this.tooltipInstance?.disable();
     }
   }
 
@@ -217,7 +204,7 @@ export class Tooltip implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div class="ino-tooltip__composer" role="tooltip">
+        <div ref={(el) => this.contentEl = el} class="ino-tooltip__composer" role="tooltip">
           <div class="ino-tooltip__inner">
             {this.headerText && <header>{this.headerText}</header>}
             {this.label ?? <slot />}

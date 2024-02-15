@@ -1319,7 +1319,7 @@ export declare interface InoTextarea extends Components.InoTextarea {
 
 
 @ProxyCmp({
-  inputs: ['arrow', 'colorScheme', 'delay', 'disabled', 'for', 'headerText', 'label', 'placement', 'trigger'],
+  inputs: ['arrow', 'colorScheme', 'delay', 'for', 'headerText', 'label', 'placement', 'trigger'],
   methods: ['getTippyInstance']
 })
 @Component({
@@ -1327,7 +1327,7 @@ export declare interface InoTextarea extends Components.InoTextarea {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['arrow', 'colorScheme', 'delay', 'disabled', 'for', 'headerText', 'label', 'placement', 'trigger'],
+  inputs: ['arrow', 'colorScheme', 'delay', 'for', 'headerText', 'label', 'placement', 'trigger'],
 })
 export class InoTooltip {
   protected el: HTMLElement;
