@@ -73,8 +73,7 @@
           "headed": false,
           "quiet": true,
           "passWithNoTests": false,
-          "skipInstall": true,
-          "timeout": 30000
+          "skipInstall": true
         },
         "headless": {
           "headed": false
