@@ -17,7 +17,7 @@ describe('InoCard', () => {
       card = page.body.querySelector(CARD_SELECTOR);
       card.setAttribute('selected', 'true');
       await page.waitForChanges();
-    })
+    });
 
     it('should render with selected set to true', async () => {
       const div = card.querySelector('div');
@@ -38,7 +38,7 @@ describe('InoCard', () => {
         html: INO_CARD,
       });
       card = page.body.querySelector(CARD_SELECTOR);
-    })
+    });
 
     it('should emit a clickEl event upon interacting with the card', async () => {
       const clickSpy = jest.fn();
