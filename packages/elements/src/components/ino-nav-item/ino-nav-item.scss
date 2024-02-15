@@ -28,13 +28,15 @@ ino-nav-item {
     height: 60px;
     background-color: var(--nav-item-background-color);
     color: var(--nav-item-color);
-    @include typography.typo(label-l);
+    font-size: 16px; // 2px bigger than typo(label-l)
+    font-weight: 500; // same as typo(label-l)
 
     &__text {
       display: block !important;
     }
 
     &__secondary-text {
+      @include typography.typo(label-l);
       display: block !important;
     }
 
