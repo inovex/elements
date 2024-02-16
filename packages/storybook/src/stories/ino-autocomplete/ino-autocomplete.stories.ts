@@ -3,7 +3,7 @@ import { Components, KeyValue } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import './ino-autocomplete.scss';
-import { AutoCompleteStoryOptions } from './ino-autocomplete-story-options';
+import { AutoCompleteStoryOptions } from './utils';
 
 const inputHandler = (ev: CustomEvent<KeyValue>) => {
   (ev.target as HTMLInoAutocompleteElement).value = ev.detail;

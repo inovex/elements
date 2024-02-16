@@ -1,7 +1,7 @@
 import { expect, Locator, test } from '@playwright/test';
 import { goToStory } from '../test-utils';
 import { KeyValue } from '@inovex.de/elements';
-import { AutoCompleteStoryOptions } from './ino-autocomplete-story-options';
+import { AutoCompleteStoryOptions } from './utils';
 
 test.describe('ino-autocomplete', () => {
   let inputEl: Locator;
