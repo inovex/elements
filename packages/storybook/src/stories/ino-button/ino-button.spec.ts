@@ -5,7 +5,7 @@ test.describe('ino-button', () => {
   let inoButton: Locator;
 
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['buttons', 'ino-button', 'default']);
+    await goToStory(page, ['Buttons', 'ino-button', 'default']);
     inoButton = page.locator('ino-button');
   });
 
