@@ -38,7 +38,11 @@ export class NavDrawer implements ComponentInterface {
    */
   private drawerInstance: MDCDrawer;
   private drawerEl: HTMLElement;
-  private reinitialize: boolean;
+  /**
+   * We need this flag because the MDCDrawer needs to initialize after ui updates.
+   * The property watcher is executed before rendering and initializing the MDCDrawer every component update is not needed.
+   */
+  private reinitializeAfterVariantChange: boolean;
   @Element() el!: HTMLInoNavDrawerElement;
 
   /**
@@ -71,7 +75,7 @@ export class NavDrawer implements ComponentInterface {
     } else {
       this.deactivateMobileMode();
     }
-    this.reinitialize = true;
+    this.reinitializeAfterVariantChange = true;
   }
 
   /**
@@ -103,10 +107,10 @@ export class NavDrawer implements ComponentInterface {
   }
 
   componentDidUpdate() {
-    if (this.reinitialize) {
+    if (this.reinitializeAfterVariantChange) {
       this.drawerInstance?.destroy();
       this.initDrawerInstance();
-      this.reinitialize = false;
+      this.reinitializeAfterVariantChange = false;
     }
   }
 
