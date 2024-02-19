@@ -68,6 +68,13 @@
       },
       "defaultConfiguration": "headless",
       "configurations": {
+        "ci": {
+          "forbidOnly": true,
+          "headed": false,
+          "quiet": true,
+          "passWithNoTests": false,
+          "skipInstall": true
+        },
         "headless": {
           "headed": false
         },

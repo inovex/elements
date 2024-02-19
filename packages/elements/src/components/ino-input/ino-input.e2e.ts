@@ -95,6 +95,34 @@ describe('InoInput', () => {
 
       expect(valueChangedSpy).toHaveReceivedEventDetail('-1');
     });
+
+    it('should emit min value when clicking on down and new value is lower than min', async () => {
+      inoInputEl.setAttribute('type', 'number');
+      inoInputEl.setAttribute('min', '1');
+      await page.waitForChanges();
+
+      const valueChangedSpy = await page.spyOnEvent('valueChange');
+
+      await page.evaluate(() => {
+        (document.querySelector('.down') as HTMLElement).click();
+      });
+
+      expect(valueChangedSpy).toHaveReceivedEventDetail('1');
+    });
+
+    it('should emit max value when clicking on up arrow and new value is greater than max', async () => {
+      inoInputEl.setAttribute('type', 'number');
+      inoInputEl.setAttribute('max', '0');
+      await page.waitForChanges();
+
+      const valueChangedSpy = await page.spyOnEvent('valueChange');
+
+      await page.evaluate(() => {
+        (document.querySelector('.up') as HTMLElement).click();
+      });
+
+      expect(valueChangedSpy).toHaveReceivedEventDetail('0');
+    });
   });
 
   describe('Input validation', () => {
