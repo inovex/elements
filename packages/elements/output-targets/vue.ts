@@ -68,8 +68,7 @@ export default fixedVueOutputTarget({
         'ino-control-item',
       ],
       targetAttr: 'checked',
-      event: 'v-checked-change',
-      externalEvent: 'checkedChange',
+      event: 'checked-change',
     },
     {
       elements: [
@@ -84,20 +83,17 @@ export default fixedVueOutputTarget({
         'ino-textarea',
       ],
       targetAttr: 'value',
-      event: 'v-value-change',
-      externalEvent: 'valueChange',
+      event: 'value-change',
     },
     {
       elements: 'ino-range',
       targetAttr: 'valueStart',
-      event: 'v-value-start-change',
-      externalEvent: 'valueStartChange',
+      event: 'value-start-change',
     },
     {
       elements: 'ino-range',
       targetAttr: 'valueEnd',
-      event: 'v-value-end-change',
-      externalEvent: 'valueEndChange',
+      event: 'value-end-change',
     },
   ],
 });
