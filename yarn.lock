@@ -5157,7 +5157,7 @@
   resolved "https://registry.npmjs.org/@stencil/angular-output-target/-/angular-output-target-0.8.4.tgz#0e838d1087e07ed5fc6c08b3f9c6fd52973b4a38"
   integrity sha512-QvmHTueXXs5vB9W2L12uEzFmAuR8sqATJV2b+SCFmYsjJSaymiSqR3dKo2wnr0tZiTgU1t16BWaUKiSh3wPXpw==
 
-"@stencil/core@^4.9.1":
+"@stencil/core@^4.12.2":
   version "4.12.2"
   resolved "https://registry.npmjs.org/@stencil/core/-/core-4.12.2.tgz#3811a30c63b7e18a400d65ca41acb9216ad256dc"
   integrity sha512-WEMpoqwMV4hY/ab2z9NxRhSeZwuKEugjyn6Vd+qA9xqZh6VNUL27QbP8vCa7IeqD4Zql4JBtKu3lVuBHutWE6w==
@@ -16769,7 +16769,7 @@ puppeteer-core@^2.1.1:
     rimraf "^2.6.1"
     ws "^6.1.0"
 
-puppeteer@^21.7.0:
+puppeteer@^21.11.0:
   version "21.11.0"
   resolved "https://registry.npmjs.org/puppeteer/-/puppeteer-21.11.0.tgz#46e64067b742b0e17a3b8dc668bc437f45cdd9f1"
   integrity sha512-9jTHuYe22TD3sNxy0nEIzC7ZrlRnDgeX3xPkbS7PnbdwYjl2o/z/YuCrRBwezdKpbTDTJ4VqIggzNyeRcKq3cg==
