@@ -2040,6 +2040,7 @@ declare global {
     interface HTMLInoDialogElementEventMap {
         "close": DialogCloseAction;
         "action": DialogSubmitAction;
+        "dialogOpen": void;
     }
     /**
      * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
