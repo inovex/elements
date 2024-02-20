@@ -18,11 +18,41 @@ const activeSectionChanged = (e: CustomEvent<string>) => {
 
 const renderSection = (name: string, counter: number, key: number) => {
   return html`
-    <ino-nav-menu-section 
-      section-name="${name}" 
+    <ino-nav-menu-section
+      section-name="${name}"
       section-id="${buildSectionId(name)}-${counter}"
       order-position="${key}">
-      <p>
+      <p class="section">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.
+
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.
+
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+        ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.
+
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
         nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
         sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
@@ -45,6 +75,7 @@ const inoNavMenuMeta = {
     return html`
     <aside>
       <ino-nav-menu
+        class="menu"
         menu-title="${args.menuTitle}"
         active-section="${args.activeSection}"
         sections-container-id="sections-playground-${templateCounter}"
@@ -53,7 +84,7 @@ const inoNavMenuMeta = {
         @activeSectionChanged="${activeSectionChanged}"
       ></ino-nav-menu>
     </aside>
-    <div class="sections" id="sections-playground-${templateCounter}">
+    <main class="sections" id="sections-playground-${templateCounter}">
       <ino-switch
         checked="true"
         name="sticky-switch"
@@ -62,7 +93,7 @@ const inoNavMenuMeta = {
         Show Stickyness of ino-nav-menu
       </ino-switch>
       ${sections.map((sectionName, index) => renderSection(sectionName, templateCounter, index))}
-    </div>
+    </main>
   `},
   argTypes: {
     intersectionObserverConfig: {
@@ -108,9 +139,9 @@ export const Sections = Story({
         active-section="${args.activeSection}"
         sections-container-id="sections-playground-${templateCounter}"
         @activeSectionChanged="${activeSectionChanged}"
-      ></ino-nav-menu> 
+      ></ino-nav-menu>
     </aside>
-    <div class="sections" id="sections-playground-${templateCounter}">
+    <main class="sections" id="sections-playground-${templateCounter}">
       <ino-switch
         checked="true"
         name="sticky-switch"
@@ -119,7 +150,7 @@ export const Sections = Story({
         Show stickyness of ino-nav-menu
       </ino-switch>
       ${sections.map((sectionName, index) => renderSection(sectionName, templateCounter, index))}
-    </div>
+    </main>
   `},
   args: {
     menuTitle: 'Sections',
@@ -171,7 +202,7 @@ export const Loading = Story({
         menu-title="${args.menuTitle}"
         @activeSectionChanged="${activeSectionChanged}"
         loading="${args.loading}"
-      ></ino-nav-menu> 
+      ></ino-nav-menu>
     </aside>
     <div class="sections" id="sections-playground-${templateCounter}">
       <ino-switch
