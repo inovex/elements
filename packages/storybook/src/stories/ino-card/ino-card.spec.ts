@@ -13,7 +13,7 @@ test.describe('ino-card', () => {
     const div = inoCard.locator('div').first();
     await inoCard.evaluate((card) => card.setAttribute('selected', 'true'));
 
-    const classList= await div.evaluate((e) => e.classList);
+    const classList = await div.evaluate((e) => e.classList);
     await expect(inoCard).toHaveAttribute('selected');
     expect(Object.values(classList)).toContainEqual('ino-card--selected');
   });
