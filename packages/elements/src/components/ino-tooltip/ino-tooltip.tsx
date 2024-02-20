@@ -26,11 +26,12 @@ import { TooltipTrigger, TippyThemes } from '../types';
 export class Tooltip implements ComponentInterface {
   private tooltipInstance!: Instance;
   private target!: HTMLElement | null;
+  private contentEl!: HTMLElement | null;
 
   @Element() el!: HTMLInoTooltipElement;
 
   /**
-   * Adds a optional header text to the `ino-tooltip`
+   * Adds an optional header text to the `ino-tooltip`
    */
   @Prop() headerText?: string;
 
@@ -48,17 +49,17 @@ export class Tooltip implements ComponentInterface {
    */
   @Prop() placement: Placement = 'auto';
 
-  /**
-   * Shows an arrow
-   */
-  @Prop() arrow = false;
-
   @Watch('placement')
   async onPlacementChange() {
     this.tooltipInstance?.setProps({
       placement: this.placement,
     });
   }
+
+  /**
+   * Shows an arrow
+   */
+  @Prop() arrow = false;
 
   /**
    * The target id the tooltip belongs to.
@@ -76,6 +77,11 @@ export class Tooltip implements ComponentInterface {
    * Multiple triggers possible by separating them with a space.
    */
   @Prop() trigger: TooltipTrigger = 'mouseenter focus';
+
+  @Watch('trigger')
+  async triggerChanged() {
+    await this.create();
+  }
 
   /**
    * The delay in milliseconds before `ino-tooltip` shows up or hides.
@@ -96,11 +102,6 @@ export class Tooltip implements ComponentInterface {
     });
   }
 
-  @Watch('trigger')
-  async triggerChanged() {
-    await this.create();
-  }
-
   /**
    * The text shown in the tooltip.
    *
@@ -111,7 +112,7 @@ export class Tooltip implements ComponentInterface {
 
   /**
    * Returns the internally used tippy.js instance
-   * For more informations see: https://atomiks.github.io/tippyjs/
+   * For more information see: https://atomiks.github.io/tippyjs/
    */
   @Method()
   async getTippyInstance(): Promise<any> {
@@ -119,6 +120,10 @@ export class Tooltip implements ComponentInterface {
   }
 
   // Lifecycle
+
+  disconnectedCallback() {
+    this.dispose();
+  }
 
   async componentDidLoad() {
     await this.create();
@@ -128,13 +133,14 @@ export class Tooltip implements ComponentInterface {
     this.for ? document.getElementById(this.for) : this.el.parentElement;
 
   private async create() {
-    await this.dispose();
+    this.dispose();
 
     this.target = this.retrieveTarget();
 
-    if (!this.target) {
-      // Wait 1 sec for the host element to be rendered
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Wait up to 1 sec for the host element to be rendered
+    for (let i = 0; i < 5; i++) {
+      if (this.target) break;
+      await new Promise((resolve) => setTimeout(resolve, 200));
       this.target = this.retrieveTarget();
     }
 
@@ -145,7 +151,7 @@ export class Tooltip implements ComponentInterface {
     }
 
     const options = {
-      content: this.el,
+      content: this.contentEl,
       duration: 100,
       delay: this.delay,
       placement: this.placement,
@@ -164,9 +170,9 @@ export class Tooltip implements ComponentInterface {
     }
   }
 
-  private async dispose() {
+  private dispose() {
     if (this.tooltipInstance) {
-      await this.tooltipInstance.destroy();
+      this.tooltipInstance.destroy();
 
       this.target.removeEventListener('keyup', this.onEnterTarget.bind(this));
       this.target.removeEventListener(
@@ -198,7 +204,11 @@ export class Tooltip implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div class="ino-tooltip__composer" role="tooltip">
+        <div
+          ref={(el) => (this.contentEl = el)}
+          class="ino-tooltip__composer"
+          role="tooltip"
+        >
           <div class="ino-tooltip__inner">
             {this.headerText && <header>{this.headerText}</header>}
             {this.label ?? <slot />}
