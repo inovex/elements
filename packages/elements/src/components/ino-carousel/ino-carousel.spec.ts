@@ -17,18 +17,18 @@ describe('InoCarousel', () => {
   beforeEach(async () => {
     page = await newSpecPage({
       components: [InoCarousel, InoCarouselSlide, IconButton],
-      html:`<ino-carousel value="a">
+      html: `<ino-carousel value="a">
       <ino-carousel-slide value="a"></ino-carousel-slide>
       <ino-carousel-slide value="b"></ino-carousel-slide>
       <ino-carousel-slide value="c"></ino-carousel-slide>
-    </ino-carousel>`
+    </ino-carousel>`,
     });
 
     eventSpy.mockClear();
     inoCarousel = page.body.querySelector(CAROUSEL);
     iconArrowLeft = page.body.querySelector(LEFT_ARROW_SELECTOR);
     iconArrowRight = page.body.querySelector(RIGHT_ARROW_SELECTOR);
-    page.win.addEventListener('valueChange', eventSpy)
+    page.win.addEventListener('valueChange', eventSpy);
   });
 
   async function simulateIconClick(icon: 'Left' | 'Right'): Promise<void> {

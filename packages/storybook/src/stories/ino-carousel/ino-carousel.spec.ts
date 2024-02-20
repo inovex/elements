@@ -11,7 +11,9 @@ test.describe('ino-carousel', () => {
   });
 
   test('should render with default values', async () => {
-    await expect(inoCarousel.locator('.ino-carousel-slide--selected')).toBeVisible();
+    await expect(
+      inoCarousel.locator('.ino-carousel-slide--selected'),
+    ).toBeVisible();
   });
 
   test('should hide the buttons if inoHideButtons is set to true', async () => {
