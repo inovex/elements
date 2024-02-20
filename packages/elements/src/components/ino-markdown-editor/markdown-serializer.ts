@@ -14,6 +14,7 @@ import Blockquote from '@tiptap/extension-blockquote';
 import Heading from '@tiptap/extension-heading';
 import HorizontalRule from '@tiptap/extension-horizontal-rule';
 import Paragraph from '@tiptap/extension-paragraph';
+import Text from '@tiptap/extension-text';
 import OrderedList from '@tiptap/extension-ordered-list';
 import BulletList from './extensions/bullet_list';
 import ListItem from '@tiptap/extension-list-item';

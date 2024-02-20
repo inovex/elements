@@ -44,4 +44,7 @@ export const config: Config = {
     }),
   ],
   preamble: 'Crafted with ❤ by inovex GmbH',
+  testing: {
+    setupFilesAfterEnv: ['./setupJest.ts']
+  },
 };
