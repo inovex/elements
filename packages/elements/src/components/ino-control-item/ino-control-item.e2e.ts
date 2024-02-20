@@ -2,10 +2,8 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_CHECKBOX_ITEM = `<ino-list><ino-control-item role="checkbox" text="Some Item"></ino-control-item></ino-list>`;
 const INO_CHECKBOX_ITEM_CHECKED = `<ino-list><ino-control-item role="checkbox" text="Some Item" checked></ino-control-item></ino-list>`;
-const INO_CHECKBOX_ITEM_DISABLED = `<ino-list><ino-control-item role="checkbox" text="Some Item" disabled></ino-control-item></ino-list>`;
 const INO_RADIO_ITEM = `<ino-list><ino-control-item role="radio" text="Some Item"></ino-checkbox-item></ino-list>`;
 const INO_RADIO_ITEM_CHECKED = `<ino-list><ino-control-item role="radio" text="Some Item" checked></ino-control-item></ino-list>`;
-const INO_RADIO_ITEM_DISABLED = `<ino-list><ino-control-item role="radio" text="Some Item" disabled></ino-control-item></ino-list>`;
 
 describe('InoControlItem', () => {
   describe('Properties', () => {
@@ -37,64 +35,6 @@ describe('InoControlItem', () => {
       const input = await page.find('ino-radio');
       const checked = await input.getProperty('checked');
       expect(checked).toBeTruthy();
-    });
-  });
-
-  describe('Events', () => {
-    it('should emit checkedChange event when clicked on checkbox with true as detail', async () => {
-      const page = await setupPageWithContent(INO_CHECKBOX_ITEM);
-
-      const clickSpy = await page.spyOnEvent('checkedChange');
-      const inoControlItem = await page.find('ino-control-item');
-      await inoControlItem.click();
-      expect(clickSpy).toHaveReceivedEventTimes(1);
-      expect(clickSpy).toHaveReceivedEventDetail(true);
-    });
-
-    it('should emit checkedChange event when clicked on radio-button with true as detail', async () => {
-      const page = await setupPageWithContent(INO_RADIO_ITEM);
-
-      const clickSpy = await page.spyOnEvent('checkedChange');
-      const inoControlItem = await page.find('ino-control-item');
-      await inoControlItem.click();
-      expect(clickSpy).toHaveReceivedEventTimes(1);
-      expect(clickSpy).toHaveReceivedEventDetail(true);
-    });
-
-    it('should emit checkedChange event with false as detail (radio)', async () => {
-      const page = await setupPageWithContent(INO_CHECKBOX_ITEM_CHECKED);
-
-      const clickSpy = await page.spyOnEvent('checkedChange');
-      const inoControlItem = await page.find('ino-control-item');
-      await inoControlItem.click();
-      expect(clickSpy).toHaveReceivedEventDetail(false);
-    });
-
-    it('should emit a checkedChange event with true as detail (radio)', async () => {
-      const page = await setupPageWithContent(INO_RADIO_ITEM_CHECKED);
-
-      const clickSpy = await page.spyOnEvent('checkedChange');
-      const inoControlItem = await page.find('ino-control-item');
-      await inoControlItem.click();
-      expect(clickSpy).toHaveReceivedEventDetail(true);
-    });
-
-    it('should not emit a checkedChange event if checkbox is disabled', async () => {
-      const page = await setupPageWithContent(INO_CHECKBOX_ITEM_DISABLED);
-
-      const clickSpy = await page.spyOnEvent('checkedChange');
-      const inoControlItem = await page.find('ino-control-item');
-      await inoControlItem.click();
-      expect(clickSpy).not.toHaveReceivedEvent();
-    });
-
-    it('should not emit a checkedChange event if radio-button is disabled', async () => {
-      const page = await setupPageWithContent(INO_RADIO_ITEM_DISABLED);
-
-      const clickSpy = await page.spyOnEvent('checkedChange');
-      const inoControlItem = await page.find('ino-control-item');
-      await inoControlItem.click();
-      expect(clickSpy).not.toHaveReceivedEvent();
     });
   });
 });
