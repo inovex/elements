@@ -13,6 +13,9 @@ export const config: Config = {
     // we need this flag to enable our components to be lazy loaded in vite environments (e.g. our storybook)
     // see: https://github.com/storybookjs/storybook/issues/25704
     experimentalImportInjection: true,
+    appendChildSlotFix: true,
+    enableImportInjection: true,
+    lifecycleDOMEvents:true,
   },
   globalScript: join(__dirname, 'src/util/import-fonts.ts'),
   globalStyle: join(__dirname, 'src/global/styles.scss'),
@@ -43,5 +46,10 @@ export const config: Config = {
       includePaths: ['../../node_modules'].map((d) => join(__dirname, d)),
     }),
   ],
+  testing: {
+    transformIgnorePatterns: [
+      'node_modules/?!(@material)/'
+    ],
+  },
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
