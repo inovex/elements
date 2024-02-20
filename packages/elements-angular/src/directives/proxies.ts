@@ -823,6 +823,32 @@ into the viewport. This event can be utilized to update the `activeSection` prop
 
 
 @ProxyCmp({
+  inputs: ['isActive', 'isLoading', 'sectionId', 'sectionTitle']
+})
+@Component({
+  selector: 'ino-nav-menu-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['isActive', 'isLoading', 'sectionId', 'sectionTitle'],
+})
+export class InoNavMenuItem {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['itemClick']);
+  }
+}
+
+
+export declare interface InoNavMenuItem extends Components.InoNavMenuItem {
+
+  itemClick: EventEmitter<CustomEvent<string>>;
+}
+
+
+@ProxyCmp({
   inputs: ['orderPosition', 'sectionId', 'sectionName', 'showTitle']
 })
 @Component({
@@ -842,11 +868,13 @@ export class InoNavMenuSection {
 }
 
 
+import type { SectionReadyEvent as IInoNavMenuSectionSectionReadyEvent } from '@inovex.de/elements';
+
 export declare interface InoNavMenuSection extends Components.InoNavMenuSection {
   /**
    * Emits the section ID on finished loading.
    */
-  sectionReady: EventEmitter<CustomEvent<{key: number, id: string, title: string}>>;
+  sectionReady: EventEmitter<CustomEvent<IInoNavMenuSectionSectionReadyEvent>>;
 }
 
 

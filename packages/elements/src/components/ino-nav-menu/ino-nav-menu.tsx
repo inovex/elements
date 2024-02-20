@@ -309,8 +309,7 @@ export class NavMenu implements ComponentInterface {
     }
   };
 
-  private handleAnchorClick = (event: MouseEvent, sectionId: string) => {
-    event.preventDefault();
+  private handleAnchorClick = (sectionId: string) => {
     if (sectionExists(sectionId)) {
       addAnchorToLocation(sectionId);
       this.scrollToSection(sectionId);
@@ -332,60 +331,25 @@ export class NavMenu implements ComponentInterface {
     );
   };
 
-  private renderSectionPoints = () => {
-    if(Object.keys(this.sectionsIntern).length <= 0) {
-      return null
-    }
-
-    const sectionEls = Object.values(this.sectionsIntern).map((section, index) => {
-      return (
-        <li
-          class={{
-            'ino-nav-menu__sections__section': true,
-            'ino-nav-menu__sections__section--active':
-              this.activeSection === section.id,
-          }}
-          key={index}
-        >
-          <a
-            href={`#${section.id}`}
-            onClick={(e) => this.handleAnchorClick(e, section.id)}
-          >
-            {section.title}
-          </a>
-        </li>
-      )
-    })
-    return sectionEls
-  }
-
-  private renderLoadingSkeleton = () => {
-    // 3 placeholder Elements with loading animation
-    const n = 3;
-
-    const skeletonLoaderElements = Array.from({ length: n }, (_) => {
-      return (
-      <li class="ino-nav-menu__sections__section">
-        <div class="skeleton-loader"></div>
-      </li>
-    )});
-
-    return skeletonLoaderElements;
-  }
-
   render() {
-
     return (
       <Host>
-        <nav class="ino-nav-menu" style={{ top: DEFAULT_SCROLL_OFFSET + 'px' }}>
+        <nav
+          class="ino-nav-menu"
+          role="menu"
+          style={{ top: DEFAULT_SCROLL_OFFSET + 'px' }}
+        >
           <h3 class="ino-nav-menu__title">{this.menuTitle}</h3>
-            <ul class="ino-nav-menu__sections">
-              {this.loading?
-               this.renderLoadingSkeleton()
-                :
-                this.renderSectionPoints()
-              }
-            </ul>
+          <ul class="ino-nav-menu__sections">
+            {Object.values(this.sectionsIntern).map((section) => (
+              <ino-nav-menu-item
+                sectionId={section.id}
+                sectionTitle={section.title}
+                isActive={this.activeSection === section.id}
+                onItemClick={ev => this.handleAnchorClick(ev.detail)}
+              />
+            ))}
+          </ul>
         </nav>
         <slot></slot>
       </Host>

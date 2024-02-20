@@ -38,6 +38,7 @@ export const InoMenu = /*@__PURE__*/createReactComponent<JSX.InoMenu, HTMLInoMen
 export const InoNavDrawer = /*@__PURE__*/createReactComponent<JSX.InoNavDrawer, HTMLInoNavDrawerElement>('ino-nav-drawer');
 export const InoNavItem = /*@__PURE__*/createReactComponent<JSX.InoNavItem, HTMLInoNavItemElement>('ino-nav-item');
 export const InoNavMenu = /*@__PURE__*/createReactComponent<JSX.InoNavMenu, HTMLInoNavMenuElement>('ino-nav-menu');
+export const InoNavMenuItem = /*@__PURE__*/createReactComponent<JSX.InoNavMenuItem, HTMLInoNavMenuItemElement>('ino-nav-menu-item');
 export const InoNavMenuSection = /*@__PURE__*/createReactComponent<JSX.InoNavMenuSection, HTMLInoNavMenuSectionElement>('ino-nav-menu-section');
 export const InoOption = /*@__PURE__*/createReactComponent<JSX.InoOption, HTMLInoOptionElement>('ino-option');
 export const InoOptionGroup = /*@__PURE__*/createReactComponent<JSX.InoOptionGroup, HTMLInoOptionGroupElement>('ino-option-group');

@@ -3,7 +3,6 @@
 @use '../base/animation' as animation;
 
 $sideBorderWidth: 2px;
-$borderRadius: 14px;
 
 ino-nav-menu {
   position: sticky;
@@ -16,7 +15,7 @@ ino-nav-menu {
   .ino-nav-menu .ino-nav-menu__title {
     @include typography.typo('body-l');
     font-weight: bold;
-    margin: 0px 0 15px;
+    margin: 0 0 15px;
     padding: 0 10px;
   }
 
@@ -26,46 +25,5 @@ ino-nav-menu {
     display: flex;
     flex-direction: column;
     gap: 12px;
-  }
-
-  .ino-nav-menu .ino-nav-menu__sections__section {
-    list-style: none;
-    position: relative;
-    width: 100%;
-
-    a {
-      @include typography.typo('body-m');
-      padding: 2px 35px 3px 12px;
-      text-decoration: none;
-      word-break: break-all;
-      display: flex;
-      border-bottom-right-radius: $borderRadius;
-      color: theme.$black;
-    }
-
-    & .skeleton-loader {
-      @include animation.skeleton-loading;
-      border-bottom-right-radius: $borderRadius;
-    }
-  }
-
-  // needs a set height to display loading
-  .ino-nav-menu .ino-nav-menu__sections__section:has(.skeleton-loader){
-    height: 27px;
-  }
-
-  .ino-nav-menu .ino-nav-menu__sections__section:hover a {
-    background-color: theme.$n-1;
-  }
-
-  .ino-nav-menu .ino-nav-menu__sections__section--active {
-    border-left: $sideBorderWidth solid theme.$p-6;
-    transform: translateX(#{-1 * $sideBorderWidth});
-
-    a,
-    &:hover a {
-      background-color: theme.$n-2;
-      color: theme.$p-6;
-    }
   }
 }

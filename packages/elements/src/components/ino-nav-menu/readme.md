@@ -46,6 +46,19 @@ Type: `Promise<void>`
 
 
 
+## Dependencies
+
+### Depends on
+
+- [ino-nav-menu-item](../ino-nav-menu-item)
+
+### Graph
+```mermaid
+graph TD;
+  ino-nav-menu --> ino-nav-menu-item
+  style ino-nav-menu fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

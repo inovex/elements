@@ -8,10 +8,12 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
+import { SectionReadyEvent } from "./components/ino-nav-menu-section/ino-nav-menu-section";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 export { Placement, Props } from "tippy.js";
+export { SectionReadyEvent } from "./components/ino-nav-menu-section/ino-nav-menu-section";
 export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -1126,6 +1128,12 @@ export namespace Components {
          */
         "sectionsContainerId"?: string;
     }
+    interface InoNavMenuItem {
+        "isActive": boolean;
+        "isLoading": boolean;
+        "sectionId": string;
+        "sectionTitle": string;
+    }
     /**
      * This component is designed to construct sections specifically intended
      * for use with the `ino-nav-menu` component.
@@ -1821,6 +1829,10 @@ export interface InoNavMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoNavMenuElement;
 }
+export interface InoNavMenuItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoNavMenuItemElement;
+}
 export interface InoNavMenuSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoNavMenuSectionElement;
@@ -2441,6 +2453,12 @@ declare global {
         prototype: HTMLInoNavMenuElement;
         new (): HTMLInoNavMenuElement;
     };
+    interface HTMLInoNavMenuItemElement extends Components.InoNavMenuItem, HTMLStencilElement {
+    }
+    var HTMLInoNavMenuItemElement: {
+        prototype: HTMLInoNavMenuItemElement;
+        new (): HTMLInoNavMenuItemElement;
+    };
     /**
      * This component is designed to construct sections specifically intended
      * for use with the `ino-nav-menu` component.
@@ -2835,6 +2853,7 @@ declare global {
         "ino-nav-drawer": HTMLInoNavDrawerElement;
         "ino-nav-item": HTMLInoNavItemElement;
         "ino-nav-menu": HTMLInoNavMenuElement;
+        "ino-nav-menu-item": HTMLInoNavMenuItemElement;
         "ino-nav-menu-section": HTMLInoNavMenuSectionElement;
         "ino-option": HTMLInoOptionElement;
         "ino-option-group": HTMLInoOptionGroupElement;
@@ -4037,6 +4056,13 @@ declare namespace LocalJSX {
          */
         "sectionsContainerId"?: string;
     }
+    interface InoNavMenuItem {
+        "isActive"?: boolean;
+        "isLoading"?: boolean;
+        "onItemClick"?: (event: InoNavMenuItemCustomEvent<string>) => void;
+        "sectionId": string;
+        "sectionTitle": string;
+    }
     /**
      * This component is designed to construct sections specifically intended
      * for use with the `ino-nav-menu` component.
@@ -4045,7 +4071,7 @@ declare namespace LocalJSX {
         /**
           * Emits the section ID on finished loading.
          */
-        "onSectionReady"?: (event: InoNavMenuSectionCustomEvent<{key: number, id: string, title: string}>) => void;
+        "onSectionReady"?: (event: InoNavMenuSectionCustomEvent<SectionReadyEvent>) => void;
         /**
           * Is used to determine the position of this section inside of ino-nav-menu
          */
@@ -4744,6 +4770,7 @@ declare namespace LocalJSX {
         "ino-nav-drawer": InoNavDrawer;
         "ino-nav-item": InoNavItem;
         "ino-nav-menu": InoNavMenu;
+        "ino-nav-menu-item": InoNavMenuItem;
         "ino-nav-menu-section": InoNavMenuSection;
         "ino-option": InoOption;
         "ino-option-group": InoOptionGroup;
@@ -4986,6 +5013,7 @@ declare module "@stencil/core" {
              * `activeSection` and the event `activeSectionChanged` as described below.
              */
             "ino-nav-menu": LocalJSX.InoNavMenu & JSXBase.HTMLAttributes<HTMLInoNavMenuElement>;
+            "ino-nav-menu-item": LocalJSX.InoNavMenuItem & JSXBase.HTMLAttributes<HTMLInoNavMenuItemElement>;
             /**
              * This component is designed to construct sections specifically intended
              * for use with the `ino-nav-menu` component.

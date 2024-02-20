@@ -7014,8 +7014,14 @@
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "dependencies": [
+        "ino-nav-menu-item"
+      ],
+      "dependencyGraph": {
+        "ino-nav-menu": [
+          "ino-nav-menu-item"
+        ]
+      },
       "props": [
         {
           "name": "activeSection",
@@ -7214,6 +7220,142 @@
       "styles": [],
       "slots": [],
       "parts": [],
+      "listeners": [
+        {
+          "event": "sectionReady",
+          "target": "body",
+          "capture": false,
+          "passive": false
+        }
+      ]
+    },
+    {
+      "filePath": "src/components/ino-nav-menu-item/ino-nav-menu-item.tsx",
+      "fileName": "ino-nav-menu-item.tsx",
+      "tag": "ino-nav-menu-item",
+      "readme": "# ino-nav-menu\n",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [],
+      "encapsulation": "none",
+      "dependents": [
+        "ino-nav-menu"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-nav-menu": [
+          "ino-nav-menu-item"
+        ]
+      },
+      "props": [
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "is-active",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "isLoading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "is-loading",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "sectionId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "section-id",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "sectionTitle",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "section-title",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "itemClick",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
       "listeners": []
     },
     {
@@ -7321,12 +7463,18 @@
       "events": [
         {
           "event": "sectionReady",
-          "detail": "{ key: number; id: string; title: string; }",
+          "detail": "SectionReadyEvent",
           "bubbles": true,
           "complexType": {
-            "original": "{key: number, id: string, title: string}",
-            "resolved": "{ key: number; id: string; title: string; }",
-            "references": {}
+            "original": "SectionReadyEvent",
+            "resolved": "SectionReadyEvent",
+            "references": {
+              "SectionReadyEvent": {
+                "location": "local",
+                "path": "/Users/arbeit/Projects/elements/packages/elements/src/components/ino-nav-menu-section/ino-nav-menu-section.tsx",
+                "id": "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx::SectionReadyEvent"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -11602,6 +11750,11 @@
     }
   ],
   "typeLibrary": {
+    "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx::SectionReadyEvent": {
+      "declaration": "export interface SectionReadyEvent {\n  key: number,\n  id: string,\n  title: string\n}",
+      "docstring": "",
+      "path": "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx"
+    },
     "src/components/types.ts::KeyValue": {
       "declaration": "{\n  key: string;\n  value: string;\n}",
       "docstring": "",
