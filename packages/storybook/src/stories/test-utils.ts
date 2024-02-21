@@ -21,3 +21,14 @@ export async function setAttribute(
     { attrName, value },
   );
 }
+
+export async function setProperty(
+  el: Locator,
+  propName: string,
+  value: unknown,
+) {
+  return await el.evaluate((e, { propName, value }) => (e[propName] = value), {
+    propName,
+    value,
+  });
+}
