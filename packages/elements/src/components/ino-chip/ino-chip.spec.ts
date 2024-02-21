@@ -26,7 +26,7 @@ describe('InoChip', () => {
     const myValue = 'my-value';
     inoChipEl.setAttribute('value', myValue);
     inoChipEl.click();
-    assertEventDetails(myValue)
+    assertEventDetails(myValue);
   });
 
   it('should fire chipRemoved event on remove icon click with correct value if removable is set true', async () => {
@@ -40,7 +40,7 @@ describe('InoChip', () => {
     inoChipEl.querySelector('ino-icon').click();
     await page.waitForChanges();
 
-    assertEventDetails(myValue)
+    assertEventDetails(myValue);
   });
 
   it('should fire chipRemoved event on remove icon click if removable is set true', async () => {

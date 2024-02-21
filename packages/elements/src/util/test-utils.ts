@@ -1,20 +1,19 @@
-import { E2EPage, SpecPage } from "@stencil/core/testing";
+import { E2EPage, SpecPage } from '@stencil/core/testing';
 
 export async function getFocusedElementOfPage(page: E2EPage) {
   return page.$eval(':focus', (el) => el);
 }
 
 export function listenForEvent(page: SpecPage, eventName: string) {
-
   const eventSpy = jest.fn();
 
-  page.body.addEventListener(eventName, eventSpy)
+  page.body.addEventListener(eventName, eventSpy);
 
   function assertEventDetails(detail: any) {
     return expect(eventSpy.mock.calls[0][0]).toHaveProperty('detail', detail);
   }
 
-  return { eventSpy, assertEventDetails }
+  return { eventSpy, assertEventDetails };
 }
 
 export const pxToNumber = (s: string): number =>
