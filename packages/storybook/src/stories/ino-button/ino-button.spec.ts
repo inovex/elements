@@ -1,8 +1,19 @@
 import { expect, Locator, test } from '@playwright/test';
-import { goToStory } from '../test-utils';
+import { goToStory, setAttribute } from '../test-utils';
 
 test.describe('ino-button', () => {
   let inoButton: Locator;
+
+  async function getButtonDimensions() {
+    const { height, width } = await inoButton
+      .getByRole('button')
+      .evaluate((btn) => window.getComputedStyle(btn));
+
+    return {
+      height: parseInt(height, 10),
+      width: parseInt(width, 10),
+    };
+  }
 
   test.beforeEach(async ({ page }) => {
     await goToStory(page, ['buttons', 'ino-button', 'default']);
@@ -10,23 +21,21 @@ test.describe('ino-button', () => {
   });
 
   test('should keep dimensions if loading state is set', async () => {
-    const originalBtn = inoButton.getByRole('button');
-    const pxStrToNumber = (x: string) => parseInt(x, 10);
+    const spinnerEl = inoButton.locator('ino-spinner');
 
-    const { height, width } = await originalBtn.evaluate((btn) =>
-      window.getComputedStyle(btn),
-    );
-    await inoButton.evaluate((btn) => btn.setAttribute('loading', 'true'));
+    const { height, width } = await getButtonDimensions();
 
-    const { height: newHeight, width: newWidth } = await originalBtn.evaluate(
-      (btn) => window.getComputedStyle(btn),
-    );
+    // set loading and wait for spinner to show
+    await setAttribute(inoButton, 'loading', 'true');
+    await expect(spinnerEl).toBeVisible();
 
-    expect(
-      Math.abs(pxStrToNumber(newWidth) - pxStrToNumber(width)),
-    ).toBeLessThanOrEqual(1);
-    expect(
-      Math.abs(pxStrToNumber(newHeight) - pxStrToNumber(height)),
-    ).toBeLessThanOrEqual(1);
+    // disable loading and wait for spinner to disappear
+    await setAttribute(inoButton, 'loading', 'false');
+    await expect(spinnerEl).toBeHidden();
+
+    const { height: newHeight, width: newWidth } = await getButtonDimensions();
+
+    expect(Math.abs(newHeight - height)).toBeLessThanOrEqual(1);
+    expect(Math.abs(newWidth - width)).toBeLessThanOrEqual(1);
   });
 });

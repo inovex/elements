@@ -13,6 +13,7 @@ test.describe('ino-accordion', () => {
 
     const text = page.getByText('Lorem ipsum dolor sit amet');
 
+    await expect(expandButton).toBeVisible();
     await expect(expandButton).toHaveAttribute('aria-expanded', 'false');
     await expect(text).toBeHidden();
 
