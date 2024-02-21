@@ -208,14 +208,12 @@ export class Snackbar implements ComponentInterface {
               </div>
               {hasActionText && (
                 <div class="ino-snackbar-action-container">
-                  <ino-button
-                    variant="outlined"
-                    dense
+                  <button
                     onClick={this.actionClick.emit}
                     class="ino-snackbar-action-btn"
                   >
                     {this.actionText}
-                  </ino-button>
+                  </button>
                 </div>
               )}
             </div>
