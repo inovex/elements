@@ -11,11 +11,7 @@ export async function goToStory(
   await page.goto(`/iframe.html?id=${category}-${name}--${story}`);
 }
 
-export function setAttribute(
-  el: Locator,
-  attrName: string,
-  value: string,
-) {
+export function setAttribute(el: Locator, attrName: string, value: string) {
   return el.evaluate(
     (e, { attrName, value }) => e.setAttribute(attrName, value),
     { attrName, value },
