@@ -14,7 +14,7 @@
       "inputs": ["production", "^production"]
     },
     "test": {
-      "cache": false,
+      "cache": true,
       "inputs": ["default", "^production"]
     },
     "lint": {
