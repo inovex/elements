@@ -22,7 +22,8 @@ test.describe('ino-button', () => {
     await setAttribute(inoButton, 'loading', 'false');
     await expect(spinnerEl).toBeHidden();
 
-    const { height: newHeight, width: newWidth } = await inoButton.boundingBox();
+    const { height: newHeight, width: newWidth } =
+      await inoButton.boundingBox();
 
     expect(Math.abs(newHeight - height)).toBeLessThanOrEqual(1);
     expect(Math.abs(newWidth - width)).toBeLessThanOrEqual(1);
