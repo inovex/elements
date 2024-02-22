@@ -274,5 +274,8 @@ describe('InoNavDrawer', () => {
         'mdc-drawer--anchor-right',
       ]);
     });
+
+    it.todo('should switch between variants');
+    it.todo('should toggle after changing variant');
   });
 });
