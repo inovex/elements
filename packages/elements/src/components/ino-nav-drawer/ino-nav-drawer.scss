@@ -234,14 +234,6 @@
     .mdc-drawer__content {
       margin-top: 87px;
     }
-    .mdc-drawer__header {
-      font-size: 12px;
-      ::slotted(div) {
-        display: flex;
-        align-items: center;
-        gap: 13px;
-      }
-    }
 
     & + .mdc-drawer-app-content {
       box-shadow: none;
