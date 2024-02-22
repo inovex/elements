@@ -11,12 +11,12 @@ export async function goToStory(
   await page.goto(`/iframe.html?id=${category}-${name}--${story}`);
 }
 
-export async function setAttribute(
+export function setAttribute(
   el: Locator,
   attrName: string,
   value: string,
 ) {
-  return await el.evaluate(
+  return el.evaluate(
     (e, { attrName, value }) => e.setAttribute(attrName, value),
     { attrName, value },
   );
