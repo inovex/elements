@@ -43,11 +43,9 @@ jobs:
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Build all projects
-        run: yarn nx build elements
+        run: yarn build
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
-      - run: ls /home/runner/work/elements/elements/node_modules/.cache/puppeteer
-      - run: npx puppeteer browsers install chrome
       - name: Test all projects
         run: yarn test
         env:
