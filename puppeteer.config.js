@@ -8,4 +8,5 @@ module.exports = {
   cacheDirectory: join(__dirname, 'node_modules', '.cache', 'puppeteer'),
   skipChromeHeadlessShellDownload: true,
   downloadBaseUrl: 'https://storage.googleapis.com/chrome-for-testing-public',
+  defaultProduct: 'chrome',
 };
