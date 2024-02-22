@@ -11,7 +11,7 @@ test.describe('ino-accordion', () => {
   test('can be expanded properly', async ({ page }) => {
     await goToStory(page, ['structure', 'ino-accordion', 'default']);
 
-    const title = page.getByText('Accordion Title')
+    const title = page.getByText('Accordion Title');
     const text = page.getByText('Lorem ipsum dolor sit amet');
 
     await expect(title).toBeVisible();
