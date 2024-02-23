@@ -21,6 +21,7 @@ test.describe('ino-button', () => {
     // disable loading and wait for spinner to disappear
     await setAttribute(inoButton, 'loading', 'false');
     await expect(spinnerEl).toBeHidden();
+    await expect(inoButton).toHaveText(/Label/i);
 
     const { height: newHeight, width: newWidth } =
       await inoButton.boundingBox();

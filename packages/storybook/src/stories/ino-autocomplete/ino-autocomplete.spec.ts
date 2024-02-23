@@ -28,6 +28,7 @@ test.describe('ino-autocomplete', () => {
   });
 
   test('should hide menu on render', async () => {
+    await expect(inoAutocomplete).toBeVisible();
     await expect(menu).toBeHidden();
   });
 
@@ -42,8 +43,10 @@ test.describe('ino-autocomplete', () => {
   });
 
   test('should hide menu on input blur', async () => {
-    await inputEl.focus();
+    await inputEl.click();
+    await expect(menu).toBeVisible();
     await inputEl.blur();
+    await inputEl.press('Tab');
     await expect(menu).toBeHidden();
   });
 
