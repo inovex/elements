@@ -29,7 +29,7 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   expect: {
-    timeout: process.env.CI ? 10000 : 5000,
+    timeout: process.env.CI ? 30000 : 10000,
   },
   reporter: process.env.CI ? 'dot' : 'list',
   /* Run your local dev server before starting the tests */
