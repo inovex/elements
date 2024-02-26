@@ -6,7 +6,7 @@ type ShowcaseBoxProps = {
 };
 
 function ShowcaseBox({ children }: ShowcaseBoxProps) {
-  return <div className="bg-inovex-n-1 p-28 shadow-inner">{children}</div>;
+  return <div className="outline-8 outline-dashed outline-inovex-primary-focus outline-offset-8">{children}</div>;
 }
 
 export default ShowcaseBox;
