@@ -48,7 +48,7 @@ ino-fab-set {
   .ino-fab-set-wrapper {
     display: flex;
 
-     ino-fab {
+    ino-fab {
       padding: $fab-set-padding;
 
       .mdc-fab .mdc-fab__icon {
@@ -66,15 +66,17 @@ ino-fab-set {
       align-self: center;
     }
 
-    div[slot="icon-leading"] {
+    div[slot='icon-leading'] {
       display: contents;
     }
 
-    .ino-fab-set-icon--opened, [slot='icon-opened'] {
+    .ino-fab-set-icon--opened,
+    [slot='icon-opened'] {
       display: none;
     }
 
-    .ino-fab-set-icon--closed, [slot='icon-closed'] {
+    .ino-fab-set-icon--closed,
+    [slot='icon-closed'] {
       display: block;
     }
   }
@@ -98,10 +100,12 @@ ino-fab-set {
 
   &.ino-fab-set--open-dial {
     .ino-fab-set-wrapper {
-      .ino-fab-set-icon--opened, [slot="icon-opened"] {
+      .ino-fab-set-icon--opened,
+      [slot='icon-opened'] {
         display: block;
       }
-      .ino-fab-set-icon--closed, [slot="icon-closed"] {
+      .ino-fab-set-icon--closed,
+      [slot='icon-closed'] {
         display: none;
       }
     }

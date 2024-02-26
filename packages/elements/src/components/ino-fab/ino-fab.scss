@@ -58,22 +58,22 @@ ino-fab {
   --fab-color: var(--ino-fab-color, white);
   --fab-background-color: var(--ino-fab-background-color, #{theme.$p-6});
   --fab-background-color-hover: var(
-      --ino-fab-background-color-hover,
-      #{theme.$p-5}
+    --ino-fab-background-color-hover,
+    #{theme.$p-5}
   );
   --fab-background-color-active: var(
-      --ino-fab-background-color-active,
-      #{theme.$p-7}
+    --ino-fab-background-color-active,
+    #{theme.$p-7}
   );
   --fab-icon-color: var(--ino-fab-icon-color, #{theme.$white});
   --fab-color-disabled: var(--ino-fab-color-disabled, #{theme.$white});
   --fab-background-color-disabled: var(
-      --ino-background-color-disabled,
-      #{theme.$n-4}
+    --ino-background-color-disabled,
+    #{theme.$n-4}
   );
   --fab-icon-color-disabled: var(
-      --ino-fab-icon-color-disabled,
-      #{theme.$white}
+    --ino-fab-icon-color-disabled,
+    #{theme.$white}
   );
 
   display: inline-block;
@@ -118,12 +118,12 @@ ino-fab {
     &:not(.mdc-fab--extended),
     &.mdc-fab--extended {
       box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
-      0 12px 28px 0 rgba(61, 214, 245, 0.14);
+        0 12px 28px 0 rgba(61, 214, 245, 0.14);
     }
 
     &:active {
       box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
-      0 16px 32px 0 rgba(61, 214, 245, 0.14);
+        0 16px 32px 0 rgba(61, 214, 245, 0.14);
     }
   }
 
