@@ -3,6 +3,7 @@ import { MyPatternA, Login } from '@inovex.de/ui-patterns';
 import NavigationDrawer from './components/navigationDrawer';
 import Guide from './components/guide';
 import HeroSection from './components/heroSection';
+import FooterSection from './components/footerSection';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/mypatterna" element={<MyPatternA />} />
           <Route path="/herosection" element={<HeroSection />} />
+          <Route path="/footersection" element={<FooterSection />} />
           <Route path="/guide" element={<Guide />} />
         </Routes>
       </NavigationDrawer>
