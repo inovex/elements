@@ -2,9 +2,11 @@ import styles from './footer.desktop.module.scss';
 import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
 import useTranslation from 'utils/hooks/useTranslation';
+import { useContext } from 'react';
+import { I18NContext } from '../../../../utils/context/i18nContext';
 
 export default function FooterDesktop() {
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
 
   return (
     <div className={styles.sublinks}>

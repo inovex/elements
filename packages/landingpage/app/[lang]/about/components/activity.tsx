@@ -1,5 +1,5 @@
 import styles from './activity.module.scss';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -14,7 +14,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { GithubCommitsPerMonth } from 'types/github';
-import useTranslation from 'utils/hooks/useTranslation';
+import { I18NContext } from '../../../../utils/context/i18nContext';
 
 ChartJS.register(
   CategoryScale,
@@ -50,24 +50,23 @@ function Activity({ commitsPerMonth }: Props) {
     datasets: [],
     labels: [],
   } as ChartData<'line', number[], string>);
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
 
   useEffect(() => {
     const labels = Object.keys(commitsPerMonth);
     const data = Object.values(commitsPerMonth);
-    const inovexTheme = document.querySelectorAll('.inovex-elements-theme');
-    const style = getComputedStyle(inovexTheme[0]);
+    const inovexTheme = document.querySelector('.inovex-elements-theme');
+    const style = getComputedStyle(inovexTheme!);
     const primaryColor = style.getPropertyValue('--inovex-elements-primary');
     const primaryFocusColor = style.getPropertyValue(
       '--inovex-elements-primary-focus',
     );
-
     setGraphData({
       labels,
       datasets: [
         {
           fill: true,
-          label: t('activity.contributions'),
+          label: t('about.activity.contributions'),
           data,
           borderColor: primaryColor,
           backgroundColor: primaryFocusColor,
@@ -79,10 +78,10 @@ function Activity({ commitsPerMonth }: Props) {
   return (
     <>
       <h1 className="header-d3">
-        {t('activity.title_1')} <b>{t('activity.title_2')}</b>
+        {t('about.activity.title_1')} <b>{t('about.activity.title_2')}</b>
       </h1>
       {graphData.datasets[0]?.data.length === 0 ? (
-        <div>{t('activity.not_found')}</div>
+        <div>{t('about.activity.not_found')}</div>
       ) : (
         <div className={styles.graphContainer}>
           <Line options={graphOptions} data={graphData} />

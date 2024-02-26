@@ -1,18 +1,15 @@
 import ElementsLogo from '@assets/elements.svg';
 import Image from 'next/image';
 import Link from 'next/link';
-import useTranslation from '../../../../utils/hooks/useTranslation';
-import { useRouter } from 'next/router';
 import styles from './header.desktop.module.scss';
 import LocaleSwitcher from './localeSwitcher';
 import Navbar from './navbar';
 import VersionSelect from '../../../shared/versionSelect';
+import { usePathname } from 'next/navigation';
 
 export default function HeaderDesktop() {
-  const { locale } = useTranslation();
-  const router = useRouter();
-  const isLibraryPage = router.pathname.endsWith('/library/components');
-
+  const pathName = usePathname();
+  const isLibraryPage = pathName?.endsWith('/library/components');
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
@@ -20,10 +17,8 @@ export default function HeaderDesktop() {
           <Link
             className={styles.logoLink}
             href={{
-              pathname: '/[lang]',
-              query: { lang: locale },
+              pathname: '.',
             }}
-            replace
           >
             <Image src={ElementsLogo} alt="inovex-elements Logo" fill />
           </Link>

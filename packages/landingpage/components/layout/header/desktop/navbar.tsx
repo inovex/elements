@@ -1,19 +1,20 @@
-import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
 import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
 import { InoPopover } from '@elements';
-import useTranslation from 'utils/hooks/useTranslation';
 import ContactButton from '../../../shared/contactButton';
+import { useContext } from 'react';
+import { I18NContext } from '../../../../utils/context/i18nContext';
+import { usePathname } from 'next/navigation';
 
 const POPOVER_OFFSET = 10;
 
 export default function Navbar() {
-  const router = useRouter();
-  const { t } = useTranslation();
+  const pathName = usePathname();
+  const { t } = useContext(I18NContext);
 
   function isRouteActive(mainRouteUrl: string, mainRouteName: string) {
-    const pathSplit = router.pathname.split('/');
+    const pathSplit = pathName?.split('/') ?? [];
     if (pathSplit.length <= 2 && mainRouteName === 'home') return true;
     else return pathSplit[2] === mainRouteUrl.slice(1); // check first path after [lang]
   }

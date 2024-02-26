@@ -1,27 +1,20 @@
-import { InoSwitch } from '@elements';
-import { useRouter } from 'next/router';
-import { useCallback, useEffect, useState } from 'react';
-import useTranslation from 'utils/hooks/useTranslation';
-import { Supported_Locales } from '../../../../translations/config';
+import { useRouter, usePathname } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
+import { i18n } from '../../../../i18n-config';
+import { InoSwitch } from '@inovex.de/elements-react';
 
-const LocaleSwitcher = () => {
+export default function LocaleSwitcher() {
+  const pathName = usePathname();
   const router = useRouter();
-  const { locale } = useTranslation();
-  const [isDisabled, setIsDisabled] = useState(false);
-
-  const handleLocaleChangeNew = useCallback(
-    (switchToEnglish: boolean) => {
-      router.push(
-        router.pathname,
-        switchToEnglish
-          ? router.asPath.replace(Supported_Locales.DE, Supported_Locales.EN)
-          : router.asPath.replace(Supported_Locales.EN, Supported_Locales.DE),
-      );
-    },
-    [router],
+  const currentLocale = useMemo(
+    () => pathName?.split('/')[1] ?? i18n.defaultLocale,
+    [pathName],
   );
-
-  const isChecked = (locale as string) === Supported_Locales.EN;
+  const isChecked = useMemo(
+    () => currentLocale === i18n.locales[0],
+    [currentLocale],
+  );
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const leadingStyle = {
     color: isChecked ? '#575464' : 'black',
@@ -31,30 +24,38 @@ const LocaleSwitcher = () => {
     color: isChecked ? 'black' : '#575464',
   };
 
+  const redirectedLocale = (isDE: boolean) => {
+    if (!pathName) {
+      router.push('/');
+    } else {
+      const segments = pathName!.split('/');
+      segments[1] = isDE ? i18n.locales[0] : i18n.locales[1];
+      router.push(segments.join('/'));
+    }
+  };
+
   useEffect(() => {
-    if (router.route.startsWith('/[lang]/getting-started')) {
+    if (pathName?.startsWith('/[lang]/getting-started')) {
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
     }
-  }, [router.route]);
+  }, [pathName]);
 
   return (
     <div>
       <InoSwitch
         disabled={isDisabled}
-        checked={(locale as string) === Supported_Locales.EN}
-        onCheckedChange={(e) => handleLocaleChangeNew(e.detail)}
+        checked={isChecked}
+        onCheckedChange={(e) => redirectedLocale(e.detail)}
       >
         <p slot="leading" style={leadingStyle}>
-          DE
+          {i18n.locales[1].toUpperCase()}
         </p>
         <p slot="trailing" style={trailingStyle}>
-          EN
+          {i18n.locales[0].toUpperCase()}
         </p>
       </InoSwitch>
     </div>
   );
-};
-
-export default LocaleSwitcher;
+}

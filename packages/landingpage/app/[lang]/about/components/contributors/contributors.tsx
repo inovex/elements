@@ -1,27 +1,29 @@
 import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
-import useTranslation from 'utils/hooks/useTranslation';
-import { ElementsContributor } from '../../../types/contributors';
+import { useContext } from 'react';
+import { I18NContext } from '../../../../../utils/context/i18nContext';
+import { ElementsContributor } from '../../../../../types/contributors';
 
 interface Params {
   users: ElementsContributor[];
 }
 
 function Contributors({ users }: Params) {
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
   return (
     <>
       <h1 className="header-d3">
-        <b>{t('contributors.title_1')}</b> {t('contributors.title_2')}
+        <b>{t('about.contributors.title_1')}</b>{' '}
+        {t('about.contributors.title_2')}
       </h1>
       <div className={styles.container}>
         {users?.length === 0 ? (
-          <div>{t('contributors.not_found')}</div>
+          <div>{t('about.contributors.not_found')}</div>
         ) : (
           users?.map((contributor) => (
             <ContributorCard
               role={contributor.roles
-                .map((r) => t(`contributors.roles.${r}`))
+                .map((r) => t(`about.contributors.roles.${r}`))
                 .join(' & ')}
               key={contributor.id}
               avatarUrl={contributor.avatar_url}

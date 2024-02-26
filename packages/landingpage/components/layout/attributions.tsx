@@ -1,15 +1,16 @@
 import inovexLogo from '@assets/inovex-logo.svg';
 import classNames from 'classnames';
 import Image from 'next/image';
-import useTranslation from 'utils/hooks/useTranslation';
 import styles from './attributions.module.scss';
+import { useContext } from 'react';
+import { I18NContext } from '../../utils/context/i18nContext';
 
 interface AttributionsProps {
   isWide: boolean;
 }
 
 export default function Attributions({ isWide }: AttributionsProps) {
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
 
   return (
     <div

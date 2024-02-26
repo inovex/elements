@@ -2,8 +2,9 @@ import { InoCarousel, InoCarouselSlide, InoIconButton } from '@elements';
 import styles from './examples.module.scss';
 import { useMethods } from 'react-use';
 import classNames from 'classnames';
-import useTranslation from '../../utils/hooks/useTranslation';
-import useSwipe from '../../utils/hooks/useSwipe';
+import useSwipe from '../../../../utils/hooks/useSwipe';
+import { useContext } from 'react';
+import { I18NContext } from '../../../../utils/context/i18nContext';
 
 enum Slides {
   Jarvis,
@@ -28,7 +29,7 @@ function createMethods(slide: Slides) {
 
 function Examples() {
   const carouselImgPathPrefix = `/Carousel`;
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
 
   const [slide, { set, increment, decrement }] = useMethods(
     createMethods,
@@ -43,10 +44,10 @@ function Examples() {
   return (
     <>
       <h1 className="header-d3">
-        {t('examples.title_1')} <b>{t('examples.title_2')}</b>
+        {t('explore.examples.title_1')} <b>{t('explore.examples.title_2')}</b>
       </h1>
       <p className={classNames('body-l', styles.subtitle)}>
-        {t('examples.sub_title')}
+        {t('explore.examples.sub_title')}
       </p>
       <div className={styles.container} {...swipeHandlers}>
         <InoIconButton

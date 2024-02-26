@@ -1,23 +1,12 @@
-import { SubRoutes } from 'utils/routes';
-import { getGitHubContributers } from 'components/about/contributors/contributor-utils';
-import History from 'components/about/history';
-import Activity from 'components/about/activity';
+import { getGitHubContributers } from './components/contributors/contributor-utils';
 import { GithubCommitsPerMonth, GithubParticipation } from 'types/github';
-import Contributors from 'components/about/contributors/contributors';
 import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { Locale_File, Localization } from 'translations/types';
-import { LangContext } from 'types/langContext';
-import {
-  getStaticLanguagePaths,
-  getStaticLanguageProps,
-} from 'utils/context/staticPaths';
 import { de, enUS } from 'date-fns/locale';
 import { Supported_Locales } from 'translations/config';
-import Page from 'components/layout/page';
-import useTranslation from 'utils/hooks/useTranslation';
-import { ElementsContributor } from '../../../types/contributors';
 import { inDevEnvironment } from '../../../utils/in-dev-mode';
+import { AboutPage } from './client';
+import { getMetaTitle } from '../../../utils/getMetaTitle';
+import { ParamsWithLang } from '../../../types/langParam';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
@@ -84,47 +73,15 @@ async function getCommitPerMonth(
     }, {} as GithubCommitsPerMonth);
 }
 
-interface Params {
-  users: ElementsContributor[];
-  commitsPerMonth: GithubCommitsPerMonth;
-  localization: Localization;
+export async function generateMetadata({ params }: ParamsWithLang) {
+  return {
+    title: await getMetaTitle('common.meta.about', params.lang),
+  };
 }
 
-export const About: NextPage<Params> = ({
-  users = [],
-  commitsPerMonth = {},
-}) => {
-  const { t } = useTranslation();
-
-  return (
-    <Page title={[t('common.meta.about')]}>
-      <div className="section-container">
-        <section id={SubRoutes.ABOUT_TEAM}>
-          <Contributors users={users} />
-        </section>
-        <section id={SubRoutes.ABOUT_HISTORY}>
-          <History />
-        </section>
-        <section id={SubRoutes.ABOUT_ACTIVITY}>
-          <Activity commitsPerMonth={commitsPerMonth} />
-        </section>
-      </div>
-    </Page>
-  );
-};
-
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export default async function Page({ params }: ParamsWithLang) {
   const users = await getGitHubContributers();
-  const { localization } = getStaticLanguageProps(
-    ctx as LangContext,
-    Locale_File.ABOUT,
-  ).props;
-  const commitsPerMonth = await getCommitPerMonth(localization.locale);
+  const commitsPerMonth = await getCommitPerMonth(params.lang);
 
-  return { props: { users, commitsPerMonth, localization } };
-};
-
-export const getStaticPaths: GetStaticPaths = async () =>
-  getStaticLanguagePaths();
-
-export default About;
+  return <AboutPage users={users} commitsPerMonth={commitsPerMonth} />;
+}

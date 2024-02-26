@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { Framework, IconByFramework, NameByFramework } from 'utils/frameworks';
 import Link from 'next/link';
 import styles from './demos.module.scss';
-import useTranslation from 'utils/hooks/useTranslation';
 import DemoCard from './demos-card';
+import { useContext } from 'react';
+import { I18NContext } from '../../../../utils/context/i18nContext';
 
 const DemoProjectByFrameworks: Partial<Record<Framework, string>> = {
   [Framework.JS]:
@@ -14,14 +15,14 @@ const DemoProjectByFrameworks: Partial<Record<Framework, string>> = {
 };
 
 function Demos() {
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
 
   return (
     <>
       <h1 className="header-d3">
-        <b>{t('demos.title_1')}</b> {t('demos.title_2')}
+        <b>{t('explore.demos.title_1')}</b> {t('explore.demos.title_2')}
       </h1>
-      <p>{t('demos.subtitle')}</p>
+      <p>{t('explore.demos.subtitle')}</p>
       <div className={styles.cardWrapper}>
         {Object.keys(DemoProjectByFrameworks).map((key) => (
           <DemoCard

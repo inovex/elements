@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { ReactNode, useContext } from 'react';
 import styles from './layout.module.scss';
 import Footer from './layout/footer/footer';
@@ -11,12 +10,6 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="inovex-elements-typo inovex-elements-theme">
       <div className="blur-bg"></div>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
-      </Head>
       <Header />
       <div className={styles.body}>
         <main className={styles.main}>{children}</main>

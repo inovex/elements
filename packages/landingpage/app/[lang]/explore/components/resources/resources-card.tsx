@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './resources-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import linkIcon from './assets/link-icon.svg';
-import useTranslation from 'utils/hooks/useTranslation';
 import classNames from 'classnames';
+import { I18NContext } from '../../../../../utils/context/i18nContext';
 
 type Resource = {
   date: string;
@@ -15,44 +15,44 @@ type Resource = {
 };
 
 function ResourceCard() {
-  const { t, locale } = useTranslation();
+  const { t } = useContext(I18NContext);
   const [resources, setResources] = useState<Resource[]>([]);
 
   useEffect(() => {
     setResources([
       {
-        url: t('articles.announcement-v1.url'),
+        url: t('explore.articles.announcement-v1.url'),
         img_url:
           'https://www.inovex.de/wp-content/uploads/2020/09/inovex-elements-1500x880.png',
-        title: t('articles.announcement-v1.title'),
-        author: t('articles.announcement-v1.author'),
-        date: t('articles.announcement-v1.date'),
+        title: t('explore.articles.announcement-v1.title'),
+        author: t('explore.articles.announcement-v1.author'),
+        date: t('explore.articles.announcement-v1.date'),
       },
       {
-        url: t('articles.trainings.url'),
+        url: t('explore.articles.trainings.url'),
         img_url:
           'https://www.inovex.de/wp-content/uploads/2021/05/web-components.png',
-        title: t('articles.trainings.title'),
-        author: t('articles.trainings.author'),
-        date: t('articles.trainings.date'),
+        title: t('explore.articles.trainings.title'),
+        author: t('explore.articles.trainings.author'),
+        date: t('explore.articles.trainings.date'),
       },
       {
-        url: t('articles.monorepo-comparison.url'),
+        url: t('explore.articles.monorepo-comparison.url'),
         img_url:
           'https://www.inovex.de/wp-content/uploads/Frontend-Monorepo-Frameworks-1500x880.png',
-        title: t('articles.monorepo-comparison.title'),
-        author: t('articles.monorepo-comparison.author'),
-        date: t('articles.monorepo-comparison.date'),
+        title: t('explore.articles.monorepo-comparison.title'),
+        author: t('explore.articles.monorepo-comparison.author'),
+        date: t('explore.articles.monorepo-comparison.date'),
       },
     ]);
-  }, [locale]);
+  }, [t]);
 
   return (
     <>
       <h1 className="header-d3">
-        <b>{t('resources.title_1')}</b> {t('resources.title_2')}
+        <b>{t('explore.resources.title_1')}</b> {t('explore.resources.title_2')}
       </h1>
-      <p>{t('resources.subtitle')}</p>
+      <p>{t('explore.resources.subtitle')}</p>
       <div className={styles.row}>
         {resources.map((resource) => (
           <Link href={resource.url} target="_blank" key={resource.url}>
@@ -84,10 +84,10 @@ function ResourceCard() {
 
         <div className={styles.sampleCard}>
           <div className={classNames(styles.header, 'title-l')}>
-            {t('resources.sample_title')}
+            {t('explore.resources.sample_title')}
           </div>
           <div className={classNames(styles.content, 'body-s')}>
-            <b>{t('resources.sample_subtitle')}</b>
+            <b>{t('explore.resources.sample_subtitle')}</b>
           </div>
         </div>
       </div>
