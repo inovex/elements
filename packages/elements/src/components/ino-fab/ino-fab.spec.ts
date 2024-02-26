@@ -15,7 +15,7 @@ describe('InoFabButton', () => {
 
     eventSpy.mockClear();
     inoFab = page.body.querySelector('ino-fab');
-    innerButton = inoFab.shadowRoot.querySelector('button');
+    innerButton = inoFab.querySelector('button');
     page.win.addEventListener('click', eventSpy);
   });
 

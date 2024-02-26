@@ -24,15 +24,31 @@ $dialFlexByDirection: (
   right: row,
 );
 
-:host {
+ino-fab-set {
   position: fixed;
   display: flex;
   width: auto;
 
+  &.ino-top-bottom-location-top {
+    top: 20px;
+  }
+
+  &.ino-top-bottom-location-bottom {
+    bottom: 20px;
+  }
+
+  &.ino-left-right-location-left {
+    left: 20px;
+  }
+
+  &.ino-left-right-location-right {
+    right: 20px;
+  }
+
   .ino-fab-set-wrapper {
     display: flex;
 
-    ::slotted(*) {
+     ino-fab {
       padding: $fab-set-padding;
 
       .mdc-fab .mdc-fab__icon {
@@ -50,48 +66,21 @@ $dialFlexByDirection: (
       align-self: center;
     }
 
-    ::slotted([slot='icon-opened']),
-    .ino-fab-set-icon--opened {
+    div[slot="icon-leading"] {
+      display: contents;
+    }
+
+    .ino-fab-set-icon--opened, [slot='icon-opened'] {
       display: none;
     }
 
-    ::slotted([slot='icon-closed']),
-    .ino-fab-set-icon--closed {
+    .ino-fab-set-icon--closed, [slot='icon-closed'] {
       display: block;
     }
   }
-}
 
-:host(.ino-fab-set--open-dial) {
-  .ino-speed-dial {
-    display: flex;
-  }
-
-  #{$primary-fab-icon-selector} {
-    transition-duration: 100ms;
-  }
-}
-
-:host(.ino-top-bottom-location-top) {
-  top: 20px;
-}
-
-:host(.ino-top-bottom-location-bottom) {
-  bottom: 20px;
-}
-
-:host(.ino-left-right-location-left) {
-  left: 20px;
-}
-
-:host(.ino-left-right-location-right) {
-  right: 20px;
-}
-
-$directions: 'top', 'bottom', 'left', 'right';
-
-@each $direction in $directions {
-  :host {
+  $directions: 'top', 'bottom', 'left', 'right';
+  @each $direction in $directions {
     .ino-direction-#{$direction} {
       .ino-fab-set-icon {
         transform: map-get($transformByDirection, $direction);
@@ -107,15 +96,22 @@ $directions: 'top', 'bottom', 'left', 'right';
     }
   }
 
-  :host(.ino-fab-set--open-dial) {
-    ::slotted([slot='icon-closed']),
-    .ino-fab-set-icon--closed {
-      display: none;
+  &.ino-fab-set--open-dial {
+    .ino-fab-set-wrapper {
+      .ino-fab-set-icon--opened, [slot="icon-opened"] {
+        display: block;
+      }
+      .ino-fab-set-icon--closed, [slot="icon-closed"] {
+        display: none;
+      }
     }
 
-    ::slotted([slot='icon-opened']),
-    .ino-fab-set-icon--opened {
-      display: block;
+    .ino-speed-dial {
+      display: flex;
+    }
+
+    #{$primary-fab-icon-selector} {
+      transition-duration: 100ms;
     }
   }
 }

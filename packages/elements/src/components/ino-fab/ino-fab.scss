@@ -44,7 +44,7 @@ $extended-edged-borders: (
   }
 }
 
-:host {
+ino-fab {
   /**
    * @prop --ino-fab-color: Text color
    * @prop --fab-background-color: Background color
@@ -58,76 +58,58 @@ $extended-edged-borders: (
   --fab-color: var(--ino-fab-color, white);
   --fab-background-color: var(--ino-fab-background-color, #{theme.$p-6});
   --fab-background-color-hover: var(
-    --ino-fab-background-color-hover,
-    #{theme.$p-5}
+      --ino-fab-background-color-hover,
+      #{theme.$p-5}
   );
   --fab-background-color-active: var(
-    --ino-fab-background-color-active,
-    #{theme.$p-7}
+      --ino-fab-background-color-active,
+      #{theme.$p-7}
   );
   --fab-icon-color: var(--ino-fab-icon-color, #{theme.$white});
   --fab-color-disabled: var(--ino-fab-color-disabled, #{theme.$white});
   --fab-background-color-disabled: var(
-    --ino-background-color-disabled,
-    #{theme.$n-4}
+      --ino-background-color-disabled,
+      #{theme.$n-4}
   );
   --fab-icon-color-disabled: var(
-    --ino-fab-icon-color-disabled,
-    #{theme.$white}
+      --ino-fab-icon-color-disabled,
+      #{theme.$white}
   );
-}
 
-/*** colors ***/
-:host .mdc-fab {
-  @include setEdgedBorders(top-left);
-
-  @include fab.ink-color(var(--fab-color));
-  @include fab.container-color(var(--fab-background-color));
-
-  &:hover {
-    @include fab.container-color(var(--fab-background-color-hover));
-  }
-
-  &:active,
-  &:after {
-    @include fab.container-color(var(--fab-background-color-active));
-  }
-
-  &:disabled {
-    @include fab.ink-color(var(--fab-color-disabled));
-    @include fab.container-color(var(--fab-background-color-disabled));
-    pointer-events: none;
-
-    ::slotted(ino-icon),
-    ino-icon {
-      --icon-color: var(--fab-icon-color-disabled);
-    }
-  }
-
-  ::slotted(ino-icon),
-  ino-icon {
-    --icon-color: var(--fab-icon-color);
-  }
-}
-
-// Generate ino-edge-position classes
-@each $position in $edge-positions {
-  :host(.ino-fab--edge-position-#{$position}) .mdc-fab {
-    @include setEdgedBorders($position);
-  }
-}
-
-:host {
   display: inline-block;
 
+  // colors
   .mdc-fab {
-    ::slotted(ino-icon),
+    @include setEdgedBorders(top-left);
+
+    @include fab.ink-color(var(--fab-color));
+    @include fab.container-color(var(--fab-background-color));
+
+    &:hover {
+      @include fab.container-color(var(--fab-background-color-hover));
+    }
+
+    &:active,
+    &:after {
+      @include fab.container-color(var(--fab-background-color-active));
+    }
+
+    &:disabled {
+      @include fab.ink-color(var(--fab-color-disabled));
+      @include fab.container-color(var(--fab-background-color-disabled));
+      pointer-events: none;
+
+      ino-icon {
+        --icon-color: var(--fab-icon-color-disabled);
+      }
+    }
+
     ino-icon {
+      --icon-color: var(--fab-icon-color);
       --icon-width: 30px;
       --icon-height: 30px;
     }
 
-    &.mdc-fab--mini ::slotted(ino-icon),
     &.mdc-fab--mini ino-icon {
       --icon-width: 25px;
       --icon-height: 25px;
@@ -136,12 +118,19 @@ $extended-edged-borders: (
     &:not(.mdc-fab--extended),
     &.mdc-fab--extended {
       box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
-        0 12px 28px 0 rgba(61, 214, 245, 0.14);
+      0 12px 28px 0 rgba(61, 214, 245, 0.14);
     }
 
     &:active {
       box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
-        0 16px 32px 0 rgba(61, 214, 245, 0.14);
+      0 16px 32px 0 rgba(61, 214, 245, 0.14);
+    }
+  }
+
+  // Generate ino-edge-position classes
+  @each $position in $edge-positions {
+    &.ino-fab--edge-position-#{$position} .mdc-fab {
+      @include setEdgedBorders($position);
     }
   }
 }

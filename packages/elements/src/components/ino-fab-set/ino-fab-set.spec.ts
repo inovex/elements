@@ -1,7 +1,6 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
 import { FabSet } from './ino-fab-set';
 import { Fab } from '../ino-fab/ino-fab';
-import { Icon } from '../ino-icon/ino-icon';
 
 describe('InoFabButton', () => {
   let page: SpecPage;
@@ -10,7 +9,7 @@ describe('InoFabButton', () => {
 
   beforeEach(async () => {
     page = await newSpecPage({
-      components: [FabSet, Fab, Icon],
+      components: [FabSet, Fab],
       html: `<ino-fab-set><ino-fab></ino-fab><ino-fab></ino-fab></ino-fab-set>`,
     });
 
@@ -20,9 +19,7 @@ describe('InoFabButton', () => {
   });
 
   it('should be clickable by default', async () => {
-    const inoPrimaryFab: HTMLElement = inoFabSet.shadowRoot.querySelector(
-      'ino-fab >>> #primary-fab',
-    );
+    const inoPrimaryFab: HTMLElement = inoFabSet.querySelector('#primary-fab');
     inoPrimaryFab.click();
     expect(eventSpy).toHaveBeenCalled();
   });
