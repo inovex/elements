@@ -1,4 +1,4 @@
-import { InoCard } from '@elements';
+import { InoCard } from '@inovex.de/elements-react';
 import classNames from 'classnames';
 import { FunctionComponent } from 'react';
 import styles from './card.module.scss';

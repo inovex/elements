@@ -1,5 +1,9 @@
 import Image from 'next/image';
-import { Framework, IconByFramework, NameByFramework } from 'utils/frameworks';
+import {
+  Framework,
+  IconByFramework,
+  NameByFramework,
+} from '../../../../utils/frameworks';
 import Link from 'next/link';
 import styles from './demos.module.scss';
 import DemoCard from './demos-card';
@@ -42,7 +46,7 @@ function Demos() {
                 href={DemoProjectByFrameworks[key as Framework] ?? ''}
                 target="_blank"
               >
-                {t('demos.show_demo')}
+                {t('explore.demos.show_demo')}
               </Link>
             }
           />

@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import styles from './demos-card.module.scss';
 import Card from 'components/shared/card';
 import classNames from 'classnames';
-import { InoIcon } from '@elements';
+import { InoIcon } from '@inovex.de/elements-react';
 
 interface Props {
   frameworkName: string;

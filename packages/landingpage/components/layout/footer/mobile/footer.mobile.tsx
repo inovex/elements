@@ -2,7 +2,7 @@ import styles from './footer.mobile.module.scss';
 import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
 import useTranslation from 'utils/hooks/useTranslation';
-import { InoAccordion } from '@elements';
+import { InoAccordion } from '@inovex.de/elements-react';
 import { useSet } from 'react-use';
 
 export default function FooterMobile() {

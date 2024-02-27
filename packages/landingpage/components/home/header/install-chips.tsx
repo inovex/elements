@@ -1,4 +1,4 @@
-import { InoChip } from '@elements';
+import { InoChip } from '@inovex.de/elements-react';
 import { useEffect, useState } from 'react';
 import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
 import Image from 'next/image';

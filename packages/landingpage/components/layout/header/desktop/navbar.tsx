@@ -1,7 +1,7 @@
 import styles from './navbar.module.scss';
 import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
-import { InoPopover } from '@elements';
+import { InoPopover } from '@inovex.de/elements-react';
 import ContactButton from '../../../shared/contactButton';
 import { useContext } from 'react';
 import { I18NContext } from '../../../../utils/context/i18nContext';

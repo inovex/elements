@@ -1,6 +1,6 @@
 import React from 'react';
 import { useVersion } from 'utils/context/VersionContext';
-import { InoOption, InoSelect } from '@elements';
+import { InoOption, InoSelect } from '@inovex.de/elements-react';
 import styles from './versionSelect.module.scss';
 
 const VersionSelect = () => {

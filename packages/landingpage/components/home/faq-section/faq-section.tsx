@@ -1,5 +1,5 @@
 import styles from './faq-section.module.scss';
-import { InoAccordion } from '@elements';
+import { InoAccordion } from '@inovex.de/elements-react';
 import classNames from 'classnames';
 import { useSet } from 'react-use';
 import useTranslation from 'utils/hooks/useTranslation';

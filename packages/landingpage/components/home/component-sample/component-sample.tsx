@@ -10,7 +10,7 @@ import {
   InoSegmentButton,
   InoSegmentGroup,
   InoSwitch,
-} from '@elements';
+} from '@inovex.de/elements-react';
 import { useState } from 'react';
 import ComponentSampleCard from './component-sample-card';
 import { useMedia, useSet } from 'react-use';

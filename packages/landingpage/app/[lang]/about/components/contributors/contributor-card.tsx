@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Card from 'components/shared/card';
 import classNames from 'classnames';
-import { InoChip } from '@elements';
+import { InoChip } from '@inovex.de/elements-react';
 
 interface Props {
   role: string;

@@ -1,6 +1,11 @@
 import styles from './contact.module.scss';
 import Image from 'next/image';
-import { InoButton, InoIcon, InoInput, InoTextarea } from '@elements';
+import {
+  InoButton,
+  InoIcon,
+  InoInput,
+  InoTextarea,
+} from '@inovex.de/elements-react';
 import { FormEventHandler, useState } from 'react';
 import useTranslation from 'utils/hooks/useTranslation';
 

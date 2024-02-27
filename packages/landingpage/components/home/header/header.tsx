@@ -1,4 +1,4 @@
-import { InoButton } from '@elements';
+import { InoButton } from '@inovex.de/elements-react';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';

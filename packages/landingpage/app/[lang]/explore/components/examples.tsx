@@ -1,4 +1,8 @@
-import { InoCarousel, InoCarouselSlide, InoIconButton } from '@elements';
+import {
+  InoCarousel,
+  InoCarouselSlide,
+  InoIconButton,
+} from '@inovex.de/elements-react';
 import styles from './examples.module.scss';
 import { useMethods } from 'react-use';
 import classNames from 'classnames';

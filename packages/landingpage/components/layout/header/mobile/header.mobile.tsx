@@ -5,7 +5,7 @@ import * as React from 'react';
 import { SVGProps, useEffect, useRef, useState } from 'react';
 import elementsLogo from '@assets/elements.svg';
 import Image from 'next/image';
-import { InoIcon } from '@elements';
+import { InoIcon } from '@inovex.de/elements-react';
 import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
 import useTranslation from '../../../../utils/hooks/useTranslation';
