@@ -61,7 +61,9 @@ export default async function RootLayout({
         <link rel="manifest" href="site.webmanifest" />
       </head>
       <body>
-        <ClientLayout translations={translations}>{children}</ClientLayout>
+        <ClientLayout lang={params.lang} translations={translations}>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );

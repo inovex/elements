@@ -8,6 +8,7 @@ import UiContextProvider from '../../utils/context/UiContext';
 import { VersionProvider } from '../../utils/context/VersionContext';
 import I18nContextProvider from '../../utils/context/i18nContext';
 import Layout from '../../components/layout';
+import type { Locale } from '../../i18n-config';
 import {
   applyPolyfills,
   defineCustomElements,
@@ -15,9 +16,11 @@ import {
 
 export default function ClientLayout({
   children,
+  lang,
   translations,
 }: {
   children: ReactNode;
+  lang: Locale;
   translations: any;
 }) {
   useEffect(() => {
@@ -29,7 +32,7 @@ export default function ClientLayout({
   return (
     <UiContextProvider>
       <VersionProvider>
-        <I18nContextProvider translations={translations}>
+        <I18nContextProvider lang={lang} translations={translations}>
           <Layout>{children}</Layout>
         </I18nContextProvider>
       </VersionProvider>
