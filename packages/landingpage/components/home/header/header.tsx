@@ -2,13 +2,14 @@ import { InoButton } from '@inovex.de/elements-react';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import useTranslation from 'utils/hooks/useTranslation';
 import { MainRoutes } from 'utils/routes';
 import styles from './header.module.scss';
 import InstallChips from './install-chips';
+import { useContext } from 'react';
+import { I18NContext } from '../../../utils/context/i18nContext';
 
 export default function Header() {
-  const { t, locale } = useTranslation();
+  const { t, lang } = useContext(I18NContext);
   return (
     <>
       <div className={styles.container}>
@@ -27,20 +28,20 @@ export default function Header() {
         </div>
         <div className={styles.headerContainer}>
           <h1 className={classNames(styles.header, 'header-d2')}>
-            <b>{t('header.elements_label')}</b>
+            <b>{t('home.header.elements_label')}</b>
           </h1>
           <h1 className={classNames(styles.subheader, 'header-d2')}>
-            {t('header.title_1')}
-            <mark>{t('header.title_mark')}</mark>
+            {t('home.header.title_1')}
+            <mark>{t('home.header.title_mark')}</mark>
           </h1>
           <h1 className={classNames(styles.subheader, 'header-d2')}>
-            {t('header.title_2')}
+            {t('home.header.title_2')}
           </h1>
         </div>
         <div className={classNames(styles.info, 'body-l')}>
           <p>
-            {t('header.subtitle_1')}{' '}
-            <Link href={`${locale}${MainRoutes.LIBRARY}`}>
+            {t('home.header.subtitle_1')}{' '}
+            <Link href={`${lang}${MainRoutes.LIBRARY}`}>
               {t('common.elements')}.
             </Link>
           </p>
@@ -48,10 +49,10 @@ export default function Header() {
         <div className={styles.installation}>
           <Link
             className={styles.link}
-            href={`${locale}${MainRoutes.GETTING_STARTED}`}
+            href={`${lang}${MainRoutes.GETTING_STARTED}`}
           >
             <InoButton>
-              <span>{t('header.getting_started')}</span>
+              <span>{t('home.header.getting_started')}</span>
             </InoButton>
           </Link>
           <div className={styles.animation}>

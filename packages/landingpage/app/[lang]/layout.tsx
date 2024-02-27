@@ -3,7 +3,7 @@ import ClientLayout from './clientLayout';
 import { i18n } from '../../i18n-config';
 import { LangParam } from '../../types/langParam';
 import { getTranslation } from '../../translations/getTranslations';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -11,19 +11,21 @@ export async function generateStaticParams() {
 
 type RootLayoutParams = { children: ReactNode; params: LangParam };
 
+export function generateViewport(): Viewport {
+  return {
+    themeColor: 'white',
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  }
+}
 export function generateMetadata(): Metadata {
   return {
     robots: {
       index: false,
       follow: false,
     },
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      maximumScale: 1,
-      userScalable: false,
-    },
-    themeColor: [{ color: 'white' }],
     other: {
       Landingpage: 'the interoperable UI library',
       httpEquiv: 'refresh',

@@ -6,8 +6,8 @@ import {
   InoInput,
   InoTextarea,
 } from '@inovex.de/elements-react';
-import { FormEventHandler, useState } from 'react';
-import useTranslation from 'utils/hooks/useTranslation';
+import { FormEventHandler, useContext, useState } from 'react';
+import { I18NContext } from '../../utils/context/i18nContext';
 
 function Contact() {
   const [subject, setSubject] = useState('');
@@ -15,7 +15,7 @@ function Contact() {
 
   const inovexMail = 'jan-niklas.voss@inovex.de';
 
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -38,16 +38,16 @@ function Contact() {
       </div>
       <div className={styles.wrapper}>
         <h1 className="header-d3">
-          <b>{t('contact.title_1')}</b> {t('contact.title_2')}
+          <b>{t('home.contact.title_1')}</b> {t('home.contact.title_2')}
         </h1>
-        <p className="body-l">{t('contact.description')}</p>
+        <p className="body-l">{t('home.contact.description')}</p>
         <form className={styles.form_container} onSubmit={onSubmit}>
           <InoInput
             className={styles.subject}
             value={subject}
             onValueChange={(e) => setSubject(e.detail)}
             type="text"
-            label={t('contact.label_subject')}
+            label={t('home.contact.label_subject')}
             outline
             required
           ></InoInput>
@@ -55,12 +55,12 @@ function Contact() {
             className={styles.message}
             value={message}
             onValueChange={(e) => setMessage(e.detail)}
-            label={t('contact.label_message')}
+            label={t('home.contact.label_message')}
             outline
             required
           ></InoTextarea>
           <InoButton className={styles.submit_button} type="submit">
-            <span>{t('contact.label_submit')}</span>
+            <span>{t('home.contact.label_submit')}</span>
             <InoIcon slot="icon-trailing" icon="mail"></InoIcon>
           </InoButton>
         </form>

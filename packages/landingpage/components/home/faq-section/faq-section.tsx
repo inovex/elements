@@ -2,7 +2,8 @@ import styles from './faq-section.module.scss';
 import { InoAccordion } from '@inovex.de/elements-react';
 import classNames from 'classnames';
 import { useSet } from 'react-use';
-import useTranslation from 'utils/hooks/useTranslation';
+import { useContext } from 'react';
+import { I18NContext } from '../../../utils/context/i18nContext';
 
 interface FaqItem {
   id: number;
@@ -11,8 +12,8 @@ interface FaqItem {
 }
 
 export default function FaqSection() {
-  const { t } = useTranslation();
-  const faqs: FaqItem[] = t('faq.faqs');
+  const { t } = useContext(I18NContext);
+  const faqs = t<FaqItem[]>('home.faq.faqs');
 
   const [_, { has, toggle }] = useSet(new Set<number>());
 
@@ -20,10 +21,10 @@ export default function FaqSection() {
     <>
       <div>
         <h1 className="header-d3">
-          <b>{t('faq.title')}</b>
+          <b>{t('home.faq.title')}</b>
         </h1>
         <div className={classNames(styles.subHeaderContainer, 'body-l')}>
-          <p className={styles.subheader}>{t('faq.subheader')}</p>
+          <p className={styles.subheader}>{t('home.faq.subheader')}</p>
         </div>
       </div>
       <div className={styles.accordionWrapper}>

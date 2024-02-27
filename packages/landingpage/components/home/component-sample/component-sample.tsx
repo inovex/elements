@@ -5,19 +5,18 @@ import {
   InoControlItem,
   InoIcon,
   InoInput,
-  InoList,
   InoRange,
   InoSegmentButton,
   InoSegmentGroup,
   InoSwitch,
 } from '@inovex.de/elements-react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import ComponentSampleCard from './component-sample-card';
 import { useMedia, useSet } from 'react-use';
 import Link from 'next/link';
 import { MainRoutes } from 'utils/routes';
-import useTranslation from 'utils/hooks/useTranslation';
 import classNames from 'classnames';
+import { I18NContext } from '../../../utils/context/i18nContext';
 
 enum ChipValues {
   REACT = 'React',
@@ -34,18 +33,18 @@ export default function ComponentSample() {
   const [, { has, toggle }] = useSet<ChipValues>(new Set([]));
 
   const isSmallScreen = useMedia('(max-width: 660px)', false);
-  const { t, locale } = useTranslation();
+  const { t, lang } = useContext(I18NContext);
 
   return (
     <div>
       <h1 className="header-d3">
-        {t('component_sample.title_1')} <b>{t('component_sample.title_2')}</b>
+        {t('home.component_sample.title_1')} <b>{t('home.component_sample.title_2')}</b>
       </h1>
       <div className={classNames(styles.subHeaderContainer, 'body-l')}>
-        <p className={styles.subheader}>{t('component_sample.subheader')}</p>
+        <p className={styles.subheader}>{t('home.component_sample.subheader')}</p>
         <span className={styles.link}>
-          <Link href={`${locale}${MainRoutes.LIBRARY}`}>
-            {t('component_sample.link')}
+          <Link href={`${lang}${MainRoutes.LIBRARY}`}>
+            {t('home.component_sample.link')}
           </Link>
         </span>
       </div>
@@ -86,7 +85,7 @@ export default function ComponentSample() {
             componentCategory="Button"
           >
             <InoButton>
-              <span>{t('component_sample.button')}</span>
+              <span>{t('home.component_sample.button')}</span>
             </InoButton>
           </ComponentSampleCard>
         </div>

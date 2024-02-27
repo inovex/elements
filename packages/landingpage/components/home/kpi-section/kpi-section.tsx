@@ -1,9 +1,9 @@
-import useTranslation from 'utils/hooks/useTranslation';
 import styles from './kpi-section.module.scss';
 import classNames from 'classnames';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { CountUp } from 'countup.js';
 import { useMount } from 'react-use';
+import { I18NContext } from '../../../utils/context/i18nContext';
 
 interface KPIitem {
   id: number;
@@ -13,8 +13,8 @@ interface KPIitem {
 }
 
 export default function KPIsection() {
-  const { t } = useTranslation();
-  const KPIs: KPIitem[] = t('kpi.kpis');
+  const { t } = useContext(I18NContext);
+  const KPIs = t<KPIitem[]>('home.kpi.kpis');
 
   const countupRefs = useRef<Array<HTMLDivElement | null>>([]);
 
@@ -49,12 +49,12 @@ export default function KPIsection() {
     <>
       <div className={styles.header_container}>
         <h1 className={classNames(styles.header, 'header-d2')}>
-          <b>{t('kpi.title_1')}</b>
-          {t('kpi.title_2')}
+          <b>{t('home.kpi.title_1')}</b>
+          {t('home.kpi.title_2')}
         </h1>
       </div>
       <div className={classNames(styles.subheader, 'body-l')}>
-        <p>{t('kpi.subheader')}</p>
+        <p>{t('home.kpi.subheader')}</p>
       </div>
       <div className={styles.kpi_wrapper}>
         {KPIs.map((kpi, i) => {

@@ -1,6 +1,7 @@
-import { ParamsWithLang } from '../../../../types/langParam';
-import { getMetaTitle, translator } from '../../../../utils/getMetaTitle';
+import { ParamsWithLang } from 'types/langParam';
+import { getMetaTitle, translator } from 'utils/getMetaTitle';
 import { StoryBookPage } from './client';
+import { Suspense } from 'react';
 
 export async function generateMetadata({ params }: ParamsWithLang) {
   const title = await translator('common.meta.library', params.lang);
@@ -10,5 +11,5 @@ export async function generateMetadata({ params }: ParamsWithLang) {
 }
 
 export default async function Page() {
-  return <StoryBookPage></StoryBookPage>;
+  return <Suspense><StoryBookPage></StoryBookPage></Suspense>;
 }

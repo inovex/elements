@@ -4,7 +4,7 @@ import { CONTRIBUTORS } from 'utils/contributors';
 import {
   ElementsContributor,
   GithubContributor,
-} from '../../../types/contributors';
+} from 'types/contributors';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const GITHUB_USERS_API = 'https://api.github.com/users/';

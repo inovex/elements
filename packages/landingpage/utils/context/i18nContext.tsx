@@ -3,10 +3,10 @@ import { getDescendantProp } from '../../translations/utils';
 import { Locale, i18n } from '../../i18n-config';
 
 export const I18NContext = createContext<{
-  t: (key: string) => string;
+  t: <T = string>(key: string) => T;
   lang: Locale;
 }>({
-  t: (key) => key,
+  t: (key) => key as any,
   lang: i18n.defaultLocale,
 });
 

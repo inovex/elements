@@ -1,18 +1,19 @@
-import useTranslation from 'utils/hooks/useTranslation';
 import styles from './core-aspects.module.scss';
 import versatile from '@assets/coreaspect-versatile.svg';
 import consistent from '@assets/coreaspect-consistent.svg';
 import futureproof from '@assets/coreaspect-futureproof.svg';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { I18NContext } from '../../../utils/context/i18nContext';
 
 export default function CoreAspects() {
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
   return (
     <div className={styles.coreAspectsContainer}>
       <div className={styles.coreAspect}>
         <Image src={versatile} alt="versatile image" width={200} height={200} />
-        <p className="title-l">{t('core_aspects.first.title')}</p>
-        <p className="body-l">{t('core_aspects.first.text')}</p>
+        <p className="title-l">{t('home.core_aspects.first.title')}</p>
+        <p className="body-l">{t('home.core_aspects.first.text')}</p>
       </div>
       <div className={styles.coreAspect}>
         <Image
@@ -21,8 +22,8 @@ export default function CoreAspects() {
           width={200}
           height={200}
         />
-        <p className="title-l">{t('core_aspects.second.title')}</p>
-        <p className="body-l">{t('core_aspects.second.text')}</p>
+        <p className="title-l">{t('home.core_aspects.second.title')}</p>
+        <p className="body-l">{t('home.core_aspects.second.text')}</p>
       </div>
       <div className={styles.coreAspect}>
         <Image
@@ -31,8 +32,8 @@ export default function CoreAspects() {
           width={200}
           height={200}
         />
-        <p className="title-l">{t('core_aspects.third.title')}</p>
-        <p className="body-l">{t('core_aspects.third.text')}</p>
+        <p className="title-l">{t('home.core_aspects.third.title')}</p>
+        <p className="body-l">{t('home.core_aspects.third.text')}</p>
       </div>
     </div>
   );
