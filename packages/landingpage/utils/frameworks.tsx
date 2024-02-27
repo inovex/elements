@@ -1,8 +1,3 @@
-import angularIcon from 'public/angular.svg';
-import jsIcon from 'public/javascript.svg';
-import reactIcon from 'public/react.svg';
-import vueIcon from 'public/vue.svg';
-
 export enum Framework {
   JS = 'javascript',
   REACT = 'react',
@@ -11,10 +6,10 @@ export enum Framework {
 }
 
 export const IconByFramework: Record<Framework, string> = {
-  [Framework.VUE]: vueIcon,
-  [Framework.ANGULAR]: angularIcon,
-  [Framework.REACT]: reactIcon,
-  [Framework.JS]: jsIcon,
+  [Framework.VUE]: '/vue.svg',
+  [Framework.ANGULAR]: '/angular.svg',
+  [Framework.REACT]: '/react.svg',
+  [Framework.JS]: '/javascript.svg',
 };
 
 export const NameByFramework: Record<Framework, string> = {
