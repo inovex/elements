@@ -1,8 +1,8 @@
 import {CH} from '@code-hike/mdx/components';
 import Image from 'next/image';
-import Hint from "components/getting-started/hint";
-import StepIndicator from 'components/getting-started/stepIndicator';
-import MenuSection from "components/getting-started/menuSection";
+import Hint from "../../components/getting-started/hint";
+import StepIndicator from '../../components/getting-started/stepIndicator';
+import MenuSection from "../../components/getting-started/menuSection";
 
 
   <section>
@@ -164,7 +164,7 @@ import MenuSection from "components/getting-started/menuSection";
 
   <StepIndicator step='6'>Let's give our login form the `valueChange` event of the `<InoInput>` component, so that we can store the value typed by the user into our email or password states.</StepIndicator>
 
-  
+
 
 | Event             | Description                                                                    | Type                   |
 | ----------------- | ------------------------------------------------------------------------------ | ---------------------- |
@@ -173,7 +173,7 @@ import MenuSection from "components/getting-started/menuSection";
 | inoFocus      | Emits when the input field is focused                                          | CustomEvent\<void>   |
 
 
-  
+
   ```tsx
   <InoInput
       type="email"
@@ -197,16 +197,16 @@ import MenuSection from "components/getting-started/menuSection";
   ## Slots
 
   Many components of the Elements Library have **slots**, that can be filled by other components or your own content to further customize its functionality or appearance.
-  
+
   <StepIndicator step='7'>If we use the slots of the `<InoInput>` we can add an `<InoIcon>` inside our input field, while retaining the full usability of the `<InoIcon>`.</StepIndicator>
 
-  
+
 | Slot                | Description                  |
 | ------------------- | ---------------------------- |
 | icon-leading  | For the icon to be prepended |
 | **icon-trailing** | For the icon to be appended  |
 
-  
+
   <Hint>Hint: We can choose the position of our slot, that will render the `<InoIcon>` component. Other components like the `<InoCard>` allow a `header`, `content`, `footer` approach of positioning its slots.</Hint>
 
   ```tsx
