@@ -53,6 +53,16 @@ const nextConfiguration = {
         destination: '/en',
         permanent: true,
       },
+      {
+        source: '/en/getting-started',
+        destination: '/en/getting-started/react',
+        permanent: true,
+      },
+      {
+        source: '/en/components',
+        destination: '/en/components?element=docs-welcome--docs',
+        permanent: true,
+      },
     ];
   },
 };

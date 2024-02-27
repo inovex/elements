@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import { useVersion } from '../context/VersionContext';
 
 export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--docs';
 export const useStorybookUrl = () => {
   const { selectedVersion } = useVersion();
-  const { query, isReady } = useRouter();
+  const searchParams = useSearchParams();
   const [initialStorybookUrl, setInitialStorybookUrl] = useState<string | null>(
     null,
   );
 
   useEffect(() => {
-    if (!isReady) return;
-
     if (!process.env.NEXT_PUBLIC_STORYBOOK_URL)
       throw new Error(
         'NEXT_PUBLIC_STORYBOOK_URL not found in environment variables.',
@@ -27,11 +25,11 @@ export const useStorybookUrl = () => {
     const newUrl = [
       baseStorybookUrl,
       '?path=/docs/',
-      query.element ?? WELCOME_PAGE_PLACEHOLDER,
+      searchParams?.get('element') ?? WELCOME_PAGE_PLACEHOLDER,
     ].join('');
 
     setInitialStorybookUrl(newUrl);
-  }, [isReady, selectedVersion]);
+  }, [selectedVersion]);
 
   return initialStorybookUrl;
 };

@@ -1,23 +1,14 @@
-import openInNew from '@assets/open-in-new.svg';
-import { InoButton, InoIcon, InoSpinner } from '@elements';
-import { merge as _merge } from 'lodash-es';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { useContext, useEffect } from 'react';
-import Page from '../../../../components/layout/page';
-import { Locale_File } from '../../../../translations/types';
-import { LangContext } from '../../../../types/langContext';
-import { UiContext, UiContextType } from '../../../../utils/context/UiContext';
-import {
-  getStaticLanguagePaths,
-  getStaticLanguageProps,
-} from '../../../../utils/context/staticPaths';
-import { useStorybookUrl } from '../../../../utils/hooks/useStorybookUrl';
-import useTranslation from '../../../../utils/hooks/useTranslation';
-import styles from './index.module.scss';
-import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
+"use client"
 
-const StoryBookPage: NextPage<void> = () => {
-  const { t } = useTranslation();
+import openInNew from '@assets/open-in-new.svg';
+import { InoButton, InoIcon, InoSpinner } from '@inovex.de/elements-react';
+import { useContext, useEffect } from 'react';
+import { UiContext, UiContextType } from '../../../../utils/context/UiContext';
+import { useStorybookUrl } from '../../../../utils/hooks/useStorybookUrl';
+import { useStorybookUrlSyncer } from '../../../../utils/hooks/useStorybookUrlSyncer';
+import styles from './client.module.scss';
+
+export const StoryBookPage = () => {
   const { hideFooter } = useContext(UiContext) as UiContextType;
 
   useStorybookUrlSyncer();
@@ -35,7 +26,6 @@ const StoryBookPage: NextPage<void> = () => {
   }, []);
 
   return (
-    <Page title={[t('common.meta.library')]}>
       <div className={styles.container}>
         {storybookUrl && (
           <a
@@ -69,24 +59,5 @@ const StoryBookPage: NextPage<void> = () => {
           ></iframe>
         )}
       </div>
-    </Page>
   );
 };
-
-export const getStaticProps: GetStaticProps = async (ctx) =>
-  getStaticLanguageProps(ctx as LangContext, Locale_File.LIBRARY);
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const languagePaths = getStaticLanguagePaths().paths;
-  const elementPaths = languagePaths.map(() => ({ params: { element: '' } }));
-  const langXElementPaths = languagePaths.map((path, index) =>
-    _merge(path, elementPaths[index]),
-  );
-
-  return {
-    paths: langXElementPaths,
-    fallback: true,
-  };
-};
-
-export default StoryBookPage;
