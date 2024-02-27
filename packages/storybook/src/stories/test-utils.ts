@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 type StoryDescription = [string, string, string]; // ['input', 'ino-checkbox', 'default']
 
@@ -16,4 +16,15 @@ export function setAttribute(el: Locator, attrName: string, value: string) {
     (e, { attrName, value }) => e.setAttribute(attrName, value),
     { attrName, value },
   );
+}
+
+export async function setProperty(
+  el: Locator,
+  propName: string,
+  value: unknown,
+) {
+  return el.evaluate((e, { propName, value }) => (e[propName] = value), {
+    propName,
+    value,
+  });
 }
