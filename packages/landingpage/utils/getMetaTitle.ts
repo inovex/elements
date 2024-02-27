@@ -4,11 +4,10 @@ import type { Locale } from '../i18n-config';
 
 const SEPARATOR = '•';
 
-const translator = async (key: string, lang: Locale) =>
+export const translator = async (key: string, lang: Locale) =>
   getDescendantProp(await getTranslation(lang), key) ?? key;
 
-export const getMetaTitle = async (titleKey: string, lang: Locale) => {
-  const title = await translator(titleKey, lang);
+export const getMetaTitle = (title: string | string[]) => {
   const combined = Array.isArray(title) ? title.join(` ${SEPARATOR} `) : title;
   return `${combined} ${SEPARATOR} inovex-elements`;
 };

@@ -2,11 +2,11 @@ import { getGitHubContributers } from './components/contributors/contributor-uti
 import { GithubCommitsPerMonth, GithubParticipation } from 'types/github';
 import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
 import { de, enUS } from 'date-fns/locale';
-import { Supported_Locales } from 'translations/config';
 import { inDevEnvironment } from '../../../utils/in-dev-mode';
 import { AboutPage } from './client';
-import { getMetaTitle } from '../../../utils/getMetaTitle';
+import { getMetaTitle, translator } from '../../../utils/getMetaTitle';
 import { ParamsWithLang } from '../../../types/langParam';
+import { i18n } from '../../../i18n-config';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
@@ -58,7 +58,7 @@ async function getCommitPerMonth(
       const month = startOfMonth(week);
       return {
         month: format(month, 'MMM yy', {
-          locale: locale === Supported_Locales.DE ? de : enUS,
+          locale: locale === i18n.locales[1] ? de : enUS,
         }),
         commitsPerWeek,
       };
@@ -74,8 +74,9 @@ async function getCommitPerMonth(
 }
 
 export async function generateMetadata({ params }: ParamsWithLang) {
+  const title = await translator('common.meta.about', params.lang);
   return {
-    title: await getMetaTitle('common.meta.about', params.lang),
+    title: getMetaTitle(title),
   };
 }
 
