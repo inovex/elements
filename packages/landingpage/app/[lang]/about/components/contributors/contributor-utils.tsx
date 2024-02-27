@@ -1,10 +1,7 @@
 import { GithubUserTypes } from 'types/github';
 import { Role } from 'types/roles';
 import { CONTRIBUTORS } from 'utils/contributors';
-import {
-  ElementsContributor,
-  GithubContributor,
-} from 'types/contributors';
+import { ElementsContributor, GithubContributor } from 'types/contributors';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const GITHUB_USERS_API = 'https://api.github.com/users/';

@@ -38,10 +38,13 @@ export default function ComponentSample() {
   return (
     <div>
       <h1 className="header-d3">
-        {t('home.component_sample.title_1')} <b>{t('home.component_sample.title_2')}</b>
+        {t('home.component_sample.title_1')}{' '}
+        <b>{t('home.component_sample.title_2')}</b>
       </h1>
       <div className={classNames(styles.subHeaderContainer, 'body-l')}>
-        <p className={styles.subheader}>{t('home.component_sample.subheader')}</p>
+        <p className={styles.subheader}>
+          {t('home.component_sample.subheader')}
+        </p>
         <span className={styles.link}>
           <Link href={`${lang}${MainRoutes.LIBRARY}`}>
             {t('home.component_sample.link')}

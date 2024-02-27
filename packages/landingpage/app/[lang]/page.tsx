@@ -11,4 +11,4 @@ export async function generateMetadata({ params }: ParamsWithLang) {
 
 export default function Page() {
   return <Home></Home>;
-};
+}

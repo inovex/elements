@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import Contact from 'components/contact/contact';
 import CoreAspects from 'components/home/core-aspects/core-aspects';

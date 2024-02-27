@@ -11,5 +11,9 @@ export async function generateMetadata({ params }: ParamsWithLang) {
 }
 
 export default async function Page() {
-  return <Suspense><StoryBookPage></StoryBookPage></Suspense>;
+  return (
+    <Suspense>
+      <StoryBookPage></StoryBookPage>
+    </Suspense>
+  );
 }
