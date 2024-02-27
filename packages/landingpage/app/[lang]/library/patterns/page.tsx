@@ -26,7 +26,7 @@ const loginHtml = `<div
     <ino-button variant="filled">Login</ino-button>
   </div>
 </div>
-`
+`;
 
 export async function generateMetadata({ params }: ParamsWithLang) {
   const title = await translator('common.meta.library', params.lang);
@@ -41,15 +41,21 @@ export default async function Page() {
   };
 
   const highlighter = await getHighlighter({ theme: 'github-dark-dimmed' });
-  const codeToHtml = (code: string) => highlighter.codeToHtml(code, {
-    lang: 'html',
-    theme: 'github-dark-dimmed',
-  });
+  const codeToHtml = (code: string) =>
+    highlighter.codeToHtml(code, {
+      lang: 'html',
+      theme: 'github-dark-dimmed',
+    });
 
   const highlightedCodes: HighlightedCodes = {};
   for (const [label, code] of Object.entries(codeStrings)) {
     highlightedCodes[label] = codeToHtml(code);
   }
 
-  return <PatternsPage highlightedCodes={highlightedCodes} codeStrings={codeStrings}></PatternsPage>;
+  return (
+    <PatternsPage
+      highlightedCodes={highlightedCodes}
+      codeStrings={codeStrings}
+    ></PatternsPage>
+  );
 }

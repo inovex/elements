@@ -9,6 +9,6 @@ export async function generateMetadata({ params }: ParamsWithLang) {
   };
 }
 
-export default async function Page() {
+export default function Page() {
   return <ExplorePage></ExplorePage>;
 }

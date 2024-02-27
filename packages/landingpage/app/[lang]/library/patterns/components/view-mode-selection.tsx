@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { InoIcon, InoSegmentButton, InoSegmentGroup } from '@inovex.de/elements-react';
+import {
+  InoIcon,
+  InoSegmentButton,
+  InoSegmentGroup,
+} from '@inovex.de/elements-react';
 import styles from './preview-box.module.scss';
 
 export type ViewMode = 'CodeMode' | 'PreviewMode';
@@ -10,9 +14,9 @@ export interface ViewModeSelectionProps {
 }
 
 export default function ViewModeSelection({
-                             selectedValue,
-                             setSelectedValue,
-                           }: ViewModeSelectionProps) {
+  selectedValue,
+  setSelectedValue,
+}: ViewModeSelectionProps) {
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
 
   const handleMouseEnter = (value: string) => setHoveredButton(value);

@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import openInNew from '@assets/open-in-new.svg';
 import { InoButton, InoIcon, InoSpinner } from '@inovex.de/elements-react';
@@ -26,38 +26,38 @@ export const StoryBookPage = () => {
   }, []);
 
   return (
-      <div className={styles.container}>
-        {storybookUrl && (
-          <a
-            className={styles.openExternallyButton}
-            href={storybookUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <InoButton>
-              <InoIcon
-                className={styles.openExternallyButtonIcon}
-                icon={openInNew}
-                slot="icon-leading"
-              ></InoIcon>
-              Open storybook in new tab
-            </InoButton>
-          </a>
-        )}
-        {!storybookUrl && <InoSpinner type="circle"></InoSpinner>}
-        {storybookUrl && (
-          <iframe
-            src={storybookUrl}
-            style={{
-              position: 'absolute',
-              left: 0,
-              top: 120,
-              height: 'calc(100vh - 120px)', // 120px = Navbar height
-              width: '100%',
-              border: 'none',
-            }}
-          ></iframe>
-        )}
-      </div>
+    <div className={styles.container}>
+      {storybookUrl && (
+        <a
+          className={styles.openExternallyButton}
+          href={storybookUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <InoButton>
+            <InoIcon
+              className={styles.openExternallyButtonIcon}
+              icon={openInNew}
+              slot="icon-leading"
+            ></InoIcon>
+            Open storybook in new tab
+          </InoButton>
+        </a>
+      )}
+      {!storybookUrl && <InoSpinner type="circle"></InoSpinner>}
+      {storybookUrl && (
+        <iframe
+          src={storybookUrl}
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: 120,
+            height: 'calc(100vh - 120px)', // 120px = Navbar height
+            width: '100%',
+            border: 'none',
+          }}
+        ></iframe>
+      )}
+    </div>
   );
 };

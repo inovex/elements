@@ -44,7 +44,7 @@ export const useStorybookUrlSyncer = () => {
   useEffect(() => {
     if (!storyId || searchParams === null) return;
 
-    const query = new URLSearchParams(searchParams.toString())
+    const query = new URLSearchParams(searchParams.toString());
     query.set('element', storyId);
     router.push(`${pathName}?${query}`);
   }, [storyId]);
