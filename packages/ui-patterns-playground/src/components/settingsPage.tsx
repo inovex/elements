@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  InoAvatar,
   InoButton,
   InoIcon,
   InoImg,
@@ -30,7 +31,7 @@ function SettingsPage() {
   return (
     <div>
       <InoNavDrawer anchor="left" variant="docked" open>
-        <div slot="header" className="w-full h-full">
+        <div slot="header" className="w-full">
           <InoImg src={elementsLogo} width={22} height={31} />
           <p className="title-s">inovex Elements</p>
         </div>
@@ -53,14 +54,14 @@ function SettingsPage() {
           </InoNavItem>
         </InoList>
 
-        <main slot="app" className="bg-white h-screen px-20  py-10">
+        <main slot="app" className="bg-white px-20  py-10 ">
           <InoTabBar>
             <InoTab label="Account"></InoTab>
             <InoTab label="Notifcation"></InoTab>
             <InoTab label="Privacy"></InoTab>
           </InoTabBar>
-          <div className="grid grid-cols-2">
-            <div className="mt-10">
+          <div className="grid grid-cols-2 gap-20">
+            <div className="my-10">
               <h2 className="header-h2">Account</h2>
               <h3 className="title-l mt-10">Personal information</h3>
               <p className="label-l mt-3">
@@ -68,9 +69,17 @@ function SettingsPage() {
               </p>
               {/* Form-Section needs Function later*/}
               <div className="flex flex-col gap-y-5 mt-9">
-                <div className="flex justify-between">
-                  <InoInput label="First Name" outline></InoInput>
-                  <InoInput label="Last Name" outline></InoInput>
+                <div className="flex justify-between gap-4">
+                  <InoInput
+                    className="flex-grow"
+                    label="First Name"
+                    outline
+                  ></InoInput>
+                  <InoInput
+                    className="flex-grow"
+                    label="Last Name"
+                    outline
+                  ></InoInput>
                 </div>
                 <InoInput label="Company Name" outline></InoInput>
                 <InoInput label="Industry" outline></InoInput>
@@ -233,11 +242,30 @@ function SettingsPage() {
               {/* Delete-Section */}
               <div>
                 <h3 className="title-l mt-10">Delete Account</h3>
-                <div className="flex justify-between items-center">
-                  <p className="label-l">
-                    You wish to delete your account?
-                  </p>
+                <div className="flex justify-between items-center mt-3">
+                  <p className="label-l">You wish to delete your account?</p>
                   <InoButton variant="text">Yes, Delete</InoButton>
+                </div>
+              </div>
+            </div>
+            {/* STICKY NOT WORKING RN */}
+            <div className="sticky top-0">
+              <h3 className="title-l">Your Photo</h3>
+              <div className="w-56 flex items-center flex-col mt-8">
+                <InoAvatar
+                  src="https://elements.inovex.de/version/v9.1.1/assets/avatar-b432ffe7.jpg"
+                  initials="EE"
+                  interactive
+                ></InoAvatar>
+                <div className="mt-6">
+                  <InoButton variant="text" className="mr-4">
+                    <InoIcon icon="upload" slot="icon-leading"></InoIcon>
+                    Upload
+                  </InoButton>
+                  <InoButton variant="text">
+                    <InoIcon icon="remove" slot="icon-leading"></InoIcon>
+                    Remove
+                  </InoButton>
                 </div>
               </div>
             </div>
