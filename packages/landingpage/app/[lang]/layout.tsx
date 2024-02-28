@@ -20,8 +20,10 @@ export function generateViewport(): Viewport {
     userScalable: false,
   };
 }
+
 export function generateMetadata(): Metadata {
   return {
+    title: 'inovex-elements',
     robots: {
       index: false,
       follow: false,
@@ -38,32 +40,33 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutParams) {
-  const translations = await getTranslation(params.lang);
+  const lang = params.lang ?? 'en'
+  const translations = await getTranslation(lang);
   return (
     <html>
-      <head lang={params.lang}>
+      <head lang={lang}>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="apple-touch-icon.png"
+          href="/apple-touch-icon.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="favicon-32x32.png"
+          href="/favicon-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="favicon-16x16.png"
+          href="/favicon-16x16.png"
         />
-        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#2d02ff" />
-        <link rel="manifest" href="site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2d02ff" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
-        <ClientLayout lang={params.lang} translations={translations}>
+        <ClientLayout lang={lang} translations={translations}>
           {children}
         </ClientLayout>
       </body>
