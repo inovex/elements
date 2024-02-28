@@ -14,15 +14,17 @@ import {
   defineCustomElements,
 } from '@inovex.de/elements/dist/loader';
 
+type ClientLayoutProps = {
+  children: ReactNode;
+  lang: Locale;
+  translations: any;
+};
+
 export default function ClientLayout({
   children,
   lang,
   translations,
-}: {
-  children: ReactNode;
-  lang: Locale;
-  translations: any;
-}) {
+}: ClientLayoutProps) {
   /**
    * Fix elements hydration error issue
    * https://nextjs.org/docs/messages/react-hydration-error#solution-1-using-useeffect-to-run-on-the-client-only
@@ -32,6 +34,7 @@ export default function ClientLayout({
     (async () => {
       await applyPolyfills();
       defineCustomElements(window);
+      document.querySelector('html')?.setAttribute('lang', lang);
       setIsClient(true);
     })();
   }, []);
@@ -40,7 +43,7 @@ export default function ClientLayout({
     <UiContextProvider>
       <VersionProvider>
         <I18nContextProvider lang={lang} translations={translations}>
-          { isClient && <Layout>{children}</Layout>}
+          {isClient && <Layout>{children}</Layout>}
         </I18nContextProvider>
       </VersionProvider>
     </UiContextProvider>
