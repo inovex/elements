@@ -1,17 +1,16 @@
 import styles from './header.mobile.module.scss';
 import { useClickAway, useToggle } from 'react-use';
 import classNames from 'classnames';
-import * as React from 'react';
-import { SVGProps, useEffect, useRef, useState } from 'react';
+import { SVGProps, useContext, useEffect, useRef, useState } from 'react';
 import elementsLogo from '@assets/elements.svg';
 import Image from 'next/image';
 import { InoIcon } from '@inovex.de/elements-react';
 import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
-import useTranslation from '../../../../utils/hooks/useTranslation';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 import ContactButton from '../../../shared/contactButton';
 import VersionSelect from 'components/shared/versionSelect';
+import { I18NContext } from '../../../../utils/context/i18nContext';
 
 const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -31,10 +30,13 @@ export default function HeaderMobile() {
   const ref = useRef(null);
   const [menuIsOpen, toggleMenu] = useToggle(false);
   const [expandedSubMenu, expandSubMenu] = useState<string | null>(null);
-  const { t } = useTranslation();
+  const { t } = useContext(I18NContext);
   const router = useRouter();
-  const isLibraryPage = router.pathname.endsWith('/library/components');
+  const pathName = usePathname();
+  const isLibraryPage = pathName.endsWith('/library/components');
 
+  /*
+  ToDO!
   useEffect(() => {
     const handleRouteChange = () => {
       toggleMenu(false);
@@ -45,6 +47,7 @@ export default function HeaderMobile() {
       router.events.off('routeChangeStart', handleRouteChange);
     };
   }, [router.events, toggleMenu]);
+  // */
 
   useClickAway(ref, () => toggleMenu(false));
   useEffect(() => expandSubMenu(null), [menuIsOpen]);
