@@ -7,18 +7,26 @@ import {
   InoList,
   InoNavDrawer,
   InoNavItem,
+  InoOption,
+  InoSelect,
   InoTab,
   InoTabBar,
 } from '@inovex.de/elements-react';
 import elementsLogo from '../../assets/elements.svg';
 
 function SettingsPage() {
-  const [email, setEmail] = useState('emma.elements@elements.com');
-  const [isEditingEmail, setIsEditingEmail] = useState(false);
+  const [isPasswordSectionVisible, setIsPasswordSectionVisible] =
+    useState(false);
+  const [isSecurityQuestionsVisible, setIsSecurityQuestionsVisible] =
+    useState(false);
 
-  const handleEditClick = () => setIsEditingEmail(true);
-  const handleEmailChange = (event) => setEmail(event.target.value);
-  const handleSaveClick = () => setIsEditingEmail(false);
+  const togglePasswordSection = () => {
+    setIsPasswordSectionVisible(!isPasswordSectionVisible);
+  };
+
+  const toggleSecurityQuestions = () => {
+    setIsSecurityQuestionsVisible(!isSecurityQuestionsVisible);
+  };
   return (
     <div>
       <InoNavDrawer anchor="left" variant="docked" open>
@@ -59,36 +67,22 @@ function SettingsPage() {
                 Look up and change all your personal data.
               </p>
               {/* Form-Section needs Function later*/}
-              <div className="grid grid-cols-2 grid-rows-5 gap-8 mt-9">
-                <div className="col-span-1 row-span-1">
+              <div className="flex flex-col gap-y-5 mt-9">
+                <div className="flex justify-between">
                   <InoInput label="First Name" outline></InoInput>
-                </div>
-
-                <div className="col-span-1 row-span-1">
                   <InoInput label="Last Name" outline></InoInput>
                 </div>
-
-                <div className="col-span-2 row-span-1">
-                  <InoInput label="Company Name" outline></InoInput>
-                </div>
-
-                <div className="col-span-2 row-span-1">
-                  <InoInput label="Industry" outline></InoInput>
-                </div>
-
-                <div className="col-span-2 row-span-1">
-                  <InoInput label="Role" outline data-list="roles">
-                    <datalist id="roles">
-                      <option>Developer</option>
-                      <option>UX Designer</option>
-                      <option>Product Owner</option>
-                      <option>Scrum Master</option>
-                    </datalist>
-                  </InoInput>
-                </div>
-                <div className="col-span-2 row-span-1 flex justify-end">
-                  <InoButton>Save Changes</InoButton>
-                </div>
+                <InoInput label="Company Name" outline></InoInput>
+                <InoInput label="Industry" outline></InoInput>
+                <InoInput label="Role" outline data-list="roles">
+                  <datalist id="roles">
+                    <option>Developer</option>
+                    <option>UX Designer</option>
+                    <option>Product Owner</option>
+                    <option>Scrum Master</option>
+                  </datalist>
+                </InoInput>
+                <InoButton className="self-end">Save Changes</InoButton>
               </div>
               {/* Email Section needs Function later*/}
               <div className="email-section">
@@ -131,6 +125,119 @@ function SettingsPage() {
                       Save
                     </InoIcon>
                   </InoButton>
+                </div>
+              </div>
+              <div className="border-y border-inovex-p-3 py-10 mt-10">
+                {/* Password Section */}
+                <div className="password-section">
+                  <div className="flex justify-between items-center">
+                    <h3 className="title-l">Change Password</h3>
+                    <InoIcon
+                      className="cursor-pointer"
+                      icon={
+                        isPasswordSectionVisible ? 'arrow_up' : 'arrow_down'
+                      }
+                      onClick={togglePasswordSection}
+                    />
+                  </div>
+
+                  {/* Transition wrapper for sliding and fading */}
+                  <div
+                    className={`flex flex-col overflow-hidden transition-all duration-700 ease-in-out
+                      ${
+                        isPasswordSectionVisible
+                          ? 'max-h-96 opacity-100'
+                          : 'max-h-0 opacity-0'
+                      }`}
+                  >
+                    <div
+                      className={`flex flex-col gap-y-5 mt-4 ${
+                        isPasswordSectionVisible ? '' : 'hidden'
+                      }`}
+                    >
+                      <InoInput label="Current password" outline></InoInput>
+                      <InoInput label="New password" outline></InoInput>
+                      <InoInput label="Confirm password" outline></InoInput>
+                      <InoButton className="self-end">Save Changes</InoButton>
+                    </div>
+                  </div>
+                </div>
+                {/* Security Section */}
+                <div className="security-section mt-8">
+                  <div className="flex justify-between items-center mt-10">
+                    <h3 className="title-l">Security Questions</h3>
+                    <InoIcon
+                      className="cursor-pointer"
+                      icon={
+                        isSecurityQuestionsVisible ? 'arrow_up' : 'arrow_down'
+                      }
+                      onClick={toggleSecurityQuestions}
+                    />
+                  </div>
+                  <div
+                    className={`flex flex-col overflow-hidden transition-all duration-700 ease-in-out
+                      ${
+                        isSecurityQuestionsVisible
+                          ? 'max-h-96 opacity-100'
+                          : 'max-h-0 opacity-0'
+                      }`}
+                  >
+                    <div
+                      className={`flex flex-col mt-4 ${
+                        isPasswordSectionVisible ? '' : 'hidden'
+                      }`}
+                    >
+                      <div className="flex justify-between">
+                        <InoSelect
+                          className="w-full mr-5"
+                          label="Security Question 1"
+                        >
+                          <InoOption value="some-id">
+                            Tailwind is fun :)
+                          </InoOption>
+                        </InoSelect>
+
+                        <InoInput label="Answer 1"></InoInput>
+                      </div>
+                      <div className="flex justify-between">
+                        <InoSelect
+                          className="w-full mr-5"
+                          label="Security Question 2"
+                        >
+                          <InoOption value="some-id">
+                            What is your favorite Color
+                          </InoOption>
+                        </InoSelect>
+
+                        <InoInput label="Answer 2"></InoInput>
+                      </div>
+                      <div className="flex justify-between">
+                        <InoSelect
+                          className="w-full mr-5"
+                          label="Security Question 3"
+                        >
+                          <InoOption value="some-id">
+                            What is the name of your first pet
+                          </InoOption>
+                        </InoSelect>
+
+                        <InoInput label="Answer 3"></InoInput>
+                      </div>
+                      <InoButton className="mt-5 self-end">
+                        Save Changes
+                      </InoButton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Delete-Section */}
+              <div>
+                <h3 className="title-l mt-10">Delete Account</h3>
+                <div className="flex justify-between items-center">
+                  <p className="label-l">
+                    You wish to delete your account?
+                  </p>
+                  <InoButton variant="text">Yes, Delete</InoButton>
                 </div>
               </div>
             </div>
