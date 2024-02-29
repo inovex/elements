@@ -8,7 +8,7 @@ import UiContextProvider from '../../utils/context/UiContext';
 import { VersionProvider } from '../../utils/context/VersionContext';
 import I18nContextProvider from '../../utils/context/i18nContext';
 import Layout from '../../components/layout';
-import type { Locale } from '../../i18n-config';
+import { WithLangProp } from 'translations/i18n';
 import {
   applyPolyfills,
   defineCustomElements,
@@ -16,7 +16,6 @@ import {
 
 type ClientLayoutProps = {
   children: ReactNode;
-  lang: Locale;
   translations: any;
 };
 
@@ -24,7 +23,7 @@ export default function ClientLayout({
   children,
   lang,
   translations,
-}: ClientLayoutProps) {
+}: WithLangProp<ClientLayoutProps>) {
   /**
    * Fix elements hydration error issue
    * https://nextjs.org/docs/messages/react-hydration-error#solution-1-using-useeffect-to-run-on-the-client-only

@@ -1,28 +1,36 @@
 import { createContext, ReactNode } from 'react';
 import { getDescendantProp } from '../../translations/utils';
-import { Locale, i18n } from '../../i18n-config';
+import {
+  defaultLng,
+  SupportedLanguages,
+  WithLangProp,
+} from 'translations/i18n';
 
-export const I18NContext = createContext<{
-  t: <T = string>(key: string) => T;
-  lang: Locale;
-}>({
-  t: (key) => key as any,
-  lang: i18n.defaultLocale,
+export type I18nContextProps = {
+  t: <T>(key: LocaleResourcePaths) => T | string;
+  lang: SupportedLanguages;
+};
+
+export const I18nContext = createContext<I18nContextProps>({
+  t: (key) => key,
+  lang: defaultLng,
 });
+
+type I18nProviderProps = {
+  children: ReactNode;
+  translations: LocaleResource;
+};
 
 const I18nContextProvider = ({
   children,
   lang,
   translations,
-}: {
-  children: ReactNode;
-  lang: Locale;
-  translations: any;
-}) => {
-  const t = (key: string) => getDescendantProp(translations, key) ?? key;
+}: WithLangProp<I18nProviderProps>) => {
+  const t = (key: LocaleResourcePaths) =>
+    getDescendantProp(translations, key) ?? key;
 
   return (
-    <I18NContext.Provider value={{ t, lang }}>{children}</I18NContext.Provider>
+    <I18nContext.Provider value={{ t, lang }}>{children}</I18nContext.Provider>
   );
 };
 

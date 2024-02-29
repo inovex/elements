@@ -1,15 +1,14 @@
 import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
-import { useContext } from 'react';
-import { I18NContext } from '../../../../../utils/context/i18nContext';
 import { ElementsContributor } from '../../../../../types/contributors';
+import { useTranslation } from '@hooks/useTranslation';
 
 interface Params {
   users: ElementsContributor[];
 }
 
 function Contributors({ users }: Params) {
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
   return (
     <>
       <h1 className="header-d3">

@@ -1,8 +1,7 @@
 import styles from './linkItem.module.scss';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useContext } from 'react';
-import { I18NContext } from '../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 type Props = {
   url: string;
@@ -25,7 +24,7 @@ export default function LinkItem({
   className,
   isFooter = false,
 }: Props) {
-  const { lang } = useContext(I18NContext);
+  const { lang } = useTranslation();
 
   return (
     <Link href={`/${lang}${url}`}>

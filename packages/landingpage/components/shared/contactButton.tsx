@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { SubRoutes } from '../../utils/routes';
 import styles from './contactButton.module.scss';
-import React, { useContext } from 'react';
-import { I18NContext } from '../../utils/context/i18nContext';
+import React from 'react';
 import { usePathname } from 'next/navigation';
 import { InoButton } from '@inovex.de/elements-react';
+import { useTranslation } from '@hooks/useTranslation';
 
 const ContactButton = () => {
   const pathName = usePathname()?.split('/')[1] ?? 'en';
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
 
   return (
     <Link

@@ -1,5 +1,5 @@
 import 'server-only';
-import type { Locale } from '../i18n-config';
+import { SupportedLanguages } from './i18n';
 
 // We enumerate all dictionaries here for better linting and typescript support
 // We also get the default import for cleaner types
@@ -8,5 +8,6 @@ const dictionaries = {
   de: () => import('./locales/de').then((module) => module.default),
 };
 
-export const getTranslation = async (locale: Locale) =>
-  dictionaries[locale]?.() ?? dictionaries.en();
+export const getTranslation = async (
+  locale: SupportedLanguages,
+): Promise<LocaleResource> => dictionaries[locale]?.() ?? dictionaries.en();

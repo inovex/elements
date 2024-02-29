@@ -6,10 +6,10 @@ import { MainRoutes } from 'utils/routes';
 import styles from './header.module.scss';
 import InstallChips from './install-chips';
 import { useContext } from 'react';
-import { I18NContext } from '../../../utils/context/i18nContext';
+import { I18nContext } from '../../../utils/context/i18nContext';
 
 export default function Header() {
-  const { t, lang } = useContext(I18NContext);
+  const { t, lang } = useContext(I18nContext);
   return (
     <>
       <div className={styles.container}>

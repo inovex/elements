@@ -1,15 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
 import { SubRoutes } from 'utils/routes';
 import { GithubCommitsPerMonth } from 'types/github';
 import { NextPage } from 'next';
 import { ElementsContributor } from '../../../types/contributors';
 import { Activity, Contributors, History } from './components';
-import {
-  applyPolyfills,
-  defineCustomElements,
-} from '@inovex.de/elements/dist/loader';
 
 interface Params {
   users: ElementsContributor[];
@@ -20,12 +15,6 @@ export const AboutPage: NextPage<Params> = ({
   users = [],
   commitsPerMonth = {},
 }) => {
-  useEffect(() => {
-    void applyPolyfills().then(() => {
-      void defineCustomElements(window);
-    });
-  }, []);
-
   return (
     <div className="section-container">
       <section id={SubRoutes.ABOUT_TEAM}>

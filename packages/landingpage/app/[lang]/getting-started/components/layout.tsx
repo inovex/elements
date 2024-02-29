@@ -1,7 +1,7 @@
 import {
+  InoButton,
   InoSegmentButton,
   InoSegmentGroup,
-  InoButton,
 } from '@inovex.de/elements-react';
 import Image from 'next/image';
 import { i18n } from '../../../../i18n-config';

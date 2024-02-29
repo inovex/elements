@@ -1,12 +1,10 @@
 import styles from './footer.desktop.module.scss';
 import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
-import useTranslation from 'utils/hooks/useTranslation';
-import { useContext } from 'react';
-import { I18NContext } from '../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 export default function FooterDesktop() {
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
 
   return (
     <div className={styles.sublinks}>
@@ -14,7 +12,9 @@ export default function FooterDesktop() {
         <div key={mainRouteUrl} className={styles.col}>
           <LinkItem
             url={mainRouteUrl}
-            name={t(`common.navigation.${mainRouteName}.name`)}
+            name={t(
+              `common.navigation.${mainRouteName}.name` as LocaleResourcePaths,
+            )}
             className={styles.mainRouteName}
             noMargin={true}
           />
@@ -23,7 +23,7 @@ export default function FooterDesktop() {
               key={subRouteUrl}
               url={subRouteUrl}
               name={t(
-                `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name`,
+                `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name` as LocaleResourcePaths,
               )}
               isDense={true}
               className={styles.subRouteName}

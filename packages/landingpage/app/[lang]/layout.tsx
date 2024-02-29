@@ -1,11 +1,10 @@
 import React, { ReactNode } from 'react';
 import ClientLayout from './clientLayout';
-import { i18n } from '../../i18n-config';
-import { LangParam } from '../../types/langParam';
+import { LangParam, languages } from 'translations/i18n';
 import { getTranslation } from '../../translations/getTranslations';
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+  return languages.map((lang) => ({ lang }));
 }
 
 type RootLayoutParams = { children: ReactNode; params: LangParam };

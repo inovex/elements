@@ -1,10 +1,9 @@
 import styles from './history.module.scss';
 import Milestone from './milestone';
-import { useContext } from 'react';
-import { I18NContext } from '../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 function History() {
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
   return (
     <>
       <h1 className="header-d3">

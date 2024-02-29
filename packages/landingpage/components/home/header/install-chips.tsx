@@ -4,8 +4,8 @@ import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
 import Image from 'next/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
-import useTranslation from 'utils/hooks/useTranslation';
-import { Framework, IconByFramework } from '../../../utils/frameworks';
+import { Framework, IconByFramework } from 'utils/frameworks';
+import { useTranslation } from '@hooks/useTranslation';
 
 const FrameworksArr = Object.values(Framework);
 
@@ -76,7 +76,7 @@ export default function InstallChips() {
             'body-m',
           )}
         >
-          {t('header.clipboard_success')}
+          {t('home.header.clipboard_success')}
         </p>
       </div>
       <div className={styles.frameworks}>

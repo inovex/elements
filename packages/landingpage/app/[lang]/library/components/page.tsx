@@ -1,9 +1,9 @@
-import { ParamsWithLang } from 'types/langParam';
+import { WithLangParam } from 'translations/i18n';
 import { getMetaTitle, translator } from 'utils/getMetaTitle';
 import { StoryBookPage } from './client';
 import { Suspense } from 'react';
 
-export async function generateMetadata({ params }: ParamsWithLang) {
+export async function generateMetadata({ params }: WithLangParam) {
   const title = await translator('common.meta.library', params.lang);
   return {
     title: getMetaTitle(title),

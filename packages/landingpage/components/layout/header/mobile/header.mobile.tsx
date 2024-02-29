@@ -1,7 +1,7 @@
 import styles from './header.mobile.module.scss';
 import { useClickAway, useToggle } from 'react-use';
 import classNames from 'classnames';
-import { SVGProps, useContext, useEffect, useRef, useState } from 'react';
+import { SVGProps, useEffect, useRef, useState } from 'react';
 import elementsLogo from '@assets/elements.svg';
 import Image from 'next/image';
 import { InoIcon } from '@inovex.de/elements-react';
@@ -10,7 +10,7 @@ import LinkItem from '../../linkItem';
 import { usePathname, useRouter } from 'next/navigation';
 import ContactButton from '../../../shared/contactButton';
 import VersionSelect from 'components/shared/versionSelect';
-import { I18NContext } from '../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -30,7 +30,7 @@ export default function HeaderMobile() {
   const ref = useRef(null);
   const [menuIsOpen, toggleMenu] = useToggle(false);
   const [expandedSubMenu, expandSubMenu] = useState<string | null>(null);
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
   const router = useRouter();
   const pathName = usePathname();
   const isLibraryPage = pathName.endsWith('/library/components');

@@ -1,6 +1,6 @@
 import { Metadata, Viewport } from 'next';
 import React, { ReactNode } from 'react';
-import { i18n } from '../i18n-config';
+import { defaultLng } from 'translations/i18n';
 
 export function generateViewport(): Viewport {
   return {
@@ -29,7 +29,7 @@ export function generateMetadata(): Metadata {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang={i18n.defaultLocale} className="hydrated">
+    <html lang={defaultLng} className="hydrated">
       <head>
         <link
           rel="apple-touch-icon"

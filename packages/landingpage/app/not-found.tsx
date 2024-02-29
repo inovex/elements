@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { i18n } from 'i18n-config';
+import { getValidLang, isValidLang } from '../translations/utils';
 
 export default function NotFound() {
   const router = useRouter();
@@ -10,14 +10,12 @@ export default function NotFound() {
 
   useEffect(() => {
     const [lang] = navigator.language.split('-');
-    const fallbackLang = lang ?? i18n.defaultLocale;
+    const fallbackLang = getValidLang(lang);
 
     // e.g. user tries to open /other/page then redirect to /[lang]/404
-    const pathLocale = pathName?.split('/')[1];
-    const locale = i18n.locales.includes(pathLocale as any)
-      ? pathLocale
-      : fallbackLang;
+    const pathLocale = pathName?.split('/')[1].toLowerCase();
+    const validLang = isValidLang(pathLocale) ? pathLocale : fallbackLang;
 
-    router.replace(`/${locale}/404`);
+    router.replace(`/${validLang}/404`);
   }, []);
 }

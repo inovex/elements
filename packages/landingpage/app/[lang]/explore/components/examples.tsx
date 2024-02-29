@@ -7,8 +7,7 @@ import styles from './examples.module.scss';
 import { useMethods } from 'react-use';
 import classNames from 'classnames';
 import useSwipe from '../../../../utils/hooks/useSwipe';
-import { useContext } from 'react';
-import { I18NContext } from '../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 enum Slides {
   Jarvis,
@@ -33,7 +32,7 @@ function createMethods(slide: Slides) {
 
 function Examples() {
   const carouselImgPathPrefix = `/Carousel`;
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
 
   const [slide, { set, increment, decrement }] = useMethods(
     createMethods,

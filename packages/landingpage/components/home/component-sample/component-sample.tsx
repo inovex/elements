@@ -10,13 +10,13 @@ import {
   InoSegmentGroup,
   InoSwitch,
 } from '@inovex.de/elements-react';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import ComponentSampleCard from './component-sample-card';
 import { useMedia, useSet } from 'react-use';
 import Link from 'next/link';
 import { MainRoutes } from 'utils/routes';
 import classNames from 'classnames';
-import { I18NContext } from '../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 enum ChipValues {
   REACT = 'React',
@@ -33,7 +33,7 @@ export default function ComponentSample() {
   const [, { has, toggle }] = useSet<ChipValues>(new Set([]));
 
   const isSmallScreen = useMedia('(max-width: 660px)', false);
-  const { t, lang } = useContext(I18NContext);
+  const { t, lang } = useTranslation();
 
   return (
     <div>

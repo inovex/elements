@@ -3,15 +3,14 @@ import { Routes } from '../../../../utils/routes';
 import LinkItem from '../../linkItem';
 import { InoPopover } from '@inovex.de/elements-react';
 import ContactButton from '../../../shared/contactButton';
-import { useContext } from 'react';
-import { I18NContext } from '../../../../utils/context/i18nContext';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from '@hooks/useTranslation';
 
 const POPOVER_OFFSET = 10;
 
 export default function Navbar() {
   const pathName = usePathname();
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
 
   function isRouteActive(mainRouteUrl: string, mainRouteName: string) {
     const pathSplit = pathName?.split('/') ?? [];

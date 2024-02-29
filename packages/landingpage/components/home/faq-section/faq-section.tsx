@@ -3,7 +3,7 @@ import { InoAccordion } from '@inovex.de/elements-react';
 import classNames from 'classnames';
 import { useSet } from 'react-use';
 import { useContext } from 'react';
-import { I18NContext } from '../../../utils/context/i18nContext';
+import { I18nContext } from '../../../utils/context/i18nContext';
 
 interface FaqItem {
   id: number;
@@ -12,7 +12,7 @@ interface FaqItem {
 }
 
 export default function FaqSection() {
-  const { t } = useContext(I18NContext);
+  const { t } = useContext(I18nContext);
   const faqs = t<FaqItem[]>('home.faq.faqs');
 
   const [_, { has, toggle }] = useSet(new Set<number>());
@@ -28,17 +28,18 @@ export default function FaqSection() {
         </div>
       </div>
       <div className={styles.accordionWrapper}>
-        {faqs.map((faq, index) => (
-          <div className={styles.accordion} key={index}>
-            <InoAccordion
-              accordionTitle={faq.title}
-              expanded={has(index)}
-              onExpandedChange={() => toggle(index)}
-            >
-              <>{faq.content}</>
-            </InoAccordion>
-          </div>
-        ))}
+        {Array.isArray(faqs) &&
+          faqs.map((faq, index) => (
+            <div className={styles.accordion} key={index}>
+              <InoAccordion
+                accordionTitle={faq.title}
+                expanded={has(index)}
+                onExpandedChange={() => toggle(index)}
+              >
+                <>{faq.content}</>
+              </InoAccordion>
+            </div>
+          ))}
       </div>
     </>
   );

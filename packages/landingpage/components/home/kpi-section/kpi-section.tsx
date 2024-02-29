@@ -1,9 +1,9 @@
 import styles from './kpi-section.module.scss';
 import classNames from 'classnames';
-import { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import { CountUp } from 'countup.js';
 import { useMount } from 'react-use';
-import { I18NContext } from '../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 interface KPIitem {
   id: number;
@@ -13,7 +13,7 @@ interface KPIitem {
 }
 
 export default function KPIsection() {
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
   const KPIs = t<KPIitem[]>('home.kpi.kpis');
 
   const countupRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -25,6 +25,8 @@ export default function KPIsection() {
   // dynamically import and initialize countUp, sets value of `countUpAnim`
   // you don't have to import this way, but this works best for next.js
   function initCountUp() {
+    if (!Array.isArray(KPIs)) return;
+
     KPIs.forEach((kpi, i) => {
       if (kpi === null) {
         return;
@@ -57,19 +59,20 @@ export default function KPIsection() {
         <p>{t('home.kpi.subheader')}</p>
       </div>
       <div className={styles.kpi_wrapper}>
-        {KPIs.map((kpi, i) => {
-          return (
-            <div key={kpi.id} className={styles.kpi_container}>
-              <b>
-                <h1
-                  className={classNames(styles.kpi_number, 'header-d2')}
-                  ref={(kpi) => (countupRefs.current[i] = kpi)}
-                ></h1>
-              </b>
-              <div className={'title-s'}>{kpi.title}</div>
-            </div>
-          );
-        })}
+        {Array.isArray(KPIs) &&
+          KPIs.map((kpi, i) => {
+            return (
+              <div key={kpi.id} className={styles.kpi_container}>
+                <b>
+                  <h1
+                    className={classNames(styles.kpi_number, 'header-d2')}
+                    ref={(kpi) => (countupRefs.current[i] = kpi)}
+                  ></h1>
+                </b>
+                <div className={'title-s'}>{kpi.title}</div>
+              </div>
+            );
+          })}
       </div>
     </>
   );

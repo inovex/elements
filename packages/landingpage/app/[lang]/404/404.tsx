@@ -1,15 +1,14 @@
 'use client';
 
-import { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { InoButton } from '@inovex.de/elements-react';
 import img404 from '@assets/404.svg';
 import styles from './404.module.scss';
-import { I18NContext } from '../../../utils/context/i18nContext';
+import { useTranslation } from '../../../utils/hooks/useTranslation';
 
 export default function Page404() {
-  const { t, lang } = useContext(I18NContext);
+  const { t, lang } = useTranslation();
 
   return (
     <div className={styles.container}>

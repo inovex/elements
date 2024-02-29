@@ -5,14 +5,13 @@ import { de, enUS } from 'date-fns/locale';
 import { inDevEnvironment } from '../../../utils/in-dev-mode';
 import { AboutPage } from './client';
 import { getMetaTitle, translator } from '../../../utils/getMetaTitle';
-import { ParamsWithLang } from '../../../types/langParam';
-import { i18n } from '../../../i18n-config';
+import { SupportedLanguages, WithLangParam } from 'translations/i18n';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
 
 async function getCommitPerMonth(
-  locale: string,
+  locale: SupportedLanguages,
 ): Promise<GithubCommitsPerMonth> {
   const maybeGithubToken = process.env.GITHUB_TOKEN;
   const requestInit: RequestInit = {};
@@ -58,7 +57,7 @@ async function getCommitPerMonth(
       const month = startOfMonth(week);
       return {
         month: format(month, 'MMM yy', {
-          locale: locale === i18n.locales[1] ? de : enUS,
+          locale: locale === SupportedLanguages.DE ? de : enUS,
         }),
         commitsPerWeek,
       };
@@ -73,14 +72,14 @@ async function getCommitPerMonth(
     }, {} as GithubCommitsPerMonth);
 }
 
-export async function generateMetadata({ params }: ParamsWithLang) {
+export async function generateMetadata({ params }: WithLangParam) {
   const title = await translator('common.meta.about', params.lang);
   return {
     title: getMetaTitle(title),
   };
 }
 
-export default async function Page({ params }: ParamsWithLang) {
+export default async function Page({ params }: WithLangParam) {
   const users = await getGitHubContributers();
   const commitsPerMonth = await getCommitPerMonth(params.lang);
 

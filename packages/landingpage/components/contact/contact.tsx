@@ -7,7 +7,7 @@ import {
   InoTextarea,
 } from '@inovex.de/elements-react';
 import { FormEventHandler, useContext, useState } from 'react';
-import { I18NContext } from '../../utils/context/i18nContext';
+import { I18nContext } from '../../utils/context/i18nContext';
 
 function Contact() {
   const [subject, setSubject] = useState('');
@@ -15,7 +15,7 @@ function Contact() {
 
   const inovexMail = 'jan-niklas.voss@inovex.de';
 
-  const { t } = useContext(I18NContext);
+  const { t } = useContext(I18nContext);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();

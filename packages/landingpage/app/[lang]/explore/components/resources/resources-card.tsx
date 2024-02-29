@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './resources-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import linkIcon from './assets/link-icon.svg';
 import classNames from 'classnames';
-import { I18NContext } from '../../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 type Resource = {
   date: string;
@@ -15,7 +15,7 @@ type Resource = {
 };
 
 function ResourceCard() {
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
   const [resources, setResources] = useState<Resource[]>([]);
 
   useEffect(() => {
@@ -62,7 +62,9 @@ function ResourceCard() {
                   <Image
                     className={styles.Image}
                     src={resource.img_url}
-                    alt={`${t('resources.alt_image')} ${resource.title}`}
+                    alt={`${t('explore.resources.alt_image')} ${
+                      resource.title
+                    }`}
                     fill
                   />
                 </div>

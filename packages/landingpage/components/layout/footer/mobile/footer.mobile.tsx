@@ -1,9 +1,9 @@
 import styles from './footer.mobile.module.scss';
-import { Routes } from '../../../../utils/routes';
+import { Routes } from 'utils/routes';
 import LinkItem from '../../linkItem';
-import useTranslation from 'utils/hooks/useTranslation';
 import { InoAccordion } from '@inovex.de/elements-react';
 import { useSet } from 'react-use';
+import { useTranslation } from '@hooks/useTranslation';
 
 export default function FooterMobile() {
   const [_, { has, toggle }] = useSet(new Set<string>());
@@ -14,7 +14,9 @@ export default function FooterMobile() {
       {Routes.map(({ key: mainRouteName, url: mainRouteUrl, subRoutes }) => (
         <div key={mainRouteUrl} className={styles.accordion}>
           <InoAccordion
-            accordionTitle={t(`common.navigation.${mainRouteName}.name`)}
+            accordionTitle={t(
+              `common.navigation.${mainRouteName}.name` as LocaleResourcePaths,
+            )}
             expanded={has(mainRouteUrl)}
             onExpandedChange={() => toggle(mainRouteUrl)}
           >
@@ -23,7 +25,7 @@ export default function FooterMobile() {
                 key={subRouteUrl}
                 url={subRouteUrl}
                 name={t(
-                  `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name`,
+                  `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name` as LocaleResourcePaths,
                 )}
                 isDense={true}
                 className={styles.subRouteName}

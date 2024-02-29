@@ -1,5 +1,5 @@
 import styles from './activity.module.scss';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -14,7 +14,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { GithubCommitsPerMonth } from 'types/github';
-import { I18NContext } from '../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 ChartJS.register(
   CategoryScale,
@@ -50,7 +50,7 @@ function Activity({ commitsPerMonth }: Props) {
     datasets: [],
     labels: [],
   } as ChartData<'line', number[], string>);
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const labels = Object.keys(commitsPerMonth);

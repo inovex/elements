@@ -1,11 +1,12 @@
 import { permanentRedirect } from 'next/navigation';
-import { i18n } from 'i18n-config';
-import { ParamsWithLang } from 'types/langParam';
 import { MainRoutes, SubRoutes } from 'utils/routes';
+import { getValidLang } from 'translations/utils';
+import { WithLangParam } from 'translations/i18n';
 
-export default function Page({ params }: ParamsWithLang) {
-  const locale = params.lang ?? i18n.defaultLocale;
+export default function Page({ params }: WithLangParam) {
   permanentRedirect(
-    `/${locale}${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_COMPONENTS}`,
+    `/${getValidLang(params.lang)}${MainRoutes.LIBRARY}/${
+      SubRoutes.LIBRARY_COMPONENTS
+    }`,
   );
 }

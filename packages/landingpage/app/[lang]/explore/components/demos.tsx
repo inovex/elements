@@ -7,8 +7,7 @@ import {
 import Link from 'next/link';
 import styles from './demos.module.scss';
 import DemoCard from './demos-card';
-import { useContext } from 'react';
-import { I18NContext } from '../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 const DemoProjectByFrameworks: Partial<Record<Framework, string>> = {
   [Framework.JS]:
@@ -19,7 +18,7 @@ const DemoProjectByFrameworks: Partial<Record<Framework, string>> = {
 };
 
 function Demos() {
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
 
   return (
     <>

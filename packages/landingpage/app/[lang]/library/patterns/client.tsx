@@ -1,11 +1,10 @@
 'use client';
 
 import { NextPage } from 'next';
-import { useContext } from 'react';
 import { Login } from '@inovex.de/ui-patterns';
 import PreviewBox from './components/preview-box';
 import styles from './client.module.scss';
-import { I18NContext } from '../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 export interface HighlightedCodes {
   [key: string]: string;
@@ -20,7 +19,7 @@ export const PatternsPage: NextPage<PatternsPageProps> = ({
   highlightedCodes,
   codeStrings,
 }) => {
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
 
   return (
     <div style={{ marginBottom: '8rem' }}>

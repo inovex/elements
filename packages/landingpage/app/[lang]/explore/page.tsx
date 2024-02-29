@@ -1,8 +1,8 @@
-import { ParamsWithLang } from '../../../types/langParam';
+import { WithLangParam } from 'translations/i18n';
 import { ExplorePage } from './client';
 import { getMetaTitle, translator } from '../../../utils/getMetaTitle';
 
-export async function generateMetadata({ params }: ParamsWithLang) {
+export async function generateMetadata({ params }: WithLangParam) {
   const title = await translator('common.meta.explore', params.lang);
   return {
     title: getMetaTitle(title),

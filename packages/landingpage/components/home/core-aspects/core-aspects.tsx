@@ -4,10 +4,10 @@ import consistent from '@assets/coreaspect-consistent.svg';
 import futureproof from '@assets/coreaspect-futureproof.svg';
 import Image from 'next/image';
 import { useContext } from 'react';
-import { I18NContext } from '../../../utils/context/i18nContext';
+import { I18nContext } from '../../../utils/context/i18nContext';
 
 export default function CoreAspects() {
-  const { t } = useContext(I18NContext);
+  const { t } = useContext(I18nContext);
   return (
     <div className={styles.coreAspectsContainer}>
       <div className={styles.coreAspect}>

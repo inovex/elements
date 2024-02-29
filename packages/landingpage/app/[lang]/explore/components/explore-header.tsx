@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import styles from './explore-header.module.scss';
 import classNames from 'classnames';
-import { useContext } from 'react';
-import { I18NContext } from '../../../../utils/context/i18nContext';
+import { useTranslation } from '@hooks/useTranslation';
 
 export default function ExploreHeader() {
-  const { t } = useContext(I18NContext);
+  const { t } = useTranslation();
   return (
     <div className={styles.container}>
       <div className={styles.claimContainer}>

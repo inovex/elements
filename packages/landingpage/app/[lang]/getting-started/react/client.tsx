@@ -1,7 +1,7 @@
 'use client';
 
 import Layout from '../components/layout';
-import ReactGuide from '../../../../mdx/getting-started/react-guide.mdx';
+import ReactGuide from './react-guide.mdx';
 import { Framework } from '../../../../utils/frameworks';
 
 export const ReactGuidePage = () => {

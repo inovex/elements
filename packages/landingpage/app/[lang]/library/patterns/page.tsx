@@ -1,5 +1,5 @@
-import { ParamsWithLang } from '../../../../types/langParam';
-import { getMetaTitle, translator } from '../../../../utils/getMetaTitle';
+import { WithLangParam } from 'translations/i18n';
+import { getMetaTitle, translator } from 'utils/getMetaTitle';
 import { HighlightedCodes, PatternsPage } from './client';
 import { getHighlighter } from 'shiki';
 
@@ -28,7 +28,7 @@ const loginHtml = `<div
 </div>
 `;
 
-export async function generateMetadata({ params }: ParamsWithLang) {
+export async function generateMetadata({ params }: WithLangParam) {
   const title = await translator('common.meta.library', params.lang);
   return {
     title: getMetaTitle(title),

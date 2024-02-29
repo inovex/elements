@@ -1,17 +1,17 @@
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import { i18n } from '../../../../i18n-config';
+import { defaultLng, SupportedLanguages } from 'translations/i18n';
 import { InoSwitch } from '@inovex.de/elements-react';
 
 export default function LocaleSwitcher() {
   const pathName = usePathname();
   const router = useRouter();
   const currentLocale = useMemo(
-    () => pathName?.split('/')[1] ?? i18n.defaultLocale,
+    () => pathName?.split('/')[1] ?? defaultLng,
     [pathName],
   );
   const isChecked = useMemo(
-    () => currentLocale === i18n.locales[0],
+    () => currentLocale === SupportedLanguages.EN,
     [currentLocale],
   );
   const [isDisabled, setIsDisabled] = useState(false);
@@ -29,7 +29,7 @@ export default function LocaleSwitcher() {
       router.push('/');
     } else {
       const segments = pathName!.split('/');
-      segments[1] = isDE ? i18n.locales[0] : i18n.locales[1];
+      segments[1] = isDE ? SupportedLanguages.EN : SupportedLanguages.DE;
       router.push(segments.join('/'));
     }
   };
@@ -50,10 +50,10 @@ export default function LocaleSwitcher() {
         onCheckedChange={(e) => redirectedLocale(e.detail)}
       >
         <p slot="leading" style={leadingStyle}>
-          {i18n.locales[1].toUpperCase()}
+          {SupportedLanguages.DE.toUpperCase()}
         </p>
         <p slot="trailing" style={trailingStyle}>
-          {i18n.locales[0].toUpperCase()}
+          {SupportedLanguages.EN.toUpperCase()}
         </p>
       </InoSwitch>
     </div>

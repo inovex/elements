@@ -3,8 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "react": ["./node_modules/@types/react"],
-      "@elements": ["utils/elementsWrapper.ts"],
       "@assets/*": ["public/*"],
+      "@hooks/*": ["utils/hooks/*"],
       "@styles/*": ["styles/*"]
     },
     "target": "es5",
