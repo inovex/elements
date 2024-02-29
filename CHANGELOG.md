@@ -1,3 +1,23 @@
+## 9.1.1 (2024-02-23)
+
+
+### 🚀 Features
+
+- **ui-patterns:** add functionality to patterns ([#1240](https://github.com/inovex/elements/pull/1240))
+
+### 🩹 Fixes
+
+- **elements/ino-input:** enforce min max limits on arrow click ([#1248](https://github.com/inovex/elements/pull/1248))
+- **elements/ino-markdown-editor:** adjust list spacings ([#1236](https://github.com/inovex/elements/pull/1236))
+- **elements/ino-nav-drawer:** reinit listeners properly when switching between variants ([#1252](https://github.com/inovex/elements/pull/1252))
+- **elements/ino-tooltip:** prevent leftovers when conditionally shown ([#1251](https://github.com/inovex/elements/pull/1251))
+- **landingpage:** align mobile menu item content vertically ([#1250](https://github.com/inovex/elements/pull/1250))
+
+### ❤️  Thank You
+
+- Benjamin Pagelsdorf
+- Tobias Heim Galindo @TobiasHeimGalindo
+
 ## 9.1.0 (2024-02-02)
 
 

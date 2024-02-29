@@ -1,11 +1,11 @@
 {
   "name": "ui-patterns-playground",
   "private": true,
-  "version": "9.1.0",
+  "version": "9.1.1",
   "type": "module",
   "dependencies": {
-    "@inovex.de/elements-react": "^9.1.0",
-    "@inovex.de/ui-patterns": "^9.1.0",
+    "@inovex.de/elements-react": "^9.1.1",
+    "@inovex.de/ui-patterns": "^9.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.0"
