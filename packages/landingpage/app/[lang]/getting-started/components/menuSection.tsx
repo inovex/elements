@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import '../../utils/stringExtensions';
+import 'utils/stringExtensions';
 
 type MenuSectionProps = {
   title: string;
