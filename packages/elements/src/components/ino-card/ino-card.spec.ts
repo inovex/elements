@@ -1,5 +1,6 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
 import { Card } from './ino-card';
+import { listenForEvent } from '../../util/test-utils';
 
 const INO_CARD = `<ino-card></ino-card>`;
 const CARD_SELECTOR = 'ino-card';
@@ -17,12 +18,11 @@ describe('InoCard', () => {
   });
 
   it('should emit a clickEl event upon interacting with the card', async () => {
-    const clickSpy = jest.fn();
-    page.win.addEventListener('click', clickSpy);
+    const { eventSpy } = listenForEvent(page, 'click');
 
     card.click();
     await page.waitForChanges();
 
-    expect(clickSpy).toHaveBeenCalled();
+    expect(eventSpy).toHaveBeenCalled();
   });
 });
