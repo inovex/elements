@@ -29,9 +29,11 @@ test.describe('ino-carousel', () => {
     const arrowButtons = inoCarousel.getByRole('button');
 
     await arrowButtons.first().click(); // click left
+    await expect(selectedSlide).toBeVisible();
     expect(imageBefore).not.toEqual(await selectedSlide.innerHTML());
 
     await arrowButtons.last().click(); // click right
+    await expect(selectedSlide).toBeVisible();
     expect(imageBefore).toEqual(await selectedSlide.innerHTML());
   });
 });
