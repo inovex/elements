@@ -1,11 +1,11 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
 import { Fab } from './ino-fab';
+import { listenForEvent } from '../../util/test-utils';
 
 describe('InoFabButton', () => {
   let page: SpecPage;
   let inoFab: HTMLInoFabElement;
   let innerButton: HTMLButtonElement;
-  const eventSpy = jest.fn();
 
   beforeEach(async () => {
     page = await newSpecPage({
@@ -13,13 +13,12 @@ describe('InoFabButton', () => {
       html: `<ino-fab></ino-fab>`,
     });
 
-    eventSpy.mockClear();
     inoFab = page.body.querySelector('ino-fab');
     innerButton = inoFab.querySelector('button');
-    page.win.addEventListener('click', eventSpy);
   });
 
   it('should be clickable by default', async () => {
+    const { eventSpy } = listenForEvent(page, 'click');
     innerButton.click();
     await page.waitForChanges();
 
@@ -27,6 +26,7 @@ describe('InoFabButton', () => {
   });
 
   it('should not be clickable in disabled state', async () => {
+    const { eventSpy } = listenForEvent(page, 'click');
     inoFab.setAttribute('disabled', 'true');
     await page.waitForChanges();
 

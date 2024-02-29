@@ -21,6 +21,7 @@ test.describe('ino-fab', () => {
   test('should render with property extended', async () => {
     const { width } = await inoFab.boundingBox();
     await setAttribute(inoFab, 'extended', 'true');
+    await inoFab.click();
     const { width: extendedWidth } = await inoFab.boundingBox();
 
     expect(width).toBeLessThan(extendedWidth);
