@@ -82,7 +82,7 @@ export default function HeaderMobile() {
                     <LinkItem
                       url={mainRouteUrl}
                       noMargin={true}
-                      name={t(`common.navigation.${mainRouteName}.name`)}
+                      name={t(`common.navigation.${mainRouteName}.name` as LocaleResourcePaths)}
                     />
                     <InoIcon
                       icon={routeIsExpanded ? 'arrow_up' : 'arrow_down'}
@@ -102,7 +102,7 @@ export default function HeaderMobile() {
                         key={route.url}
                         url={route.url}
                         name={t(
-                          `common.navigation.${mainRouteName}.subroutes.${route.key}.name`,
+                          `common.navigation.${mainRouteName}.subroutes.${route.key}.name` as LocaleResourcePaths,
                         )}
                         isDense={true}
                       />

@@ -4,12 +4,12 @@ import {
   InoSegmentGroup,
 } from '@inovex.de/elements-react';
 import Image from 'next/image';
-import { i18n } from '../../../../i18n-config';
 import { useRouter } from 'next/navigation';
 import { Framework, NameByFramework } from '../../../../utils/frameworks';
 import { MainRoutes } from '../../../../utils/routes';
 import styles from './layout.module.scss';
 import NavigationMenu from './navigationMenu';
+import { defaultLng } from '../../../../translations/i18n';
 
 interface Props {
   children: React.ReactNode;
@@ -35,7 +35,7 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
           value={framework}
           onValueChange={(value) =>
             push(
-              `/${i18n.defaultLocale}${MainRoutes.GETTING_STARTED}/${value.detail}`,
+              `/${defaultLng}${MainRoutes.GETTING_STARTED}/${value.detail}`,
             )
           }
         >
