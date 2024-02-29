@@ -11,12 +11,8 @@ export async function goToStory(
   await page.goto(`/iframe.html?id=${category}-${name}--${story}`);
 }
 
-export async function setAttribute(
-  el: Locator,
-  attrName: string,
-  value: string,
-) {
-  return await el.evaluate(
+export function setAttribute(el: Locator, attrName: string, value: string) {
+  return el.evaluate(
     (e, { attrName, value }) => e.setAttribute(attrName, value),
     { attrName, value },
   );
@@ -27,7 +23,7 @@ export async function setProperty(
   propName: string,
   value: unknown,
 ) {
-  return await el.evaluate((e, { propName, value }) => (e[propName] = value), {
+  return el.evaluate((e, { propName, value }) => (e[propName] = value), {
     propName,
     value,
   });
