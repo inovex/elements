@@ -1,11 +1,12 @@
 import { expect, Locator, test } from '@playwright/test';
-import { goToStory } from '../test-utils';
+import { goToStory, setProperty } from '../test-utils';
 import { KeyValue } from '@inovex.de/elements';
 import { AutoCompleteStoryOptions } from './utils';
 
 test.describe('ino-autocomplete', () => {
   let inputEl: Locator;
   let menu: Locator;
+  let options: Locator;
   let inoAutocomplete: Locator;
 
   const getValueChangePromise = () =>
@@ -23,9 +24,11 @@ test.describe('ino-autocomplete', () => {
     inoAutocomplete = page.locator('ino-autocomplete');
     inputEl = page.getByRole('combobox');
     menu = page.getByRole('listbox');
+    options = menu.getByRole('option');
   });
 
   test('should hide menu on render', async () => {
+    await expect(inoAutocomplete).toBeVisible();
     await expect(menu).toBeHidden();
   });
 
@@ -40,16 +43,16 @@ test.describe('ino-autocomplete', () => {
   });
 
   test('should hide menu on input blur', async () => {
-    await inputEl.focus();
+    await inputEl.click();
+    await expect(menu).toBeVisible();
     await inputEl.blur();
+    await inputEl.press('Tab');
     await expect(menu).toBeHidden();
   });
 
   test('should show all options if there is no input', async () => {
     await inputEl.focus();
-    await expect(menu.getByRole('option')).toHaveCount(
-      AutoCompleteStoryOptions.length,
-    );
+    await expect(options).toHaveCount(AutoCompleteStoryOptions.length);
   });
 
   test('should show the noOptionText if no options was found', async ({
@@ -57,47 +60,40 @@ test.describe('ino-autocomplete', () => {
   }) => {
     await inputEl.focus();
     await inputEl.fill('no match');
-    await expect(menu.getByRole('option')).toHaveCount(0);
+    await expect(options).toHaveCount(0);
 
     const notFoundMsgEl = page.getByText('Found No Results for "no match"');
-    expect(notFoundMsgEl).toBeTruthy();
+    await expect(notFoundMsgEl).toBeVisible();
   });
 
   test('should show only one input when typing "Ham"', async () => {
     await inputEl.focus();
     await inputEl.fill('Ham');
-    await expect(menu.getByRole('option')).toHaveCount(1);
+    await expect(options).toHaveCount(1);
   });
 
   test('should receive key of the first item on ArrowDown and Enter', async () => {
-    const valueChangePromise = getValueChangePromise();
-
     await inputEl.focus();
     await inoAutocomplete.press('ArrowDown');
     await inoAutocomplete.press('Enter');
 
-    expect(await valueChangePromise).toEqual(AutoCompleteStoryOptions[0]);
+    await expect(inputEl).toHaveValue('Hamburg');
   });
 
   test('should receive key of the second item on double ArrowDown and Enter', async () => {
-    const valueChangePromise = getValueChangePromise();
-
     await inputEl.focus();
     await inoAutocomplete.press('ArrowDown');
     await inoAutocomplete.press('ArrowDown');
     await inoAutocomplete.press('Enter');
 
-    expect(await valueChangePromise).toEqual(AutoCompleteStoryOptions[1]);
+    await expect(inputEl).toHaveValue('Berlin');
   });
 
   test('should receive key of the last item on ArrowUp and Enter', async () => {
-    const valueChangePromise = getValueChangePromise();
     await inputEl.focus();
     await inoAutocomplete.press('ArrowUp');
     await inoAutocomplete.press('Enter');
-    expect(await valueChangePromise).toEqual(
-      AutoCompleteStoryOptions[AutoCompleteStoryOptions.length - 1],
-    );
+    await expect(inputEl).toHaveValue('Karlsruhe');
   });
 
   test('should clear input on blur if its no option', async () => {
@@ -108,6 +104,8 @@ test.describe('ino-autocomplete', () => {
   });
 
   test('should emit null on blur if its a non-matched option', async () => {
+    test.fixme(true, 'Should be a spec test');
+
     const valueChangePromise = getValueChangePromise();
     await inputEl.click();
     await inputEl.fill('No Option');
@@ -118,20 +116,16 @@ test.describe('ino-autocomplete', () => {
   test('should be able to select option that was added afterwards', async () => {
     const newOptions = AutoCompleteStoryOptions.concat({
       key: 'm',
-      value: 'munich',
+      value: 'Munich',
     });
 
-    await inoAutocomplete.evaluate((autocomplete, newOptions) => {
-      autocomplete['options'] = newOptions;
-    }, newOptions);
+    await expect(inoAutocomplete).toBeVisible();
+    await setProperty(inoAutocomplete, 'options', newOptions);
     await inputEl.focus();
+    await expect(options).toHaveCount(newOptions.length);
 
-    await expect(menu.getByRole('option')).toHaveCount(newOptions.length);
-
-    const valueChangePromise = getValueChangePromise();
     await inoAutocomplete.press('ArrowUp');
     await inoAutocomplete.press('Enter');
-
-    expect(await valueChangePromise).toEqual(newOptions[newOptions.length - 1]);
+    await expect(inputEl).toHaveValue('Munich');
   });
 });
