@@ -1,6 +1,6 @@
-import { getMetaTitle } from '../../../../utils/getMetaTitle';
+import { getMetaTitle } from '@utils/getMetaTitle';
 import { JavaScriptGuidePage } from './client';
-import { NameByFramework } from '../../../../utils/frameworks';
+import { NameByFramework } from '@utils/frameworks';
 
 export async function generateMetadata() {
   return {

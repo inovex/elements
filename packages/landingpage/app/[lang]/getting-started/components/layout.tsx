@@ -5,11 +5,11 @@ import {
 } from '@inovex.de/elements-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Framework, NameByFramework } from '../../../../utils/frameworks';
-import { MainRoutes } from '../../../../utils/routes';
+import { Framework, NameByFramework } from '@utils/frameworks';
+import { MainRoutes } from '@routes';
 import styles from './layout.module.scss';
 import NavigationMenu from './navigationMenu';
-import { defaultLng } from '../../../../translations/i18n';
+import { defaultLng } from 'translations/i18n';
 
 interface Props {
   children: React.ReactNode;
@@ -34,9 +34,7 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
           id="segment-grp"
           value={framework}
           onValueChange={(value) =>
-            push(
-              `/${defaultLng}${MainRoutes.GETTING_STARTED}/${value.detail}`,
-            )
+            push(`/${defaultLng}${MainRoutes.GETTING_STARTED}/${value.detail}`)
           }
         >
           {Object.values(Framework).map((framework) => (

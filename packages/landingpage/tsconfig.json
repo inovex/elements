@@ -4,8 +4,11 @@
     "paths": {
       "react": ["./node_modules/@types/react"],
       "@assets/*": ["public/*"],
+      "@context": ["utils/context/index.ts"],
       "@hooks/*": ["utils/hooks/*"],
-      "@styles/*": ["styles/*"]
+      "@routes": ["utils/routes.tsx"],
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

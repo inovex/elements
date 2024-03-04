@@ -1,5 +1,5 @@
 import { permanentRedirect } from 'next/navigation';
-import { MainRoutes, SubRoutes } from 'utils/routes';
+import { MainRoutes, SubRoutes } from '@routes';
 import { getValidLang } from 'translations/utils';
 import { WithLangParam } from 'translations/i18n';
 

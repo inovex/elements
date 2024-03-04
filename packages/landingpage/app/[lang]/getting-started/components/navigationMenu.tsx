@@ -3,6 +3,7 @@ import styles from './navigationMenu.module.scss';
 
 // We use Record<string, string> instead of enum because we can iterate over it AND use it as a type
 export type Sections = Record<string, string>;
+
 interface NavigationMenuProps {
   title: string;
 }

@@ -21,7 +21,7 @@ type I18nProviderProps = {
   translations: LocaleResource;
 };
 
-const I18nContextProvider = ({
+export const I18nContextProvider = ({
   children,
   lang,
   translations,
@@ -33,5 +33,3 @@ const I18nContextProvider = ({
     <I18nContext.Provider value={{ t, lang }}>{children}</I18nContext.Provider>
   );
 };
-
-export default I18nContextProvider;

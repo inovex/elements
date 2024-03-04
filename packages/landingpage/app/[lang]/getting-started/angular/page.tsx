@@ -1,7 +1,7 @@
-import { WithLangParam } from '../../../../translations/i18n';
-import { getMetaTitle } from '../../../../utils/getMetaTitle';
+import { WithLangParam } from 'translations/i18n';
+import { getMetaTitle } from '@utils/getMetaTitle';
 import { AngularGuidePage } from './client';
-import { NameByFramework } from '../../../../utils/frameworks';
+import { NameByFramework } from '@utils/frameworks';
 
 export async function generateMetadata({ params }: WithLangParam) {
   return {

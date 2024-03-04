@@ -1,10 +1,10 @@
 'use client';
 
-import { SubRoutes } from 'utils/routes';
+import { SubRoutes } from '@routes';
 import { GithubCommitsPerMonth } from 'types/github';
 import { NextPage } from 'next';
 import { ElementsContributor } from '../../../types/contributors';
-import { Activity, Contributors, History } from './components';
+import { Activity, Contributors, History } from './_components';
 
 interface Params {
   users: ElementsContributor[];

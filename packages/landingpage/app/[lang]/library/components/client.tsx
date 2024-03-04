@@ -3,9 +3,9 @@
 import openInNew from '@assets/open-in-new.svg';
 import { InoButton, InoIcon, InoSpinner } from '@inovex.de/elements-react';
 import { useContext, useEffect } from 'react';
-import { UiContext, UiContextType } from 'utils/context/UiContext';
-import { useStorybookUrl } from 'utils/hooks/useStorybookUrl';
-import { useStorybookUrlSyncer } from 'utils/hooks/useStorybookUrlSyncer';
+import { UiContext, UiContextType } from '@context';
+import { useStorybookUrl } from '@hooks/useStorybookUrl';
+import { useStorybookUrlSyncer } from '@hooks/useStorybookUrlSyncer';
 import styles from './client.module.scss';
 
 export const StoryBookPage = () => {

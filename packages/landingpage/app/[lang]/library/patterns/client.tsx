@@ -2,7 +2,7 @@
 
 import { NextPage } from 'next';
 import { Login } from '@inovex.de/ui-patterns';
-import PreviewBox from './components/preview-box';
+import PreviewBox from './_components/preview-box';
 import styles from './client.module.scss';
 import { useTranslation } from '@hooks/useTranslation';
 

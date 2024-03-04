@@ -2,7 +2,7 @@
 
 import Layout from '../components/layout';
 import AngularGuide from './angular-guide.mdx';
-import { Framework } from '../../../../utils/frameworks';
+import { Framework } from '@utils/frameworks';
 
 export const AngularGuidePage = () => {
   return (

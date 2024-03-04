@@ -1,10 +1,7 @@
 'use client';
 
-import ExploreHeader from './components/explore-header';
-import { SubRoutes } from '../../../utils/routes';
-import Examples from './components/examples';
-import Demos from './components/demos';
-import ResourceCard from './components/resources/resources-card';
+import { SubRoutes } from '@routes';
+import { Demos, Examples, ExploreHeader, ResourceCard } from './_components';
 import classNames from 'classnames';
 import styles from './client.module.scss';
 

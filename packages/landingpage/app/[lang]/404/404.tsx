@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { InoButton } from '@inovex.de/elements-react';
 import img404 from '@assets/404.svg';
 import styles from './404.module.scss';
-import { useTranslation } from '../../../utils/hooks/useTranslation';
+import { useTranslation } from '@hooks/useTranslation';
 
 export default function Page404() {
   const { t, lang } = useTranslation();

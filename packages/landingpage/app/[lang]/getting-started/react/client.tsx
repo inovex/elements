@@ -2,7 +2,7 @@
 
 import Layout from '../components/layout';
 import ReactGuide from './react-guide.mdx';
-import { Framework } from '../../../../utils/frameworks';
+import { Framework } from '@utils/frameworks';
 
 export const ReactGuidePage = () => {
   return (

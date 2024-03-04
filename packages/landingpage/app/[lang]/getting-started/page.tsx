@@ -1,7 +1,7 @@
 import { permanentRedirect } from 'next/navigation';
 import { getValidLang } from 'translations/utils';
 import { WithLangParam } from 'translations/i18n';
-import { MainRoutes, SubRoutes } from 'utils/routes';
+import { MainRoutes, SubRoutes } from '@routes';
 
 export default function Page({ params }: WithLangParam) {
   permanentRedirect(

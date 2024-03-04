@@ -1,10 +1,10 @@
-import { getGitHubContributers } from './components/contributors/contributor-utils';
+import { getGitHubContributers } from './_components/contributors/contributor-utils';
 import { GithubCommitsPerMonth, GithubParticipation } from 'types/github';
 import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
 import { de, enUS } from 'date-fns/locale';
-import { inDevEnvironment } from '../../../utils/in-dev-mode';
+import { inDevEnvironment } from '@utils/in-dev-mode';
 import { AboutPage } from './client';
-import { getMetaTitle, translator } from '../../../utils/getMetaTitle';
+import { getMetaTitle, translator } from '@utils/getMetaTitle';
 import { SupportedLanguages, WithLangParam } from 'translations/i18n';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';

@@ -26,9 +26,11 @@
     background-color: var(--inovex-elements-p-1);
     text-align: left;
     padding: 12px;
+
     &:first-child {
       border-top-left-radius: 6px;
     }
+
     &:last-child {
       border-top-right-radius: 6px;
     }
@@ -36,9 +38,11 @@
 
   td {
     padding: 17px 12px;
+
     &:first-child {
       border-top-left-radius: 6px;
     }
+
     &:last-child {
       border-top-right-radius: 6px;
     }

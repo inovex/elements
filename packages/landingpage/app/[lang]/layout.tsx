@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import ClientLayout from './clientLayout';
 import { LangParam, languages } from 'translations/i18n';
-import { getTranslation } from '../../translations/getTranslations';
+import { getTranslation } from 'translations/getTranslations';
 
 export async function generateStaticParams() {
   return languages.map((lang) => ({ lang }));
