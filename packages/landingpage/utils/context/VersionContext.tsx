@@ -1,7 +1,6 @@
 import {
   createContext,
   ReactNode,
-  useContext,
   useState,
   useEffect,
 } from 'react';

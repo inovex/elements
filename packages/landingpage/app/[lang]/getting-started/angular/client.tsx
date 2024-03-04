@@ -1,6 +1,6 @@
 'use client';
 
-import Layout from '../components/layout';
+import { Layout } from '../_components';
 import AngularGuide from './angular-guide.mdx';
 import { Framework } from '@utils/frameworks';
 

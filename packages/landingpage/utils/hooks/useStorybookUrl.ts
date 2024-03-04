@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { useVersion } from '../context/VersionContext';
+import { useVersion } from '@hooks/useVersion';
 
 export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--docs';
 export const useStorybookUrl = () => {
