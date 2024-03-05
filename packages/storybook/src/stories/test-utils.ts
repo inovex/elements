@@ -8,9 +8,7 @@ export async function goToStory(
 ) {
   const [category, name, story] = storyDescription;
 
-  await page.goto(
-    `/iframe.html?id=${category.toLowerCase()}-${name}--${story}`,
-  );
+  void page.goto(`/iframe.html?id=${category.toLowerCase()}-${name}--${story}`);
   await page.waitForURL(`/iframe.html?id=${category}-${name}--${story}`);
 }
 
