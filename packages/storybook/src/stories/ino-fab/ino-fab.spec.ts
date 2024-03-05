@@ -5,7 +5,7 @@ test.describe('ino-fab', () => {
   let inoFab: Locator;
 
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['buttons', 'ino-fab', 'default']);
+    await goToStory(page, ['Buttons', 'ino-fab', 'default']);
     await page.waitForLoadState('domcontentloaded');
     await page.waitForLoadState('load');
     inoFab = page.locator('ino-fab');
