@@ -8,8 +8,9 @@ export async function goToStory(
 ) {
   const [category, name, story] = storyDescription;
 
-  void page.goto(`/iframe.html?id=${category.toLowerCase()}-${name}--${story}`);
-  await page.waitForURL(`/iframe.html?id=${category}-${name}--${story}`);
+  await page.goto(
+    `/iframe.html?id=${category.toLowerCase()}-${name}--${story}`,
+  );
 }
 
 export function setAttribute(el: Locator, attrName: string, value: string) {
