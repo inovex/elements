@@ -17,7 +17,7 @@ import {
 } from '@inovex.de/elements-react';
 import elementsLogo from '../../assets/elements.svg';
 
-function SettingsPage() {
+function TestPage() {
   const [isPasswordSectionVisible, setIsPasswordSectionVisible] =
     useState(false);
   const [isSecurityQuestionsVisible, setIsSecurityQuestionsVisible] =
@@ -94,7 +94,7 @@ function SettingsPage() {
           >
             <InoTab label="Account" a11yControls="account-panel"></InoTab>
             <InoTab
-              label="Notifcation"
+              label="Notification"
               a11yControls="notification-panel"
             ></InoTab>
             <InoTab label="Updates" a11yControls="update-panel"></InoTab>
@@ -443,8 +443,7 @@ function SettingsPage() {
             <div className="py-10 max-w-xl">
               <h2 className="header-h2">Updates</h2>
               <p className="body-l mt-10 text-inovex-n-10">
-                Your software is currently being updated to the latest version.
-                Please do not turn off your device.
+                Your app is currently being updated to the latest version.
               </p>
 
               <div className="flex flex-col gap-20 mt-6">
@@ -476,4 +475,4 @@ function SettingsPage() {
   );
 }
 
-export default SettingsPage;
+export default TestPage;

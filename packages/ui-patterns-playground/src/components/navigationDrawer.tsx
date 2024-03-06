@@ -41,11 +41,16 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
             <InoIcon icon="dashboard"></InoIcon>
           </InoNavItem>
         </Link>
+        <Link to="/settings">
+          <InoNavItem role="menuitem" text="SettingsPage">
+            <InoIcon icon="settings"></InoIcon>
+          </InoNavItem>
+        </Link>
         <Link to="/mypatterna">
           <InoNavItem role="menuitem" text="MyPatternA">
             <InoIcon icon="number"></InoIcon>
           </InoNavItem>
-        </Link>
+        </Link>   
       </InoList>
 
       <InoList role="menubar" slot="footer" aria-label="Footer Navigation">
@@ -55,6 +60,7 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
           </InoNavItem>
         </Link>
       </InoList>
+      
 
       {/* Content will be placed here in the App.tsx component */}
       <main
