@@ -122,10 +122,8 @@ ino-snackbar {
     align-items: center;
     height: 30px;
     width: 30px;
-
-    ino-icon.ino-snackbar-icon {
-      --ino-icon-color-primary: var(--snackbar-color);
-    }
+    color: var(--snackbar-color);
+    font-weight: 700;
   }
 
   @include setIconSizeByType(info, 20px);

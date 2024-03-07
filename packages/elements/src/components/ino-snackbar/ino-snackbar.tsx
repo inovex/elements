@@ -130,15 +130,15 @@ export class Snackbar implements ComponentInterface {
   private mapTypeToIconName = (type: SnackbarType) => {
     switch (type) {
       case 'success':
-        return 'snackbar-checkmark';
+        return 'i';
       case 'error':
-        return 'snackbar-error';
+        return '!';
       case 'info':
-        return 'snackbar-information';
+        return 'i';
       case 'warning':
-        return 'warning'
+        return '!'
       default:
-        return 'snackbar-information';
+        return 'i';
     }
   };
 
@@ -165,10 +165,7 @@ export class Snackbar implements ComponentInterface {
               {hasSlot ? (
                 <slot name="icon-slot" />
               ) : (
-                <ino-icon
-                  class="ino-snackbar-icon"
-                  icon={this.mapTypeToIconName(this.type)}
-                />
+                <span>{this.mapTypeToIconName(this.type)}</span>
               )}
             </div>
             <div

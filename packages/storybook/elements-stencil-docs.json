@@ -3715,7 +3715,6 @@
         "ino-input",
         "ino-input-file",
         "ino-markdown-editor",
-        "ino-snackbar",
         "ino-tab",
         "ino-table-header-cell"
       ],
@@ -3752,9 +3751,6 @@
           "ino-icon"
         ],
         "ino-markdown-editor": [
-          "ino-icon"
-        ],
-        "ino-snackbar": [
           "ino-icon"
         ],
         "ino-tab": [
@@ -9125,12 +9121,10 @@
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
-        "ino-icon",
         "ino-icon-button"
       ],
       "dependencyGraph": {
         "ino-snackbar": [
-          "ino-icon",
           "ino-icon-button"
         ],
         "ino-icon-button": [
