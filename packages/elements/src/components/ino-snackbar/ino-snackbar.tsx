@@ -44,7 +44,7 @@ export class Snackbar implements ComponentInterface {
   @Prop() actionText?: string;
 
   /**
-   * Changes the snackbar type. There are three four types of messages: info, success, warning and error.
+   * Changes the snackbar type. There are four types of messages: info, success, warning and error.
    */
   @Prop() type: SnackbarType = 'info';
 

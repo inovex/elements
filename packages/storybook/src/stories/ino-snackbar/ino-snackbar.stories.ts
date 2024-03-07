@@ -88,10 +88,10 @@ const InoSnackbarMeta = {
     },
   },
   args: {
+    type: 'info',
     actionText: 'Some Action',
     defaultSlot: 'This is a message',
     timeout: -1,
-    type: 'info',
     id: 'snackbar-default',
     stayVisibleOnHover: false,
   },

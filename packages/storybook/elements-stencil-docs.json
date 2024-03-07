@@ -9240,7 +9240,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Changes the snackbar type. There are three four types of messages: info, success, warning and error.",
+          "docs": "Changes the snackbar type. There are four types of messages: info, success, warning and error.",
           "docsTags": [],
           "default": "'info'",
           "values": [
@@ -9296,28 +9296,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-snackbar-bottom",
-          "annotation": "prop",
-          "docs": "Distance to the bottom edge"
-        },
-        {
-          "name": "--ino-snackbar-left",
-          "annotation": "prop",
-          "docs": "Distance to the left edge"
-        },
-        {
-          "name": "--ino-snackbar-right",
-          "annotation": "prop",
-          "docs": "Distance to the right edge"
-        },
-        {
-          "name": "--ino-snackbar-top",
-          "annotation": "prop",
-          "docs": "Distance to the top edge"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-slot",
