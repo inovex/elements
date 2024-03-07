@@ -1,5 +1,6 @@
 import { WithLangParam } from 'translations/i18n';
-import { getMetaTitle, translator } from '@utils/getMetaTitle';
+import { getMetaTitle } from '@utils/getMetaTitle';
+import { translator } from 'translations/getTranslations';
 import { Home } from './client';
 
 export async function generateMetadata({ params }: WithLangParam) {

@@ -1,5 +1,5 @@
 import 'server-only';
-import { SupportedLanguages } from './i18n';
+import { SupportedLanguages, getDescendantProp } from './i18n';
 
 // We enumerate all dictionaries here for better linting and typescript support
 // We also get the default import for cleaner types
@@ -11,3 +11,8 @@ const dictionaries = {
 export const getTranslation = async (
   locale: SupportedLanguages,
 ): Promise<LocaleResource> => dictionaries[locale]?.() ?? dictionaries.en();
+
+export const translator = async (
+  key: LocaleResourcePaths,
+  lang: SupportedLanguages,
+) => getDescendantProp(await getTranslation(lang), key) ?? key;

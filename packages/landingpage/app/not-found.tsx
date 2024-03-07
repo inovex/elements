@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { getValidLang, isValidLang } from 'translations/utils';
+import { getValidLang, isValidLang } from 'translations/i18n';
 
 export default function NotFound() {
   const router = useRouter();

@@ -1,5 +1,6 @@
 import { WithLangParam } from 'translations/i18n';
-import { getMetaTitle, translator } from 'utils/getMetaTitle';
+import { getMetaTitle } from 'utils/getMetaTitle';
+import { translator } from 'translations/getTranslations';
 import { StoryBookPage } from './client';
 import { Suspense } from 'react';
 

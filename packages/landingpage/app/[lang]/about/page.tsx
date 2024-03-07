@@ -4,8 +4,9 @@ import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
 import { de, enUS } from 'date-fns/locale';
 import { inDevEnvironment } from '@utils/in-dev-mode';
 import { AboutPage } from './client';
-import { getMetaTitle, translator } from '@utils/getMetaTitle';
+import { getMetaTitle } from '@utils/getMetaTitle';
 import { SupportedLanguages, WithLangParam } from 'translations/i18n';
+import { translator } from 'translations/getTranslations';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;

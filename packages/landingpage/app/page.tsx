@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { getValidLang } from 'translations/utils';
+import { getValidLang } from 'translations/i18n';
 
 export default function Page() {
   const router = useRouter();

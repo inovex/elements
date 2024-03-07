@@ -1,6 +1,6 @@
 import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
-import { ElementsContributor } from '../../../../../types/contributors';
+import { ElementsContributor } from 'types/contributors';
 import { useTranslation } from '@hooks/useTranslation';
 
 interface Params {

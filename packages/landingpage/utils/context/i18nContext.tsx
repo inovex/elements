@@ -1,9 +1,9 @@
 import { createContext, ReactNode } from 'react';
-import { getDescendantProp } from '../../translations/utils';
 import {
   defaultLng,
   SupportedLanguages,
   WithLangProp,
+  getDescendantProp,
 } from 'translations/i18n';
 
 export type I18nContextProps = {
