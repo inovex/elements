@@ -1,8 +1,47 @@
 import htmlContent from './settingsPage.html?raw';
 import PatternWrapper from '../PatternWrapper';
 import { setupEventListener } from '../../utils';
+import { useEffect, useState } from "react";
+
+function useDisableButton<
+  Fields extends Record<string, string>,
+  Key extends keyof Fields,
+>(buttonSelector: string, initialState: Fields) {
+  const [form, setForm] = useState(initialState);
+
+  useEffect(() => {
+    const submitButton = document.querySelector(
+      buttonSelector,
+    ) as HTMLButtonElement;
+
+    submitButton.disabled = Object.values(form).every((field) => !field);
+  }, [form]);
+
+  function setField(field: Key, value: Fields[Key]) {
+    setForm((form) => ({ ...form, [field]: value }));
+  }
+
+  return setField;
+}
 
 const SettingsPage = () => {
+
+  const setPersonalInfoForm = useDisableButton('ino-button#submit-personal-info', {name: '', company: ''})
+  // const setPasswordForm = useDisableButton('ino-button[type="submit"]', {name: '', company: ''})
+
+  function onTabChange(newTabIndex: number) {
+    const panels = Array.from(document.getElementsByClassName('panel'))
+
+    panels.forEach((panel, index) => {
+
+      if(index === newTabIndex) {
+        panel.classList.remove('hidden')
+      } else {
+        panel.classList.add('hidden')
+      }
+    })
+  }
+
   function setupEventListeners(container: HTMLElement) {
     const cleanupFirstName = setupEventListener(
       container,
@@ -21,6 +60,7 @@ const SettingsPage = () => {
       'ino-input[label="Company Name"]',
       'valueChange',
       'value',
+      (ev) => setPersonalInfoForm('company', (ev as CustomEvent<string>).detail),
     );
     const cleanupIndustry = setupEventListener(
       container,
@@ -77,23 +117,27 @@ const SettingsPage = () => {
       'value',
     );
 
-    // Toggle visibility for tabs
-    const tabBar = container.querySelector('ino-tab-bar');
-    const panels = container.querySelectorAll('.panel');
+    const cleanupTabBar = setupEventListener(
+      container,
+      'ino-tab-bar',
+      'activeTabChange',
+      'active-tab',
+      (ev) => onTabChange((ev as CustomEvent<number>).detail)
+    );
 
-    const onTabChange = (e: Event) => {
-      const activeTabIndex = (e as CustomEvent).detail;
-      panels.forEach((panel, index) => {
-        console.log('index', index);
-        console.log('activeTabIndex', activeTabIndex);
-        console.log('panel', panel);
-        panel.classList.toggle('hidden', index !== activeTabIndex);
-      });
-    };
+    const cleanupPasswordAccordion = setupEventListener(
+      container,
+      'ino-accordion#password-accordion',
+      'expandedChange',
+      'expanded',
+    );
 
-    if (tabBar) {
-      tabBar.addEventListener('activeTabChange', onTabChange);
-    }
+    const cleanupSecurityAccordion = setupEventListener(
+      container,
+      'ino-accordion#security-accordion',
+      'expandedChange',
+      'expanded',
+    );
 
     return () => {
       cleanupFirstName();
@@ -108,9 +152,9 @@ const SettingsPage = () => {
       cleanupSecurityAnswer1();
       cleanupSecurityAnswer2();
       cleanupSecurityAnswer3();
-      if (tabBar) {
-        tabBar.removeEventListener('activeTabChange', onTabChange);
-      }
+      cleanupTabBar();
+      cleanupPasswordAccordion();
+      cleanupSecurityAccordion();
     };
   }
 

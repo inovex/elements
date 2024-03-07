@@ -39,12 +39,12 @@
                         Look up and change all your personal data.
                     </p>
 
-                    <div class="flex flex-col gap-y-5 mt-9">
+                    <form class="flex flex-col gap-y-5 mt-9">
                         <div class="flex justify-between gap-4">
                             <ino-input class="flex-grow" label="First Name" outline></ino-input>
                             <ino-input class="flex-grow" label="Last Name" outline></ino-input>
                         </div>
-                        <ino-input label="Company Name" outline></ino-input>
+                        <ino-input name="company" label="Company Name" outline></ino-input>
                         <ino-input label="Industry" outline></ino-input>
                         <ino-input label="Role" outline data-list="roles">
                             <datalist id="roles">
@@ -54,19 +54,13 @@
                                 <option>Scrum Master</option>
                             </datalist>
                         </ino-input>
-                        <ino-button class="self-end">Save Changes</ino-button>
-                    </div>
+                        <ino-button id="submit-personal-info" class="self-end">Save Changes</ino-button>
+                    </form>
 
                     <div>
                         <h3 class="title-l mt-8">E-Mail</h3>
                         <div class="flex justify-between">
-                            <p class="label-l mt-3 text-inovex-primary">email_placeholder</p>
-                            <ino-button variant="text">
-                                <ino-icon icon="edit" slot="icon-leading"></ino-icon>
-                                Edit
-                            </ino-button>
-
-                            <ino-input label="Email" class="flex-grow"></ino-input>
+                            <ino-input label="Email" class="flex-grow" outline></ino-input>
                             <ino-button variant="text">
                                 <ino-icon icon="save" slot="icon-leading"></ino-icon>
                                 Save
@@ -75,55 +69,38 @@
                     </div>
 
 
-                    <div class="border-y border-inovex-p-3 py-10 mt-10">
-                        <div>
-                            <div class="flex justify-between items-center">
-                                <h3 class="title-l">Change Password</h3>
-                                <ino-icon class="cursor-pointer" icon="arrow_down"></ino-icon>
-                            </div>
+                  <div class="border-y border-inovex-p-3 py-10 mt-10 flex flex-col gap-4">
+                    <ino-accordion id="password-accordion" accordion-title="Change Password">
+                      <div class="flex flex-col gap-y-5 mt-4">
+                        <ino-input label="Current password" outline></ino-input>
+                        <ino-input label="New password" outline></ino-input>
+                        <ino-input label="Confirm password" outline></ino-input>
+                        <ino-button class="self-end">Save Changes</ino-button>
+                      </div>
+                    </ino-accordion>
 
-
-                            <div class="flex flex-col overflow-hidden transition-all duration-700 ease-in-out">
-                                <div class="flex flex-col gap-y-5 mt-4">
-                                    <ino-input label="Current password" outline></ino-input>
-                                    <ino-input label="New password" outline></ino-input>
-                                    <ino-input label="Confirm password" outline></ino-input>
-                                    <ino-button class="self-end">Save Changes</ino-button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-8">
-                            <div class="flex justify-between items-center mt-10">
-                                <h3 class="title-l">Security Questions</h3>
-                                <ino-icon class="cursor-pointer" icon="arrow_down"></ino-icon>
-                            </div>
-
-                            <div class="flex flex-col overflow-hidden transition-all duration-700 ease-in-out">
-                                <div class="flex flex-col mt-4">
-                                    <div class="flex justify-between">
-                                        <ino-select class="w-full mr-5" label="Security Question 1">
-                                            <ino-option value="some-id">Question 1</ino-option>
-                                        </ino-select>
-                                        <ino-input label="Answer 1"></ino-input>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <ino-select class="w-full mr-5" label="Security Question 2">
-                                            <ino-option value="some-id">Question 2</ino-option>
-                                        </ino-select>
-                                        <ino-input label="Answer 2"></ino-input>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <ino-select class="w-full mr-5" label="Security Question 3">
-                                            <ino-option value="some-id">Question 3</ino-option>
-                                        </ino-select>
-                                        <ino-input label="Answer 3"></ino-input>
-                                    </div>
-                                    <ino-button class="mt-5 self-end">Save Changes</ino-button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ino-accordion id="security-accordion" accordion-title="Security Questions">
+                      <div class="flex justify-between">
+                        <ino-select class="w-full mr-5" label="Security Question 1">
+                          <ino-option value="some-id">Question 1</ino-option>
+                        </ino-select>
+                        <ino-input label="Answer 1"></ino-input>
+                      </div>
+                      <div class="flex justify-between">
+                        <ino-select class="w-full mr-5" label="Security Question 2">
+                          <ino-option value="some-id">Question 2</ino-option>
+                        </ino-select>
+                        <ino-input label="Answer 2"></ino-input>
+                      </div>
+                      <div class="flex justify-between">
+                        <ino-select class="w-full mr-5" label="Security Question 3">
+                          <ino-option value="some-id">Question 3</ino-option>
+                        </ino-select>
+                        <ino-input label="Answer 3"></ino-input>
+                      </div>
+                      <ino-button class="mt-5 self-end">Save Changes</ino-button>
+                    </ino-accordion>
+                  </div>
 
                     <div>
                         <h3 class="title-l mt-10">Delete Account</h3>
