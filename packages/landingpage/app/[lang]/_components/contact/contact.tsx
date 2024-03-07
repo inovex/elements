@@ -6,16 +6,15 @@ import {
   InoInput,
   InoTextarea,
 } from '@inovex.de/elements-react';
-import { FormEventHandler, useContext, useState } from 'react';
-import { I18nContext } from '@context';
+import { FormEventHandler, useState } from 'react';
+import { useTranslation } from '@hooks/useTranslation';
 
 function Contact() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
   const inovexMail = 'jan-niklas.voss@inovex.de';
-
-  const { t } = useContext(I18nContext);
+  const { t } = useTranslation();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();

@@ -9,5 +9,7 @@ export const getValidLang = (lang: string) => {
   return isValidLang(lang) ? lang.toLowerCase() : defaultLng;
 };
 
-export const getDescendantProp = (obj: any, path: LocaleResourcePaths) =>
-  path.split('.').reduce((acc, part) => acc && acc[part], obj);
+export const getDescendantProp = (
+  obj: LocaleResource,
+  path: LocaleResourcePaths,
+) => path.split('.').reduce((acc: any, part) => acc && acc[part], obj);

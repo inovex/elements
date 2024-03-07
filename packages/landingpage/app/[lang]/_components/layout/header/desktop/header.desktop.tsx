@@ -6,20 +6,18 @@ import LocaleSwitcher from './localeSwitcher';
 import Navbar from './navbar';
 import VersionSelect from '../versionSelect';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from '@hooks/useTranslation';
 
 export default function HeaderDesktop() {
   const pathName = usePathname();
+  const { lang } = useTranslation();
   const isLibraryPage = pathName?.endsWith('/library/components');
+
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <div className={styles.logo}>
-          <Link
-            className={styles.logoLink}
-            href={{
-              pathname: '.',
-            }}
-          >
+          <Link className={styles.logoLink} href={{ pathname: `/${lang}` }}>
             <Image src={ElementsLogo} alt="inovex-elements Logo" fill />
           </Link>
         </div>

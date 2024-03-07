@@ -1,20 +1,19 @@
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
-import { defaultLng, SupportedLanguages } from 'translations/i18n';
+import { useMemo } from 'react';
+import { SupportedLanguages } from 'translations/i18n';
 import { InoSwitch } from '@inovex.de/elements-react';
+import { useTranslation } from '@hooks/useTranslation';
 
 export default function LocaleSwitcher() {
   const pathName = usePathname();
   const router = useRouter();
-  const currentLocale = useMemo(
-    () => pathName?.split('/')[1] ?? defaultLng,
+  const { lang } = useTranslation();
+
+  const isChecked = useMemo(() => lang === SupportedLanguages.EN, [lang]);
+  const isDisabled = useMemo(
+    () => pathName?.split('/')[2] === 'getting-started',
     [pathName],
   );
-  const isChecked = useMemo(
-    () => currentLocale === SupportedLanguages.EN,
-    [currentLocale],
-  );
-  const [isDisabled, setIsDisabled] = useState(false);
 
   const leadingStyle = {
     color: isChecked ? '#575464' : 'black',
@@ -33,14 +32,6 @@ export default function LocaleSwitcher() {
       router.push(segments.join('/'));
     }
   };
-
-  useEffect(() => {
-    if (pathName?.startsWith('/[lang]/getting-started')) {
-      setIsDisabled(true);
-    } else {
-      setIsDisabled(false);
-    }
-  }, [pathName]);
 
   return (
     <div>
