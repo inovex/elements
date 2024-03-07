@@ -3,6 +3,11 @@ import classNames from 'classnames';
 
 import { SpinnerType } from '../types';
 
+/**
+ * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
+ *
+ * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
+ */
 @Component({
   tag: 'ino-spinner',
   styleUrl: 'ino-spinner.scss',

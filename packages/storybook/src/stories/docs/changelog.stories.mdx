@@ -1,6 +1,6 @@
-import { Meta, Description } from "@storybook/addon-docs";
-import readme from "../../../../../CHANGELOG.md";
+import { Meta, Markdown } from "@storybook/blocks";
+import ReadMe from "../../../../../CHANGELOG.md?raw";
 
 <Meta title="Docs/Changelog" />
 
-<Description markdown={readme} />
+<Markdown>{ReadMe}</Markdown>

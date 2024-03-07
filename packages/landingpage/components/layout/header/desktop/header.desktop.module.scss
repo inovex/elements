@@ -1,11 +1,11 @@
 $header-height: 120px;
-$header-height--shrunk: 70px;
+$header-height--shrunk: 80px;
 
 // inspired by https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/
 .header {
   top: $header-height--shrunk - $header-height;
   position: sticky;
-  background-color: white;
+  background-color: var(--inovex-elements-white);
   z-index: 999;
   height: $header-height;
   display: flex;
@@ -29,15 +29,23 @@ $header-height--shrunk: 70px;
 
 .logo {
   grid-area: logo;
+  display: flex;
+  align-items: center;
 
   a {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+    display: inline-block;
+    height: $header-height--shrunk - 15px;
+    margin: 5px;
+    width: 60px;
+    position: relative;
+
+    img {
+      height: inherit;
+    }
   }
 
   p {
-    color: #003c7e;
+    color: var(--inovex-elements-p-5);
   }
 }
 
@@ -45,7 +53,7 @@ $header-height--shrunk: 70px;
   grid-area: language;
 
   div b {
-    color: #003c7e;
+    color: var(--inovex-elements-p-5);
     cursor: pointer;
     text-transform: uppercase;
     padding: 5px;
@@ -57,7 +65,7 @@ $header-height--shrunk: 70px;
     }
 
     &.selected {
-      color: #2c02ff;
+      color: var(--inovex-elements-p-5);
     }
   }
 }
@@ -72,13 +80,16 @@ $header-height--shrunk: 70px;
 
 .github {
   grid-area: github;
-}
+  width: 30px;
+  height: 30px;
+  position: relative;
 
-.githubImage {
-  transition: filter 300ms;
-  filter: opacity(0.5);
+  .githubImage {
+    transition: filter 300ms;
+    filter: opacity(0.5);
 
-  &:hover {
-    filter: opacity(1);
+    &:hover {
+      filter: opacity(1);
+    }
   }
 }

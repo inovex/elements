@@ -1,12 +1,14 @@
 {
   "name": "@inovex.de/elements",
-  "version": "8.1.3",
+  "version": "9.1.0",
   "description": "A web components library implementing the corporate identity of the inovex GmbH",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "contributors": [
-    "Alexander Gerlach <agerlach@inovex.de",
+    "Alexander Gerlach <agerlach@inovex.de>",
+    "André Ehlert <andre.ehlert@inovex.de>",
     "Arne Maier <amaier@inovex.de>",
+    "Benjamin Pagelsdorf <benjamin.pagelsdorf@inovex.de>",
     "Daniel Eckelt <deckelt@inovex.de>",
     "Daniel Hieber <dhieber@inovex.de>",
     "Filipe Santos Correa <filipe.santoscorrea@inovex.de>",
@@ -16,14 +18,15 @@
     "Johann Böhler <jboehler@inovex.de>",
     "Johannes Reuter <johannes.reuter@inovex.de>",
     "Lukas Kirner <lkirner@inovex.de>",
+    "Maria-Luisa Stefan <maria-luisa.stefan@inovex.de>",
     "Mathias Gruschinske <mgruschinske@inovex.de>",
     "Michael Janssen <mjanssen@inovex.de>",
     "Pascal Fecht <pfecht@inovex.de>",
     "Sebastian Löfflath <sebastian.loefflath@inovex.de>",
     "Simon Rey <srey@inovex.de>",
     "Sven Lindauer <slindauer@inovex.de>",
-    "Viet Duc Mai <viet.mai@inovex.de>",
-    "Benjamin Pagelsdorf <benjamin.pagelsdorf@inovex.de>"
+    "Tobias Heim Galindo <tobias.heim-galindo@inovex.de>",
+    "Viet Duc Mai <viet.mai@inovex.de>"
   ],
   "homepage": "https://elements.inovex.de",
   "bugs": {

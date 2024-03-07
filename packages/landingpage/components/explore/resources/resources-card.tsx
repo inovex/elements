@@ -58,13 +58,14 @@ function ResourceCard() {
           <Link href={resource.url} target="_blank" key={resource.url}>
             <div className={styles.card}>
               <div className={styles.header}>
-                <Image
-                  width={213}
-                  height={124}
-                  className={styles.Image}
-                  src={resource.img_url}
-                  alt={`${t('resources.alt_image')} ${resource.title}`}
-                />
+                <div className={styles.imageContainer}>
+                  <Image
+                    className={styles.Image}
+                    src={resource.img_url}
+                    alt={`${t('resources.alt_image')} ${resource.title}`}
+                    fill
+                  />
+                </div>
               </div>
               <div className={classNames(styles.content, 'body-s')}>
                 <div>

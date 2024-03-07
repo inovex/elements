@@ -25,6 +25,21 @@ The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org
  * Support of task list syntax (`- [x] MyToDoTask`)
  * No support of image syntax. __Images are not allowed!__
 
+### Font Size Scaling
+
+The font sizes within the Markdown Editor are scaled based on the CSS variable `--ino-markdown-editor-font-size`. This variable sets the base font size, and other font sizes are scaled accordingly.
+
+#### Base Font Size Variable
+`--ino-markdown-editor-font-size`: Sets the base font size for all text elements. Default is `16px`.
+
+#### Scaling Factors
+
+| Element | Scaling Factor | Calculated Size (Example) |
+|---------|----------------|---------------------------|
+| Base Font Size | 1x | Base size (e.g., 16px) |
+| Header 1 (h1) | 2x | Double the base size (e.g., 32px) |
+| Header 2 (h2) | 1.75x | 1.75 times the base size (e.g., 28px) |
+
 ## Properties
 
 | Property       | Attribute       | Description                                                                                                                                                                            | Type                                    | Default     |
@@ -44,10 +59,11 @@ The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org
 
 ## CSS Custom Properties
 
-| Name                               | Description                                          |
-| ---------------------------------- | ---------------------------------------------------- |
-| `--ino-markdown-editor-max-height` | max-height of text editor Default value is `none`.   |
-| `--ino-markdown-editor-min-height` | min-height of text editor. Default value is `100px`. |
+| Name                               | Description                                                                                               |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `--ino-markdown-editor-font-size`  | Base font size for all text elements, which scales other font sizes accordingly. Default value is `16px`. |
+| `--ino-markdown-editor-max-height` | max-height of text editor Default value is `none`.                                                        |
+| `--ino-markdown-editor-min-height` | min-height of text editor. Default value is `100px`.                                                      |
 
 
 ## Dependencies
@@ -70,12 +86,13 @@ graph TD;
   ino-markdown-editor --> ino-icon
   ino-markdown-editor --> ino-popover
   ino-markdown-editor --> ino-textarea
+  ino-dialog --> ino-icon-button
   ino-dialog --> ino-icon
   ino-dialog --> ino-button
+  ino-icon-button --> ino-icon
   ino-button --> ino-spinner
   ino-input --> ino-label
   ino-input --> ino-icon
-  ino-icon-button --> ino-icon
   ino-textarea --> ino-label
   style ino-markdown-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```

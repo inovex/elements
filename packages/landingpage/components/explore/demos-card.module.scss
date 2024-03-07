@@ -15,6 +15,12 @@
   align-items: center;
   padding: 19px 0 0 24px;
   gap: 16px;
+
+  .icon {
+    position: relative;
+    height: 40px;
+    width: 40px;
+  }
 }
 .link {
   display: flex;

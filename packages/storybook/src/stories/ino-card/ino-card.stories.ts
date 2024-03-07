@@ -1,17 +1,14 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
-import { TemplateGenerator } from '../template-generator';
+import { Components } from '@inovex.de/elements';
+import { useEffect } from '@storybook/preview-api';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-
+import Story from '../StoryWrapper';
 import './ino-card.scss';
 
-export default {
-  title: 'Structure/<ino-card>',
+const InoCardMeta = {
+  title: 'Structure/ino-card',
   component: 'ino-card',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-card'),
     (story) => {
       useEffect(() => {
         const handleClick = function (e) {
@@ -33,15 +30,7 @@ export default {
       return story();
     },
   ],
-  args: {
-    disableElevation: false,
-    selected: false,
-  },
-} as Meta<Components.InoCard>;
-
-const template = new TemplateGenerator<Components.InoCard>(
-  'ino-card',
-  (args) => html`
+  render: (args) => html`
     <ino-card
       class="customizable-card"
       disable-elevation="${args.disableElevation}"
@@ -63,10 +52,30 @@ const template = new TemplateGenerator<Components.InoCard>(
       </div>
     </ino-card>
   `,
-);
+  args: {
+    disableElevation: false,
+    selected: false,
+  },
+} as Meta<Components.InoCard>;
 
-export const Playground = template.generatePlaygroundStory();
-export const DisabledElevation = template.generateStoryForProp(
-  'disableElevation',
-  true,
-);
+export default InoCardMeta;
+
+export const Default = Story({
+  ...InoCardMeta,
+});
+
+export const DisabledElevation = Story({
+  ...Default,
+  docsFromProperty: 'disableElevation',
+  args: {
+    disableElevation: true,
+  },
+});
+
+export const Selected = Story({
+  ...Default,
+  docsFromProperty: 'selected',
+  args: {
+    selected: true,
+  },
+});

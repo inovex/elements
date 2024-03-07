@@ -45,9 +45,7 @@ html {
 .typo-box {
   display: flex;
   gap: 100px;
-
-  p {
-  }
+  padding-top: 2rem;
 
   h2 {
     border-bottom: unset; // reset storybook styles

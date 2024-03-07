@@ -13,23 +13,23 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/storybook",
-        "command": "build-storybook -c config -o dist",
         "color": true
+      },
+      "defaultConfiguration": "dev",
+      "configurations": {
+        "dev": {
+          "command": "storybook build -c config -o dist"
+        },
+        "prod": {
+          "command": "storybook build -c config --quiet -o dist"
+        }
       }
     },
     "start": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/storybook"
-      },
-      "defaultConfiguration": "dev",
-      "configurations": {
-        "dev": {
-          "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
-        },
-        "prod": {
-          "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
-        }
+        "cwd": "packages/storybook",
+        "command": "storybook dev -p 6006 -c config"
       }
     },
     "lint": {
@@ -53,6 +53,28 @@
       "configurations": {
         "nodejs": {
           "command": "shx rm -rf node_modules"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/packages/storybook"],
+      "options": {
+        "config": "packages/storybook/playwright.config.ts",
+        "browser": "chromium",
+        "timeout": 15000
+      },
+      "defaultConfiguration": "headless",
+      "configurations": {
+        "headless": {
+          "headed": false
+        },
+        "ui": {
+          "ui": true
+        },
+        "debug": {
+          "headed": true,
+          "debug": true
         }
       }
     }

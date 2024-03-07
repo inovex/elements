@@ -3,7 +3,9 @@ import { defaultLocale, Supported_Locales } from './config';
 import { isLocale } from './types';
 
 function getInitialLocale(): Supported_Locales {
-  const localSetting = localStorage.getItem('locale');
+  const localSettingRaw = localStorage.getItem('locale');
+  const localSetting = localSettingRaw?.replaceAll('"', '');
+
   if (localSetting && isLocale(localSetting)) {
     return localSetting;
   }
@@ -24,5 +26,7 @@ function useDefaultLocale() {
     router.push(initLang);
   };
 }
+
+const isDevMode = () => process?.env?.NODE_ENV !== 'development' ?? true;
 
 export default useDefaultLocale;

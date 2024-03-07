@@ -1,4 +1,8 @@
 {
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "affected": {
+    "defaultBase": "origin/master"
+  },
   "workspaceLayout": {
     "appsDir": "packages",
     "libsDir": "packages"
@@ -6,13 +10,21 @@
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "cache": true
+      "cache": true,
+      "inputs": ["production", "^production"]
     },
     "test": {
-      "cache": true
+      "cache": true,
+      "inputs": ["default", "^production"]
     },
     "lint": {
-      "cache": true
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        "{projectRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintrc.json"
+      ]
     }
   },
   "generators": {
@@ -30,5 +42,40 @@
       "style": "scss"
     }
   },
-  "cacheDirectory": ".nx-cache"
+  "cacheDirectory": ".nx-cache",
+  "release": {
+    "projects": [
+      "workspace",
+      "elements",
+      "elements-angular",
+      "elements-react",
+      "elements-vue",
+      "storybook",
+      "elements-angular-example",
+      "elements-react-example",
+      "elements-vue-example",
+      "ui-patterns",
+      "ui-patterns-playground"
+    ],
+    "git": {
+      "commitMessage": "chore: publish {version}"
+    },
+    "changelog": {
+      "projectChangelogs": false,
+      "workspaceChangelog": {
+        "createRelease": "github"
+      }
+    },
+    "version": {
+      "conventionalCommits": true
+    }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [
+      "{workspaceRoot}/tsconfig.json",
+      "{workspaceRoot}/tsconfig.base.json"
+    ],
+    "production": ["default", "!{projectRoot}/**/*.e2e.ts"]
+  }
 }

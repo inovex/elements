@@ -1,6 +1,6 @@
 {
   "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*", "src/generated/**"],
+  "ignorePatterns": ["!**/*", "src/directives/**"],
   "overrides": [
     {
       "files": ["*.ts"],
@@ -10,6 +10,7 @@
       ],
       "rules": {
         "@angular-eslint/directive-selector": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
         "@angular-eslint/component-selector": [
           "error",
           {

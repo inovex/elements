@@ -1,88 +1,28 @@
 # ino-dialog
 
-The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
-It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
-
-## Usage
-
-The component can be used as follows:
-
-### Web Component
-
-```js
-document
-  .querySelector('ino-dialog')
-  .addEventListener('close', (e) =>
-    alert(`dialog has been closed with action: ${e.detail}`),
-  );
-```
-
-```html
-<ino-dialog>
-  <div class="awesome-content"></div>
-</ino-dialog>
-```
-
-### React
-
-```jsx
-import React from 'react';
-import { Component } from 'react';
-import { InoButton, InoDialog } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-
-  state = {
-    open: false
-  };
-
-  handleEvent = () => {
-    this.setState((open) => ({
-      open: !open
-    }))
-  };
-
-  render() {
-    return (
-      <>
-        <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>
-        <InoDialog open={this.state.open}>
-          <div class="awesome-content"/>
-        </InoDialog>
-      </>
-    );
-  }
-}
-```
-
-## Additional information
-
-### Sizing
-The dialog is displayed in the middle (horiziontally and vertically centered) on a surface.
-In order to customize the dialog's size, use the `--ino-dialog-height` and `--ino-dialog-width` properties.
-Either use a fixed value or use css calc (f.e. `calc(100% - 60px)` to add a margin auf `30px` on both sides).
-
-### Fullwidth
-A Fullwidth dialog is a distinct variant which has 100% width an is attached to the bottom of the page. It scrolls up and defines a small
-margin at top for the background scrim and escape for dialog close. It's not recommenended to use this option with `--ino-dialog-width` and `--ino-dialog-height`.
-
-### Closing actions
-You can mark elements as "action elements" by providing a `data-ino-dialog-action="action-name"` attribute.
-On user clicks, the dialog checks whether the target is a dialog action and, if true, emits a `close` event with `event.detail = "action-name"`.
-
-Subsequently, listen to the `close` Event and check the `event.detail` to retrieve the users action.
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+
+#### Usage Notes
+
+- **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+- **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
 
 ## Properties
 
 | Property      | Attribute     | Description                                                                                                                                                            | Type                        | Default     |
 | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------- |
-| `actionText`  | `action-text` | Adds a button with the given text to proceed with an action`                                                                                                           | `string`                    | `undefined` |
+| `actionText`  | `action-text` | Adds a button with the given text to proceed with an action                                                                                                            | `string`                    | `undefined` |
 | `attachTo`    | `attach-to`   | The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization. | `string`                    | `undefined` |
 | `bodyText`    | `body-text`   | Adds a text to the body of the `ino-dialog`                                                                                                                            | `string`                    | `undefined` |
 | `cancelText`  | `cancel-text` | Adds a button with the given text to close the `ino-dialog`                                                                                                            | `string`                    | `undefined` |
+| `closeIcon`   | `close-icon`  | Adds a close icon in the top right corner to close the `ino-dialog`.                                                                                                   | `boolean`                   | `false`     |
 | `dialogRole`  | `dialog-role` | The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.                        | `"alertdialog" \| "dialog"` | `'dialog'`  |
 | `dismissible` | `dismissible` | Close the dialog by clicking outside of the dialog.                                                                                                                    | `boolean`                   | `undefined` |
 | `fullwidth`   | `fullwidth`   | Defines a full width dialog sliding up from the bottom of the page.                                                                                                    | `boolean`                   | `undefined` |
@@ -93,10 +33,11 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 ## Events
 
-| Event    | Description                                                  | Type                  |
-| -------- | ------------------------------------------------------------ | --------------------- |
-| `action` | Emits an event upon clicking the action button of the dialog | `CustomEvent<string>` |
-| `close`  | Emits an event upon closing the dialog                       | `CustomEvent<string>` |
+| Event        | Description                                                  | Type                  |
+| ------------ | ------------------------------------------------------------ | --------------------- |
+| `action`     | Emits an event upon clicking the action button of the dialog | `CustomEvent<string>` |
+| `close`      | Emits an event upon closing the dialog                       | `CustomEvent<string>` |
+| `dialogOpen` | Emits an event when the dialog is opened.                    | `CustomEvent<void>`   |
 
 
 ## Slots
@@ -134,14 +75,17 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 
 ### Depends on
 
+- [ino-icon-button](../ino-icon-button)
 - [ino-icon](../ino-icon)
 - [ino-button](../ino-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-dialog --> ino-icon-button
   ino-dialog --> ino-icon
   ino-dialog --> ino-button
+  ino-icon-button --> ino-icon
   ino-button --> ino-spinner
   ino-markdown-editor --> ino-dialog
   style ino-dialog fill:#f9f,stroke:#333,stroke-width:4px

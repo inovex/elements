@@ -2,8 +2,6 @@ name: Deploy Landingpage
 
 on:
   push:
-    branches:
-      - master
     paths:
       - packages/landingpage/**
   workflow_dispatch:
@@ -11,20 +9,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/dependencies-install
       - name: Build landingpage ⚒️
-        run: yarn build:landingpage
+        run: yarn nx run landingpage:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
 
       - name: Upload build output ⬆️
         uses: actions/upload-artifact@v2
         with:
           name: landingpage
-          path:
-            packages/landingpage/out/
+          path: packages/landingpage/out/
 
   deploy-landingpage:
     runs-on: ubuntu-latest

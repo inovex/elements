@@ -1,26 +1,37 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useVersion } from '../context/VersionContext';
 
-export const WELCOME_PAGE_PLACEHOLDER = 'welcome';
-
+export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--docs';
 export const useStorybookUrl = () => {
-  const storybookUrl = process.env.NEXT_PUBLIC_STORYBOOK_URL;
-
+  const { selectedVersion } = useVersion();
   const { query, isReady } = useRouter();
-  const [iFrameStartURl, setIFrameStartURl] = useState<string | null>(null);
-
-  function fromLandingpageToStorybookUrl(query: string): string {
-    if (!query || query === WELCOME_PAGE_PLACEHOLDER)
-      return `${storybookUrl}?path=/docs/docs-welcome--page`;
-
-    return `${storybookUrl}?path=/docs/${query}`;
-  }
+  const [initialStorybookUrl, setInitialStorybookUrl] = useState<string | null>(
+    null,
+  );
 
   useEffect(() => {
-    if (iFrameStartURl || !isReady) return;
+    if (!isReady) return;
 
-    setIFrameStartURl(fromLandingpageToStorybookUrl(query.element as string));
-  }, [isReady, query.element]);
+    if (!process.env.NEXT_PUBLIC_STORYBOOK_URL)
+      throw new Error(
+        'NEXT_PUBLIC_STORYBOOK_URL not found in environment variables.',
+      );
 
-  return { initialUrl: iFrameStartURl, fromLandingpageToStorybookUrl };
+    let baseStorybookUrl = process.env.NEXT_PUBLIC_STORYBOOK_URL;
+
+    if (selectedVersion) {
+      baseStorybookUrl = baseStorybookUrl.replace('latest', selectedVersion);
+    }
+
+    const newUrl = [
+      baseStorybookUrl,
+      '?path=/docs/',
+      query.element ?? WELCOME_PAGE_PLACEHOLDER,
+    ].join('');
+
+    setInitialStorybookUrl(newUrl);
+  }, [isReady, selectedVersion]);
+
+  return initialStorybookUrl;
 };

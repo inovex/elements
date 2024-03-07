@@ -1,16 +1,14 @@
-import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import { useEffect } from '@storybook/preview-api';
+import Story from '../StoryWrapper';
 import './ino-range.scss';
-import { useEffect } from '@storybook/client-api';
-import { TemplateGenerator } from '../template-generator';
 
-export default {
-  title: 'Input/<ino-range>',
+const InoRangeMeta = {
+  title: 'Input/ino-range',
   component: 'ino-range',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-range'),
     (story) => {
       useEffect(() => {
         const eventHandlerSingle = (e: CustomEvent<number>) =>
@@ -35,25 +33,7 @@ export default {
       return story();
     },
   ],
-  args: {
-    disabled: false,
-    discrete: false,
-    min: 0,
-    max: 100,
-    value: 50,
-    valueStart: 30,
-    valueEnd: 70,
-    name: '',
-    markers: false,
-    step: 1,
-    ranged: false,
-  },
-} as Meta<Components.InoRange>;
-
-// the basic template for the checkbox component
-const template = new TemplateGenerator<Components.InoRange>(
-  'ino-range',
-  (args) => html`
+  render: (args) => html`
     <ino-range
       class="customizable-range"
       disabled="${args.disabled}"
@@ -70,18 +50,51 @@ const template = new TemplateGenerator<Components.InoRange>(
     >
     </ino-range>
   `,
-);
+  args: {
+    disabled: false,
+    discrete: false,
+    min: 0,
+    max: 100,
+    value: 50,
+    valueStart: 30,
+    valueEnd: 70,
+    name: '',
+    markers: false,
+    step: 1,
+    ranged: false,
+  },
+} as Meta<Components.InoRange>;
 
-export const Playground = template.generatePlaygroundStory();
+export default InoRangeMeta;
 
-export const Discrete = template.generateStoryForProp('discrete', true);
-
-export const Markers = template.generateStoryForProp('markers', true, {
-  discrete: true,
+export const Default = Story({
+  ...InoRangeMeta,
 });
 
-export const Ranged = template.generateStoryForProp('ranged', true, {
-  valueStart: 30,
-  valueEnd: 70,
-  discrete: true,
+export const Discrete = Story({
+  ...Default,
+  docsFromProperty: 'discrete',
+  args: {
+    discrete: true,
+  },
+});
+
+export const Markers = Story({
+  ...Default,
+  docsFromProperty: 'markers',
+  args: {
+    markers: true,
+    discrete: true,
+  },
+});
+
+export const Ranged = Story({
+  ...Default,
+  docsFromProperty: 'ranged',
+  args: {
+    ranged: true,
+    valueStart: 30,
+    valueEnd: 70,
+    discrete: true,
+  },
 });

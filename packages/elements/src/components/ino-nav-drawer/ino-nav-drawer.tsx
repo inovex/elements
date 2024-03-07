@@ -15,6 +15,11 @@ import { NavDrawerAnchor, NavDrawerVariant, NavDrawerLabels } from '../types';
 import classNames from 'classnames';
 
 /**
+ * A navigation drawer component with different variants, setting up the base layout for your app.
+ * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
+ *
+ * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+ *
  * @slot header - For a custom header on top of the navigation bar
  * @slot logo - For the logo on top of the navigation bar (cannot be used with the `header` slot)
  * @slot subtitle - For the element just below the logo (cannot be used with the `header` slot)
@@ -25,7 +30,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-nav-drawer',
   styleUrl: 'ino-nav-drawer.scss',
-  shadow: { delegatesFocus: true },
+  shadow: true,
 })
 export class NavDrawer implements ComponentInterface {
   /**

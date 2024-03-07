@@ -1,4 +1,4 @@
-name: "Lint PR"
+name: 'Lint PR'
 
 on:
   pull_request_target:
@@ -30,6 +30,8 @@ jobs:
             ci
             chore
             revert
+            deps
+            dev-deps
           # Configure which scopes are allowed.
           scopes: |
             elements|ino-accordion
@@ -83,153 +85,6 @@ jobs:
             elements|ino-table-row
             elements|ino-textarea
             elements|ino-tooltip
-            elements-angular|ino-autocomplete
-            elements-angular|ino-button
-            elements-angular|ino-card
-            elements-angular|ino-carousel
-            elements-angular|ino-carousel-slide
-            elements-angular|ino-checkbox
-            elements-angular|ino-chip
-            elements-angular|ino-chip-set
-            elements-angular|ino-control-item
-            elements-angular|ino-currency-input
-            elements-angular|ino-datepicker
-            elements-angular|ino-dialog
-            elements-angular|ino-fab
-            elements-angular|ino-fab-set
-            elements-angular|ino-icon
-            elements-angular|ino-icon-button
-            elements-angular|ino-img
-            elements-angular|ino-img-list
-            elements-angular|ino-input
-            elements-angular|ino-input-file
-            elements-angular|ino-label
-            elements-angular|ino-list
-            elements-angular|ino-list-divider
-            elements-angular|ino-list-item
-            elements-angular|ino-markdown-editor
-            elements-angular|ino-menu
-            elements-angular|ino-nav-drawer
-            elements-angular|ino-nav-item
-            elements-angular|ino-option
-            elements-angular|ino-option-group
-            elements-angular|ino-popover
-            elements-angular|ino-progress-bar
-            elements-angular|ino-radio
-            elements-angular|ino-radio-group
-            elements-angular|ino-range
-            elements-angular|ino-segment-button
-            elements-angular|ino-segment-group
-            elements-angular|ino-select
-            elements-angular|ino-sidebar
-            elements-angular|ino-snackbar
-            elements-angular|ino-spinner
-            elements-angular|ino-switch
-            elements-angular|ino-tab
-            elements-angular|ino-tab-bar
-            elements-angular|ino-table
-            elements-angular|ino-table-cell
-            elements-angular|ino-table-row
-            elements-angular|ino-textarea
-            elements-angular|ino-tooltip
-            elements-react|ino-autocomplete
-            elements-react|ino-button
-            elements-react|ino-card
-            elements-react|ino-carousel
-            elements-react|ino-carousel-slide
-            elements-react|ino-checkbox
-            elements-react|ino-chip
-            elements-react|ino-chip-set
-            elements-react|ino-control-item
-            elements-react|ino-currency-input
-            elements-react|ino-datepicker
-            elements-react|ino-dialog
-            elements-react|ino-fab
-            elements-react|ino-fab-set
-            elements-react|ino-icon
-            elements-react|ino-icon-button
-            elements-react|ino-img
-            elements-react|ino-img-list
-            elements-react|ino-input
-            elements-react|ino-input-file
-            elements-react|ino-label
-            elements-react|ino-list
-            elements-react|ino-list-divider
-            elements-react|ino-list-item
-            elements-react|ino-markdown-editor
-            elements-react|ino-menu
-            elements-react|ino-nav-drawer
-            elements-react|ino-nav-item
-            elements-react|ino-option
-            elements-react|ino-option-group
-            elements-react|ino-popover
-            elements-react|ino-progress-bar
-            elements-react|ino-radio
-            elements-react|ino-radio-group
-            elements-react|ino-range
-            elements-react|ino-segment-button
-            elements-react|ino-segment-group
-            elements-react|ino-select
-            elements-react|ino-sidebar
-            elements-react|ino-snackbar
-            elements-react|ino-spinner
-            elements-react|ino-switch
-            elements-react|ino-tab
-            elements-react|ino-tab-bar
-            elements-react|ino-table
-            elements-react|ino-table-cell
-            elements-react|ino-table-row
-            elements-react|ino-textarea
-            elements-react|ino-tooltip
-            elements-vue|ino-autocomplete
-            elements-vue|ino-button
-            elements-vue|ino-card
-            elements-vue|ino-carousel
-            elements-vue|ino-carousel-slide
-            elements-vue|ino-checkbox
-            elements-vue|ino-chip
-            elements-vue|ino-chip-set
-            elements-vue|ino-control-item
-            elements-vue|ino-currency-input
-            elements-vue|ino-datepicker
-            elements-vue|ino-dialog
-            elements-vue|ino-fab
-            elements-vue|ino-fab-set
-            elements-vue|ino-icon
-            elements-vue|ino-icon-button
-            elements-vue|ino-img
-            elements-vue|ino-img-list
-            elements-vue|ino-input
-            elements-vue|ino-input-file
-            elements-vue|ino-label
-            elements-vue|ino-list
-            elements-vue|ino-list-divider
-            elements-vue|ino-list-item
-            elements-vue|ino-markdown-editor
-            elements-vue|ino-menu
-            elements-vue|ino-nav-drawer
-            elements-vue|ino-nav-item
-            elements-vue|ino-option
-            elements-vue|ino-option-group
-            elements-vue|ino-popover
-            elements-vue|ino-progress-bar
-            elements-vue|ino-radio
-            elements-vue|ino-radio-group
-            elements-vue|ino-range
-            elements-vue|ino-segment-button
-            elements-vue|ino-segment-group
-            elements-vue|ino-select
-            elements-vue|ino-sidebar
-            elements-vue|ino-snackbar
-            elements-vue|ino-spinner
-            elements-vue|ino-switch
-            elements-vue|ino-tab
-            elements-vue|ino-tab-bar
-            elements-vue|ino-table
-            elements-vue|ino-table-cell
-            elements-vue|ino-table-row
-            elements-vue|ino-textarea
-            elements-vue|ino-tooltip
             storybook|ino-autocomplete
             storybook|ino-button
             storybook|ino-card
@@ -288,8 +143,9 @@ jobs:
             elements-vue-example
             storybook
             landingpage
+            ui-patterns
+            ui-patterns-playground
             '*'
-            deps
           # Configure that a scope must always be provided.
           requireScope: false
           # Configure which scopes are disallowed in PR titles. For instance by setting

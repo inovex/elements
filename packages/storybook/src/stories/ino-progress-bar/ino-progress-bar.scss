@@ -1,17 +1,5 @@
-.story-ino-progress-bar {
-  .progress-bar-example {
-    display: flex;
-    flex-direction: row;
+.sbdocs.sbdocs-content:has(#anchor--notification-ino-progress-bar--default) {
+  [scale] {
     width: 100%;
-    justify-content: space-around;
-    align-items: center;
-
-    ino-progress-bar {
-      width: 80%;
-    }
-
-    ino-input-file {
-      width: 10%;
-    }
   }
 }

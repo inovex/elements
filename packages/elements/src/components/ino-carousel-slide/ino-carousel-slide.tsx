@@ -7,7 +7,9 @@ import {
   ComponentInterface,
 } from '@stencil/core';
 import classNames from 'classnames';
-
+/**
+ * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
+ */
 @Component({
   tag: 'ino-carousel-slide',
   styleUrl: 'ino-carousel-slide.scss',

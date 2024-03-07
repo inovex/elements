@@ -1,76 +1,13 @@
 # ino-tab
 
-Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
 
-### Usage
-
-The component can be used as follows:
-
-```html
-<ino-tab
-  label="<string>"
-  icon="<string>"
-  indicator-content-width
-  stacked
->
-</ino-tab>
-```
-
-### React
-
-#### Example #1 - Basic
-
-```js
-import { Component } from 'react';
-import { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <InoTabBar inoActiveTab={2}>
-        <InoTab inoLabel="Tab #1" />
-        <InoTab inoLabel="Tab #2" />
-        <InoTab inoLabel="Tab #3" />
-      </InoTabBar>
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = (
-  props,
-) => {
-  const { inoActiveTab } = props;
-
-  return <InoTabBar inoActiveTab={inoActiveTab}>{props.children}</InoTabBar>;
-};
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <TabBar inoActiveTab={2}>
-        <InoTab inoLabel="Tab #1" />
-        <InoTab inoLabel="Tab #2" />
-        <InoTab inoLabel="Tab #3" />
-      </TabBar>
-    );
-  }
-}
-```
-
-## Additional Hints
-
-**Content**: Provide the text of a Tab and, if desired, an icon of the tab in `icon`.
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
 
 ## Properties
 

@@ -1,6 +1,12 @@
 .container {
   display: flex;
   justify-content: space-between;
+
+  .image {
+    position: relative;
+    width: 461px;
+    height: 326px;
+  }
 }
 
 .claimContainer {

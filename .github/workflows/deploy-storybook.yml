@@ -1,0 +1,54 @@
+name: 'Deploy Storybook'
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/dependencies-install
+      - name: Build Storybook
+        run: yarn nx run storybook:build
+        env:
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
+      - name: Upload Storybook artifact
+        uses: ./.github/workflows/artifacts-upload
+        with:
+          upload-storybook-artifact: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: pages
+      - name: Download Storybook artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: storybook
+          path: version/${{ github.ref_name }} # Push to the proper directory on gh pages branch.
+          check-artifacts: true # search in current workflow run
+          workflow-conclusion: 'in_progress' # need to change to in_progress, cause current workflow run is always running
+      - name: Provide latest symlink
+        if: ${{ ! contains( github.ref_name, '-' ) }} # only link to latest for releases (e.g. v7.0.0), not pre-releases (e.g. v.7.0.0-1)
+        run: cd version && rm -f latest && ln -s ${{ github.ref_name }} latest
+        shell: bash
+
+      # Crawls the version dir on current pages branch HEAD.
+      # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
+      - name: Update Hosted Versions
+        run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./hosted-versions.json
+
+      - name: Deploy to Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: pages
+          commit-message: Deploying version ${{ github.ref_name }} 🚀
+          folder: '.'
+          clean: false # Important to keep other versions.

@@ -1,5 +1,6 @@
 {
   "name": "ui-patterns",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "packages/ui-patterns/src",
   "tags": [],

@@ -9,6 +9,11 @@
 @use '../base/new-theme' as theme;
 @use '../base/typography';
 
+// Tailwind CSS Preflight border-style countermeasures (https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally)
+ino-input * {
+  border-style: none;
+}
+
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
 $padding-top: 24px;
@@ -173,6 +178,8 @@ ino-input .mdc-text-field--outlined {
   @include textfield.focused-outline-color(var(--input-line-color));
   @include textfield.outline-shape-radius(20px);
   @include textfield.outlined-height($outline-input-height);
+
+  border-style: none !important;
 
   // style outline with corner for helpertext
   &.mdc-text-field--has-helpertext.mdc-text-field--focused,

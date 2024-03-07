@@ -1,12 +1,7 @@
 <template>
   <div>
-    <div class="header-h1">
-      My Pictures
-    </div>
-    <ino-img-list
-      :key="Date.now()"
-      enclose-label
-    >
+    <div class="header-h1">My Pictures</div>
+    <ino-img-list :key="Date.now()" enclose-label>
       <ino-img
         v-for="(img, i) in images"
         :key="i"
@@ -17,9 +12,7 @@
         rounded
       />
     </ino-img-list>
-    <div class="header-h1">
-      My Pictures in a carousel
-    </div>
+    <div class="header-h1">My Pictures in a carousel</div>
     <ino-carousel
       class="my-carousel"
       value="0"
@@ -44,23 +37,38 @@ import {
   InoCarousel,
   InoCarouselSlide,
   InoImg,
-  InoImgList
-} from "@inovex.de/elements-vue";
+  InoImgList,
+} from '@inovex.de/elements-vue';
 
 export default {
-  name: "ImageGallery",
+  name: 'ImageGallery',
   components: {
-    InoCarousel, InoCarouselSlide, InoImg, InoImgList
+    InoCarousel,
+    InoCarouselSlide,
+    InoImg,
+    InoImgList,
   },
   data: () => ({
     images: [
-      { url: 'https://elements.inovex.de/version/v5.1.0/static/media/beach.1432d4b3..jpg', label: 'Dummy Label'},
-      { url: 'https://elements.inovex.de/version/v5.1.0/static/media/liberty.ab8cbdf5..jpg', label: 'Test Label'},
-      { url: 'https://elements.inovex.de/version/v5.1.0/static/media/forrest.0452b993..jpg', label: 'Nice Image'},
-      { url: 'https://elements.inovex.de/version/v5.1.0/static/media/trondheim.7a9953d8..jpg', label: 'Foo Bar'},
-    ]
-  })
-}
+      {
+        url: 'https://elements.inovex.de/version/v5.1.0/static/media/beach.1432d4b3..jpg',
+        label: 'Dummy Label',
+      },
+      {
+        url: 'https://elements.inovex.de/version/v5.1.0/static/media/liberty.ab8cbdf5..jpg',
+        label: 'Test Label',
+      },
+      {
+        url: 'https://elements.inovex.de/version/v5.1.0/static/media/forrest.0452b993..jpg',
+        label: 'Nice Image',
+      },
+      {
+        url: 'https://elements.inovex.de/version/v5.1.0/static/media/trondheim.7a9953d8..jpg',
+        label: 'Foo Bar',
+      },
+    ],
+  }),
+};
 </script>
 
 <style scoped>
@@ -69,7 +77,7 @@ ino-img-list {
 }
 
 .header-h1 {
-  margin: 1.5rem 0 .5rem 0;
+  margin: 1.5rem 0 0.5rem 0;
   display: block;
 }
 

@@ -12,12 +12,20 @@ import {
   Prop,
   Watch,
 } from '@stencil/core';
-import { DialogCloseAction, DialogSubmitAction } from '../types';
 import { hasSlotContent } from '../../util/component-utils';
+import { DialogCloseAction, DialogSubmitAction } from '../types';
 
 const DIALOG_ACTION_ATTRIBUTE = 'data-ino-dialog-action';
 
 /**
+ * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+ * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
+ *
+ * #### Usage Notes
+ *
+ * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
+ * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
+ *
  * @slot default - content of the dialog
  * @slot header - content to replace default header of dialog
  * @slot body - content to replace default body of dialog
@@ -77,7 +85,12 @@ export class Dialog implements ComponentInterface {
   @Prop() cancelText?: string;
 
   /**
-   * Adds a button with the given text to proceed with an action`
+   * Adds a close icon in the top right corner to close the `ino-dialog`.
+   */
+  @Prop() closeIcon = false;
+
+  /**
+   * Adds a button with the given text to proceed with an action
    */
   @Prop() actionText?: string;
 
@@ -94,7 +107,7 @@ export class Dialog implements ComponentInterface {
   @Listen('keyup', { target: 'body' })
   handleKeyUp(event: KeyboardEvent) {
     if (event.key === 'Escape' && this.open) {
-      this.close.emit('close');
+      this.handleClose();
     }
   }
 
@@ -107,6 +120,11 @@ export class Dialog implements ComponentInterface {
    * Emits an event upon clicking the action button of the dialog
    */
   @Event() action!: EventEmitter<DialogSubmitAction>;
+
+  /**
+   * Emits an event when the dialog is opened.
+   */
+  @Event() dialogOpen!: EventEmitter<void>;
 
   componentWillRender(): Promise<void> {
     if (!this.mdcDialog || !this.open) {
@@ -141,10 +159,18 @@ export class Dialog implements ComponentInterface {
 
     this.mdcDialog.listen('click', this.handleDialogClick.bind(this));
     this.open && this.mdcDialog?.open();
+
+    this.mdcDialog.listen('MDCDialog:opened', () => {
+      this.dialogOpen.emit();
+    });
   }
 
   disconnectedCallback() {
     this.mdcDialog?.destroy();
+  }
+
+  private handleClose() {
+    this.close.emit('close');
   }
 
   private handleDialogClick(e: Event): void {
@@ -162,11 +188,11 @@ export class Dialog implements ComponentInterface {
   }
 
   render() {
+    // Conditional rendering based on 'dialogIsOpen' causes layout jumps and only can fixes rare misalignment issues. Use the 'dialogOpen' event to render content after dialog opens for these cases.
     const hasDefaultSlot = hasSlotContent(this.el, 'default');
     const hasHeaderSlot = hasSlotContent(this.el, 'header');
     const hasBodySlot = hasSlotContent(this.el, 'body');
     const hasFooterSlot = hasSlotContent(this.el, 'footer');
-
     return (
       <Host class={{ 'ino-dialog--fullwidth': this.fullwidth }}>
         <div class="mdc-dialog">
@@ -185,11 +211,20 @@ export class Dialog implements ComponentInterface {
                 <slot></slot>
               ) : (
                 <div>
+                  {this.closeIcon && (
+                    <ino-icon-button
+                      class="close-icon"
+                      icon="close"
+                      onClickEl={this.handleClose.bind(this)}
+                    />
+                  )}
                   {hasHeaderSlot ? (
                     <slot name="header"></slot>
                   ) : (
                     <header>
-                      {this.icon && <ino-icon icon={this.icon} />}
+                      {this.icon && (
+                        <ino-icon class="header-icon" icon={this.icon} />
+                      )}
                       <h1 id="ino-dialog-title">{this.headerText}</h1>
                     </header>
                   )}
@@ -207,7 +242,7 @@ export class Dialog implements ComponentInterface {
                       {this.cancelText && (
                         <ino-button
                           variant="outlined"
-                          onClick={() => this.close.emit('close')}
+                          onClick={this.handleClose.bind(this)}
                         >
                           {this.cancelText}
                         </ino-button>
@@ -228,7 +263,7 @@ export class Dialog implements ComponentInterface {
           </div>
           <div
             class="mdc-dialog__scrim"
-            onClick={() => this.dismissible && this.close.emit('close')}
+            onClick={() => this.dismissible && this.handleClose()}
           />
         </div>
       </Host>
