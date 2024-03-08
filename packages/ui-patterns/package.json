@@ -1,7 +1,7 @@
 {
   "name": "@inovex.de/ui-patterns",
   "private": true,
-  "version": "9.1.0",
+  "version": "9.1.1",
   "type": "module",
   "types": "dist/types/index.d.ts",
   "main": "dist/ui-patterns.js",
