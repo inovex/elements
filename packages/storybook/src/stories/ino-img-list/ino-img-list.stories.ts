@@ -55,12 +55,7 @@ const sampleImg = html`
 `;
 
 const sampleImg2 = html`
-  <ino-img
-    src=${fjordImg}
-    alt="fjord"
-    label="Label"
-    img-list-item
-  ></ino-img>
+  <ino-img src=${fjordImg} alt="fjord" label="Label" img-list-item></ino-img>
 `;
 
 const sampleImg3 = html`
