@@ -136,7 +136,7 @@ export class Snackbar implements ComponentInterface {
       case 'info':
         return 'i';
       case 'warning':
-        return '!'
+        return '!';
       default:
         return 'i';
     }
