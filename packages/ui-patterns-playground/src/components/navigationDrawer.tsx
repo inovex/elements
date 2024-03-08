@@ -50,7 +50,7 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
           <InoNavItem role="menuitem" text="MyPatternA">
             <InoIcon icon="number"></InoIcon>
           </InoNavItem>
-        </Link>   
+        </Link>
       </InoList>
 
       <InoList role="menubar" slot="footer" aria-label="Footer Navigation">
@@ -60,7 +60,6 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
           </InoNavItem>
         </Link>
       </InoList>
-      
 
       {/* Content will be placed here in the App.tsx component */}
       <main
