@@ -25,7 +25,7 @@ function useDisableButton<
     } else {
       submitButton.disabled = Object.values(form).every((field) => !field);
     }
-  }, [form]);
+  }, [form, buttonSelector, disableUntilAllFilled]);
 
   function setField(field: Key, value: Fields[Key]) {
     setForm((form) => ({ ...form, [field]: value }));
