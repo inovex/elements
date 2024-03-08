@@ -2,7 +2,7 @@ export function setupEventListener(
   container: HTMLElement,
   selector: string,
   eventType: string,
-  detailAttribute: 'value' | 'checked' | 'active-tab' | 'expanded',
+  detailAttribute: 'value' | 'checked' | 'active-tab' | 'expanded' | 'open',
   callback?: (ev: Event) => void,
 ) {
   const element = container.querySelector(selector);

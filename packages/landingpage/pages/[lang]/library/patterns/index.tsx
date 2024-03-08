@@ -11,7 +11,12 @@ import PreviewBox from './preview-box';
 import Page from 'components/layout/page';
 import useTranslation from 'utils/hooks/useTranslation';
 import styles from './index.module.scss';
-import { Login, loginHtml } from '@inovex.de/ui-patterns';
+import {
+  Login,
+  loginHtml,
+  SettingsPage,
+  settingsPageHtml,
+} from '@inovex.de/ui-patterns';
 
 interface HighlightedCodes {
   [key: string]: string;
@@ -48,12 +53,20 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
           <div className={styles.divider} />
         </div>
         <PreviewBox
-          title={t('designPatterns.loginPattern.title')}
+          title={t('designPatterns.login.title')}
           id="login"
-          description={t('designPatterns.loginPattern.description')}
+          description={t('designPatterns.login.description')}
           previewComponent={<Login />}
           highlightedCode={highlightedCodes.login}
           rawCode={codeStrings.login}
+        />
+        <PreviewBox
+          title={t('designPatterns.settingsPage.title')}
+          id="settingsPage"
+          description={t('designPatterns.settingsPage.description')}
+          previewComponent={<SettingsPage />}
+          highlightedCode={highlightedCodes.settingsPage}
+          rawCode={codeStrings.settingsPage}
         />
       </div>
     </Page>
@@ -63,6 +76,7 @@ const PatternsPage: NextPage<PatternsPageProps> = ({
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const codeStrings = {
     login: loginHtml,
+    settingsPage: settingsPageHtml,
   };
 
   const { props: languageProperties } = getStaticLanguageProps(

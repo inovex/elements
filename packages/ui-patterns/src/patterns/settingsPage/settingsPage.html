@@ -1,248 +1,236 @@
-<div>
-  <ino-nav-drawer anchor="left" variant="docked" open>
-    <div slot="header" class="w-full">
-      <ino-img id="logo" width="22" height="31"></ino-img>
-      <p class="title-s">inovex Elements</p>
-    </div>
+<ino-nav-drawer class="relative" anchor="left" variant="docked" open>
+  <div slot="header" class="w-full min-w-[80px]">
+    <ino-img id="logo" width="22" height="31"></ino-img>
+    <p class="title-s">inovex Elements</p>
+  </div>
 
-    <ino-list slot="content" role="menubar" aria-label="Main Navigation">
-      <ino-nav-item role="menuitem" text="Home">
-        <ino-icon icon="home"></ino-icon>
-      </ino-nav-item>
-      <ino-nav-item role="menuitem" text="Teams">
-        <ino-icon icon="message"></ino-icon>
-      </ino-nav-item>
-      <ino-nav-item role="menuitem" text="Settings" activated>
-        <ino-icon icon="settings"></ino-icon>
-      </ino-nav-item>
-    </ino-list>
+  <ino-list slot="content" role="menubar" aria-label="Main Navigation">
+    <ino-nav-item role="menuitem" text="Home">
+      <ino-icon icon="home"></ino-icon>
+    </ino-nav-item>
+    <ino-nav-item role="menuitem" text="Teams">
+      <ino-icon icon="message"></ino-icon>
+    </ino-nav-item>
+    <ino-nav-item role="menuitem" text="Settings" activated>
+      <ino-icon icon="settings"></ino-icon>
+    </ino-nav-item>
+  </ino-list>
 
-    <ino-list role="menubar" slot="footer" aria-label="Footer Navigation">
-      <ino-nav-item role="menuitem" text="IT Support">
-        <ino-icon icon="developer"></ino-icon>
-      </ino-nav-item>
-    </ino-list>
+  <ino-list role="menubar" slot="footer" aria-label="Footer Navigation">
+    <ino-nav-item role="menuitem" text="IT Support">
+      <ino-icon icon="developer"></ino-icon>
+    </ino-nav-item>
+  </ino-list>
 
-    <main slot="app" class="bg-white px-20 py-10 h-screen">
-      <ino-tab-bar>
-        <ino-tab
-          label="Account"
-          a11y-controls="account-panel"
-          data-target="account-panel"
-        ></ino-tab>
-        <ino-tab
-          label="Notification"
-          a11y-controls="notification-panel"
-          data-target="notification-panel"
-        ></ino-tab>
-        <ino-tab
-          label="Updates"
-          a11y-controls="update-panel"
-          data-target="update-panel"
-        ></ino-tab>
-      </ino-tab-bar>
+  <main slot="app" class="bg-white px-20 py-10 h-screen">
+    <ino-tab-bar>
+      <ino-tab
+        label="Account"
+        a11y-controls="account-panel"
+        data-target="account-panel"
+      ></ino-tab>
+      <ino-tab
+        label="Notification"
+        a11y-controls="notification-panel"
+        data-target="notification-panel"
+      ></ino-tab>
+      <ino-tab
+        label="Updates"
+        a11y-controls="update-panel"
+        data-target="update-panel"
+      ></ino-tab>
+    </ino-tab-bar>
 
-      <div
-        id="account-panel"
-        class="panel grid lg:grid-cols-[2fr,1fr] grid-cols-1 lg:gap-20 gap-10 py-10"
-      >
-        <div>
-          <h2 class="header-h2">Account</h2>
-          <h3 class="title-l mt-10">Personal information</h3>
-          <p class="label-l mt-3">Look up and change all your personal data.</p>
+    <div
+      id="account-panel"
+      class="panel grid xl:grid-cols-[2fr,1fr] grid-cols-1 xl:gap-20 gap-10 py-10"
+    >
+      <div>
+        <h2 class="header-h2">Account</h2>
+        <h3 class="title-l mt-10">Personal information</h3>
+        <p class="label-l mt-3">Look up and change all your personal data.</p>
 
-          <form class="flex flex-col gap-y-5 mt-9">
-            <div class="flex justify-between gap-4">
-              <ino-input
-                class="flex-grow"
-                label="First Name"
-                outline
-              ></ino-input>
-              <ino-input
-                class="flex-grow"
-                label="Last Name"
-                outline
-              ></ino-input>
-            </div>
-            <ino-input name="company" label="Company Name" outline></ino-input>
-            <ino-input label="Industry" outline></ino-input>
-            <ino-input label="Role" outline data-list="roles">
-              <datalist id="roles">
-                <option>Developer</option>
-                <option>UX Designer</option>
-                <option>Product Owner</option>
-                <option>Scrum Master</option>
-              </datalist>
-            </ino-input>
-            <ino-button id="submit-personal-info" class="self-end"
-              >Save Changes</ino-button
-            >
-          </form>
-
-          <div>
-            <h3 class="title-l mt-8">E-Mail</h3>
-            <div class="flex justify-between mt-6 gap-4">
-              <ino-input label="E-mail" class="flex-grow" outline></ino-input>
-              <ino-button variant="text">
-                <ino-icon icon="save" slot="icon-leading"></ino-icon>
-                Save
-              </ino-button>
-            </div>
+        <form class="flex flex-col gap-y-5 mt-9">
+          <div class="flex xl:flex-row flex-col justify-between gap-4">
+            <ino-input class="flex-grow" label="First Name" outline></ino-input>
+            <ino-input class="flex-grow" label="Last Name" outline></ino-input>
           </div>
-
-          <div
-            class="border-y border-inovex-p-3 py-10 mt-10 flex flex-col gap-4"
+          <ino-input name="company" label="Company Name" outline></ino-input>
+          <ino-input label="Industry" outline></ino-input>
+          <ino-input label="Role" outline data-list="roles">
+            <datalist id="roles">
+              <option>Developer</option>
+              <option>UX Designer</option>
+              <option>Product Owner</option>
+              <option>Scrum Master</option>
+            </datalist>
+          </ino-input>
+          <ino-button id="submit-personal-info" class="self-end"
+            >Save Changes</ino-button
           >
-            <ino-accordion
-              id="password-accordion"
-              accordion-title="Change Password"
-            >
-              <div class="flex flex-col gap-y-5 mt-4">
-                <ino-input label="Current password" outline></ino-input>
-                <ino-input label="New password" outline></ino-input>
-                <ino-input label="Confirm password" outline></ino-input>
-                <ino-button id="change-password-button" class="self-end"
-                  >Save Changes</ino-button
-                >
-              </div>
-            </ino-accordion>
+        </form>
 
-            <ino-accordion
-              id="security-accordion"
-              accordion-title="Security Questions"
-            >
-              <div class="flex flex-col m-y-4">
-                <div class="flex justify-between">
-                  <ino-select class="w-full mr-5" label="Security Question 1">
-                    <ino-option value="some-id">Question 1</ino-option>
-                  </ino-select>
-                  <ino-input label="Answer 1"></ino-input>
-                </div>
-                <div class="flex justify-between">
-                  <ino-select class="w-full mr-5" label="Security Question 2">
-                    <ino-option value="some-id">Question 2</ino-option>
-                  </ino-select>
-                  <ino-input label="Answer 2"></ino-input>
-                </div>
-                <div class="flex justify-between">
-                  <ino-select class="w-full mr-5" label="Security Question 3">
-                    <ino-option value="some-id">Question 3</ino-option>
-                  </ino-select>
-                  <ino-input label="Answer 3"></ino-input>
-                </div>
-                <ino-button id="save-security-questions" class="mt-5 self-end"
-                  >Save Changes</ino-button
-                >
-              </div>
-            </ino-accordion>
-          </div>
-
-          <div>
-            <h3 class="title-l mt-10">Delete Account</h3>
-            <div class="flex justify-between items-center mt-3">
-              <p class="label-l">You wish to delete your account?</p>
-              <ino-button variant="text">Yes, Delete</ino-button>
-            </div>
+        <div>
+          <h3 class="title-l mt-8">E-Mail</h3>
+          <div class="flex xl:flex-row flex-col justify-between mt-6 gap-4">
+            <ino-input label="E-mail" class="flex-grow" outline></ino-input>
+            <ino-button variant="text">
+              <ino-icon icon="save" slot="icon-leading"></ino-icon>
+              Save
+            </ino-button>
           </div>
         </div>
 
-        <div class="border-t border-inovex-p-3 lg:border-none">
-          <div class="sticky top-0">
-            <h3 class="title-l lg:m-0 mt-10">Your Photo</h3>
-            <div class="w-56 flex items-center flex-col mt-8">
-              <ino-avatar initials="EE" interactive></ino-avatar>
-              <div class="mt-6">
-                <ino-button variant="text">
-                  <ino-icon icon="upload" slot="icon-leading"></ino-icon>
-                  Upload
-                </ino-button>
-                <ino-button variant="text">
-                  <ino-icon icon="remove" slot="icon-leading"></ino-icon>
-                  Remove
-                </ino-button>
-              </div>
+        <div class="border-y border-inovex-p-3 py-10 mt-10 flex flex-col gap-4">
+          <ino-accordion
+            id="password-accordion"
+            accordion-title="Change Password"
+          >
+            <div class="flex flex-col gap-y-5 mt-4">
+              <ino-input label="Current password" outline></ino-input>
+              <ino-input label="New password" outline></ino-input>
+              <ino-input label="Confirm password" outline></ino-input>
+              <ino-button id="change-password-button" class="self-end"
+                >Save Changes</ino-button
+              >
             </div>
+          </ino-accordion>
+
+          <ino-accordion
+            id="security-accordion"
+            accordion-title="Security Questions"
+          >
+            <div class="flex flex-col m-y-4">
+              <div class="flex justify-between">
+                <ino-select class="w-full mr-5" label="Security Question 1">
+                  <ino-option value="some-id">Question 1</ino-option>
+                </ino-select>
+                <ino-input label="Answer 1"></ino-input>
+              </div>
+              <div class="flex justify-between">
+                <ino-select class="w-full mr-5" label="Security Question 2">
+                  <ino-option value="some-id">Question 2</ino-option>
+                </ino-select>
+                <ino-input label="Answer 2"></ino-input>
+              </div>
+              <div class="flex justify-between">
+                <ino-select class="w-full mr-5" label="Security Question 3">
+                  <ino-option value="some-id">Question 3</ino-option>
+                </ino-select>
+                <ino-input label="Answer 3"></ino-input>
+              </div>
+              <ino-button id="save-security-questions" class="mt-5 self-end"
+                >Save Changes</ino-button
+              >
+            </div>
+          </ino-accordion>
+        </div>
+
+        <div>
+          <h3 class="title-l mt-10">Delete Account</h3>
+          <div class="flex justify-between items-center mt-3">
+            <p class="label-l">You wish to delete your account?</p>
+            <ino-button variant="text">Yes, Delete</ino-button>
           </div>
         </div>
       </div>
 
-      <div id="notification-panel" class="panel hidden py-10 max-w-xl">
-        <h2 class="header-h2">Notifications</h2>
-        <p class="body-l mt-10 text-inovex-n-10">
-          Choose which Notifications you want to receive.
-        </p>
-        <div class="flex flex-col gap-20 mt-6">
-          <div>
-            <h3 class="title-m mb-6">Work Updates</h3>
-            <div class="flex flex-col gap-4">
-              <div class="flex flex-col sm:flex-row justify-between mb-2">
-                <span class="text-inovex-n-9">Project status updates</span>
-                <ino-switch></ino-switch>
-              </div>
-              <div class="flex flex-col sm:flex-row justify-between mb-2">
-                <span class="text-inovex-n-9">Task assignments</span>
-                <ino-switch></ino-switch>
-              </div>
-              <div class="flex flex-col sm:flex-row justify-between mb-2">
-                <span class="text-inovex-n-9">Deadline Reminders</span>
-                <ino-switch></ino-switch>
-              </div>
+      <div class="border-t border-inovex-p-3 xl:border-none">
+        <div class="sticky top-0">
+          <h3 class="title-l xl:m-0 mt-10">Your Photo</h3>
+          <div class="w-56 flex items-center flex-col mt-8">
+            <ino-avatar initials="EE" interactive></ino-avatar>
+            <div class="mt-6">
+              <ino-button variant="text">
+                <ino-icon icon="upload" slot="icon-leading"></ino-icon>
+                Upload
+              </ino-button>
+              <ino-button variant="text">
+                <ino-icon icon="remove" slot="icon-leading"></ino-icon>
+                Remove
+              </ino-button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <div>
-            <h3 class="title-m mb-6">Meeting Notifications</h3>
-            <div class="flex flex-col gap-4">
-              <div class="flex flex-col sm:flex-row justify-between mb-2">
-                <span class="text-inovex-n-9">Invitation</span>
-                <ino-switch></ino-switch>
-              </div>
-              <div class="flex flex-col sm:flex-row justify-between mb-2">
-                <span class="text-inovex-n-9">Reminders</span>
-                <ino-switch></ino-switch>
-              </div>
-              <div class="flex flex-col sm:flex-row justify-between mb-2">
-                <span class="text-inovex-n-9">Cancellations</span>
-                <ino-switch></ino-switch>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="title-m mb-6">IT Notifications</h3>
+    <div id="notification-panel" class="panel hidden py-10 max-w-xl">
+      <h2 class="header-h2">Notifications</h2>
+      <p class="body-l mt-10 text-inovex-n-10">
+        Choose which Notifications you want to receive.
+      </p>
+      <div class="flex flex-col gap-20 mt-6">
+        <div>
+          <h3 class="title-m mb-6">Work Updates</h3>
+          <div class="flex flex-col gap-4">
             <div class="flex flex-col sm:flex-row justify-between mb-2">
-              <span class="text-inovex-n-9">System maintenance alerts</span>
+              <span class="text-inovex-n-9">Project status updates</span>
+              <ino-switch></ino-switch>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between mb-2">
+              <span class="text-inovex-n-9">Task assignments</span>
+              <ino-switch></ino-switch>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between mb-2">
+              <span class="text-inovex-n-9">Deadline Reminders</span>
               <ino-switch></ino-switch>
             </div>
           </div>
         </div>
-      </div>
 
-      <div id="update-panel" class="panel hidden py-10 max-w-xl">
-        <h2 class="header-h2">Updates</h2>
-        <p class="body-l mt-10 text-inovex-n-10">
-          Your app is currently being updated to the latest version.
-        </p>
-        <div class="flex flex-col gap-20 mt-6">
-          <div>
-            <h3 class="title-m my-6">Downloading Update...</h3>
-            <ino-progress-bar
-              buffer="0.9"
-              progress="0.4"
-              indeterminate="false"
-            ></ino-progress-bar>
-            <p class="body-m text-inovex-n-9 mt-2">40% downloaded...</p>
+        <div>
+          <h3 class="title-m mb-6">Meeting Notifications</h3>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col sm:flex-row justify-between mb-2">
+              <span class="text-inovex-n-9">Invitation</span>
+              <ino-switch></ino-switch>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between mb-2">
+              <span class="text-inovex-n-9">Reminders</span>
+              <ino-switch></ino-switch>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between mb-2">
+              <span class="text-inovex-n-9">Cancellations</span>
+              <ino-switch></ino-switch>
+            </div>
           </div>
+        </div>
 
-          <div>
-            <h3 class="body-m my-6">Installing Update...</h3>
-            <ino-progress-bar indeterminate="true"></ino-progress-bar>
-            <p class="body-m text-inovex-n-9 mt-2">
-              Installation will begin shortly...
-            </p>
+        <div>
+          <h3 class="title-m mb-6">IT Notifications</h3>
+          <div class="flex flex-col sm:flex-row justify-between mb-2">
+            <span class="text-inovex-n-9">System maintenance alerts</span>
+            <ino-switch></ino-switch>
           </div>
         </div>
       </div>
-    </main>
-  </ino-nav-drawer>
-</div>
+    </div>
+
+    <div id="update-panel" class="panel hidden py-10 max-w-xl">
+      <h2 class="header-h2">Updates</h2>
+      <p class="body-l mt-10 text-inovex-n-10">
+        Your app is currently being updated to the latest version.
+      </p>
+      <div class="flex flex-col gap-20 mt-6">
+        <div>
+          <h3 class="title-m my-6">Downloading Update...</h3>
+          <ino-progress-bar
+            buffer="0.9"
+            progress="0.4"
+            indeterminate="false"
+          ></ino-progress-bar>
+          <p class="body-m text-inovex-n-9 mt-2">40% downloaded...</p>
+        </div>
+
+        <div>
+          <h3 class="body-m my-6">Installing Update...</h3>
+          <ino-progress-bar indeterminate="true"></ino-progress-bar>
+          <p class="body-m text-inovex-n-9 mt-2">
+            Installation will begin shortly...
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</ino-nav-drawer>

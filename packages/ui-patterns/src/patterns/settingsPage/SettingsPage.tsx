@@ -69,6 +69,12 @@ const SettingsPage = () => {
   }
 
   function setupEventListeners(container: HTMLElement) {
+    const cleanUpNavDrawer = setupEventListener(
+      container,
+      'ino-nav-drawer',
+      'openChange',
+      'open',
+    );
     const cleanupFirstName = setupEventListener(
       container,
       'ino-input[label="First Name"]',
@@ -197,6 +203,7 @@ const SettingsPage = () => {
     }
 
     return () => {
+      cleanUpNavDrawer();
       cleanupFirstName();
       cleanupLastName();
       cleanupCompanyName();
