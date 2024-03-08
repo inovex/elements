@@ -2,6 +2,7 @@ import { newSpecPage, SpecPage } from '@stencil/core/testing';
 import { MarkdownEditor } from './ino-markdown-editor';
 import { ViewMode } from '../types';
 import { Textarea } from '../ino-textarea/ino-textarea';
+import { Label } from '../ino-label/ino-label';
 
 describe('InoMarkdownEditor', () => {
   let page: SpecPage;
@@ -10,7 +11,7 @@ describe('InoMarkdownEditor', () => {
 
   beforeEach(async () => {
     page = await newSpecPage({
-      components: [MarkdownEditor, Textarea],
+      components: [MarkdownEditor, Textarea, Label],
       html: '<ino-markdown-editor></ino-markdown-editor>'
     });
 

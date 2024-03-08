@@ -56,7 +56,7 @@ test.describe('ino-markdown-editor', () => {
     );
 
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['input', 'ino-markdown-editor', 'default']);
+    await goToStory(page, ['Input', 'ino-markdown-editor', 'default']);
     inoMarkdownEditor = page.locator('ino-markdown-editor');
     textArea = inoMarkdownEditor.locator('textarea');
     tipTapEditor = inoMarkdownEditor.locator('.ProseMirror');
