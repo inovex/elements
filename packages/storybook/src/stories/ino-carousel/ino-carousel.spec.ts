@@ -6,7 +6,7 @@ test.describe('ino-carousel', () => {
   let selectedSlide: Locator;
 
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['graphic', 'ino-carousel', 'default']);
+    await goToStory(page, ['Graphic', 'ino-carousel', 'default']);
     inoCarousel = page.locator('ino-carousel');
     selectedSlide = inoCarousel.locator('.ino-carousel-slide--selected');
     await setAttribute(inoCarousel, 'autoplay', 'false');
