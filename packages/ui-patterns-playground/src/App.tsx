@@ -9,12 +9,12 @@ function App() {
   return (
     <Router>
       <NavigationDrawer>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/mypatterna" element={<MyPatternA />} />
-        <Route path="/guide" element={<Guide />} />
-        <Route path="/settings" element={<SettingsPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/mypatterna" element={<MyPatternA />} />
+          <Route path="/guide" element={<Guide />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Routes>
       </NavigationDrawer>
     </Router>
   );
