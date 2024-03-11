@@ -4,15 +4,23 @@
   "version": "9.1.1",
   "type": "module",
   "types": "dist/types/index.d.ts",
-  "main": "dist/ui-patterns.js",
-  "module": "dist/ui-patterns.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports": {
-    ".": "./dist/ui-patterns.js",
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./html": {
+      "types": "./dist/types/html.d.ts",
+      "import": "./dist/html.js"
+    },
     "./dist/style.css": "./dist/style.css",
-    "./patterns-html/*": "./dist/patterns-html/*"
+    "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "package.json"
   ],
   "devDependencies": {
     "@types/react": "^18.2.15",
