@@ -67,10 +67,10 @@
       "ui-patterns",
       "ui-patterns-playground"
     ],
-    "git": {
-      "commitMessage": "chore: publish {version}"
-    },
     "changelog": {
+      "git": {
+        "commitMessage": "chore: publish {version}"
+      },
       "projectChangelogs": false,
       "workspaceChangelog": {
         "createRelease": "github"
