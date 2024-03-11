@@ -15,7 +15,6 @@ export const config: Config = {
     experimentalImportInjection: true,
     appendChildSlotFix: true,
     enableImportInjection: true,
-    lifecycleDOMEvents:true,
   },
   globalScript: join(__dirname, 'src/util/import-fonts.ts'),
   globalStyle: join(__dirname, 'src/global/styles.scss'),
@@ -47,9 +46,7 @@ export const config: Config = {
     }),
   ],
   testing: {
-    setupFilesAfterEnv: [
-      './setupSpecTests.ts'
-    ]
+    setupFilesAfterEnv: ['./setupSpecTests.ts'],
   },
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
