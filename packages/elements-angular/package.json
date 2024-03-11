@@ -29,7 +29,11 @@
     "dist/",
     ".yalc"
   ],
-  "module": "./dist/fesm2022/inovex.de-elements-angular.mjs",
+  "module": "./dist/fesm2015/inovex.de-elements-angular.mjs",
+  "es2020": "./dist/fesm2020/inovex.de-elements-angular.mjs",
+  "esm2020": "./dist/esm2020/inovex.de-elements-angular.mjs",
+  "fesm2020": "./dist/fesm2020/inovex.de-elements-angular.mjs",
+  "fesm2015": "./dist/fesm2015/inovex.de-elements-angular.mjs",
   "typings": "./dist/index.d.ts",
   "exports": {
     "./package.json": {
@@ -37,9 +41,11 @@
     },
     ".": {
       "types": "./dist/index.d.ts",
-      "esm2022": "./dist/esm2022/inovex.de-elements-angular.mjs",
-      "esm": "./dist/esm2022/inovex.de-elements-angular.mjs",
-      "default": "./dist/fesm2022/inovex.de-elements-angular.mjs"
+      "esm2020": "./dist/esm2020/inovex.de-elements-angular.mjs",
+      "es2020": "./dist/fesm2020/inovex.de-elements-angular.mjs",
+      "es2015": "./dist/fesm2015/inovex.de-elements-angular.mjs",
+      "node": "./dist/fesm2015/inovex.de-elements-angular.mjs",
+      "default": "./dist/fesm2020/inovex.de-elements-angular.mjs"
     }
   }
 }
