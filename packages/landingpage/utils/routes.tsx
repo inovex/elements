@@ -48,7 +48,6 @@ export enum SubRoutes {
 }
 
 const productionModeExcludedSubroutes: { [key: string]: string[] } = {
-  library: ['patterns'],
   // 'anotherMainRoute': ['subroute1', 'subroute2'] to exclude in production
 };
 
