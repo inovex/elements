@@ -41,7 +41,7 @@ export class TabBar implements ComponentInterface {
    * Emits when a tab changes.
    * Contains the index of the activated tab in `event.detail`
    */
-  @Event() activeTabChange!: EventEmitter;
+  @Event() activeTabChange!: EventEmitter<number>;
 
   @Watch('activeTab')
   activeTabChangedWatcher(newTabIndex: number) {

@@ -6,3 +6,6 @@ export { default as myPatternAHtml } from './patterns/my-pattern-a/my-pattern-a.
 
 export { default as Login } from './patterns/login/Login';
 export { default as loginHtml } from './patterns/login/login.html?raw';
+
+export { default as SettingsPage } from './patterns/settingsPage/SettingsPage';
+export { default as settingsPageHtml } from './patterns/settingsPage/settingsPage.html?raw';

@@ -5,9 +5,13 @@
       "title": "Design Patterns",
       "subtitle": "Elevate your project with our lovingly crafted design patterns, optimized for web development. The inovex Elements web components, seamlessly integrated with Tailwind CSS, empowers you to build responsive and visually appealing user interfaces with ease. Our commitment to quality ensures each pattern is meticulously designed for modern web applications."
     },
-    "loginPattern": {
-      "title": "Login Pattern",
+    "login": {
+      "title": "Login",
       "description": "Welcome users with a Login design that's both intuitive and visually engaging."
+    },
+    "settingsPage": {
+      "title": "Settings Page",
+      "description": "Offer an efficient and customizable settings experience, ensuring user preferences are easily accessible and manageable."
     }
   }
 }
