@@ -1,11 +1,7 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
 import { Textarea } from './ino-textarea';
 
-(global as any).MutationObserver = class {
-  constructor(callback) {}
-  disconnect() {}
-  observe(element, initObject) {}
-};
+
 
 describe('ino-textarea', () => {
   let page: SpecPage;
@@ -22,7 +18,7 @@ describe('ino-textarea', () => {
   beforeEach(async () => {
     page = await newSpecPage({
       components: [Textarea],
-      html: '<ino-textarea outline="false">Some Text</ino-textarea>'
+      html: '<ino-textarea outline="false" value="Some Text"></ino-textarea>'
     });
 
     eventSpy.mockClear();
@@ -31,6 +27,7 @@ describe('ino-textarea', () => {
   })
 
     it.only('should render with an defined text inside', async () => {
+      console.log(page.body.innerHTML);
       expect(inoTextarea.textContent).toEqual('Some Text');
       expect(inoTextarea.value).toEqual('Some Text');
     });

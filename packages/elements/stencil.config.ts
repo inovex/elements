@@ -47,9 +47,9 @@ export const config: Config = {
     }),
   ],
   testing: {
-    transformIgnorePatterns: [
-      'node_modules/?!(@material)/'
-    ],
+    setupFilesAfterEnv: [
+      './setupSpecTests.ts'
+    ]
   },
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
