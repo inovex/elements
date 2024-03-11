@@ -9839,11 +9839,11 @@
       "events": [
         {
           "event": "activeTabChange",
-          "detail": "any",
+          "detail": "number",
           "bubbles": true,
           "complexType": {
-            "original": "any",
-            "resolved": "any",
+            "original": "number",
+            "resolved": "number",
             "references": {}
           },
           "cancelable": true,

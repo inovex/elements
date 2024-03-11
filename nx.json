@@ -25,14 +25,24 @@
         "{projectRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintrc.json"
       ]
+    },
+    "@angular-devkit/build-angular:browser": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@nx/angular:package": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "generators": {
     "@nx/angular:application": {
-      "style": "scss",
+      "e2eTestRunner": "none",
       "linter": "eslint",
-      "unitTestRunner": "none",
-      "e2eTestRunner": "none"
+      "style": "scss",
+      "unitTestRunner": "none"
     },
     "@nx/angular:library": {
       "linter": "eslint",
