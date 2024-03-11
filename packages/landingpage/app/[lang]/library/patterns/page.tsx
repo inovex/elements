@@ -3,7 +3,7 @@ import { getMetaTitle } from 'utils/getMetaTitle';
 import { translator } from 'translations/getTranslations';
 import { HighlightedCodes, PatternsPage } from './client';
 import { getHighlighter } from 'shiki';
-import { login } from '@inovex.de/ui-patterns/html';
+import { login, settingsPage } from '@inovex.de/ui-patterns/html';
 
 export async function generateMetadata({ params }: WithLangParam) {
   const title = await translator('common.meta.library', params.lang);
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: WithLangParam) {
 }
 
 export default async function Page() {
-  const codeStrings = { login };
+  const codeStrings = { login, settingsPage };
 
   const highlighter = await getHighlighter({ theme: 'github-dark-dimmed' });
   const codeToHtml = (code: string) =>

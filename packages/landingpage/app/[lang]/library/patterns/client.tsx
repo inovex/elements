@@ -1,7 +1,7 @@
 'use client';
 
 import { NextPage } from 'next';
-import { Login } from '@inovex.de/ui-patterns';
+import { Login, SettingsPage } from '@inovex.de/ui-patterns';
 import PreviewBox from './_components/preview-box';
 import styles from './client.module.scss';
 import { useTranslation } from '@hooks/useTranslation';
@@ -32,12 +32,20 @@ export const PatternsPage: NextPage<PatternsPageProps> = ({
         <div className={styles.divider} />
       </div>
       <PreviewBox
-        title={t('library.designPatterns.loginPattern.title')}
+        title={t('library.designPatterns.login.title')}
         id="login"
-        description={t('library.designPatterns.loginPattern.description')}
+        description={t('library.designPatterns.login.description')}
         previewComponent={<Login />}
         highlightedCode={highlightedCodes.login}
         rawCode={codeStrings.login}
+      />
+      <PreviewBox
+        title={t('library.designPatterns.settingsPage.title')}
+        id="settingsPage"
+        description={t('library.designPatterns.settingsPage.description')}
+        previewComponent={<SettingsPage />}
+        highlightedCode={highlightedCodes.settingsPage}
+        rawCode={codeStrings.settingsPage}
       />
     </div>
   );
