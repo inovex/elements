@@ -2614,7 +2614,7 @@ declare global {
         new (): HTMLInoTabElement;
     };
     interface HTMLInoTabBarElementEventMap {
-        "activeTabChange": any;
+        "activeTabChange": number;
     }
     /**
      * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
@@ -4355,7 +4355,7 @@ declare namespace LocalJSX {
         /**
           * Emits when a tab changes. Contains the index of the activated tab in `event.detail`
          */
-        "onActiveTabChange"?: (event: InoTabBarCustomEvent<any>) => void;
+        "onActiveTabChange"?: (event: InoTabBarCustomEvent<number>) => void;
     }
     /**
      * The ino-table is a custom table used to display sets of data across multiple columns.
