@@ -49,10 +49,13 @@ describe('ino-textarea', () => {
   });
 
   describe('Rendering', () => {
-    const checkSettingOfProp = async (property: string, value: number | string) => {
+    const checkSettingOfProp = async (
+      property: string,
+      value: number | string,
+    ) => {
       page = await newSpecPage({
         components: [Textarea],
-        html: `<ino-textarea outline="false" ${property}=\'${value}\'>Some Text</ino-textarea>`
+        html: `<ino-textarea outline="false" ${property}=\'${value}\'>Some Text</ino-textarea>`,
       });
 
       inoTextarea = page.body.querySelector('ino-textarea');
