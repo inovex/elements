@@ -58,3 +58,7 @@ export type NavDrawerLabels = {
 };
 export type TippyThemes = 'light' | 'dark' | 'primary';
 export type ButtonVariants = 'filled' | 'outlined' | 'text';
+export type SnackbarLabels = {
+  snackbarLabel: string;
+  closeLabel: string;
+};
