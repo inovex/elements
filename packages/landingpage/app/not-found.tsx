@@ -9,6 +9,10 @@ export default function NotFound() {
   const pathName = usePathname();
 
   useEffect(() => {
+    if (pathName.endsWith('/')) {
+      return router.replace(pathName.slice(0, -1));
+    }
+
     const [lang] = navigator.language.split('-');
     const fallbackLang = getValidLang(lang);
 
