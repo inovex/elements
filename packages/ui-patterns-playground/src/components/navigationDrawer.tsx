@@ -51,13 +51,13 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
             <InoIcon icon="number"></InoIcon>
           </InoNavItem>
         </Link>
-        <Link to="/herosection">
-          <InoNavItem role="menuitem" text="HeroSection">
+        <Link to="/hero">
+          <InoNavItem role="menuitem" text="Hero">
             <InoIcon icon="display"></InoIcon>
           </InoNavItem>
         </Link>
-        <Link to="/footersection">
-          <InoNavItem role="menuitem" text="FooterSection">
+        <Link to="/footer">
+          <InoNavItem role="menuitem" text="Footer">
             <InoIcon icon="display"></InoIcon>
           </InoNavItem>
         </Link>

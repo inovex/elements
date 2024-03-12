@@ -4,13 +4,12 @@
 
 .inovex-elements-typo {
   font-family: Lato, Verdana, sans-serif;
-  /*too oppressive, users cannot override this when using the elements theme?*/
-  // a {
-  //   background-color: transparent;
-  //   color: new-theme.$primary;
-  //   font-weight: bold;
-  //   text-decoration: none;
-  // }
+  a:not(.tailwind) {
+    background-color: transparent;
+    color: new-theme.$primary;
+    font-weight: bold;
+    text-decoration: none;
+  }
 
   /************ Displays ************/
 
