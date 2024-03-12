@@ -497,8 +497,7 @@
       "encapsulation": "none",
       "dependents": [
         "ino-dialog",
-        "ino-input-file",
-        "ino-snackbar"
+        "ino-input-file"
       ],
       "dependencies": [
         "ino-spinner"
@@ -511,9 +510,6 @@
           "ino-button"
         ],
         "ino-input-file": [
-          "ino-button"
-        ],
-        "ino-snackbar": [
           "ino-button"
         ]
       },
@@ -9132,17 +9128,12 @@
       "dependents": [],
       "dependencies": [
         "ino-icon",
-        "ino-button",
         "ino-icon-button"
       ],
       "dependencyGraph": {
         "ino-snackbar": [
           "ino-icon",
-          "ino-button",
           "ino-icon-button"
-        ],
-        "ino-button": [
-          "ino-spinner"
         ],
         "ino-icon-button": [
           "ino-icon"
@@ -9225,18 +9216,17 @@
         },
         {
           "name": "snackbarRole",
-          "type": "\"alert\" | \"alertdialog\"",
+          "type": "\"alert\" | \"alertdialog\" | \"status\"",
           "complexType": {
-            "original": "'alert' | 'alertdialog'",
-            "resolved": "\"alert\" | \"alertdialog\"",
+            "original": "'status' | 'alert' | 'alertdialog'",
+            "resolved": "\"alert\" | \"alertdialog\" | \"status\"",
             "references": {}
           },
           "mutable": false,
           "attr": "snackbar-role",
           "reflectToAttr": false,
-          "docs": "The role of the dialog. Can be either 'dialog' or 'alertdialog'.\nThe 'alertdialog' role should be used for important messages that requires user interaction.",
+          "docs": "The role of the dialog. Can be either 'status', 'alert' or 'alertdialog'.\nThe 'alertdialog' role should be used for important messages that requires user interaction.",
           "docsTags": [],
-          "default": "'alert'",
           "values": [
             {
               "value": "alert",
@@ -9244,6 +9234,10 @@
             },
             {
               "value": "alertdialog",
+              "type": "string"
+            },
+            {
+              "value": "status",
               "type": "string"
             }
           ],

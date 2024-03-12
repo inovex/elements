@@ -36,7 +36,6 @@ A button component with different styles and icon capability.
 
  - [ino-dialog](../ino-dialog)
  - [ino-input-file](../ino-input-file)
- - [ino-snackbar](../ino-snackbar)
 
 ### Depends on
 
@@ -48,7 +47,6 @@ graph TD;
   ino-button --> ino-spinner
   ino-dialog --> ino-button
   ino-input-file --> ino-button
-  ino-snackbar --> ino-button
   style ino-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
