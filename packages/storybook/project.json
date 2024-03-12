@@ -63,7 +63,6 @@
       "outputs": ["{workspaceRoot}/dist/.playwright/packages/storybook"],
       "options": {
         "config": "packages/storybook/playwright.config.ts",
-        "browser": "chromium",
         "timeout": 15000
       },
       "defaultConfiguration": "headless",
@@ -73,7 +72,8 @@
           "headed": false,
           "quiet": true,
           "passWithNoTests": false,
-          "skipInstall": true
+          "skipInstall": true,
+          "retries": 0
         },
         "headless": {
           "headed": false

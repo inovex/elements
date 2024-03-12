@@ -17,6 +17,7 @@ const publicPath = join(__dirname, 'public');
 
 /** @type {import('next').NextConfig} */
 const nextConfiguration = {
+  output: 'export',
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {
     unoptimized: true,
@@ -44,15 +45,6 @@ const nextConfiguration = {
     );
 
     return config;
-  },
-  redirects: async () => {
-    return [
-      {
-        source: '/',
-        destination: '/en',
-        permanent: true,
-      },
-    ];
   },
 };
 

@@ -127,18 +127,26 @@ ino-list-item {
       display: flex;
     }
 
-    &:hover {
-      background-color: var(--list-item-deselected-background-color-hover);
+    &.mdc-deprecated-list-item--disabled .mdc-deprecated-list-item__ripple {
+      &::before,
+      &::after {
+        background-color: transparent;
+      }
     }
 
-    &:focus {
-      background-color: var(--list-item-deselected-background-color-focus);
-    }
+    &:not(.mdc-deprecated-list-item--disabled) {
+      &:hover {
+        background-color: var(--list-item-deselected-background-color-hover);
+      }
 
-    &:active {
-      background-color: var(--list-item-deselected-background-color-active);
-    }
+      &:focus {
+        background-color: var(--list-item-deselected-background-color-focus);
+      }
 
+      &:active {
+        background-color: var(--list-item-deselected-background-color-active);
+      }
+    }
     &.mdc-deprecated-list-item--selected,
     &.mdc-deprecated-list-item--activated {
       background-color: var(--list-item-selected-background-color);
@@ -154,16 +162,18 @@ ino-list-item {
         display: none;
       }
 
-      &:hover {
-        background-color: var(--list-item-selected-background-color-hover);
-      }
+      &:not(.mdc-deprecated-list-item--disabled) {
+        &:hover {
+          background-color: var(--list-item-selected-background-color-hover);
+        }
 
-      &:focus {
-        background-color: var(--list-item-selected-background-color-focus);
-      }
+        &:focus {
+          background-color: var(--list-item-selected-background-color-focus);
+        }
 
-      &:active {
-        background-color: var(--list-item-selected-background-color-active);
+        &:active {
+          background-color: var(--list-item-selected-background-color-active);
+        }
       }
     }
   }

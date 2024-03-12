@@ -4,7 +4,7 @@ import { Role } from '../types/roles';
 export const CONTRIBUTORS: inovexContributor[] = [
   {
     login: 'janivo',
-    name: 'Jan-Niklas',
+    name: 'Niki',
     roles: [Role.PO, Role.DEV],
   },
   {
@@ -55,6 +55,7 @@ export const CONTRIBUTORS: inovexContributor[] = [
     login: 'BingeCode',
     name: 'Ben',
     roles: [Role.DEV],
+    isInactive: true,
   },
   {
     login: 'AlessaRad',
@@ -77,5 +78,10 @@ export const CONTRIBUTORS: inovexContributor[] = [
     login: 'subserap',
     name: 'Serap',
     roles: [Role.DESIGN],
+  },
+  {
+    login: 'iandi09',
+    name: 'André',
+    roles: [Role.DEV],
   },
 ];
