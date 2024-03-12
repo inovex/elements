@@ -2,7 +2,8 @@ export function setupEventListener(
   container: HTMLElement,
   selector: string,
   eventType: string,
-  detailAttribute: 'value' | 'checked',
+  detailAttribute: 'value' | 'checked' | 'active-tab' | 'expanded' | 'open',
+  callback?: (ev: Event) => void,
 ) {
   const element = container.querySelector(selector);
 
@@ -14,6 +15,8 @@ export function setupEventListener(
   const eventHandler = (e: Event) => {
     const customEvent = e as CustomEvent;
     element.setAttribute(detailAttribute, customEvent.detail);
+
+    if (callback) callback(e);
   };
 
   element.addEventListener(eventType, eventHandler);

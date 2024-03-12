@@ -55,18 +55,13 @@ const sampleImg = html`
 `;
 
 const sampleImg2 = html`
-  <ino-img
-    src=${fjordImg}
-    alt="waterfall"
-    label="Label"
-    img-list-item
-  ></ino-img>
+  <ino-img src=${fjordImg} alt="fjord" label="Label" img-list-item></ino-img>
 `;
 
 const sampleImg3 = html`
   <ino-img
     src=${forrestImg}
-    alt="trondheim"
+    alt="forrest"
     label="Label"
     img-list-item
   ></ino-img>
@@ -75,7 +70,7 @@ const sampleImg3 = html`
 const sampleImg4 = html`
   <ino-img
     src=${libertyImg}
-    alt="forrest"
+    alt="liberty"
     label="Label"
     img-list-item
   ></ino-img>
@@ -84,7 +79,7 @@ const sampleImg4 = html`
 const sampleImg5 = html`
   <ino-img
     src=${trondheimImg}
-    alt="fjord"
+    alt="trondheim"
     label="Label"
     img-list-item
   ></ino-img>
@@ -93,7 +88,7 @@ const sampleImg5 = html`
 const sampleImg6 = html`
   <ino-img
     src=${waterfallImg}
-    alt="liberty"
+    alt="waterfall"
     label="Label"
     img-list-item
   ></ino-img>
