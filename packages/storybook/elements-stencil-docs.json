@@ -5322,7 +5322,33 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-input-caret-color",
+          "annotation": "prop",
+          "docs": "color of the caret"
+        },
+        {
+          "name": "--ino-input-color",
+          "annotation": "prop",
+          "docs": "text color of the input"
+        },
+        {
+          "name": "--ino-input-icon-color",
+          "annotation": "prop",
+          "docs": "icon color"
+        },
+        {
+          "name": "--ino-input-label-color",
+          "annotation": "prop",
+          "docs": "color of the label"
+        },
+        {
+          "name": "--ino-input-line-color",
+          "annotation": "prop",
+          "docs": "line color"
+        }
+      ],
       "slots": [
         {
           "name": "icon-leading",
@@ -5337,11 +5363,6 @@
       "listeners": [
         {
           "event": "change",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "click",
           "capture": false,
           "passive": false
         },
