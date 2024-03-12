@@ -13,21 +13,20 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: [
+        resolve(__dirname, 'src/html.ts'),
+        resolve(__dirname, 'src/index.ts'),
+      ],
       formats: ['es'],
     },
-    /* TODO: optimize bundle by externalizing react
     rollupOptions: {
-      external: ['react', 'react-dom', '@inovex.de/elements-react', 'react/jsx-runtime'],
+      external: ['react', 'react-dom'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          '@inovex.de/elements-react': '@inovex.de/elements-react' ,
-          'react/jsx-runtime': 'react/jsx-runtime'
         },
       },
     },
-    */
   },
 });

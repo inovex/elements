@@ -1,37 +1,35 @@
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { useVersion } from '../context/VersionContext';
+import { useSearchParams } from 'next/navigation';
+import { useVersion } from '@hooks/useVersion';
 
-export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--page';
-
+export const WELCOME_PAGE_PLACEHOLDER = 'docs-welcome--docs';
 export const useStorybookUrl = () => {
   const { selectedVersion } = useVersion();
-  const { query, isReady } = useRouter();
-  const [iFrameStartURl, setIFrameStartURl] = useState<string | null>(null);
-
-  const [storybookUrl, setStorybookUrl] = useState<string | undefined>(
-    undefined,
+  const searchParams = useSearchParams();
+  const [initialStorybookUrl, setInitialStorybookUrl] = useState<string | null>(
+    null,
   );
 
   useEffect(() => {
-    const urlFromEnv = process.env.NEXT_PUBLIC_STORYBOOK_URL;
-    const url = selectedVersion
-      ? urlFromEnv?.replace('latest', selectedVersion)
-      : urlFromEnv;
-    setStorybookUrl(url);
+    if (!process.env.NEXT_PUBLIC_STORYBOOK_URL)
+      throw new Error(
+        'NEXT_PUBLIC_STORYBOOK_URL not found in environment variables.',
+      );
+
+    let baseStorybookUrl = process.env.NEXT_PUBLIC_STORYBOOK_URL;
+
+    if (selectedVersion) {
+      baseStorybookUrl = baseStorybookUrl.replace('latest', selectedVersion);
+    }
+
+    const newUrl = [
+      baseStorybookUrl,
+      '?path=/docs/',
+      searchParams?.get('element') ?? WELCOME_PAGE_PLACEHOLDER,
+    ].join('');
+
+    setInitialStorybookUrl(newUrl);
   }, [selectedVersion]);
 
-  const fromLandingpageToStorybookUrl = (
-    query?: string | null,
-  ): string | null => {
-    if (!storybookUrl) return null;
-    return `${storybookUrl}?path=/docs/${query ?? WELCOME_PAGE_PLACEHOLDER}`;
-  };
-
-  useEffect(() => {
-    if (iFrameStartURl || !isReady) return;
-    setIFrameStartURl(fromLandingpageToStorybookUrl(query.element as string));
-  }, [isReady, query.element, selectedVersion]);
-
-  return { initialUrl: iFrameStartURl, fromLandingpageToStorybookUrl };
+  return initialStorybookUrl;
 };

@@ -11,9 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/dependencies-install
-      - run: npm config set scripts-prepend-node-path true
       - name: Build Storybook
         run: yarn nx run storybook:build
+        env:
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Upload Storybook artifact
         uses: ./.github/workflows/artifacts-upload
         with:

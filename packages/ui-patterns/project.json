@@ -1,9 +1,18 @@
 {
   "name": "ui-patterns",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "packages/ui-patterns/src",
   "tags": [],
   "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "packages/ui-patterns",
+        "commands": ["vite build --watch"]
+      }
+    },
     "build": {
       "executor": "nx:run-commands",
       "outputs": ["{projectRoot}/dist"],

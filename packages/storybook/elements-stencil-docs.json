@@ -1,8 +1,8 @@
 {
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.3.0",
-    "typescriptVersion": "5.1.6"
+    "version": "4.12.2",
+    "typescriptVersion": "5.3.3"
   },
   "components": [
     {
@@ -2741,9 +2741,9 @@
       "fileName": "ino-dialog.tsx",
       "tag": "ino-dialog",
       "readme": "# ino-dialog\n\n",
-      "overview": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.",
+      "overview": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.\n\n#### Usage Notes\n\n- **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.\n- **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.",
       "usage": {},
-      "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.",
+      "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.\n\n#### Usage Notes\n\n- **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.\n- **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.",
       "docsTags": [
         {
           "name": "slot",
@@ -3068,6 +3068,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emits an event upon closing the dialog",
+          "docsTags": []
+        },
+        {
+          "event": "dialogOpen",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits an event when the dialog is opened.",
           "docsTags": []
         }
       ],
@@ -8431,13 +8445,9 @@
             "signature": "(fn: (value: number) => string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "fn A function that maps the numeric value to a user-friendly string."
-                  }
-                ],
-                "text": "A function that maps the numeric value to a user-friendly string."
+                "name": "fn",
+                "type": "(value: number) => string",
+                "docs": "A function that maps the numeric value to a user-friendly string."
               }
             ],
             "references": {
@@ -8449,7 +8459,13 @@
             "return": "Promise<void>"
           },
           "signature": "setValueToAriaTextMapperFn(fn: (value: number) => string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "fn",
+              "type": "(value: number) => string",
+              "docs": "A function that maps the numeric value to a user-friendly string."
+            }
+          ],
           "docs": "Should be used to make the component accessible.\nIf the value is not user-friendly (e.g. a number to represent the day of the week),\nuse this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).\n\ne.g.:\n\n`const rangeEl = document.querySelector(\"ino-range\")`\n`rangeEl.setFnToMapValueToAriaText((value: number) => value + \". day in this week\")`",
           "docsTags": [
             {
@@ -9099,10 +9115,15 @@
       "fileName": "ino-snackbar.tsx",
       "tag": "ino-snackbar",
       "readme": "# ino-snackbar\n\n",
-      "overview": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component",
+      "overview": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.",
       "usage": {},
-      "docs": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component",
-      "docsTags": [],
+      "docs": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon-slot - Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`."
+        }
+      ],
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
@@ -9301,7 +9322,12 @@
           "docs": "Distance to the top edge"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "icon-slot",
+          "docs": "Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`."
+        }
+      ],
       "parts": [],
       "listeners": []
     },
@@ -9813,11 +9839,11 @@
       "events": [
         {
           "event": "activeTabChange",
-          "detail": "any",
+          "detail": "number",
           "bubbles": true,
           "complexType": {
-            "original": "any",
-            "resolved": "any",
+            "original": "number",
+            "resolved": "number",
             "references": {}
           },
           "cancelable": true,
@@ -10328,13 +10354,9 @@
             "signature": "(searchable: boolean) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "searchable true, if the cell should be searchable, false otherwise."
-                  }
-                ],
-                "text": "true, if the cell should be searchable, false otherwise."
+                "name": "searchable",
+                "type": "boolean",
+                "docs": "true, if the cell should be searchable, false otherwise."
               }
             ],
             "references": {
@@ -10346,7 +10368,13 @@
             "return": "Promise<void>"
           },
           "signature": "setSearchable(searchable: boolean) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "searchable",
+              "type": "boolean",
+              "docs": "true, if the cell should be searchable, false otherwise."
+            }
+          ],
           "docs": "Updates the search behaviour of this cell.",
           "docsTags": [
             {
@@ -10994,7 +11022,7 @@
           "mutable": false,
           "attr": "header-text",
           "reflectToAttr": false,
-          "docs": "Adds a optional header text to the `ino-tooltip`",
+          "docs": "Adds an optional header text to the `ino-tooltip`",
           "docsTags": [],
           "values": [
             {
@@ -11221,7 +11249,7 @@
           },
           "signature": "getTippyInstance() => Promise<any>",
           "parameters": [],
-          "docs": "Returns the internally used tippy.js instance\nFor more informations see: https://atomiks.github.io/tippyjs/",
+          "docs": "Returns the internally used tippy.js instance\nFor more information see: https://atomiks.github.io/tippyjs/",
           "docsTags": []
         }
       ],

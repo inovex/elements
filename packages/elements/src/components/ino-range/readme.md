@@ -47,6 +47,12 @@ e.g.:
 `const rangeEl = document.querySelector("ino-range")`
 `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
 
+#### Parameters
+
+| Name | Type                        | Description                                                       |
+| ---- | --------------------------- | ----------------------------------------------------------------- |
+| `fn` | `(value: number) => string` | A function that maps the numeric value to a user-friendly string. |
+
 #### Returns
 
 Type: `Promise<void>`

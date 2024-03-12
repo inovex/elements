@@ -4,5 +4,5 @@
     "module": "esnext"
   },
   "include": ["src"],
-  "exclude": ["**/*.spec.ts", "**/*.spec.tsx"]
+  "exclude": ["**/*.spec.ts", "**/*.e2e.ts", "**/*.spec.tsx"]
 }

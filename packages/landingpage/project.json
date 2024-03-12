@@ -10,7 +10,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/landingpage",
-        "commands": ["next build", "next export"],
+        "commands": ["next build"],
         "parallel": false,
         "color": true
       }

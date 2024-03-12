@@ -52,6 +52,8 @@ jobs:
         run: npm config set loglevel ${{ inputs.loglevel }}
       - name: Build libs
         run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
+        env:
+          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Version and Release
         shell: bash
         run: yarn nx run workspace:publish:${{ inputs.configuration }}

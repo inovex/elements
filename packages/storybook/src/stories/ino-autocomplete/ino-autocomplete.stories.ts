@@ -3,6 +3,7 @@ import { Components, KeyValue } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import './ino-autocomplete.scss';
+import { AutoCompleteStoryOptions } from './utils';
 
 const inputHandler = (ev: CustomEvent<KeyValue>) => {
   (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
@@ -29,20 +30,7 @@ const InoAutocompleteMeta = {
   </div>`,
   args: {
     debounce: 100,
-    options: [
-      {
-        key: 'hh',
-        value: 'Hamburg',
-      },
-      {
-        key: 'ber',
-        value: 'Berlin',
-      },
-      {
-        key: 'k',
-        value: 'Karlsruhe',
-      },
-    ],
+    options: AutoCompleteStoryOptions,
     value: '',
   },
 } as Meta<Components.InoAutocomplete>;

@@ -4,7 +4,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
-  selector: 'ino-input-file,input[type=file]',
+  selector: 'ino-input-file,ino-input[type=file]',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
