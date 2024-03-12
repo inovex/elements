@@ -18,6 +18,7 @@ import classNames from 'classnames';
 import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 import { InputType, UserInputInterceptor } from '../types';
+import { MDCNotchedOutline } from '@material/notched-outline';
 
 /**
  * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
@@ -37,6 +38,7 @@ export class Input implements ComponentInterface {
 
   private nativeInputEl?: HTMLInputElement;
   private cursorPosition = 0;
+  private notchWidth = 0;
 
   /**
    * A function called to intercept the user input.
@@ -52,6 +54,11 @@ export class Input implements ComponentInterface {
    * An internal instance of the material design textfield.
    */
   private mdcTextfield: MDCTextField;
+
+  /**
+   * An internal instance of the material design outline notch.
+   */
+  private mdcNotchedOutline: MDCNotchedOutline;
 
   /**
    * An internal instance of an textfield helper text instance (if neccessary).
@@ -257,6 +264,12 @@ export class Input implements ComponentInterface {
     e.stopPropagation();
   }
 
+  @Listen('click')
+  clickListener() {
+    if (!!this.value || !this.outline) return
+    this.mdcNotchedOutline.notch(this.notchWidth);
+  }
+
   @Listen('focus')
   focusListener() {
     this.mdcTextfield?.focus();
@@ -276,6 +289,12 @@ export class Input implements ComponentInterface {
     this.mdcTextfield = new MDCTextField(
       this.el.querySelector('.mdc-text-field'),
     );
+
+    if (this.outline) {
+      this.mdcNotchedOutline = new MDCNotchedOutline(
+        this.el.querySelector('.mdc-notched-outline'),
+      );
+    }
 
     if (this.type === 'email') {
       this.mdcTextfield.useNativeValidation = false;
@@ -314,6 +333,13 @@ export class Input implements ComponentInterface {
   componentDidRender() {
     // This adjusts the dimensions, whenever a property changes, e.g. the label gets translated to another language.
     this.mdcTextfield?.layout();
+    const { clientWidth } = this.el.querySelector('.mdc-floating-label');
+    /**
+     * 0.75 is the default scale factor of mdc
+     * Scale factor can be overridden by sass mixin floating-label-float-position
+     * Add 5 px at the end to fix spacing
+     */
+    this.notchWidth = clientWidth * 0.75 + 5;
   }
 
   disconnectedCallback() {
