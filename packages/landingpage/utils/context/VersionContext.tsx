@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useState,
-  useEffect,
-} from 'react';
+import { createContext, ReactNode, useState, useEffect } from 'react';
 
 export interface VersionContextType {
   selectedVersion: string | undefined;
@@ -44,14 +38,4 @@ export const VersionProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </VersionContext.Provider>
   );
-};
-
-export const useVersion = (): VersionContextType => {
-  const context = useContext(VersionContext);
-
-  if (!context) {
-    throw new Error('useVersion must be used within a VersionProvider');
-  }
-
-  return context;
 };
