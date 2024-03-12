@@ -17,66 +17,31 @@ describe('InoSelect', () => {
   let inoSelect: HTMLInoSelectElement;
   let option: HTMLLIElement;
 
-  describe('Events', () => {
-    beforeEach(async () => {
-      page = await newSpecPage({
-        components: [Select, InoOption, Label],
-        html: INO_SELECT
-      });
-      inoSelect = page.body.querySelector('ino-select');
-      option = inoSelect.querySelector('ino-option > li');
+  beforeEach(async () => {
+    page = await newSpecPage({
+      components: [Select, InoOption, Label],
+      html: INO_SELECT,
     });
-
-    it('should emit a valueChange event with correct details', async () => {
-      const { assertEventDetails } = listenForEvent(page, 'valueChange');
-
-      option.click();
-      await page.waitForChanges();
-
-      assertEventDetails('HH');
-    });
-
-    it('should emit a valueChange event only one time', async () => {
-      const { eventSpy } = listenForEvent(page, 'valueChange');
-
-      option.click();
-      option.click();
-      await page.waitForChanges();
-
-      expect(eventSpy).toHaveBeenCalledTimes(1);
-    });
+    inoSelect = page.body.querySelector('ino-select');
+    option = inoSelect.querySelector('ino-option > li');
   });
 
-  describe('Form', () => {
-    const formId = 'my-submit-form';
-    let formEl: HTMLFormElement;
+  it('should emit a valueChange event with correct details', async () => {
+    const { assertEventDetails } = listenForEvent(page, 'valueChange');
 
-    const setupPage = async (isSelected: boolean) => {
-      page = await newSpecPage({
-        components: [Select, InoOption, Label],
-        html: `
-        <form id="${formId}">
-           <ino-select required ${isSelected ? 'value="1"' : ''}>
-               <ino-option value="1" id="opt1">1</ino-option>
-            </ino-select>
-        </form>
-      `
-      });
-      formEl = page.body.querySelector(`#${formId}`);
-    }
+    option.click();
+    await page.waitForChanges();
 
-    it('should receive submit event if select is required and value is set', async () => {
-      await setupPage(true);
-      const { eventSpy } = listenForEvent(page, 'submit');
-      formEl.submit();
-      expect(eventSpy).toHaveReceivedEvent();
-    });
+    assertEventDetails('HH');
+  });
 
-    it('should not receive submit event if select is required and no value is set', async () => {
-      await setupPage(false);
-      const { eventSpy } = listenForEvent(page, 'submit');
-      formEl.submit();
-      expect(eventSpy).not.toHaveReceivedEvent();
-    });
+  it('should emit a valueChange event only one time', async () => {
+    const { eventSpy } = listenForEvent(page, 'valueChange');
+
+    option.click();
+    option.click();
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
   });
 });

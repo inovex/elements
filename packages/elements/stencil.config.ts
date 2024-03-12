@@ -44,9 +44,7 @@ export const config: Config = {
     }),
   ],
   testing: {
-    setupFilesAfterEnv: [
-      join(__dirname, 'setupSpecTests.ts'),
-    ]
+    setupFilesAfterEnv: ['./setupSpecTests.ts'],
   },
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
