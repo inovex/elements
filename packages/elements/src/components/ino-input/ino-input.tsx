@@ -19,6 +19,7 @@ import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 import { InputType, UserInputInterceptor } from '../types';
 import { MDCNotchedOutline } from '@material/notched-outline';
+import { createMDCNotchedOutline } from './createMDCNotchedOutline';
 
 /**
  * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
@@ -38,7 +39,6 @@ export class Input implements ComponentInterface {
 
   private nativeInputEl?: HTMLInputElement;
   private cursorPosition = 0;
-  private notchWidth = 0;
 
   /**
    * A function called to intercept the user input.
@@ -61,12 +61,12 @@ export class Input implements ComponentInterface {
   private mdcNotchedOutline: MDCNotchedOutline;
 
   /**
-   * An internal instance of an textfield helper text instance (if neccessary).
+   * An internal instance of a textfield helper text instance (if necessary).
    */
   private mdcHelperText: MDCTextFieldHelperText;
 
   /**
-   * An internal instance of an textfield icon instance (if neccessary).
+   * An internal instance of a textfield icon instance (if necessary).
    */
   private mdcTextfieldIcon: MDCTextFieldIcon;
 
@@ -264,12 +264,6 @@ export class Input implements ComponentInterface {
     e.stopPropagation();
   }
 
-  @Listen('click')
-  clickListener() {
-    if (!!this.value || !this.outline) return
-    this.mdcNotchedOutline.notch(this.notchWidth);
-  }
-
   @Listen('focus')
   focusListener() {
     this.mdcTextfield?.focus();
@@ -291,20 +285,15 @@ export class Input implements ComponentInterface {
     );
 
     if (this.outline) {
-      this.mdcNotchedOutline = new MDCNotchedOutline(
+      this.mdcNotchedOutline = createMDCNotchedOutline(
         this.el.querySelector('.mdc-notched-outline'),
       );
     }
 
-    if (this.type === 'email') {
-      this.mdcTextfield.useNativeValidation = false;
-    }
-
     if (this.helper) {
-      const helperTextEl = document.querySelector(
-        '.mdc-text-field-helper-text',
+      this.mdcHelperText = new MDCTextFieldHelperText(
+        this.el.querySelector('.mdc-text-field-helper-text'),
       );
-      this.mdcHelperText = new MDCTextFieldHelperText(helperTextEl);
     }
 
     if (
@@ -315,6 +304,21 @@ export class Input implements ComponentInterface {
         this.el.querySelector('.mdc-text-field__icon'),
       );
     }
+
+    this.mdcTextfield.initialize(
+      undefined,
+      undefined,
+      (el) => this.mdcHelperText ?? new MDCTextFieldHelperText(el),
+      undefined,
+      (el) => this.mdcTextfieldIcon ?? new MDCTextFieldIcon(el),
+      undefined,
+      (el) => this.mdcNotchedOutline ?? new MDCNotchedOutline(el),
+    );
+
+    if (this.type === 'email') {
+      this.mdcTextfield.useNativeValidation = false;
+    }
+
     this.textfieldValue = this.value || '';
 
     if (this.autoFocus) {
@@ -333,19 +337,10 @@ export class Input implements ComponentInterface {
   componentDidRender() {
     // This adjusts the dimensions, whenever a property changes, e.g. the label gets translated to another language.
     this.mdcTextfield?.layout();
-    const { clientWidth } = this.el.querySelector('.mdc-floating-label');
-    /**
-     * 0.75 is the default scale factor of mdc
-     * Scale factor can be overridden by sass mixin floating-label-float-position
-     * Add 5 px at the end to fix spacing
-     */
-    this.notchWidth = clientWidth * 0.75 + 5;
   }
 
   disconnectedCallback() {
     this.mdcTextfield?.destroy();
-    this.mdcHelperText?.destroy();
-    this.mdcTextfieldIcon?.destroy();
   }
 
   // ----
