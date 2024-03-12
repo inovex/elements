@@ -6,6 +6,7 @@
 @use '@material/floating-label/mdc-floating-label';
 @use '@material/floating-label';
 @use '@material/notched-outline/mdc-notched-outline';
+@use '@material/notched-outline/' as notched-outline;
 @use '../base/new-theme' as theme;
 @use '../base/typography';
 
@@ -36,7 +37,7 @@ $filled-selected-text-height-dense: 25px;
 
 $outline-input-height: 40px;
 $outline-input-height-dense: 30px;
-$outline-shape-radius: $outline-input-height / 2;
+$outline-shape-radius: calc($outline-input-height / 2);
 $outline-shape-radius-corner: $outline-shape-radius $outline-shape-radius
 $outline-shape-radius 0;
 
@@ -275,22 +276,37 @@ ino-input .mdc-text-field--outlined {
     height: 16px;
     width: 16px;
   }
+
+  // & .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  //   max-width: 160%;
+  // }
 }
 
 // outlined dense
 ino-input .mdc-text-field--outlined.ino-input--dense {
   @include textfield.outlined-height($outline-input-height-dense);
+  //@include notched-outline.floating-label-float-position(115%, 1%, 0.65);
 
-  .mdc-text-field__input {
-    font-size: 0.857rem;
-  }
-
+  .mdc-text-field__input, 
   .mdc-floating-label {
     font-size: 0.857rem;
   }
 
-  .mdc-floating-label.mdc-floating-label--float-above {
+  .mdc-floating-label {
+    background-color: aqua;
+  }
+
+  & .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+    max-width: 160%;
     font-size: 0.714rem;
+  }
+
+  & .mdc-notched-outline__notch {
+    background-color: rgba(green, 0.5);
+  }
+
+  & .mdc-notched-outline--upgraded .mdc-notched-outline__notch {
+    width: 100%;
   }
 
   &[class*='--with-leading-icon'] .mdc-floating-label {
@@ -300,6 +316,7 @@ ino-input .mdc-text-field--outlined.ino-input--dense {
   &[class*='--with-leading-icon']
     .mdc-floating-label.mdc-floating-label--float-above {
     left: 5px;
+    // width: 100%;
   }
 }
 

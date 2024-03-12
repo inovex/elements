@@ -1,6 +1,7 @@
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
 import { MDCTextFieldIcon } from '@material/textfield/icon';
+import {MDCNotchedOutline} from '@material/notched-outline';
 import {
   Component,
   ComponentInterface,
@@ -37,6 +38,8 @@ export class Input implements ComponentInterface {
 
   private nativeInputEl?: HTMLInputElement;
   private cursorPosition = 0;
+  private notchedOutline?: MDCNotchedOutline;
+  private notch?: HTMLElement;
 
   /**
    * A function called to intercept the user input.
@@ -270,6 +273,13 @@ export class Input implements ComponentInterface {
       this.el.querySelector('.mdc-text-field'),
     );
 
+    if (this.outline) {
+      this.notchedOutline = new MDCNotchedOutline(
+        this.el.querySelector('.mdc-notched-outline__notch')
+      );
+      this.notch = this.el.querySelector('.mdc-floating-label');
+    }
+
     if (this.type === 'email') {
       this.mdcTextfield.useNativeValidation = false;
     }
@@ -302,6 +312,7 @@ export class Input implements ComponentInterface {
 
     this.errorHandler(this.error);
     this.el.setAttribute('tabindex', '-1');
+    
   }
 
   componentDidRender() {
@@ -371,6 +382,7 @@ export class Input implements ComponentInterface {
   componentWillLoad() {
     this.inputID = generateUniqueId();
   }
+
   // ----
   // Native input event handler
   // ----
@@ -386,7 +398,7 @@ export class Input implements ComponentInterface {
     if (value != this.value) {
       this.cursorPosition = e.target.selectionStart;
       this.valueChange.emit(value);
-
+      
       // reset value to control the input
       // without it, the input event would be handled by mdc and set the value to the native input el
       if (this.resetOnChange) {
@@ -403,6 +415,15 @@ export class Input implements ComponentInterface {
   };
 
   private handleFocus = (e) => {
+    // handle focuzs
+    // const notchWidth = this.notch?.offsetWidth + 4;
+    // if(notchWidth >= 0){
+    //   console.log('change notch width')
+    //   console.log('this.notchedOutline', this.notchedOutline);
+    //   this.notchedOutline?.notch(notchWidth);
+    // }
+    // console.log('notch', this.notch);
+    // this.mdcTextfield?.layout();
     this.inoFocus.emit(e);
   };
 
