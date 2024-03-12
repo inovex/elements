@@ -6,7 +6,7 @@ import elementsPreview from '../../../../../assets/elements-preview-small.png';
 
 const Hero = () => {
   useEffect(() => {
-    const logoImage = document.querySelector('ino-img#logo');
+    const logoImage = document.querySelector('ino-img#heroLogo');
     const previewImage = document.querySelector('ino-img#preview');
     if (logoImage) {
       logoImage.setAttribute('src', inovexLogo);
@@ -15,6 +15,7 @@ const Hero = () => {
       previewImage.setAttribute('src', elementsPreview);
     }
   }, []);
+
   return <PatternWrapper htmlContent={htmlContent} />;
 };
 

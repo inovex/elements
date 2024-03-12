@@ -5,7 +5,8 @@ import inovexLogo from '../../../assets/inovex-logo.svg';
 
 const Footer = () => {
   useEffect(() => {
-    const logoImage = document.querySelector('ino-img#logo');
+    const logoImage = document.querySelector('ino-img#attributions');
+
     if (logoImage) {
       logoImage.setAttribute('src', inovexLogo);
     }

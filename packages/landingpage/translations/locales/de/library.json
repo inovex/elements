@@ -12,6 +12,14 @@
     "settingsPage": {
       "title": "Einstellungsseite",
       "description": "Bieten Sie eine übersichtliche und anpassbare Einstellungsoberfläche, die es Benutzern ermöglicht, ihre Präferenzen einfach zu verwalten."
+    },
+    "hero": {
+      "title": "Hero-Bereich",
+      "description": "Schaffen Sie einen fesselnden ersten Eindruck mit einem Hero-Bereich, der ästhetische Anziehungskraft mit klarer Botschaft verbindet."
+    },
+    "footer": {
+      "title": "Footer-Navigation",
+      "description": "Runden Sie Ihre Webseite mit einem Footer ab, der wesentliche Informationen und Navigationshinweise in einem prägnanten Layout bietet."
     }
   }
 }
