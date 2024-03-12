@@ -192,16 +192,14 @@ export class Snackbar implements ComponentInterface {
             <div class="mdc-snackbar__actions ino-snackbar-icon-container">
               {hasSlot ? (
                 <slot name="icon-slot" />
+              ) : this.type === 'success' ? (
+                <ino-icon
+                  aria-hidden="true"
+                  class="ino-snackbar-icon"
+                  icon={this.mapTypeToIconName(this.type)}
+                />
               ) : (
-                this.type === "success"? (
-                  <ino-icon
-                    aria-hidden="true"
-                    class="ino-snackbar-icon"
-                    icon={this.mapTypeToIconName(this.type)}
-                  />
-                ) : (
-                  <span>{this.mapTypeToIconName(this.type)}</span>
-                )
+                <span>{this.mapTypeToIconName(this.type)}</span>
               )}
             </div>
             <div class="mdc-snackbar__label ino-snackbar-message-container">
