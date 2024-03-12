@@ -56,12 +56,6 @@ export class Snackbar implements ComponentInterface {
   @Prop() timeout?: number = 5000;
 
   /**
-   * The role of the dialog. Can be either 'status', 'alert' or 'alertdialog'.
-   * The 'alertdialog' role should be used for important messages that requires user interaction.
-   */
-  @Prop() snackbarRole?: 'status' | 'alert' | 'alertdialog';
-
-  /**
    * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
    */
   @Prop() stayVisibleOnHover?: boolean = false;
@@ -94,7 +88,6 @@ export class Snackbar implements ComponentInterface {
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
-    if (!this.snackbarRole) this.snackbarRole = this.getAriaRole();
 
     this.snackbarElement.addEventListener(
       'MDCSnackbar:closing',
@@ -163,7 +156,7 @@ export class Snackbar implements ComponentInterface {
     }
   };
 
-  private getAriaRole = (): typeof this.snackbarRole => {
+  private getAriaRole = () => {
     if (this.type === 'error' && Boolean(this.actionText)) return 'alertdialog';
     if (this.type === 'error') return 'alert';
     return 'status';
@@ -179,8 +172,8 @@ export class Snackbar implements ComponentInterface {
       'ino-snackbar-layout-container',
     );
 
-    const snackbarAttrs = { role: this.snackbarRole };
-    if (this.snackbarRole === 'alertdialog') {
+    const snackbarAttrs = { role: this.getAriaRole() };
+    if (snackbarAttrs.role === 'alertdialog') {
       snackbarAttrs['aria-modal'] = true;
       snackbarAttrs['aria-label'] = this.a11yLabels.snackbarLabel;
     }

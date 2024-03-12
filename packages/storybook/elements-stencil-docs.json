@@ -9215,36 +9215,6 @@
           "required": false
         },
         {
-          "name": "snackbarRole",
-          "type": "\"alert\" | \"alertdialog\" | \"status\"",
-          "complexType": {
-            "original": "'status' | 'alert' | 'alertdialog'",
-            "resolved": "\"alert\" | \"alertdialog\" | \"status\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "snackbar-role",
-          "reflectToAttr": false,
-          "docs": "The role of the dialog. Can be either 'status', 'alert' or 'alertdialog'.\nThe 'alertdialog' role should be used for important messages that requires user interaction.",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "alert",
-              "type": "string"
-            },
-            {
-              "value": "alertdialog",
-              "type": "string"
-            },
-            {
-              "value": "status",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "stayVisibleOnHover",
           "type": "boolean",
           "complexType": {

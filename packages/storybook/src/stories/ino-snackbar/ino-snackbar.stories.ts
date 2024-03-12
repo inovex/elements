@@ -69,7 +69,6 @@ const InoSnackbarMeta = {
         timeout="${args.timeout}"
         type="${args.type}"
         stay-visible-on-hover="${args.stayVisibleOnHover}"
-        snackbarRole="${args.snackbarRole}"
         a11yLabels="
         ${args.a11yLabels}"
       >
@@ -97,7 +96,6 @@ const InoSnackbarMeta = {
     type: 'info',
     id: 'snackbar-default',
     stayVisibleOnHover: false,
-    snackbarRole: 'alertdialog',
     a11yLabels: {
       snackbarLabel: 'Information',
       closeLabel: 'Close Button',
