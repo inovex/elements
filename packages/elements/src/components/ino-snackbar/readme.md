@@ -34,15 +34,27 @@ Snackbars provide brief messages about app processes at the bottom of the screen
 | `"icon-slot"` | Use this slot to add a custom icon (e.g., `<ino-icon>` or `<img>`) inside the `ino-snackbar`. |
 
 
+## CSS Custom Properties
+
+| Name                    | Description                 |
+| ----------------------- | --------------------------- |
+| `--ino-snackbar-bottom` | Distance to the bottom edge |
+| `--ino-snackbar-left`   | Distance to the left edge   |
+| `--ino-snackbar-right`  | Distance to the right edge  |
+| `--ino-snackbar-top`    | Distance to the top edge    |
+
+
 ## Dependencies
 
 ### Depends on
 
+- [ino-icon](../ino-icon)
 - [ino-icon-button](../ino-icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-snackbar --> ino-icon
   ino-snackbar --> ino-icon-button
   ino-icon-button --> ino-icon
   style ino-snackbar fill:#f9f,stroke:#333,stroke-width:4px

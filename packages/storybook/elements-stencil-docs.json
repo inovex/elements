@@ -3715,6 +3715,7 @@
         "ino-input",
         "ino-input-file",
         "ino-markdown-editor",
+        "ino-snackbar",
         "ino-tab",
         "ino-table-header-cell"
       ],
@@ -3751,6 +3752,9 @@
           "ino-icon"
         ],
         "ino-markdown-editor": [
+          "ino-icon"
+        ],
+        "ino-snackbar": [
           "ino-icon"
         ],
         "ino-tab": [
@@ -9121,10 +9125,12 @@
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
+        "ino-icon",
         "ino-icon-button"
       ],
       "dependencyGraph": {
         "ino-snackbar": [
+          "ino-icon",
           "ino-icon-button"
         ],
         "ino-icon-button": [
@@ -9296,7 +9302,28 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-snackbar-bottom",
+          "annotation": "prop",
+          "docs": "Distance to the bottom edge"
+        },
+        {
+          "name": "--ino-snackbar-left",
+          "annotation": "prop",
+          "docs": "Distance to the left edge"
+        },
+        {
+          "name": "--ino-snackbar-right",
+          "annotation": "prop",
+          "docs": "Distance to the right edge"
+        },
+        {
+          "name": "--ino-snackbar-top",
+          "annotation": "prop",
+          "docs": "Distance to the top edge"
+        }
+      ],
       "slots": [
         {
           "name": "icon-slot",
