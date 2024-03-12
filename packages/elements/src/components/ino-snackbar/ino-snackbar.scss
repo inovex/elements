@@ -39,10 +39,6 @@ $snackbar-color-map-by-type: (
   }
 }
 
-@mixin showCloseButton() {
-  display: inline-flex;
-}
-
 ino-snackbar {
   /**
   * @prop --ino-snackbar-top: Distance to the top edge
@@ -83,10 +79,6 @@ ino-snackbar {
     max-width: 350px;
     padding: 16px 45px 16px 25px;
 
-    &:hover ~ .ino-snackbar-close-btn {
-      @include showCloseButton;
-    }
-
     // mdc pseudo-element blocks interaction
     &:before {
       display: none;
@@ -94,7 +86,7 @@ ino-snackbar {
   }
 
   .ino-snackbar-close-btn {
-    display: none;
+    display: flex;
     position: absolute;
     top: 0;
     right: 0;
@@ -109,10 +101,6 @@ ino-snackbar {
     --ino-icon-button-icon-color: black !important;
     --ino-icon-button-size: 22px;
     --ino-icon-button-icon-size: 8px;
-
-    &:hover {
-      @include showCloseButton;
-    }
   }
 
   .ino-snackbar-icon-container {
@@ -142,6 +130,10 @@ ino-snackbar {
 
     .ino-snackbar-text-container {
       color: #74758b;
+    }
+
+    .ino-snackbar-action-container {
+      margin-top: 0.25rem;
     }
 
     .ino-snackbar-action-btn {

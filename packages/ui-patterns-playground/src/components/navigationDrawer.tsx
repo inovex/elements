@@ -51,6 +51,16 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
             <InoIcon icon="number"></InoIcon>
           </InoNavItem>
         </Link>
+        <Link to="/hero">
+          <InoNavItem role="menuitem" text="Hero">
+            <InoIcon icon="display"></InoIcon>
+          </InoNavItem>
+        </Link>
+        <Link to="/footer">
+          <InoNavItem role="menuitem" text="Footer">
+            <InoIcon icon="display"></InoIcon>
+          </InoNavItem>
+        </Link>
       </InoList>
 
       <InoList role="menubar" slot="footer" aria-label="Footer Navigation">

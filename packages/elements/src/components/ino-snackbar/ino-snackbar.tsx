@@ -7,11 +7,12 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Prop,
 } from '@stencil/core';
 import classNames from 'classnames';
-import { SnackbarType } from '../types';
 import { hasSlotContent } from '../../util/component-utils';
+import { SnackbarLabels, SnackbarType } from '../types';
 
 /**
  * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
@@ -60,6 +61,14 @@ export class Snackbar implements ComponentInterface {
   @Prop() stayVisibleOnHover?: boolean = false;
 
   /**
+   * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+   */
+  @Prop() a11yLabels?: SnackbarLabels = {
+    snackbarLabel: this.type,
+    closeLabel: 'Close notification',
+  };
+
+  /**
    * Event that emits as soon as the action button is clicked.
    */
   @Event() actionClick!: EventEmitter;
@@ -70,8 +79,16 @@ export class Snackbar implements ComponentInterface {
    */
   @Event() hideEl!: EventEmitter;
 
+  @Listen('keyup', { target: 'body' })
+  handleKeyUp(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      this.hideEl.emit();
+    }
+  }
+
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
+
     this.snackbarElement.addEventListener(
       'MDCSnackbar:closing',
       this.handleSnackbarHide,
@@ -142,6 +159,12 @@ export class Snackbar implements ComponentInterface {
     }
   };
 
+  private getAriaRole = () => {
+    if (this.type === 'error' && Boolean(this.actionText)) return 'alertdialog';
+    if (this.type === 'error') return 'alert';
+    return 'status';
+  };
+
   render() {
     const hasActionText = Boolean(this.actionText);
     const hasSlot = hasSlotContent(this.el, 'icon-slot');
@@ -152,14 +175,18 @@ export class Snackbar implements ComponentInterface {
       'ino-snackbar-layout-container',
     );
 
+    const snackbarAttrs = { role: this.getAriaRole() };
+    if (snackbarAttrs.role === 'alertdialog') {
+      snackbarAttrs['aria-modal'] = true;
+      snackbarAttrs['aria-label'] = this.a11yLabels.snackbarLabel;
+    }
+
     return (
       <Host class={hostClasses}>
         <div
           ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
-          aria-live="assertive"
-          aria-atomic="true"
-          role="alert"
+          {...snackbarAttrs}
         >
           <div class="mdc-snackbar__surface ino-snackbar-container">
             <div class="mdc-snackbar__actions ino-snackbar-icon-container">
@@ -168,6 +195,7 @@ export class Snackbar implements ComponentInterface {
               ) : (
                 this.type === "success"? (
                   <ino-icon
+                    aria-hidden="true"
                     class="ino-snackbar-icon"
                     icon={this.mapTypeToIconName(this.type)}
                   />
@@ -176,15 +204,12 @@ export class Snackbar implements ComponentInterface {
                 )
               )}
             </div>
-            <div
-              class="mdc-snackbar__label ino-snackbar-message-container"
-              aria-atomic="false"
-            >
+            <div class="mdc-snackbar__label ino-snackbar-message-container">
               <div class="ino-snackbar-text-container">
                 {this.message ? this.message : <slot />}
               </div>
               {hasActionText && (
-                <div>
+                <div class="ino-snackbar-action-container">
                   <button
                     onClick={this.actionClick.emit}
                     class="ino-snackbar-action-btn"
@@ -196,6 +221,7 @@ export class Snackbar implements ComponentInterface {
             </div>
           </div>
           <ino-icon-button
+            aria-label={this.a11yLabels.closeLabel}
             onClick={this.handleSnackbarHide}
             icon="close"
             class="ino-snackbar-close-btn"

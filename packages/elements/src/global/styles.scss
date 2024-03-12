@@ -4,8 +4,7 @@
 
 .inovex-elements-typo {
   font-family: Lato, Verdana, sans-serif;
-
-  a {
+  a:not(.tailwind) {
     background-color: transparent;
     color: new-theme.$primary;
     font-weight: bold;
