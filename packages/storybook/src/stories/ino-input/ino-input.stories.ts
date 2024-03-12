@@ -84,7 +84,7 @@ const InoInputMeta = {
     maxlength: 100,
     outline: false,
     name: '',
-    pattern: '.*',
+    pattern: '*',
     placeholder: '',
     required: false,
     showLabelHint: false,
