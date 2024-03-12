@@ -7,16 +7,9 @@ import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/in
 const toKebabCase = (eventName: string) => {
   if (eventName.startsWith('MDC')) return eventName;
 
-  switch (eventName) {
-    case 'valueChange':
-      return 'v-value-change';
-    case 'checkedChange':
-      return 'v-checked-change';
-    default:
-      return eventName
-        .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
-        .toLowerCase();
-  }
+  return eventName
+    .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
+    .toLowerCase();
 };
 
 const getHelperFunctions = () => {
@@ -32,7 +25,7 @@ const getHelperFunctions = () => {
 
 export const InoElementsVue: Plugin = {
   async install(_: App) {
-    await defineCustomElements(window, getHelperFunctions());
+    defineCustomElements(window, getHelperFunctions());
     addIcons(ICON_PATHS);
   },
 };

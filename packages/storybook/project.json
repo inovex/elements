@@ -9,27 +9,29 @@
   },
   "targets": {
     "build": {
-      "outputs": ["{projectRoot}/dist"],
-      "executor": "nx:run-commands",
+      "executor": "@nx/storybook:build",
       "options": {
-        "cwd": "packages/storybook",
-        "color": true
+        "configDir": "{projectRoot}/config",
+        "outputDir": "{projectRoot}/dist",
+        "disableTelemetry": true
       },
       "defaultConfiguration": "dev",
       "configurations": {
         "dev": {
-          "command": "storybook build -c config -o dist"
+          "quiet": false
         },
         "prod": {
-          "command": "storybook build -c config --quiet -o dist"
+          "quiet": true
         }
       }
     },
     "start": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/storybook:storybook",
       "options": {
-        "cwd": "packages/storybook",
-        "command": "storybook dev -p 6006 -c config"
+        "port": 6006,
+        "configDir": "{projectRoot}/config",
+        "outputDir": "{projectRoot}/dist",
+        "disableTelemetry": true
       }
     },
     "lint": {
@@ -61,11 +63,18 @@
       "outputs": ["{workspaceRoot}/dist/.playwright/packages/storybook"],
       "options": {
         "config": "packages/storybook/playwright.config.ts",
-        "browser": "chromium",
         "timeout": 15000
       },
       "defaultConfiguration": "headless",
       "configurations": {
+        "ci": {
+          "forbidOnly": true,
+          "headed": false,
+          "quiet": true,
+          "passWithNoTests": false,
+          "skipInstall": true,
+          "retries": 0
+        },
         "headless": {
           "headed": false
         },
