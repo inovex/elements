@@ -285,20 +285,20 @@ ino-input .mdc-text-field--outlined {
 // outlined dense
 ino-input .mdc-text-field--outlined.ino-input--dense {
   @include textfield.outlined-height($outline-input-height-dense);
-  //@include notched-outline.floating-label-float-position(115%, 1%, 0.65);
+  @include notched-outline.floating-label-float-position(115%, 0%, 0.65);
 
-  .mdc-text-field__input, 
-  .mdc-floating-label {
-    font-size: 0.857rem;
-  }
+  // .mdc-text-field__input, 
+  // .mdc-floating-label {
+  //   font-size: 0.857rem;
+  // }
 
   .mdc-floating-label {
     background-color: aqua;
   }
 
   & .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
-    max-width: 160%;
-    font-size: 0.714rem;
+    //max-width: 160%;
+    //font-size: 0.714rem;
   }
 
   & .mdc-notched-outline__notch {
@@ -334,7 +334,6 @@ ino-input[type='number'] {
     display: flex;
     flex-direction: column;
     right: 5px;
-
     height: 45%;
 
     .ino-num-arrows {

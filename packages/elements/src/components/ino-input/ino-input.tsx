@@ -1,7 +1,7 @@
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
 import { MDCTextFieldIcon } from '@material/textfield/icon';
-import {MDCNotchedOutline} from '@material/notched-outline';
+// import {MDCNotchedOutline} from '@material/notched-outline';
 import {
   Component,
   ComponentInterface,
@@ -38,8 +38,8 @@ export class Input implements ComponentInterface {
 
   private nativeInputEl?: HTMLInputElement;
   private cursorPosition = 0;
-  private notchedOutline?: MDCNotchedOutline;
-  private notch?: HTMLElement;
+  // private notchedOutline?: MDCNotchedOutline;
+  // private notch?: HTMLElement;
 
   /**
    * A function called to intercept the user input.
@@ -273,12 +273,12 @@ export class Input implements ComponentInterface {
       this.el.querySelector('.mdc-text-field'),
     );
 
-    if (this.outline) {
-      this.notchedOutline = new MDCNotchedOutline(
-        this.el.querySelector('.mdc-notched-outline__notch')
-      );
-      this.notch = this.el.querySelector('.mdc-floating-label');
-    }
+    // if (this.outline) {
+    //   this.notchedOutline = new MDCNotchedOutline(
+    //     this.el.querySelector('.mdc-notched-outline__notch')
+    //   );
+    //   this.notch = this.el.querySelector('.mdc-floating-label');
+    // }
 
     if (this.type === 'email') {
       this.mdcTextfield.useNativeValidation = false;
