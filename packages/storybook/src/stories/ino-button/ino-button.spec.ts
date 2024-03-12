@@ -1,32 +1,32 @@
 import { expect, Locator, test } from '@playwright/test';
-import { goToStory } from '../test-utils';
+import { goToStory, setAttribute } from '../test-utils';
 
 test.describe('ino-button', () => {
   let inoButton: Locator;
 
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['buttons', 'ino-button', 'default']);
+    await goToStory(page, ['Buttons', 'ino-button', 'default']);
     inoButton = page.locator('ino-button');
   });
 
   test('should keep dimensions if loading state is set', async () => {
-    const originalBtn = inoButton.getByRole('button');
-    const pxStrToNumber = (x: string) => parseInt(x, 10);
+    const spinnerEl = inoButton.locator('ino-spinner');
 
-    const { height, width } = await originalBtn.evaluate((btn) =>
-      window.getComputedStyle(btn),
-    );
-    await inoButton.evaluate((btn) => btn.setAttribute('loading', 'true'));
+    const { height, width } = await inoButton.boundingBox();
 
-    const { height: newHeight, width: newWidth } = await originalBtn.evaluate(
-      (btn) => window.getComputedStyle(btn),
-    );
+    // set loading and wait for spinner to show
+    await setAttribute(inoButton, 'loading', 'true');
+    await expect(spinnerEl).toBeVisible();
 
-    expect(
-      Math.abs(pxStrToNumber(newWidth) - pxStrToNumber(width)),
-    ).toBeLessThanOrEqual(1);
-    expect(
-      Math.abs(pxStrToNumber(newHeight) - pxStrToNumber(height)),
-    ).toBeLessThanOrEqual(1);
+    // disable loading and wait for spinner to disappear
+    await setAttribute(inoButton, 'loading', 'false');
+    await expect(spinnerEl).toBeHidden();
+    await expect(inoButton).toHaveText(/Label/i);
+
+    const { height: newHeight, width: newWidth } =
+      await inoButton.boundingBox();
+
+    expect(Math.abs(newHeight - height)).toBeLessThanOrEqual(1);
+    expect(Math.abs(newWidth - width)).toBeLessThanOrEqual(1);
   });
 });

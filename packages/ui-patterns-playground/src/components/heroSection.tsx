@@ -13,7 +13,7 @@ function HeroSection() {
           </div>
           <h1 className="header-d1 mt-6 text-inovex-primary">
             the{' '}
-            <span className="bg-gradient-to-r from-inovex-p-6 via-inovex-success to-inovex-p-6 inline-block text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-inovex-p-6 via-green-500 to-inovex-p-6 inline-block text-transparent bg-clip-text">
               Universal UI Toolkit
             </span>
           </h1>
@@ -29,7 +29,7 @@ function HeroSection() {
           <InoButton variant="outlined">UI Patterns Features</InoButton>
         </div>
         <section>
-          <div className="bg-gradient-to-r from-inovex-p-5 via-inovex-success to-inovex-p-4 rounded-2xl mt-12 p-2 max-w-3xl ">
+          <div className="mt-12 max-w-3xl ">
             <img className="rounded-xl" src={preview}></img>
           </div>
         </section>

@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { MyPatternA, Login } from '@inovex.de/ui-patterns';
-import NavigationDrawer from './components/navigationDrawer';
+import { MyPatternA, Login, SettingsPage } from '@inovex.de/ui-patterns';
+import '@inovex.de/elements-react';
+
 import Guide from './components/guide';
-import HeroSection from './components/heroSection';
+import NavigationDrawer from './components/navigationDrawer';
 import FooterSection from './components/footerSection';
+import HeroSection from './components/heroSection';
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Route path="/herosection" element={<HeroSection />} />
           <Route path="/footersection" element={<FooterSection />} />
           <Route path="/guide" element={<Guide />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </NavigationDrawer>
     </Router>
