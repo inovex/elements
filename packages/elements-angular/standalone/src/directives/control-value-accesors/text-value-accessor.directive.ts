@@ -1,6 +1,9 @@
 import { Directive } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { textDirectiveSelector, TextValueAccessorDirective as ProxyDirective } from '@inovex.de/elements-angular/shared';
+import {
+  textDirectiveSelector,
+  TextValueAccessorDirective as ProxyDirective,
+} from '@inovex.de/elements-angular/shared';
 
 @Directive({
   selector: textDirectiveSelector,
@@ -11,6 +14,6 @@ import { textDirectiveSelector, TextValueAccessorDirective as ProxyDirective } f
       multi: true,
     },
   ],
-  standalone: false
+  standalone: true,
 })
 export class TextValueAccessorDirective extends ProxyDirective {}

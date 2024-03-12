@@ -1,6 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-import AngularOutputTarget from './output-targets/angular';
+import AngularOutputTargets from './output-targets/angular';
 import ReactOutputTarget from './output-targets/react';
 import VueOutputTarget from './output-targets/vue';
 import JsonDocsOutputTarget from './output-targets/json-docs';
@@ -21,10 +21,23 @@ export const config: Config = {
   sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
   taskQueue: 'async',
+  validatePrimaryPackageOutputTarget: true,
   outputTargets: [
     {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
+      isPrimaryPackageOutputTarget: true,
+    },
+    {
+      type: 'dist-custom-elements',
+      customElementsExportBehavior: 'single-export-module',
+      copy: [
+        {
+          src: '../scripts/custom-elements',
+          dest: 'dist/components',
+          warn: true,
+        },
+      ],
     },
     { type: 'docs-readme' },
     {
@@ -34,7 +47,7 @@ export const config: Config = {
         'https://github.com/inovex/elements//tree/master/packages/elements',
     },
     JsonDocsOutputTarget,
-    AngularOutputTarget,
+    ...AngularOutputTargets,
     ReactOutputTarget,
     VueOutputTarget,
   ],

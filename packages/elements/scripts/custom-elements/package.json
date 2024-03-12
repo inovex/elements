@@ -1,0 +1,9 @@
+{
+  "name": "@inovex.de/elements/components",
+  "version": "9.1.0",
+  "description": "inovex elements components exported as custom elements, extending HTMLElement.",
+  "main": "./index.js",
+  "types": "./custom-elements.d.ts",
+  "private": true,
+  "sideEffects": false
+}

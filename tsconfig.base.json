@@ -9,6 +9,11 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "esnext",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      "@inovex.de/elements-angular/shared": [
+        "packages/elements-angular/shared/src/index.ts"
+      ]
+    }
   }
 }

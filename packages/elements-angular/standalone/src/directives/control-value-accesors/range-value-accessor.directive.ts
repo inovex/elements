@@ -1,6 +1,9 @@
 import { Directive } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { rangeDirectiveSelector, RangeValueAccessorDirective as ProxyDirective } from '@inovex.de/elements-angular/shared';
+import {
+  rangeDirectiveSelector,
+  RangeValueAccessorDirective as ProxyDirective,
+} from '@inovex.de/elements-angular/shared';
 
 @Directive({
   selector: rangeDirectiveSelector,
@@ -11,6 +14,6 @@ import { rangeDirectiveSelector, RangeValueAccessorDirective as ProxyDirective }
       multi: true,
     },
   ],
-  standalone: false
+  standalone: true,
 })
 export class RangeValueAccessorDirective extends ProxyDirective {}

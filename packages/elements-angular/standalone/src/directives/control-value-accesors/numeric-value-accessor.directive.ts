@@ -1,6 +1,9 @@
 import { Directive } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { numericDirectiveSelector, NumericValueAccessorDirective as ProxyDirective } from '@inovex.de/elements-angular/shared';
+import {
+  numericDirectiveSelector,
+  NumericValueAccessorDirective as ProxyDirective,
+} from '@inovex.de/elements-angular/shared';
 
 @Directive({
   selector: numericDirectiveSelector,
@@ -11,6 +14,6 @@ import { numericDirectiveSelector, NumericValueAccessorDirective as ProxyDirecti
       multi: true,
     },
   ],
-  standalone: false
+  standalone: true,
 })
 export class NumericValueAccessorDirective extends ProxyDirective {}
