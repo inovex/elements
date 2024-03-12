@@ -1216,7 +1216,7 @@ export declare interface InoTabBar extends Components.InoTabBar {
    * Emits when a tab changes.
 Contains the index of the activated tab in `event.detail`
    */
-  activeTabChange: EventEmitter<CustomEvent<any>>;
+  activeTabChange: EventEmitter<CustomEvent<number>>;
 }
 
 

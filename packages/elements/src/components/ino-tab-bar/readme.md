@@ -19,9 +19,9 @@ Tabs organize and allow navigation between groups of content that are related an
 
 ## Events
 
-| Event             | Description                                                                         | Type               |
-| ----------------- | ----------------------------------------------------------------------------------- | ------------------ |
-| `activeTabChange` | Emits when a tab changes. Contains the index of the activated tab in `event.detail` | `CustomEvent<any>` |
+| Event             | Description                                                                         | Type                  |
+| ----------------- | ----------------------------------------------------------------------------------- | --------------------- |
+| `activeTabChange` | Emits when a tab changes. Contains the index of the activated tab in `event.detail` | `CustomEvent<number>` |
 
 
 ## Slots

@@ -9,7 +9,7 @@ test.describe('ino-checkbox', () => {
   });
 
   test('can be toggled properly', async ({ page }) => {
-    await goToStory(page, ['input', 'ino-checkbox', 'default']);
+    await goToStory(page, ['Input', 'ino-checkbox', 'default']);
 
     await expect(checkbox).toBeChecked();
 
@@ -19,7 +19,7 @@ test.describe('ino-checkbox', () => {
   });
 
   test('disabling prevents a change of checked', async ({ page }) => {
-    await goToStory(page, ['input', 'ino-checkbox', 'disabled']);
+    await goToStory(page, ['Input', 'ino-checkbox', 'disabled']);
 
     await expect(checkbox).toBeChecked();
     await expect(checkbox).toBeDisabled();
