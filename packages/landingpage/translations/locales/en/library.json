@@ -3,7 +3,7 @@
     "header": {
       "top": "Efficient Development",
       "title": "Design Patterns",
-      "subtitle": "Elevate your project with our lovingly crafted design patterns, optimized for web development. The inovex Elements web components, seamlessly integrated with Tailwind CSS, empowers you to build responsive and visually appealing user interfaces with ease. Our commitment to quality ensures each pattern is meticulously designed for modern web applications."
+      "subtitle": "Elevate your project with our lovingly crafted design patterns, optimized for web development. The inovex Elements web components, seamlessly integrated with Tailwind CSS, empower you to build responsive and visually appealing user interfaces with ease. Our commitment to quality ensures each pattern is meticulously designed for modern web applications."
     },
     "login": {
       "title": "Login",
@@ -12,6 +12,14 @@
     "settingsPage": {
       "title": "Settings Page",
       "description": "Offer an efficient and customizable settings experience, ensuring user preferences are easily accessible and manageable."
+    },
+    "hero": {
+      "title": "Hero Section",
+      "description": "Craft a captivating first impression with a Hero Section that combines aesthetic appeal and clear messaging."
+    },
+    "footer": {
+      "title": "Footer Navigation",
+      "description": "Conclude your site with a Footer that provides essential information and navigational cues in a concise layout."
     }
   }
 }
