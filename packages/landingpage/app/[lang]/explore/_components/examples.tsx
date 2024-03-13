@@ -56,7 +56,7 @@ function Examples() {
         <InoIconButton
           class={styles.arrowButton}
           icon="arrow_left"
-          activated
+          filled={false}
           onClick={() => decrement()}
         ></InoIconButton>
         <div className={styles.carouselContainer}>
@@ -88,7 +88,7 @@ function Examples() {
         <InoIconButton
           class={styles.arrowButton}
           icon="arrow_right"
-          activated
+          filled={false}
           onClick={() => increment()}
         ></InoIconButton>
       </div>
