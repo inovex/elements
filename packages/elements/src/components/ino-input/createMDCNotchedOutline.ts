@@ -5,13 +5,15 @@ import {
   numbers,
 } from '@material/notched-outline';
 
+const NOTCH_PADDING = numbers.NOTCH_ELEMENT_PADDING + 2;
+
 export function createMDCNotchedOutline(el: HTMLElement, isDense?: boolean) {
   const notchElement: HTMLElement = el.querySelector(
     strings.NOTCH_ELEMENT_SELECTOR,
   );
   const textLabel = notchElement.querySelector('.mdc-floating-label');
   const textLabelWidth = textLabel?.clientWidth ?? 0;
-  const scaleFactor = isDense ? 0.65 : 0.75;
+  const scaleFactor = isDense ? 0.66 : 0.76;
   let lastNotchWidth = 0;
 
   return new MDCNotchedOutline(
@@ -26,8 +28,7 @@ export function createMDCNotchedOutline(el: HTMLElement, isDense?: boolean) {
       setNotchWidthProperty(width: number) {
         let newWidth = width;
         if (textLabelWidth > 0) {
-          newWidth =
-            textLabelWidth * scaleFactor + numbers.NOTCH_ELEMENT_PADDING;
+          newWidth = textLabelWidth * scaleFactor + NOTCH_PADDING;
         }
 
         if (lastNotchWidth !== newWidth) {
