@@ -3,6 +3,20 @@
 @use '../base/new-theme' as theme;
 @use '../base/typography-new' as typography;
 
+@mixin style-sub-menu($level) {
+  & ino-list-item .mdc-deprecated-list-item {
+    padding-left: calc($level * 16px) + 16px;
+  }
+  
+  // Recursive call until max sub-menu level is reached
+  $max-level: 3;
+  @if (($level + 1) <= $max-level) {
+    & [slot="sub-menu"] {
+      @include style-sub-menu($level + 1);
+    }
+  }
+}
+
 ino-nav-item {
   /**
    * @prop --ino-nav-item-color: Inactive color of icon.
@@ -26,7 +40,7 @@ ino-nav-item {
   ino-list-item .mdc-deprecated-list-item {
     padding: 0 16px;
     height: 60px;
-    background-color: var(--nav-item-background-color);
+    //background-color: var(--nav-item-background-color);
     color: var(--nav-item-color);
     font-size: 16px; // 2px bigger than typo(label-l)
     font-weight: 500; // same as typo(label-l)
@@ -50,7 +64,8 @@ ino-nav-item {
     }
 
     // graphic
-    .ino-nav-item--leading-slot {
+    .ino-nav-item--leading-slot,
+    .ino-nav-item--trailing-slot {
       width: 100%;
       height: 100%;
       display: flex;
@@ -58,9 +73,16 @@ ino-nav-item {
       align-content: center;
     }
 
+    // sub-menu arrow
+    .ino-nav-item--trailing-slot ino-icon {
+        --icon-width: 16px;
+        --icon-height: 16px;
+        --icon-color: var(--nav-item-color);
+    }
+
     &.mdc-deprecated-list-item--activated {
       transition: border-left 0.1s ease-in-out;
-      background-color: var(--nav-item-background-color-active);
+      //background-color: var(--nav-item-background-color-active);
       border-left: 2px solid var(--nav-item-color-active);
       color: var(--nav-item-color-active);
 
@@ -76,22 +98,42 @@ ino-nav-item {
       }
     }
   }
+}
 
-  // Styles for mobile-nav-item
-  &.mobile-nav-item {
-    .mdc-deprecated-list-item,
-    ino-list-item .mdc-deprecated-list-item {
-      &__graphic {
-        margin-right: 0px;
-      }
-
-      // icon
-      ::slotted(ino-icon),
-      ino-icon,
-      .ino-list-item__icon {
-        --icon-width: 18px;
-        --icon-height: 18px;
-      }
+// Styles for mobile-nav-item
+ino-nav-item .mobile-nav-item {
+  .mdc-deprecated-list-item,
+  ino-list-item .mdc-deprecated-list-item {
+    &__graphic {
+      margin-right: 0px;
     }
+
+    // icon
+    ::slotted(ino-icon),
+    ino-icon,
+    .ino-list-item__icon {
+      --icon-width: 18px;
+      --icon-height: 18px;
+    }
+  }
+}
+
+// styles the sub-menu nav-items 
+// beginning from sub-menu-level 1
+ino-nav-item [slot="sub-menu"] {
+  @include style-sub-menu(1);
+  max-height: 0;
+  overflow: hidden;
+  transition: all 350ms ease-out;
+}
+
+// styles sub-menu open state
+ino-nav-item.ino-nav-item--sub-menu-open {
+  & > .ino-nav-item--trailing-slot ino-icon {
+    transform: rotate(180deg);
+  }
+  
+  & > [slot="sub-menu"]  {
+    max-height: 100000px;
   }
 }

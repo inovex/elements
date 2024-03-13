@@ -30,26 +30,18 @@ This component is used as child of `ino-list` and `ino-menu` components.
 | `"default"` | Any element |
 
 
-## CSS Custom Properties
-
-| Name                                     | Description                                   |
-| ---------------------------------------- | --------------------------------------------- |
-| `--ino-nav-item-background-color`        | Inactive color of the background of one item. |
-| `--ino-nav-item-background-color-active` | Active color of the background of one item.   |
-| `--ino-nav-item-color`                   | Inactive color of icon.                       |
-| `--ino-nav-item-color-active`            | Active color of icon.                         |
-
-
 ## Dependencies
 
 ### Depends on
 
 - [ino-list-item](../ino-list-item)
+- [ino-icon](../ino-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   ino-nav-item --> ino-list-item
+  ino-nav-item --> ino-icon
   style ino-nav-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

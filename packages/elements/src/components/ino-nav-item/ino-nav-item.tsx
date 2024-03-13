@@ -5,8 +5,10 @@ import {
   h,
   Host,
   Prop,
+  State,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
 /**
  * A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
@@ -23,6 +25,8 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class NavItem implements ComponentInterface {
+  private subMenuElement: HTMLElement;
+
   @Element() el!: HTMLInoNavItemElement;
 
   /**
@@ -48,24 +52,57 @@ export class NavItem implements ComponentInterface {
    */
   @Prop() disabled?: boolean = false;
 
-  render() {
-    const slotPosition = this.el.children.length > 0 ? 'leading' : '';
+  /** 
+   * Internal open/close State of the Sub-Menu
+   */
+  @State() isSubMenuOpen = false;
 
-    const slotContainerClasses = classNames({
+  componentDidLoad(): void {
+    this.subMenuElement = this.el.querySelector('[slot="sub-menu"]')
+  }
+  
+  private handleSubMenuState = () => {
+    if(this.subMenuElement !== null){
+      this.isSubMenuOpen = !this.isSubMenuOpen;
+    }
+  }
+
+  render() {
+    const hasInoIcon = this.el.querySelector('ino-icon');
+    const slotPosition = hasInoIcon !== null ? 'leading' : '';
+    const hasSubMenu = hasSlotContent(this.el, 'sub-menu');
+
+    const slotContainerLeadingClasses = classNames({
       'ino-nav-item--leading-slot': slotPosition === 'leading',
     });
+
+    const inoNavItemClasses = classNames({
+      'ino-nav-item--sub-menu-open': this.isSubMenuOpen,
+    });
+
     return (
-      <Host>
+      <Host
+        class={inoNavItemClasses}
+      >
         <ino-list-item
           text={this.text}
           secondaryText={this.subText}
           activated={this.activated}
           disabled={this.disabled}
+          onClickEl={this.handleSubMenuState}
         >
-          <span class={slotContainerClasses} slot={slotPosition}>
+          <span class={slotContainerLeadingClasses} slot={slotPosition}>
             <slot></slot>
           </span>
+          { hasSubMenu? 
+            <span class="ino-nav-item--trailing-slot" slot="trailing">
+              <ino-icon icon="arrow_down"></ino-icon>
+            </span>
+          : null }
         </ino-list-item>
+        { hasSubMenu? 
+          <slot name="sub-menu"></slot>
+        : null }
       </Host>
     );
   }

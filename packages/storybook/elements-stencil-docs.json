@@ -3715,6 +3715,7 @@
         "ino-input",
         "ino-input-file",
         "ino-markdown-editor",
+        "ino-nav-item",
         "ino-snackbar",
         "ino-tab",
         "ino-table-header-cell"
@@ -3752,6 +3753,9 @@
           "ino-icon"
         ],
         "ino-markdown-editor": [
+          "ino-icon"
+        ],
+        "ino-nav-item": [
           "ino-icon"
         ],
         "ino-snackbar": [
@@ -6875,11 +6879,13 @@
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
-        "ino-list-item"
+        "ino-list-item",
+        "ino-icon"
       ],
       "dependencyGraph": {
         "ino-nav-item": [
-          "ino-list-item"
+          "ino-list-item",
+          "ino-icon"
         ]
       },
       "props": [
@@ -6972,28 +6978,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--ino-nav-item-background-color",
-          "annotation": "prop",
-          "docs": "Inactive color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-background-color-active",
-          "annotation": "prop",
-          "docs": "Active color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-color",
-          "annotation": "prop",
-          "docs": "Inactive color of icon."
-        },
-        {
-          "name": "--ino-nav-item-color-active",
-          "annotation": "prop",
-          "docs": "Active color of icon."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
