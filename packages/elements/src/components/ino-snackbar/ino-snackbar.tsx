@@ -45,7 +45,7 @@ export class Snackbar implements ComponentInterface {
   @Prop() actionText?: string;
 
   /**
-   * Changes the snackbar type. There are three types of messages: info, success, and error.
+   * Changes the snackbar type. There are four types of messages: info, success, warning and error.
    */
   @Prop() type: SnackbarType = 'info';
 
@@ -149,10 +149,13 @@ export class Snackbar implements ComponentInterface {
       case 'success':
         return 'snackbar-checkmark';
       case 'error':
-        return 'snackbar-error';
+        return '!';
       case 'info':
+        return 'i';
+      case 'warning':
+        return '!';
       default:
-        return 'snackbar-information';
+        return 'i';
     }
   };
 
@@ -189,12 +192,14 @@ export class Snackbar implements ComponentInterface {
             <div class="mdc-snackbar__actions ino-snackbar-icon-container">
               {hasSlot ? (
                 <slot name="icon-slot" />
-              ) : (
+              ) : this.type === 'success' ? (
                 <ino-icon
                   aria-hidden="true"
                   class="ino-snackbar-icon"
                   icon={this.mapTypeToIconName(this.type)}
                 />
+              ) : (
+                <span>{this.mapTypeToIconName(this.type)}</span>
               )}
             </div>
             <div class="mdc-snackbar__label ino-snackbar-message-container">

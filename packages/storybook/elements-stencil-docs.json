@@ -9260,10 +9260,10 @@
         },
         {
           "name": "type",
-          "type": "\"error\" | \"info\" | \"success\"",
+          "type": "\"error\" | \"info\" | \"success\" | \"warning\"",
           "complexType": {
             "original": "SnackbarType",
-            "resolved": "\"error\" | \"info\" | \"success\"",
+            "resolved": "\"error\" | \"info\" | \"success\" | \"warning\"",
             "references": {
               "SnackbarType": {
                 "location": "import",
@@ -9275,7 +9275,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Changes the snackbar type. There are three types of messages: info, success, and error.",
+          "docs": "Changes the snackbar type. There are four types of messages: info, success, warning and error.",
           "docsTags": [],
           "default": "'info'",
           "values": [
@@ -9289,6 +9289,10 @@
             },
             {
               "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -11411,7 +11415,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/types.ts::SnackbarType": {
-      "declaration": "export type SnackbarType = 'info' | 'success' | 'error';",
+      "declaration": "export type SnackbarType = 'info' | 'success' | 'error' | 'warning';",
       "docstring": "",
       "path": "src/components/types.ts"
     },
