@@ -7,6 +7,8 @@ import {
 
 const NOTCH_PADDING = numbers.NOTCH_ELEMENT_PADDING + 2;
 
+const isMac = navigator.userAgent.toUpperCase().includes('MAC');
+
 export function createMDCNotchedOutline(el: HTMLElement, isDense?: boolean) {
   const notchElement: HTMLElement = el.querySelector(
     strings.NOTCH_ELEMENT_SELECTOR,
@@ -14,6 +16,9 @@ export function createMDCNotchedOutline(el: HTMLElement, isDense?: boolean) {
   const textLabel = notchElement.querySelector('.mdc-floating-label');
   const textLabelWidth = textLabel?.clientWidth ?? 0;
   const scaleFactor = isDense ? 0.66 : 0.76;
+
+  // is required because Mac and Windows do render bold fonts differently
+  const extraScaleFactor = isMac ? 0.1 : 0
   let lastNotchWidth = 0;
 
   return new MDCNotchedOutline(
@@ -28,10 +33,11 @@ export function createMDCNotchedOutline(el: HTMLElement, isDense?: boolean) {
       setNotchWidthProperty(width: number) {
         let newWidth = width;
         if (textLabelWidth > 0) {
-          newWidth = textLabelWidth * scaleFactor + NOTCH_PADDING;
+          newWidth = textLabelWidth * (scaleFactor + extraScaleFactor) + NOTCH_PADDING;
         }
 
         if (lastNotchWidth !== newWidth) {
+          console.log({textLabelWidth,newWidth })
           notchElement.style.setProperty('width', newWidth + 'px');
           lastNotchWidth = newWidth;
         }
