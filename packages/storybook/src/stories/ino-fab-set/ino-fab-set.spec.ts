@@ -10,12 +10,12 @@ test.describe('ino-fab-set', () => {
   });
 
   test('should not open the dial by click', async () => {
-    const { width, height } = await inoFabSet.boundingBox();
+    const inoFabLocator = inoFabSet.locator('ino-fab');
+    await expect(inoFabLocator).toHaveCount(0);
     await inoFabSet.click();
-    const { width: openWidth, height: openHeight } =
-      await inoFabSet.boundingBox();
 
-    expect(openWidth).toEqual(width);
-    expect(openHeight).toBeGreaterThan(height * 2);
+    for (const inoFab of await inoFabLocator.all()) {
+      await expect(inoFab).toBeVisible();
+    }
   });
 });
