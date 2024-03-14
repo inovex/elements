@@ -46,18 +46,7 @@
         }
       }
     },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/storybook",
-        "command": "shx rm -rf dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
-        }
-      }
-    },
+    "clean": {},
     "test": {
       "executor": "@nx/playwright:playwright",
       "outputs": ["{workspaceRoot}/dist/.playwright/packages/storybook"],

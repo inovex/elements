@@ -40,17 +40,6 @@
         }
       }
     },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/ui-patterns-playground",
-        "command": "shx rm -rf dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
-        }
-      }
-    }
+    "clean": {}
   }
 }

@@ -19,6 +19,16 @@
         "dryRun": {
           "args": "--releaseType=release --dryRun=true"
         }
+      },
+      "clean": {
+        "configurations": {
+          "dist": {
+            "commands": ["shx rm -rf ./dist ./.angular ./tmp"]
+          },
+          "node": {
+            "commands": ["echo"]
+          }
+        }
       }
     }
   },

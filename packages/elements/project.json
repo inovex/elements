@@ -62,6 +62,7 @@
           "command": "svgo -f packages/elements/src/assets/ino-icon --config svgo.config.js"
         }
       }
-    }
+    },
+    "clean": {}
   }
 }
