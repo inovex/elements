@@ -9,6 +9,7 @@ import {
   Host,
   Listen,
   Prop,
+  Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
@@ -43,6 +44,8 @@ export class Snackbar implements ComponentInterface {
    * If no text is defined, the snack bar is displayed in an alternative feedback style.
    */
   @Prop() actionText?: string;
+
+  @Prop() open = false;
 
   /**
    * Changes the snackbar type. There are four types of messages: info, success, warning and error.
@@ -86,6 +89,16 @@ export class Snackbar implements ComponentInterface {
     }
   }
 
+  @Watch('open')
+  openChanged(open: boolean) {
+    if (open) {
+      this.snackbarInstance?.open();
+      this.setupTimeout();
+    } else {
+      this.snackbarInstance?.close();
+    }
+  }
+
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
 
@@ -93,15 +106,14 @@ export class Snackbar implements ComponentInterface {
       'MDCSnackbar:closing',
       this.handleSnackbarHide,
     );
-    this.setupTimeout();
     if (this.stayVisibleOnHover) {
       this.snackbarElement.addEventListener(
         'mouseenter',
         this.interruptTimeout,
       );
       this.snackbarElement.addEventListener('mouseleave', this.setupTimeout);
+      this.open && this.snackbarInstance?.open();
     }
-    this.snackbarInstance.open();
 
     if (this.message) {
       console.warn(
@@ -126,10 +138,9 @@ export class Snackbar implements ComponentInterface {
   private setupTimeout = () => {
     this.snackbarInstance.timeoutMs = -1;
     if (this.timeout >= 0) {
-      this.nodeTimeout = setTimeout(
-        () => this.snackbarInstance.close(),
-        this.timeout,
-      );
+      this.nodeTimeout = setTimeout(() => {
+        this.snackbarInstance.close();
+      }, this.timeout);
     }
   };
 
@@ -182,7 +193,7 @@ export class Snackbar implements ComponentInterface {
     }
 
     return (
-      <Host class={hostClasses}>
+      <Host class={hostClasses} role="alert">
         <div
           ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
@@ -217,13 +228,13 @@ export class Snackbar implements ComponentInterface {
                 </div>
               )}
             </div>
+            <ino-icon-button
+              aria-label={this.a11yLabels.closeLabel}
+              onClick={this.handleSnackbarHide}
+              icon="close"
+              class="ino-snackbar-close-btn"
+            />
           </div>
-          <ino-icon-button
-            aria-label={this.a11yLabels.closeLabel}
-            onClick={this.handleSnackbarHide}
-            icon="close"
-            class="ino-snackbar-close-btn"
-          />
         </div>
       </Host>
     );
