@@ -5811,7 +5811,35 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getMdcNotchedOutlineInstance",
+          "returns": {
+            "type": "Promise<MDCNotchedOutline>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<MDCNotchedOutline>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "MDCNotchedOutline": {
+                "location": "import",
+                "path": "@material/notched-outline",
+                "id": "../../node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline"
+              }
+            },
+            "return": "Promise<MDCNotchedOutline>"
+          },
+          "signature": "getMdcNotchedOutlineInstance() => Promise<MDCNotchedOutline>",
+          "parameters": [],
+          "docs": "Returns internal mdcNotchedOutline instance",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "styles": [],
       "slots": [],
@@ -11335,6 +11363,11 @@
       "declaration": "(value: string) => string",
       "docstring": "",
       "path": "src/components/types.ts"
+    },
+    "../../node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "../../node_modules/@material/notched-outline/index.d.ts"
     },
     "src/components/types.ts::ViewModeUnion": {
       "declaration": "\"markdown\" | \"preview\" | \"readonly\"",

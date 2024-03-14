@@ -585,7 +585,8 @@ export declare interface InoInputFile extends Components.InoInputFile {
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'for', 'outline', 'required', 'showHint', 'text']
+  inputs: ['disabled', 'for', 'outline', 'required', 'showHint', 'text'],
+  methods: ['getMdcNotchedOutlineInstance']
 })
 @Component({
   selector: 'ino-label',

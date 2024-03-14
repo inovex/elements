@@ -15,7 +15,9 @@ export function createMDCNotchedOutline(el: HTMLElement, isDense?: boolean) {
   const notchElement: HTMLElement = el.querySelector(
     strings.NOTCH_ELEMENT_SELECTOR,
   );
-  const textLabel: HTMLLabelElement = notchElement.querySelector('.mdc-floating-label');
+  const textLabel: HTMLLabelElement = notchElement.querySelector(
+    '.mdc-floating-label',
+  );
   const textLabelWidth = textLabel?.clientWidth ?? 0;
   const scaleFactor = (isDense ? 0.66 : 0.76) + extraScaleFactor;
   let lastNotchWidth = 0;

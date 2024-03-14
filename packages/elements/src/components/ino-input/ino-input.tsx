@@ -19,7 +19,6 @@ import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 import { InputType, UserInputInterceptor } from '../types';
 import { MDCNotchedOutline } from '@material/notched-outline';
-import { createMDCNotchedOutline } from './createMDCNotchedOutline';
 
 /**
  * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
@@ -38,6 +37,7 @@ export class Input implements ComponentInterface {
   @Element() el!: HTMLInoInputElement;
 
   private nativeInputEl?: HTMLInputElement;
+  private inoLabelElement?: HTMLInoLabelElement;
   private cursorPosition = 0;
 
   /**
@@ -54,11 +54,6 @@ export class Input implements ComponentInterface {
    * An internal instance of the material design textfield.
    */
   private mdcTextfield: MDCTextField;
-
-  /**
-   * An internal instance of the material design outline notch.
-   */
-  private mdcNotchedOutline: MDCNotchedOutline;
 
   /**
    * An internal instance of a textfield helper text instance (if necessary).
@@ -279,16 +274,10 @@ export class Input implements ComponentInterface {
   // Lifecycle methods
   // ----
 
-  componentDidLoad() {
+  async componentDidLoad() {
     this.mdcTextfield = new MDCTextField(
       this.el.querySelector('.mdc-text-field'),
     );
-
-    if (this.outline) {
-      this.mdcNotchedOutline = createMDCNotchedOutline(
-        this.el.querySelector('.mdc-notched-outline'),
-      );
-    }
 
     if (this.helper) {
       this.mdcHelperText = new MDCTextFieldHelperText(
@@ -305,6 +294,8 @@ export class Input implements ComponentInterface {
       );
     }
 
+    const mdcNotchedOutline =
+      await this.inoLabelElement.getMdcNotchedOutlineInstance();
     this.mdcTextfield.initialize(
       undefined,
       undefined,
@@ -312,7 +303,7 @@ export class Input implements ComponentInterface {
       undefined,
       (el) => this.mdcTextfieldIcon ?? new MDCTextFieldIcon(el),
       undefined,
-      (el) => this.mdcNotchedOutline ?? new MDCNotchedOutline(el),
+      (el) => mdcNotchedOutline ?? new MDCNotchedOutline(el),
     );
 
     if (this.type === 'email') {
@@ -525,6 +516,7 @@ export class Input implements ComponentInterface {
       <Host>
         <span class={classTextfield}>
           <ino-label
+            ref={(el) => (this.inoLabelElement = el)}
             for={this.inputID}
             outline={this.outline}
             text={this.label}

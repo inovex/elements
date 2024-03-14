@@ -1,5 +1,7 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Element, Method } from '@stencil/core';
 import classNames from 'classnames';
+import { MDCNotchedOutline } from '@material/notched-outline';
+import { createMDCNotchedOutline } from './createMDCNotchedOutline';
 
 /**
  * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
@@ -10,6 +12,13 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class Label {
+  @Element() el!: HTMLInoLabelElement;
+
+  /**
+   * An instance of the material design outline notch.
+   */
+  private mdcNotchedOutline?: MDCNotchedOutline;
+
   /**
    * Styles the label in an outlined style
    */
@@ -40,6 +49,22 @@ export class Label {
    * Id of the associated form control
    */
   @Prop() for: string;
+
+  /**
+   * Returns internal mdcNotchedOutline instance
+   */
+  @Method()
+  async getMdcNotchedOutlineInstance() {
+    return this.mdcNotchedOutline;
+  }
+
+  componentDidUpdate() {
+    if (this.outline && !this.mdcNotchedOutline) {
+      this.mdcNotchedOutline = createMDCNotchedOutline(
+        this.el.querySelector('.mdc-notched-outline'),
+      );
+    }
+  }
 
   private filledTemplate = (label: HTMLElement) => [
     <div class="mdc-line-ripple" />,
