@@ -58,7 +58,7 @@ export class Label {
     return this.mdcNotchedOutline;
   }
 
-  componentDidUpdate() {
+  componentDidLoad() {
     if (this.outline && !this.mdcNotchedOutline) {
       this.mdcNotchedOutline = createMDCNotchedOutline(
         this.el.querySelector('.mdc-notched-outline'),
