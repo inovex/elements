@@ -22,37 +22,6 @@ const InoInputMeta = {
       return story();
     },
   ],
-  render: (args) => html`
-    <ino-input
-      class="customizable-input"
-      id="customizable-input"
-      autocomplete="${args.autocomplete}"
-      autofocus="${args.autoFocus}"
-      data-list="${args.dataList}"
-      disabled="${args.disabled}"
-      error="${args.error}"
-      helper="${args.helper}"
-      helper-character-counter="${args.helperCharacterCounter}"
-      helper-persistent="${args.helperPersistent}"
-      helper-validation="${args.helperValidation}"
-      label="${args.label}"
-      min="${args.min}"
-      max="${args.max}"
-      maxlength="${args.maxlength}"
-      name="${args.name}"
-      outline="${args.outline}"
-      pattern="${args.pattern}"
-      placeholder="${args.placeholder}"
-      required="${args.required}"
-      show-label-hint="${args.showLabelHint}"
-      size=${args.size}
-      step="${args.step}"
-      type="${args.type}"
-      unit="${args.unit}"
-      value="${args.value}"
-    >
-    </ino-input>
-  `,
   parameters: {
     actions: {
       handles: [
@@ -61,6 +30,36 @@ const InoInputMeta = {
       ],
     },
   },
+  render: (args) => html`<ino-input
+    class="customizable-input"
+    id="customizable-input"
+    autocomplete="${args.autocomplete}"
+    autofocus="${args.autoFocus}"
+    data-list="${args.dataList}"
+    disabled="${args.disabled}"
+    error="${args.error}"
+    helper="${args.helper}"
+    helper-character-counter="${args.helperCharacterCounter}"
+    helper-persistent="${args.helperPersistent}"
+    helper-validation="${args.helperValidation}"
+    label="${args.label}"
+    min="${args.min}"
+    max="${args.max}"
+    maxlength="${args.maxlength}"
+    name="${args.name}"
+    outline="${args.outline}"
+    pattern="${args.pattern}"
+    placeholder="${args.placeholder}"
+    required="${args.required}"
+    show-label-hint="${args.showLabelHint}"
+    size=${args.size}
+    step="${args.step}"
+    type="${args.type}"
+    unit="${args.unit}"
+    value="${args.value}"
+    dense="${args.dense}"
+  >
+  </ino-input>`,
   argTypes: {
     type: {
       control: {
@@ -83,9 +82,9 @@ const InoInputMeta = {
     min: '',
     max: '',
     maxlength: 100,
-    outline: false,
+    outline: true,
     name: '',
-    pattern: '*',
+    pattern: '.*',
     placeholder: '',
     required: false,
     showLabelHint: false,
@@ -94,6 +93,7 @@ const InoInputMeta = {
     type: 'text',
     unit: '',
     value: '',
+    dense: true,
   },
 } as Meta<Components.InoInput>;
 
@@ -286,4 +286,43 @@ export const MetaData = Story({
   render: () => html`
     <ino-input value="2" type="number" unit="h" label="Hours input"></ino-input>
   `,
+  args: {
+    unit: 'h',
+  }
+});
+
+export const Dense = Story({
+  ...Default,
+  docsFromProperty: 'dense',
+  render: () => html`
+    <ino-input label="optional" show-label-hint dense="true"></ino-input>
+    <ino-input
+      icon-leading
+      icon-trailing
+      label="Leading and Trailing icon"
+      dense="true"
+    >
+      <ino-icon slot="icon-leading" icon="search"></ino-icon>
+      <ino-icon slot="icon-trailing" icon="add"></ino-icon>
+    </ino-input>
+    <ino-input
+      label="Outline optional"
+      outline
+      show-label-hint
+      dense="true"
+    ></ino-input>
+    <ino-input
+      icon-leading
+      icon-trailing
+      label="Leading and Trailing icon"
+      dense
+      outline
+    >
+      <ino-icon slot="icon-leading" icon="search"></ino-icon>
+      <ino-icon slot="icon-trailing" icon="add"></ino-icon>
+    </ino-input>
+  `,
+  args: {
+    dense: true,
+  }
 });

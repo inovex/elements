@@ -748,6 +748,10 @@ export namespace Components {
          */
         "dataList"?: string;
         /**
+          * Makes the input text and container slightly smaller.
+         */
+        "dense": boolean;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -1340,6 +1344,10 @@ export namespace Components {
      * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
      */
     interface InoSelect {
+        /**
+          * Makes the input text and container slightly smaller.
+         */
+        "dense": boolean;
         /**
           * Disables this element.
          */
@@ -3542,6 +3550,10 @@ declare namespace LocalJSX {
          */
         "dataList"?: string;
         /**
+          * Makes the input text and container slightly smaller.
+         */
+        "dense"?: boolean;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -4184,6 +4196,10 @@ declare namespace LocalJSX {
      * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
      */
     interface InoSelect {
+        /**
+          * Makes the input text and container slightly smaller.
+         */
+        "dense"?: boolean;
         /**
           * Disables this element.
          */

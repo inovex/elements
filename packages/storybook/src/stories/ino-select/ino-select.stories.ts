@@ -58,12 +58,12 @@ const InoSelectMeta = {
       helper="${args.helper}"
       helper-persistent="${args.helperPersistent}"
       helper-validation="${args.helperValidation}"
+      dense="${args.dense}"
     >
       <ino-option value="Option 1">Option 1</ino-option>
       <ino-option value="Option 2">Option 2</ino-option>
       <ino-option value="Option 3">Option 3</ino-option>
-    </ino-select>
-  `,
+    </ino-select>`,
   args: {
     disabled: false,
     label: 'Select label',
@@ -76,6 +76,7 @@ const InoSelectMeta = {
     helper: '',
     helperPersistent: false,
     helperValidation: false,
+    dense: false,
   },
 } as Meta<Components.InoSelect>;
 
@@ -174,4 +175,24 @@ export const Form = Story({
       <ino-button type="submit">Submit</ino-button>
     </form>
   `,
+});
+
+export const Dense = Story({
+  ...Default,
+  docsFromProperty: 'dense',
+  render: () => html`
+    <ino-select label="Select with leading icon" dense>
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+    <ino-select outline label="Select with leading icon" dense>
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+  `,
+  args: {
+    dense: true,
+  }
 });

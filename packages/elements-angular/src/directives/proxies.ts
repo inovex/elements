@@ -519,7 +519,7 @@ export declare interface InoImgList extends Components.InoImgList {}
 
 
 @ProxyCmp({
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'dense', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value'],
   methods: ['getInputElement', 'setFocus', 'setBlur']
 })
 @Component({
@@ -527,7 +527,7 @@ export declare interface InoImgList extends Components.InoImgList {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'dense', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value'],
 })
 export class InoInput {
   protected el: HTMLElement;
@@ -1052,14 +1052,14 @@ export declare interface InoSegmentGroup extends Components.InoSegmentGroup {
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
+  inputs: ['dense', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
 })
 @Component({
   selector: 'ino-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value'],
+  inputs: ['dense', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value'],
 })
 export class InoSelect {
   protected el: HTMLElement;
