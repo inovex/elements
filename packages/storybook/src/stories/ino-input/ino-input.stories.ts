@@ -45,7 +45,6 @@ const InoInputMeta = {
       placeholder="${args.placeholder}"
       required="${args.required}"
       show-label-hint="${args.showLabelHint}"
-      size=${args.size}
       step="${args.step}"
       type="${args.type}"
       unit="${args.unit}"
@@ -89,7 +88,6 @@ const InoInputMeta = {
     placeholder: '',
     required: false,
     showLabelHint: false,
-    size: 0,
     step: 5,
     type: 'text',
     unit: '',
