@@ -11,6 +11,7 @@ export async function goToStory(
   await page.goto(
     `/iframe.html?id=${category.toLowerCase()}-${name}--${story}`,
   );
+  await page.waitForLoadState('domcontentloaded');
 }
 
 export function setAttribute(el: Locator, attrName: string, value: string) {

@@ -9141,6 +9141,33 @@
       },
       "props": [
         {
+          "name": "a11yLabels",
+          "type": "{ snackbarLabel: string; closeLabel: string; }",
+          "complexType": {
+            "original": "SnackbarLabels",
+            "resolved": "{ snackbarLabel: string; closeLabel: string; }",
+            "references": {
+              "SnackbarLabels": {
+                "location": "import",
+                "path": "../types",
+                "id": "src/components/types.ts::SnackbarLabels"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The aria-labels used to provide accessible snackbar context as well as close icon button label.",
+          "docsTags": [],
+          "default": "{\n    snackbarLabel: this.type,\n    closeLabel: 'Close notification',\n  }",
+          "values": [
+            {
+              "type": "{ snackbarLabel: string; closeLabel: string; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "actionText",
           "type": "string",
           "complexType": {
@@ -9233,10 +9260,10 @@
         },
         {
           "name": "type",
-          "type": "\"error\" | \"info\" | \"success\"",
+          "type": "\"error\" | \"info\" | \"success\" | \"warning\"",
           "complexType": {
             "original": "SnackbarType",
-            "resolved": "\"error\" | \"info\" | \"success\"",
+            "resolved": "\"error\" | \"info\" | \"success\" | \"warning\"",
             "references": {
               "SnackbarType": {
                 "location": "import",
@@ -9248,7 +9275,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Changes the snackbar type. There are three types of messages: info, success, and error.",
+          "docs": "Changes the snackbar type. There are four types of messages: info, success, warning and error.",
           "docsTags": [],
           "default": "'info'",
           "values": [
@@ -9262,6 +9289,10 @@
             },
             {
               "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -9329,7 +9360,14 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "keyup",
+          "target": "body",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "src/components/ino-spinner/ino-spinner.tsx",
@@ -9839,11 +9877,11 @@
       "events": [
         {
           "event": "activeTabChange",
-          "detail": "any",
+          "detail": "number",
           "bubbles": true,
           "complexType": {
-            "original": "any",
-            "resolved": "any",
+            "original": "number",
+            "resolved": "number",
             "references": {}
           },
           "cancelable": true,
@@ -11377,7 +11415,12 @@
       "path": "src/components/types.ts"
     },
     "src/components/types.ts::SnackbarType": {
-      "declaration": "export type SnackbarType = 'info' | 'success' | 'error';",
+      "declaration": "export type SnackbarType = 'info' | 'success' | 'error' | 'warning';",
+      "docstring": "",
+      "path": "src/components/types.ts"
+    },
+    "src/components/types.ts::SnackbarLabels": {
+      "declaration": "{\n  snackbarLabel: string;\n  closeLabel: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },

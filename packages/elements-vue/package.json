@@ -24,8 +24,5 @@
   },
   "peerDependencies": {
     "vue": "^3.0.0"
-  },
-  "devDependencies": {
-    "typescript": "^4.2.4"
   }
 }

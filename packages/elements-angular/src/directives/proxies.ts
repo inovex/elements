@@ -1080,14 +1080,14 @@ export declare interface InoSelect extends Components.InoSelect {
 
 
 @ProxyCmp({
-  inputs: ['actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type']
+  inputs: ['a11yLabels', 'actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type']
 })
 @Component({
   selector: 'ino-snackbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type'],
+  inputs: ['a11yLabels', 'actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type'],
 })
 export class InoSnackbar {
   protected el: HTMLElement;
@@ -1216,7 +1216,7 @@ export declare interface InoTabBar extends Components.InoTabBar {
    * Emits when a tab changes.
 Contains the index of the activated tab in `event.detail`
    */
-  activeTabChange: EventEmitter<CustomEvent<any>>;
+  activeTabChange: EventEmitter<CustomEvent<number>>;
 }
 
 
