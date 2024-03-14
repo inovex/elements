@@ -10,17 +10,20 @@
     "start:storybook": "nx run-many --target=start --projects=storybook,elements --output-style=stream",
     "start:landingpage": "nx run landingpage:start",
     "start:ui-patterns-playground": "nx run-many --target=start --projects=ui-patterns,ui-patterns-playground --output-style=stream",
-    "build": "nx run-many --target=build --output-style=stream --exclude workspace",
-    "test": "nx run-many --target=test --output-style=stream --configuration=ci --exclude workspace",
+    "build": "nx run-many --target=build --output-style=stream",
+    "test": "nx run-many --target=test --output-style=stream --configuration=ci",
     "test:core:watch": "nx run elements:test:watch",
-    "lint": "nx affected --target=lint --output-style=stream --exclude workspace",
-    "lint:fix": "nx affected --target=lint --configuration=fix --output-style=stream --exclude workspace",
-    "format": "nx format:check --exclude workspace",
-    "format:fix": "nx format:write --exclude workspace",
+    "lint": "nx affected --target=lint --output-style=stream",
+    "lint:fix": "nx affected --target=lint --configuration=fix --output-style=stream",
+    "format": "nx format:check",
+    "format:fix": "nx format:write",
     "qc": "yarn lint && yarn format && yarn build && yarn test",
     "clean": "nx reset && nx run-many --target=clean && shx rm -rf node_modules",
     "clean:dist": "nx reset && nx run-many --target=clean --configuration=dist",
-    "clean:node": "nx run-many --target=clean --configuration=node && shx rm -rf node_modules"
+    "clean:node": "nx run-many --target=clean --configuration=node"
+  },
+  "nx": {
+    "includedScripts": []
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~15.1.0",

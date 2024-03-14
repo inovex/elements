@@ -32,8 +32,8 @@
         "cwd": "{projectRoot}",
         "parallel": false,
         "commands": [
-          "nx run clean {projectName} --configuration=dist",
-          "nx run clean {projectName} --configuration=node"
+          "nx run {projectName}:clean:dist",
+          "nx run {projectName}:clean:node"
         ]
       },
       "configurations": {
