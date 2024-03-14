@@ -55,8 +55,8 @@ jobs:
         if: ${{ failure() && steps.test_projects.conclusion == 'failure' }}
         uses: actions/upload-artifact@v3
         with:
-          name: playwright-trace
-          path: trace.zip
+          name: playwright-traces
+          path: dist/.playwright/packages/storybook/test-output
       - name: Upload build artifacts for canary release
         uses: ./.github/workflows/artifacts-upload
         with:

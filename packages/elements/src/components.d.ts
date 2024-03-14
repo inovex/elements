@@ -5,11 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
-export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 export { Placement, Props } from "tippy.js";
 export { SortDirection, SortDirectionChangeDetails } from "./interface";
@@ -1390,6 +1390,10 @@ export namespace Components {
      */
     interface InoSnackbar {
         /**
+          * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+         */
+        "a11yLabels"?: SnackbarLabels;
+        /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
         "actionText"?: string;
@@ -1407,7 +1411,7 @@ export namespace Components {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type. There are three types of messages: info, success, and error.
+          * Changes the snackbar type. There are four types of messages: info, success, warning and error.
          */
         "type": SnackbarType;
     }
@@ -4234,6 +4238,10 @@ declare namespace LocalJSX {
      */
     interface InoSnackbar {
         /**
+          * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+         */
+        "a11yLabels"?: SnackbarLabels;
+        /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
         "actionText"?: string;
@@ -4259,7 +4267,7 @@ declare namespace LocalJSX {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type. There are three types of messages: info, success, and error.
+          * Changes the snackbar type. There are four types of messages: info, success, warning and error.
          */
         "type"?: SnackbarType;
     }

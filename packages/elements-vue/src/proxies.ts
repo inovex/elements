@@ -473,6 +473,7 @@ export const InoSnackbar = /*@__PURE__*/ defineContainer<JSX.InoSnackbar>('ino-s
   'type',
   'timeout',
   'stayVisibleOnHover',
+  'a11yLabels',
   'actionClick',
   'hideEl'
 ]);
