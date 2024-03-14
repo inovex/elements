@@ -199,10 +199,6 @@ ino-input .mdc-text-field--outlined {
     @include textfield.focused-outline-color(theme.$error);
   }
 
-  & .mdc-floating-label:not(.mdc-floating-label--float-above) {
-    padding: 0 2px 0 0;
-  }
-
   &[class*='--with-leading-icon']
     .mdc-floating-label:not(.mdc-floating-label--float-above) {
     left: 24px;
