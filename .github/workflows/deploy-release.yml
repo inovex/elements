@@ -78,4 +78,4 @@ jobs:
     if: ${{ inputs.configuration == 'release' }}
     uses: ./.github/workflows/deploy-storybook.yml
     with:
-     version: ${{ needs.release.outputs.version }}
+      version: ${{ needs.release.outputs.version }}
