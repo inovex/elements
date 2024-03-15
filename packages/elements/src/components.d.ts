@@ -8,10 +8,12 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
+import { MDCNotchedOutline } from "@material/notched-outline";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 export { Placement, Props } from "tippy.js";
+export { MDCNotchedOutline } from "@material/notched-outline";
 export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -796,7 +798,7 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * Styles the input field as outlined element.
+          * Styles the input field as outlined element.  This property is immutable which means that it should not be changed after its first initialization. Changing this property at runtime causes problems in combination with the floating label. You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
          */
         "outline"?: boolean;
         /**
@@ -906,6 +908,10 @@ export namespace Components {
           * Id of the associated form control
          */
         "for": string;
+        /**
+          * Returns internal mdcNotchedOutline instance
+         */
+        "getMdcNotchedOutlineInstance": () => Promise<MDCNotchedOutline>;
         /**
           * Styles the label in an outlined style
          */
@@ -3598,7 +3604,7 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: InoInputCustomEvent<string>) => void;
         /**
-          * Styles the input field as outlined element.
+          * Styles the input field as outlined element.  This property is immutable which means that it should not be changed after its first initialization. Changing this property at runtime causes problems in combination with the floating label. You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
          */
         "outline"?: boolean;
         /**
