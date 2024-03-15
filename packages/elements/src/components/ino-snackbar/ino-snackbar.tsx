@@ -193,7 +193,7 @@ export class Snackbar implements ComponentInterface {
     }
 
     return (
-      <Host class={hostClasses} role="alert">
+      <Host class={hostClasses}>
         <div
           ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
