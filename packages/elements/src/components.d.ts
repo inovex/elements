@@ -1402,6 +1402,7 @@ export namespace Components {
           * @deprecated
          */
         "message"?: string;
+        "open": boolean;
         /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
@@ -4258,6 +4259,7 @@ declare namespace LocalJSX {
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */
         "onHideEl"?: (event: InoSnackbarCustomEvent<any>) => void;
+        "open"?: boolean;
         /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
