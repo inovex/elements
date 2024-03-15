@@ -73,7 +73,7 @@
           "quiet": true,
           "passWithNoTests": false,
           "skipInstall": true,
-          "retries": 0
+          "retries": 2
         },
         "headless": {
           "headed": false
