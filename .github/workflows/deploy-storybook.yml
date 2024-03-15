@@ -1,13 +1,23 @@
 name: 'Deploy Storybook'
 
 on:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+  workflow_call:
+    inputs:
+      version:
+        description: Latest elements version in format v[0-9].[0-9].[0-9]
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Latest elements version in format v[0-9].[0-9].[0-9]
+        required: true
+        type: string
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: startsWith(${{ inputs.version }}, 'v')
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/dependencies-install
@@ -15,10 +25,11 @@ jobs:
         run: yarn nx run storybook:build
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
-      - name: Upload Storybook artifact
-        uses: ./.github/workflows/artifacts-upload
+      - name: Upload Storybook artifact ⬆️
+        uses: actions/upload-artifact@v4
         with:
-          upload-storybook-artifact: true
+          name: storybook
+          path: packages/storybook/dist/
 
   deploy:
     needs: build
@@ -29,15 +40,13 @@ jobs:
         with:
           ref: pages
       - name: Download Storybook artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: storybook
-          path: version/${{ github.ref_name }} # Push to the proper directory on gh pages branch.
-          check-artifacts: true # search in current workflow run
-          workflow-conclusion: 'in_progress' # need to change to in_progress, cause current workflow run is always running
+          path: version/${{ inputs.version }}
       - name: Provide latest symlink
-        if: ${{ ! contains( github.ref_name, '-' ) }} # only link to latest for releases (e.g. v7.0.0), not pre-releases (e.g. v.7.0.0-1)
-        run: cd version && rm -f latest && ln -s ${{ github.ref_name }} latest
+        if: ${{ ! contains( inputs.version, '-' ) }} # only link to latest for releases (e.g. v7.0.0), not pre-releases (e.g. v.7.0.0-1)
+        run: cd version && rm -f latest && ln -s ${{ inputs.version }} latest
         shell: bash
 
       # Crawls the version dir on current pages branch HEAD.
@@ -46,9 +55,9 @@ jobs:
         run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./hosted-versions.json
 
       - name: Deploy to Github Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.7
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: pages
-          commit-message: Deploying version ${{ github.ref_name }} 🚀
+          commit-message: Deploying version ${{ inputs.version }} 🚀
           folder: '.'
           clean: false # Important to keep other versions.

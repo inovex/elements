@@ -28,6 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # needed for GitHub releases
+    outputs:
+      version: v${{ steps.package-version.outputs.current-version }}
     if: github.ref == 'refs/heads/master' || inputs.configuration == 'dryRun'
     steps:
       - name: Checkout repository
@@ -37,7 +39,7 @@ jobs:
           token: ${{ secrets.PUSH_PAT }}
       - name: Track master branch to make nx affected work
         run: git branch --track main origin/master
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org
@@ -60,3 +62,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Get current package version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1
+
+  ShowVersion:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show version
+        run: echo ${{ needs.release.outputs.version }}
+
+  deployStorybook:
+    needs: release
+    if: ${{ inputs.configuration == 'release' }}
+    uses: ./.github/workflows/deploy-storybook.yml
+    with:
+     version: ${{ needs.release.outputs.version }}
