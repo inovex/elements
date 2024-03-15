@@ -3,12 +3,10 @@ import { goToStory, setAttribute } from '../test-utils';
 
 test.describe('ino-textarea', () => {
   let inoTextArea: Locator;
-  let form: Locator;
 
   test.beforeEach(async ({ page }) => {
     await goToStory(page, ['Input', 'ino-textarea', 'default']);
     inoTextArea = page.locator('ino-textarea');
-    inoTextArea = page.locator('form');
   });
 
   test.describe('Component Behaviour', () => {
