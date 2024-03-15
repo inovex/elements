@@ -3,10 +3,12 @@ import { goToStory, setAttribute } from '../test-utils';
 
 test.describe('ino-textarea', () => {
   let inoTextArea: Locator;
+  let form: Locator;
 
   test.beforeEach(async ({ page }) => {
     await goToStory(page, ['Input', 'ino-textarea', 'default']);
     inoTextArea = page.locator('ino-textarea');
+    inoTextArea = page.locator('form');
   });
 
   test.describe('Component Behaviour', () => {
@@ -63,6 +65,17 @@ test.describe('ino-textarea', () => {
       const bBoxAfter = await inoTextArea.boundingBox();
 
       expect(bBoxAfter.height).toBeGreaterThan(bBoxBefore.height);
+    });
+
+    test('should not enter more than max length', async () => {
+      const nativeTextarea = inoTextArea.locator('textarea');
+      await setAttribute(inoTextArea, 'maxlength', '3');
+
+      await nativeTextarea.fill('ABC');
+      await expect(nativeTextarea).toHaveValue('ABC');
+
+      await nativeTextarea.fill('DEFG');
+      await expect(nativeTextarea).toHaveValue('DEF');
     });
   });
 });

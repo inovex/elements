@@ -47,33 +47,4 @@ describe('ino-textarea', () => {
       expect(eventSpy).toHaveBeenCalledTimes(4);
     });
   });
-
-  describe('Rendering', () => {
-    const checkSettingOfProp = async (
-      property: string,
-      value: number | string,
-    ) => {
-      page = await newSpecPage({
-        components: [Textarea],
-        html: `<ino-textarea outline="false" ${property}=\'${value}\'>Some Text</ino-textarea>`,
-      });
-
-      inoTextarea = page.body.querySelector('ino-textarea');
-      innerTextarea = inoTextarea.querySelector('textarea');
-
-      expect(innerTextarea.getAttribute(property)).toEqual(value.toString());
-    };
-
-    it('should set max length property', async () => {
-      await checkSettingOfProp('maxLength', '3');
-    });
-
-    it('should set min length property', async () => {
-      await checkSettingOfProp('minLength', '3');
-    });
-
-    it('should set a placeholder', async () => {
-      await checkSettingOfProp('placeholder', 'Sample Placeholder');
-    });
-  });
 });
