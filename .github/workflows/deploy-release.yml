@@ -64,7 +64,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Get current package version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@v1
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
 
   ShowVersion:
     needs: release
