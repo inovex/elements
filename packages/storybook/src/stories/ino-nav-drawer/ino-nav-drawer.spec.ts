@@ -9,7 +9,7 @@ test.describe('ino-nav-drawer', () => {
   });
 
   test('can be opened properly', async ({ page }) => {
-    await goToStory(page, ['structure', 'ino-nav-drawer', 'default']);
+    await goToStory(page, ['Structure', 'ino-nav-drawer', 'default']);
 
     const navDrawer = page.locator('ino-nav-drawer');
 

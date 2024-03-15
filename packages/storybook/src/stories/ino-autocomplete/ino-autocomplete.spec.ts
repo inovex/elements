@@ -20,7 +20,7 @@ test.describe('ino-autocomplete', () => {
     );
 
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['input', 'ino-autocomplete', 'default']);
+    await goToStory(page, ['Input', 'ino-autocomplete', 'default']);
     inoAutocomplete = page.locator('ino-autocomplete');
     inputEl = page.getByRole('combobox');
     menu = page.getByRole('listbox');

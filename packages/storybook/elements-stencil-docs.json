@@ -3184,7 +3184,7 @@
           "text": "icon-leading - For the icon to be prepended"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [
         "ino-fab-set"
       ],
@@ -3526,7 +3526,7 @@
           "text": "icon-closed - The icon of the FAB button while being closed"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [
         "ino-fab",
