@@ -11,13 +11,15 @@ on:
     inputs:
       version:
         description: Latest elements version in format v[0-9].[0-9].[0-9]
-        required: true
+        required: false
         type: string
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: startsWith(${{ inputs.version }}, 'v')
+    outputs:
+      version: v${{ steps.version.outputs.current-version }}
+      isNew: v${{ steps.version-check.outputs.isNew }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/dependencies-install
@@ -30,6 +32,12 @@ jobs:
         with:
           name: storybook
           path: packages/storybook/dist/
+      - name: Get current package version
+        id: version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+      - name: Check for new version deployment
+        id: version-check
+        run: echo "isNew=${{ startsWith(inputs.version, 'v') }}" >> "$GITHUB_OUTPUT"
 
   deploy:
     needs: build
@@ -43,21 +51,22 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook
-          path: version/${{ inputs.version }}
+          path: version/${{ needs.build.outputs.isNew && inputs.version || needs.build.outputs.version }}
       - name: Provide latest symlink
-        if: ${{ ! contains( inputs.version, '-' ) }} # only link to latest for releases (e.g. v7.0.0), not pre-releases (e.g. v.7.0.0-1)
+        if: needs.build.outputs.isNew
         run: cd version && rm -f latest && ln -s ${{ inputs.version }} latest
         shell: bash
 
       # Crawls the version dir on current pages branch HEAD.
       # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
       - name: Update Hosted Versions
+        if: needs.build.outputs.isNew
         run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./hosted-versions.json
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: pages
-          commit-message: Deploying version ${{ inputs.version }} 🚀
+          commit-message: ${{ needs.build.outputs.isNew && 'Deploying version ${{ inputs.version }} 🚀' || 'Update storybook' }}
           folder: '.'
           clean: false # Important to keep other versions.
