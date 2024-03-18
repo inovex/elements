@@ -5,9 +5,21 @@
       "title": "Design Patterns",
       "subtitle": "Bereichern Sie Ihre Projekte mit unseren sorgfältig entwickelten Design-Patterns, die speziell für die Anforderungen der Webentwicklung konzipiert sind. Die inovex Elements Webkomponenten ermöglicht Ihnen, zusammen mit Tailwind CSS, ästhetisch ansprechende Benutzeroberflächen mühelos zu erstellen. Unsere Hingabe zur Qualität garantiert, dass jedes Pattern präzise für moderne Webapplikationen gestaltet wird."
     },
-    "loginPattern": {
-      "title": "Login Pattern",
+    "login": {
+      "title": "Login",
       "description": "Empfangen Sie Nutzer mit einem Login-Design, das sowohl benutzerfreundlich als auch optisch überzeugend ist."
+    },
+    "settingsPage": {
+      "title": "Einstellungsseite",
+      "description": "Bieten Sie eine übersichtliche und anpassbare Einstellungsoberfläche, die es Benutzern ermöglicht, ihre Präferenzen einfach zu verwalten."
+    },
+    "hero": {
+      "title": "Hero-Bereich",
+      "description": "Schaffen Sie einen fesselnden ersten Eindruck mit einem Hero-Bereich, der ästhetische Anziehungskraft mit klarer Botschaft verbindet."
+    },
+    "footer": {
+      "title": "Footer-Navigation",
+      "description": "Runden Sie Ihre Webseite mit einem Footer ab, der wesentliche Informationen und Navigationshinweise in einem prägnanten Layout bietet."
     }
   }
 }

@@ -3184,7 +3184,7 @@
           "text": "icon-leading - For the icon to be prepended"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [
         "ino-fab-set"
       ],
@@ -3526,7 +3526,7 @@
           "text": "icon-closed - The icon of the FAB button while being closed"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [
         "ino-fab",
@@ -4981,7 +4981,7 @@
           "mutable": false,
           "attr": "outline",
           "reflectToAttr": false,
-          "docs": "Styles the input field as outlined element.",
+          "docs": "Styles the input field as outlined element.\n\nThis property is immutable which means that it should not be changed after its first initialization.\nChanging this property at runtime causes problems in combination with the floating label.\nYou can read more about this issue [here](https://github.com/inovex/elements/issues/1216).",
           "docsTags": [],
           "values": [
             {
@@ -5811,7 +5811,35 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "getMdcNotchedOutlineInstance",
+          "returns": {
+            "type": "Promise<MDCNotchedOutline>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<MDCNotchedOutline>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "MDCNotchedOutline": {
+                "location": "import",
+                "path": "@material/notched-outline",
+                "id": "../../node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline"
+              }
+            },
+            "return": "Promise<MDCNotchedOutline>"
+          },
+          "signature": "getMdcNotchedOutlineInstance() => Promise<MDCNotchedOutline>",
+          "parameters": [],
+          "docs": "Returns internal mdcNotchedOutline instance",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "styles": [],
       "slots": [],
@@ -9625,6 +9653,33 @@
       },
       "props": [
         {
+          "name": "a11yLabels",
+          "type": "{ snackbarLabel: string; closeLabel: string; }",
+          "complexType": {
+            "original": "SnackbarLabels",
+            "resolved": "{ snackbarLabel: string; closeLabel: string; }",
+            "references": {
+              "SnackbarLabels": {
+                "location": "import",
+                "path": "../types",
+                "id": "src/components/types.ts::SnackbarLabels"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The aria-labels used to provide accessible snackbar context as well as close icon button label.",
+          "docsTags": [],
+          "default": "{\n    snackbarLabel: this.type,\n    closeLabel: 'Close notification',\n  }",
+          "values": [
+            {
+              "type": "{ snackbarLabel: string; closeLabel: string; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "actionText",
           "type": "string",
           "complexType": {
@@ -9717,10 +9772,10 @@
         },
         {
           "name": "type",
-          "type": "\"error\" | \"info\" | \"success\"",
+          "type": "\"error\" | \"info\" | \"success\" | \"warning\"",
           "complexType": {
             "original": "SnackbarType",
-            "resolved": "\"error\" | \"info\" | \"success\"",
+            "resolved": "\"error\" | \"info\" | \"success\" | \"warning\"",
             "references": {
               "SnackbarType": {
                 "location": "import",
@@ -9732,7 +9787,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Changes the snackbar type. There are three types of messages: info, success, and error.",
+          "docs": "Changes the snackbar type. There are four types of messages: info, success, warning and error.",
           "docsTags": [],
           "default": "'info'",
           "values": [
@@ -9746,6 +9801,10 @@
             },
             {
               "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -9813,7 +9872,14 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "keyup",
+          "target": "body",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "src/components/ino-spinner/ino-spinner.tsx",
@@ -10323,11 +10389,11 @@
       "events": [
         {
           "event": "activeTabChange",
-          "detail": "any",
+          "detail": "number",
           "bubbles": true,
           "complexType": {
-            "original": "any",
-            "resolved": "any",
+            "original": "number",
+            "resolved": "number",
             "references": {}
           },
           "cancelable": true,
@@ -11825,6 +11891,11 @@
       "docstring": "",
       "path": "src/components/types.ts"
     },
+    "../../node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "../../node_modules/@material/notched-outline/index.d.ts"
+    },
     "src/components/types.ts::ViewModeUnion": {
       "declaration": "\"markdown\" | \"preview\" | \"readonly\"",
       "docstring": "",
@@ -11866,7 +11937,12 @@
       "path": "src/components/types.ts"
     },
     "src/components/types.ts::SnackbarType": {
-      "declaration": "export type SnackbarType = 'info' | 'success' | 'error';",
+      "declaration": "export type SnackbarType = 'info' | 'success' | 'error' | 'warning';",
+      "docstring": "",
+      "path": "src/components/types.ts"
+    },
+    "src/components/types.ts::SnackbarLabels": {
+      "declaration": "{\n  snackbarLabel: string;\n  closeLabel: string;\n}",
       "docstring": "",
       "path": "src/components/types.ts"
     },

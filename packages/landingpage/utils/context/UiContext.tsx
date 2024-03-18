@@ -7,7 +7,7 @@ export interface UiContextType {
 
 export const UiContext = createContext<UiContextType | null>(null);
 
-const UiContextProvider = ({ children }: { children: ReactNode }) => {
+export const UiContextProvider = ({ children }: { children: ReactNode }) => {
   const [isFooterHidden, hideFooter] = useState<boolean>(false);
   return (
     <UiContext.Provider value={{ isFooterHidden, hideFooter }}>
@@ -15,5 +15,3 @@ const UiContextProvider = ({ children }: { children: ReactNode }) => {
     </UiContext.Provider>
   );
 };
-
-export default UiContextProvider;

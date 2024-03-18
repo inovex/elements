@@ -69,6 +69,8 @@ const InoSnackbarMeta = {
         timeout="${args.timeout}"
         type="${args.type}"
         stay-visible-on-hover="${args.stayVisibleOnHover}"
+        a11yLabels="
+        ${args.a11yLabels}"
       >
         ${args.defaultSlot}
       </ino-snackbar>
@@ -88,12 +90,16 @@ const InoSnackbarMeta = {
     },
   },
   args: {
+    type: 'info',
     actionText: 'Some Action',
     defaultSlot: 'This is a message',
     timeout: -1,
-    type: 'info',
     id: 'snackbar-default',
     stayVisibleOnHover: false,
+    a11yLabels: {
+      snackbarLabel: 'Information',
+      closeLabel: 'Close Button',
+    },
   },
 } as Meta<InoSnackbarExtended>;
 

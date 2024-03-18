@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "9.1.1",
+  "version": "9.2.0",
   "description": "A web components library implementing the corporate identity of the inovex GmbH",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -71,6 +71,7 @@
     "@material/tab-indicator": "^13.0.0",
     "@material/tab-scroller": "^13.0.0",
     "@material/textfield": "^13.0.0",
+    "@material/notched-outline": "^13.0.0",
     "@material/typography": "^13.0.0",
     "@stencil/core": "^4.12.2",
     "@tarekraafat/autocomplete.js": "^10.2.7",

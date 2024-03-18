@@ -5,15 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
-import { SectionReadyEvent } from "./components/ino-nav-menu-section/ino-nav-menu-section";
+import { MDCNotchedOutline } from "@material/notched-outline";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
-export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 export { Placement, Props } from "tippy.js";
-export { SectionReadyEvent } from "./components/ino-nav-menu-section/ino-nav-menu-section";
+export { MDCNotchedOutline } from "@material/notched-outline";
 export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -798,7 +798,7 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * Styles the input field as outlined element.
+          * Styles the input field as outlined element.  This property is immutable which means that it should not be changed after its first initialization. Changing this property at runtime causes problems in combination with the floating label. You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
          */
         "outline"?: boolean;
         /**
@@ -908,6 +908,10 @@ export namespace Components {
           * Id of the associated form control
          */
         "for": string;
+        /**
+          * Returns internal mdcNotchedOutline instance
+         */
+        "getMdcNotchedOutlineInstance": () => Promise<MDCNotchedOutline>;
         /**
           * Styles the label in an outlined style
          */
@@ -1085,76 +1089,6 @@ export namespace Components {
           * The text of this list item.
          */
         "text"?: string;
-    }
-    /**
-     * A sticky navigation menu or sidebar that dynamically lists the names of sections present
-     * on the current page. Each section must be constructed using the `ino-nav-menu-section` component.
-     * When a user selects a section from the navigation menu by clicking its name, the corresponding
-     * section will smoothly scroll into the viewport, and vice versa.
-     * The selected or active section must be handled outside of the component using the property
-     * `activeSection` and the event `activeSectionChanged` as described below.
-     */
-    interface InoNavMenu {
-        /**
-          * To specify the selected section, utilize the `buildSectionId` helper function to generate a unique section ID based on the section name if no ID was specified. This ID must be provided when configuring the component. The section ID can be set to null if no section should be selected initially or when operating in autodetect mode (means no sections provided).
-         */
-        "activeSection": string | null;
-        /**
-          * Config of the internal intersection observer.
-         */
-        "intersectionObserverConfig": IntersectionObserverInit;
-        /**
-          * Overrides the `ino-nav-menu`'s loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the `ino-nav-menu` will not show any loading animations.  By default, the loading animation will be shown only during the section-fetching/autodetection process.
-         */
-        "loading"?: boolean;
-        /**
-          * Title of the navigation menu.
-         */
-        "menuTitle": string;
-        /**
-          * Use to manually inflict another initiation of the sections and their observers
-         */
-        "reInitSections": () => Promise<void>;
-        /**
-          * Scroll offset of the sticky navigation menu.
-         */
-        "scrollOffset": number;
-        /**
-          * Section IDs of corresponding sections that should appear in the navigation menu. Use this if you want specific section to be shown in `ino-nav-menu`. If any of the provided section IDs is invalid, a warning will be logged in the browser console.
-         */
-        "sectionIds"?: string[];
-        /**
-          * ID of the container which holds the sections. If no `sectionIds` are provided, the component will automatically look up all `ino-nav-menu-section` components in this container.
-         */
-        "sectionsContainerId"?: string;
-    }
-    interface InoNavMenuItem {
-        "isActive": boolean;
-        "isLoading": boolean;
-        "sectionId": string;
-        "sectionTitle": string;
-    }
-    /**
-     * This component is designed to construct sections specifically intended
-     * for use with the `ino-nav-menu` component.
-     */
-    interface InoNavMenuSection {
-        /**
-          * Is used to determine the position of this section inside of ino-nav-menu
-         */
-        "orderPosition": number;
-        /**
-          * Optional: ID of the section referenced by the `ino-nav-menu` component on your own. Defaults to the sectionName if not set.
-         */
-        "sectionId"?: string;
-        /**
-          * Name of the section referenced by the `ino-nav-menu` component.
-         */
-        "sectionName": string;
-        /**
-          * If true, the section name will be presented as title (h2 element) within the section.
-         */
-        "showTitle": boolean;
     }
     /**
      * An option component that can be used to add options to an ino-select component.
@@ -1462,6 +1396,10 @@ export namespace Components {
      */
     interface InoSnackbar {
         /**
+          * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+         */
+        "a11yLabels"?: SnackbarLabels;
+        /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
         "actionText"?: string;
@@ -1479,7 +1417,7 @@ export namespace Components {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type. There are three types of messages: info, success, and error.
+          * Changes the snackbar type. There are four types of messages: info, success, warning and error.
          */
         "type": SnackbarType;
     }
@@ -1824,18 +1762,6 @@ export interface InoMarkdownEditorCustomEvent<T> extends CustomEvent<T> {
 export interface InoNavDrawerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoNavDrawerElement;
-}
-export interface InoNavMenuCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLInoNavMenuElement;
-}
-export interface InoNavMenuItemCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLInoNavMenuItemElement;
-}
-export interface InoNavMenuSectionCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLInoNavMenuSectionElement;
 }
 export interface InoOptionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2440,36 +2366,6 @@ declare global {
         "clickEl": HTMLInoOptionElement;
     }
     /**
-     * A sticky navigation menu or sidebar that dynamically lists the names of sections present
-     * on the current page. Each section must be constructed using the `ino-nav-menu-section` component.
-     * When a user selects a section from the navigation menu by clicking its name, the corresponding
-     * section will smoothly scroll into the viewport, and vice versa.
-     * The selected or active section must be handled outside of the component using the property
-     * `activeSection` and the event `activeSectionChanged` as described below.
-     */
-    interface HTMLInoNavMenuElement extends Components.InoNavMenu, HTMLStencilElement {
-    }
-    var HTMLInoNavMenuElement: {
-        prototype: HTMLInoNavMenuElement;
-        new (): HTMLInoNavMenuElement;
-    };
-    interface HTMLInoNavMenuItemElement extends Components.InoNavMenuItem, HTMLStencilElement {
-    }
-    var HTMLInoNavMenuItemElement: {
-        prototype: HTMLInoNavMenuItemElement;
-        new (): HTMLInoNavMenuItemElement;
-    };
-    /**
-     * This component is designed to construct sections specifically intended
-     * for use with the `ino-nav-menu` component.
-     */
-    interface HTMLInoNavMenuSectionElement extends Components.InoNavMenuSection, HTMLStencilElement {
-    }
-    var HTMLInoNavMenuSectionElement: {
-        prototype: HTMLInoNavMenuSectionElement;
-        new (): HTMLInoNavMenuSectionElement;
-    };
-    /**
      * An option component that can be used to add options to an ino-select component.
      */
     interface HTMLInoOptionElement extends Components.InoOption, HTMLStencilElement {
@@ -2728,7 +2624,7 @@ declare global {
         new (): HTMLInoTabElement;
     };
     interface HTMLInoTabBarElementEventMap {
-        "activeTabChange": any;
+        "activeTabChange": number;
     }
     /**
      * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
@@ -2852,9 +2748,6 @@ declare global {
         "ino-menu": HTMLInoMenuElement;
         "ino-nav-drawer": HTMLInoNavDrawerElement;
         "ino-nav-item": HTMLInoNavItemElement;
-        "ino-nav-menu": HTMLInoNavMenuElement;
-        "ino-nav-menu-item": HTMLInoNavMenuItemElement;
-        "ino-nav-menu-section": HTMLInoNavMenuSectionElement;
         "ino-option": HTMLInoOptionElement;
         "ino-option-group": HTMLInoOptionGroupElement;
         "ino-popover": HTMLInoPopoverElement;
@@ -3711,7 +3604,7 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: InoInputCustomEvent<string>) => void;
         /**
-          * Styles the input field as outlined element.
+          * Styles the input field as outlined element.  This property is immutable which means that it should not be changed after its first initialization. Changing this property at runtime causes problems in combination with the floating label. You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
          */
         "outline"?: boolean;
         /**
@@ -4013,81 +3906,6 @@ declare namespace LocalJSX {
           * The text of this list item.
          */
         "text"?: string;
-    }
-    /**
-     * A sticky navigation menu or sidebar that dynamically lists the names of sections present
-     * on the current page. Each section must be constructed using the `ino-nav-menu-section` component.
-     * When a user selects a section from the navigation menu by clicking its name, the corresponding
-     * section will smoothly scroll into the viewport, and vice versa.
-     * The selected or active section must be handled outside of the component using the property
-     * `activeSection` and the event `activeSectionChanged` as described below.
-     */
-    interface InoNavMenu {
-        /**
-          * To specify the selected section, utilize the `buildSectionId` helper function to generate a unique section ID based on the section name if no ID was specified. This ID must be provided when configuring the component. The section ID can be set to null if no section should be selected initially or when operating in autodetect mode (means no sections provided).
-         */
-        "activeSection"?: string | null;
-        /**
-          * Config of the internal intersection observer.
-         */
-        "intersectionObserverConfig"?: IntersectionObserverInit;
-        /**
-          * Overrides the `ino-nav-menu`'s loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the `ino-nav-menu` will not show any loading animations.  By default, the loading animation will be shown only during the section-fetching/autodetection process.
-         */
-        "loading"?: boolean;
-        /**
-          * Title of the navigation menu.
-         */
-        "menuTitle": string;
-        /**
-          * Emits the section ID when the corresponding section is selected by scrolling into the viewport. This event can be utilized to update the `activeSection` property.
-         */
-        "onActiveSectionChanged"?: (event: InoNavMenuCustomEvent<string>) => void;
-        /**
-          * Scroll offset of the sticky navigation menu.
-         */
-        "scrollOffset"?: number;
-        /**
-          * Section IDs of corresponding sections that should appear in the navigation menu. Use this if you want specific section to be shown in `ino-nav-menu`. If any of the provided section IDs is invalid, a warning will be logged in the browser console.
-         */
-        "sectionIds"?: string[];
-        /**
-          * ID of the container which holds the sections. If no `sectionIds` are provided, the component will automatically look up all `ino-nav-menu-section` components in this container.
-         */
-        "sectionsContainerId"?: string;
-    }
-    interface InoNavMenuItem {
-        "isActive"?: boolean;
-        "isLoading"?: boolean;
-        "onItemClick"?: (event: InoNavMenuItemCustomEvent<string>) => void;
-        "sectionId": string;
-        "sectionTitle": string;
-    }
-    /**
-     * This component is designed to construct sections specifically intended
-     * for use with the `ino-nav-menu` component.
-     */
-    interface InoNavMenuSection {
-        /**
-          * Emits the section ID on finished loading.
-         */
-        "onSectionReady"?: (event: InoNavMenuSectionCustomEvent<SectionReadyEvent>) => void;
-        /**
-          * Is used to determine the position of this section inside of ino-nav-menu
-         */
-        "orderPosition": number;
-        /**
-          * Optional: ID of the section referenced by the `ino-nav-menu` component on your own. Defaults to the sectionName if not set.
-         */
-        "sectionId"?: string;
-        /**
-          * Name of the section referenced by the `ino-nav-menu` component.
-         */
-        "sectionName": string;
-        /**
-          * If true, the section name will be presented as title (h2 element) within the section.
-         */
-        "showTitle"?: boolean;
     }
     /**
      * An option component that can be used to add options to an ino-select component.
@@ -4426,6 +4244,10 @@ declare namespace LocalJSX {
      */
     interface InoSnackbar {
         /**
+          * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+         */
+        "a11yLabels"?: SnackbarLabels;
+        /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
         "actionText"?: string;
@@ -4451,7 +4273,7 @@ declare namespace LocalJSX {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type. There are three types of messages: info, success, and error.
+          * Changes the snackbar type. There are four types of messages: info, success, warning and error.
          */
         "type"?: SnackbarType;
     }
@@ -4547,7 +4369,7 @@ declare namespace LocalJSX {
         /**
           * Emits when a tab changes. Contains the index of the activated tab in `event.detail`
          */
-        "onActiveTabChange"?: (event: InoTabBarCustomEvent<any>) => void;
+        "onActiveTabChange"?: (event: InoTabBarCustomEvent<number>) => void;
     }
     /**
      * The ino-table is a custom table used to display sets of data across multiple columns.
@@ -4769,9 +4591,6 @@ declare namespace LocalJSX {
         "ino-menu": InoMenu;
         "ino-nav-drawer": InoNavDrawer;
         "ino-nav-item": InoNavItem;
-        "ino-nav-menu": InoNavMenu;
-        "ino-nav-menu-item": InoNavMenuItem;
-        "ino-nav-menu-section": InoNavMenuSection;
         "ino-option": InoOption;
         "ino-option-group": InoOptionGroup;
         "ino-popover": InoPopover;
@@ -5004,21 +4823,6 @@ declare module "@stencil/core" {
              * > Note: This component's main use case is within the `ino-nav-drawer`.
              */
             "ino-nav-item": LocalJSX.InoNavItem & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;
-            /**
-             * A sticky navigation menu or sidebar that dynamically lists the names of sections present
-             * on the current page. Each section must be constructed using the `ino-nav-menu-section` component.
-             * When a user selects a section from the navigation menu by clicking its name, the corresponding
-             * section will smoothly scroll into the viewport, and vice versa.
-             * The selected or active section must be handled outside of the component using the property
-             * `activeSection` and the event `activeSectionChanged` as described below.
-             */
-            "ino-nav-menu": LocalJSX.InoNavMenu & JSXBase.HTMLAttributes<HTMLInoNavMenuElement>;
-            "ino-nav-menu-item": LocalJSX.InoNavMenuItem & JSXBase.HTMLAttributes<HTMLInoNavMenuItemElement>;
-            /**
-             * This component is designed to construct sections specifically intended
-             * for use with the `ino-nav-menu` component.
-             */
-            "ino-nav-menu-section": LocalJSX.InoNavMenuSection & JSXBase.HTMLAttributes<HTMLInoNavMenuSectionElement>;
             /**
              * An option component that can be used to add options to an ino-select component.
              */

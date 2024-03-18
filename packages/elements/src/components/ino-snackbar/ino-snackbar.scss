@@ -5,7 +5,7 @@
 @use '../base/new-theme' as theme;
 @use '../base/animation';
 
-$snackbar-types: 'info', 'error', 'success';
+$snackbar-types: 'info', 'error', 'success', 'warning';
 
 $snackbar-color-map-by-type: (
   info: (
@@ -20,6 +20,10 @@ $snackbar-color-map-by-type: (
     color: #{theme.$success},
     color-light: #{theme.$success-light},
   ),
+  warning: (
+    color: #{theme.$warning},
+    color-light: #{theme.$warning-light},
+  ),
 );
 
 @function color($type: 'info', $color: 'color') {
@@ -33,10 +37,6 @@ $snackbar-color-map-by-type: (
     --ino-icon-width: $size;
     --ino-icon-height: $size;
   }
-}
-
-@mixin showCloseButton() {
-  display: inline-flex;
 }
 
 ino-snackbar {
@@ -79,10 +79,6 @@ ino-snackbar {
     max-width: 350px;
     padding: 16px 45px 16px 25px;
 
-    &:hover ~ .ino-snackbar-close-btn {
-      @include showCloseButton;
-    }
-
     // mdc pseudo-element blocks interaction
     &:before {
       display: none;
@@ -90,7 +86,7 @@ ino-snackbar {
   }
 
   .ino-snackbar-close-btn {
-    display: none;
+    display: flex;
     position: absolute;
     top: 0;
     right: 0;
@@ -105,10 +101,6 @@ ino-snackbar {
     --ino-icon-button-icon-color: black !important;
     --ino-icon-button-size: 22px;
     --ino-icon-button-icon-size: 8px;
-
-    &:hover {
-      @include showCloseButton;
-    }
   }
 
   .ino-snackbar-icon-container {
@@ -118,6 +110,8 @@ ino-snackbar {
     align-items: center;
     height: 30px;
     width: 30px;
+    color: var(--snackbar-color);
+    font-weight: 700;
 
     ino-icon.ino-snackbar-icon {
       --ino-icon-color-primary: var(--snackbar-color);
@@ -136,6 +130,10 @@ ino-snackbar {
 
     .ino-snackbar-text-container {
       color: #74758b;
+    }
+
+    .ino-snackbar-action-container {
+      margin-top: 0.25rem;
     }
 
     .ino-snackbar-action-btn {

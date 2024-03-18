@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-storybook",
-  "version": "9.1.1",
+  "version": "9.2.0",
   "description": "This is the storybook package containing all the documentation for @inovex.de/elements, @inovex.de/elements-angular, @inovex.de/elements-react.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -39,7 +39,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@inovex.de/elements": "^9.1.1",
+    "@inovex.de/elements": "^9.2.0",
     "lit": "^3.1.0",
     "lodash-es": "^4.17.21",
     "moment": "^2.24.0",
@@ -59,7 +59,6 @@
     "eslint-plugin-storybook": "^0.6.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.6.12",
-    "typescript": "^4.5.5"
+    "storybook": "^7.6.12"
   }
 }

@@ -3,9 +3,12 @@
     "baseUrl": ".",
     "paths": {
       "react": ["./node_modules/@types/react"],
-      "@elements": ["utils/elementsWrapper.ts"],
       "@assets/*": ["public/*"],
-      "@styles/*": ["styles/*"]
+      "@context": ["utils/context/index.ts"],
+      "@hooks/*": ["utils/hooks/*"],
+      "@routes": ["utils/routes.tsx"],
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -16,12 +19,17 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
