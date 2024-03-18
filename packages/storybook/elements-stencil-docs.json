@@ -7055,21 +7055,21 @@
           "name": "activeSection",
           "type": "string",
           "complexType": {
-            "original": "string | null",
+            "original": "string",
             "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "active-section",
           "reflectToAttr": false,
-          "docs": "To specify the selected section, utilize the `buildSectionId` helper function to generate a\nunique section ID based on the section name if no ID was specified. This ID must be provided when configuring the\ncomponent. The section ID can be set to null if no section should be selected initially or\nwhen operating in autodetect mode (means no sections provided).",
+          "docs": "To specify the selected section, utilize the `buildSectionId` helper function to generate a\nunique section ID based on the section name if no ID was specified. This ID must be provided when configuring the\ncomponent. The section ID can be set to null if no section should be selected initially or\nwhen operating in autodetect mode (means no sections provided).\n\nTODO: rename to activeSectionId",
           "docsTags": [],
           "values": [
             {
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7164,26 +7164,6 @@
           "required": false
         },
         {
-          "name": "sectionIds",
-          "type": "string[]",
-          "complexType": {
-            "original": "string[]",
-            "resolved": "string[]",
-            "references": {}
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "Section IDs of corresponding sections that should appear in the navigation menu.\nUse this if you want specific section to be shown in `ino-nav-menu`.\nIf any of the provided section IDs is invalid, a warning will be logged in the browser console.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string[]"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "sectionsContainerId",
           "type": "string",
           "complexType": {
@@ -7194,7 +7174,7 @@
           "mutable": false,
           "attr": "sections-container-id",
           "reflectToAttr": false,
-          "docs": "ID of the container which holds the sections.\nIf no `sectionIds` are provided, the component will automatically look up all `ino-nav-menu-section` components in this container.",
+          "docs": "ID of the container which holds the `ino-nav-menu-section` elements.\nIf no `sectionsContainerId` is provided, the component will automatically look up all `ino-nav-menu-section` in the body.",
           "docsTags": [],
           "values": [
             {
@@ -7261,7 +7241,7 @@
       "filePath": "src/components/ino-nav-menu-item/ino-nav-menu-item.tsx",
       "fileName": "ino-nav-menu-item.tsx",
       "tag": "ino-nav-menu-item",
-      "readme": "# ino-nav-menu\n",
+      "readme": "# ino-nav-menu-item\n",
       "overview": "",
       "usage": {},
       "docs": "",

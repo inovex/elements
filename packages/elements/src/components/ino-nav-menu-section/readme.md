@@ -20,9 +20,9 @@ for use with the `ino-nav-menu` component.
 
 ## Events
 
-| Event          | Description                               | Type                                                       |
-| -------------- | ----------------------------------------- | ---------------------------------------------------------- |
-| `sectionReady` | Emits the section ID on finished loading. | `CustomEvent<{ key: number; id: string; title: string; }>` |
+| Event          | Description                               | Type                             |
+| -------------- | ----------------------------------------- | -------------------------------- |
+| `sectionReady` | Emits the section ID on finished loading. | `CustomEvent<SectionReadyEvent>` |
 
 
 ----------------------------------------------

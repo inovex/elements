@@ -53,7 +53,7 @@ test.describe('ino-nav-menu', () => {
     await goToStory(page, ['structure', 'ino-nav-menu', 'default']);
 
     // wait for sections to be rendered
-    await expect(menuSections).toHaveCount(3)
+    await expect(menuSections).toHaveCount(3);
 
     await assertActive(menuSections.nth(0));
     await assertInactive(menuSections.nth(1));
@@ -68,5 +68,18 @@ test.describe('ino-nav-menu', () => {
     await assertInactive(menuSections.nth(0));
     await assertInactive(menuSections.nth(1));
     await assertActive(menuSections.nth(2));
+  });
+
+  test('active sections can be set', async ({ page }) => {
+    await goToStory(page, ['structure', 'ino-nav-menu', 'active-section']);
+
+    // wait for sections to be rendered
+    await expect(menuSections).toHaveCount(3)
+    await assertActive(menuSections.nth(1));
+  });
+
+  test('menu title can be set', async ({ page }) => {
+    await goToStory(page, ['structure', 'ino-nav-menu', 'menu-title']);
+    await expect(page.getByText('Contents', { exact: true })).toBeVisible();
   });
 });

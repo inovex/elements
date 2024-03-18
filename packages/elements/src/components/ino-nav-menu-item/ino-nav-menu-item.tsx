@@ -41,8 +41,8 @@ export class NavMenu implements ComponentInterface {
           <a
             href={`#${this.sectionId}`}
             onClick={(e) => {
-              e.preventDefault()
-              this.itemClick.emit(this.sectionId)
+              e.preventDefault();
+              this.itemClick.emit(this.sectionId);
             }}
           >
             {this.sectionTitle}

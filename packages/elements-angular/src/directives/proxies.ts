@@ -794,7 +794,7 @@ export declare interface InoNavItem extends Components.InoNavItem {}
 
 
 @ProxyCmp({
-  inputs: ['activeSection', 'intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionIds', 'sectionsContainerId'],
+  inputs: ['activeSection', 'intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionsContainerId'],
   methods: ['reInitSections']
 })
 @Component({
@@ -802,7 +802,7 @@ export declare interface InoNavItem extends Components.InoNavItem {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['activeSection', 'intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionIds', 'sectionsContainerId'],
+  inputs: ['activeSection', 'intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionsContainerId'],
 })
 export class InoNavMenu {
   protected el: HTMLElement;

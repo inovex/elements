@@ -1,6 +1,12 @@
 import { Component, ComponentInterface, Host, Prop, h, Event, EventEmitter } from '@stencil/core';
 import { buildSectionId } from '../ino-nav-menu/ino-nav-menu-helper';
 
+export interface SectionReadyEvent {
+  key: number,
+  id: string,
+  title: string
+}
+
 /**
  * This component is designed to construct sections specifically intended
  * for use with the `ino-nav-menu` component.
@@ -30,7 +36,7 @@ export class NavMenuSection implements ComponentInterface {
   /**
    * Emits the section ID on finished loading.
    */
-  @Event() sectionReady!: EventEmitter<{key: number, id: string, title: string}>;
+  @Event() sectionReady!: EventEmitter<SectionReadyEvent>;
 
   /**
    * Is used to determine the position of this section inside of ino-nav-menu

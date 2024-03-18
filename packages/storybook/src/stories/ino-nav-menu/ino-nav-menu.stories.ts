@@ -126,42 +126,9 @@ export const Default = Story({
   ...inoNavMenuMeta,
 });
 
-export const Sections = Story({
-  ...Default,
-  docsFromProperty: 'sectionIds',
-  render: (args) => {
-    templateCounter++;
-    return html`
-    <aside>
-      <ino-nav-menu
-        sections="['section-1-2', 'section-2-2', 'section-1-2']"
-        menu-title="${args.menuTitle}"
-        active-section="${args.activeSection}"
-        sections-container-id="sections-playground-${templateCounter}"
-        @activeSectionChanged="${activeSectionChanged}"
-      ></ino-nav-menu>
-    </aside>
-    <main class="sections" id="sections-playground-${templateCounter}">
-      <ino-switch
-        checked="true"
-        name="sticky-switch"
-        @checkedChange="${switchHandler}"
-      >
-        Show stickyness of ino-nav-menu
-      </ino-switch>
-      ${sections.map((sectionName, index) => renderSection(sectionName, templateCounter, index))}
-    </main>
-  `},
-  args: {
-    menuTitle: 'Sections',
-    activeSection: 'section-1',
-    sectionIds: sections,
-  }
-})
-
 export const ActiveSection = Story({
   ...Default,
-  docsFromProperty: 'sectionIds',
+  docsFromProperty: 'activeSection',
   args: {
     activeSection: `section-2-${templateCounter}`
   }
@@ -169,7 +136,7 @@ export const ActiveSection = Story({
 
 export const MenuTitle = Story({
   ...Default,
-  docsFromProperty: 'sectionIds',
+  docsFromProperty: 'menuTitle',
   args: {
     menuTitle: 'Contents'
   }
@@ -177,7 +144,7 @@ export const MenuTitle = Story({
 
 export const IntersectionObserverConfig = Story({
   ...Default,
-  docsFromProperty: 'sectionIds',
+  docsFromProperty: 'intersectionObserverConfig',
   args: {
     intersectionObserverConfig: {threshold: 2, rootMargin: '-50% 0px -50% 0px'}
   }
@@ -185,7 +152,7 @@ export const IntersectionObserverConfig = Story({
 
 export const ScrollOffset = Story({
   ...Default,
-  docsFromProperty: 'sectionIds',
+  docsFromProperty: 'scrollOffset',
   args: {
     scrollOffset: 20
   }
@@ -193,7 +160,7 @@ export const ScrollOffset = Story({
 
 export const Loading = Story({
   ...Default,
-  docsFromProperty: 'sectionIds',
+  docsFromProperty: 'loading',
   render: (args) => {
     templateCounter++;
     return html`
