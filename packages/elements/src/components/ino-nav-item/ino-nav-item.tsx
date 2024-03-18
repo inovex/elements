@@ -68,7 +68,7 @@ export class NavItem implements ComponentInterface {
   }
 
   render() {
-    const hasInoIcon = this.el.querySelector('ino-icon');
+    const hasInoIcon = this.el.querySelector('ino-icon:not(.sub-menu-opener)');
     const slotPosition = hasInoIcon !== null ? 'leading' : '';
     const hasSubMenu = hasSlotContent(this.el, 'sub-menu');
 
@@ -96,7 +96,7 @@ export class NavItem implements ComponentInterface {
           </span>
           { hasSubMenu? 
             <span class="ino-nav-item--trailing-slot" slot="trailing">
-              <ino-icon icon="arrow_down"></ino-icon>
+              <ino-icon class="sub-menu-opener" icon="arrow_down"></ino-icon>
             </span>
           : null }
         </ino-list-item>

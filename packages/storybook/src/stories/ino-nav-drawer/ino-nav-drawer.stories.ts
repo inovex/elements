@@ -192,3 +192,71 @@ export const Mobile = Story({
     open: false,
   },
 });
+
+/**
+ * Use a `ino-list` element with `slot="sub-menu"` to add sub-menu points to your ino-nav-drawer.
+ * 
+ * You can achieve a hierarchical navigation structure with up to 3 levels.
+ * 
+ */
+export const SubMenus = Story({
+  ...Default,
+  render: (args) => html`
+    <div class="story-nav-drawer__default">
+      <ino-nav-drawer
+        ?open=${args.open}
+        anchor="${args.anchor}"
+        variant="${args.variant}"
+        class="customizable-drawer"
+      >
+        <div slot="header">
+          <ino-img
+            slot="logo"
+            src=${inovexElementsLogo}
+            width="22"
+            height="31"
+            alt="inovex Elements Logo"
+          ></ino-img>
+          <p>inovex Elements</p>
+        </div>
+        <ino-list
+          role="menubar"
+          slot="content"
+          aria-label=${args.a11yLabels?.content}
+        >
+          <ino-nav-item role="menuitem" text="Home" activated>
+            <ino-icon icon="home"></ino-icon>
+            <ino-list slot="sub-menu">
+              <ino-nav-item role="menuitem" text="Components">
+                <ino-list slot="sub-menu">
+                  <ino-nav-item role="menuitem" text="Sub Component"></ino-nav-item>
+                  <ino-nav-item role="menuitem" text="Sub Templates"></ino-nav-item>
+                </ino-list>
+              </ino-nav-item>
+              <ino-nav-item role="menuitem" text="Templates"></ino-nav-item>
+            </ino-list>
+          </ino-nav-item>
+          <ino-nav-item role="menuitem" text="Discover">
+            <ino-icon icon="discover"></ino-icon>
+            <ino-list slot="sub-menu">
+              <ino-nav-item role="menuitem" text="Components"></ino-nav-item>
+              <ino-nav-item role="menuitem" text="Templates"></ino-nav-item>
+            </ino-list>
+          </ino-nav-item>
+          <ino-nav-item role="menuitem" text="First Steps">
+            <ino-icon icon="first_steps"></ino-icon>
+          </ino-nav-item>
+        </ino-list>
+        <main slot="app" class="main-content">
+          <ino-button fill="outline" dense class="toggle-nav"
+            >${args.a11yLabels?.toggleBtn}</ino-button
+          >
+          <br />
+          <br />
+          Your App goes here 🤘
+          <br /><br />
+        </main>
+      </ino-nav-drawer>
+    </div>
+  `,
+})

@@ -3,9 +3,17 @@
 @use '../base/new-theme' as theme;
 @use '../base/typography-new' as typography;
 
+$submenu-background: (
+  1 : theme.$n-1,
+  2 : theme.$n-2,
+  3 : theme.$n-3
+);
+
 @mixin style-sub-menu($level) {
   & ino-list-item .mdc-deprecated-list-item {
     padding-left: calc($level * 16px) + 16px;
+    background-color: map-get($submenu-background, $level);
+    height: 50px;
   }
   
   // Recursive call until max sub-menu level is reached
@@ -16,6 +24,8 @@
     }
   }
 }
+
+$submenu-animation: cubic-bezier(1, 0, 0, 1);
 
 ino-nav-item {
   /**
@@ -78,6 +88,7 @@ ino-nav-item {
         --icon-width: 16px;
         --icon-height: 16px;
         --icon-color: var(--nav-item-color);
+        transition: transform 290ms $submenu-animation;
     }
 
     &.mdc-deprecated-list-item--activated {
@@ -124,16 +135,20 @@ ino-nav-item [slot="sub-menu"] {
   @include style-sub-menu(1);
   max-height: 0;
   overflow: hidden;
-  transition: all 350ms ease-out;
+  transition: max-height 450ms $submenu-animation;
+
+  ul {
+    padding: 0;
+  }
 }
 
 // styles sub-menu open state
 ino-nav-item.ino-nav-item--sub-menu-open {
-  & > .ino-nav-item--trailing-slot ino-icon {
+  & > ino-list-item .ino-nav-item--trailing-slot ino-icon {
     transform: rotate(180deg);
   }
-  
-  & > [slot="sub-menu"]  {
-    max-height: 100000px;
+
+  & > [slot="sub-menu"] {
+    max-height: 10000px;
   }
 }
