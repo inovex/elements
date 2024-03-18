@@ -18,10 +18,10 @@
     "format": "nx format:check",
     "format:fix": "nx format:write",
     "qc": "yarn lint && yarn format && yarn build && yarn test",
-    "clean": "nx run-many --target=clean && yarn clean:nx && shx rm -rf node_modules",
+    "clean": "nx run-many --target=clean && yarn clean:nx && shx rm -rf node_modules .nx",
     "clean:dist": "nx run-many --target=clean --configuration=dist && yarn clean:nx",
-    "clean:node": "nx run-many --target=clean --configuration=node && shx rm -rf node_modules",
-    "clean:nx": "nx reset && shx rm -rf .nx"
+    "clean:node": "nx run-many --target=clean --configuration=node && yarn clean:nx && shx rm -rf node_modules",
+    "clean:nx": "nx daemon --stop && nx reset"
   },
   "nx": {
     "includedScripts": []
