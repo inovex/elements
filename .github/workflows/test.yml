@@ -46,6 +46,8 @@ jobs:
         run: yarn build
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
+      - name: Check if there are changes
+        uses: NathanielHill/fail-if-changes@v1.1.1
       - name: Test all projects
         id: test_projects
         run: yarn test
