@@ -66,9 +66,7 @@
     "clean": {
       "configurations": {
         "dist": {
-          "commands": [
-            "shx rm -rf ./dist ./.stencil"
-          ]
+          "commands": ["shx rm -rf ./dist ./.stencil"]
         }
       }
     }
