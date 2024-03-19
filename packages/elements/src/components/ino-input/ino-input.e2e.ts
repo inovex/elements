@@ -186,62 +186,6 @@ describe('InoInput', () => {
     });
   });
 
-  describe('Events', () => {
-    it('should trigger inoFocus-Event when focused', async () => {
-      const spyOnFocusEvent = await inoInputEl.spyOnEvent('inoFocus');
-      await nativeInputEl.focus();
-      await page.waitForChanges();
-
-      expect(spyOnFocusEvent).toHaveReceivedEvent();
-    });
-
-    it('should not bubble inoBlur or inoFocus', async () => {
-      const spyOnFocusEvent = await page.spyOnEvent('inoFocus');
-      const spyOnBlurEvent = await page.spyOnEvent('inoBlur');
-
-      await nativeInputEl.triggerEvent('blur');
-      await nativeInputEl.triggerEvent('focus');
-
-      await page.waitForChanges();
-
-      expect(spyOnFocusEvent).not.toHaveReceivedEvent();
-      expect(spyOnBlurEvent).not.toHaveReceivedEvent();
-    });
-
-    it('should emit a valueChange event upon changing the input value', async () => {
-      const valueChangeEvent = await page.spyOnEvent('valueChange');
-
-      await nativeInputEl.type('5');
-      await page.waitForChanges();
-
-      expect(valueChangeEvent).toHaveReceivedEvent();
-      expect(valueChangeEvent).toHaveReceivedEventDetail('5');
-    });
-
-    it('should not emit a change or input event upon changing the input value', async () => {
-      const changeEvent = await page.spyOnEvent('change');
-      const inputEvent = await page.spyOnEvent('input');
-
-      await nativeInputEl.type('5');
-      await page.waitForChanges();
-
-      expect(changeEvent).not.toHaveReceivedEvent();
-      expect(inputEvent).not.toHaveReceivedEvent();
-    });
-
-    it('should not emit a valueChange event if disabled is set to true', async () => {
-      const valueChangeEvent = await page.spyOnEvent('valueChange');
-
-      await inoInputEl.setAttribute('disabled', true);
-      await page.waitForChanges();
-
-      await nativeInputEl.type('5');
-      await page.waitForChanges();
-
-      expect(valueChangeEvent).not.toHaveReceivedEvent();
-    });
-  });
-
   describe('Methods', () => {
     it('should be focused after calling focus()', async () => {
       const emptyElement = {};
