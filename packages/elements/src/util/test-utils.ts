@@ -9,8 +9,11 @@ export function listenForEvent(page: SpecPage, eventName: string) {
 
   page.body.addEventListener(eventName, eventSpy);
 
-  function assertEventDetails(detail: any) {
-    return expect(eventSpy.mock.calls[0][0]).toHaveProperty('detail', detail);
+  function assertEventDetails(detail: any, eventIndex = 0) {
+    return expect(eventSpy.mock.calls[eventIndex][0]).toHaveProperty(
+      'detail',
+      detail,
+    );
   }
 
   return { eventSpy, assertEventDetails };
