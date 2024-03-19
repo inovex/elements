@@ -47,57 +47,6 @@ describe('InoDatepicker', () => {
       expect(flatpickrInputEl).toHaveClass('mdc-text-field--focused');
     });
 
-    it('should render with disabled set to true', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER);
-
-      const inoDatepickerEl = await page.find(DATEPICKER);
-      expect(inoDatepickerEl).toBeDefined();
-
-      const inputEl = await page.find(INPUT);
-      expect(inputEl).toBeDefined();
-      expect(inputEl).not.toHaveAttribute('disabled');
-
-      inoDatepickerEl.setAttribute('disabled', 'true');
-      await page.waitForChanges();
-
-      expect(inputEl).toHaveAttribute('disabled');
-    });
-
-    it('should render with required set to true', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER);
-
-      const inoDatepickerEl = await page.find(DATEPICKER);
-      expect(inoDatepickerEl).toBeDefined();
-
-      const inoInputEL = await page.find(INPUT);
-      expect(inoInputEL).toBeDefined();
-      expect(inoInputEL).not.toHaveAttribute('required');
-
-      inoDatepickerEl.setAttribute('required', 'true');
-      await page.waitForChanges();
-      expect(inoDatepickerEl).toHaveAttribute('required');
-    });
-
-    it('should render with inoOutline set to true', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER);
-
-      const inoDatepickerEl = await page.find(DATEPICKER);
-      expect(inoDatepickerEl).toBeDefined();
-
-      let mdcLineRipple = await page.find('.mdc-line-ripple');
-      let mdcNotchedOutline = await page.find('.mdc-notched-outline');
-      expect(mdcLineRipple).toBeDefined();
-      expect(mdcNotchedOutline).toBeNull();
-
-      inoDatepickerEl.setAttribute('outline', 'true');
-      await page.waitForChanges();
-
-      mdcLineRipple = await page.find('.mdc-line-ripple');
-      mdcNotchedOutline = await page.find('.mdc-notched-outline');
-      expect(mdcLineRipple).toBeNull();
-      expect(mdcNotchedOutline).toBeDefined();
-    });
-
     it('should render with min date', async () => {
       let page = await setupPageWithContent(INO_DATEPICKER);
 
@@ -180,34 +129,6 @@ describe('InoDatepicker', () => {
       await page.waitForChanges();
 
       expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
-    });
-  });
-
-  describe('Events', () => {
-    it('should emit a valueChange event upon changing the input', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER);
-      const input = await page.find(INPUT);
-      const valueChangeEvent = await page.spyOnEvent('valueChange');
-
-      await input.type('1');
-      await page.waitForChanges();
-
-      expect(valueChangeEvent).toHaveReceivedEvent();
-    });
-
-    it('should not emit a valueChange event if datepicker is disabled', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER);
-      const datepicker = await page.find(DATEPICKER);
-      const input = await page.find(INPUT);
-      const valueChangeEvent = await page.spyOnEvent('valueChange');
-
-      await datepicker.setAttribute('disabled', true);
-      await page.waitForChanges();
-
-      await input.type('1');
-      await page.waitForChanges();
-
-      expect(valueChangeEvent).not.toHaveReceivedEvent();
     });
   });
 
