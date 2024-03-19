@@ -1,6 +1,8 @@
-import { MDCTextField } from '@material/textfield';
-import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
-import { MDCTextFieldIcon } from '@material/textfield/icon';
+import {
+  MDCTextField,
+  MDCTextFieldHelperText,
+  MDCTextFieldIcon,
+} from '@material/textfield';
 import {
   Component,
   ComponentInterface,
@@ -395,6 +397,8 @@ export class Input implements ComponentInterface {
   // ----
 
   private handleNativeInputChange = (e) => {
+    if (this.disabled) return;
+
     let value = e.target.value;
 
     if (this.userInputInterceptorFn) {
