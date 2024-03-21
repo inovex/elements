@@ -7,7 +7,6 @@ describe('InoInput', () => {
   let page: SpecPage;
   let inoInputEl: HTMLInoInputElement;
   let nativeInputEl: HTMLInputElement;
-  //let labelEl: HTMLInoLabelElement;
 
   const type = async (value: string) => {
     const arr = [...value];
@@ -27,7 +26,6 @@ describe('InoInput', () => {
 
     inoInputEl = page.body.querySelector('ino-input');
     nativeInputEl = inoInputEl.querySelector('input.mdc-text-field__input');
-    //labelEl = inoInputEl.querySelector('ino-label');
   });
 
   describe('Events', () => {

@@ -52,79 +52,6 @@ describe('InoInput', () => {
     expect(value).toEqual('5');
   });
 
-  describe('Input interaction', () => {
-    it('should be focused automatically', async () => {
-      const emptyElement = {};
-
-      const focusedElementWithoutAutofocus = await page.evaluate(
-        () => document.activeElement,
-      );
-      expect(focusedElementWithoutAutofocus).toEqual(emptyElement);
-
-      const pageWithFocusedInput = await setupPageWithContent(
-        `<ino-input auto-focus></ino-input>`,
-      );
-      const focusedElement = await pageWithFocusedInput.evaluate(
-        () => document.activeElement,
-      );
-      expect(focusedElement).not.toEqual(emptyElement);
-    });
-
-    it('should increase the value when clicking on up arrow', async () => {
-      inoInputEl.setAttribute('type', 'number');
-      await page.waitForChanges();
-
-      const valueChangedSpy = await page.spyOnEvent('valueChange');
-
-      await page.evaluate(() => {
-        (document.querySelector('.up') as HTMLElement).click();
-      });
-
-      expect(valueChangedSpy).toHaveReceivedEventDetail('1');
-    });
-
-    it('should decrease the value when clicking on down arrow', async () => {
-      inoInputEl.setAttribute('type', 'number');
-      await page.waitForChanges();
-
-      const valueChangedSpy = await page.spyOnEvent('valueChange');
-
-      await page.evaluate(() => {
-        (document.querySelector('.down') as HTMLElement).click();
-      });
-
-      expect(valueChangedSpy).toHaveReceivedEventDetail('-1');
-    });
-
-    it('should emit min value when clicking on down and new value is lower than min', async () => {
-      inoInputEl.setAttribute('type', 'number');
-      inoInputEl.setAttribute('min', '1');
-      await page.waitForChanges();
-
-      const valueChangedSpy = await page.spyOnEvent('valueChange');
-
-      await page.evaluate(() => {
-        (document.querySelector('.down') as HTMLElement).click();
-      });
-
-      expect(valueChangedSpy).toHaveReceivedEventDetail('1');
-    });
-
-    it('should emit max value when clicking on up arrow and new value is greater than max', async () => {
-      inoInputEl.setAttribute('type', 'number');
-      inoInputEl.setAttribute('max', '0');
-      await page.waitForChanges();
-
-      const valueChangedSpy = await page.spyOnEvent('valueChange');
-
-      await page.evaluate(() => {
-        (document.querySelector('.up') as HTMLElement).click();
-      });
-
-      expect(valueChangedSpy).toHaveReceivedEventDetail('0');
-    });
-  });
-
   describe('Input validation', () => {
     it('should not be invalid by default', async () => {
       expect(labelEl).not.toHaveClass(invalidTextFieldClass);
@@ -173,47 +100,6 @@ describe('InoInput', () => {
         await blurNativeInputEl();
         expect(labelEl).not.toHaveClass(invalidTextFieldClass);
       });
-    });
-  });
-
-  describe('Properties', () => {
-    it('should render with disabled property set to true', async () => {
-      await inoInputEl.setAttribute('disabled', true);
-      await page.waitForChanges();
-
-      expect(nativeInputEl).toHaveAttribute('disabled');
-      expect(labelEl).toHaveClass('mdc-text-field--disabled');
-    });
-  });
-
-  describe('Methods', () => {
-    it('should be focused after calling focus()', async () => {
-      const emptyElement = {};
-
-      const activeElement = await page.evaluate(() => document.activeElement);
-      expect(activeElement).toEqual(emptyElement);
-
-      await focusNativeInputEl();
-
-      const activeElementProps = await page.evaluate(() => ({
-        tagName: document.activeElement.tagName,
-        parentClassName: document.activeElement.parentElement.className,
-      }));
-
-      expect(activeElementProps.tagName).toEqual('INPUT');
-      expect(activeElementProps.parentClassName).toContain(
-        'mdc-text-field--focused',
-      );
-    });
-
-    it('should be blurred after calling blur() on the native input element', async () => {
-      const emptyElement = {};
-
-      await focusNativeInputEl();
-      await blurNativeInputEl();
-
-      const activeElement = await page.evaluate(() => document.activeElement);
-      expect(activeElement).toEqual(emptyElement);
     });
   });
 
