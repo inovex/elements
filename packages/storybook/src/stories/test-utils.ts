@@ -9,9 +9,10 @@ export async function goToStory(
   const [category, name, story] = storyDescription;
 
   await page.goto(
-    `/iframe.html?id=${category.toLowerCase()}-${name}--${story}`,
+    `/iframe.html?id=${category.toLowerCase()}-${name}--${story}&viewMode=story`,
   );
   await page.waitForLoadState('domcontentloaded');
+  await page.waitForSelector('#root-inner') // identify that the story loaded successfully
 }
 
 export function setAttribute(el: Locator, attrName: string, value: string) {
