@@ -23,9 +23,9 @@ test.describe('ino-option', () => {
     await setAttribute(inoOption, 'disabled', 'true');
     await inoSelect.click();
     await inoOption.click();
-    await expect(inoSelect.locator('.mdc-select__selected-text')).not.toHaveText(
-      await inoOption.textContent(),
-    );
+    await expect(
+      inoSelect.locator('.mdc-select__selected-text'),
+    ).not.toHaveText(await inoOption.textContent());
   });
 
   test('should be selected', async ({ page }) => {
