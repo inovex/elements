@@ -13,7 +13,9 @@ describe('ino-radio', () => {
       html: `<ino-radio></ino-radio>`,
     });
     inoRadio = page.body.querySelector('ino-radio');
-    input = inoRadio.shadowRoot.querySelector('input.mdc-radio__native-control');
+    input = inoRadio.shadowRoot.querySelector(
+      'input.mdc-radio__native-control',
+    );
   });
 
   it('should fire checkedChange event on click with true as detail', async () => {
