@@ -4,11 +4,13 @@
   observe() {}
 };
 
-jest.mock('@material/textfield', () => ({
-  ...jest.requireActual('@material/textfield'),
-  MDCTextField: class {
-    public focus = jest.fn();
-    public destroy = jest.fn();
-    public value = '';
-  },
-}));
+HTMLInputElement.prototype.checkValidity = jest.fn();
+HTMLInputElement.prototype.setSelectionRange = jest.fn();
+
+global.XMLSerializer = class XmlSerializerWrapper {
+  public serializeToString() {
+    return '';
+  }
+};
+
+jest.mock('@material/textfield');
