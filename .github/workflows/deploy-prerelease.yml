@@ -8,6 +8,13 @@ on:
       - v*
     paths:
       - packages/elements/**
+      # ignore test specific files
+      - '!packages/elements/**/*.spec.ts'
+      - '!packages/elements/**/*.e2e.ts'
+      - '!packages/elements/src/util/e2etests-setup.ts'
+      - '!packages/elements/src/util/test-utils.ts'
+      - '!packages/elements/setupSpecTests.ts'
+      - '!packages/elements/scripts/**' # ignore changes to internal scripts
       - packages/elements-angular/**
       - packages/elements-react/**
       - packages/elements-vue/**
