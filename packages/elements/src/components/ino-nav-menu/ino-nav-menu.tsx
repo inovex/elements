@@ -6,7 +6,6 @@ import {
   h,
   Host,
   Listen,
-  Method,
   Prop,
   State,
   Watch,
@@ -44,21 +43,40 @@ const DEFAULT_SCROLL_OFFSET = 80;
 export class NavMenu implements ComponentInterface {
   private observer: IntersectionObserver;
 
+  private target = document.body;
+
   /**
    * sectionsIntern represent the found section which ino-nav-menu should display.
    * Will use the IDs from sectionIds if given, or autodetect them in the sectionContainer via the `sectionReady` Events emitted by ino-nav-menu-sections
    *
    */
-  @State() sectionsIntern: Record<number, Section> = {};
+  @State() sectionsIntern: Array<Section> = [];
+
+  @Watch('sectionsIntern')
+  async reInitSections(): Promise<void> {
+    this.observer?.disconnect();
+    this.initIntersectionObserver();
+    this.scrollAfterInit();
+  }
 
   @Listen('sectionReady', { target: 'body' })
   onSectionReady(e: CustomEvent<SectionReadyEvent>) {
-    const { id, key: orderNumber, title } = e.detail;
+    const { id, title } = e.detail;
 
-    this.sectionsIntern = {
-      ...this.sectionsIntern,
-      [orderNumber]: { id, title },
-    };
+    const alreadyAdded = this.sectionsIntern.some(
+      (section) => section.id === id,
+    );
+
+    if (alreadyAdded) return;
+
+    const newSection: Section = { id, title };
+    const idx = this.sections.findIndex((section) => section.id === id);
+
+    this.sectionsIntern = [
+      ...this.sectionsIntern.slice(0, idx), // part of the sections before the new section
+      newSection, // section to insert
+      ...this.sectionsIntern.slice(idx), // part of the sections after the new section
+    ];
   }
 
   /**
@@ -117,27 +135,16 @@ export class NavMenu implements ComponentInterface {
    */
   @Event({ bubbles: false }) activeSectionChanged!: EventEmitter<string>;
 
-  /**
-   * Use to manually inflict another initiation of the sections and their observers
-   */
-  @Method()
-  async reInitSections(): Promise<void> {
-    this.observer.disconnect();
-    this.initIntersectionObserver();
-    this.scrollAfterInit();
-  }
-
   private initIntersectionObserver() {
     this.observer = new IntersectionObserver(
       this.updateActiveEntry,
       this.intersectionObserverConfig,
     );
 
-    for (const index in this.sectionsIntern) {
-      this.observer.observe(
-        document.getElementById(this.sectionsIntern[index].id),
-      );
-    }
+    this.sectionsIntern.forEach((section) => {
+      const sectionEl = this.sections.find((s) => s.sectionId === section.id);
+      this.observer.observe(sectionEl);
+    });
   }
 
   private emitActiveSection(sectionId: string): void {
@@ -169,10 +176,19 @@ export class NavMenu implements ComponentInterface {
   }
 
   private updateActiveEntry = (entries: IntersectionObserverEntry[]) => {
-    const active = entries.reverse().find((x) => x.isIntersecting)?.target.id;
-    if (active !== undefined) {
-      this.emitActiveSection(active);
-    }
+    const intersectedElement = entries
+      .reverse() // TODO comment why
+      .find((el) => el.isIntersecting);
+
+    if (!intersectedElement) return;
+
+    const intersectedSectionId = (
+      intersectedElement.target as HTMLInoNavMenuSectionElement
+    )?.sectionId;
+
+    if (!intersectedSectionId) return;
+
+    this.emitActiveSection(intersectedSectionId);
   };
 
   private handleAnchorClick = (sectionId: string) => {
@@ -202,11 +218,9 @@ export class NavMenu implements ComponentInterface {
   };
 
   componentDidLoad() {
-    let target = document.body;
-
     if (this.sectionsContainerId) {
       try {
-        target = document.getElementById(this.sectionsContainerId);
+        this.target = document.getElementById(this.sectionsContainerId);
       } catch (e) {
         console.error(
           `[ino-nav-menu] The section container which ID you provided by sectionContainerId could not be found.`,
@@ -214,22 +228,14 @@ export class NavMenu implements ComponentInterface {
       }
     }
 
-    const allSections = Array.from(
-      target.querySelectorAll('ino-nav-menu-section'),
-    );
+    this.sectionsIntern = this.sections.map((section) => ({
+      id: section.sectionId,
+      title: section.sectionName,
+    }));
+  }
 
-    // TODO: maybe remove order/index? Is it necessary?
-    this.sectionsIntern = allSections.reduce(
-      (previousValue, currentValue, index) => {
-        const id = currentValue.sectionId;
-        const title = currentValue.sectionName;
-
-        previousValue[index] = { id, title };
-
-        return previousValue;
-      },
-      {} as Record<number, Section>,
-    );
+  get sections() {
+    return Array.from(this.target.querySelectorAll('ino-nav-menu-section'));
   }
 
   render() {
@@ -242,7 +248,7 @@ export class NavMenu implements ComponentInterface {
         >
           <h3 class="ino-nav-menu__title">{this.menuTitle}</h3>
           <ul class="ino-nav-menu__sections">
-            {Object.values(this.sectionsIntern).map((section) => (
+            {this.sectionsIntern.map((section) => (
               <ino-nav-menu-item
                 sectionId={section.id}
                 sectionTitle={section.title}

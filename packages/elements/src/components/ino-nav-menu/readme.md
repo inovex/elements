@@ -32,19 +32,6 @@ The selected or active section must be handled outside of the component using th
 | `activeSectionChanged` | Emits the section ID when the corresponding section is selected by scrolling into the viewport. This event can be utilized to update the `activeSection` property. | `CustomEvent<string>` |
 
 
-## Methods
-
-### `reInitSections() => Promise<void>`
-
-Use to manually inflict another initiation of the sections and their observers
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ## Dependencies
 
 ### Depends on

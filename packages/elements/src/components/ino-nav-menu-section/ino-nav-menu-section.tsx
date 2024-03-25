@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, ComponentInterface, Host, Prop, h, Event, EventEmitter } from "@stencil/core";
 import { buildSectionId } from '../ino-nav-menu/ino-nav-menu-helper';
 
 export interface SectionReadyEvent {
