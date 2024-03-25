@@ -6,27 +6,27 @@
   "tags": [],
   "targets": {
     "build": {
-      "outputs": ["{projectRoot}/out"],
-      "executor": "nx:run-commands",
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "cwd": "packages/landingpage",
-        "commands": ["next build"],
-        "parallel": false,
-        "color": true
+        "outputPath": "{projectRoot}/out",
+        "nextConfig": "{projectRoot}/next.config.mjs"
       }
     },
     "start": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/next:server",
       "options": {
-        "cwd": "packages/landingpage"
+        "buildTarget": "landingpage:build",
+        "dev": true
       },
-      "defaultConfiguration": "dev",
       "configurations": {
         "dev": {
-          "command": "next dev -p 4600"
+          "buildTarget": "landingpage:build",
+          "dev": true
         },
         "prod": {
-          "command": "next start -p 4600"
+          "buildTarget": "landingpage:build",
+          "dev": false
         }
       }
     },
