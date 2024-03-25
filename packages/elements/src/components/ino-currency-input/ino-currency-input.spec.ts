@@ -1,5 +1,5 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
-import { fillInput, listenForEvent } from "../../util/test-utils";
+import { fillInput, listenForEvent } from '../../util/test-utils';
 import { CurrencyInput } from './ino-currency-input';
 import { Input } from '../ino-input/ino-input';
 import { Label } from '../ino-label/ino-label';

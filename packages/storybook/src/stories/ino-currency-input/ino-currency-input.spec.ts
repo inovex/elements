@@ -17,8 +17,8 @@ test.describe('ino-currency-input', () => {
   });
 
   test('should set value attribute', async () => {
-    await input.fill('500,00')
-    await input.blur()
+    await input.fill('500,00');
+    await input.blur();
     await expect(input).toHaveValue('500,00');
     await expect(hiddenInput).toHaveValue('500');
   });
@@ -31,8 +31,8 @@ test.describe('ino-currency-input', () => {
 
   test('should render with different locale', async () => {
     await setAttribute(inoCurrencyInput, 'currency-locale', 'en-US');
-    await input.fill('15000.99')
-    await input.blur()
+    await input.fill('15000.99');
+    await input.blur();
     await expect(input).toHaveValue('15,000.99');
   });
 

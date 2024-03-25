@@ -15,7 +15,11 @@ export function listenForEvent(page: SpecPage, eventName: string) {
   return { eventSpy, assertEventDetails };
 }
 
-export async function fillInput(page: SpecPage, input: HTMLInputElement, stringToType: string) {
+export async function fillInput(
+  page: SpecPage,
+  input: HTMLInputElement,
+  stringToType: string,
+) {
   const arr = [...stringToType];
   input.value = '';
   arr.forEach((char) => {
