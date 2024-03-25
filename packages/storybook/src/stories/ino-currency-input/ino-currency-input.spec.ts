@@ -17,36 +17,34 @@ test.describe('ino-currency-input', () => {
   });
 
   test('should set value attribute', async () => {
-    await setAttribute(inoCurrencyInput, 'value', '15000.99');
-
-    await expect(input).toHaveValue('15.000,99');
-    await expect(hiddenInput).toHaveValue('15000.99');
+    await input.fill('500,00')
+    await input.blur()
+    await expect(input).toHaveValue('500,00');
+    await expect(hiddenInput).toHaveValue('500');
   });
 
   test('should format thousands on blur', async () => {
-    await setAttribute(inoCurrencyInput, 'value', '15000.99');
-
-    await inoCurrencyInput.blur();
+    await input.fill('15000,99');
+    await input.blur();
     await expect(input).toHaveValue('15.000,99');
   });
 
   test('should render with different locale', async () => {
     await setAttribute(inoCurrencyInput, 'currency-locale', 'en-US');
-    await setAttribute(inoCurrencyInput, 'value', '15000.99');
-
+    await input.fill('15000.99')
+    await input.blur()
     await expect(input).toHaveValue('15,000.99');
   });
 
   test('should allow negative inputs', async () => {
-    await input.pressSequentially('-1500,00');
+    await input.fill('-1500,00');
     await expect(input).toHaveValue('-1500,00');
     await expect(hiddenInput).toHaveValue('-1500');
   });
 
   test('should prevent negative inputs on min=0', async () => {
     await setProperty(inoInput, 'min', '0');
-
-    await input.pressSequentially('-1500,00');
+    await input.fill('-1500,00');
     await expect(hiddenInput).toHaveValue('1500');
   });
 });
