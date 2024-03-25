@@ -26,6 +26,25 @@
         "{workspaceRoot}/.eslintrc.json"
       ]
     },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "parallel": false,
+        "commands": [
+          "nx run {projectName}:clean:dist",
+          "nx run {projectName}:clean:node"
+        ]
+      },
+      "configurations": {
+        "dist": {
+          "commands": ["shx rm -rf ./dist"]
+        },
+        "node": {
+          "commands": ["shx rm -rf ./node_modules"]
+        }
+      }
+    },
     "@angular-devkit/build-angular:browser": {
       "cache": true,
       "dependsOn": ["^build"],

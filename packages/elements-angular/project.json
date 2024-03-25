@@ -70,7 +70,8 @@
           "packages/elements-angular/src/**/*.html"
         ]
       }
-    }
+    },
+    "clean": {}
   },
   "tags": []
 }
