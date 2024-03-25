@@ -21,6 +21,19 @@ This is an internally used component for various sorts of inputs like `ino-input
 | `text`     | `text`      | The text of the label itself                                                       | `string`  | `undefined` |
 
 
+## Methods
+
+### `getMdcNotchedOutlineInstance() => Promise<MDCNotchedOutline>`
+
+Returns internal mdcNotchedOutline instance
+
+#### Returns
+
+Type: `Promise<MDCNotchedOutline>`
+
+
+
+
 ## Dependencies
 
 ### Used by

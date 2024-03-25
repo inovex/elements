@@ -18,6 +18,7 @@ import classNames from 'classnames';
 import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 import { InputType, UserInputInterceptor } from '../types';
+import { MDCNotchedOutline } from '@material/notched-outline';
 
 /**
  * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
@@ -36,6 +37,7 @@ export class Input implements ComponentInterface {
   @Element() el!: HTMLInoInputElement;
 
   private nativeInputEl?: HTMLInputElement;
+  private inoLabelElement?: HTMLInoLabelElement;
   private cursorPosition = 0;
 
   /**
@@ -54,12 +56,12 @@ export class Input implements ComponentInterface {
   private mdcTextfield: MDCTextField;
 
   /**
-   * An internal instance of an textfield helper text instance (if neccessary).
+   * An internal instance of a textfield helper text instance (if necessary).
    */
   private mdcHelperText: MDCTextFieldHelperText;
 
   /**
-   * An internal instance of an textfield icon instance (if neccessary).
+   * An internal instance of a textfield icon instance (if necessary).
    */
   private mdcTextfieldIcon: MDCTextFieldIcon;
 
@@ -163,8 +165,20 @@ export class Input implements ComponentInterface {
 
   /**
    * Styles the input field as outlined element.
+   *
+   * This property is immutable which means that it should not be changed after its first initialization.
+   * Changing this property at runtime causes problems in combination with the floating label.
+   * You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
    */
   @Prop() outline?: boolean;
+
+  @Watch('outline')
+  handleOutlineChange(oldVal: boolean, newVal: boolean) {
+    if (oldVal !== newVal)
+      console.warn(
+        `Changing the 'outline' property at runtime is not recommended. Read more about it here: https://github.com/inovex/elements/issues/1216`,
+      );
+  }
 
   /**
    * The validation pattern of this element.
@@ -260,20 +274,15 @@ export class Input implements ComponentInterface {
   // Lifecycle methods
   // ----
 
-  componentDidLoad() {
+  async componentDidLoad() {
     this.mdcTextfield = new MDCTextField(
       this.el.querySelector('.mdc-text-field'),
     );
 
-    if (this.type === 'email') {
-      this.mdcTextfield.useNativeValidation = false;
-    }
-
     if (this.helper) {
-      const helperTextEl = document.querySelector(
-        '.mdc-text-field-helper-text',
+      this.mdcHelperText = new MDCTextFieldHelperText(
+        this.el.querySelector('.mdc-text-field-helper-text'),
       );
-      this.mdcHelperText = new MDCTextFieldHelperText(helperTextEl);
     }
 
     if (
@@ -284,6 +293,23 @@ export class Input implements ComponentInterface {
         this.el.querySelector('.mdc-text-field__icon'),
       );
     }
+
+    const mdcNotchedOutline =
+      await this.inoLabelElement.getMdcNotchedOutlineInstance();
+    this.mdcTextfield.initialize(
+      undefined,
+      undefined,
+      (el) => this.mdcHelperText ?? new MDCTextFieldHelperText(el),
+      undefined,
+      (el) => this.mdcTextfieldIcon ?? new MDCTextFieldIcon(el),
+      undefined,
+      (el) => mdcNotchedOutline ?? new MDCNotchedOutline(el),
+    );
+
+    if (this.type === 'email') {
+      this.mdcTextfield.useNativeValidation = false;
+    }
+
     this.textfieldValue = this.value || '';
 
     if (this.autoFocus) {
@@ -306,8 +332,6 @@ export class Input implements ComponentInterface {
 
   disconnectedCallback() {
     this.mdcTextfield?.destroy();
-    this.mdcHelperText?.destroy();
-    this.mdcTextfieldIcon?.destroy();
   }
 
   // ----
@@ -492,6 +516,7 @@ export class Input implements ComponentInterface {
       <Host>
         <span class={classTextfield}>
           <ino-label
+            ref={(el) => (this.inoLabelElement = el)}
             for={this.inputID}
             outline={this.outline}
             text={this.label}

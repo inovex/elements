@@ -28,7 +28,7 @@ import { hasSlotContent } from '../../util/component-utils';
 @Component({
   tag: 'ino-fab',
   styleUrl: 'ino-fab.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
@@ -100,9 +100,7 @@ export class Fab implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.fabRipple = new MDCRipple(
-      this.el.shadowRoot.querySelector('.mdc-fab'),
-    );
+    this.fabRipple = new MDCRipple(this.el.querySelector('.mdc-fab'));
 
     if (!this.extended && this.tooltipPlacement !== 'none') {
       this.renderTooltip();

@@ -5,7 +5,7 @@ test.describe('ino-chip', () => {
   let chip: Locator;
 
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['buttons', 'ino-chip', 'default']);
+    await goToStory(page, ['Buttons', 'ino-chip', 'default']);
     chip = page.locator('ino-chip');
   });
 
