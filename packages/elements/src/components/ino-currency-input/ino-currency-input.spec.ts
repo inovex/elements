@@ -1,5 +1,5 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
-import { listenForEvent } from '../../util/test-utils';
+import { fillInput, listenForEvent } from "../../util/test-utils";
 import { CurrencyInput } from './ino-currency-input';
 import { Input } from '../ino-input/ino-input';
 import { Label } from '../ino-label/ino-label';
@@ -18,16 +18,6 @@ describe('InoCurrencyInput - Events', () => {
   let inoCurrencyInput: HTMLInoCurrencyInputElement;
   let nativeInput: HTMLInputElement;
 
-  const type = async (value: string) => {
-    const arr = [...value];
-    nativeInput.value = '';
-    arr.forEach((char) => {
-      nativeInput.value += char;
-      nativeInput.dispatchEvent(new Event('input'));
-    });
-    await page.waitForChanges();
-  };
-
   beforeEach(async () => {
     page = await newSpecPage({
       components: [CurrencyInput, Input, Label],
@@ -44,7 +34,7 @@ describe('InoCurrencyInput - Events', () => {
     );
     expect(eventSpy).not.toHaveBeenCalled();
 
-    await type('5000,99');
+    await fillInput(page, nativeInput, '5000,99');
 
     assertEventDetails(5);
     const lastEventIndex = eventSpy.mock.calls.length - 1;
@@ -58,7 +48,7 @@ describe('InoCurrencyInput - Events', () => {
     );
     expect(eventSpy).not.toHaveBeenCalled();
 
-    await type('1a');
+    await fillInput(page, nativeInput, '1a');
     assertEventDetails(1);
   });
 
@@ -69,7 +59,7 @@ describe('InoCurrencyInput - Events', () => {
     );
     expect(eventSpy).not.toHaveBeenCalled();
 
-    await type('11,119');
+    await fillInput(page, nativeInput, '11,119');
 
     const lastEventIndex = eventSpy.mock.calls.length - 1;
     assertEventDetails(11.11, lastEventIndex);
