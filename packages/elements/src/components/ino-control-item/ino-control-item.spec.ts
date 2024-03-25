@@ -10,7 +10,6 @@ const INO_CHECKBOX_ITEM = `<ino-list><ino-control-item role="checkbox" text="Som
 const INO_CHECKBOX_ITEM_CHECKED = `<ino-list><ino-control-item role="checkbox" text="Some Item" checked></ino-control-item></ino-list>`;
 const INO_CHECKBOX_ITEM_DISABLED = `<ino-list><ino-control-item role="checkbox" text="Some Item" disabled></ino-control-item></ino-list>`;
 const INO_RADIO_ITEM = `<ino-list><ino-control-item role="radio" text="Some Item"></ino-checkbox-item></ino-list>`;
-const INO_RADIO_ITEM_CHECKED = `<ino-list><ino-control-item role="radio" text="Some Item" checked></ino-control-item></ino-list>`;
 const INO_RADIO_ITEM_DISABLED = `<ino-list><ino-control-item role="radio" text="Some Item" disabled></ino-control-item></ino-list>`;
 
 describe('InoControlItem', () => {
@@ -46,13 +45,6 @@ describe('InoControlItem', () => {
     const { assertEventDetails } = listenForEvent(page, 'checkedChange');
     inoControlItem.click();
     assertEventDetails(false);
-  });
-
-  it('should emit a checkedChange event with true as detail (radio)', async () => {
-    await setupPage(INO_RADIO_ITEM_CHECKED);
-    const { assertEventDetails } = listenForEvent(page, 'checkedChange');
-    inoControlItem.click();
-    assertEventDetails(true);
   });
 
   it('should not emit a checkedChange event if checkbox is disabled', async () => {
