@@ -11,6 +11,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
+import { countBy } from 'lodash-es';
 
 const DEFAULT_OBSERVER_OPTIONS: IntersectionObserverInit = {
   threshold: 0,
@@ -158,6 +159,20 @@ export class NavMenu implements ComponentInterface {
     this.sections = Array.from(
       this.target.querySelectorAll('ino-nav-menu-section'),
     );
+
+    // check if there are any duplicated IDs
+    const sectionCounts = countBy(
+      this.sections,
+      (section) => section.sectionId,
+    );
+    Object.entries(sectionCounts)
+      .filter(([, count]) => count > 1)
+      .forEach(([id, count]) => {
+        console.warn(
+          `Found ${count} section with the sectionId ${id}. This could potentially lead to unexpected errors.`,
+        );
+      });
+
     this.observer?.disconnect();
     this.observer = new IntersectionObserver(
       this.updateActiveEntry,
