@@ -57,6 +57,15 @@ The font sizes within the Markdown Editor are scaled based on the CSS variable `
 | `viewModeChange` | Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail` | `CustomEvent<"markdown" \| "preview" \| "readonly">` |
 
 
+## CSS Custom Properties
+
+| Name                               | Description                                                                                               |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `--ino-markdown-editor-font-size`  | Base font size for all text elements, which scales other font sizes accordingly. Default value is `16px`. |
+| `--ino-markdown-editor-max-height` | max-height of text editor Default value is `none`.                                                        |
+| `--ino-markdown-editor-min-height` | min-height of text editor. Default value is `100px`.                                                      |
+
+
 ## Dependencies
 
 ### Depends on
