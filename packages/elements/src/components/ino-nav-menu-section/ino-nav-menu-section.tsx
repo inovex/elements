@@ -1,4 +1,12 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core';
 
 /**
  * This component is designed to construct sections specifically intended
