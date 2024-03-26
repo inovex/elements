@@ -1,0 +1,29 @@
+@use '../base/typography-new' as typography;
+@use '../base/new-theme' as theme;
+@use '../base/animation' as animation;
+
+$sideBorderWidth: 2px;
+
+ino-nav-menu {
+  position: sticky;
+  top: 0;
+
+  .ino-nav-menu {
+    border-left: $sideBorderWidth solid theme.$n-2;
+  }
+
+  .ino-nav-menu .ino-nav-menu__title {
+    @include typography.typo('body-l');
+    font-weight: bold;
+    margin: 0 0 15px;
+    padding: 0 10px;
+  }
+
+  .ino-nav-menu .ino-nav-menu__sections {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

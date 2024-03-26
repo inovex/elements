@@ -1,0 +1,15 @@
+.menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.sections {
+  width: 70%;
+  max-height: 100%;
+  overflow: auto;
+
+  .section {
+    height: 50vh;
+  }
+}

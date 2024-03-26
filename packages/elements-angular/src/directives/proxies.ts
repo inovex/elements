@@ -794,6 +794,92 @@ export declare interface InoNavItem extends Components.InoNavItem {}
 
 
 @ProxyCmp({
+  inputs: ['intersectionObserverConfig', 'menuTitle', 'sectionsContainerId'],
+  methods: ['scrollToSection']
+})
+@Component({
+  selector: 'ino-nav-menu',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['intersectionObserverConfig', 'menuTitle', 'sectionsContainerId'],
+})
+export class InoNavMenu {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['activeSectionChange']);
+  }
+}
+
+
+export declare interface InoNavMenu extends Components.InoNavMenu {
+  /**
+   * Emitted when the active section within the navigation menu changes.
+This event provides the ID of the newly active section.
+Can be used for syncing the currently active element to the hash of the URL.
+   */
+  activeSectionChange: EventEmitter<CustomEvent<string>>;
+}
+
+
+@ProxyCmp({
+  inputs: ['isActive', 'isLoading', 'sectionId', 'sectionTitle']
+})
+@Component({
+  selector: 'ino-nav-menu-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['isActive', 'isLoading', 'sectionId', 'sectionTitle'],
+})
+export class InoNavMenuItem {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['itemClick']);
+  }
+}
+
+
+export declare interface InoNavMenuItem extends Components.InoNavMenuItem {
+
+  itemClick: EventEmitter<CustomEvent<string>>;
+}
+
+
+@ProxyCmp({
+  inputs: ['sectionId', 'sectionName', 'showTitle']
+})
+@Component({
+  selector: 'ino-nav-menu-section',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['sectionId', 'sectionName', 'showTitle'],
+})
+export class InoNavMenuSection {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['sectionReady']);
+  }
+}
+
+
+export declare interface InoNavMenuSection extends Components.InoNavMenuSection {
+  /**
+   * Emits the section ID on finished loading.
+Is used internally to register the section to the `ino-nav-menu`.
+   */
+  sectionReady: EventEmitter<CustomEvent<void>>;
+}
+
+
+@ProxyCmp({
   inputs: ['disabled', 'selected', 'value']
 })
 @Component({

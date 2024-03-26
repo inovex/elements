@@ -1,5 +1,6 @@
 @use '../base/typography-new' as typography;
 @use '../base/new-theme' as theme;
+@use '../base/animation' as animation;
 
 /**
   * @prop --ino-avatar-size: Width and height of the ino-avatar
@@ -129,38 +130,8 @@
   }
 
   .skeleton-loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include animation.skeleton-loading;
     border-radius: 50%;
-    height: 100%;
-    width: 100%;
-    background-color: #dddbdd;
-    overflow: hidden;
-
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      transform: translateX(-100%);
-      background-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.2) 20%,
-        rgba(255, 255, 255, 0.5) 60%,
-        rgba(255, 255, 255, 0)
-      );
-      animation: shimmer 5s infinite;
-    }
   }
 
   @keyframes shimmer {

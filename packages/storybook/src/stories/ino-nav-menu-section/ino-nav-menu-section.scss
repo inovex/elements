@@ -1,0 +1,18 @@
+.story-ino-nav-menu-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+
+  aside {
+    ino-nav-menu {
+      display: flex;
+      width: 150px;
+    }
+  }
+
+  main.sections {
+    max-height: 500px;
+    overflow: auto;
+  }
+}

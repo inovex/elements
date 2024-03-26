@@ -1,5 +1,6 @@
 import {
   InoButton,
+  InoNavMenu,
   InoSegmentButton,
   InoSegmentGroup,
 } from '@inovex.de/elements-react';
@@ -8,7 +9,6 @@ import { useRouter } from 'next/navigation';
 import { Framework, NameByFramework } from '@utils/frameworks';
 import { MainRoutes } from '@routes';
 import styles from './layout.module.scss';
-import NavigationMenu from './navigationMenu';
 import { defaultLng } from 'translations/i18n';
 
 interface Props {
@@ -45,8 +45,17 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
         </InoSegmentGroup>
       </div>
       <div className={styles.container}>
-        <article>{children}</article>
-        <NavigationMenu title={frameworkName.toUpperCase() + ' GUIDE'} />
+        <article id="guide-sections">{children}</article>
+        <aside>
+          <InoNavMenu
+            className={styles.inoNavMenu}
+            menuTitle={(frameworkName + ' guide').toUpperCase()}
+            sectionsContainerId="guide-sections"
+            onActiveSectionChange={(ev) =>
+              push(`#${ev.detail}`, { scroll: false })
+            }
+          />
+        </aside>
         <div className={styles.sandbox}>
           <h2>Looking for more resources?</h2>
           <p className="title-s">

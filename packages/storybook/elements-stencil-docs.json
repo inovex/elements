@@ -7032,6 +7032,426 @@
       "listeners": []
     },
     {
+      "filePath": "src/components/ino-nav-menu/ino-nav-menu.tsx",
+      "fileName": "ino-nav-menu.tsx",
+      "tag": "ino-nav-menu",
+      "readme": "# ino-nav-menu\n",
+      "overview": "A sticky navigation menu or sidebar that dynamically lists the names of sections present\non the current page. Each section must be constructed using the `ino-nav-menu-section` component.\nWhen a user selects a section from the navigation menu by clicking its name, the corresponding\nsection will smoothly scroll into the viewport, and vice versa.",
+      "usage": {},
+      "docs": "A sticky navigation menu or sidebar that dynamically lists the names of sections present\non the current page. Each section must be constructed using the `ino-nav-menu-section` component.\nWhen a user selects a section from the navigation menu by clicking its name, the corresponding\nsection will smoothly scroll into the viewport, and vice versa.",
+      "docsTags": [],
+      "encapsulation": "none",
+      "dependents": [],
+      "dependencies": [
+        "ino-nav-menu-item"
+      ],
+      "dependencyGraph": {
+        "ino-nav-menu": [
+          "ino-nav-menu-item"
+        ]
+      },
+      "props": [
+        {
+          "name": "intersectionObserverConfig",
+          "type": "IntersectionObserverInit",
+          "complexType": {
+            "original": "IntersectionObserverInit",
+            "resolved": "IntersectionObserverInit",
+            "references": {
+              "IntersectionObserverInit": {
+                "location": "global",
+                "id": "global::IntersectionObserverInit"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Config of the internal intersection observer.",
+          "docsTags": [],
+          "default": "DEFAULT_OBSERVER_OPTIONS",
+          "values": [
+            {
+              "type": "IntersectionObserverInit"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "menuTitle",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "menu-title",
+          "reflectToAttr": false,
+          "docs": "Title of the navigation menu.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "sectionsContainerId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "sections-container-id",
+          "reflectToAttr": false,
+          "docs": "ID of the container which holds the `ino-nav-menu-section` elements.\nIf no `sectionsContainerId` is provided, the component will automatically look up all `ino-nav-menu-section` in the body.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "scrollToSection",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(sectionId: string, behavior?: ScrollBehavior, topOffset?: number) => Promise<void>",
+            "parameters": [
+              {
+                "name": "sectionId",
+                "type": "string",
+                "docs": "The ID of the section to scroll to."
+              },
+              {
+                "name": "behavior",
+                "type": "\"auto\" | \"instant\" | \"smooth\"",
+                "docs": "(Optional) The scrolling behavior (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#behavior)). Defaults to 'smooth'."
+              },
+              {
+                "name": "topOffset",
+                "type": "number",
+                "docs": "(Optional) The top offset applied during scrolling to adjust the final position. Defaults to 80 pixels."
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "ScrollBehavior": {
+                "location": "global",
+                "id": "global::ScrollBehavior"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "scrollToSection(sectionId: string, behavior?: ScrollBehavior, topOffset?: number) => Promise<void>",
+          "parameters": [
+            {
+              "name": "sectionId",
+              "type": "string",
+              "docs": "The ID of the section to scroll to."
+            },
+            {
+              "name": "behavior",
+              "type": "\"auto\" | \"instant\" | \"smooth\"",
+              "docs": "(Optional) The scrolling behavior (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#behavior)). Defaults to 'smooth'."
+            },
+            {
+              "name": "topOffset",
+              "type": "number",
+              "docs": "(Optional) The top offset applied during scrolling to adjust the final position. Defaults to 80 pixels."
+            }
+          ],
+          "docs": "Programmatically scrolls to the specified section within the navigation sections.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "sectionId The ID of the section to scroll to."
+            },
+            {
+              "name": "param",
+              "text": "behavior (Optional) The scrolling behavior (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#behavior)). Defaults to 'smooth'."
+            },
+            {
+              "name": "param",
+              "text": "topOffset (Optional) The top offset applied during scrolling to adjust the final position. Defaults to 80 pixels."
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": "activeSectionChange",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the active section within the navigation menu changes.\nThis event provides the ID of the newly active section.\nCan be used for syncing the currently active element to the hash of the URL.",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [
+        {
+          "event": "sectionReady",
+          "target": "body",
+          "capture": false,
+          "passive": false
+        }
+      ]
+    },
+    {
+      "filePath": "src/components/ino-nav-menu-item/ino-nav-menu-item.tsx",
+      "fileName": "ino-nav-menu-item.tsx",
+      "tag": "ino-nav-menu-item",
+      "readme": "# ino-nav-menu-item\n",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [],
+      "encapsulation": "none",
+      "dependents": [
+        "ino-nav-menu"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-nav-menu": [
+          "ino-nav-menu-item"
+        ]
+      },
+      "props": [
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "is-active",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "isLoading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "is-loading",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "sectionId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "section-id",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "sectionTitle",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "section-title",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "itemClick",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": []
+    },
+    {
+      "filePath": "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx",
+      "fileName": "ino-nav-menu-section.tsx",
+      "tag": "ino-nav-menu-section",
+      "readme": "# ino-nav-menu-section\n",
+      "overview": "This component is designed to construct sections specifically intended\nfor use with the `ino-nav-menu` component.",
+      "usage": {},
+      "docs": "This component is designed to construct sections specifically intended\nfor use with the `ino-nav-menu` component.",
+      "docsTags": [],
+      "encapsulation": "none",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "sectionId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "section-id",
+          "reflectToAttr": true,
+          "docs": "Optional: ID of the section. Defaults to `sectionName` if not set.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "sectionName",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "section-name",
+          "reflectToAttr": false,
+          "docs": "Name of the section that is shown within the `ino-nav-menu`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "showTitle",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-title",
+          "reflectToAttr": false,
+          "docs": "If true, renders the `sectionName` as a `<h2>` element within the section.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "sectionReady",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits the section ID on finished loading.\nIs used internally to register the section to the `ino-nav-menu`.",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": []
+    },
+    {
       "filePath": "src/components/ino-option/ino-option.tsx",
       "fileName": "ino-option.tsx",
       "tag": "ino-option",
