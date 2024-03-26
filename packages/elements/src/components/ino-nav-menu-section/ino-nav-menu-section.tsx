@@ -1,11 +1,4 @@
-import { Component, ComponentInterface, Host, Prop, h, Event, EventEmitter, Method } from "@stencil/core";
-import { buildSectionId } from '../ino-nav-menu/ino-nav-menu-helper';
-
-export interface SectionReadyEvent {
-  key: number,
-  id: string,
-  title: string
-}
+import { Component, ComponentInterface, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 
 /**
  * This component is designed to construct sections specifically intended
@@ -17,60 +10,44 @@ export interface SectionReadyEvent {
   shadow: false,
 })
 export class NavMenuSection implements ComponentInterface {
-
-  private sectionRef: HTMLElement
-
   /**
-   * Name of the section referenced by the `ino-nav-menu` component.
+   * Name of the section that is shown within the `ino-nav-menu`.
    */
   @Prop() sectionName!: string;
 
   /**
-   * Optional: ID of the section referenced by the `ino-nav-menu` component on your own.
-   * Defaults to the sectionName if not set.
+   * Optional: ID of the section. Defaults to `sectionName` if not set.
    */
-  @Prop() sectionId?: string = '';
+  @Prop({ mutable: true, reflect: true }) sectionId?: string;
 
   /**
-   * If true, the section name will be presented as title (h2 element) within the section.
+   * If true, renders the `sectionName` as a `<h2>` element within the section.
    */
   @Prop() showTitle = true;
 
   /**
    * Emits the section ID on finished loading.
+   * Is used internally to register the section to the `ino-nav-menu`.
    */
-  @Event() sectionReady!: EventEmitter<SectionReadyEvent>;
+  @Event() sectionReady: EventEmitter<void>;
 
-  /**
-   * Is used to determine the position of this section inside of ino-nav-menu
-   */
-  @Prop() orderPosition!: number;
-
-
-  private getSectionId = (): string => {
-    // check if sectionId should be build from sectionName or was set by the consumer
-    if (this.sectionId.trim().length === 0 || this.sectionId === undefined) {
-      return buildSectionId(this.sectionName);
-    }
-    return this.sectionId;
-  };
-
-  @Method()
-  async sectionEl() {
-    return this.sectionRef
+  componentWillLoad(): void {
+    this.sectionId = NavMenuSection.sanitizeSectionName(this.sectionName);
   }
 
   componentDidLoad(): void {
-    this.sectionReady.emit({key: this.orderPosition, id: this.getSectionId(), title: this.sectionName});
+    this.sectionReady.emit();
+  }
+
+  private static sanitizeSectionName(name: string) {
+    return name?.toLowerCase().replace(/\s+/g, '-');
   }
 
   render() {
     return (
       <Host>
         <section
-          ref={el => this.sectionRef = el}
-          key={this.orderPosition}
-          id={this.getSectionId()}
+          id={this.sectionId}
           title={this.sectionName}
           ino-nav-menu-section
         >

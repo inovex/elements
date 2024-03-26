@@ -5,9 +5,11 @@
 }
 
 .sections {
-  width: 60%;
+  width: 70%;
+  max-height: 100%;
+  overflow: auto;
 
   .section {
-    height: 90vh;
+    height: 50vh;
   }
 }

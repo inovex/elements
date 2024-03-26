@@ -794,7 +794,7 @@ export declare interface InoNavItem extends Components.InoNavItem {}
 
 
 @ProxyCmp({
-  inputs: ['intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionsContainerId'],
+  inputs: ['intersectionObserverConfig', 'menuTitle', 'sectionsContainerId'],
   methods: ['scrollToSection']
 })
 @Component({
@@ -802,18 +802,26 @@ export declare interface InoNavItem extends Components.InoNavItem {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionsContainerId'],
+  inputs: ['intersectionObserverConfig', 'menuTitle', 'sectionsContainerId'],
 })
 export class InoNavMenu {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['activeSectionChange']);
   }
 }
 
 
-export declare interface InoNavMenu extends Components.InoNavMenu {}
+export declare interface InoNavMenu extends Components.InoNavMenu {
+  /**
+   * Emitted when the active section within the navigation menu changes.
+This event provides the ID of the newly active section.
+Can be used for syncing the currently active element to the hash of the URL.
+   */
+  activeSectionChange: EventEmitter<CustomEvent<string>>;
+}
 
 
 @ProxyCmp({
@@ -843,15 +851,14 @@ export declare interface InoNavMenuItem extends Components.InoNavMenuItem {
 
 
 @ProxyCmp({
-  inputs: ['orderPosition', 'sectionId', 'sectionName', 'showTitle'],
-  methods: ['sectionEl']
+  inputs: ['sectionId', 'sectionName', 'showTitle']
 })
 @Component({
   selector: 'ino-nav-menu-section',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['orderPosition', 'sectionId', 'sectionName', 'showTitle'],
+  inputs: ['sectionId', 'sectionName', 'showTitle'],
 })
 export class InoNavMenuSection {
   protected el: HTMLElement;
@@ -863,13 +870,12 @@ export class InoNavMenuSection {
 }
 
 
-import type { SectionReadyEvent as IInoNavMenuSectionSectionReadyEvent } from '@inovex.de/elements';
-
 export declare interface InoNavMenuSection extends Components.InoNavMenuSection {
   /**
    * Emits the section ID on finished loading.
+Is used internally to register the section to the `ino-nav-menu`.
    */
-  sectionReady: EventEmitter<CustomEvent<IInoNavMenuSectionSectionReadyEvent>>;
+  sectionReady: EventEmitter<CustomEvent<void>>;
 }
 
 

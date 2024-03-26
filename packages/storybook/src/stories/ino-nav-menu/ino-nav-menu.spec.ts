@@ -21,7 +21,7 @@ test.describe('ino-nav-menu', () => {
   });
 
   test('sections are initialized properly', async ({ page }) => {
-    await goToStory(page, ['structure', 'ino-nav-menu', 'default']);
+    await goToStory(page, ['Structure', 'ino-nav-menu', 'default']);
 
     await expect(page.getByText('Sections', { exact: true })).toBeVisible();
     await expect(menuSections).toHaveCount(3);
@@ -29,7 +29,7 @@ test.describe('ino-nav-menu', () => {
   });
 
   test('scrolling feature is working properly', async ({ page }) => {
-    await goToStory(page, ['structure', 'ino-nav-menu', 'default']);
+    await goToStory(page, ['Structure', 'ino-nav-menu', 'default']);
 
     // initially only the first section should be visible
     await expect(sections.nth(0)).toBeInViewport();
@@ -50,7 +50,7 @@ test.describe('ino-nav-menu', () => {
   });
 
   test('scrolling state is updated correctly', async ({ page }) => {
-    await goToStory(page, ['structure', 'ino-nav-menu', 'default']);
+    await goToStory(page, ['Structure', 'ino-nav-menu', 'default']);
 
     // wait for sections to be rendered
     await expect(menuSections).toHaveCount(3);
@@ -60,7 +60,7 @@ test.describe('ino-nav-menu', () => {
     await assertInactive(menuSections.nth(2));
 
     await menuSections.nth(1).click();
-    await assertInactive(menuSections.nth(0)); // FIXME sections do not update on scroll
+    await assertInactive(menuSections.nth(0));
     await assertActive(menuSections.nth(1));
     await assertInactive(menuSections.nth(2));
 
@@ -70,16 +70,8 @@ test.describe('ino-nav-menu', () => {
     await assertActive(menuSections.nth(2));
   });
 
-  test('active sections can be set', async ({ page }) => {
-    await goToStory(page, ['structure', 'ino-nav-menu', 'active-section']);
-
-    // wait for sections to be rendered
-    await expect(menuSections).toHaveCount(3)
-    await assertActive(menuSections.nth(1));
-  });
-
   test('menu title can be set', async ({ page }) => {
-    await goToStory(page, ['structure', 'ino-nav-menu', 'menu-title']);
+    await goToStory(page, ['Structure', 'ino-nav-menu', 'menu-title']);
     await expect(page.getByText('Contents', { exact: true })).toBeVisible();
   });
 });

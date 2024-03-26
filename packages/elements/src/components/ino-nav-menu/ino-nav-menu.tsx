@@ -1,6 +1,8 @@
 import {
   Component,
   ComponentInterface,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -9,25 +11,17 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import { addAnchorToLocation, scrollToAnchor } from '../../util/scroll-utils';
-import { sectionExists } from './ino-nav-menu-helper';
-import { SectionReadyEvent } from '../ino-nav-menu-section/ino-nav-menu-section';
 
 const DEFAULT_OBSERVER_OPTIONS: IntersectionObserverInit = {
   threshold: 0,
   rootMargin: '-30% 0px -70% 0px',
 };
 
-const DEFAULT_SCROLL_OFFSET = 80;
-
 /**
  * A sticky navigation menu or sidebar that dynamically lists the names of sections present
  * on the current page. Each section must be constructed using the `ino-nav-menu-section` component.
  * When a user selects a section from the navigation menu by clicking its name, the corresponding
  * section will smoothly scroll into the viewport, and vice versa.
- *
- * The selected or active section must be handled outside of the component using the property
- * `activeSection` and the event `activeSectionChanged` as described below.
  */
 @Component({
   tag: 'ino-nav-menu',
@@ -40,31 +34,6 @@ export class NavMenu implements ComponentInterface {
   private target = document.body;
 
   /**
-   * sectionsIntern represent the found section which ino-nav-menu should display.
-   * Will use the IDs from sectionIds if given, or autodetect them in the sectionContainer via the `sectionReady` Events emitted by ino-nav-menu-sections
-   *
-   */
-  @State() sections: Array<HTMLInoNavMenuSectionElement> = [];
-
-  @Watch('sections')
-  async reInitSections(): Promise<void> {
-    this.observer?.disconnect();
-    this.initIntersectionObserver();
-    this.scrollAfterInit();
-  }
-
-  @Listen('sectionReady', { target: 'body' })
-  onSectionReady(e: CustomEvent<SectionReadyEvent>) {
-    const sectionEl = e.target as HTMLInoNavMenuSectionElement;
-
-    const alreadyAdded = this.sections.some((section) => section === sectionEl);
-
-    if (alreadyAdded) return;
-
-    this.sections = this.sectionEls;
-  }
-
-  /**
    * Title of the navigation menu.
    */
   @Prop() menuTitle!: string;
@@ -75,91 +44,81 @@ export class NavMenu implements ComponentInterface {
    */
   @Prop() sectionsContainerId?: string;
 
-  @State() activeSection?: string;
-
-  /**
-   * Scroll offset of the sticky navigation menu.
-   */
-  @Prop() scrollOffset: number = DEFAULT_SCROLL_OFFSET;
-
-  /**
-   * Overrides the `ino-nav-menu`'s loading animation behavior.
-   * When set to true, the loading animation is displayed indefinitely.
-   * When set to false, the `ino-nav-menu` will not show any loading animations.
-   *
-   * By default, the loading animation will be shown only during the section-fetching/autodetection process.
-   */
-  @Prop() loading?: boolean = true;
+  @Watch('sectionsContainerId')
+  onSectionsContainerIdChanged() {
+    this.registerSections();
+  }
 
   /**
    * Config of the internal intersection observer.
    */
   @Prop() intersectionObserverConfig = DEFAULT_OBSERVER_OPTIONS;
 
-  private initIntersectionObserver() {
-    this.observer = new IntersectionObserver(
-      this.updateActiveEntry,
-      this.intersectionObserverConfig,
-    );
+  /**
+   * Emitted when the active section within the navigation menu changes.
+   * This event provides the ID of the newly active section.
+   * Can be used for syncing the currently active element to the hash of the URL.
+   */
+  @Event() activeSectionChange: EventEmitter<string>;
 
-    for (const section of this.sections) {
-      this.observer.observe(section);
+  /**
+   * Programmatically scrolls to the specified section within the navigation sections.
+   * @param sectionId The ID of the section to scroll to.
+   * @param behavior (Optional) The scrolling behavior (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#behavior)). Defaults to 'smooth'.
+   * @param topOffset (Optional) The top offset applied during scrolling to adjust the final position. Defaults to 80 pixels.
+   */
+  @Method()
+  async scrollToSection(
+    sectionId: string,
+    behavior: ScrollBehavior = 'smooth',
+    topOffset: number = 80,
+  ) {
+    const escapedId = CSS.escape(sectionId); // id could contain invalid characters (numbers, (, ), ...)
+    const elementToScrollTo = this.target.querySelector(`#${escapedId}`);
+
+    if (!elementToScrollTo) {
+      throw new Error(
+        `Could not scroll to element with id ${sectionId}. It doesn't exist.`,
+      );
     }
+
+    const { top } = elementToScrollTo.getBoundingClientRect();
+
+    const offsetPosition = top + window.scrollY - topOffset;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: behavior,
+    });
   }
 
-  private scrollAfterInit(): void {
-    let sectionId: string;
-    // check if url has # to jump to
-    if (!location.hash.includes('#')) {
-      return;
-    }
-    if (this.isLocationWithValidAnchor()) {
-      sectionId = location.hash.replace(/#/, '');
-    } else if (this.isActiveSectionSet()) {
-      sectionId = this.activeSection;
-    }
-    this.scrollToSection(sectionId, 'instant');
+  /**
+   * References to the `ino-nav-menu-section` elements within the navigation menu.
+   * This array is dynamically updated based on the sections present on the current page.
+   */
+  @State() sections: Array<HTMLInoNavMenuSectionElement> = [];
+
+  /**
+   * Represents the ID of the currently active section within the navigation menu.
+   * This state property is dynamically updated as the user scrolls through the page.
+   */
+  @State() activeSection?: HTMLInoNavMenuSectionElement;
+
+  @Watch('activeSection')
+  onActiveSectionChange() {
+    if (!this.activeSection) return;
+
+    this.activeSectionChange.emit(this.activeSection.sectionId);
   }
 
-  private updateActiveEntry = (entries: IntersectionObserverEntry[]) => {
-    const intersectedElement = entries
-      .reverse() // TODO comment why
-      .find((el) => el.isIntersecting);
+  @Listen('sectionReady', { target: 'body' })
+  onSectionReady(e: CustomEvent<void>) {
+    const sectionEl = e.target as HTMLInoNavMenuSectionElement;
+    const alreadyAdded = this.sections.some((section) => section === sectionEl);
 
-    if (!intersectedElement) return;
+    if (alreadyAdded) return;
 
-    const intersectedSectionId = (
-      intersectedElement.target as HTMLInoNavMenuSectionElement
-    )?.sectionId;
-
-    if (!intersectedSectionId) return;
-
-    this.activeSection = intersectedSectionId;
-  };
-
-  private handleAnchorClick = (sectionId: string) => {
-    if (sectionExists(sectionId)) {
-      addAnchorToLocation(sectionId);
-      this.scrollToSection(sectionId);
-    }
-  };
-
-  private isLocationWithValidAnchor = (): boolean => {
-    if (!this.sections) {
-      return false;
-    }
-    for (const section of this.sections) {
-      return section.sectionId.includes(location.hash.replace('#', ''));
-    }
-  };
-
-  private isActiveSectionSet = (): boolean => {
-    const allSections = Object.values(this.sections);
-
-    if (allSections.length === 0) return;
-
-    return allSections.some((section) => section.id === this.activeSection);
-  };
+    this.registerSections();
+  }
 
   componentDidLoad() {
     if (this.sectionsContainerId) {
@@ -172,49 +131,60 @@ export class NavMenu implements ComponentInterface {
       }
     }
 
-    this.sections = this.sectionEls;
+    this.registerSections();
   }
+
+  private updateActiveEntry = (entries: IntersectionObserverEntry[]) => {
+    const intersectedElement = entries
+      .reverse()
+      .find((el) => el.isIntersecting);
+
+    if (!intersectedElement) return;
+
+    const intersectedSection =
+      intersectedElement.target as HTMLInoNavMenuSectionElement;
+
+    if (!intersectedSection) return;
+
+    this.activeSection = intersectedSection;
+  };
 
   /**
-   * Programmatically scroll to a given section.
-   * @param sectionId
-   * @param behavior
+   * Re-initializes the sections within the navigation menu.
+   * This method disconnects the current IntersectionObserver instance, initializes a new one,
+   * and scrolls to the active section after reinitialization.
    */
-  @Method()
-  async scrollToSection(
-    sectionId: string,
-    behavior: ScrollBehavior = 'smooth',
-  ) {
-    if (!sectionExists(sectionId)) return;
+  private registerSections() {
+    this.sections = Array.from(
+      this.target.querySelectorAll('ino-nav-menu-section'),
+    );
+    this.observer?.disconnect();
+    this.observer = new IntersectionObserver(
+      this.updateActiveEntry,
+      this.intersectionObserverConfig,
+    );
 
-    scrollToAnchor(sectionId, behavior, this.scrollOffset);
-  }
-
-  get sectionEls() {
-    return Array.from(this.target.querySelectorAll('ino-nav-menu-section'));
+    for (const section of this.sections) {
+      this.observer.observe(section);
+    }
   }
 
   render() {
     return (
       <Host>
-        <nav
-          class="ino-nav-menu"
-          role="menu"
-          style={{ top: DEFAULT_SCROLL_OFFSET + 'px' }}
-        >
+        <nav class="ino-nav-menu" role="menu">
           <h3 class="ino-nav-menu__title">{this.menuTitle}</h3>
           <ul class="ino-nav-menu__sections">
             {this.sections.map((section) => (
               <ino-nav-menu-item
                 sectionId={section.sectionId}
                 sectionTitle={section.sectionName}
-                isActive={this.activeSection === section.sectionId}
-                onItemClick={(ev) => this.handleAnchorClick(ev.detail)}
+                isActive={this.activeSection === section}
+                onItemClick={(ev) => this.scrollToSection(ev.detail)}
               />
             ))}
           </ul>
         </nav>
-        <slot></slot>
       </Host>
     );
   }

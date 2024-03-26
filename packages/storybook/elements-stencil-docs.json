@@ -6662,9 +6662,9 @@
       "fileName": "ino-nav-menu.tsx",
       "tag": "ino-nav-menu",
       "readme": "# ino-nav-menu\n",
-      "overview": "A sticky navigation menu or sidebar that dynamically lists the names of sections present\non the current page. Each section must be constructed using the `ino-nav-menu-section` component.\nWhen a user selects a section from the navigation menu by clicking its name, the corresponding\nsection will smoothly scroll into the viewport, and vice versa.\n\nThe selected or active section must be handled outside of the component using the property\n`activeSection` and the event `activeSectionChanged` as described below.",
+      "overview": "A sticky navigation menu or sidebar that dynamically lists the names of sections present\non the current page. Each section must be constructed using the `ino-nav-menu-section` component.\nWhen a user selects a section from the navigation menu by clicking its name, the corresponding\nsection will smoothly scroll into the viewport, and vice versa.",
       "usage": {},
-      "docs": "A sticky navigation menu or sidebar that dynamically lists the names of sections present\non the current page. Each section must be constructed using the `ino-nav-menu-section` component.\nWhen a user selects a section from the navigation menu by clicking its name, the corresponding\nsection will smoothly scroll into the viewport, and vice versa.\n\nThe selected or active section must be handled outside of the component using the property\n`activeSection` and the event `activeSectionChanged` as described below.",
+      "docs": "A sticky navigation menu or sidebar that dynamically lists the names of sections present\non the current page. Each section must be constructed using the `ino-nav-menu-section` component.\nWhen a user selects a section from the navigation menu by clicking its name, the corresponding\nsection will smoothly scroll into the viewport, and vice versa.",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
@@ -6704,28 +6704,6 @@
           "required": false
         },
         {
-          "name": "loading",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "loading",
-          "reflectToAttr": false,
-          "docs": "Overrides the `ino-nav-menu`'s loading animation behavior.\nWhen set to true, the loading animation is displayed indefinitely.\nWhen set to false, the `ino-nav-menu` will not show any loading animations.\n\nBy default, the loading animation will be shown only during the section-fetching/autodetection process.",
-          "docsTags": [],
-          "default": "true",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "menuTitle",
           "type": "string",
           "complexType": {
@@ -6745,28 +6723,6 @@
           ],
           "optional": false,
           "required": true
-        },
-        {
-          "name": "scrollOffset",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "scroll-offset",
-          "reflectToAttr": false,
-          "docs": "Scroll offset of the sticky navigation menu.",
-          "docsTags": [],
-          "default": "DEFAULT_SCROLL_OFFSET",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
         },
         {
           "name": "sectionsContainerId",
@@ -6798,17 +6754,22 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "(sectionId: string, behavior?: ScrollBehavior) => Promise<void>",
+            "signature": "(sectionId: string, behavior?: ScrollBehavior, topOffset?: number) => Promise<void>",
             "parameters": [
               {
                 "name": "sectionId",
                 "type": "string",
-                "docs": ""
+                "docs": "The ID of the section to scroll to."
               },
               {
                 "name": "behavior",
                 "type": "\"auto\" | \"instant\" | \"smooth\"",
-                "docs": ""
+                "docs": "(Optional) The scrolling behavior (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#behavior)). Defaults to 'smooth'."
+              },
+              {
+                "name": "topOffset",
+                "type": "number",
+                "docs": "(Optional) The top offset applied during scrolling to adjust the final position. Defaults to 80 pixels."
               }
             ],
             "references": {
@@ -6823,33 +6784,57 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "scrollToSection(sectionId: string, behavior?: ScrollBehavior) => Promise<void>",
+          "signature": "scrollToSection(sectionId: string, behavior?: ScrollBehavior, topOffset?: number) => Promise<void>",
           "parameters": [
             {
               "name": "sectionId",
               "type": "string",
-              "docs": ""
+              "docs": "The ID of the section to scroll to."
             },
             {
               "name": "behavior",
               "type": "\"auto\" | \"instant\" | \"smooth\"",
-              "docs": ""
+              "docs": "(Optional) The scrolling behavior (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#behavior)). Defaults to 'smooth'."
+            },
+            {
+              "name": "topOffset",
+              "type": "number",
+              "docs": "(Optional) The top offset applied during scrolling to adjust the final position. Defaults to 80 pixels."
             }
           ],
-          "docs": "Programmatically scroll to a given section.",
+          "docs": "Programmatically scrolls to the specified section within the navigation sections.",
           "docsTags": [
             {
               "name": "param",
-              "text": "sectionId"
+              "text": "sectionId The ID of the section to scroll to."
             },
             {
               "name": "param",
-              "text": "behavior"
+              "text": "behavior (Optional) The scrolling behavior (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#behavior)). Defaults to 'smooth'."
+            },
+            {
+              "name": "param",
+              "text": "topOffset (Optional) The top offset applied during scrolling to adjust the final position. Defaults to 80 pixels."
             }
           ]
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "event": "activeSectionChange",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the active section within the navigation menu changes.\nThis event provides the ID of the newly active section.\nCan be used for syncing the currently active element to the hash of the URL.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],
@@ -7006,27 +6991,6 @@
       "dependencyGraph": {},
       "props": [
         {
-          "name": "orderPosition",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "order-position",
-          "reflectToAttr": false,
-          "docs": "Is used to determine the position of this section inside of ino-nav-menu",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": true
-        },
-        {
           "name": "sectionId",
           "type": "string",
           "complexType": {
@@ -7034,12 +6998,11 @@
             "resolved": "string",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "section-id",
-          "reflectToAttr": false,
-          "docs": "Optional: ID of the section referenced by the `ino-nav-menu` component on your own.\nDefaults to the sectionName if not set.",
+          "reflectToAttr": true,
+          "docs": "Optional: ID of the section. Defaults to `sectionName` if not set.",
           "docsTags": [],
-          "default": "''",
           "values": [
             {
               "type": "string"
@@ -7059,7 +7022,7 @@
           "mutable": false,
           "attr": "section-name",
           "reflectToAttr": false,
-          "docs": "Name of the section referenced by the `ino-nav-menu` component.",
+          "docs": "Name of the section that is shown within the `ino-nav-menu`.",
           "docsTags": [],
           "values": [
             {
@@ -7080,7 +7043,7 @@
           "mutable": false,
           "attr": "show-title",
           "reflectToAttr": false,
-          "docs": "If true, the section name will be presented as title (h2 element) within the section.",
+          "docs": "If true, renders the `sectionName` as a `<h2>` element within the section.",
           "docsTags": [],
           "default": "true",
           "values": [
@@ -7092,53 +7055,20 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "sectionEl",
-          "returns": {
-            "type": "Promise<HTMLElement>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<HTMLElement>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "HTMLElement": {
-                "location": "global",
-                "id": "global::HTMLElement"
-              }
-            },
-            "return": "Promise<HTMLElement>"
-          },
-          "signature": "sectionEl() => Promise<HTMLElement>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": []
-        }
-      ],
+      "methods": [],
       "events": [
         {
           "event": "sectionReady",
-          "detail": "SectionReadyEvent",
+          "detail": "void",
           "bubbles": true,
           "complexType": {
-            "original": "SectionReadyEvent",
-            "resolved": "SectionReadyEvent",
-            "references": {
-              "SectionReadyEvent": {
-                "location": "local",
-                "path": "/Users/arbeit/Projects/elements/packages/elements/src/components/ino-nav-menu-section/ino-nav-menu-section.tsx",
-                "id": "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx::SectionReadyEvent"
-              }
-            }
+            "original": "void",
+            "resolved": "void",
+            "references": {}
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emits the section ID on finished loading.",
+          "docs": "Emits the section ID on finished loading.\nIs used internally to register the section to the `ino-nav-menu`.",
           "docsTags": []
         }
       ],
@@ -11337,11 +11267,6 @@
     }
   ],
   "typeLibrary": {
-    "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx::SectionReadyEvent": {
-      "declaration": "export interface SectionReadyEvent {\n  key: number,\n  id: string,\n  title: string\n}",
-      "docstring": "",
-      "path": "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx"
-    },
     "src/components/types.ts::KeyValue": {
       "declaration": "{\n  key: string;\n  value: string;\n}",
       "docstring": "",
@@ -11481,6 +11406,11 @@
       "declaration": "export interface SortDirectionChangeDetails {\n  columnId: string;\n  sortDirection: SortDirection;\n}",
       "docstring": "",
       "path": "src/interface.d.ts"
+    },
+    "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx::SectionReadyEvent": {
+      "declaration": "export interface SectionReadyEvent {\n  key: number,\n  id: string,\n  title: string\n}",
+      "docstring": "",
+      "path": "src/components/ino-nav-menu-section/ino-nav-menu-section.tsx"
     }
   }
 }

@@ -10,4 +10,9 @@
       width: 150px;
     }
   }
+
+  main.sections {
+    max-height: 500px;
+    overflow: auto;
+  }
 }
