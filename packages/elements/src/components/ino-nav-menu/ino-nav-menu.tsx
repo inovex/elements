@@ -1,11 +1,10 @@
 import {
   Component,
   ComponentInterface,
-  Event,
-  EventEmitter,
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
   Watch,
@@ -17,11 +16,6 @@ import { SectionReadyEvent } from '../ino-nav-menu-section/ino-nav-menu-section'
 const DEFAULT_OBSERVER_OPTIONS: IntersectionObserverInit = {
   threshold: 0,
   rootMargin: '-30% 0px -70% 0px',
-};
-
-type Section = {
-  id: string;
-  title: string;
 };
 
 const DEFAULT_SCROLL_OFFSET = 80;
@@ -50,9 +44,9 @@ export class NavMenu implements ComponentInterface {
    * Will use the IDs from sectionIds if given, or autodetect them in the sectionContainer via the `sectionReady` Events emitted by ino-nav-menu-sections
    *
    */
-  @State() sectionsIntern: Array<Section> = [];
+  @State() sections: Array<HTMLInoNavMenuSectionElement> = [];
 
-  @Watch('sectionsIntern')
+  @Watch('sections')
   async reInitSections(): Promise<void> {
     this.observer?.disconnect();
     this.initIntersectionObserver();
@@ -61,22 +55,13 @@ export class NavMenu implements ComponentInterface {
 
   @Listen('sectionReady', { target: 'body' })
   onSectionReady(e: CustomEvent<SectionReadyEvent>) {
-    const { id, title } = e.detail;
+    const sectionEl = e.target as HTMLInoNavMenuSectionElement;
 
-    const alreadyAdded = this.sectionsIntern.some(
-      (section) => section.id === id,
-    );
+    const alreadyAdded = this.sections.some((section) => section === sectionEl);
 
     if (alreadyAdded) return;
 
-    const newSection: Section = { id, title };
-    const idx = this.sections.findIndex((section) => section.id === id);
-
-    this.sectionsIntern = [
-      ...this.sectionsIntern.slice(0, idx), // part of the sections before the new section
-      newSection, // section to insert
-      ...this.sectionsIntern.slice(idx), // part of the sections after the new section
-    ];
+    this.sections = this.sectionEls;
   }
 
   /**
@@ -90,25 +75,7 @@ export class NavMenu implements ComponentInterface {
    */
   @Prop() sectionsContainerId?: string;
 
-  /**
-   * To specify the selected section, utilize the `buildSectionId` helper function to generate a
-   * unique section ID based on the section name if no ID was specified. This ID must be provided when configuring the
-   * component. The section ID can be set to null if no section should be selected initially or
-   * when operating in autodetect mode (means no sections provided).
-   *
-   * TODO: rename to activeSectionId
-   */
-  @Prop() activeSection?: string;
-
-  @Watch('activeSection')
-  onActiveSectionChanged(
-    newActiveSection: string,
-    oldActiveSection: string,
-  ): void {
-    if (oldActiveSection !== newActiveSection) {
-      this.scrollToSection(newActiveSection);
-    }
-  }
+  @State() activeSection?: string;
 
   /**
    * Scroll offset of the sticky navigation menu.
@@ -129,34 +96,14 @@ export class NavMenu implements ComponentInterface {
    */
   @Prop() intersectionObserverConfig = DEFAULT_OBSERVER_OPTIONS;
 
-  /**
-   * Emits the section ID when the corresponding section is selected by scrolling
-   * into the viewport. This event can be utilized to update the `activeSection` property.
-   */
-  @Event({ bubbles: false }) activeSectionChanged!: EventEmitter<string>;
-
   private initIntersectionObserver() {
     this.observer = new IntersectionObserver(
       this.updateActiveEntry,
       this.intersectionObserverConfig,
     );
 
-    this.sectionsIntern.forEach((section) => {
-      const sectionEl = this.sections.find((s) => s.sectionId === section.id);
-      this.observer.observe(sectionEl);
-    });
-  }
-
-  private emitActiveSection(sectionId: string): void {
-    this.activeSectionChanged.emit(sectionId);
-  }
-
-  private scrollToSection(
-    sectionId: string,
-    behavior: ScrollBehavior = 'smooth',
-  ): void {
-    if (sectionId && sectionExists(sectionId)) {
-      scrollToAnchor(sectionId, behavior, this.scrollOffset);
+    for (const section of this.sections) {
+      this.observer.observe(section);
     }
   }
 
@@ -168,7 +115,6 @@ export class NavMenu implements ComponentInterface {
     }
     if (this.isLocationWithValidAnchor()) {
       sectionId = location.hash.replace(/#/, '');
-      this.emitActiveSection(sectionId);
     } else if (this.isActiveSectionSet()) {
       sectionId = this.activeSection;
     }
@@ -188,7 +134,7 @@ export class NavMenu implements ComponentInterface {
 
     if (!intersectedSectionId) return;
 
-    this.emitActiveSection(intersectedSectionId);
+    this.activeSection = intersectedSectionId;
   };
 
   private handleAnchorClick = (sectionId: string) => {
@@ -199,18 +145,16 @@ export class NavMenu implements ComponentInterface {
   };
 
   private isLocationWithValidAnchor = (): boolean => {
-    if (!this.sectionsIntern) {
+    if (!this.sections) {
       return false;
     }
-    for (const index in this.sectionsIntern) {
-      return this.sectionsIntern[index].id.includes(
-        location.hash.replace('#', ''),
-      );
+    for (const section of this.sections) {
+      return section.sectionId.includes(location.hash.replace('#', ''));
     }
   };
 
   private isActiveSectionSet = (): boolean => {
-    const allSections = Object.values(this.sectionsIntern);
+    const allSections = Object.values(this.sections);
 
     if (allSections.length === 0) return;
 
@@ -228,13 +172,25 @@ export class NavMenu implements ComponentInterface {
       }
     }
 
-    this.sectionsIntern = this.sections.map((section) => ({
-      id: section.sectionId,
-      title: section.sectionName,
-    }));
+    this.sections = this.sectionEls;
   }
 
-  get sections() {
+  /**
+   * Programmatically scroll to a given section.
+   * @param sectionId
+   * @param behavior
+   */
+  @Method()
+  async scrollToSection(
+    sectionId: string,
+    behavior: ScrollBehavior = 'smooth',
+  ) {
+    if (!sectionExists(sectionId)) return;
+
+    scrollToAnchor(sectionId, behavior, this.scrollOffset);
+  }
+
+  get sectionEls() {
     return Array.from(this.target.querySelectorAll('ino-nav-menu-section'));
   }
 
@@ -248,11 +204,11 @@ export class NavMenu implements ComponentInterface {
         >
           <h3 class="ino-nav-menu__title">{this.menuTitle}</h3>
           <ul class="ino-nav-menu__sections">
-            {this.sectionsIntern.map((section) => (
+            {this.sections.map((section) => (
               <ino-nav-menu-item
-                sectionId={section.id}
-                sectionTitle={section.title}
-                isActive={this.activeSection === section.id}
+                sectionId={section.sectionId}
+                sectionTitle={section.sectionName}
+                isActive={this.activeSection === section.sectionId}
                 onItemClick={(ev) => this.handleAnchorClick(ev.detail)}
               />
             ))}

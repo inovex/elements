@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { Component, ComponentInterface, Host, Prop, h, Event, EventEmitter, Method } from "@stencil/core";
 import { buildSectionId } from '../ino-nav-menu/ino-nav-menu-helper';
 
 export interface SectionReadyEvent {
@@ -17,6 +17,9 @@ export interface SectionReadyEvent {
   shadow: false,
 })
 export class NavMenuSection implements ComponentInterface {
+
+  private sectionRef: HTMLElement
+
   /**
    * Name of the section referenced by the `ino-nav-menu` component.
    */
@@ -52,6 +55,11 @@ export class NavMenuSection implements ComponentInterface {
     return this.sectionId;
   };
 
+  @Method()
+  async sectionEl() {
+    return this.sectionRef
+  }
+
   componentDidLoad(): void {
     this.sectionReady.emit({key: this.orderPosition, id: this.getSectionId(), title: this.sectionName});
   }
@@ -60,6 +68,7 @@ export class NavMenuSection implements ComponentInterface {
     return (
       <Host>
         <section
+          ref={el => this.sectionRef = el}
           key={this.orderPosition}
           id={this.getSectionId()}
           title={this.sectionName}

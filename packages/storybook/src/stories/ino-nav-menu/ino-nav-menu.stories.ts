@@ -77,7 +77,6 @@ const inoNavMenuMeta = {
       <ino-nav-menu
         class="menu"
         menu-title="${args.menuTitle}"
-        active-section="${args.activeSection}"
         sections-container-id="sections-playground-${templateCounter}"
         .intersection-observer-config="${args.intersectionObserverConfig}"
         scroll-offset="${args.scrollOffset}"
@@ -126,14 +125,6 @@ export const Default = Story({
   ...inoNavMenuMeta,
 });
 
-export const ActiveSection = Story({
-  ...Default,
-  docsFromProperty: 'activeSection',
-  args: {
-    activeSection: `section-2-${templateCounter}`
-  }
-});
-
 export const MenuTitle = Story({
   ...Default,
   docsFromProperty: 'menuTitle',
@@ -167,7 +158,6 @@ export const Loading = Story({
     <aside>
       <ino-nav-menu
         menu-title="${args.menuTitle}"
-        @activeSectionChanged="${activeSectionChanged}"
         loading="${args.loading}"
       ></ino-nav-menu>
     </aside>

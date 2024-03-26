@@ -43,15 +43,6 @@ Use the custom `ino-option` component to add options to the select component. Th
 | `"icon-leading"` | For the icon to be prepended      |
 
 
-## CSS Custom Properties
-
-| Name                      | Description                           |
-| ------------------------- | ------------------------------------- |
-| `--ino-border-radius`     | Border-radius of the open select menu |
-| `--ino-select-height`     | Height of the open select menu        |
-| `--ino-select-icon-color` | Icon color                            |
-
-
 ## Dependencies
 
 ### Depends on

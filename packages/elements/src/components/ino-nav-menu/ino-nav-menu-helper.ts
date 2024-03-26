@@ -1,10 +1,7 @@
 export const sectionExists = (
-  section: Record<'id' | 'name', string> | string,
+  sectionId: string,
 ): boolean => {
-  if (typeof section === 'string') {
-    return document.getElementById(section) !== null;
-  }
-  return document.getElementById(section.id) !== null;
+    return document.getElementById(sectionId) !== null;
 };
 
 export const buildSectionId = (name: string): string | null =>

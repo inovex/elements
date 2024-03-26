@@ -25,6 +25,19 @@ for use with the `ino-nav-menu` component.
 | `sectionReady` | Emits the section ID on finished loading. | `CustomEvent<SectionReadyEvent>` |
 
 
+## Methods
+
+### `sectionEl() => Promise<HTMLElement>`
+
+
+
+#### Returns
+
+Type: `Promise<HTMLElement>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

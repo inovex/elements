@@ -794,32 +794,26 @@ export declare interface InoNavItem extends Components.InoNavItem {}
 
 
 @ProxyCmp({
-  inputs: ['activeSection', 'intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionsContainerId']
+  inputs: ['intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionsContainerId'],
+  methods: ['scrollToSection']
 })
 @Component({
   selector: 'ino-nav-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['activeSection', 'intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionsContainerId'],
+  inputs: ['intersectionObserverConfig', 'loading', 'menuTitle', 'scrollOffset', 'sectionsContainerId'],
 })
 export class InoNavMenu {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['activeSectionChanged']);
   }
 }
 
 
-export declare interface InoNavMenu extends Components.InoNavMenu {
-  /**
-   * Emits the section ID when the corresponding section is selected by scrolling
-into the viewport. This event can be utilized to update the `activeSection` property.
-   */
-  activeSectionChanged: EventEmitter<CustomEvent<string>>;
-}
+export declare interface InoNavMenu extends Components.InoNavMenu {}
 
 
 @ProxyCmp({
@@ -849,7 +843,8 @@ export declare interface InoNavMenuItem extends Components.InoNavMenuItem {
 
 
 @ProxyCmp({
-  inputs: ['orderPosition', 'sectionId', 'sectionName', 'showTitle']
+  inputs: ['orderPosition', 'sectionId', 'sectionName', 'showTitle'],
+  methods: ['sectionEl']
 })
 @Component({
   selector: 'ino-nav-menu-section',
