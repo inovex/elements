@@ -5,7 +5,6 @@ import {
   InoSegmentGroup,
 } from '@inovex.de/elements-react';
 import Image from 'next/image';
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Framework, NameByFramework } from '@utils/frameworks';
 import { MainRoutes } from '@routes';
@@ -28,8 +27,6 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
   const { push } = useRouter();
   const frameworkName = NameByFramework[framework];
 
-  const [activeSection, setActiveSection] = useState<string | null>(null);
-
   return (
     <div className={styles['mdx-content']}>
       <div className={styles.segmentGroup}>
@@ -51,10 +48,12 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
         <article id="guide-sections">{children}</article>
         <aside>
           <InoNavMenu
+            className={styles.inoNavMenu}
             menuTitle={(frameworkName + ' guide').toUpperCase()}
-            activeSection={activeSection}
-            onActiveSectionChanged={(e) => setActiveSection(e.detail)}
             sectionsContainerId="guide-sections"
+            onActiveSectionChange={(ev) =>
+              push(`#${ev.detail}`, { scroll: false })
+            }
           />
         </aside>
         <div className={styles.sandbox}>
