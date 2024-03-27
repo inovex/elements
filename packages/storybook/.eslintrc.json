@@ -1,18 +1,25 @@
 {
   "extends": [
-    "../../.eslintrc.json",
-    "plugin:playwright/recommended",
-    "plugin:storybook/recommended"
+    "../../.eslintrc.json"
   ],
-  "ignorePatterns": ["!**/*"],
-  "rules": {
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
-  },
+  "ignorePatterns": [
+    "!**/*",
+    "node_modules/*",
+    "dist/*"
+  ],
   "overrides": [
     {
-      "files": ["src/**/*.spec.{ts,js,tsx,jsx}"],
-      "rules": {}
+      "files": [
+        "src/**/*.{ts,js,tsx,jsx}"
+      ],
+      "extends": [
+        "plugin:playwright/recommended",
+        "plugin:storybook/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
     }
   ]
 }
