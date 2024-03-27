@@ -1,25 +1,13 @@
 <template>
-  <form
-    id="contact-form"
-    @submit="showFormData"
-  >
+  <form id="contact-form" @submit="showFormData">
     <ino-radio-group :value="gender">
-      <ino-radio
-        value="m"
-        @checkedChange="() => (gender = 'm')"
-      >
+      <ino-radio value="m" @checkedChange="() => (gender = 'm')">
         male
       </ino-radio>
-      <ino-radio
-        value="f"
-        @checkedChange="() => (gender = 'f')"
-      >
+      <ino-radio value="f" @checkedChange="() => (gender = 'f')">
         female
       </ino-radio>
-      <ino-radio
-        value="o"
-        @checkedChange="() => (gender = 'o')"
-      >
+      <ino-radio value="o" @checkedChange="() => (gender = 'o')">
         other
       </ino-radio>
     </ino-radio-group>
@@ -31,11 +19,7 @@
       required
       @valueChange="({ detail }) => (selectedTitle = detail)"
     >
-      <ino-option
-        v-for="(title, i) in availableTitles"
-        :key="i"
-        :value="title"
-      >
+      <ino-option v-for="(title, i) in availableTitles" :key="i" :value="title">
         {{ title }}
       </ino-option>
     </ino-select>
@@ -49,10 +33,7 @@
       type="text"
       @valueChange="({ detail }) => (name = detail)"
     >
-      <ino-icon
-        slot="icon-leading"
-        icon="user"
-      />
+      <ino-icon slot="icon-leading" icon="user" />
     </ino-input>
     <ino-datepicker
       v-model="birthday"

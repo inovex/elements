@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "../../.eslintrc.json"
-  ],
+  "extends": ["../../.eslintrc.json"],
   "ignorePatterns": [
     "!**/*",
     "stencil.config.ts",
@@ -11,21 +9,12 @@
   ],
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
-      "extends": [
-        "plugin:@stencil-community/recommended"
-      ],
-      "plugins": [
-        "eslint-plugin-no-null"
-      ],
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@stencil-community/recommended"],
+      "plugins": ["eslint-plugin-no-null"],
       // We set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
       "parserOptions": {
-        "project": [
-          "packages/elements/tsconfig.*?.json"
-        ]
+        "project": ["packages/elements/tsconfig.*?.json"]
       },
       "rules": {
         "@stencil-community/ban-exported-const-enums": "off",

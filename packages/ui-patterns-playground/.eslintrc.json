@@ -1,32 +1,18 @@
 {
-  "extends": [
-    "../../.eslintrc.json"
-  ],
-  "ignorePatterns": [
-    "!**/*",
-    "node_modules/*",
-    "dist/*",
-    "vite.config.ts"
-  ],
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*", "node_modules/*", "dist/*", "vite.config.ts"],
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
+      "files": ["*.ts", "*.tsx"],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react-hooks/recommended"
       ],
-      "plugins": [
-        "react-refresh"
-      ],
+      "plugins": ["react-refresh"],
       // We set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
       "parserOptions": {
-        "project": [
-          "packages/ui-patterns-playground/tsconfig.json"
-        ]
+        "project": ["packages/ui-patterns-playground/tsconfig.json"]
       },
       "rules": {
         "react-refresh/only-export-components": [

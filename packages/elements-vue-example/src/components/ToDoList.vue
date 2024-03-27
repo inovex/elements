@@ -7,12 +7,7 @@
       @valueChange="({ detail }) => (inputText = detail)"
       @keyup.enter="onAdd"
     >
-      <ino-icon
-        slot="icon-trailing"
-        clickable
-        icon="add"
-        @clickEl="onAdd"
-      />
+      <ino-icon slot="icon-trailing" clickable icon="add" @clickEl="onAdd" />
     </ino-input>
     <ino-list :key="Date.now()">
       <ino-list-item
@@ -20,10 +15,7 @@
         :key="todo.id"
         :text="todo.text"
       >
-        <ino-checkbox
-          slot="leading"
-          @checkedChange="onCheckedChange(todo)"
-        />
+        <ino-checkbox slot="leading" @checkedChange="onCheckedChange(todo)" />
         <ino-tooltip
           slot="trailing"
           label="Remove item"
@@ -70,9 +62,7 @@
       >
         Reset ToDo list
       </ino-button>
-      <ino-button @click="clearToDoList">
-        Clear ToDo list
-      </ino-button>
+      <ino-button @click="clearToDoList"> Clear ToDo list </ino-button>
     </div>
   </div>
 </template>

@@ -1,17 +1,9 @@
 {
-  "extends": [
-    "../../.eslintrc.json"
-  ],
-  "ignorePatterns": [
-    "!**/*",
-    "node_modules/*",
-    "dist/*"
-  ],
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*", "node_modules/*", "dist/*"],
   "overrides": [
     {
-      "files": [
-        "src/**/*.{ts,js,tsx,jsx}"
-      ],
+      "files": ["src/**/*.{ts,js,tsx,jsx}"],
       "extends": [
         "plugin:playwright/recommended",
         "plugin:storybook/recommended"

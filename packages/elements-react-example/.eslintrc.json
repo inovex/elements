@@ -1,27 +1,15 @@
 {
-  "extends": [
-    "../../.eslintrc.json"
-  ],
-  "ignorePatterns": [
-    "!**/*",
-    "node_modules/*",
-    "dist/*",
-    "vite.config.ts"
-  ],
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*", "node_modules/*", "dist/*", "vite.config.ts"],
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
+      "files": ["*.ts", "*.tsx"],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react-hooks/recommended"
       ],
-      "plugins": [
-        "react-refresh"
-      ]
+      "plugins": ["react-refresh"]
     }
   ]
 }

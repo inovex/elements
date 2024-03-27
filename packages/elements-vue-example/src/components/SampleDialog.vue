@@ -1,17 +1,11 @@
 <template>
-  <ino-dialog
-    open
-    @close="$emit('close')"
-  >
+  <ino-dialog open @close="$emit('close')">
     <div>
       <div class="ino-dialog-header">
         <div class="ino-dialog-title">
           <h3>{{ title }} {{ name }}</h3>
         </div>
-        <ino-icon-button
-          icon="close"
-          data-ino-dialog-action="close"
-        />
+        <ino-icon-button icon="close" data-ino-dialog-action="close" />
       </div>
       <div class="ino-dialog-content">
         <p>{{ message }}</p>
@@ -24,10 +18,7 @@
           edge-position="none"
           data-ino-dialog-action="cancel"
         >
-          <ino-icon
-            slot="icon-leading"
-            icon="add"
-          />
+          <ino-icon slot="icon-leading" icon="add" />
         </ino-fab>
       </div>
     </div>
