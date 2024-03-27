@@ -11,7 +11,7 @@ function useDisableButton<
 >(
   buttonSelector: string,
   initialState: Fields,
-  disableUntilAllFilled: boolean = false,
+  disableUntilAllFilled = false,
 ) {
   const [form, setForm] = useState(initialState);
 
