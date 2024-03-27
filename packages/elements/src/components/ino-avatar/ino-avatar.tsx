@@ -72,7 +72,7 @@ export class Avatar implements ComponentInterface {
 
   @State() imgIsFetching = true;
 
-  @Watch('showLoading')
+  @Watch('loading')
   showLoadingHandler(newValue: boolean) {
     this.imgIsFetching = newValue;
   }
