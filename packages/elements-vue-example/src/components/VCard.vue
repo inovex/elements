@@ -1,7 +1,9 @@
 <template>
   <ino-card>
     <div slot="header">
-      <div class="header-h1">Header</div>
+      <div class="header-h1">
+        Header
+      </div>
       <div class="flex-content">
         <ino-img
           class="my-avatar"
@@ -14,7 +16,9 @@
       </div>
     </div>
     <div slot="content">
-      <div class="header-h1">Content</div>
+      <div class="header-h1">
+        Content
+      </div>
       >
       <ino-table>
         <tr>
@@ -35,7 +39,9 @@
       </ino-table>
     </div>
     <div slot="footer">
-      <div class="header-h1">Footery</div>
+      <div class="header-h1">
+        Footery
+      </div>
       <ino-button>Click me!</ino-button>
     </div>
   </ino-card>

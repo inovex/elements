@@ -23,7 +23,7 @@ import secondary_dashed from '../../assets/ino-avatar/secondary_dashed.svg';
   shadow: false,
 })
 export class Avatar implements ComponentInterface {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoAvatarElement;
 
   /**
    * The alternative text of the avatar image.
@@ -33,17 +33,17 @@ export class Avatar implements ComponentInterface {
   /**
    * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
    */
-  @Prop() initials: string = '';
+  @Prop() initials = '';
 
   /**
    * The img of the avatar.
    */
-  @Prop() src: string = '';
+  @Prop() src = '';
 
   /**
    * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
    */
-  @Prop() interactive: boolean = false;
+  @Prop() interactive = false;
 
   /**
    * The style variant of the avatar.
@@ -54,7 +54,7 @@ export class Avatar implements ComponentInterface {
   /**
    * Colors the border of the avatar in the secondary color.
    */
-  @Prop() colorSecondary: boolean = false;
+  @Prop() colorSecondary = false;
 
   /**
    * The aria-label used for the avatar element.
@@ -70,7 +70,7 @@ export class Avatar implements ComponentInterface {
    */
   @Prop() loading?: boolean = false;
 
-  @State() imgIsFetching: boolean = true;
+  @State() imgIsFetching = true;
 
   @Watch('showLoading')
   showLoadingHandler(newValue: boolean) {

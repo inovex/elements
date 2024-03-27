@@ -1,7 +1,12 @@
 <template>
   <div>
-    <div class="header-h1">My Pictures</div>
-    <ino-img-list :key="Date.now()" enclose-label>
+    <div class="header-h1">
+      My Pictures
+    </div>
+    <ino-img-list
+      :key="Date.now()"
+      enclose-label
+    >
       <ino-img
         v-for="(img, i) in images"
         :key="i"
@@ -12,7 +17,9 @@
         rounded
       />
     </ino-img-list>
-    <div class="header-h1">My Pictures in a carousel</div>
+    <div class="header-h1">
+      My Pictures in a carousel
+    </div>
     <ino-carousel
       class="my-carousel"
       value="0"

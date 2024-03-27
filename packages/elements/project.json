@@ -43,16 +43,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "defaultConfiguration": "check",
-      "configurations": {
-        "check": {
-          "fix": false
-        },
-        "fix": {
-          "fix": true
-        }
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "icons": {
       "executor": "nx:run-commands",
