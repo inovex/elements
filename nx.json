@@ -32,6 +32,9 @@
         },
         "fix": {
           "fix": true
+        },
+        "ci": {
+          "quiet": true
         }
       }
     },
