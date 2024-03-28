@@ -43,14 +43,9 @@
       }
     },
     "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/landingpage",
-        "commands": ["shx rm -rf out", "shx rm -rf .next"]
-      },
       "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
+        "dist": {
+          "commands": ["shx rm -rf out", "shx rm -rf .next"]
         }
       }
     }
