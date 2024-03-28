@@ -94,7 +94,7 @@ const InoSnackbarMeta = {
   },
   args: {
     type: 'info',
-    open: false,
+    open: true,
     actionText: 'Some Action',
     defaultSlot: 'This is a message',
     timeout: -1,

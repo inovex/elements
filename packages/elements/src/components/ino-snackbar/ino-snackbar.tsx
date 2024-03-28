@@ -45,7 +45,7 @@ export class Snackbar implements ComponentInterface {
    */
   @Prop() actionText?: string;
 
-  @Prop() open = false;
+  @Prop() open = true;
 
   /**
    * Changes the snackbar type. There are four types of messages: info, success, warning and error.
@@ -101,6 +101,8 @@ export class Snackbar implements ComponentInterface {
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
+    this.setupTimeout();
+    this.snackbarInstance.open();
 
     this.snackbarElement.addEventListener(
       'MDCSnackbar:closing',

@@ -27,7 +27,7 @@ test.describe('ino-snackbar', () => {
       .getByLabel('Close notification')
       .getByRole('button');
     await closeIcon.click();
-    await expect(inoSnackbar).not.toBeVisible();
+    await expect(inoSnackbar).toBeHidden();
   });
 
   test('should automatically close the snackbar after the default timeout period', async ({
@@ -37,6 +37,6 @@ test.describe('ino-snackbar', () => {
     await showButton.click();
     await expect(inoSnackbar).toBeVisible();
     await page.waitForTimeout(5000);
-    await expect(inoSnackbar).not.toBeVisible();
+    await expect(inoSnackbar).toBeHidden();
   });
 });
