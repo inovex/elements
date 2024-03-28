@@ -35,16 +35,8 @@
       }
     },
     "lint": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/storybook",
-        "command": "eslint src"
-      },
-      "configurations": {
-        "fix": {
-          "command": "eslint src --fix"
-        }
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     },
     "clean": {},
     "test": {

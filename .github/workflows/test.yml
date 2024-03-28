@@ -39,7 +39,7 @@ jobs:
       - name: Check format
         run: yarn format
       - name: Check lint
-        run: yarn lint
+        run: yarn lint:ci
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Build all projects

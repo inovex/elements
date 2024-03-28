@@ -24,7 +24,19 @@
         "^production",
         "{projectRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintrc.json"
-      ]
+      ],
+      "defaultConfiguration": "check",
+      "configurations": {
+        "check": {
+          "fix": false
+        },
+        "fix": {
+          "fix": true
+        },
+        "ci": {
+          "quiet": true
+        }
+      }
     },
     "clean": {
       "executor": "nx:run-commands",
