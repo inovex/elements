@@ -6,26 +6,26 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/dist"],
+      "executor": "@nx/vite:build",
       "options": {
-        "cwd": "packages/elements-react-example",
-        "command": "vite build"
+        "outputPath": "{projectRoot}/dist",
+        "configFile": "{projectRoot}/vite.config.ts"
       }
     },
     "start": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/elements-react-example"
-      },
+      "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "dev",
-      "configurations": {
-        "dev": {
-          "command": "vite --port 4300"
-        },
-        "prod": {
-          "command": "vite preview --port 4300"
-        }
+      "options": {
+        "buildTarget": "elements-react-example:build",
+        "port": 4300
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "prod",
+      "options": {
+        "buildTarget": "elements-react-example:build",
+        "port": 4300
       }
     },
     "lint": {
