@@ -1,15 +1,10 @@
 import { remarkCodeHike } from '@code-hike/mdx';
 import nextMdx from '@next/mdx';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import { readFile } from 'fs/promises';
 import withImages from 'next-images';
 import withHtml from 'next-html';
 import path, { join } from 'path';
 import remarkGfm from 'remark-gfm';
-
-const theme = JSON.parse(
-  await readFile('../../node_modules/shiki/themes/github-light.json'),
-);
 
 const __dirname = path.resolve();
 const assetsPath = join(__dirname, '..', '..', 'assets', 'logo');

@@ -8,26 +8,34 @@
     "build": {
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "prod",
       "options": {
         "outputPath": "{projectRoot}/out",
         "nextConfig": "{projectRoot}/next.config.mjs"
+      },
+      "configurations": {
+        "dev": {
+          "debug": true
+        },
+        "prod": {}
       }
     },
     "start": {
       "executor": "@nx/next:server",
+      "defaultConfiguration": "dev",
       "options": {
         "buildTarget": "landingpage:build",
         "dev": true
-      },
-      "configurations": {
-        "dev": {
-          "buildTarget": "landingpage:build",
-          "dev": true
-        },
-        "prod": {
-          "buildTarget": "landingpage:build",
-          "dev": false
-        }
+      }
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "nx run landingpage:build",
+          "serve {projectRoot}/out"
+        ]
       }
     },
     "lint": {
