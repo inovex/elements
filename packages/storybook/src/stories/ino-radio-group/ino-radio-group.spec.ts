@@ -1,22 +1,20 @@
-import { expect, Locator, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { goToStory } from '../test-utils';
 
 test.describe('ino-radio-group', () => {
-  let inoRadioGroup: Locator;
-  let radios: Locator;
-
   test.beforeEach(async ({ page }) => {
     await goToStory(page, ['Input', 'ino-radio-group', 'default']);
-    inoRadioGroup = page.locator('ino-radio-group');
-    radios = inoRadioGroup.getByRole('radio');
   });
 
-  test('should have grouped three radios', async () => {
+  test('should have grouped three radios', async ({ page }) => {
+    const inoRadioGroup = page.locator('ino-radio-group');
+    const radios = inoRadioGroup.getByRole('radio');
     await expect(radios).toHaveCount(3);
     await expect(inoRadioGroup).toHaveAttribute('value', 'opt-2');
   });
 
-  test('should check radios with arrow keys', async () => {
+  test('should check radios with arrow keys', async ({ page }) => {
+    const inoRadioGroup = page.locator('ino-radio-group');
     await expect(inoRadioGroup).toHaveAttribute('value', 'opt-2');
     await inoRadioGroup.press('Tab');
 
