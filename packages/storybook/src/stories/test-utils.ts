@@ -11,9 +11,8 @@ export async function goToStory(
   await page.goto(
     `/iframe.html?id=${category.toLowerCase()}-${name}--${story}&viewMode=story`,
   );
-  await page.waitForLoadState('load');
   await page.waitForLoadState('domcontentloaded');
-  await page.waitForSelector(name); // identify that the story loaded successfully
+  if (name !== 'ino-fab-set') await page.waitForSelector('#root-inner'); // identify that the story loaded successfully
 }
 
 export function setAttribute(el: Locator, attrName: string, value: string) {

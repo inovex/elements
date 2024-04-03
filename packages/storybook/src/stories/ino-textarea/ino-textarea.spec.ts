@@ -36,18 +36,17 @@ test.describe('ino-textarea', () => {
      * This test encounters a race condition as it doesn't wait for the textarea to finish resizing.
      * Instead, it immediately tests the size after changing the value, which might not reflect the new size yet.
      */
-    test.fixme(
-      'should have wider widths after increasing the columns',
-      async () => {
-        await setAttribute(inoTextArea, 'cols', '1');
-        const { width: oneColWidth } = await inoTextArea.boundingBox();
+    test('should have wider widths after increasing the columns', async () => {
+      await setAttribute(inoTextArea, 'cols', '1');
+      await inoTextArea.hover();
+      const { width: oneColWidth } = await inoTextArea.boundingBox();
 
-        await setAttribute(inoTextArea, 'cols', '10');
-        const { width: tenColsWidth } = await inoTextArea.boundingBox();
+      await setAttribute(inoTextArea, 'cols', '10');
+      await inoTextArea.hover();
+      const { width: tenColsWidth } = await inoTextArea.boundingBox();
 
-        expect(oneColWidth).toBeLessThan(tenColsWidth);
-      },
-    );
+      expect(oneColWidth).toBeLessThan(tenColsWidth);
+    });
 
     test('should NOT increase width when input exceeds width and autogrow not set', async () => {
       await setAttribute(inoTextArea, 'rows', '2');
