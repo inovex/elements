@@ -48,4 +48,17 @@ test.describe('ino-range', () => {
     await move(page, 0.17);
     await expect(input).toHaveValue('17');
   });
+
+  test('should apply custom step value', async ({ page }) => {
+    await goToStory(page, ['Input', 'ino-range', 'default']);
+    const inoRange = page.locator('ino-range')
+    await setAttribute(inoRange, 'step', '10');
+    const input = page.getByRole('slider');
+    await expect(input).toHaveValue('70');
+
+    await move(page, 0.61);
+    await expect(input).toHaveValue('60');
+    await move(page, 0.86);
+    await expect(input).toHaveValue('90');
+  });
 });
