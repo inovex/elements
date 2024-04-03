@@ -10,6 +10,7 @@ test.describe('ino-fab', () => {
     const inoFab = page.locator('ino-fab');
     const { width, height } = await inoFab.boundingBox();
     await setAttribute(inoFab, 'mini', 'true');
+    await inoFab.click();
     const { width: miniWidth, height: miniHeight } = await inoFab.boundingBox();
 
     expect(width).toBeGreaterThan(miniWidth);
