@@ -2,19 +2,20 @@ import { expect, Locator, test } from '@playwright/test';
 import { goToStory, setAttribute } from '../test-utils';
 
 test.describe('ino-textarea', () => {
-  let inoTextArea: Locator;
-
   test.beforeEach(async ({ page }) => {
     await goToStory(page, ['Input', 'ino-textarea', 'default']);
-    inoTextArea = page.locator('ino-textarea');
   });
 
   test.describe('Component Behaviour', () => {
-    test('should be not focused after render', async () => {
+    test('should be not focused after render', async ({ page }) => {
+      const inoTextArea = page.locator('ino-textarea');
       await expect(inoTextArea).not.toBeFocused();
     });
 
-    test('should render with an above floating label after focus', async () => {
+    test('should render with an above floating label after focus', async ({
+      page,
+    }) => {
+      const inoTextArea = page.locator('ino-textarea');
       const sampleText = 'Some Label';
       await setAttribute(inoTextArea, 'label', sampleText);
       await inoTextArea.click();
@@ -22,7 +23,10 @@ test.describe('ino-textarea', () => {
       await expect(label).toHaveClass(/mdc-floating-label--float-above/);
     });
 
-    test('should have higher height after increasing the rows', async () => {
+    test('should have higher height after increasing the rows', async ({
+      page,
+    }) => {
+      const inoTextArea = page.locator('ino-textarea');
       await setAttribute(inoTextArea, 'rows', '1');
       const { height: oneRowHeight } = await inoTextArea.boundingBox();
 
@@ -36,7 +40,10 @@ test.describe('ino-textarea', () => {
      * This test encounters a race condition as it doesn't wait for the textarea to finish resizing.
      * Instead, it immediately tests the size after changing the value, which might not reflect the new size yet.
      */
-    test('should have wider widths after increasing the columns', async () => {
+    test('should have wider widths after increasing the columns', async ({
+      page,
+    }) => {
+      const inoTextArea = page.locator('ino-textarea');
       await setAttribute(inoTextArea, 'cols', '1');
       await inoTextArea.hover();
       const { width: oneColWidth } = await inoTextArea.boundingBox();
@@ -48,7 +55,10 @@ test.describe('ino-textarea', () => {
       expect(oneColWidth).toBeLessThan(tenColsWidth);
     });
 
-    test('should NOT increase width when input exceeds width and autogrow not set', async () => {
+    test('should NOT increase width when input exceeds width and autogrow not set', async ({
+      page,
+    }) => {
+      const inoTextArea = page.locator('ino-textarea');
       await setAttribute(inoTextArea, 'rows', '2');
       await setAttribute(inoTextArea, 'cols', '2');
 
@@ -59,7 +69,10 @@ test.describe('ino-textarea', () => {
       expect(bBoxAfter.height).toEqual(bBoxBefore.height);
     });
 
-    test('should increase width when input exceeds width and autogrow set', async () => {
+    test('should increase width when input exceeds width and autogrow set', async ({
+      page,
+    }) => {
+      const inoTextArea = page.locator('ino-textarea');
       await setAttribute(inoTextArea, 'rows', '2');
       await setAttribute(inoTextArea, 'cols', '2');
       await setAttribute(inoTextArea, 'autogrow', 'true');
@@ -71,7 +84,8 @@ test.describe('ino-textarea', () => {
       expect(bBoxAfter.height).toBeGreaterThan(bBoxBefore.height);
     });
 
-    test('should not enter more than max length', async () => {
+    test('should not enter more than max length', async ({ page }) => {
+      const inoTextArea = page.locator('ino-textarea');
       const nativeTextarea = inoTextArea.locator('textarea');
       await setAttribute(inoTextArea, 'maxlength', '3');
 
