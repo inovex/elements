@@ -5,7 +5,7 @@ import { workspaceRoot } from '@nx/devkit';
 
 // @ts-expect-error we probably need a custom tsconfig for the playwright environment
 const __filename = fileURLToPath(import.meta.url);
-const STORYBOOK_URL = 'http://localhost:6006';
+const STORYBOOK_URL = 'http://localhost:6007';
 // For CI, you may want to set BASE_URL to the deployed application.
 const baseURL = process.env['BASE_URL'] || STORYBOOK_URL; // storybook URL
 /**
@@ -30,7 +30,7 @@ export default defineConfig({
   reporter: process.env.CI ? 'dot' : 'list',
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'yarn nx run storybook:start',
+    command: 'yarn nx run storybook:preview',
     url: STORYBOOK_URL,
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
