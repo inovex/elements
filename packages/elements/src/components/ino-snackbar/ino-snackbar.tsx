@@ -45,6 +45,10 @@ export class Snackbar implements ComponentInterface {
    */
   @Prop() actionText?: string;
 
+  /**
+   * Controls the visibility state of the snackbar.
+   * When set to `true`, the snackbar is displayed; otherwise, it is hidden.
+   */
   @Prop() open = true;
 
   /**
