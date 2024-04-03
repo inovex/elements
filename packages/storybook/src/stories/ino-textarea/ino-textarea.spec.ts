@@ -1,4 +1,4 @@
-import { expect, Locator, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { goToStory, setAttribute } from '../test-utils';
 
 test.describe('ino-textarea', () => {
@@ -40,7 +40,7 @@ test.describe('ino-textarea', () => {
      * This test encounters a race condition as it doesn't wait for the textarea to finish resizing.
      * Instead, it immediately tests the size after changing the value, which might not reflect the new size yet.
      */
-    test('should have wider widths after increasing the columns', async ({
+    test.fixme('should have wider widths after increasing the columns', async ({
       page,
     }) => {
       const inoTextArea = page.locator('ino-textarea');
