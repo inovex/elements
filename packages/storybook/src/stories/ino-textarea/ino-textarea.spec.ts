@@ -28,9 +28,11 @@ test.describe('ino-textarea', () => {
     }) => {
       const inoTextArea = page.locator('ino-textarea');
       await setAttribute(inoTextArea, 'rows', '1');
+      await inoTextArea.hover();
       const { height: oneRowHeight } = await inoTextArea.boundingBox();
 
       await setAttribute(inoTextArea, 'rows', '10');
+      await inoTextArea.hover();
       const { height: tenRowsHeight } = await inoTextArea.boundingBox();
 
       expect(oneRowHeight).toBeLessThan(tenRowsHeight);
@@ -40,7 +42,7 @@ test.describe('ino-textarea', () => {
      * This test encounters a race condition as it doesn't wait for the textarea to finish resizing.
      * Instead, it immediately tests the size after changing the value, which might not reflect the new size yet.
      */
-    test.fixme('should have wider widths after increasing the columns', async ({
+    test('should have wider widths after increasing the columns', async ({
       page,
     }) => {
       const inoTextArea = page.locator('ino-textarea');
@@ -61,6 +63,7 @@ test.describe('ino-textarea', () => {
       const inoTextArea = page.locator('ino-textarea');
       await setAttribute(inoTextArea, 'rows', '2');
       await setAttribute(inoTextArea, 'cols', '2');
+      await inoTextArea.hover();
 
       const bBoxBefore = await inoTextArea.boundingBox();
       await setAttribute(inoTextArea, 'value', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa');
@@ -76,6 +79,7 @@ test.describe('ino-textarea', () => {
       await setAttribute(inoTextArea, 'rows', '2');
       await setAttribute(inoTextArea, 'cols', '2');
       await setAttribute(inoTextArea, 'autogrow', 'true');
+      await inoTextArea.hover();
 
       const bBoxBefore = await inoTextArea.boundingBox();
       await setAttribute(inoTextArea, 'value', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa');
