@@ -12,7 +12,7 @@ export async function goToStory(
     `/iframe?id=${category.toLowerCase()}-${name}--${story}&viewMode=story`,
   );
   await page.waitForLoadState('domcontentloaded');
-  if (name !== 'ino-fab-set') await page.waitForSelector('#root-inner'); // identify that the story loaded successfully
+  await page.waitForSelector('#root-inner'); // identify that the story loaded successfully
 }
 
 export function setAttribute(el: Locator, attrName: string, value: string) {

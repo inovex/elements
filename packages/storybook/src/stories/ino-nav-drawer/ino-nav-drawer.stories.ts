@@ -122,9 +122,6 @@ const InoNavDrawerMeta = {
         </ino-list>
 
         <main slot="app" class="main-content">
-          <ino-button fill="outline" dense class="toggle-nav"
-            >${args.a11yLabels?.toggleBtn}</ino-button
-          >
           <br />
           <br />
           Your App goes here 🤘
@@ -148,7 +145,7 @@ const InoNavDrawerMeta = {
     a11yLabels: {
       content: 'Main Navigation',
       footer: 'Footer Navigation',
-      toggleBtn: 'Toggle Navigation',
+      toggleBtn: 'Toggle NAvigation',
     },
   },
 } as Meta<Components.InoNavDrawer>;
