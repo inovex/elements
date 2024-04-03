@@ -116,7 +116,7 @@ export default TaskItem.extend({
 
   parseHTML() {
     return [
-      ...this.parent?.(),
+      ...(this.parent ? this.parent() : undefined),
       {
         tag: 'li.task-list-item',
         priority: 100,
@@ -126,7 +126,7 @@ export default TaskItem.extend({
 
   addInputRules() {
     return [
-      ...this.parent?.(),
+      ...(this.parent ? this.parent() : undefined),
       wrappingInputRule({
         find: customInputRegex,
         type: this.type,

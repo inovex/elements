@@ -8,11 +8,7 @@ import avatarImage from '../../../assets/avatar.jpg';
 function useDisableButton<
   Fields extends Record<string, string>,
   Key extends keyof Fields,
->(
-  buttonSelector: string,
-  initialState: Fields,
-  disableUntilAllFilled: boolean = false,
-) {
+>(buttonSelector: string, initialState: Fields, disableUntilAllFilled = false) {
   const [form, setForm] = useState(initialState);
 
   useEffect(() => {

@@ -245,7 +245,7 @@ export class Textarea implements ComponentInterface {
       'mdc-text-field--textarea': true,
       'mdc-text-field--outlined': this.outline,
       'mdc-text-field--filled': !this.outline,
-      'mdc-text-field-fullwidth': !Boolean(this.cols),
+      'mdc-text-field-fullwidth': !this.cols,
       'mdc-text-field--no-label': !this.label,
       'mdc-text-field--with-internal-counter': Boolean(this.maxlength),
     });
