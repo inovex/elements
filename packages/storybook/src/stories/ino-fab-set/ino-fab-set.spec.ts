@@ -10,8 +10,10 @@ test.describe('ino-fab-set', () => {
   });
 
   test('should not open the dial by click', async () => {
-    const inoFabLocator = inoFabSet.locator('ino-fab');
-    await expect(inoFabLocator).toHaveCount(0);
+    const inoFabLocator = inoFabSet.locator('ino-speed-dial > ino-fab');
+    for (const inoFab of await inoFabLocator.all()) {
+      await expect(inoFab).toBeHidden();
+    }
     await inoFabSet.click();
 
     for (const inoFab of await inoFabLocator.all()) {
