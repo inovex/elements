@@ -10,6 +10,7 @@
   "targets": {
     "build": {
       "executor": "@nx/storybook:build",
+      "outputs": ["{projectRoot}/dist"],
       "options": {
         "configDir": "{projectRoot}/config",
         "outputDir": "{projectRoot}/dist",
@@ -22,6 +23,10 @@
         },
         "prod": {
           "quiet": true
+        },
+        "test": {
+          "quiet": true,
+          "docs": false
         }
       }
     },
@@ -32,6 +37,13 @@
         "configDir": "{projectRoot}/config",
         "outputDir": "{projectRoot}/dist",
         "disableTelemetry": true
+      }
+    },
+    "preview": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "storybook:build:test",
+        "port": 6007
       }
     },
     "lint": {

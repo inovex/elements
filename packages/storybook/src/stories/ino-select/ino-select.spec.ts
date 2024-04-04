@@ -21,8 +21,11 @@ test.describe('ino-select - Properties', () => {
   });
 
   test('should render as an outlined element if inoOutlined is true', async () => {
+    await inoSelect.hover();
     const bBoxDefault = await inoSelect.boundingBox();
+
     await setAttribute(inoSelect, 'outline', 'true');
+    await inoSelect.hover();
     const bBoxOutline = await inoSelect.boundingBox();
 
     expect(bBoxOutline.height).toBe(bBoxDefault.height);
