@@ -1,22 +1,37 @@
 {
-  "extends": ["../../.eslintrc.json", "plugin:@stencil-community/recommended"],
-  "ignorePatterns": ["!**/*", "stencil.config.ts"],
-  "parserOptions": {
-    "project": "tsconfig.eslint.json",
-    "tsconfigRootDir": "packages/elements"
-  },
-  "plugins": ["eslint-plugin-no-null"],
-  "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/unbound-method": "error",
-    "comma-dangle": "off",
-    "import/no-unassigned-import": "off",
-    "no-cond-assign": "off",
-    "no-console": "off",
-    "no-null/no-null": "off",
-    "no-throw-literal": "off",
-    "react/jsx-no-bind": "off"
-  }
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": [
+    "!**/*",
+    "stencil.config.ts",
+    "setupSpecTests.ts",
+    "node_modules/*",
+    "dist/*"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@stencil-community/recommended"],
+      "plugins": ["eslint-plugin-no-null"],
+      // We set parserOptions.project for the project to allow TypeScript to create the type-checker behind the scenes when we run linting
+      "parserOptions": {
+        "project": ["packages/elements/tsconfig.*?.json"]
+      },
+      "rules": {
+        "@stencil-community/ban-exported-const-enums": "off",
+        "@stencil-community/prefer-vdom-listener": "off",
+        "@stencil-community/reserved-member-names": "warn",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/unbound-method": "error",
+        "comma-dangle": "off",
+        "import/no-unassigned-import": "off",
+        "no-cond-assign": "off",
+        "no-console": "off",
+        "no-null/no-null": "off",
+        "no-throw-literal": "off",
+        "react/jsx-no-bind": "off"
+      }
+    }
+  ]
 }

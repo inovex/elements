@@ -28,17 +28,10 @@
         }
       }
     },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/elements-react-example",
-        "command": "shx rm -rf dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
-        }
-      }
-    }
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "clean": {}
   }
 }

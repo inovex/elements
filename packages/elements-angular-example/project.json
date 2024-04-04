@@ -76,7 +76,8 @@
           "packages/elements-angular-example/**/*.html"
         ]
       }
-    }
+    },
+    "clean": {}
   },
   "tags": []
 }

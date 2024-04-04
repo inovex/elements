@@ -22,28 +22,9 @@
       }
     },
     "lint": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/ui-patterns",
-        "command": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
-      },
-      "configurations": {
-        "fix": {
-          "command": "eslint . --ext ts,tsx --fix --report-unused-disable-directives --max-warnings 0"
-        }
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/ui-patterns",
-        "command": "shx rm -rf dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
-        }
-      }
-    }
+    "clean": {}
   }
 }

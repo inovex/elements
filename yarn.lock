@@ -4179,7 +4179,7 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@stencil-community/eslint-plugin@^0.7.1":
+"@stencil-community/eslint-plugin@^0.7.2":
   version "0.7.2"
   resolved "https://registry.npmjs.org/@stencil-community/eslint-plugin/-/eslint-plugin-0.7.2.tgz#f33188a84dc1612ff29a8cb496ba9b3157762a20"
   integrity sha512-rj8rD63ZadJHcMrfyrm+SdmEKouBXn54NEBOeXd+7p9BnFCt2ehYZjA7OhGAOBhrxf7ZpUgXtDEXS9iEs//bRw==
