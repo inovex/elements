@@ -14,7 +14,7 @@ test.describe('ino-tab-bar', () => {
     page,
   }) => {
     await goToStory(page, ['Structure', 'ino-tab-bar', 'active-tab']);
-    await expect(inoTab.nth(1)).toHaveAttribute('a-1-1y-selected');
+    await expect(inoTab.nth(1)).toHaveJSProperty('a11ySelected', true);
   });
 
   test('should be focused automatically with the autoFocus property', async ({
