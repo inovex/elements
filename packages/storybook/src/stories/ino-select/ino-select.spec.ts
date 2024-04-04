@@ -6,14 +6,18 @@ test.describe('ino-select - Properties', () => {
     await goToStory(page, ['Input', 'ino-select', 'default']);
   });
 
-  test('should render with the disabled property set to true', async ({ page }) => {
+  test('should render with the disabled property set to true', async ({
+    page,
+  }) => {
     const inoSelect = page.locator('ino-select');
     await setAttribute(inoSelect, 'disabled', 'true');
     await inoSelect.click();
     await expect(inoSelect.locator('li').first()).toBeHidden();
   });
 
-  test('should render with the required property set to true', async ({ page }) => {
+  test('should render with the required property set to true', async ({
+    page,
+  }) => {
     const inoSelect = page.locator('ino-select');
     await setAttribute(inoSelect, 'required', 'true');
     await expect(inoSelect.locator('input[required]')).toBeAttached();
