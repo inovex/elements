@@ -106,7 +106,6 @@ export class Snackbar implements ComponentInterface {
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
     this.setupTimeout();
-    this.snackbarInstance.open();
 
     this.snackbarElement.addEventListener(
       'MDCSnackbar:closing',
@@ -118,7 +117,10 @@ export class Snackbar implements ComponentInterface {
         this.interruptTimeout,
       );
       this.snackbarElement.addEventListener('mouseleave', this.setupTimeout);
-      this.open && this.snackbarInstance?.open();
+    }
+
+    if (this.open) {
+      this.snackbarInstance.open();
     }
 
     if (this.message) {

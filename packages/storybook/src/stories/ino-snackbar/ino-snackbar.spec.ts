@@ -10,6 +10,11 @@ test.describe('ino-snackbar', () => {
     inoSnackbar = page.getByRole('button', { name: 'Some Action' });
   });
 
+  test('should not be visible if open is set to false', async ({ page }) => {
+    await goToStory(page, ['Notification', 'ino-snackbar', 'default']);
+    await expect(inoSnackbar).toBeHidden();
+  });
+
   test('should display the snackbar when "Show Snackbar" button is clicked', async ({
     page,
   }) => {
@@ -23,10 +28,15 @@ test.describe('ino-snackbar', () => {
   }) => {
     await goToStory(page, ['Notification', 'ino-snackbar', 'default']);
     await showButton.click();
-    const closeIcon = await page
-      .getByLabel('Close notification')
-      .getByRole('button');
+    const closeIcon = page.getByLabel('Close notification').getByRole('button');
     await closeIcon.click();
+    await expect(inoSnackbar).toBeHidden();
+  });
+
+  test('should close the snackbar when ESC is pressed', async ({ page }) => {
+    await goToStory(page, ['Notification', 'ino-snackbar', 'default']);
+    await showButton.click();
+    await page.press('body', 'Escape');
     await expect(inoSnackbar).toBeHidden();
   });
 
@@ -36,7 +46,6 @@ test.describe('ino-snackbar', () => {
     await goToStory(page, ['Notification', 'ino-snackbar', 'timeout']);
     await showButton.click();
     await expect(inoSnackbar).toBeVisible();
-    await page.waitForTimeout(5000);
-    await expect(inoSnackbar).toBeHidden();
+    await expect(inoSnackbar).toBeHidden(); // should automatically be hidden
   });
 });
