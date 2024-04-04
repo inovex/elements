@@ -29,13 +29,10 @@
       }
     },
     "preview": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/web:file-server",
       "options": {
-        "parallel": false,
-        "commands": [
-          "nx run landingpage:build",
-          "serve {projectRoot}/out"
-        ]
+        "buildTarget": "landingpage:build:prod",
+        "port": 4600
       }
     },
     "lint": {
