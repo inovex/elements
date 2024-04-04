@@ -12,7 +12,6 @@ import {
   h,
 } from '@stencil/core';
 import classnames from 'classnames';
-
 import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 
@@ -80,6 +79,7 @@ export class Radio implements ComponentInterface {
 
   private handleInput = (e: Event) => {
     e.stopPropagation();
+    if (this.disabled || this.checked === true) return;
     this.nativeInputEl.checked = this.checked;
     this.checkedChange.emit(true);
   };

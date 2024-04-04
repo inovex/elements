@@ -10,6 +10,7 @@
   "targets": {
     "build": {
       "executor": "@nx/storybook:build",
+      "outputs": ["{projectRoot}/dist"],
       "options": {
         "configDir": "{projectRoot}/config",
         "outputDir": "{projectRoot}/dist",
@@ -22,6 +23,10 @@
         },
         "prod": {
           "quiet": true
+        },
+        "test": {
+          "quiet": true,
+          "docs": false
         }
       }
     },
@@ -34,30 +39,18 @@
         "disableTelemetry": true
       }
     },
+    "preview": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "storybook:build:test",
+        "port": 6007
+      }
+    },
     "lint": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/storybook",
-        "command": "eslint src"
-      },
-      "configurations": {
-        "fix": {
-          "command": "eslint src --fix"
-        }
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/storybook",
-        "command": "shx rm -rf dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
-        }
-      }
-    },
+    "clean": {},
     "test": {
       "executor": "@nx/playwright:playwright",
       "outputs": ["{workspaceRoot}/dist/.playwright/packages/storybook"],

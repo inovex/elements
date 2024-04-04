@@ -43,14 +43,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "packages/elements/src/*.{ts,tsx}",
-          "packages/elements/scripts/*.{ts,tsx}",
-          "packages/elements/output-targets/*.{ts,tsx}"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "icons": {
       "executor": "nx:run-commands",
@@ -60,6 +53,13 @@
       "configurations": {
         "optimize": {
           "command": "svgo -f packages/elements/src/assets/ino-icon --config svgo.config.js"
+        }
+      }
+    },
+    "clean": {
+      "configurations": {
+        "dist": {
+          "commands": ["shx rm -rf ./dist ./.stencil"]
         }
       }
     }

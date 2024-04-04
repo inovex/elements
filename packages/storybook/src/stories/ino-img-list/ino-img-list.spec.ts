@@ -1,15 +1,13 @@
-import { expect, Locator, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { goToStory, setAttribute } from '../test-utils';
 
 test.describe('ino-img-list', () => {
-  let inoImgList: Locator;
-
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['graphic', 'ino-img-list', 'default']);
-    inoImgList = page.locator('ino-img-list');
+    await goToStory(page, ['Graphic', 'ino-img-list', 'default']);
   });
 
-  test('should render items with same dimensions', async () => {
+  test('should render items with same dimensions', async ({ page }) => {
+    const inoImgList = page.locator('ino-img-list');
     await expect(inoImgList).toBeVisible();
     const images = inoImgList.getByRole('img');
 
@@ -23,7 +21,8 @@ test.describe('ino-img-list', () => {
     }
   });
 
-  test('should render with inoMasonry set to true', async () => {
+  test('should render with inoMasonry set to true', async ({ page }) => {
+    const inoImgList = page.locator('ino-img-list');
     const libertyImg = inoImgList
       .getByRole('img')
       .and(inoImgList.getByAltText('liberty'));
@@ -31,6 +30,7 @@ test.describe('ino-img-list', () => {
 
     await setAttribute(inoImgList, 'masonry', 'true');
     await expect(inoImgList).toBeVisible();
+    await libertyImg.hover();
 
     const { height } = await libertyImg.boundingBox();
     expect(height).toBeGreaterThan(defaultHeight);

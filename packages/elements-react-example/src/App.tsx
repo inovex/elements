@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
   BrowserRouter as Router,
   Navigate,
@@ -21,7 +21,7 @@ import { LoginFormApp } from './login-form-app';
 type CustomRoute = {
   to: string;
   label: string;
-  component: any;
+  component: ReactNode;
 };
 
 const ROUTES: CustomRoute[] = [
