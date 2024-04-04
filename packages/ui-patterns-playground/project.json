@@ -19,13 +19,6 @@
         "port": 4500
       }
     },
-    "preview": {
-      "executor": "@nx/vite:preview-server",
-      "options": {
-        "buildTarget": "ui-patterns-playground:build",
-        "port": 4500
-      }
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
