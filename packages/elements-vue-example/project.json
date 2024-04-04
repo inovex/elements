@@ -6,25 +6,25 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/vite:build",
+      "outputs": ["{projectRoot}/dist"],
       "options": {
-        "cwd": "packages/elements-vue-example",
-        "command": "vite build"
+        "outputPath": "{projectRoot}/dist",
+        "configFile": "{projectRoot}/vite.config.ts"
       }
     },
     "start": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/vite:dev-server",
       "options": {
-        "cwd": "packages/elements-vue-example"
-      },
-      "defaultConfiguration": "dev",
-      "configurations": {
-        "dev": {
-          "command": "vite serve"
-        },
-        "prod": {
-          "command": "vite serve --mode=production"
-        }
+        "buildTarget": "elements-vue-example:build",
+        "port": 4400
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "options": {
+        "buildTarget": "elements-vue-example:build",
+        "port": 4400
       }
     },
     "lint": {
