@@ -117,6 +117,10 @@
       "{workspaceRoot}/tsconfig.json",
       "{workspaceRoot}/tsconfig.base.json"
     ],
-    "production": ["default", "!{projectRoot}/**/*.e2e.ts"]
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.e2e.ts",
+      "!{projectRoot}/**/*.spec.ts"
+    ]
   }
 }

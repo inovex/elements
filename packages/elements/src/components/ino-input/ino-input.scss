@@ -123,6 +123,12 @@ ino-input {
   .mdc-text-field__affix.mdc-text-field__affix--suffix {
     margin-right: 12px;
   }
+
+  .mdc-text-field-helper-text[aria-hidden='true']:not(
+      .mdc-text-field-helper-text--persistent
+    ) {
+    visibility: hidden;
+  }
 }
 
 // Filled textfield specific
