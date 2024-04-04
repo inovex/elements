@@ -14,7 +14,6 @@
     },
     "serve": {
       "executor": "@nx/vite:dev-server",
-      "defaultConfiguration": "dev",
       "options": {
         "buildTarget": "ui-patterns-playground:build",
         "port": 4500
@@ -22,7 +21,6 @@
     },
     "preview": {
       "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "prod",
       "options": {
         "buildTarget": "ui-patterns-playground:build",
         "port": 4500
