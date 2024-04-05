@@ -5,7 +5,7 @@ export type ImageDecodingTypes = 'async' | 'auto' | 'sync';
 export type Locations = HorizontalLocation | VerticalLocation;
 export type NavDrawerAnchor = 'left' | 'right';
 export type NavDrawerVariant = 'docked' | 'dismissible' | 'modal' | 'mobile';
-export type SnackbarType = 'info' | 'success' | 'error';
+export type SnackbarType = 'info' | 'success' | 'error' | 'warning';
 export type SpinnerType = 'tile' | 'bounce' | 'circle';
 export type TooltipTrigger =
   | 'mouseenter'
@@ -58,3 +58,7 @@ export type NavDrawerLabels = {
 };
 export type TippyThemes = 'light' | 'dark' | 'primary';
 export type ButtonVariants = 'filled' | 'outlined' | 'text';
+export type SnackbarLabels = {
+  snackbarLabel: string;
+  closeLabel: string;
+};

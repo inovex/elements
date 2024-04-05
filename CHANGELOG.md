@@ -1,3 +1,41 @@
+## 9.3.0 (2024-04-05)
+
+
+### 🚀 Features
+
+- **elements/ino-snackbar:** add open prop functionality ([#1320](https://github.com/inovex/elements/pull/1320))
+
+### ❤️  Thank You
+
+- Tobias Heim Galindo @TobiasHeimGalindo
+
+## 9.2.0 (2024-03-15)
+
+
+### 🚀 Features
+
+- **elements/ino-snackbar:** improve accessibility ([#1200](https://github.com/inovex/elements/pull/1200))
+- **elements/ino-snackbar:** add warning variant ([#1133](https://github.com/inovex/elements/pull/1133))
+- **landingpage:** enable UI Patterns route ([#1301](https://github.com/inovex/elements/pull/1301))
+- **landingpage:** add Tailwind Integration guide ([#1312](https://github.com/inovex/elements/pull/1312))
+- **ui-patterns:** add SettingsPage pattern ([#1287](https://github.com/inovex/elements/pull/1287))
+- **ui-patterns:** add footer & hero pattern ([#1310](https://github.com/inovex/elements/pull/1310))
+
+### 🩹 Fixes
+
+- adjust nx release config after update ([#1303](https://github.com/inovex/elements/pull/1303))
+- **elements/ino-input:** prevent label cut-off in outline variant ([#1189](https://github.com/inovex/elements/pull/1189))
+- **elements/ino-list-item:** disable animation on disabled state ([#1279](https://github.com/inovex/elements/pull/1279))
+- **landingpage:** prevent redirection to 404 ([#1311](https://github.com/inovex/elements/pull/1311))
+- **landingpage:** hotfix ino-icon-buttons ([#1315](https://github.com/inovex/elements/pull/1315))
+
+### ❤️  Thank You
+
+- Benjamin Pagelsdorf
+- MariaLStefan @MariaLStefan
+- Sl1nd
+- Tobias Heim Galindo @TobiasHeimGalindo
+
 ## 9.1.1 (2024-02-23)
 
 

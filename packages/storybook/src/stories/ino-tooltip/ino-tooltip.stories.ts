@@ -158,7 +158,7 @@ export const ColorScheme = Story({
   },
 });
 
-export const delay = Story({
+export const Delay = Story({
   ...Default,
   docsFromProperty: 'delay',
   args: {

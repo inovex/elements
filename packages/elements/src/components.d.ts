@@ -5,13 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
+import { MDCNotchedOutline } from "@material/notched-outline";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
-export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 export { Placement, Props } from "tippy.js";
+export { MDCNotchedOutline } from "@material/notched-outline";
 export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -796,7 +798,7 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * Styles the input field as outlined element.
+          * Styles the input field as outlined element.  This property is immutable which means that it should not be changed after its first initialization. Changing this property at runtime causes problems in combination with the floating label. You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
          */
         "outline"?: boolean;
         /**
@@ -906,6 +908,10 @@ export namespace Components {
           * Id of the associated form control
          */
         "for": string;
+        /**
+          * Returns internal mdcNotchedOutline instance
+         */
+        "getMdcNotchedOutlineInstance": () => Promise<MDCNotchedOutline>;
         /**
           * Styles the label in an outlined style
          */
@@ -1390,6 +1396,10 @@ export namespace Components {
      */
     interface InoSnackbar {
         /**
+          * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+         */
+        "a11yLabels"?: SnackbarLabels;
+        /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
         "actionText"?: string;
@@ -1399,6 +1409,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * Controls the visibility state of the snackbar. When set to `true`, the snackbar is displayed; otherwise, it is hidden.
+         */
+        "open": boolean;
+        /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
         "stayVisibleOnHover"?: boolean;
@@ -1407,7 +1421,7 @@ export namespace Components {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type. There are three types of messages: info, success, and error.
+          * Changes the snackbar type. There are four types of messages: info, success, warning and error.
          */
         "type": SnackbarType;
     }
@@ -2614,7 +2628,7 @@ declare global {
         new (): HTMLInoTabElement;
     };
     interface HTMLInoTabBarElementEventMap {
-        "activeTabChange": any;
+        "activeTabChange": number;
     }
     /**
      * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
@@ -3594,7 +3608,7 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: InoInputCustomEvent<string>) => void;
         /**
-          * Styles the input field as outlined element.
+          * Styles the input field as outlined element.  This property is immutable which means that it should not be changed after its first initialization. Changing this property at runtime causes problems in combination with the floating label. You can read more about this issue [here](https://github.com/inovex/elements/issues/1216).
          */
         "outline"?: boolean;
         /**
@@ -4234,6 +4248,10 @@ declare namespace LocalJSX {
      */
     interface InoSnackbar {
         /**
+          * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+         */
+        "a11yLabels"?: SnackbarLabels;
+        /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
         "actionText"?: string;
@@ -4251,6 +4269,10 @@ declare namespace LocalJSX {
          */
         "onHideEl"?: (event: InoSnackbarCustomEvent<any>) => void;
         /**
+          * Controls the visibility state of the snackbar. When set to `true`, the snackbar is displayed; otherwise, it is hidden.
+         */
+        "open"?: boolean;
+        /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
         "stayVisibleOnHover"?: boolean;
@@ -4259,7 +4281,7 @@ declare namespace LocalJSX {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type. There are three types of messages: info, success, and error.
+          * Changes the snackbar type. There are four types of messages: info, success, warning and error.
          */
         "type"?: SnackbarType;
     }
@@ -4355,7 +4377,7 @@ declare namespace LocalJSX {
         /**
           * Emits when a tab changes. Contains the index of the activated tab in `event.detail`
          */
-        "onActiveTabChange"?: (event: InoTabBarCustomEvent<any>) => void;
+        "onActiveTabChange"?: (event: InoTabBarCustomEvent<number>) => void;
     }
     /**
      * The ino-table is a custom table used to display sets of data across multiple columns.

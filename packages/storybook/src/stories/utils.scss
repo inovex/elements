@@ -1,0 +1,9 @@
+/**
+ * Applies styling to the container of a story.
+ * The styling is encapsulated within this mixin because the ID may change in the future.
+ */
+@mixin story-container {
+  #root-inner {
+    @content;
+  }
+}

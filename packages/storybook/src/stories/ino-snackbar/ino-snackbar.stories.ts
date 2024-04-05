@@ -29,29 +29,33 @@ const InoSnackbarMeta = {
           const button = e.target.closest('.snackbar-trigger');
           if (button) {
             const snackbarId = button.getAttribute('data-template-id');
-            const snackbarWrapper = document.getElementById(snackbarId);
-            if (snackbarWrapper) {
-              snackbarWrapper.classList.remove('hidden');
+            const snackbar = document.getElementById(snackbarId);
+            if (snackbar) {
+              snackbar.setAttribute('open', 'true');
             }
           }
         };
 
-        const snackbarHideHandler = (e) => {
-          const snackbarElement = e.target.closest('ino-snackbar');
-          if (snackbarElement) {
-            const snackbarWrapper = snackbarElement.parentElement;
-            snackbarWrapper.classList.add('hidden');
+        const handleClose = (e) => {
+          const snackbar = e.target;
+          if (snackbar) {
+            snackbar.setAttribute('open', 'false');
           }
         };
 
         const btns = document.querySelectorAll('.snackbar-trigger');
         btns.forEach((btn) => btn.addEventListener('click', handleOpen));
 
-        document.addEventListener('hideEl', snackbarHideHandler);
+        const snackbarEls = document.querySelectorAll('ino-snackbar');
+        snackbarEls.forEach((snackbar) =>
+          snackbar.addEventListener('hideEl', handleClose),
+        );
 
         return () => {
           btns.forEach((btn) => btn.removeEventListener('click', handleOpen));
-          document.removeEventListener('hideEl', snackbarHideHandler);
+          snackbarEls.forEach((snackbar) =>
+            snackbar.removeEventListener('hideEl', handleClose),
+          );
         };
       });
 
@@ -62,17 +66,18 @@ const InoSnackbarMeta = {
     <ino-button class="snackbar-trigger" data-template-id="${args.id}">
       Show Snackbar
     </ino-button>
-    <div class="hidden" id="${args.id}">
-      <ino-snackbar
-        id="${args.id}"
-        action-text="${args.actionText}"
-        timeout="${args.timeout}"
-        type="${args.type}"
-        stay-visible-on-hover="${args.stayVisibleOnHover}"
-      >
-        ${args.defaultSlot}
-      </ino-snackbar>
-    </div>
+    <ino-snackbar
+      id="${args.id}"
+      open="${args.open}"
+      action-text="${args.actionText}"
+      timeout="${args.timeout}"
+      type="${args.type}"
+      stay-visible-on-hover="${args.stayVisibleOnHover}"
+      a11yLabels="
+        ${args.a11yLabels}"
+    >
+      ${args.defaultSlot}
+    </ino-snackbar>
   `,
   argTypes: {
     // hide custom attributes from table
@@ -88,12 +93,17 @@ const InoSnackbarMeta = {
     },
   },
   args: {
+    type: 'info',
+    open: false,
     actionText: 'Some Action',
     defaultSlot: 'This is a message',
     timeout: -1,
-    type: 'info',
     id: 'snackbar-default',
     stayVisibleOnHover: false,
+    a11yLabels: {
+      snackbarLabel: 'Information',
+      closeLabel: 'Close Button',
+    },
   },
 } as Meta<InoSnackbarExtended>;
 
@@ -140,6 +150,7 @@ export const StayVisibleOnHover = Story({
   args: {
     stayVisibleOnHover: true,
     id: 'snackbar-stayVisibleOnHover',
+    timeout: 5000,
     defaultSlot:
       'This snackbar stays visible on hover otherwise it will disappear in 5s',
   },

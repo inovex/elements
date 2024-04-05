@@ -41,9 +41,24 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
             <InoIcon icon="dashboard"></InoIcon>
           </InoNavItem>
         </Link>
+        <Link to="/settings">
+          <InoNavItem role="menuitem" text="SettingsPage">
+            <InoIcon icon="settings"></InoIcon>
+          </InoNavItem>
+        </Link>
         <Link to="/mypatterna">
           <InoNavItem role="menuitem" text="MyPatternA">
             <InoIcon icon="number"></InoIcon>
+          </InoNavItem>
+        </Link>
+        <Link to="/hero">
+          <InoNavItem role="menuitem" text="Hero">
+            <InoIcon icon="display"></InoIcon>
+          </InoNavItem>
+        </Link>
+        <Link to="/footer">
+          <InoNavItem role="menuitem" text="Footer">
+            <InoIcon icon="display"></InoIcon>
           </InoNavItem>
         </Link>
       </InoList>

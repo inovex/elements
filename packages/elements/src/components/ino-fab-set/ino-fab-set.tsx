@@ -31,7 +31,7 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 @Component({
   tag: 'ino-fab-set',
   styleUrl: 'ino-fab-set.scss',
-  shadow: true,
+  shadow: false,
 })
 export class FabSet implements ComponentInterface {
   @Element() el!: HTMLInoFabSetElement;
@@ -94,7 +94,9 @@ export class FabSet implements ComponentInterface {
             tooltip-placement="none"
           >
             {hasClosedIcon ? (
-              <slot slot="icon-leading" name="icon-closed" />
+              <div slot="icon-leading">
+                <slot name="icon-closed" />
+              </div>
             ) : (
               <ino-icon
                 class="ino-fab-set-icon ino-fab-set-icon--closed"
@@ -104,7 +106,9 @@ export class FabSet implements ComponentInterface {
             )}
 
             {hasOpenedIcon ? (
-              <slot slot="icon-leading" name="icon-opened" />
+              <div slot="icon-leading">
+                <slot name="icon-opened" />
+              </div>
             ) : (
               <ino-icon
                 class="ino-fab-set-icon ino-fab-set-icon--opened"

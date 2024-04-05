@@ -15,6 +15,11 @@ ino-textarea {
   --textarea-label-color: var(--ino-textarea-label-color, #{theme.$p-5});
 }
 
+// Tailwind CSS Preflight border-style countermeasures (https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally)
+ino-textarea * {
+  border-style: none;
+}
+
 ino-textarea {
   display: block;
 

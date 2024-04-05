@@ -43,6 +43,9 @@ export const config: Config = {
       includePaths: ['../../node_modules'].map((d) => join(__dirname, d)),
     }),
   ],
+  testing: {
+    setupFilesAfterEnv: ['./setupSpecTests.ts'],
+  },
   preamble: 'Crafted with ❤ by inovex GmbH',
   testing: {
     setupFilesAfterEnv: ['./setupJest.ts']

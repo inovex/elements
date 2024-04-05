@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-angular",
-  "version": "9.1.1",
+  "version": "9.3.0",
   "author": "Sven Lindauer <slindauer@inovex.de>",
   "description": "Angular library for @inovex.de/elements to use the components in Angular projects",
   "contributors": [
@@ -20,7 +20,7 @@
     "rxjs": ">=7.5.0"
   },
   "dependencies": {
-    "@inovex.de/elements": "^9.1.1",
+    "@inovex.de/elements": "^9.3.0",
     "tslib": "^2.3.0"
   },
   "schematics": "./dist/schematics/collection.json",

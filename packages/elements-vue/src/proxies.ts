@@ -470,9 +470,11 @@ export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect, JSX.InoSel
 export const InoSnackbar = /*@__PURE__*/ defineContainer<JSX.InoSnackbar>('ino-snackbar', undefined, [
   'message',
   'actionText',
+  'open',
   'type',
   'timeout',
   'stayVisibleOnHover',
+  'a11yLabels',
   'actionClick',
   'hideEl'
 ]);
