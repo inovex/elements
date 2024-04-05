@@ -1,5 +1,5 @@
 # http://editorconfig.org
-
+# This config is automatically used by prettier
 root = true
 
 [*]
