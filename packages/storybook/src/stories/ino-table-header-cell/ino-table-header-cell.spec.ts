@@ -14,7 +14,7 @@ test.describe('ino-table-header-cell', () => {
     await expect(icons).toHaveCount(2);
     await expect(icons.first()).toBeHidden();
     await expect(icons.last()).toBeVisible();
-    await expect(headerCell).toHaveText("Label");
+    await expect(headerCell).toHaveText('Label');
     await expect(popoverInput).toBeHidden();
 
     await headerCell.hover();
