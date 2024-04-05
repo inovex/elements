@@ -107,6 +107,7 @@ export class Checkbox implements ComponentInterface {
   @Event() checkedChange!: EventEmitter;
 
   private handleInput = (e: Event) => {
+    if (this.disabled) return;
     this.nativeInputEl.checked = this.checked;
     this.checkedChange.emit(!this.checked);
     e.stopPropagation();

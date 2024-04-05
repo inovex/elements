@@ -30,7 +30,7 @@ export class Accordion implements ComponentInterface {
   /**
    * The title of the accordion.
    */
-  @Prop() accordionTitle: string = '';
+  @Prop() accordionTitle = '';
 
   /**
    * Emits when the user clicks on the icon toggle to change the expanded state. Contains the status in `event.detail`.

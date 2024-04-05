@@ -12,9 +12,7 @@ test.describe('ino-checkbox', () => {
     await goToStory(page, ['Input', 'ino-checkbox', 'default']);
 
     await expect(checkbox).toBeChecked();
-
     await checkbox.click();
-
     await expect(checkbox).not.toBeChecked();
   });
 

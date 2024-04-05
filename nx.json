@@ -24,7 +24,38 @@
         "^production",
         "{projectRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintrc.json"
-      ]
+      ],
+      "defaultConfiguration": "check",
+      "configurations": {
+        "check": {
+          "fix": false
+        },
+        "fix": {
+          "fix": true
+        },
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "parallel": false,
+        "commands": [
+          "nx run {projectName}:clean:dist",
+          "nx run {projectName}:clean:node"
+        ]
+      },
+      "configurations": {
+        "dist": {
+          "commands": ["shx rm -rf ./dist"]
+        },
+        "node": {
+          "commands": ["shx rm -rf ./node_modules"]
+        }
+      }
     },
     "@angular-devkit/build-angular:browser": {
       "cache": true,
@@ -35,6 +66,10 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
     }
   },
   "generators": {
@@ -86,6 +121,11 @@
       "{workspaceRoot}/tsconfig.json",
       "{workspaceRoot}/tsconfig.base.json"
     ],
-    "production": ["default", "!{projectRoot}/**/*.e2e.ts"]
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.e2e.ts",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json"
+    ]
   }
 }

@@ -1460,6 +1460,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * Controls the visibility state of the snackbar. When set to `true`, the snackbar is displayed; otherwise, it is hidden.
+         */
+        "open": boolean;
+        /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
         "stayVisibleOnHover"?: boolean;
@@ -4444,6 +4448,10 @@ declare namespace LocalJSX {
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */
         "onHideEl"?: (event: InoSnackbarCustomEvent<any>) => void;
+        /**
+          * Controls the visibility state of the snackbar. When set to `true`, the snackbar is displayed; otherwise, it is hidden.
+         */
+        "open"?: boolean;
         /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */

@@ -19,7 +19,7 @@ describe('InoButton', () => {
   });
 
   it('fires an event on click', async () => {
-    let clickEventSpy = jest.fn();
+    const clickEventSpy = jest.fn();
     page.win.addEventListener('click', clickEventSpy);
 
     inoButtonEl.click();
@@ -28,7 +28,7 @@ describe('InoButton', () => {
   });
 
   it('should not fire an event if disabled', async () => {
-    let clickEventSpy = jest.fn();
+    const clickEventSpy = jest.fn();
     page.win.addEventListener('click', clickEventSpy);
 
     inoButtonEl.setAttribute('disabled', 'true');

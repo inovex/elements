@@ -24,16 +24,6 @@
         "command": "tsc --project ./tsconfig.lib.json"
       }
     },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "shx rm -rf packages/elements-vue/dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf  packages/elements-vue/node_modules"
-        }
-      }
-    }
+    "clean": {}
   }
 }

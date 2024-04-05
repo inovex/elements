@@ -16,7 +16,9 @@ export class Config {
   }
 
   patch(key: keyof InoElementsConfig, value?: any) {
-    if (this.storage && this.storage[key]) {
+    if (this.storage === null) return;
+
+    if (this.storage[key] !== undefined) {
       this.storage[key] = value;
     }
   }

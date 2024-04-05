@@ -1,3 +1,5 @@
+@import '../utils';
+
 .story-tooltip {
   display: flex;
   justify-content: center;
@@ -21,9 +23,11 @@
     align-items: flex-end;
     height: 110px;
 
-    #story--notification-ino-tooltip--color-scheme-inner #root-inner {
-      display: flex;
-      gap: 15px;
+    #story--notification-ino-tooltip--color-scheme-inner {
+      @include story-container {
+        display: flex;
+        gap: 15px;
+      }
     }
 
     h4 {

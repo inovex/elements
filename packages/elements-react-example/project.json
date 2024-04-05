@@ -6,39 +6,31 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/vite:build",
       "outputs": ["{projectRoot}/dist"],
       "options": {
-        "cwd": "packages/elements-react-example",
-        "command": "vite build"
+        "outputPath": "{projectRoot}/dist",
+        "configFile": "{projectRoot}/vite.config.ts"
       }
     },
     "start": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/vite:dev-server",
       "options": {
-        "cwd": "packages/elements-react-example"
-      },
-      "defaultConfiguration": "dev",
-      "configurations": {
-        "dev": {
-          "command": "vite --port 4300"
-        },
-        "prod": {
-          "command": "vite preview --port 4300"
-        }
+        "buildTarget": "elements-react-example:build",
+        "port": 4300
       }
     },
-    "clean": {
-      "executor": "nx:run-commands",
+    "preview": {
+      "executor": "@nx/vite:preview-server",
       "options": {
-        "cwd": "packages/elements-react-example",
-        "command": "shx rm -rf dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
-        }
+        "buildTarget": "elements-react-example:build",
+        "port": 4300
       }
-    }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "clean": {}
   }
 }
