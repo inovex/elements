@@ -29,10 +29,8 @@ test.describe('ino-datepicker - Basics', () => {
   });
 
   test('should display flatpickr inline', async ({ page }) => {
+    await goToStory(page, ['Input', 'ino-datepicker', 'inline']);
     const { inoDatepicker, flatpickrCal, input } = getDefaultLocators(page);
-
-    await setAttribute(inoDatepicker, 'inline', 'true');
-    await inoDatepicker.focus();
 
     await expect(inoDatepicker).toBeVisible();
     await expect(input).toBeVisible();
