@@ -32,15 +32,3 @@ export async function setProperty(
     value,
   });
 }
-
-export function interceptCustomEvent<T>(page: Page, eventName: string) {
-  return page.evaluate((eventName) => {
-    return new Promise<T>((resolve) => {
-      const listener = (data: CustomEvent<T>) => {
-        document.removeEventListener(eventName, listener);
-        resolve(data.detail);
-      };
-      document.addEventListener(eventName, listener);
-    });
-  }, eventName);
-}

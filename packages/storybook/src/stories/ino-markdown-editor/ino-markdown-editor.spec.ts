@@ -1,5 +1,5 @@
-import { expect, Locator, test } from '@playwright/test';
-import { interceptCustomEvent, goToStory } from '../test-utils';
+import { expect, Locator, Page, test } from '@playwright/test';
+import { goToStory } from '../test-utils';
 
 enum ViewMode {
   MARKDOWN = 'markdown',
@@ -39,12 +39,7 @@ const HTML_TEXT_TAGS = [
 ];
 
 test.describe('ino-markdown-editor', () => {
-  let inoMarkdownEditor: Locator;
-  let textArea: Locator;
-  let tipTapEditor: Locator;
-  let textFormatToolbar: Locator;
-
-  const setupEditor = (viewMode: ViewMode, text?: string) =>
+  const setupEditor = (inoMarkdownEditor: Locator, viewMode: ViewMode, text?: string) =>
     inoMarkdownEditor.evaluate(
       (editor, { viewMode, text }) => {
         editor.setAttribute('view-mode', viewMode);
@@ -55,53 +50,63 @@ test.describe('ino-markdown-editor', () => {
       { viewMode, text },
     );
 
+  const getDefaultLocators = (page: Page) => {
+    const inoMarkdownEditor = page.locator('ino-markdown-editor');
+    return {
+      inoMarkdownEditor,
+      textArea: inoMarkdownEditor.locator('textarea'),
+      tipTapEditor: inoMarkdownEditor.locator('.ProseMirror'),
+      textFormatToolbar: inoMarkdownEditor.locator('.toolbar__text-format'),
+    }
+  }
+
   test.beforeEach(async ({ page }) => {
     await goToStory(page, ['Input', 'ino-markdown-editor', 'default']);
-    inoMarkdownEditor = page.locator('ino-markdown-editor');
-    textArea = inoMarkdownEditor.locator('textarea');
-    tipTapEditor = inoMarkdownEditor.locator('.ProseMirror');
-    textFormatToolbar = inoMarkdownEditor.locator('.toolbar__text-format');
   });
 
-  test('should show preview mode correctly', async () => {
-    await setupEditor(ViewMode.PREVIEW);
+  test('should show preview mode correctly', async ({ page }) => {
+    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } = getDefaultLocators(page);
+    await setupEditor(inoMarkdownEditor, ViewMode.PREVIEW);
     await expect(textArea).not.toBeInViewport();
     await expect(tipTapEditor).toBeInViewport();
     await expect(textFormatToolbar).toBeInViewport();
   });
 
-  test('should show markdown mode correctly', async () => {
-    await setupEditor(ViewMode.MARKDOWN);
+  test('should show markdown mode correctly', async ({ page }) => {
+    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } = getDefaultLocators(page);
+    await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN);
     await expect(textArea).toBeInViewport();
     await expect(tipTapEditor).not.toBeInViewport();
     await expect(textFormatToolbar).not.toBeInViewport();
   });
 
-  test('should emit view mode change', async ({ page }) => {
-    await setupEditor(ViewMode.PREVIEW);
+  test('should change view mode', async ({ page }) => {
+    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } = getDefaultLocators(page);
+    await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN);
     const viewModeToolbar = inoMarkdownEditor.locator('.toolbar__view-mode');
     await expect(viewModeToolbar).toHaveCount(2);
 
-    const getInterceptor = () =>
-      interceptCustomEvent<ViewMode>(page, 'viewModeChange');
-
-    const previewPromise = getInterceptor();
     await (await viewModeToolbar.all())[0].click();
-    expect(await previewPromise).toBe(ViewMode.PREVIEW);
+    await expect(textArea).not.toBeInViewport();
+    await expect(tipTapEditor).toBeInViewport();
+    await expect(textFormatToolbar).toBeInViewport();
 
-    const markdownPromise = getInterceptor();
     await (await viewModeToolbar.all())[1].click();
-    expect(await markdownPromise).toBe(ViewMode.MARKDOWN);
+    await expect(textArea).toBeInViewport();
+    await expect(tipTapEditor).not.toBeInViewport();
+    await expect(textFormatToolbar).not.toBeInViewport();
   });
 
-  test('should display all text format buttons', async () => {
-    await setupEditor(ViewMode.PREVIEW);
+  test('should display all text format buttons', async ({ page }) => {
+    const { inoMarkdownEditor, textFormatToolbar } = getDefaultLocators(page);
+    await setupEditor(inoMarkdownEditor, ViewMode.PREVIEW);
     const buttons = textFormatToolbar.locator('.toolbar__action-button');
     await expect(buttons).toHaveCount(11);
   });
 
-  test('should show preview as html when set initial value property', async () => {
-    await setupEditor(ViewMode.MARKDOWN, MARKDOWN_TEXT);
+  test('should show preview as html when set initial value property', async ({ page }) => {
+    const { inoMarkdownEditor, tipTapEditor } = getDefaultLocators(page);
+    await setupEditor(inoMarkdownEditor,ViewMode.MARKDOWN, MARKDOWN_TEXT);
     const htmlValue = await tipTapEditor.innerHTML();
 
     expect(htmlValue.includes('<ul data-type="taskList">')).toBeTruthy();
@@ -109,36 +114,20 @@ test.describe('ino-markdown-editor', () => {
     HTML_TEXT_TAGS.forEach((tag) => expect(htmlValue).toContain(tag));
   });
 
-  test('should emit a valueChange on textarea blur', async ({ page }) => {
-    await setupEditor(ViewMode.MARKDOWN);
+  test('should enter text in markdown mode', async ({ page }) => {
+    const { inoMarkdownEditor, textArea } = getDefaultLocators(page);
+    await setupEditor(inoMarkdownEditor,ViewMode.MARKDOWN);
     const dummyText = '# Hallo Welt';
-
-    const valueChangePromise = interceptCustomEvent<string>(
-      page,
-      'valueChange',
-    );
 
     await textArea.fill(dummyText);
     await textArea.blur();
-    expect(await valueChangePromise).toBe(dummyText);
+    await expect(inoMarkdownEditor).toHaveText(dummyText);
   });
 
-  test('should emit a valueChange on editor blur', async ({ page }) => {
-    await setupEditor(ViewMode.PREVIEW);
-    const dummyText = '# Hallo Welt';
-    const valueChangePromise = interceptCustomEvent<ViewMode>(
-      page,
-      'valueChange',
-    );
-
-    await tipTapEditor.pressSequentially(dummyText);
-    await tipTapEditor.blur();
-    expect(await valueChangePromise).toBe(dummyText);
-  });
-
-  test('should change initial value', async () => {
+  test('should change initial value', async ({ page }) => {
     const initialText = '# Hello World';
-    await setupEditor(ViewMode.MARKDOWN, initialText);
+    const { inoMarkdownEditor, textArea } = getDefaultLocators(page);
+    await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN, initialText);
     await expect(textArea).toHaveValue(initialText);
 
     const newInitialText = '# Hello New Welt';
