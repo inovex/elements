@@ -1,3 +1,5 @@
+@import '../utils';
+
 .sbdocs.sbdocs-content:has(#anchor--input-ino-textarea--default) {
   [scale] {
     width: 100%;
@@ -8,8 +10,10 @@
     margin-bottom: 15px;
   }
 
-  #story--input-ino-textarea--label-inner #root-inner {
-    display: flex;
-    gap: 15px;
+  #story--input-ino-textarea--label-inner {
+    @include story-container {
+      display: flex;
+      gap: 15px;
+    }
   }
 }
