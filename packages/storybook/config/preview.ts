@@ -15,8 +15,6 @@ import theme from './theme';
 
 import DocumentationTemplate from './DocumentationTemplate.mdx';
 import { StencilJsonDocs } from '@pxtrn/storybook-addon-docs-stencil/dist/types';
-import { useEffect } from '@storybook/preview-api';
-import { PartialStoryFn, StoryContext } from '@storybook/types';
 
 const StencilDocsJson = docsJson as unknown as StencilJsonDocs;
 
@@ -36,16 +34,6 @@ applyPolyfills().then(() => defineCustomElements(window));
 
 // Explicit order for the docs section
 const preview = {
-  decorators: [
-    (story: PartialStoryFn, ctx: StoryContext) => {
-      useEffect(() => {
-        if (ctx.viewMode === 'story') {
-          document.getElementById('storybook-root').style.minWidth = '200px';
-        }
-      });
-      return story();
-    },
-  ],
   parameters: {
     viewMode: 'docs',
     layout: 'centered',
