@@ -6,19 +6,18 @@
   "tags": [],
   "targets": {
     "start": {
-      "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/dist"],
+      "executor": "@nx/vite:build",
       "options": {
-        "cwd": "packages/ui-patterns",
-        "commands": ["vite build --watch"]
+        "outputPath": "{projectRoot}/dist",
+        "configFile": "{projectRoot}/vite.config.ts",
+        "watch": true
       }
     },
     "build": {
-      "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/dist"],
+      "executor": "@nx/vite:build",
       "options": {
-        "cwd": "packages/ui-patterns",
-        "commands": ["tsc", "vite build"]
+        "outputPath": "{projectRoot}/dist",
+        "configFile": "{projectRoot}/vite.config.ts"
       }
     },
     "lint": {
