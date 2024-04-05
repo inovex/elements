@@ -93,12 +93,12 @@ test.describe('ino-markdown-editor', () => {
     const viewModeToolbar = inoMarkdownEditor.locator('.toolbar__view-mode');
     await expect(viewModeToolbar).toHaveCount(2);
 
-    await (await viewModeToolbar.all())[0].click();
+    await viewModeToolbar.nth(0).click();
     await expect(textArea).not.toBeInViewport();
     await expect(tipTapEditor).toBeInViewport();
     await expect(textFormatToolbar).toBeInViewport();
 
-    await (await viewModeToolbar.all())[1].click();
+    await viewModeToolbar.nth(1).click();
     await expect(textArea).toBeInViewport();
     await expect(tipTapEditor).not.toBeInViewport();
     await expect(textFormatToolbar).not.toBeInViewport();
@@ -124,13 +124,15 @@ test.describe('ino-markdown-editor', () => {
   });
 
   test('should enter text in markdown mode', async ({ page }) => {
-    const { inoMarkdownEditor, textArea } = getDefaultLocators(page);
+    const { inoMarkdownEditor, textArea, tipTapEditor } = getDefaultLocators(page);
+    const viewModeToolbar = inoMarkdownEditor.locator('.toolbar__view-mode');
     await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN);
     const dummyText = '# Hallo Welt';
 
     await textArea.fill(dummyText);
     await textArea.blur();
-    await expect(inoMarkdownEditor).toHaveText(dummyText);
+    await viewModeToolbar.nth(0).click();
+    await expect(tipTapEditor).toHaveText('Hallo Welt');
   });
 
   test('should change initial value', async ({ page }) => {
