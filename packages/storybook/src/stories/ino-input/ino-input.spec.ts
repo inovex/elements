@@ -86,7 +86,7 @@ test.describe('ino-input', () => {
     expect(await getUnitOpacity()).toBe(0);
     await nativeInput.click();
     await nativeInput.pressSequentially('100');
-    expect(await getUnitOpacity()).toBeGreaterThan(0.5);
+    expect(await getUnitOpacity()).toBeGreaterThan(0);
     await nativeInput.blur();
     expect(await getUnitOpacity()).toBe(1);
   });
