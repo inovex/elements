@@ -85,8 +85,8 @@ test.describe('ino-input', () => {
     await setAttribute(inoInput, 'unit', '€');
     expect(await getUnitOpacity()).toBe(0);
     await nativeInput.click();
+    await nativeInput.pressSequentially('100');
     expect(await getUnitOpacity()).toBeGreaterThan(0.5);
-    await nativeInput.fill('100');
     await nativeInput.blur();
     expect(await getUnitOpacity()).toBe(1);
   });
