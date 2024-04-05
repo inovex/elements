@@ -12,7 +12,6 @@ import {
   h,
 } from '@stencil/core';
 import classNames from 'classnames';
-
 import { ButtonType } from '../types';
 
 /**
