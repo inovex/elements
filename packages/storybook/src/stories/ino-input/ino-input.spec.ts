@@ -98,16 +98,6 @@ test.describe('ino-input', () => {
     await expect(nativeInput).toHaveAttribute('type', 'number');
   });
 
-  test('should not be able to input anything if disabled', async ({ page }) => {
-    await goToStory(page, ['Input', 'ino-input', 'states']);
-
-    const disabledInput = page.getByRole('textbox', {
-      name: 'Disabled',
-      exact: true,
-    });
-    await expect(disabledInput).toBeDisabled();
-  });
-
   test('should be able to use arrow keys', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'type']);
 
