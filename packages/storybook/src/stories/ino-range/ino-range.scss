@@ -1,5 +1,11 @@
+@import '../utils';
+
 .sbdocs.sbdocs-content:has(#anchor--input-ino-range--default) {
   [scale] {
     width: 100%;
   }
+}
+
+@include story-container {
+  min-width: 200px;
 }
