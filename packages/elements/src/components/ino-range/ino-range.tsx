@@ -34,6 +34,10 @@ export class Range implements ComponentInterface {
    * Disables this element.
    */
   @Prop() disabled?: boolean;
+  @Watch('disabled')
+  handleDisabledChange(isDisabled: boolean) {
+    this.sliderInstance.setDisabled(isDisabled);
+  }
 
   /**
    * Restricts the slider to only allow discrete values.
@@ -131,7 +135,7 @@ export class Range implements ComponentInterface {
     );
     this.inputElStart?.setAttribute('value', `${this.valueStart}`);
     this.sliderInstance = new MDCSlider(this.sliderEl);
-
+    this.sliderInstance.setDisabled(this.disabled);
     this.sliderInstance.listen('MDCSlider:change', preventEvent);
     this.sliderInstance.listen('MDCSlider:input', this.handleInput);
   }
@@ -144,7 +148,6 @@ export class Range implements ComponentInterface {
 
   private handleInput = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
     e.stopPropagation();
-
     const { thumb, value } = e.detail;
 
     if (!this.ranged) {

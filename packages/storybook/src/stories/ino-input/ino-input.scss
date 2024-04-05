@@ -1,12 +1,16 @@
+@import '../utils';
+
 .sbdocs.sbdocs-content:has(#anchor--input-ino-input--default) {
   [scale] {
     width: 100%;
   }
 
-  #story--input-ino-input--states-inner #root-inner,
-  #story--input-ino-input--labels-inner #root-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  #story--input-ino-input--states-inner,
+  #story--input-ino-input--labels-inner {
+    @include story-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
   }
 }

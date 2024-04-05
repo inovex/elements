@@ -1,3 +1,14 @@
+## 9.3.0 (2024-04-05)
+
+
+### 🚀 Features
+
+- **elements/ino-snackbar:** add open prop functionality ([#1320](https://github.com/inovex/elements/pull/1320))
+
+### ❤️  Thank You
+
+- Tobias Heim Galindo @TobiasHeimGalindo
+
 ## 9.2.0 (2024-03-15)
 
 
