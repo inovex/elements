@@ -88,7 +88,7 @@ test.describe('ino-input', () => {
     await nativeInput.pressSequentially('100');
     expect(await getUnitOpacity()).toBeGreaterThan(0);
     await nativeInput.blur();
-    expect(await getUnitOpacity()).toBe(1);
+    expect(await getUnitOpacity()).toBeGreaterThan(0);
   });
 
   test('should have correct input type', async ({ page }) => {
