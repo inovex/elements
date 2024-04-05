@@ -1,1 +1,0 @@
-const n=""+new URL("lightning-87794e8f.jpg",import.meta.url).href,t=""+new URL("mountains-3b2c4163.jpg",import.meta.url).href,m=""+new URL("nidaros-0cac4d30.jpg",import.meta.url).href;export{n as l,t as m,m as n};
