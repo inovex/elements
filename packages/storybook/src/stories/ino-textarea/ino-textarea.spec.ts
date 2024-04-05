@@ -46,13 +46,15 @@ test.describe('ino-textarea', () => {
       page,
     }) => {
       const inoTextArea = page.locator('ino-textarea');
+      const textarea = inoTextArea.getByRole('textbox');
+
       await setAttribute(inoTextArea, 'cols', '1');
-      await inoTextArea.hover();
-      const { width: oneColWidth } = await inoTextArea.boundingBox();
+      await inoTextArea.blur();
+      const { width: oneColWidth } = await textarea.boundingBox();
 
       await setAttribute(inoTextArea, 'cols', '10');
-      await inoTextArea.hover();
-      const { width: tenColsWidth } = await inoTextArea.boundingBox();
+      await inoTextArea.blur();
+      const { width: tenColsWidth } = await textarea.boundingBox();
 
       expect(oneColWidth).toBeLessThan(tenColsWidth);
     });
