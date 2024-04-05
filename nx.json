@@ -66,6 +66,10 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
     }
   },
   "generators": {
@@ -117,6 +121,11 @@
       "{workspaceRoot}/tsconfig.json",
       "{workspaceRoot}/tsconfig.base.json"
     ],
-    "production": ["default", "!{projectRoot}/**/*.e2e.ts"]
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.e2e.ts",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json"
+    ]
   }
 }
