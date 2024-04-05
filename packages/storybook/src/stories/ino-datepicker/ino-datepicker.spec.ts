@@ -32,10 +32,11 @@ test.describe('ino-datepicker - Basics', () => {
     const { inoDatepicker, flatpickrCal, input } = getDefaultLocators(page);
 
     await setAttribute(inoDatepicker, 'inline', 'true');
+    await inoDatepicker.focus();
 
     await expect(inoDatepicker).toBeVisible();
-    await expect(flatpickrCal).toBeVisible();
     await expect(input).toBeVisible();
+    await expect(flatpickrCal).toBeVisible();
   });
 
   test('should allow empty values', async ({ page }) => {
