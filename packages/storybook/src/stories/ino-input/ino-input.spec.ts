@@ -41,6 +41,7 @@ test.describe('ino-input', () => {
 
     await expect(helper).toBeHidden();
     await setAttribute(inoInput, 'helper-persistent', 'true');
+    await inoInput.hover();
     await expect(helper).toBeVisible();
   });
 
@@ -52,7 +53,9 @@ test.describe('ino-input', () => {
       label.evaluate((el) => window.getComputedStyle(el, ':after').content);
 
     expect(await getHintContent()).toEqual('none');
+    await inoInput.hover();
     await setAttribute(inoInput, 'show-label-hint', 'true');
+    await inoInput.hover();
     expect(await getHintContent()).toContain('- Optional');
   });
 
@@ -64,8 +67,10 @@ test.describe('ino-input', () => {
       label.evaluate((el) => window.getComputedStyle(el, ':after').content);
 
     await setAttribute(inoInput, 'required', 'true');
+    await inoInput.hover();
     expect(await getHintContent()).toEqual('none');
     await setAttribute(inoInput, 'show-label-hint', 'true');
+    await inoInput.hover();
     expect(await getHintContent()).toContain('*');
   });
 
@@ -185,6 +190,7 @@ test.describe('ino-input - Error', () => {
 
     await setAttribute(inoInput, 'required', 'true');
     await setAttribute(inoInput, 'helper-validation', 'true');
+    await inoInput.hover();
     await expect(helper).toBeHidden();
 
     await nativeInput.fill('');
