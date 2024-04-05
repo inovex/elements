@@ -6,28 +6,33 @@
   "tags": [],
   "targets": {
     "build": {
-      "outputs": ["{projectRoot}/out"],
-      "executor": "nx:run-commands",
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "prod",
       "options": {
-        "cwd": "packages/landingpage",
-        "commands": ["next build"],
-        "parallel": false,
-        "color": true
+        "outputPath": "{projectRoot}/out",
+        "nextConfig": "{projectRoot}/next.config.mjs"
+      },
+      "configurations": {
+        "dev": {
+          "debug": true
+        },
+        "prod": {}
       }
     },
     "start": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/landingpage"
-      },
+      "executor": "@nx/next:server",
       "defaultConfiguration": "dev",
-      "configurations": {
-        "dev": {
-          "command": "next dev -p 4600"
-        },
-        "prod": {
-          "command": "next start -p 4600"
-        }
+      "options": {
+        "buildTarget": "landingpage:build",
+        "dev": true
+      }
+    },
+    "preview": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "landingpage:build:prod",
+        "port": 4600
       }
     },
     "lint": {
