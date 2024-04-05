@@ -124,7 +124,8 @@ test.describe('ino-markdown-editor', () => {
   });
 
   test('should enter text in markdown mode', async ({ page }) => {
-    const { inoMarkdownEditor, textArea, tipTapEditor } = getDefaultLocators(page);
+    const { inoMarkdownEditor, textArea, tipTapEditor } =
+      getDefaultLocators(page);
     const viewModeToolbar = inoMarkdownEditor.locator('.toolbar__view-mode');
     await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN);
     const dummyText = '# Hallo Welt';
