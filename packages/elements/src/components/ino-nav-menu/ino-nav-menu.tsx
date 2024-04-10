@@ -11,7 +11,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import { countBy } from 'lodash-es';
+import { countBy, isEqual } from 'lodash-es';
 
 const DEFAULT_OBSERVER_OPTIONS: IntersectionObserverInit = {
   threshold: 0,
@@ -48,6 +48,7 @@ export class NavMenu implements ComponentInterface {
   @Watch('sectionsContainerId')
   onSectionsContainerIdChanged() {
     this.registerSections();
+    console.log('section container change');
   }
 
   /**
@@ -72,7 +73,7 @@ export class NavMenu implements ComponentInterface {
   async scrollToSection(
     sectionId: string,
     behavior: ScrollBehavior = 'smooth',
-    topOffset: number = 80,
+    topOffset = 80,
   ) {
     const escapedId = CSS.escape(sectionId); // id could contain invalid characters (numbers, (, ), ...)
     const elementToScrollTo = this.target.querySelector(`#${escapedId}`);
@@ -118,10 +119,11 @@ export class NavMenu implements ComponentInterface {
 
     if (alreadyAdded) return;
 
+    console.log('Section ready');
     this.registerSections();
   }
 
-  componentDidLoad() {
+  connectedCallback() {
     if (this.sectionsContainerId) {
       try {
         this.target = document.getElementById(this.sectionsContainerId);
@@ -131,7 +133,9 @@ export class NavMenu implements ComponentInterface {
         );
       }
     }
+  }
 
+  componentDidLoad() {
     this.registerSections();
   }
 
@@ -156,6 +160,15 @@ export class NavMenu implements ComponentInterface {
    * and scrolls to the active section after reinitialization.
    */
   private registerSections() {
+    const newSections = Array.from(
+      this.target.querySelectorAll('ino-nav-menu-section'),
+    );
+
+    if (isEqual(newSections, this.sections)) {
+      console.log('equal ...');
+      return;
+    }
+
     this.sections = Array.from(
       this.target.querySelectorAll('ino-nav-menu-section'),
     );
@@ -165,6 +178,7 @@ export class NavMenu implements ComponentInterface {
       this.sections,
       (section) => section.sectionId,
     );
+
     Object.entries(sectionCounts)
       .filter(([, count]) => count > 1)
       .forEach(([id, count]) => {
@@ -185,6 +199,7 @@ export class NavMenu implements ComponentInterface {
   }
 
   render() {
+    console.log('RENDER', this.sectionsContainerId, this.sections);
     return (
       <Host>
         <nav class="ino-nav-menu" role="menu">

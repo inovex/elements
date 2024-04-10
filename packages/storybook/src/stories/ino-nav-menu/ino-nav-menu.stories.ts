@@ -34,13 +34,11 @@ const renderSections = (numberOfSecitons: number) => {
   );
 };
 
-let storyCount = 0;
-
 const inoNavMenuMeta = {
   title: 'Structure/ino-nav-menu',
   component: 'ino-nav-menu',
   render: (args) => {
-    const id = `nav-${storyCount++}`;
+    const id = `nav-${new Date().getTime()}`;
 
     return html`
       <aside class="menu">
@@ -81,12 +79,4 @@ export default inoNavMenuMeta;
 
 export const Default = Story({
   ...inoNavMenuMeta,
-});
-
-export const MenuTitle = Story({
-  ...Default,
-  docsFromProperty: 'menuTitle',
-  args: {
-    menuTitle: 'Contents',
-  },
 });

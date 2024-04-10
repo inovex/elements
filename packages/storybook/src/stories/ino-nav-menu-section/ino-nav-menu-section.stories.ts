@@ -49,6 +49,6 @@ export const ShowTitle = Story({
   ...Default,
   docsFromProperty: 'showTitle',
   args: {
-    showTitle: false,
+    showTitle: true,
   },
 });
