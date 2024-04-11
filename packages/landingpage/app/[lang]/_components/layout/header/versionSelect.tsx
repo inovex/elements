@@ -8,6 +8,14 @@ const VersionSelect = () => {
 
   const handleVersionChange = (e: CustomEvent) => {
     setSelectedVersion(e.detail);
+
+    const currentParams = new URLSearchParams(window.location.search);
+    currentParams.set('version', e.detail); // Set or update the version parameter
+    window.history.pushState(
+      {},
+      '',
+      `${window.location.pathname}?${currentParams.toString()}`,
+    );
   };
 
   return (

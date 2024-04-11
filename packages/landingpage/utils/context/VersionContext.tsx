@@ -25,7 +25,13 @@ export const VersionProvider = ({ children }: { children: ReactNode }) => {
         const reversedVersions = data.reverse();
         setVersions(reversedVersions);
 
-        if (reversedVersions.length > 0) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlVersion = urlParams.get('version');
+
+        // Set the selected version from URL or default to latest
+        if (urlVersion && reversedVersions.includes(urlVersion)) {
+          setSelectedVersion(urlVersion);
+        } else if (reversedVersions.length > 0) {
           setSelectedVersion(reversedVersions[0]);
         }
       });
