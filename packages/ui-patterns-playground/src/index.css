@@ -1,9 +1,9 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 @import '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
 @import '@inovex.de/ui-patterns/dist/style.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #root {
   height: 100vh;
