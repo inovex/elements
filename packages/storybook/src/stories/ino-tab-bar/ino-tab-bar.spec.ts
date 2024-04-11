@@ -18,6 +18,23 @@ test.describe('ino-tab-bar', () => {
     await expect(selectedTab).toContainText('messages', { ignoreCase: true });
   });
 
+  test('should be focused automatically with the autoFocus property', async ({
+    page,
+  }) => {
+    await goToStory(page, ['Structure', 'ino-tab-bar', 'auto-focus']);
+
+    const firstTabHTML = await page.evaluate(
+      () => document.querySelector('ino-tab').outerHTML,
+    );
+
+    const focusedElementHTML = await page.evaluate(
+      () => document.activeElement.closest('ino-tab').outerHTML,
+    );
+
+    // Check if the first ino-tab is the currently focused element
+    expect(focusedElementHTML).toBe(firstTabHTML);
+  });
+
   test('should set the clicked ino-tab as the active tab in the ino-tab-bar', async ({
     page,
   }) => {
