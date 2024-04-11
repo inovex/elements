@@ -1,8 +1,6 @@
 @import '../utils';
 
-#story--buttons-ino-button--leading-and-trailing-icon-inner {
-  @include story-container {
-    display: flex;
-    column-gap: 20px;
-  }
+#root-inner {
+  display: flex;
+  gap: 25px;
 }
