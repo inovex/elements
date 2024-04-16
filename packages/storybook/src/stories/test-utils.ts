@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 
 type StoryDescription = [StoryCategory, string, string]; // ['input', 'ino-checkbox', 'default']
 
@@ -31,4 +31,20 @@ export async function setProperty(
     propName,
     value,
   });
+}
+
+export async function assertAfterContent(
+  locator: Locator,
+  text: string | null,
+) {
+  const afterContent = await locator.evaluate(
+    (el) => window.getComputedStyle(el, ':after').content,
+  );
+
+  if (text === null) {
+    expect(afterContent).toEqual('none');
+    return;
+  }
+
+  expect(afterContent).toContain(text);
 }

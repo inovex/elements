@@ -397,6 +397,8 @@ export class Input implements ComponentInterface {
   // ----
 
   private handleNativeInputChange = (e) => {
+    if (this.disabled) return;
+
     let value = e.target.value;
 
     if (this.userInputInterceptorFn) {
