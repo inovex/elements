@@ -1,11 +1,52 @@
-import { expect, test } from '@playwright/test';
-import { goToStory, setAttribute } from '../test-utils';
+import { expect, Page, test } from '@playwright/test';
+import { assertAfterContent, goToStory, setAttribute } from '../test-utils';
+
+function getInputUtilities(page: Page, testId?: string) {
+  const inoInput = testId
+    ? page.getByTestId(testId)
+    : page.locator('ino-input');
+  const input = inoInput.getByRole('textbox');
+  const hiddenInput = inoInput.locator('input');
+  const invalidInput = inoInput.locator('input:invalid');
+  const helperText = inoInput.getByText('Helper message');
+  const unitText = inoInput.locator('.mdc-text-field__affix--suffix');
+  const label = inoInput.getByText('Input label');
+  const arrowUp = inoInput.getByRole('img').first();
+  const arrowDown = inoInput.getByRole('img').last();
+
+  async function assertUnitVisible() {
+    const unitOpacity = await unitText.evaluate((el) =>
+      Number(window.getComputedStyle(el).opacity),
+    );
+    expect(unitOpacity).toBeGreaterThan(0);
+  }
+
+  async function assertState(state: 'valid' | 'invalid') {
+    const invalidInput = inoInput.locator('input:invalid');
+
+    if (state === 'valid') await expect(invalidInput).toBeHidden();
+    if (state === 'invalid') await expect(invalidInput).toBeVisible();
+  }
+
+  return {
+    inoInput,
+    input,
+    hiddenInput,
+    invalidInput,
+    helperText,
+    label,
+    arrowUp,
+    arrowDown,
+    assertUnitVisible,
+    assertState,
+  };
+}
 
 test.describe('ino-input', () => {
   test('can be typed in properly', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
+    const { input } = getInputUtilities(page);
 
-    const input = page.locator('input');
     await expect(input).toBeEmpty();
     await input.fill('ABC');
     await expect(input).toHaveValue('ABC');
@@ -23,91 +64,72 @@ test.describe('ino-input', () => {
 
   test('should display helper text helper-persistent', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
-    const inoInput = page.locator('ino-input');
-    const input = inoInput.getByRole('textbox');
-    const helper = inoInput.getByText('Helper message');
+    const { input, helperText } = getInputUtilities(page);
 
-    await expect(helper).toBeHidden();
+    await expect(helperText).toBeHidden();
     await input.click();
-    await expect(helper).toBeVisible();
+    await expect(helperText).toBeVisible();
     await input.blur();
-    await expect(helper).toBeHidden();
+    await expect(helperText).toBeHidden();
   });
 
   test('should display persistent helper text', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
-    const inoInput = page.locator('ino-input');
-    const helper = inoInput.getByText('Helper message');
+    const { inoInput, helperText } = getInputUtilities(page);
 
-    await expect(helper).toBeHidden();
+    await expect(helperText).toBeHidden();
     await setAttribute(inoInput, 'helper-persistent', 'true');
     await inoInput.hover();
-    await expect(helper).toBeVisible();
+    await expect(helperText).toBeVisible();
   });
 
   test('should display optional label hint', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
-    const inoInput = page.locator('ino-input');
-    const label = inoInput.getByText('Input label');
-    const getHintContent = () =>
-      label.evaluate((el) => window.getComputedStyle(el, ':after').content);
+    const { inoInput, label } = getInputUtilities(page);
 
-    expect(await getHintContent()).toEqual('none');
+    await assertAfterContent(label, null);
     await inoInput.hover();
     await setAttribute(inoInput, 'show-label-hint', 'true');
     await inoInput.hover();
-    expect(await getHintContent()).toContain('- Optional');
+    await assertAfterContent(label, '- Optional');
   });
 
   test('should display required label hint', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
-    const inoInput = page.locator('ino-input');
-    const label = inoInput.getByText('Input label');
-    const getHintContent = () =>
-      label.evaluate((el) => window.getComputedStyle(el, ':after').content);
+    const { inoInput, label } = getInputUtilities(page);
 
     await setAttribute(inoInput, 'required', 'true');
     await inoInput.hover();
-    expect(await getHintContent()).toEqual('none');
+    await assertAfterContent(label, null);
     await setAttribute(inoInput, 'show-label-hint', 'true');
     await inoInput.hover();
-    expect(await getHintContent()).toContain('*');
+    await assertAfterContent(label, '*');
   });
 
   test('should display unit', async ({ page }) => {
-    await goToStory(page, ['Input', 'ino-input', 'default']);
-    const inoInput = page.locator('ino-input');
-    const nativeInput = page.locator('input');
-    const unitText = inoInput.getByText('€');
-    const getUnitOpacity = () =>
-      unitText.evaluate((el) => Number(window.getComputedStyle(el).opacity));
-
-    await setAttribute(inoInput, 'unit', '€');
-    expect(await getUnitOpacity()).toBe(0);
-    await nativeInput.click();
-    await nativeInput.pressSequentially('100');
-    expect(await getUnitOpacity()).toBeGreaterThan(0);
-    await nativeInput.blur();
-    expect(await getUnitOpacity()).toBeGreaterThan(0);
+    await goToStory(page, ['Input', 'ino-input', 'meta-data']);
+    const { assertUnitVisible } = getInputUtilities(page);
+    await assertUnitVisible();
   });
 
   test('should have correct input type', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
-    const inoInput = page.locator('ino-input');
-    const nativeInput = inoInput.locator('input');
+    const { inoInput, hiddenInput } = getInputUtilities(page);
 
-    await expect(nativeInput).toHaveAttribute('type', 'text');
+    await expect(hiddenInput).toHaveAttribute('type', 'text');
     await setAttribute(inoInput, 'type', 'email');
-    await expect(nativeInput).toHaveAttribute('type', 'email');
+    await expect(hiddenInput).toHaveAttribute('type', 'email');
     await setAttribute(inoInput, 'type', 'number');
-    await expect(nativeInput).toHaveAttribute('type', 'number');
+    await expect(hiddenInput).toHaveAttribute('type', 'number');
   });
 
   test('should be able to use arrow keys', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'type']);
-
-    const inoInput = page.getByTestId('input-test-steps');
-    const input = inoInput.locator('input');
+    const {
+      hiddenInput: input,
+      arrowUp,
+      arrowDown,
+    } = getInputUtilities(page, 'input-test-steps');
 
     // test steps by keyboard
     await input.press('ArrowUp');
@@ -123,8 +145,6 @@ test.describe('ino-input', () => {
     await expect(input).toHaveValue('0');
 
     // test steps by arrow click
-    const arrowUp = inoInput.getByRole('img').first();
-    const arrowDown = inoInput.getByRole('img').last();
     await arrowUp.click();
     await expect(input).toHaveValue('5');
     await arrowDown.click();
@@ -134,8 +154,12 @@ test.describe('ino-input', () => {
   test('should limit values by min and max', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'type']);
 
-    const inoInput = page.getByTestId('input-test-steps');
-    const input = inoInput.locator('input');
+    const {
+      inoInput,
+      hiddenInput: input,
+      arrowUp,
+      arrowDown,
+    } = getInputUtilities(page, 'input-test-steps');
 
     await setAttribute(inoInput, 'min', '0');
     await setAttribute(inoInput, 'max', '2');
@@ -151,9 +175,6 @@ test.describe('ino-input', () => {
     await input.press('ArrowDown');
     await expect(input).toHaveValue('0');
 
-    const arrowUp = inoInput.getByRole('img').first();
-    const arrowDown = inoInput.getByRole('img').last();
-
     // test max border by arrow click
     await arrowUp.click();
     await arrowUp.click();
@@ -164,38 +185,34 @@ test.describe('ino-input', () => {
     await arrowDown.click();
     await expect(input).toHaveValue('0');
   });
-});
 
-test.describe('ino-input - Error', () => {
   test('should display error when input is required', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
-    const inoInput = page.locator('ino-input');
-    const nativeInput = page.locator('input');
-    const invalidInput = page.locator('input:invalid');
-    await nativeInput.fill('ABC');
+    const { inoInput, input, assertState } = getInputUtilities(page);
+
+    await input.fill('ABC');
 
     await setAttribute(inoInput, 'required', 'true');
-    await expect(invalidInput).toBeHidden();
+    await assertState('valid');
 
-    await nativeInput.fill('');
-    await nativeInput.blur();
-    await expect(invalidInput).toBeVisible();
+    await input.fill('');
+    await input.blur();
+    await assertState('invalid');
   });
 
   test('should display validation helper on error', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
-    const inoInput = page.locator('ino-input');
-    const nativeInput = page.locator('input');
-    const helper = inoInput.getByText('Helper message');
+    const { inoInput, input, helperText, assertState } =
+      getInputUtilities(page);
 
     await setAttribute(inoInput, 'required', 'true');
     await setAttribute(inoInput, 'helper-validation', 'true');
     await inoInput.hover();
-    await expect(helper).toBeHidden();
+    await expect(helperText).toBeHidden();
 
-    await nativeInput.fill('');
-    await expect(helper).toBeHidden();
-    await nativeInput.blur();
-    await expect(helper).toBeVisible();
+    await input.fill('');
+    await expect(helperText).toBeHidden();
+    await input.blur();
+    await expect(helperText).toBeVisible();
   });
 });

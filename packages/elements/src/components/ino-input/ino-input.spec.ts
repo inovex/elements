@@ -1,22 +1,12 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
 import { Input } from './ino-input';
 import { Label } from '../ino-label/ino-label';
-import { listenForEvent } from '../../util/test-utils';
+import { fillInput, listenForEvent } from '../../util/test-utils';
 
 describe('InoInput', () => {
   let page: SpecPage;
   let inoInputEl: HTMLInoInputElement;
   let nativeInputEl: HTMLInputElement;
-
-  const type = async (value: string) => {
-    const arr = [...value];
-    nativeInputEl.value = '';
-    arr.forEach((char) => {
-      nativeInputEl.value += char;
-      nativeInputEl.dispatchEvent(new Event('input'));
-    });
-    await page.waitForChanges();
-  };
 
   beforeEach(async () => {
     page = await newSpecPage({
@@ -54,7 +44,7 @@ describe('InoInput', () => {
     it('should emit a valueChange event upon changing the input value', async () => {
       const { assertEventDetails } = listenForEvent(page, 'valueChange');
 
-      await type('5');
+      await fillInput(page, nativeInputEl, '5');
       assertEventDetails('5');
     });
 
@@ -62,7 +52,7 @@ describe('InoInput', () => {
       const { eventSpy: changeSpy } = listenForEvent(page, 'change');
       const { eventSpy: inputSpy } = listenForEvent(page, 'input');
 
-      await type('5');
+      await fillInput(page, nativeInputEl, '5');
       expect(changeSpy).not.toHaveBeenCalled();
       expect(inputSpy).not.toHaveBeenCalled();
     });
@@ -72,14 +62,14 @@ describe('InoInput', () => {
 
       inoInputEl.setAttribute('disabled', 'true');
       await page.waitForChanges();
-      await type('5');
+      await fillInput(page, nativeInputEl, '5');
 
       expect(eventSpy).not.toHaveBeenCalled();
     });
 
     it('should emit a valueChange event', async () => {
       const { eventSpy } = listenForEvent(page, 'valueChange');
-      await type('5');
+      await fillInput(page, nativeInputEl, '5');
       expect(eventSpy).toHaveBeenCalled();
     });
   });
