@@ -1,5 +1,5 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
-import { listenForEvent } from '../../util/test-utils';
+import { fillInput, listenForEvent } from '../../util/test-utils';
 import { Datepicker } from './ino-datepicker';
 import { Input } from '../ino-input/ino-input';
 import { Label } from '../ino-label/ino-label';
@@ -8,16 +8,6 @@ describe('InoDatepicker', () => {
   let page: SpecPage;
   let inoDatepicker: HTMLInoDatepickerElement;
   let inputEl: HTMLInputElement;
-
-  const type = async (value: string) => {
-    const arr = [...value];
-    inputEl.value = '';
-    arr.forEach((char) => {
-      inputEl.value += char;
-      inputEl.dispatchEvent(new Event('input'));
-    });
-    await page.waitForChanges();
-  };
 
   beforeEach(async () => {
     page = await newSpecPage({
@@ -32,7 +22,7 @@ describe('InoDatepicker', () => {
     it('should emit a valueChange event upon changing the input', async () => {
       const { eventSpy } = listenForEvent(page, 'valueChange');
 
-      await type('1');
+      await fillInput(page, inputEl, '1');
       expect(eventSpy).toHaveBeenCalled();
     });
 
@@ -42,7 +32,7 @@ describe('InoDatepicker', () => {
       inoDatepicker.setAttribute('disabled', 'true');
       await page.waitForChanges();
 
-      await type('1');
+      await fillInput(page, inputEl, '1');
       expect(eventSpy).not.toHaveBeenCalled();
     });
   });
