@@ -76,11 +76,3 @@ export const ActiveTab = Story({
     activeTab: 1,
   },
 });
-
-export const AutoFocus = Story({
-  ...InoTabBarMeta,
-  docsFromProperty: 'autoFocus',
-  args: {
-    autoFocus: true,
-  },
-});
