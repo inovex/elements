@@ -6,10 +6,7 @@ import { Framework } from '@utils/frameworks';
 
 export const VueGuidePage = () => {
   return (
-    <Layout
-      framework={Framework.VUE}
-      sandboxUrl={'https://codesandbox.io/s/github/inovex/elements-example-vue'}
-    >
+    <Layout framework={Framework.VUE} sandboxUrl={'https://codesandbox.io/s/github/inovex/elements-example-vue'}>
       <VueGuide />
     </Layout>
   );

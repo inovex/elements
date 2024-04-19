@@ -1,11 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  Prop,
-  h,
-  ComponentInterface,
-} from '@stencil/core';
+import { Component, Element, Host, Prop, h, ComponentInterface } from '@stencil/core';
 import classNames from 'classnames';
 
 /**
@@ -35,10 +28,8 @@ export class InoImgList implements ComponentInterface {
 
   componentDidLoad(): void {
     if (this.masonry) {
-      const imgs = this.el.querySelectorAll(
-        '.mdc-image-list__image-aspect-container',
-      );
-      imgs.forEach((img) => {
+      const imgs = this.el.querySelectorAll('.mdc-image-list__image-aspect-container');
+      imgs.forEach(img => {
         img.classList.remove('mdc-image-list__image-aspect-container');
       });
     }

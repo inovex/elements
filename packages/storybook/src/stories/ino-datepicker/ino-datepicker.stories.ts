@@ -21,16 +21,16 @@ const InoDatepickerMeta = {
     },
   },
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
+        const eventHandler = e => e.target.setAttribute('value', e.detail);
         document.addEventListener('valueChange', eventHandler);
         return () => document.removeEventListener('valueChange', eventHandler);
       });
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-datepicker
       class="customizable-picker"
       attach-to-body="${args.attachToBody}"
@@ -93,23 +93,11 @@ export const DateFormats = Story({
   ...Default,
   docsFromProperty: 'dateFormat',
   render: () => html`
-    <ino-datepicker
-      type="datetime"
-      date-format="H:i d.m.Y"
-      label="Datetime"
-    ></ino-datepicker>
-    <ino-datepicker
-      type="date"
-      date-format="d.m.Y"
-      label="Date"
-    ></ino-datepicker>
+    <ino-datepicker type="datetime" date-format="H:i d.m.Y" label="Datetime"></ino-datepicker>
+    <ino-datepicker type="date" date-format="d.m.Y" label="Date"></ino-datepicker>
     <ino-datepicker type="time" date-format="H:i" label="Time"></ino-datepicker>
     <ino-datepicker date-format="d.m.Y" range label="Range"></ino-datepicker>
-    <ino-datepicker
-      date-format="m.Y"
-      type="month"
-      label="Month"
-    ></ino-datepicker>
+    <ino-datepicker date-format="m.Y" type="month" label="Month"></ino-datepicker>
   `,
   args: {
     dateFormat: '',
@@ -120,12 +108,7 @@ export const TwelveHourTime = Story({
   ...Default,
   docsFromProperty: 'twelveHourTime',
   render: () => html`
-    <ino-datepicker
-      type="time"
-      date-format="h:i K"
-      label="Twelve hour time"
-      twelve-hour-time
-    ></ino-datepicker>
+    <ino-datepicker type="time" date-format="h:i K" label="Twelve hour time" twelve-hour-time></ino-datepicker>
   `,
   args: {
     twelveHourTime: true,
@@ -152,28 +135,11 @@ export const TwelveHourTime = Story({
  */
 export const Restrictions = Story({
   ...Default,
-  render: (args) => html`
-    <ino-datepicker
-      label="Predefined value"
-      date-format="Y-m-d"
-      value="${args.value}"
-    ></ino-datepicker>
-    <ino-datepicker
-      label="Min date"
-      date-format="Y-m-d"
-      min="${args.min}"
-    ></ino-datepicker>
-    <ino-datepicker
-      label="Max date"
-      date-format="Y-m-d"
-      max="${args.max}"
-    ></ino-datepicker>
-    <ino-datepicker
-      label="Min and Max date"
-      date-format="Y-m-d"
-      min="${args.min}"
-      max="${args.max}"
-    ></ino-datepicker>
+  render: args => html`
+    <ino-datepicker label="Predefined value" date-format="Y-m-d" value="${args.value}"></ino-datepicker>
+    <ino-datepicker label="Min date" date-format="Y-m-d" min="${args.min}"></ino-datepicker>
+    <ino-datepicker label="Max date" date-format="Y-m-d" max="${args.max}"></ino-datepicker>
+    <ino-datepicker label="Min and Max date" date-format="Y-m-d" min="${args.min}" max="${args.max}"></ino-datepicker>
     <ino-datepicker
       type="time"
       label="hour step and minute step"
@@ -212,13 +178,7 @@ export const States = Story({
 export const Inline = Story({
   ...Default,
   docsFromProperty: 'inline',
-  render: () => html`
-    <ino-datepicker
-      style="width: 340px"
-      label="Inline"
-      inline="true"
-    ></ino-datepicker>
-  `,
+  render: () => html` <ino-datepicker style="width: 340px" label="Inline" inline="true"></ino-datepicker> `,
   args: {
     inline: true,
   },
@@ -231,17 +191,8 @@ export const Locale = Story({
   ...Default,
   render: () => html`
     <ino-datepicker lang="en" label="English"> </ino-datepicker>
-    <ino-datepicker
-      lang="de"
-      date-format="d.m.Y"
-      label="German"
-    ></ino-datepicker>
-    <ino-datepicker
-      lang="de"
-      date-format="d.m.Y"
-      range
-      label="German range"
-    ></ino-datepicker>
+    <ino-datepicker lang="de" date-format="d.m.Y" label="German"></ino-datepicker>
+    <ino-datepicker lang="de" date-format="d.m.Y" range label="German range"></ino-datepicker>
   `,
 });
 
@@ -258,14 +209,7 @@ export const MultipleTypes = Story({
         </ul>
       </aside>
       <main id="main">
-        <ino-datepicker
-          type="date"
-          label="An"
-          inline
-          date-format="d.m.Y"
-          placeholder="tt.mm.jjjj"
-          append-to="main"
-        >
+        <ino-datepicker type="date" label="An" inline date-format="d.m.Y" placeholder="tt.mm.jjjj" append-to="main">
         </ino-datepicker>
         <ino-radio-group value="at">
           <ino-radio value="at">Am</ino-radio>
@@ -285,11 +229,7 @@ export const RequiredForm = Story({
   ...Default,
   render: () => html`
     <form>
-      <ino-datepicker
-        class="required-datepicker"
-        label="Required"
-        required
-      ></ino-datepicker>
+      <ino-datepicker class="required-datepicker" label="Required" required></ino-datepicker>
       <ino-button type="submit">Submit</ino-button>
     </form>
   `,

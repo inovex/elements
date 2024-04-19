@@ -15,25 +15,15 @@ const exampleImg = html`
 const InoListMeta = {
   title: 'Structure/ino-list ',
   component: 'ino-list',
-  render: (args) => html`
-    <ino-list
-      dense="${args.dense}"
-      two-lines="${args.twoLines}"
-      avatar="${args.avatar}"
-    >
-      <ino-list-item
-        text="First text item"
-        secondary-text="${args.twoLines ? 'Secondary Text' : ''}"
+  render: args => html`
+    <ino-list dense="${args.dense}" two-lines="${args.twoLines}" avatar="${args.avatar}">
+      <ino-list-item text="First text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}"
         >${args.avatar ? exampleImg : ''}</ino-list-item
       >
-      <ino-list-item
-        text="Second text item"
-        secondary-text="${args.twoLines ? 'Secondary Text' : ''}"
+      <ino-list-item text="Second text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}"
         >${args.avatar ? exampleImg : ''}</ino-list-item
       >
-      <ino-list-item
-        text="Third text item"
-        secondary-text="${args.twoLines ? 'Secondary Text' : ''}"
+      <ino-list-item text="Third text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}"
         >${args.avatar ? exampleImg : ''}</ino-list-item
       >
     </ino-list>

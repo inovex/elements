@@ -11,13 +11,7 @@
         <p>{{ message }}</p>
       </div>
       <div class="ino-dialog-footer">
-        <ino-fab
-          label="Close"
-          mini
-          tooltip-placement="right"
-          edge-position="none"
-          data-ino-dialog-action="cancel"
-        >
+        <ino-fab label="Close" mini tooltip-placement="right" edge-position="none" data-ino-dialog-action="cancel">
           <ino-icon slot="icon-leading" icon="add" />
         </ino-fab>
       </div>
@@ -26,12 +20,7 @@
 </template>
 
 <script>
-import {
-  InoDialog,
-  InoFab,
-  InoIcon,
-  InoIconButton,
-} from '@inovex.de/elements-vue';
+import { InoDialog, InoFab, InoIcon, InoIconButton } from '@inovex.de/elements-vue';
 
 const dummyText =
   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, ' +

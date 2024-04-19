@@ -1,12 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  h,
-  Event,
-  EventEmitter,
-  Prop,
-  Element,
-} from '@stencil/core';
+import { Component, ComponentInterface, h, Event, EventEmitter, Prop, Element } from '@stencil/core';
 import classNames from 'classnames';
 import { generateUniqueId } from '../../util/component-utils';
 
@@ -83,12 +75,7 @@ export class Accordion implements ComponentInterface {
             </button>
           </h3>
         </div>
-        <div
-          class={contentWrapperClasses}
-          id={this.contentId}
-          role="region"
-          aria-labelledby={this.accordionTitle}
-        >
+        <div class={contentWrapperClasses} id={this.contentId} role="region" aria-labelledby={this.accordionTitle}>
           <div class="ino-accordion__content">
             <slot />
           </div>

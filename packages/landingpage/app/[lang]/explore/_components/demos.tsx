@@ -6,8 +6,7 @@ import DemoCard from './demos-card';
 import { useTranslation } from '@hooks/useTranslation';
 
 const DemoProjectByFrameworks: Partial<Record<Framework, string>> = {
-  [Framework.JS]:
-    'https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js',
+  [Framework.JS]: 'https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js',
   [Framework.REACT]: 'https://elements.inovex.de/example-projects/react/',
   [Framework.ANGULAR]: 'https://elements.inovex.de/example-projects/angular/',
   [Framework.VUE]: 'https://elements.inovex.de/example-projects/vue/',
@@ -23,24 +22,15 @@ function Demos() {
       </h1>
       <p>{t('explore.demos.subtitle')}</p>
       <div className={styles.cardWrapper}>
-        {Object.keys(DemoProjectByFrameworks).map((key) => (
+        {Object.keys(DemoProjectByFrameworks).map(key => (
           <DemoCard
             key={key}
             frameworkIcon={
-              <Image
-                src={IconByFramework[key as Framework]}
-                alt={key + ' logo'}
-                className={styles.framework}
-                fill
-              />
+              <Image src={IconByFramework[key as Framework]} alt={key + ' logo'} className={styles.framework} fill />
             }
             frameworkName={NameByFramework[key as Framework]}
             demoLink={
-              <Link
-                className={styles.footer}
-                href={DemoProjectByFrameworks[key as Framework] ?? ''}
-                target="_blank"
-              >
+              <Link className={styles.footer} href={DemoProjectByFrameworks[key as Framework] ?? ''} target="_blank">
                 {t('explore.demos.show_demo')}
               </Link>
             }

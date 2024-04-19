@@ -36,8 +36,7 @@ export default {
         'inovex-p-11': 'var(--inovex-elements-p-11)',
         'inovex-p-12': 'var(--inovex-elements-p-12)',
         'inovex-informational': 'var(--inovex-elements-informational)',
-        'inovex-informational-light':
-          'var(--inovex-elements-informational-light)',
+        'inovex-informational-light': 'var(--inovex-elements-informational-light)',
         'inovex-success': 'var(--inovex-elements-success)',
         'inovex-success-light': 'var(--inovex-elements-success-light)',
         'inovex-error': 'var(--inovex-elements-error)',

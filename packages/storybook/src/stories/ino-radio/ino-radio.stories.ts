@@ -14,28 +14,18 @@ const InoRadioMeta = {
     },
   },
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('checked', e.detail);
+        const eventHandler = e => e.target.setAttribute('checked', e.detail);
         const radios = document.querySelectorAll('ino-radio');
-        radios.forEach((r) =>
-          r.addEventListener('checkedChange', eventHandler),
-        );
-        return () =>
-          radios.forEach((r) =>
-            r.removeEventListener('checkedChange', eventHandler),
-          );
+        radios.forEach(r => r.addEventListener('checkedChange', eventHandler));
+        return () => radios.forEach(r => r.removeEventListener('checkedChange', eventHandler));
       });
       return story();
     },
   ],
-  render: (args) => html`
-    <ino-radio
-      checked="${args.checked}"
-      disabled="${args.disabled}"
-      name="${args.name}"
-      value="${args.value}"
-    >
+  render: args => html`
+    <ino-radio checked="${args.checked}" disabled="${args.disabled}" name="${args.name}" value="${args.value}">
       Radio Button Label
     </ino-radio>
   `,

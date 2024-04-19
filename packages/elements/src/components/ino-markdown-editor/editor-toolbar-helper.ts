@@ -17,11 +17,7 @@ export enum Actions {
 
 const focusChain = (editor: Editor): ChainedCommands => editor.chain().focus();
 
-export function handleToolbarBtnClick(
-  editor: Editor,
-  action: Actions,
-  url?,
-): void {
+export function handleToolbarBtnClick(editor: Editor, action: Actions, url?): void {
   switch (action) {
     case Actions.ITALIC:
       focusChain(editor).toggleItalic().run();

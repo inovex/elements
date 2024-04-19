@@ -23,10 +23,10 @@ const InoDialogMeta = {
   title: 'Structure/ino-dialog',
   component: 'ino-dialog',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         // Open
-        const handleOpen = (e) => {
+        const handleOpen = e => {
           const dialog = document.getElementById(
             e.target.parentElement.getAttribute('data-dialog-id'),
           ) as HTMLInoDialogElement;
@@ -34,45 +34,33 @@ const InoDialogMeta = {
         };
 
         const btns = document.querySelectorAll('.open-dialog-btn');
-        btns.forEach((btn) => btn.addEventListener('click', handleOpen));
+        btns.forEach(btn => btn.addEventListener('click', handleOpen));
 
         // Close
         const dialogs = document.querySelectorAll('ino-dialog');
-        const handleClose = (e) => {
+        const handleClose = e => {
           e.target.open = false;
           if (e.target.id == 'demo-action-dialog') {
-            const snackbar = document.createElement(
-              'ino-snackbar',
-            ) as HTMLInoSnackbarElement;
+            const snackbar = document.createElement('ino-snackbar') as HTMLInoSnackbarElement;
             snackbar.innerText = `Closed with action: ${e.detail}`;
             document.body.appendChild(snackbar);
           }
         };
-        dialogs.forEach((dialog) =>
-          dialog.addEventListener('close', handleClose),
-        );
-        dialogs.forEach((dialog) =>
-          dialog.addEventListener('action', handleClose),
-        );
+        dialogs.forEach(dialog => dialog.addEventListener('close', handleClose));
+        dialogs.forEach(dialog => dialog.addEventListener('action', handleClose));
 
         return () => {
-          btns.forEach((btn) => btn.removeEventListener('click', handleOpen));
-          dialogs.forEach((dialog) =>
-            dialog.removeEventListener('close', handleClose),
-          );
-          dialogs.forEach((dialog) =>
-            dialog.removeEventListener('action', handleClose),
-          );
+          btns.forEach(btn => btn.removeEventListener('click', handleOpen));
+          dialogs.forEach(dialog => dialog.removeEventListener('close', handleClose));
+          dialogs.forEach(dialog => dialog.removeEventListener('action', handleClose));
         };
       });
 
       return story();
     },
   ],
-  render: (args) => html`
-    <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
-      >${args.buttonText}</ino-button
-    >
+  render: args => html`
+    <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}">${args.buttonText}</ino-button>
     <ino-dialog
       id="${args.dataDialogId}"
       open="${args.open}"
@@ -118,10 +106,8 @@ export const Default = Story({
  */
 export const ConfirmationDialogWithText = Story({
   ...Default,
-  render: (args) => html`
-    <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
-      >${args.buttonText}</ino-button
-    >
+  render: args => html`
+    <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}">${args.buttonText}</ino-button>
     <ino-dialog
       id="${args.dataDialogId}"
       open="${args.open}"
@@ -137,8 +123,7 @@ export const ConfirmationDialogWithText = Story({
   `,
   args: {
     headerText: 'Do you really want to delete your account?',
-    bodyText:
-      'After deleting your account, you will no longer be able to access your saved items.',
+    bodyText: 'After deleting your account, you will no longer be able to access your saved items.',
     cancelText: 'Cancel',
     actionText: 'Delete account',
     dataDialogId: 'demo-conformation-with-text-dialog',
@@ -154,10 +139,8 @@ export const ConfirmationDialogWithText = Story({
  */
 export const ConfirmationDialogWithIcon = Story({
   ...Default,
-  render: (args) => html`
-    <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
-      >${args.buttonText}</ino-button
-    >
+  render: args => html`
+    <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}">${args.buttonText}</ino-button>
     <ino-dialog
       id="${args.dataDialogId}"
       open="${args.open}"
@@ -189,10 +172,8 @@ export const ConfirmationDialogWithIcon = Story({
  */
 export const UsingSlots = Story({
   ...Default,
-  render: (args) => html`
-    <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}"
-      >${args.buttonText}</ino-button
-    >
+  render: args => html`
+    <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}">${args.buttonText}</ino-button>
     <ino-dialog
       id="${args.dataDialogId}"
       open="${args.open}"
@@ -217,14 +198,8 @@ export const UsingSlots = Story({
           reverse="false"
           @valueChange="${onSlideChanged}"
         >
-          <ino-carousel-slide
-            src=${lightningImg}
-            value="0"
-          ></ino-carousel-slide>
-          <ino-carousel-slide
-            src=${mountainsImg}
-            value="1"
-          ></ino-carousel-slide>
+          <ino-carousel-slide src=${lightningImg} value="0"></ino-carousel-slide>
+          <ino-carousel-slide src=${mountainsImg} value="1"></ino-carousel-slide>
           <ino-carousel-slide src=${nidarosImg} value="2"></ino-carousel-slide>
         </ino-carousel>
       </section>

@@ -14,7 +14,7 @@ const InoOptionMeta = {
       },
     },
   },
-  render: (args) => html`
+  render: args => html`
     <div class="story-option">
       <ino-select label="My Select">
         <ino-option

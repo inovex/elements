@@ -15,12 +15,8 @@ const InoProgressBarMeta = {
       control: { min: 0, max: 1, step: 0.1 },
     },
   },
-  render: (args) => html`
-    <ino-progress-bar
-      buffer="${args.buffer}"
-      progress="${args.progress}"
-      indeterminate="${args.indeterminate}"
-    >
+  render: args => html`
+    <ino-progress-bar buffer="${args.buffer}" progress="${args.progress}" indeterminate="${args.indeterminate}">
     </ino-progress-bar>
   `,
   args: {

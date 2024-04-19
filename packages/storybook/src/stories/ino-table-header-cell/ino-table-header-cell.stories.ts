@@ -11,9 +11,9 @@ const InoTableHeaderCellMeta = {
   title: 'Structure/ino-table-header-cell',
   component: 'ino-table-header-cell',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const sortChangeHandler = (e) => {
+        const sortChangeHandler = e => {
           const inoTable = e.target as Components.InoTable;
           const { columnId, sortDirection } = e.detail;
           inoTable.sortColumnId = columnId;
@@ -21,23 +21,19 @@ const InoTableHeaderCellMeta = {
         };
         document.addEventListener('sortChange', sortChangeHandler);
 
-        const valueChangedHandler = (e) => (e.target.value = e.detail);
+        const valueChangedHandler = e => (e.target.value = e.detail);
         const inoInputs = document.querySelectorAll('ino-input');
-        inoInputs.forEach((el) =>
-          el.addEventListener('valueChange', valueChangedHandler),
-        );
+        inoInputs.forEach(el => el.addEventListener('valueChange', valueChangedHandler));
 
         return () => {
           document.removeEventListener('sortChange', sortChangeHandler);
-          inoInputs.forEach((el) =>
-            el.removeEventListener('valueChange', valueChangedHandler),
-          );
+          inoInputs.forEach(el => el.removeEventListener('valueChange', valueChangedHandler));
         };
       });
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-table>
       <ino-table-header-cell
         autofocus="${args.autofocus}"
@@ -128,11 +124,7 @@ export const SearchWithDatepicker = Story({
     ${useEffect(registerInlineDatepickerHandler)}
     <ino-table>
       <tr slot="header-row">
-        <ino-table-header-cell
-          label="Column Selection Search"
-          search-icon="calendar"
-          class="datepicker-cell"
-        >
+        <ino-table-header-cell label="Column Selection Search" search-icon="calendar" class="datepicker-cell">
           <div lang="de" class="datepicker-group">
             <aside>
               <ul>
@@ -173,26 +165,15 @@ export const SearchWithSelection = Story({
   render: () => {
     useEffect(() => {
       const checkboxes = document.querySelectorAll('ino-checkbox');
-      const checkedHandler = (e) =>
-        ((e.target as Components.InoCheckbox).checked = (
-          e as CustomEvent
-        ).detail);
-      checkboxes.forEach(() =>
-        addEventListener('checkedChange', checkedHandler),
-      );
-      return () =>
-        checkboxes.forEach(() =>
-          removeEventListener('checkedChange', checkedHandler),
-        );
+      const checkedHandler = e => ((e.target as Components.InoCheckbox).checked = (e as CustomEvent).detail);
+      checkboxes.forEach(() => addEventListener('checkedChange', checkedHandler));
+      return () => checkboxes.forEach(() => removeEventListener('checkedChange', checkedHandler));
     });
 
     return html`
       <ino-table>
         <tr slot="header-row">
-          <ino-table-header-cell
-            label="Column Selection Search"
-            search-icon="filter"
-          >
+          <ino-table-header-cell label="Column Selection Search" search-icon="filter">
             <ino-list>
               <ino-list-item text="Option 1">
                 <ino-checkbox slot="leading" selection></ino-checkbox>

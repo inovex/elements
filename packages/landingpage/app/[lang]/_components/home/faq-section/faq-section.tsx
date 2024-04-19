@@ -30,11 +30,7 @@ export default function FaqSection() {
         {Array.isArray(faqs) &&
           faqs.map((faq, index) => (
             <div className={styles.accordion} key={index}>
-              <InoAccordion
-                accordionTitle={faq.title}
-                expanded={has(index)}
-                onExpandedChange={() => toggle(index)}
-              >
+              <InoAccordion accordionTitle={faq.title} expanded={has(index)} onExpandedChange={() => toggle(index)}>
                 <>{faq.content}</>
               </InoAccordion>
             </div>

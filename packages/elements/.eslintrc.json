@@ -1,12 +1,6 @@
 {
   "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": [
-    "!**/*",
-    "stencil.config.ts",
-    "setupSpecTests.ts",
-    "node_modules/*",
-    "dist/*"
-  ],
+  "ignorePatterns": ["!**/*", "stencil.config.ts", "setupSpecTests.ts", "node_modules/*", "dist/*"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],

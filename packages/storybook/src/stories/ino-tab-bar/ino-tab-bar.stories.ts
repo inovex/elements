@@ -5,48 +5,27 @@ import Story from '../StoryWrapper';
 import { useEffect } from '@storybook/preview-api';
 import './ino-tab-bar.scss';
 
-const eventHandler = (e) => e.target.setAttribute('active-tab', e.detail);
+const eventHandler = e => e.target.setAttribute('active-tab', e.detail);
 
 const InoTabBarMeta = {
   title: 'Structure/ino-tab-bar',
   component: 'ino-tab-bar',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         const tabBars = document.querySelectorAll('ino-tab-bar');
-        tabBars.forEach((t) =>
-          t.addEventListener('activeTabChange', eventHandler),
-        );
-        return () =>
-          tabBars.forEach((t) =>
-            t.removeEventListener('activeTabChange', eventHandler),
-          );
+        tabBars.forEach(t => t.addEventListener('activeTabChange', eventHandler));
+        return () => tabBars.forEach(t => t.removeEventListener('activeTabChange', eventHandler));
       });
       return story();
     },
   ],
-  render: (args) => html`
-    <ino-tab-bar
-      id="customizable-tabbar"
-      active-tab="${args.activeTab}"
-      auto-focus="${args.autoFocus}"
-    >
+  render: args => html`
+    <ino-tab-bar id="customizable-tabbar" active-tab="${args.activeTab}" auto-focus="${args.autoFocus}">
       <ino-tab label="User" icon="user" a11y-controls="user-panel"></ino-tab>
-      <ino-tab
-        label="Messages"
-        icon="message"
-        a11y-controls="messages-panel"
-      ></ino-tab>
-      <ino-tab
-        label="Settings"
-        icon="settings"
-        a11y-controls="settings-panel"
-      ></ino-tab>
-      <ino-tab
-        label="Download"
-        icon="download"
-        a11y-controls="download-panel"
-      ></ino-tab>
+      <ino-tab label="Messages" icon="message" a11y-controls="messages-panel"></ino-tab>
+      <ino-tab label="Settings" icon="settings" a11y-controls="settings-panel"></ino-tab>
+      <ino-tab label="Download" icon="download" a11y-controls="download-panel"></ino-tab>
     </ino-tab-bar>
   `,
   argTypes: {

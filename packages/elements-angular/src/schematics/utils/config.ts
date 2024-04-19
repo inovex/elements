@@ -17,11 +17,9 @@ function isAngularBrowserProject(projectConfig: any): boolean {
   if (projectConfig.projectType === 'application') {
     const buildConfig = projectConfig.architect.build;
     // Angular 16 and lower
-    const legacyAngularBuilder =
-      buildConfig.builder === '@angular-devkit/build-angular:browser';
+    const legacyAngularBuilder = buildConfig.builder === '@angular-devkit/build-angular:browser';
     // Angular 17+
-    const modernAngularBuilder =
-      buildConfig.builder === '@angular-devkit/build-angular:application';
+    const modernAngularBuilder = buildConfig.builder === '@angular-devkit/build-angular:application';
 
     return legacyAngularBuilder || modernAngularBuilder;
   }
@@ -55,14 +53,10 @@ function getAngularJson(config: any, projectName: string): any | never {
   }
 
   if (config.projectType !== 'application') {
-    throw new SchematicsException(
-      `Invalid projectType for ${projectName}: ${config.projectType}`,
-    );
+    throw new SchematicsException(`Invalid projectType for ${projectName}: ${config.projectType}`);
   } else {
     const buildConfig = projectConfig.architect.build;
-    throw new SchematicsException(
-      `Invalid builder for ${projectName}: ${buildConfig.builder}`,
-    );
+    throw new SchematicsException(`Invalid builder for ${projectName}: ${buildConfig.builder}`);
   }
 }
 
@@ -83,7 +77,7 @@ export function addAsset(
 
 export function getWorkspacePath(host: Tree): string {
   const possibleFiles = ['/angular.json', '/.angular.json'];
-  const path = possibleFiles.filter((path) => host.exists(path))[0];
+  const path = possibleFiles.filter(path => host.exists(path))[0];
 
   return path;
 }

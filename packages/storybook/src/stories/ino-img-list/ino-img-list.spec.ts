@@ -11,9 +11,7 @@ test.describe('ino-img-list', () => {
     await expect(inoImgList).toBeVisible();
     const images = inoImgList.getByRole('img');
 
-    const { width: defaultWidth, height: defaultHeight } = await images
-      .first()
-      .boundingBox();
+    const { width: defaultWidth, height: defaultHeight } = await images.first().boundingBox();
     for (const img of await images.all()) {
       const { width, height } = await img.boundingBox();
       expect(height).toEqual(defaultHeight);
@@ -23,9 +21,7 @@ test.describe('ino-img-list', () => {
 
   test('should render with inoMasonry set to true', async ({ page }) => {
     const inoImgList = page.locator('ino-img-list');
-    const libertyImg = inoImgList
-      .getByRole('img')
-      .and(inoImgList.getByAltText('liberty'));
+    const libertyImg = inoImgList.getByRole('img').and(inoImgList.getByAltText('liberty'));
     const { height: defaultHeight } = await libertyImg.boundingBox();
 
     await setAttribute(inoImgList, 'masonry', 'true');

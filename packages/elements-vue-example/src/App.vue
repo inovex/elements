@@ -1,11 +1,7 @@
 //
 <template>
   <div id="app">
-    <ino-nav-drawer
-      :open="isNavOpen"
-      anchor="left"
-      @openChange="({ detail }) => (isNavOpen = detail)"
-    >
+    <ino-nav-drawer :open="isNavOpen" anchor="left" @openChange="({ detail }) => (isNavOpen = detail)">
       <ino-list slot="content">
         <ino-nav-item text="My Todo List" @click="changeTab(0)">
           <ino-icon icon="menu" />
@@ -22,11 +18,7 @@
       </ino-list>
 
       <main slot="app">
-        <ino-tab-bar
-          class="tab-bar"
-          :active-tab="currentTab"
-          @activeTabChange="({ detail }) => (currentTab = detail)"
-        >
+        <ino-tab-bar class="tab-bar" :active-tab="currentTab" @activeTabChange="({ detail }) => (currentTab = detail)">
           <ino-tab icon="menu" label="My Todo List" />
           <ino-tab icon="user" label="My V-Card" />
           <ino-tab icon="onboarding" label="Contact me" />
@@ -60,15 +52,7 @@
 </template>
 
 <script>
-import {
-  InoIcon,
-  InoList,
-  InoNavDrawer,
-  InoNavItem,
-  InoSnackbar,
-  InoTab,
-  InoTabBar,
-} from '@inovex.de/elements-vue';
+import { InoIcon, InoList, InoNavDrawer, InoNavItem, InoSnackbar, InoTab, InoTabBar } from '@inovex.de/elements-vue';
 import ContactForm from './components/ContactForm.vue';
 import ImageGallery from './components/ImageGallery.vue';
 import VCard from './components/VCard.vue';

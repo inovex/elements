@@ -29,9 +29,7 @@ test.describe('ino-chip', () => {
     await setAttribute(chip, 'selectable', 'true');
     await setAttribute(chip, 'selected', 'true');
 
-    const selectedOption = chip
-      .getByRole('option')
-      .and(chip.locator('[aria-selected]'));
+    const selectedOption = chip.getByRole('option').and(chip.locator('[aria-selected]'));
 
     await expect(selectedOption).toBeVisible();
     await expect(chip.locator('svg')).toBeVisible();

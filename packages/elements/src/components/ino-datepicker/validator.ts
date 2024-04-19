@@ -60,53 +60,36 @@ export class Validator {
   };
 
   private validateMin = (value: string): boolean =>
-    this._isRanged
-      ? this.validateMinRange(value)
-      : this.validateMinSingle(value);
+    this._isRanged ? this.validateMinRange(value) : this.validateMinSingle(value);
 
   private validateMinSingle = (value: string): boolean => {
     const parsedDate: Date = this.parseDate(value);
-    return (
-      isEqual(parsedDate, this._minDate) || isAfter(parsedDate, this._minDate)
-    );
+    return isEqual(parsedDate, this._minDate) || isAfter(parsedDate, this._minDate);
   };
 
   private validateMinRange = (value: string): boolean => {
-    return !Validator.convertToRangeArray(value)
-      .map(this.validateMinSingle)
-      .includes(false);
+    return !Validator.convertToRangeArray(value).map(this.validateMinSingle).includes(false);
   };
 
   private validateMax = (value: string): boolean =>
-    this._isRanged
-      ? this.validateMaxRange(value)
-      : this.validateMaxSingle(value);
+    this._isRanged ? this.validateMaxRange(value) : this.validateMaxSingle(value);
 
   private validateMaxSingle = (value: string): boolean => {
     const parsedDate: Date = this.parseDate(value);
-    return (
-      isEqual(parsedDate, this._maxDate) || isBefore(parsedDate, this._maxDate)
-    );
+    return isEqual(parsedDate, this._maxDate) || isBefore(parsedDate, this._maxDate);
   };
 
   private validateMaxRange = (value: string): boolean => {
-    return !Validator.convertToRangeArray(value)
-      .map(this.validateMaxSingle)
-      .includes(false);
+    return !Validator.convertToRangeArray(value).map(this.validateMaxSingle).includes(false);
   };
 
   private validateFormat = (value: string): boolean =>
-    this._isRanged
-      ? this.validateFormatRange(value)
-      : this.validateFormatSingle(value);
+    this._isRanged ? this.validateFormatRange(value) : this.validateFormatSingle(value);
 
   private validateFormatSingle = (value: string): boolean => {
     try {
       const parsedDate: Date = this.parseDate(value);
-      const formattedDate: string = flatpickr.formatDate(
-        parsedDate,
-        this._dateFormat,
-      );
+      const formattedDate: string = flatpickr.formatDate(parsedDate, this._dateFormat);
       return formattedDate == value;
     } catch (_) {
       // Silence the expection. This may not be a problem if the user is typing.
@@ -114,9 +97,7 @@ export class Validator {
   };
 
   private validateFormatRange = (value: string): boolean => {
-    return !Validator.convertToRangeArray(value)
-      .map(this.validateFormatSingle)
-      .includes(false);
+    return !Validator.convertToRangeArray(value).map(this.validateFormatSingle).includes(false);
   };
 
   private parseDate = (value: string): Date => {
@@ -130,9 +111,7 @@ export class Validator {
   };
 
   private validateRange = (value: string): boolean => {
-    const dates = Validator.convertToRangeArray(value).map((date) =>
-      this.parseDate(date),
-    );
+    const dates = Validator.convertToRangeArray(value).map(date => this.parseDate(date));
     if (dates.length <= 1) {
       return true;
     }
@@ -187,5 +166,5 @@ export class Validator {
    * @returns The range as a string array with two items (e.g., ["01.01.2020", "31.01.2020"])
    */
   private static convertToRangeArray = (value: string): string[] =>
-    value.match(NUMBERS_WITH_SPECIAL_CHARS).map((match) => match.trim());
+    value.match(NUMBERS_WITH_SPECIAL_CHARS).map(match => match.trim());
 }

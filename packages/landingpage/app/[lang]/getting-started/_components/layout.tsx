@@ -1,8 +1,4 @@
-import {
-  InoButton,
-  InoSegmentButton,
-  InoSegmentGroup,
-} from '@inovex.de/elements-react';
+import { InoButton, InoSegmentButton, InoSegmentGroup } from '@inovex.de/elements-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Framework, NameByFramework } from '@utils/frameworks';
@@ -33,11 +29,9 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
         <InoSegmentGroup
           id="segment-grp"
           value={framework}
-          onValueChange={(value) =>
-            push(`/${defaultLng}${MainRoutes.GETTING_STARTED}/${value.detail}`)
-          }
+          onValueChange={value => push(`/${defaultLng}${MainRoutes.GETTING_STARTED}/${value.detail}`)}
         >
-          {Object.values(Framework).map((framework) => (
+          {Object.values(Framework).map(framework => (
             <InoSegmentButton key={framework} value={framework}>
               {NameByFramework[framework]}
             </InoSegmentButton>
@@ -68,12 +62,7 @@ const Layout = ({ children, framework, sandboxUrl }: Props) => {
                 sizes="100vw"
                 className={styles.sandboxImage}
               />
-              <InoButton
-                variant="filled"
-                type="button"
-                aria-hidden="true"
-                className={styles.overlayButton}
-              >
+              <InoButton variant="filled" type="button" aria-hidden="true" className={styles.overlayButton}>
                 {`Go to the ${frameworkName} Sandbox`}
               </InoButton>
             </a>

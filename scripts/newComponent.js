@@ -7,44 +7,19 @@ const yaml = require('js-yaml');
 const camelCase = require('camelcase');
 
 const CUSTOM_ELEMENTS_JSON = JSON.parse(
-  fs
-    .readFileSync(
-      path.join(__dirname, '../packages/storybook/custom-elements.json'),
-    )
-    .toString(),
+  fs.readFileSync(path.join(__dirname, '../packages/storybook/custom-elements.json')).toString(),
 );
 
-const ELEMENTS_COMPONENTS_DIR = path.join(
-  __dirname,
-  '../packages/elements/src/components',
-);
-const STORYBOOK_COMPONENTS_DIR = path.join(
-  __dirname,
-  '../packages/storybook/src/stories',
-);
-const REACT_INDEX_DIR = path.join(
-  __dirname,
-  '../packages/elements-react/src/components/index.ts',
-);
+const ELEMENTS_COMPONENTS_DIR = path.join(__dirname, '../packages/elements/src/components');
+const STORYBOOK_COMPONENTS_DIR = path.join(__dirname, '../packages/storybook/src/stories');
+const REACT_INDEX_DIR = path.join(__dirname, '../packages/elements-react/src/components/index.ts');
 
-const SEMANTIC_PULL_REQUEST_YML = path.join(
-  __dirname,
-  '../.github/semantic.yml',
-);
+const SEMANTIC_PULL_REQUEST_YML = path.join(__dirname, '../.github/semantic.yml');
 
-const CURRENT_PACKAGES = [
-  'elements',
-  'elements-angular',
-  'elements-react',
-  'storybook',
-];
+const CURRENT_PACKAGES = ['elements', 'elements-angular', 'elements-react', 'storybook'];
 
 if (!CUSTOM_ELEMENTS_JSON) {
-  console.log(
-    chalk.yellow(
-      `No 'custom-elements.json' found in packages/storybook. Building first.`,
-    ),
-  );
+  console.log(chalk.yellow(`No 'custom-elements.json' found in packages/storybook. Building first.`));
   shell.exec('lerna exec --scope=@inovex.de/elements');
 }
 
@@ -77,12 +52,8 @@ async function runCreationScript() {
     return;
   }
 
-  if (CUSTOM_ELEMENTS_JSON.tags.find((component) => component.name === name)) {
-    console.log(
-      chalk.yellow(
-        `Component with the name "${name}" already exists. Please choose another name.`,
-      ),
-    );
+  if (CUSTOM_ELEMENTS_JSON.tags.find(component => component.name === name)) {
+    console.log(chalk.yellow(`Component with the name "${name}" already exists. Please choose another name.`));
     runCreationScript();
     return;
   }
@@ -108,7 +79,7 @@ function writeToElementsPackage(name, newFiles) {
   };
 
   fs.mkdirSync(componentDir);
-  Object.keys(elementsPaths).forEach((path) => {
+  Object.keys(elementsPaths).forEach(path => {
     const newFile = createFile(elementsPaths[path]);
     newFiles.push(newFile);
   });
@@ -123,7 +94,7 @@ function writeToStorybookPackage(name, newFiles) {
   };
 
   fs.mkdirSync(storybookComponentDir);
-  Object.keys(storybookPaths).forEach((path) => {
+  Object.keys(storybookPaths).forEach(path => {
     const newFile = createFile(storybookPaths[path]);
     newFiles.push(newFile);
   });
@@ -178,7 +149,7 @@ function createFile(path) {
  */
 function cartesian(a, b) {
   const result = [];
-  a.forEach((aItem) => b.forEach((bItem) => result.push([aItem, bItem])));
+  a.forEach(aItem => b.forEach(bItem => result.push([aItem, bItem])));
   return result;
 }
 
@@ -188,14 +159,12 @@ function cartesian(a, b) {
  * (e.g. [elements|ino-button, elements|ino-card, ...])
  */
 function getNewScopes(componentName) {
-  const currentComponents = CUSTOM_ELEMENTS_JSON.tags.map(
-    (component) => component.name,
-  );
+  const currentComponents = CUSTOM_ELEMENTS_JSON.tags.map(component => component.name);
   currentComponents.push(componentName);
   currentComponents.sort();
 
   return cartesian(CURRENT_PACKAGES, currentComponents)
-    .map((subArr) => subArr.join('|'))
+    .map(subArr => subArr.join('|'))
     .concat(CURRENT_PACKAGES)
     .concat('*')
     .concat('deps');

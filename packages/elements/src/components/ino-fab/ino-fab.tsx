@@ -1,14 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  h,
-  Host,
-  Listen,
-  Prop,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Listen, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 import { Placement } from 'tippy.js';
 import { hasSlotContent } from '../../util/component-utils';
@@ -55,12 +46,7 @@ export class Fab implements ComponentInterface {
   /**
    * The position of the edge.
    */
-  @Prop() edgePosition:
-    | 'top-right'
-    | 'top-left'
-    | 'bottom-right'
-    | 'bottom-left'
-    | 'none' = 'top-left';
+  @Prop() edgePosition: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none' = 'top-left';
 
   /**
    * Disables the button.
@@ -111,15 +97,12 @@ export class Fab implements ComponentInterface {
     const attributes: Partial<HTMLInoTooltipElement> = {
       for: this.uniqueHelperId,
       label: this.label,
-      placement:
-        this.tooltipPlacement === 'none' ? undefined : this.tooltipPlacement,
+      placement: this.tooltipPlacement === 'none' ? undefined : this.tooltipPlacement,
       trigger: 'mouseenter focus',
     };
 
     const tooltip = document.createElement('ino-tooltip');
-    Object.keys(attributes).forEach((key) =>
-      tooltip.setAttribute(key, attributes[key]),
-    );
+    Object.keys(attributes).forEach(key => tooltip.setAttribute(key, attributes[key]));
     this.el.appendChild(tooltip);
     this.tooltip = tooltip;
   }
@@ -143,9 +126,7 @@ export class Fab implements ComponentInterface {
   private uniqueHelperId = Fab.generateHelperTextId();
 
   render() {
-    const hostClasses = classNames(
-      `ino-fab--edge-position-${this.edgePosition}`,
-    );
+    const hostClasses = classNames(`ino-fab--edge-position-${this.edgePosition}`);
 
     const classFab = classNames({
       'mdc-fab': true,

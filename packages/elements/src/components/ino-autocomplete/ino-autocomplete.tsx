@@ -84,8 +84,7 @@ export class Autocomplete implements ComponentInterface {
     // grayInputText true setzen wenn nicht gleich
 
     if (this.inoInputEl) this.inoInputEl.value = val;
-    if (this.inputEl)
-      this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
+    if (this.inputEl) this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
     this.styleInputSelected();
   }
 
@@ -112,10 +111,7 @@ export class Autocomplete implements ComponentInterface {
     const { query, matches } = ev.detail;
 
     const exactMatch: Selection = matches.find(
-      (match) =>
-        (Autocomplete.isKeyValue(match.value)
-          ? match.value.value
-          : match.value) === query,
+      match => (Autocomplete.isKeyValue(match.value) ? match.value.value : match.value) === query,
     );
 
     if (exactMatch) {
@@ -136,10 +132,7 @@ export class Autocomplete implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.inoInputEl?.removeEventListener(
-      'valueChange',
-      this.onInputValueChange,
-    );
+    this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
   }
 
   private onInputValueChange = (e: CustomEvent<string>) => {
@@ -148,18 +141,13 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private initComponents() {
-    this.inoInputEl?.removeEventListener(
-      'valueChange',
-      this.onInputValueChange,
-    );
+    this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
 
     this.inoInputEl = this.el.querySelector('ino-input');
     this.inputEl = this.el.querySelector('input');
 
     if (!this.inoInputEl) {
-      throw new Error(
-        `[ino-autocomplete] No <ino-input> element found in default slot.`,
-      );
+      throw new Error(`[ino-autocomplete] No <ino-input> element found in default slot.`);
     }
 
     this.inoInputEl?.addEventListener('valueChange', this.onInputValueChange);
@@ -190,8 +178,7 @@ export class Autocomplete implements ComponentInterface {
       resultItem: {
         class: 'mdc-deprecated-list-item ino-autocomplete__list-item',
         highlight: 'ino-autocomplete__list-item--highlight',
-        selected:
-          'mdc-deprecated-list-item--selected ino-autocomplete__list-item--selected',
+        selected: 'mdc-deprecated-list-item--selected ino-autocomplete__list-item--selected',
       },
       events: {
         input: {
@@ -211,15 +198,9 @@ export class Autocomplete implements ComponentInterface {
 
   private createNoMatchMessage(query: string): HTMLDivElement {
     const message = document.createElement('div');
-    message.setAttribute(
-      'class',
-      'ino-autocomplete__list-item ino-autocomplete__list-item--no-match',
-    );
+    message.setAttribute('class', 'ino-autocomplete__list-item ino-autocomplete__list-item--no-match');
     // Add message text content
-    message.innerHTML = `<span>${this.noOptionsText.replace(
-      '$',
-      query,
-    )}</span>`;
+    message.innerHTML = `<span>${this.noOptionsText.replace('$', query)}</span>`;
 
     return message;
   }
@@ -234,16 +215,14 @@ export class Autocomplete implements ComponentInterface {
 
   private static UNSELECTED_INPUT_CLASS = 'ino-input--font-grey';
 
-  private styleInputSelected = () =>
-    this.inoInputEl?.classList.remove(Autocomplete.UNSELECTED_INPUT_CLASS);
-  private styleInputUnselected = () =>
-    this.inoInputEl?.classList.add(Autocomplete.UNSELECTED_INPUT_CLASS);
+  private styleInputSelected = () => this.inoInputEl?.classList.remove(Autocomplete.UNSELECTED_INPUT_CLASS);
+  private styleInputUnselected = () => this.inoInputEl?.classList.add(Autocomplete.UNSELECTED_INPUT_CLASS);
 
   render() {
     return (
       <Host>
         <slot></slot>
-        <div ref={(el) => (this.listEl = el)}></div>
+        <div ref={el => (this.listEl = el)}></div>
       </Host>
     );
   }

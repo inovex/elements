@@ -7,7 +7,7 @@ import './ino-fab.scss';
 const InoFabMeta = {
   title: 'Buttons/ino-fab',
   component: 'ino-fab',
-  render: (args) => html`
+  render: args => html`
     <ino-fab
       class="customizable-fab"
       disabled="${args.disabled}"

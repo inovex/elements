@@ -4,9 +4,7 @@
 $label-color: rgba(0, 0, 0, 0.6);
 
 @mixin outline-border-color($color) {
-  ino-label:not(.ino-label--disabled).ino-label--outlined
-    .mdc-notched-outline
-    > div {
+  ino-label:not(.ino-label--disabled).ino-label--outlined .mdc-notched-outline > div {
     border-color: $color;
   }
 }
@@ -36,8 +34,7 @@ ino-label {
     }
   }
 
-  &:not(.ino-label--disabled)
-    .mdc-floating-label:not(.mdc-floating-label--float-above) {
+  &:not(.ino-label--disabled) .mdc-floating-label:not(.mdc-floating-label--float-above) {
     color: $label-color;
   }
 }

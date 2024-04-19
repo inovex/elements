@@ -1,14 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  Prop,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
@@ -106,9 +96,7 @@ export class Chip implements ComponentInterface {
 
   componentDidLoad() {
     if (this.label) {
-      console.warn(
-        '[ino-chip] The attribute "label" is deprecated, please use the default slot instead.',
-      );
+      console.warn('[ino-chip] The attribute "label" is deprecated, please use the default slot instead.');
     }
   }
 
@@ -166,14 +154,10 @@ export class Chip implements ComponentInterface {
       'ino-chip-container': true,
       'mdc-evolution-chip--selectable': this.selectable,
       'mdc-evolution-chip--selected': this.selected,
-      'mdc-evolution-chip--selecting':
-        this.selectable && !leadingSlotHasContent && this.selected,
-      'mdc-evolution-chip--deselecting':
-        this.selectable && !leadingSlotHasContent && !this.selected,
-      'mdc-evolution-chip--selecting-with-primary-icon':
-        this.selectable && leadingSlotHasContent && this.selected,
-      'mdc-evolution-chip--deselecting-with-primary-icon':
-        this.selectable && leadingSlotHasContent && !this.selected,
+      'mdc-evolution-chip--selecting': this.selectable && !leadingSlotHasContent && this.selected,
+      'mdc-evolution-chip--deselecting': this.selectable && !leadingSlotHasContent && !this.selected,
+      'mdc-evolution-chip--selecting-with-primary-icon': this.selectable && leadingSlotHasContent && this.selected,
+      'mdc-evolution-chip--deselecting-with-primary-icon': this.selectable && leadingSlotHasContent && !this.selected,
       'mdc-evolution-chip--disabled': this.disabled,
       'mdc-evolution-chip--filter': this.selectable,
       'mdc-evolution-chip--with-primary-graphic': hasPrimaryGraphic,
@@ -183,14 +167,8 @@ export class Chip implements ComponentInterface {
 
     return (
       <Host class={hostClasses}>
-        <span
-          class={chipClasses}
-          role={this.selectable ? 'presentation' : 'row'}
-        >
-          <span
-            class="ino-chip_cell mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
-            role="gridcell"
-          >
+        <span class={chipClasses} role={this.selectable ? 'presentation' : 'row'}>
+          <span class="ino-chip_cell mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
             {this.renderPrimaryAction([
               <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary" />,
               hasPrimaryGraphic && (
@@ -202,10 +180,7 @@ export class Chip implements ComponentInterface {
                   )}
                   {this.selectable && this.selected && (
                     <span class="mdc-evolution-chip__checkmark">
-                      <svg
-                        class="mdc-evolution-chip__checkmark-svg"
-                        viewBox="-2 -3 30 30"
-                      >
+                      <svg class="mdc-evolution-chip__checkmark-svg" viewBox="-2 -3 30 30">
                         <path
                           class="mdc-evolution-chip__checkmark-path"
                           fill="none"
@@ -217,34 +192,23 @@ export class Chip implements ComponentInterface {
                   )}
                 </span>
               ),
-              <span class="mdc-evolution-chip__text-label ino-chip-label">
-                {this.label ? this.label : <slot />}
-              </span>,
+              <span class="mdc-evolution-chip__text-label ino-chip-label">{this.label ? this.label : <slot />}</span>,
             ])}
           </span>
           {hasTrailingGraphic && (
-            <span
-              class="mdc-evolution-chip__cell mdc-evolution-chip__cell--trailing"
-              role="gridcell"
-            >
+            <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--trailing" role="gridcell">
               <button
                 class="mdc-evolution-chip__action mdc-evolution-chip__action--trailing"
                 type="button"
                 tabIndex={-1}
                 data-mdc-deletable="true"
                 disabled={this.disabled}
-                onClick={(e) => this.iconClicked(e)}
+                onClick={e => this.iconClicked(e)}
               >
                 <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--trailing" />
                 <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--trailing ino-chip-trailing-icon">
                   {this.removable ? (
-                    <ino-icon
-                      class="ino-chip-close-icon"
-                      icon="close"
-                      tabindex="0"
-                      role="button"
-                      clickable={true}
-                    />
+                    <ino-icon class="ino-chip-close-icon" icon="close" tabindex="0" role="button" clickable={true} />
                   ) : (
                     <slot name="icon-trailing" />
                   )}

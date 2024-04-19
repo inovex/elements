@@ -1,5 +1,4 @@
 {
-  "editorconfig": true,
   "singleQuote": true,
   "printWidth": 120,
   "trailingComma": "all",
@@ -8,5 +7,5 @@
   "bracketSameLine": false,
   "arrowParens": "avoid",
   "quoteProps": "as-needed",
-  "singleAttributePerLine": true
+  "singleAttributePerLine": false
 }

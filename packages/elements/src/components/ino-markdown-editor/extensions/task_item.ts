@@ -16,13 +16,11 @@ export default TaskItem.extend({
       checked: {
         default: false,
         keepOnSplit: false,
-        parseHTML: (element) => {
-          const checkbox = element.querySelector(
-            'input[type=checkbox].task-list-item-checkbox',
-          ) as HTMLInputElement;
+        parseHTML: element => {
+          const checkbox = element.querySelector('input[type=checkbox].task-list-item-checkbox') as HTMLInputElement;
           return checkbox?.checked;
         },
-        renderHTML: (attributes) => ({
+        renderHTML: attributes => ({
           'data-checked': attributes.checked,
         }),
       },
@@ -39,7 +37,7 @@ export default TaskItem.extend({
 
       checkboxWrapper.contentEditable = 'false';
       checkbox.type = 'checkbox';
-      checkbox.addEventListener('change', (event) => {
+      checkbox.addEventListener('change', event => {
         // if the editor isn’t editable and we don't have a handler for
         // readonly checks we have to undo the latest change
         if (!editor.isEditable && !this.options.onReadOnlyChecked) {
@@ -94,7 +92,7 @@ export default TaskItem.extend({
       return {
         dom: listItem,
         contentDOM: content,
-        update: (updatedNode) => {
+        update: updatedNode => {
           if (updatedNode.type !== this.type) {
             return false;
           }
@@ -108,8 +106,7 @@ export default TaskItem.extend({
 
           return true;
         },
-        ignoreMutation: (mr: MutationRecord) =>
-          mr.attributeName !== 'data-checked',
+        ignoreMutation: (mr: MutationRecord) => mr.attributeName !== 'data-checked',
       };
     };
   },
@@ -130,7 +127,7 @@ export default TaskItem.extend({
       wrappingInputRule({
         find: customInputRegex,
         type: this.type,
-        getAttributes: (match) => ({
+        getAttributes: match => ({
           checked: match[match.length - 1] === 'x',
         }),
       }),

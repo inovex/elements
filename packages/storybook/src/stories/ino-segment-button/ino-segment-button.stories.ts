@@ -15,7 +15,7 @@ const InoSegmentButtonMeta = {
       handles: ['checkedChange'],
     },
   },
-  render: (args) => html`
+  render: args => html`
     <ino-segment-button
       value="1"
       class="customizable-segment-btn"

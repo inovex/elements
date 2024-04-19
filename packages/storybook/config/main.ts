@@ -11,11 +11,7 @@ const config: StorybookConfig = {
     options: {},
   },
 
-  staticDirs: [
-    '../static',
-    '../../elements/src/assets',
-    '../../../assets/logo',
-  ],
+  staticDirs: ['../static', '../../elements/src/assets', '../../../assets/logo'],
 
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
 

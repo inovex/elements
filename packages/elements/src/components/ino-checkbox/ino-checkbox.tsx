@@ -1,16 +1,6 @@
 import { MDCCheckbox } from '@material/checkbox';
 import { MDCFormField } from '@material/form-field';
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Prop,
-  Watch,
-  h,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
 import classNames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
@@ -83,12 +73,8 @@ export class Checkbox implements ComponentInterface {
   private checkboxId = `ino-checkbox-id_${generateUniqueId()}`;
 
   componentDidLoad() {
-    this.checkboxInstance = new MDCCheckbox(
-      this.el.shadowRoot.querySelector('.mdc-checkbox'),
-    );
-    this.formField = new MDCFormField(
-      this.el.shadowRoot.querySelector('.mdc-form-field'),
-    );
+    this.checkboxInstance = new MDCCheckbox(this.el.shadowRoot.querySelector('.mdc-checkbox'));
+    this.formField = new MDCFormField(this.el.shadowRoot.querySelector('.mdc-form-field'));
     this.formField.input = this.checkboxInstance;
 
     if (this.indeterminate) {
@@ -135,8 +121,8 @@ export class Checkbox implements ComponentInterface {
               checked={checked}
               disabled={disabled}
               id={this.checkboxId}
-              ref={(input) => (this.nativeInputEl = input as HTMLInputElement)}
-              onChange={(e) => e.stopPropagation()}
+              ref={input => (this.nativeInputEl = input as HTMLInputElement)}
+              onChange={e => e.stopPropagation()}
               onInput={this.handleInput}
             />
             <div class="mdc-checkbox__background">

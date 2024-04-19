@@ -1,13 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Host,
-  Prop,
-  Watch,
-  h,
-  Method,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h, Method } from '@stencil/core';
 import TippyJS, { Instance, Placement, roundArrow } from 'tippy.js';
 import { TooltipTrigger, TippyThemes } from '../types';
 
@@ -129,8 +120,7 @@ export class Tooltip implements ComponentInterface {
     await this.create();
   }
 
-  private retrieveTarget = () =>
-    this.for ? document.getElementById(this.for) : this.el.parentElement;
+  private retrieveTarget = () => (this.for ? document.getElementById(this.for) : this.el.parentElement);
 
   private async create() {
     this.dispose();
@@ -140,14 +130,12 @@ export class Tooltip implements ComponentInterface {
     // Wait up to 1 sec for the host element to be rendered
     for (let i = 0; i < 5; i++) {
       if (this.target) break;
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      await new Promise(resolve => setTimeout(resolve, 200));
       this.target = this.retrieveTarget();
     }
 
     if (!this.target) {
-      throw new Error(
-        `Target with the ID '${this.for}' could not be found in this document.`,
-      );
+      throw new Error(`Target with the ID '${this.for}' could not be found in this document.`);
     }
 
     const options = {
@@ -175,15 +163,8 @@ export class Tooltip implements ComponentInterface {
       this.tooltipInstance.destroy();
 
       this.target.removeEventListener('keyup', this.onEnterTarget.bind(this));
-      this.target.removeEventListener(
-        'blur',
-        this.onLeaveTarget.bind(this),
-        true,
-      );
-      this.target.removeEventListener(
-        'mouseleave',
-        this.onLeaveTarget.bind(this),
-      );
+      this.target.removeEventListener('blur', this.onLeaveTarget.bind(this), true);
+      this.target.removeEventListener('mouseleave', this.onLeaveTarget.bind(this));
     }
   }
 
@@ -204,11 +185,7 @@ export class Tooltip implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div
-          ref={(el) => (this.contentEl = el)}
-          class="ino-tooltip__composer"
-          role="tooltip"
-        >
+        <div ref={el => (this.contentEl = el)} class="ino-tooltip__composer" role="tooltip">
           <div class="ino-tooltip__inner">
             {this.headerText && <header>{this.headerText}</header>}
             {this.label ?? <slot />}

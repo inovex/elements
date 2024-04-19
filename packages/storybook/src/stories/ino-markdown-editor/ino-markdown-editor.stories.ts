@@ -15,12 +15,10 @@ const InoMarkdownEditorMeta = {
     },
   },
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         const viewModeChangeHandler = (e: CustomEvent<string>) => {
-          const editor = document.getElementById(
-            ID,
-          ) as HTMLInoMarkdownEditorElement;
+          const editor = document.getElementById(ID) as HTMLInoMarkdownEditorElement;
           editor.viewMode = e.detail as (typeof editor)['viewMode'];
         };
         document.addEventListener('viewModeChange', viewModeChangeHandler);
@@ -32,7 +30,7 @@ const InoMarkdownEditorMeta = {
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-markdown-editor
       id="${ID}"
       initial-value="${args.initialValue}"

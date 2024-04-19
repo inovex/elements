@@ -40,8 +40,7 @@ ino-table {
   .mdc-data-table__progress-indicator {
     height: 100%;
   }
-  .mdc-data-table:not(.ino-table--no-header)
-    .mdc-data-table__progress-indicator {
+  .mdc-data-table:not(.ino-table--no-header) .mdc-data-table__progress-indicator {
     top: 44px;
     height: 2px;
     --ino-progress-bar-height: 2px;

@@ -11,17 +11,12 @@
  * the mixin provided by google mdc as the original mixin did not support the
  * use of css variables.
  */
-@mixin standard-columns(
-  $cols,
-  $gutter-size: 4px,
-  $query: feature-targeting-functions.all()
-) {
+@mixin standard-columns($cols, $gutter-size: 4px, $query: feature-targeting-functions.all()) {
   $feat-structure: feature-targeting-functions.create-target($query, structure);
 
   .mdc-image-list__item {
     @include feature-targeting-mixins.targets($feat-structure) {
-      width: math.div(100%, #{$cols}) -
-        math.div(#{$gutter-size} + 1px, #{$cols});
+      width: math.div(100%, #{$cols}) - math.div(#{$gutter-size} + 1px, #{$cols});
       margin: math.div($gutter-size, 2);
     }
   }

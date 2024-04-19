@@ -13,7 +13,7 @@ const InoIconButtonMeta = {
       handles: ['click ino-icon-button'],
     },
   },
-  render: (args) => html`
+  render: args => html`
     <ino-icon-button
       activated="${args.activated}"
       disabled="${args.disabled}"

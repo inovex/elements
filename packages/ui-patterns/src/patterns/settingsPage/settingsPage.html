@@ -24,27 +24,12 @@
 
   <main slot="app" class="bg-white px-20 py-10 h-screen xl:min-w-[1125px]">
     <ino-tab-bar>
-      <ino-tab
-        label="Account"
-        a11y-controls="account-panel"
-        data-target="account-panel"
-      ></ino-tab>
-      <ino-tab
-        label="Notification"
-        a11y-controls="notification-panel"
-        data-target="notification-panel"
-      ></ino-tab>
-      <ino-tab
-        label="Updates"
-        a11y-controls="update-panel"
-        data-target="update-panel"
-      ></ino-tab>
+      <ino-tab label="Account" a11y-controls="account-panel" data-target="account-panel"></ino-tab>
+      <ino-tab label="Notification" a11y-controls="notification-panel" data-target="notification-panel"></ino-tab>
+      <ino-tab label="Updates" a11y-controls="update-panel" data-target="update-panel"></ino-tab>
     </ino-tab-bar>
 
-    <div
-      id="account-panel"
-      class="panel grid xl:grid-cols-[2fr,1fr] grid-cols-1 xl:gap-20 gap-10 py-10"
-    >
+    <div id="account-panel" class="panel grid xl:grid-cols-[2fr,1fr] grid-cols-1 xl:gap-20 gap-10 py-10">
       <div>
         <h2 class="header-h2">Account</h2>
         <h3 class="title-l mt-10">Personal information</h3>
@@ -65,9 +50,7 @@
               <option>Scrum Master</option>
             </datalist>
           </ino-input>
-          <ino-button id="submit-personal-info" class="self-end"
-            >Save Changes</ino-button
-          >
+          <ino-button id="submit-personal-info" class="self-end">Save Changes</ino-button>
         </form>
 
         <div>
@@ -82,24 +65,16 @@
         </div>
 
         <div class="border-y border-inovex-p-3 py-10 mt-10 flex flex-col gap-4">
-          <ino-accordion
-            id="password-accordion"
-            accordion-title="Change Password"
-          >
+          <ino-accordion id="password-accordion" accordion-title="Change Password">
             <div class="flex flex-col gap-y-5 mt-4">
               <ino-input label="Current password" outline></ino-input>
               <ino-input label="New password" outline></ino-input>
               <ino-input label="Confirm password" outline></ino-input>
-              <ino-button id="change-password-button" class="self-end"
-                >Save Changes</ino-button
-              >
+              <ino-button id="change-password-button" class="self-end">Save Changes</ino-button>
             </div>
           </ino-accordion>
 
-          <ino-accordion
-            id="security-accordion"
-            accordion-title="Security Questions"
-          >
+          <ino-accordion id="security-accordion" accordion-title="Security Questions">
             <div class="flex flex-col m-y-4">
               <div class="flex justify-between">
                 <ino-select class="w-full mr-5" label="Security Question 1">
@@ -119,9 +94,7 @@
                 </ino-select>
                 <ino-input label="Answer 3"></ino-input>
               </div>
-              <ino-button id="save-security-questions" class="mt-5 self-end"
-                >Save Changes</ino-button
-              >
+              <ino-button id="save-security-questions" class="mt-5 self-end">Save Changes</ino-button>
             </div>
           </ino-accordion>
         </div>
@@ -157,9 +130,7 @@
 
     <div id="notification-panel" class="panel hidden py-10 max-w-xl">
       <h2 class="header-h2">Notifications</h2>
-      <p class="body-l mt-10 text-inovex-n-10">
-        Choose which Notifications you want to receive.
-      </p>
+      <p class="body-l mt-10 text-inovex-n-10">Choose which Notifications you want to receive.</p>
       <div class="flex flex-col gap-20 mt-6">
         <div>
           <h3 class="title-m mb-6">Work Updates</h3>
@@ -209,26 +180,18 @@
 
     <div id="update-panel" class="panel hidden py-10 max-w-xl">
       <h2 class="header-h2">Updates</h2>
-      <p class="body-l mt-10 text-inovex-n-10">
-        Your app is currently being updated to the latest version.
-      </p>
+      <p class="body-l mt-10 text-inovex-n-10">Your app is currently being updated to the latest version.</p>
       <div class="flex flex-col gap-20 mt-6">
         <div>
           <h3 class="title-m my-6">Downloading Update...</h3>
-          <ino-progress-bar
-            buffer="0.9"
-            progress="0.4"
-            indeterminate="false"
-          ></ino-progress-bar>
+          <ino-progress-bar buffer="0.9" progress="0.4" indeterminate="false"></ino-progress-bar>
           <p class="body-m text-inovex-n-9 mt-2">40% downloaded...</p>
         </div>
 
         <div>
           <h3 class="body-m my-6">Installing Update...</h3>
           <ino-progress-bar indeterminate="true"></ino-progress-bar>
-          <p class="body-m text-inovex-n-9 mt-2">
-            Installation will begin shortly...
-          </p>
+          <p class="body-m text-inovex-n-9 mt-2">Installation will begin shortly...</p>
         </div>
       </div>
     </div>

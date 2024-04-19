@@ -1,12 +1,6 @@
 import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  InoIcon,
-  InoImg,
-  InoList,
-  InoNavDrawer,
-  InoNavItem,
-} from '@inovex.de/elements-react';
+import { InoIcon, InoImg, InoList, InoNavDrawer, InoNavItem } from '@inovex.de/elements-react';
 
 import ShowcaseBox from './showcaseBox';
 
@@ -23,16 +17,10 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
       open={drawerOpen}
       anchor="left"
       variant="docked"
-      onOpenChange={(e) => setDrawerOpen(e.detail)}
+      onOpenChange={e => setDrawerOpen(e.detail)}
     >
       <div slot="header">
-        <InoImg
-          slot="logo"
-          width={32}
-          height={32}
-          alt="inovex Elements Logo"
-          src="/favicon-32x32.png"
-        ></InoImg>
+        <InoImg slot="logo" width={32} height={32} alt="inovex Elements Logo" src="/favicon-32x32.png"></InoImg>
         <p>Patterns</p>
       </div>
       <InoList role="menubar" slot="content" aria-label="Main Navigation">
@@ -72,10 +60,7 @@ function NavigationDrawer({ children }: NavigationDrawerProps) {
       </InoList>
 
       {/* Content will be placed here in the App.tsx component */}
-      <main
-        slot="app"
-        className="main-content h-full flex justify-center items-center"
-      >
+      <main slot="app" className="main-content h-full flex justify-center items-center">
         <div>
           <ShowcaseBox>{children}</ShowcaseBox>
         </div>

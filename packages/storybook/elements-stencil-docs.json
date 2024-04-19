@@ -3228,7 +3228,7 @@
           "name": "edgePosition",
           "type": "\"bottom-left\" | \"bottom-right\" | \"none\" | \"top-left\" | \"top-right\"",
           "complexType": {
-            "original": "| 'top-right'\n    | 'top-left'\n    | 'bottom-right'\n    | 'bottom-left'\n    | 'none'",
+            "original": "'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none'",
             "resolved": "\"bottom-left\" | \"bottom-right\" | \"none\" | \"top-left\" | \"top-right\"",
             "references": {}
           },
@@ -11415,7 +11415,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/types.ts::InputType": {
-      "declaration": "export type InputType =\n  | 'color'\n  | 'email'\n  | 'number'\n  | 'password'\n  | 'search'\n  | 'tel'\n  | 'text'\n  | 'url'\n  | 'week';",
+      "declaration": "export type InputType = 'color' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'week';",
       "docstring": "",
       "path": "src/components/types.ts"
     },

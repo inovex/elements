@@ -1,11 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {
-  MyPatternA,
-  Login,
-  SettingsPage,
-  Footer,
-  Hero,
-} from '@inovex.de/ui-patterns';
+import { MyPatternA, Login, SettingsPage, Footer, Hero } from '@inovex.de/ui-patterns';
 import '@inovex.de/elements-react';
 
 import Guide from './components/guide';

@@ -1,15 +1,9 @@
 <template>
   <form id="contact-form" @submit="showFormData">
     <ino-radio-group :value="gender">
-      <ino-radio value="m" @checkedChange="() => (gender = 'm')">
-        male
-      </ino-radio>
-      <ino-radio value="f" @checkedChange="() => (gender = 'f')">
-        female
-      </ino-radio>
-      <ino-radio value="o" @checkedChange="() => (gender = 'o')">
-        other
-      </ino-radio>
+      <ino-radio value="m" @checkedChange="() => (gender = 'm')"> male </ino-radio>
+      <ino-radio value="f" @checkedChange="() => (gender = 'f')"> female </ino-radio>
+      <ino-radio value="o" @checkedChange="() => (gender = 'o')"> other </ino-radio>
     </ino-radio-group>
     <ino-select
       :ino-outline="outlineStyle"
@@ -61,11 +55,7 @@
       rows="3"
     />
     <div class="form-btn-bar">
-      <ino-switch
-        v-model="outlineStyle"
-        name="outline-style"
-        @checkedChange="({ detail }) => (outlineStyle = detail)"
-      >
+      <ino-switch v-model="outlineStyle" name="outline-style" @checkedChange="({ detail }) => (outlineStyle = detail)">
         Use outline style
       </ino-switch>
       <ino-button type="submit">

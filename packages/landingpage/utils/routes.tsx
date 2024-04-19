@@ -51,16 +51,11 @@ const productionModeExcludedSubroutes: { [key: string]: string[] } = {
   // 'anotherMainRoute': ['subroute1', 'subroute2'] to exclude in production
 };
 
-function filterSubroutesInProduction(
-  route: MainRoute,
-  isProductionMode: boolean,
-): MainRoute {
+function filterSubroutesInProduction(route: MainRoute, isProductionMode: boolean): MainRoute {
   const subroutesToFilter = productionModeExcludedSubroutes[route.key];
 
   if (subroutesToFilter && isProductionMode) {
-    const filteredSubRoutes = route.subRoutes.filter(
-      (subRoute) => !subroutesToFilter.includes(subRoute.key),
-    );
+    const filteredSubRoutes = route.subRoutes.filter(subRoute => !subroutesToFilter.includes(subRoute.key));
 
     return {
       ...route,
@@ -71,9 +66,7 @@ function filterSubroutesInProduction(
 }
 
 function applyProductionRouteFiltering(routes: RouteTree): RouteTree {
-  return routes.map((route) =>
-    filterSubroutesInProduction(route, !inDevEnvironment),
-  );
+  return routes.map(route => filterSubroutesInProduction(route, !inDevEnvironment));
 }
 // TODO: create meaningful routes
 const allRoutes: RouteTree = [

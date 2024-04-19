@@ -30,8 +30,7 @@ export const config: Config = {
     {
       type: 'docs-vscode',
       file: 'dist/html.html-data.json',
-      sourceCodeBaseUrl:
-        'https://github.com/inovex/elements//tree/master/packages/elements',
+      sourceCodeBaseUrl: 'https://github.com/inovex/elements//tree/master/packages/elements',
     },
     JsonDocsOutputTarget,
     AngularOutputTarget,
@@ -40,7 +39,7 @@ export const config: Config = {
   ],
   plugins: [
     sass({
-      includePaths: ['../../node_modules'].map((d) => join(__dirname, d)),
+      includePaths: ['../../node_modules'].map(d => join(__dirname, d)),
     }),
   ],
   testing: {

@@ -2,14 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './App.scss';
-import {
-  InoCheckbox,
-  InoIcon,
-  InoInput,
-  InoList,
-  InoListDivider,
-  InoListItem,
-} from '../shared/InovexElements';
+import { InoCheckbox, InoIcon, InoInput, InoList, InoListDivider, InoListItem } from '../shared/InovexElements';
 
 export const HomeTodoApp: React.FC = () => {
   const [newTodoName, setTodoName] = React.useState('');
@@ -29,22 +22,20 @@ export const HomeTodoApp: React.FC = () => {
   };
 
   const doTodo = (todo: string) => {
-    const filteredTodos = todos.filter((currentTodo) => currentTodo !== todo);
+    const filteredTodos = todos.filter(currentTodo => currentTodo !== todo);
     setTodos(filteredTodos);
     setDoneTodos([...doneTodos, todo]);
   };
 
   const undoTodo = (todo: string) => {
-    const filteredDoneTodo = doneTodos.filter(
-      (currentTodo) => currentTodo !== todo,
-    );
+    const filteredDoneTodo = doneTodos.filter(currentTodo => currentTodo !== todo);
     setTodos([...todos, todo]);
     setDoneTodos(filteredDoneTodo);
   };
 
   const todoListTemplate = () => (
     <InoList>
-      {todos.map((todo) => (
+      {todos.map(todo => (
         <InoListItem key={todo} text={todo}>
           <InoCheckbox slot="leading" onCheckedChange={() => doTodo(todo)} />
         </InoListItem>
@@ -54,13 +45,9 @@ export const HomeTodoApp: React.FC = () => {
 
   const doneListTemplate = () => (
     <InoList>
-      {doneTodos.map((todo) => (
+      {doneTodos.map(todo => (
         <InoListItem key={todo} text={todo}>
-          <InoCheckbox
-            slot="leading"
-            checked
-            onCheckedChange={() => undoTodo(todo)}
-          />
+          <InoCheckbox slot="leading" checked onCheckedChange={() => undoTodo(todo)} />
         </InoListItem>
       ))}
     </InoList>
@@ -84,16 +71,11 @@ export const HomeTodoApp: React.FC = () => {
       <InoInput
         type="text"
         value={newTodoName}
-        onValueChange={(value) => onValueChanged(value)}
+        onValueChange={value => onValueChanged(value)}
         placeholder="What needs to be done..."
-        onKeyPress={(e) => e.key === 'Enter' && addTodo()}
+        onKeyPress={e => e.key === 'Enter' && addTodo()}
       >
-        <InoIcon
-          icon={'add'}
-          slot={'icon-trailing'}
-          clickable
-          onClick={() => addTodo()}
-        />
+        <InoIcon icon={'add'} slot={'icon-trailing'} clickable onClick={() => addTodo()} />
       </InoInput>
       {listTemplate()}
     </div>

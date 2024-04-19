@@ -24,19 +24,11 @@ function History() {
         >
           <div>
             {t('about.history.milestones.getting_started.description_1')}{' '}
-            <a
-              href="https://m3.material.io/develop/web"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://m3.material.io/develop/web" target="_blank" rel="noreferrer">
               Google Material Web
             </a>
             ,{' '}
-            <a
-              href="https://flatpickr.js.org/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://flatpickr.js.org/" target="_blank" rel="noreferrer">
               flatpickr
             </a>
             {t('about.history.milestones.getting_started.description_2')}
@@ -71,19 +63,11 @@ function History() {
           <div>
             <mark>{t('about.history.milestones.open_source.mark')}</mark>{' '}
             {t('about.history.milestones.open_source.description_1')}{' '}
-            <a
-              href="https://www.npmjs.com/package/@inovex.de/elements"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://www.npmjs.com/package/@inovex.de/elements" target="_blank" rel="noreferrer">
               npm
             </a>{' '}
             {t('about.history.milestones.open_source.description_2')}{' '}
-            <a
-              href="https://github.com/inovex/elements"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://github.com/inovex/elements" target="_blank" rel="noreferrer">
               GitHub
             </a>{' '}
             {t('about.history.milestones.open_source.description_3')}
@@ -96,11 +80,7 @@ function History() {
         >
           <div>
             {t('about.history.milestones.optimizing.description_1')}{' '}
-            <a
-              href="https://github.com/inovex/elements#contributing"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://github.com/inovex/elements#contributing" target="_blank" rel="noreferrer">
               {t('about.history.milestones.optimizing.description_2')}
             </a>{' '}
             {t('about.history.milestones.optimizing.description_3')}

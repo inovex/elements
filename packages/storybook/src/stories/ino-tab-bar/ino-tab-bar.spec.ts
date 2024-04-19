@@ -14,17 +14,13 @@ function getTabBarUtilities(page: Page) {
 }
 
 test.describe('ino-tab-bar', () => {
-  test('should render with the inoActiveTab property set correctly', async ({
-    page,
-  }) => {
+  test('should render with the inoActiveTab property set correctly', async ({ page }) => {
     await goToStory(page, ['Structure', 'ino-tab-bar', 'active-tab']);
     const { assertSelectedTab } = getTabBarUtilities(page);
     await assertSelectedTab('messages');
   });
 
-  test('should set the clicked ino-tab as the active tab in the ino-tab-bar', async ({
-    page,
-  }) => {
+  test('should set the clicked ino-tab as the active tab in the ino-tab-bar', async ({ page }) => {
     await goToStory(page, ['Structure', 'ino-tab-bar', 'default']);
     const { tabs, assertSelectedTab } = getTabBarUtilities(page);
 

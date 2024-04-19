@@ -13,32 +13,14 @@
       />
     </ino-img-list>
     <div class="header-h1">My Pictures in a carousel</div>
-    <ino-carousel
-      class="my-carousel"
-      value="0"
-      autoplay
-      animated
-      infinite
-      intermission="5000"
-      hide-buttons
-    >
-      <ino-carousel-slide
-        v-for="(img, i) in images"
-        :key="i"
-        :value="i"
-        :src="img.url"
-      />
+    <ino-carousel class="my-carousel" value="0" autoplay animated infinite intermission="5000" hide-buttons>
+      <ino-carousel-slide v-for="(img, i) in images" :key="i" :value="i" :src="img.url" />
     </ino-carousel>
   </div>
 </template>
 
 <script>
-import {
-  InoCarousel,
-  InoCarouselSlide,
-  InoImg,
-  InoImgList,
-} from '@inovex.de/elements-vue';
+import { InoCarousel, InoCarouselSlide, InoImg, InoImgList } from '@inovex.de/elements-vue';
 
 export default {
   name: 'ImageGallery',

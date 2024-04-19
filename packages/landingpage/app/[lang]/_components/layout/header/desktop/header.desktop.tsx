@@ -38,12 +38,7 @@ export default function HeaderDesktop() {
           rel="noopener noreferrer"
           href="https://github.com/inovex/elements"
         >
-          <Image
-            className={styles.githubImage}
-            src={`/github-logo.svg`}
-            alt="Github Logo"
-            fill
-          />
+          <Image className={styles.githubImage} src={`/github-logo.svg`} alt="Github Logo" fill />
         </a>
       </div>
     </header>

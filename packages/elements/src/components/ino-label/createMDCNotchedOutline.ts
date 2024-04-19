@@ -1,9 +1,4 @@
-import {
-  MDCNotchedOutline,
-  MDCNotchedOutlineFoundation,
-  strings,
-  numbers,
-} from '@material/notched-outline';
+import { MDCNotchedOutline, MDCNotchedOutlineFoundation, strings, numbers } from '@material/notched-outline';
 
 const NOTCH_PADDING = numbers.NOTCH_ELEMENT_PADDING + 2;
 
@@ -12,12 +7,8 @@ const isMac = navigator.userAgent.toUpperCase().includes('MAC');
 const extraScaleFactor = isMac ? 0.1 : 0;
 
 export function createMDCNotchedOutline(el: HTMLElement, isDense?: boolean) {
-  const notchElement: HTMLElement = el.querySelector(
-    strings.NOTCH_ELEMENT_SELECTOR,
-  );
-  const textLabel: HTMLLabelElement = notchElement.querySelector(
-    '.mdc-floating-label',
-  );
+  const notchElement: HTMLElement = el.querySelector(strings.NOTCH_ELEMENT_SELECTOR);
+  const textLabel: HTMLLabelElement = notchElement.querySelector('.mdc-floating-label');
   const textLabelWidth = textLabel?.clientWidth ?? 0;
   const scaleFactor = (isDense ? 0.66 : 0.76) + extraScaleFactor;
   let lastNotchWidth = 0;

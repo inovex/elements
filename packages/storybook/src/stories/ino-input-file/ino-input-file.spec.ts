@@ -56,9 +56,9 @@ test.describe('ino-input-file', () => {
 
     // Create the DataTransfer and File
     const buffer = btoa('Example file content'); // create a base64 string
-    const dataTransfer = await page.evaluateHandle(async (data) => {
+    const dataTransfer = await page.evaluateHandle(async data => {
       const dt = new DataTransfer();
-      const blobData = await fetch(data).then((res) => res.blob());
+      const blobData = await fetch(data).then(res => res.blob());
       const file = new File([blobData], 'myFile.txt', {
         type: 'text/plain',
       });
@@ -72,9 +72,7 @@ test.describe('ino-input-file', () => {
     await expect(page.getByText('myFile.txt')).toBeVisible();
   });
 
-  test('should display drag and drop area without secondary text', async ({
-    page,
-  }) => {
+  test('should display drag and drop area without secondary text', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input-file', 'drag-and-drop']);
     const inputFileBtn = page.locator('ino-input-file ino-button');
     const dndLabel = page.getByText('Drag your files here');
@@ -83,14 +81,8 @@ test.describe('ino-input-file', () => {
     await expect(inputFileBtn).toBeVisible();
   });
 
-  test('should display drag and drop area with secondary text', async ({
-    page,
-  }) => {
-    await goToStory(page, [
-      'Input',
-      'ino-input-file',
-      'drag-and-drop-secondary-text',
-    ]);
+  test('should display drag and drop area with secondary text', async ({ page }) => {
+    await goToStory(page, ['Input', 'ino-input-file', 'drag-and-drop-secondary-text']);
     const inputFileBtn = page.locator('ino-input-file ino-button');
     const dndLabel = page.getByText('click and drag here');
     const dndSecondLabel = page.getByText('click the button below');

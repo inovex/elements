@@ -31,9 +31,7 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/elements-vue-example/src/**/*.{ts,tsx,vue,js}"
-        ]
+        "lintFilePatterns": ["packages/elements-vue-example/src/**/*.{ts,tsx,vue,js}"]
       }
     },
     "clean": {}

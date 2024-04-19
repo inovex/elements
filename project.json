@@ -32,11 +32,6 @@
       }
     }
   },
-  "implicitDependencies": [
-    "elements",
-    "elements-angular",
-    "elements-react",
-    "elements-vue"
-  ],
+  "implicitDependencies": ["elements", "elements-angular", "elements-react", "elements-vue"],
   "tags": []
 }

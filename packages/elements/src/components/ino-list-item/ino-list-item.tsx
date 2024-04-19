@@ -1,14 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  Prop,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 import { MDCRipple } from '@material/ripple';
@@ -113,18 +103,11 @@ export class ListItem implements ComponentInterface {
     });
 
     const primaryContent = this.text || <slot name="primary" />;
-    const secondaryContent =
-      this.secondaryText ||
-      (secondarySlotHasContent ? <slot name="secondary" /> : null);
+    const secondaryContent = this.secondaryText || (secondarySlotHasContent ? <slot name="secondary" /> : null);
 
     return (
       <Host>
-        <li
-          ref={(el) => (this.listItemEl = el)}
-          class={listItemClasses}
-          aria-disabled={this.disabled}
-          {...this.attrs}
-        >
+        <li ref={el => (this.listItemEl = el)} class={listItemClasses} aria-disabled={this.disabled} {...this.attrs}>
           <span class="mdc-deprecated-list-item__ripple"></span>
           {leadingSlotHasContent && (
             <span class="mdc-deprecated-list-item__graphic" role="presentation">
@@ -134,12 +117,8 @@ export class ListItem implements ComponentInterface {
           <span class="mdc-deprecated-list-item__text">
             {secondaryContent
               ? [
-                  <span class="mdc-deprecated-list-item__primary-text">
-                    {primaryContent}
-                  </span>,
-                  <span class="mdc-deprecated-list-item__secondary-text">
-                    {secondaryContent}
-                  </span>,
+                  <span class="mdc-deprecated-list-item__primary-text">{primaryContent}</span>,
+                  <span class="mdc-deprecated-list-item__secondary-text">{secondaryContent}</span>,
                 ]
               : primaryContent}
           </span>

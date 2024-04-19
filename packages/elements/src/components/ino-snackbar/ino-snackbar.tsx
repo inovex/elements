@@ -107,15 +107,9 @@ export class Snackbar implements ComponentInterface {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
     this.setupTimeout();
 
-    this.snackbarElement.addEventListener(
-      'MDCSnackbar:closing',
-      this.handleSnackbarHide,
-    );
+    this.snackbarElement.addEventListener('MDCSnackbar:closing', this.handleSnackbarHide);
     if (this.stayVisibleOnHover) {
-      this.snackbarElement.addEventListener(
-        'mouseenter',
-        this.interruptTimeout,
-      );
+      this.snackbarElement.addEventListener('mouseenter', this.interruptTimeout);
       this.snackbarElement.addEventListener('mouseleave', this.setupTimeout);
     }
 
@@ -124,22 +118,14 @@ export class Snackbar implements ComponentInterface {
     }
 
     if (this.message) {
-      console.warn(
-        '[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.',
-      );
+      console.warn('[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.');
     }
   }
 
   disconnectedCallback() {
     this.snackbarInstance?.destroy();
-    this.snackbarElement.removeEventListener(
-      'MDCSnackbar:closing',
-      this.handleSnackbarHide,
-    );
-    this.snackbarElement.removeEventListener(
-      'mouseenter',
-      this.interruptTimeout,
-    );
+    this.snackbarElement.removeEventListener('MDCSnackbar:closing', this.handleSnackbarHide);
+    this.snackbarElement.removeEventListener('mouseenter', this.interruptTimeout);
     this.snackbarElement.removeEventListener('mouseleave', this.setupTimeout);
   }
 
@@ -158,7 +144,7 @@ export class Snackbar implements ComponentInterface {
     }
   };
 
-  private handleSnackbarHide = (e) => {
+  private handleSnackbarHide = e => {
     this.hideEl.emit();
     e.stopPropagation();
   };
@@ -189,10 +175,7 @@ export class Snackbar implements ComponentInterface {
     const hasSlot = hasSlotContent(this.el, 'icon-slot');
 
     const hostClasses = classNames(`ino-snackbar--type-${this.type}`);
-    const snackbarClasses = classNames(
-      'mdc-snackbar',
-      'ino-snackbar-layout-container',
-    );
+    const snackbarClasses = classNames('mdc-snackbar', 'ino-snackbar-layout-container');
 
     const snackbarAttrs = { role: this.getAriaRole() };
     if (snackbarAttrs.role === 'alertdialog') {
@@ -202,35 +185,22 @@ export class Snackbar implements ComponentInterface {
 
     return (
       <Host class={hostClasses}>
-        <div
-          ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
-          class={snackbarClasses}
-          {...snackbarAttrs}
-        >
+        <div ref={el => (this.snackbarElement = el as HTMLDivElement)} class={snackbarClasses} {...snackbarAttrs}>
           <div class="mdc-snackbar__surface ino-snackbar-container">
             <div class="mdc-snackbar__actions ino-snackbar-icon-container">
               {hasSlot ? (
                 <slot name="icon-slot" />
               ) : this.type === 'success' ? (
-                <ino-icon
-                  aria-hidden="true"
-                  class="ino-snackbar-icon"
-                  icon={this.mapTypeToIconName(this.type)}
-                />
+                <ino-icon aria-hidden="true" class="ino-snackbar-icon" icon={this.mapTypeToIconName(this.type)} />
               ) : (
                 <span>{this.mapTypeToIconName(this.type)}</span>
               )}
             </div>
             <div class="mdc-snackbar__label ino-snackbar-message-container">
-              <div class="ino-snackbar-text-container">
-                {this.message ? this.message : <slot />}
-              </div>
+              <div class="ino-snackbar-text-container">{this.message ? this.message : <slot />}</div>
               {hasActionText && (
                 <div class="ino-snackbar-action-container">
-                  <button
-                    onClick={this.actionClick.emit}
-                    class="ino-snackbar-action-btn"
-                  >
+                  <button onClick={this.actionClick.emit} class="ino-snackbar-action-btn">
                     {this.actionText}
                   </button>
                 </div>

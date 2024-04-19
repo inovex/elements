@@ -2,9 +2,7 @@ import { expect, Page, test } from '@playwright/test';
 import { assertAfterContent, goToStory, setAttribute } from '../test-utils';
 
 function getInputUtilities(page: Page, testId?: string) {
-  const inoInput = testId
-    ? page.getByTestId(testId)
-    : page.locator('ino-input');
+  const inoInput = testId ? page.getByTestId(testId) : page.locator('ino-input');
   const input = inoInput.getByRole('textbox');
   const hiddenInput = inoInput.locator('input');
   const invalidInput = inoInput.locator('input:invalid');
@@ -15,9 +13,7 @@ function getInputUtilities(page: Page, testId?: string) {
   const arrowDown = inoInput.getByRole('img').last();
 
   async function assertUnitVisible() {
-    const unitOpacity = await unitText.evaluate((el) =>
-      Number(window.getComputedStyle(el).opacity),
-    );
+    const unitOpacity = await unitText.evaluate(el => Number(window.getComputedStyle(el).opacity));
     expect(unitOpacity).toBeGreaterThan(0);
   }
 
@@ -125,11 +121,7 @@ test.describe('ino-input', () => {
 
   test('should be able to use arrow keys', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'type']);
-    const {
-      hiddenInput: input,
-      arrowUp,
-      arrowDown,
-    } = getInputUtilities(page, 'input-test-steps');
+    const { hiddenInput: input, arrowUp, arrowDown } = getInputUtilities(page, 'input-test-steps');
 
     // test steps by keyboard
     await input.press('ArrowUp');
@@ -154,12 +146,7 @@ test.describe('ino-input', () => {
   test('should limit values by min and max', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'type']);
 
-    const {
-      inoInput,
-      hiddenInput: input,
-      arrowUp,
-      arrowDown,
-    } = getInputUtilities(page, 'input-test-steps');
+    const { inoInput, hiddenInput: input, arrowUp, arrowDown } = getInputUtilities(page, 'input-test-steps');
 
     await setAttribute(inoInput, 'min', '0');
     await setAttribute(inoInput, 'max', '2');
@@ -202,8 +189,7 @@ test.describe('ino-input', () => {
 
   test('should display validation helper on error', async ({ page }) => {
     await goToStory(page, ['Input', 'ino-input', 'default']);
-    const { inoInput, input, helperText, assertState } =
-      getInputUtilities(page);
+    const { inoInput, input, helperText, assertState } = getInputUtilities(page);
 
     await setAttribute(inoInput, 'required', 'true');
     await setAttribute(inoInput, 'helper-validation', 'true');

@@ -39,8 +39,7 @@ jobs:
 
       - name: Save commit SHA to cache
         id: current-commit
-        run:
-          echo "${{ github.event.pull_request.head.sha || github.sha }}" > last_commit_sha.txt
+        run: echo "${{ github.event.pull_request.head.sha || github.sha }}" > last_commit_sha.txt
           && echo "sha=${{ github.event.pull_request.base.sha || github.sha }}" >> $GITHUB_OUTPUT
 
       - name: Get changed files

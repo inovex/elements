@@ -41,11 +41,7 @@ export default function Attributions({ isWide }: AttributionsProps) {
         >
           <small>inovex GmbH</small>
         </a>
-        {isWide ? (
-          <span className={classNames(styles.attribution, 'body-m')}>
-            &bull;
-          </span>
-        ) : null}
+        {isWide ? <span className={classNames(styles.attribution, 'body-m')}>&bull;</span> : null}
 
         <a
           className={classNames(styles.attribution, 'body-m')}
@@ -54,11 +50,7 @@ export default function Attributions({ isWide }: AttributionsProps) {
         >
           <small>{t('common.attributions.legalNotice.label')}</small>
         </a>
-        {isWide ? (
-          <span className={classNames(styles.attribution, 'body-m')}>
-            &bull;
-          </span>
-        ) : null}
+        {isWide ? <span className={classNames(styles.attribution, 'body-m')}>&bull;</span> : null}
 
         <a
           className={classNames(styles.attribution, 'body-m')}
@@ -67,11 +59,7 @@ export default function Attributions({ isWide }: AttributionsProps) {
         >
           <small>{t('common.attributions.exclusionOfLiability.label')}</small>
         </a>
-        {isWide ? (
-          <span className={classNames(styles.attribution, 'body-m')}>
-            &bull;
-          </span>
-        ) : null}
+        {isWide ? <span className={classNames(styles.attribution, 'body-m')}>&bull;</span> : null}
 
         <a
           className={classNames(styles.attribution, 'body-m')}
@@ -81,10 +69,7 @@ export default function Attributions({ isWide }: AttributionsProps) {
           <small>{t('common.attributions.dataProtection.label')}</small>
         </a>
       </div>
-      <a
-        className={classNames(styles.attribution, 'body-m')}
-        href="https://storyset.com/online"
-      >
+      <a className={classNames(styles.attribution, 'body-m')} href="https://storyset.com/online">
         <small>Online illustrations by Storyset</small>
       </a>
     </div>

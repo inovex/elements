@@ -33,23 +33,15 @@ export default function Header() {
             {t('home.header.title_1')}
             <mark>{t('home.header.title_mark')}</mark>
           </h1>
-          <h1 className={classNames(styles.subheader, 'header-d2')}>
-            {t('home.header.title_2')}
-          </h1>
+          <h1 className={classNames(styles.subheader, 'header-d2')}>{t('home.header.title_2')}</h1>
         </div>
         <div className={classNames(styles.info, 'body-l')}>
           <p>
-            {t('home.header.subtitle_1')}{' '}
-            <Link href={`${lang}${MainRoutes.LIBRARY}`}>
-              {t('common.elements')}.
-            </Link>
+            {t('home.header.subtitle_1')} <Link href={`${lang}${MainRoutes.LIBRARY}`}>{t('common.elements')}.</Link>
           </p>
         </div>
         <div className={styles.installation}>
-          <Link
-            className={styles.link}
-            href={`${lang}${MainRoutes.GETTING_STARTED}`}
-          >
+          <Link className={styles.link} href={`${lang}${MainRoutes.GETTING_STARTED}`}>
             <InoButton>
               <span>{t('home.header.getting_started')}</span>
             </InoButton>

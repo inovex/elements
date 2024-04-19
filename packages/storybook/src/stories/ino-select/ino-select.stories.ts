@@ -6,12 +6,12 @@ import Story from '../StoryWrapper';
 import { showSnackbar } from '../utils';
 import './ino-select.scss';
 
-const handleFormSubmission = (e) => {
+const handleFormSubmission = e => {
   e.preventDefault();
   showSnackbar('Form submitted.');
 };
 
-const handleSelect = (e) => e.target.setAttribute('value', e.detail);
+const handleSelect = e => e.target.setAttribute('value', e.detail);
 
 const optionsTemplate = html`
   <ino-option value="Option 1">Option 1</ino-option>
@@ -28,24 +28,22 @@ const InoSelectMeta = {
     },
   },
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         const formElement = document.querySelector('form');
         formElement?.addEventListener('submit', handleFormSubmission);
 
         const selects = document.querySelectorAll('ino-select');
-        selects.forEach((s) => s.addEventListener('valueChange', handleSelect));
+        selects.forEach(s => s.addEventListener('valueChange', handleSelect));
         return () => {
-          selects.forEach((s) =>
-            s.removeEventListener('valueChange', handleSelect),
-          );
+          selects.forEach(s => s.removeEventListener('valueChange', handleSelect));
           formElement?.removeEventListener('submit', handleFormSubmission);
         };
       }, []);
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-select
       disabled="${args.disabled}"
       name="${args.name}"
@@ -145,20 +143,12 @@ export const WithIcon = Story({
     <div style="height: 400px;">
       <ino-select label="Select with leading icon">
         <ino-icon slot="icon-leading" icon="user"></ino-icon>
-        <ino-option value="Selected Option" selected
-          >Selected Option</ino-option
-        >
+        <ino-option value="Selected Option" selected>Selected Option</ino-option>
         ${optionsTemplate}
       </ino-select>
-      <ino-select
-        style="margin-top: 150px;"
-        outline
-        label="Select with leading icon"
-      >
+      <ino-select style="margin-top: 150px;" outline label="Select with leading icon">
         <ino-icon slot="icon-leading" icon="user"></ino-icon>
-        <ino-option value="Selected Option" selected
-          >Selected Option</ino-option
-        >
+        <ino-option value="Selected Option" selected>Selected Option</ino-option>
         ${optionsTemplate}
       </ino-select>
     </div>

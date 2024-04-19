@@ -1,8 +1,4 @@
-import {
-  InoCarousel,
-  InoCarouselSlide,
-  InoIconButton,
-} from '@inovex.de/elements-react';
+import { InoCarousel, InoCarouselSlide, InoIconButton } from '@inovex.de/elements-react';
 import styles from './examples.module.scss';
 import { useMethods } from 'react-use';
 import classNames from 'classnames';
@@ -34,10 +30,7 @@ function Examples() {
   const carouselImgPathPrefix = `/Carousel`;
   const { t } = useTranslation();
 
-  const [slide, { set, increment, decrement }] = useMethods(
-    createMethods,
-    Slides.Jarvis as Slides,
-  );
+  const [slide, { set, increment, decrement }] = useMethods(createMethods, Slides.Jarvis as Slides);
 
   const swipeHandlers = useSwipe({
     onSwipedLeft: increment,
@@ -49,9 +42,7 @@ function Examples() {
       <h1 className="header-d3">
         {t('explore.examples.title_1')} <b>{t('explore.examples.title_2')}</b>
       </h1>
-      <p className={classNames('body-l', styles.subtitle)}>
-        {t('explore.examples.sub_title')}
-      </p>
+      <p className={classNames('body-l', styles.subtitle)}>{t('explore.examples.sub_title')}</p>
       <div className={styles.container} {...swipeHandlers}>
         <InoIconButton
           class={styles.arrowButton}
@@ -65,7 +56,7 @@ function Examples() {
             hideButtons
             autoplay
             value={String(slide)}
-            onValueChange={(ev) => set(ev.detail)}
+            onValueChange={ev => set(ev.detail)}
           >
             <InoCarouselSlide
               value={String(Slides.Jarvis)}
@@ -79,10 +70,7 @@ function Examples() {
               value={String(Slides.SelfOnboarding)}
               src={`${carouselImgPathPrefix}_SELFONBOARDING.png`}
             ></InoCarouselSlide>
-            <InoCarouselSlide
-              value={String(Slides.Inca)}
-              src={`${carouselImgPathPrefix}_INCA.png`}
-            ></InoCarouselSlide>
+            <InoCarouselSlide value={String(Slides.Inca)} src={`${carouselImgPathPrefix}_INCA.png`}></InoCarouselSlide>
           </InoCarousel>
         </div>
         <InoIconButton

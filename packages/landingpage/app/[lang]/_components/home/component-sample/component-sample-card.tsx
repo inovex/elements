@@ -9,11 +9,7 @@ interface Props {
   componentCategory: string | JSX.Element;
 }
 
-const ComponentSampleCard: FunctionComponent<Props> = ({
-  children,
-  componentName,
-  componentCategory,
-}) => (
+const ComponentSampleCard: FunctionComponent<Props> = ({ children, componentName, componentCategory }) => (
   <Card
     cardClassName={styles.card}
     contentClassName={styles.content}
@@ -21,12 +17,8 @@ const ComponentSampleCard: FunctionComponent<Props> = ({
     footerClassName={styles.footer}
     footer={
       <>
-        <div className={classNames(styles.component, 'body-m')}>
-          {componentName}
-        </div>
-        <div className={classNames(styles.label, 'body-m')}>
-          {componentCategory}
-        </div>
+        <div className={classNames(styles.component, 'body-m')}>{componentName}</div>
+        <div className={classNames(styles.label, 'body-m')}>{componentCategory}</div>
       </>
     }
   />

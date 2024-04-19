@@ -22,8 +22,7 @@ const useSwipe = (input: SwipeInput): SwipeOutput => {
     setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const onTouchMove = (e: TouchEvent) =>
-    setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchMove = (e: TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;

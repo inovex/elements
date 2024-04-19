@@ -72,35 +72,19 @@ const defaultSerializerConfig = {
       state.write(`[${node.attrs.checked ? 'x' : ' '}] `);
       state.renderContent(node);
     },
-    [TaskList.name]: (
-      state: MarkdownSerializerState,
-      node: Node,
-      parent: Node,
-      index: number,
-    ) => {
-      if (node.attrs.numeric)
-        defaultMarkdownSerializer.nodes.ordered_list(
-          state,
-          node,
-          parent,
-          index,
-        );
-      else
-        defaultMarkdownSerializer.nodes.bullet_list(state, node, parent, index);
+    [TaskList.name]: (state: MarkdownSerializerState, node: Node, parent: Node, index: number) => {
+      if (node.attrs.numeric) defaultMarkdownSerializer.nodes.ordered_list(state, node, parent, index);
+      else defaultMarkdownSerializer.nodes.bullet_list(state, node, parent, index);
     },
   },
 };
 
-const markdownSerializer = new MarkdownSerializer(
-  defaultSerializerConfig.nodes,
-  defaultSerializerConfig.marks,
-);
+const markdownSerializer = new MarkdownSerializer(defaultSerializerConfig.nodes, defaultSerializerConfig.marks);
 
 let markdownRenderer = null;
 
 export default {
-  serialize: (content: Node): string =>
-    markdownSerializer.serialize(content, { tightLists: true }),
+  serialize: (content: Node): string => markdownSerializer.serialize(content, { tightLists: true }),
   parse: (markdownText: string): string => {
     if (!markdownRenderer) {
       // list of markdown-it rules: https://github.com/markdown-it/markdown-it/issues/289

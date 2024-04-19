@@ -15,7 +15,7 @@ const InoSegmentGroupMeta = {
       handles: ['checkedChange'],
     },
   },
-  render: (args) => html`
+  render: args => html`
     <ino-segment-group
       id="segment-grp"
       name="${args.name}"

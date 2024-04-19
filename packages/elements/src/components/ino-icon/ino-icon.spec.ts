@@ -11,9 +11,7 @@ describe('ino-icon', () => {
   let inoIconEl: HTMLInoIconElement;
   let iEl: HTMLElement;
 
-  jest
-    .spyOn(global, 'fetch')
-    .mockReturnValue(Promise.resolve(new Response(svgMock)));
+  jest.spyOn(global, 'fetch').mockReturnValue(Promise.resolve(new Response(svgMock)));
   jest.spyOn(SvgParser, 'removeSvgTitle').mockReturnValue(svgMock);
 
   beforeEach(async () => {

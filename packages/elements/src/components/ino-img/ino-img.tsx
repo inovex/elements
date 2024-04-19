@@ -1,13 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Host,
-  Prop,
-  State,
-  Watch,
-  h,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, State, Watch, h } from '@stencil/core';
 
 import { ImageDecodingTypes } from '../types';
 import classNames from 'classnames';
@@ -149,9 +140,7 @@ export class Image implements ComponentInterface {
   }
 
   private handleError() {
-    this.imageEl.nextElementSibling.classList.add(
-      'ino-img__fallback-icon--visible',
-    );
+    this.imageEl.nextElementSibling.classList.add('ino-img__fallback-icon--visible');
   }
 
   render() {
@@ -177,7 +166,7 @@ export class Image implements ComponentInterface {
             class={imgClasses}
             alt={this.alt}
             decoding={this.decoding}
-            ref={(ref) => (this.imageEl = ref)}
+            ref={ref => (this.imageEl = ref)}
             sizes={this.sizes}
             src={this.src}
             srcset={this.srcset}

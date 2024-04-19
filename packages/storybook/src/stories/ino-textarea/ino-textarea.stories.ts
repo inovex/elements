@@ -10,29 +10,21 @@ const InoTextareaMeta = {
   component: 'ino-textarea',
   parameters: {
     actions: {
-      handles: [
-        'input .customizable-textarea',
-        'valueChange .customizable-textarea',
-      ],
+      handles: ['input .customizable-textarea', 'valueChange .customizable-textarea'],
     },
   },
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
+        const eventHandler = e => e.target.setAttribute('value', e.detail);
         const textareas = document.querySelectorAll('ino-textarea');
-        textareas.forEach((t) =>
-          t.addEventListener('valueChange', eventHandler),
-        );
-        return () =>
-          textareas.forEach((t) =>
-            t.removeEventListener('valueChange', eventHandler),
-          );
+        textareas.forEach(t => t.addEventListener('valueChange', eventHandler));
+        return () => textareas.forEach(t => t.removeEventListener('valueChange', eventHandler));
       });
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-textarea
       class="customizable-textarea"
       cols="${args.cols}"
@@ -72,12 +64,7 @@ export const Label = Story({
   docsFromProperty: 'label',
   render: () => html`
     <ino-textarea label="Floating label" cols="30" rows="3"></ino-textarea>
-    <ino-textarea
-      label="Floating label"
-      value="With value"
-      cols="30"
-      rows="3"
-    ></ino-textarea>
+    <ino-textarea label="Floating label" value="With value" cols="30" rows="3"></ino-textarea>
   `,
 });
 
@@ -117,7 +104,7 @@ export const ShowLabelHint = Story({
 export const CharacterCount = Story({
   ...Default,
   docsFromProperty: 'showCharacterCounter',
-  render: (args) => html`
+  render: args => html`
     <ino-textarea
       class="customizable-textarea"
       cols="${args.cols}"
