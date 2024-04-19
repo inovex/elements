@@ -1045,9 +1045,11 @@ export namespace Components {
         "placement": Placement;
     }
     /**
-     * A navigation drawer component with different variants, setting up the base layout for your app.
+     * A navigation drawer component designed to organize and facilitate user navigation in your app.
      * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
-     * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+     * Usage Note:
+     * - This component is intended exclusively for navigation purposes. It is optimized for holding items like `ino-list` and `ino-nav-item` for effective user guidance.
+     * - To maintain a clean and organized app structure, `ino-nav-drawer` should be used once per application. This ensures a consistent and predictable navigation experience across different parts of the app.
      */
     interface InoNavDrawer {
         /**
@@ -2337,9 +2339,11 @@ declare global {
         "openChange": boolean;
     }
     /**
-     * A navigation drawer component with different variants, setting up the base layout for your app.
+     * A navigation drawer component designed to organize and facilitate user navigation in your app.
      * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
-     * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+     * Usage Note:
+     * - This component is intended exclusively for navigation purposes. It is optimized for holding items like `ino-list` and `ino-nav-item` for effective user guidance.
+     * - To maintain a clean and organized app structure, `ino-nav-drawer` should be used once per application. This ensures a consistent and predictable navigation experience across different parts of the app.
      */
     interface HTMLInoNavDrawerElement extends Components.InoNavDrawer, HTMLStencilElement {
         addEventListener<K extends keyof HTMLInoNavDrawerElementEventMap>(type: K, listener: (this: HTMLInoNavDrawerElement, ev: InoNavDrawerCustomEvent<HTMLInoNavDrawerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3862,9 +3866,11 @@ declare namespace LocalJSX {
         "placement"?: Placement;
     }
     /**
-     * A navigation drawer component with different variants, setting up the base layout for your app.
+     * A navigation drawer component designed to organize and facilitate user navigation in your app.
      * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
-     * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+     * Usage Note:
+     * - This component is intended exclusively for navigation purposes. It is optimized for holding items like `ino-list` and `ino-nav-item` for effective user guidance.
+     * - To maintain a clean and organized app structure, `ino-nav-drawer` should be used once per application. This ensures a consistent and predictable navigation experience across different parts of the app.
      */
     interface InoNavDrawer {
         /**
@@ -4820,9 +4826,11 @@ declare module "@stencil/core" {
              */
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
             /**
-             * A navigation drawer component with different variants, setting up the base layout for your app.
+             * A navigation drawer component designed to organize and facilitate user navigation in your app.
              * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
-             * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+             * Usage Note:
+             * - This component is intended exclusively for navigation purposes. It is optimized for holding items like `ino-list` and `ino-nav-item` for effective user guidance.
+             * - To maintain a clean and organized app structure, `ino-nav-drawer` should be used once per application. This ensures a consistent and predictable navigation experience across different parts of the app.
              */
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
             /**
