@@ -137,7 +137,7 @@ ino-select {
     }
 
     .mdc-select__icon {
-      margin-top: 12px;
+      margin-top: 6px;
     }
 
     .mdc-select__dropdown-icon {
@@ -168,6 +168,10 @@ ino-select {
   .mdc-select--outlined {
     .mdc-select__selected-text {
       margin-top: 16px;
+    }
+
+    .mdc-select__icon {
+      margin-top: 2px;
     }
 
     .mdc-floating-label.mdc-floating-label--float-above {
