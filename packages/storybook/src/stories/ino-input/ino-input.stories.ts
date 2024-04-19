@@ -9,20 +9,17 @@ const InoInputMeta = {
   title: 'Input/ino-input',
   component: 'ino-input',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
+        const eventHandler = e => e.target.setAttribute('value', e.detail);
         const inputs = document.querySelectorAll('ino-input');
-        inputs.forEach((i) => i.addEventListener('valueChange', eventHandler));
-        return () =>
-          inputs.forEach((i) =>
-            i.removeEventListener('valueChange', eventHandler),
-          );
+        inputs.forEach(i => i.addEventListener('valueChange', eventHandler));
+        return () => inputs.forEach(i => i.removeEventListener('valueChange', eventHandler));
       });
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-input
       class="customizable-input"
       id="customizable-input"
@@ -54,10 +51,7 @@ const InoInputMeta = {
   `,
   parameters: {
     actions: {
-      handles: [
-        'iconClick .customizable-input',
-        'valueChange .customizable-input',
-      ],
+      handles: ['iconClick .customizable-input', 'valueChange .customizable-input'],
     },
   },
   argTypes: {
@@ -119,11 +113,7 @@ export const Type = Story({
       placeholder="type = number with steps=5"
       step="5"
     ></ino-input>
-    <ino-input
-      type="number"
-      placeholder="type = number with step='any' (decimal numbers)"
-      step="any"
-    ></ino-input>
+    <ino-input type="number" placeholder="type = number with step='any' (decimal numbers)" step="any"></ino-input>
     <ino-input type="password" placeholder="type = password"></ino-input>
   `,
 });
@@ -145,12 +135,7 @@ export const States = Story({
 
     <ino-input placeholder="Outline disabled" outline disabled></ino-input>
     <ino-input label="Outline optional" outline show-label-hint></ino-input>
-    <ino-input
-      label="Outline required"
-      outline
-      show-label-hint
-      required
-    ></ino-input>
+    <ino-input label="Outline required" outline show-label-hint required></ino-input>
   `,
 });
 
@@ -168,11 +153,7 @@ export const Labels = Story({
     <ino-input label="Floating label" value="With value"></ino-input>
 
     <ino-input label="Outlined floating label" outline></ino-input>
-    <ino-input
-      label="Outlined floating label"
-      value="With value"
-      outline
-    ></ino-input>
+    <ino-input label="Outlined floating label" value="With value" outline></ino-input>
   `,
 });
 
@@ -187,26 +168,15 @@ export const Labels = Story({
 export const HelperTexts = Story({
   ...Default,
   render: () => html`
-    <ino-input
-      placeholder="Helper text on focus (default)"
-      helper="Helper text"
-    ></ino-input>
-    <ino-input
-      placeholder="Persistent helper text"
-      helper="Persistent helper text"
-      helper-persistent
-    ></ino-input>
+    <ino-input placeholder="Helper text on focus (default)" helper="Helper text"></ino-input>
+    <ino-input placeholder="Persistent helper text" helper="Persistent helper text" helper-persistent></ino-input>
     <ino-input
       required
       placeholder="Validation message for required input"
       helper="This field is required"
       helper-validation
     ></ino-input>
-    <ino-input
-      value="Length of 12"
-      helper-character-counter
-      maxlength="25"
-    ></ino-input>
+    <ino-input value="Length of 12" helper-character-counter maxlength="25"></ino-input>
   `,
 });
 
@@ -265,24 +235,13 @@ export const DataList = Story({
 export const NumberFormats = Story({
   ...Default,
   render: () => html`
-    <ino-input
-      type="number"
-      decimal-places="2"
-      placeholder="With 2 decimal places"
-    ></ino-input>
-    <ino-input
-      type="number"
-      step="1"
-      thousands-separator
-      placeholder="With thousands separator"
-    ></ino-input>
+    <ino-input type="number" decimal-places="2" placeholder="With 2 decimal places"></ino-input>
+    <ino-input type="number" step="1" thousands-separator placeholder="With thousands separator"></ino-input>
   `,
 });
 
 export const MetaData = Story({
   ...Default,
   docsFromProperty: 'unit',
-  render: () => html`
-    <ino-input value="2" type="number" unit="h" label="Hours input"></ino-input>
-  `,
+  render: () => html` <ino-input value="2" type="number" unit="h" label="Hours input"></ino-input> `,
 });

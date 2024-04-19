@@ -1,11 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  h,
-  Host,
-  Prop,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
 import { Placement } from 'tippy.js';
 import { focusIfExists, generateUniqueId } from '../../util/component-utils';
 
@@ -65,18 +58,13 @@ export class Menu implements ComponentInterface {
       <Host>
         <ino-popover
           colorScheme="light"
-          ref={(el) => (this.popoverEl = el)}
+          ref={el => (this.popoverEl = el)}
           interactive={true}
           for={this.el.parentElement.id}
           placement={this.placement}
           trigger={'click'}
         >
-          <ino-list
-            role="menu"
-            aria-hidden="true"
-            aria-orientation="vertical"
-            tabindex="-1"
-          >
+          <ino-list role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
             <slot />
           </ino-list>
         </ino-popover>

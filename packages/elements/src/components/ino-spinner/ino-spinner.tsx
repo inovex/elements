@@ -46,10 +46,7 @@ export class Spinner implements ComponentInterface {
   }
 
   private bounceTemplate() {
-    return [
-      <div class="ino-spinner__double-bounce-1" />,
-      <div class="ino-spinner__double-bounce-2" />,
-    ];
+    return [<div class="ino-spinner__double-bounce-1" />, <div class="ino-spinner__double-bounce-2" />];
   }
 
   private circleTemplate() {
@@ -85,10 +82,7 @@ export class Spinner implements ComponentInterface {
 
     return (
       <Host class={hostClasses}>
-        <div
-          class="ino-spinner__composer"
-          style={{ width: `${this.width}px`, height: `${this.height}px` }}
-        >
+        <div class="ino-spinner__composer" style={{ width: `${this.width}px`, height: `${this.height}px` }}>
           {spinnerTemplate}
         </div>
       </Host>

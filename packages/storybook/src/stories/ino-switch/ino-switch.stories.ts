@@ -3,13 +3,12 @@ import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 
-const eventHandler = (e: CustomEvent<boolean>) =>
-  ((e.target as HTMLInoSwitchElement).checked = e.detail);
+const eventHandler = (e: CustomEvent<boolean>) => ((e.target as HTMLInoSwitchElement).checked = e.detail);
 
 const InoSwitchMeta = {
   title: 'Input/ino-switch',
   component: 'ino-switch',
-  render: (args) => html`
+  render: args => html`
     <ino-switch
       checked="${args.checked}"
       disabled="${args.disabled}"
@@ -55,7 +54,7 @@ export const Disabled = Story({
  */
 export const ToggleIcon = Story({
   ...Default,
-  render: (args) => html`
+  render: args => html`
     <ino-switch
       checked="${args.checked}"
       disabled="${args.disabled}"

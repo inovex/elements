@@ -35,18 +35,11 @@ export default function PreviewBox({
       <p className="body-l">{description}</p>
 
       <div className={styles.segmentGroup}>
-        <ViewModeSelection
-          selectedValue={selectedValue}
-          setSelectedValue={setSelectedValue}
-        />
+        <ViewModeSelection selectedValue={selectedValue} setSelectedValue={setSelectedValue} />
         <div className={styles.divider} />
         <CopyButton rawCode={rawCode} copyIconId={`copy-icon-${id}`} />
       </div>
-      <div
-        className={`${styles.previewBox} ${
-          selectedValue === 'PreviewMode' ? styles.previewMode : styles.codeMode
-        }`}
-      >
+      <div className={`${styles.previewBox} ${selectedValue === 'PreviewMode' ? styles.previewMode : styles.codeMode}`}>
         <div
           ref={previewRef}
           style={{

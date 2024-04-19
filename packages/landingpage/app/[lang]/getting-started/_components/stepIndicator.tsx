@@ -11,10 +11,7 @@ interface StepIndicatorProps {
  * @param {string} [step='?'] - The step number or text to display inside the step indicator
  * @param {ReactNode} [children=null] - The additional text or elements to display next to the step indicator
  */
-export default function StepIndicator({
-  step = '?',
-  children = null,
-}: StepIndicatorProps) {
+export default function StepIndicator({ step = '?', children = null }: StepIndicatorProps) {
   if (children === null) {
     return <div className={styles.step}>{step}</div>;
   } else {

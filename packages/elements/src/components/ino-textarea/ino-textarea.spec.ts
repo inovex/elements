@@ -11,7 +11,7 @@ describe('ino-textarea', () => {
     const typeText = async (value: string) => {
       const arr = [...value];
       innerTextarea.value = '';
-      arr.forEach((char) => {
+      arr.forEach(char => {
         innerTextarea.value += char;
         innerTextarea.dispatchEvent(new Event('input'));
       });

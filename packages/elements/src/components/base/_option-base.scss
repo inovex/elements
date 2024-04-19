@@ -10,12 +10,7 @@ $OPTION-DESELECTED-BG-COLOR-HOVER: #{theme.$n-1};
 $OPTION-DESELECTED-BG-COLOR-FOCUS: #{theme.$n-2};
 $OPTION-DESELECTED-BG-COLOR-ACTIVE: #{theme.$n-3};
 
-@mixin style-mdc-list-item-selected-states(
-  $background,
-  $hover,
-  $focus,
-  $active
-) {
+@mixin style-mdc-list-item-selected-states($background, $hover, $focus, $active) {
   background-color: #{$background};
 
   &::before,
@@ -36,12 +31,7 @@ $OPTION-DESELECTED-BG-COLOR-ACTIVE: #{theme.$n-3};
   }
 }
 
-@mixin style-mdc-list-item-deselected-states(
-  $background,
-  $hover,
-  $focus,
-  $active
-) {
+@mixin style-mdc-list-item-deselected-states($background, $hover, $focus, $active) {
   background-color: #{$background};
 
   &:hover {

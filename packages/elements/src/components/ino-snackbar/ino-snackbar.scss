@@ -31,9 +31,7 @@ $snackbar-color-map-by-type: (
 }
 
 @mixin setIconSizeByType($type, $size) {
-  &.ino-snackbar--type-#{$type}
-    .ino-snackbar-icon-container
-    ino-icon.ino-snackbar-icon {
+  &.ino-snackbar--type-#{$type} .ino-snackbar-icon-container ino-icon.ino-snackbar-icon {
     --ino-icon-width: $size;
     --ino-icon-height: $size;
   }

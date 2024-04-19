@@ -14,8 +14,8 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
           }
@@ -24,13 +24,11 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
       { rootMargin: '-30% 0px -70% 0px' }, // top, right, bottom, left margins around the root element's bounding box
     );
 
-    const domSectionElements = document.querySelectorAll(
-      'section[data-menu-section]',
-    );
+    const domSectionElements = document.querySelectorAll('section[data-menu-section]');
 
     const sectionsTemp: Sections = {};
 
-    domSectionElements.forEach((section) => {
+    domSectionElements.forEach(section => {
       const headingElement = section.querySelector('h2');
       if (headingElement) {
         const headingText = headingElement.innerHTML.trim();
@@ -47,10 +45,7 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
     return () => observer.disconnect();
   }, []);
 
-  function handleAnchorClick(
-    event: React.MouseEvent<HTMLAnchorElement>,
-    section: string,
-  ) {
+  function handleAnchorClick(event: React.MouseEvent<HTMLAnchorElement>, section: string) {
     event.preventDefault();
     const targetElement = document.querySelector(`#${section}`);
     if (!targetElement) return;
@@ -80,14 +75,8 @@ export default function NavigationMenu({ title }: NavigationMenuProps) {
         <ul className={styles.sections}>
           {sections &&
             Object.entries(sections).map(([key, value]) => (
-              <li
-                key={key}
-                className={activeSection === value ? styles.active : ''}
-              >
-                <a
-                  href={`#${value}`}
-                  onClick={(event) => handleAnchorClick(event, value)}
-                >
+              <li key={key} className={activeSection === value ? styles.active : ''}>
+                <a href={`#${value}`} onClick={event => handleAnchorClick(event, value)}>
                   {key}
                 </a>
               </li>

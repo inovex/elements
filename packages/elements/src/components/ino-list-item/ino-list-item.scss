@@ -17,47 +17,20 @@ ino-list-item {
    * @prop --ino-list-item-deselected-background-color-active: Background color of a deselected list item if active
    * @prop --ino-list-item-deselected-background-color-focus: Background color of a deselected list item if focused
    */
-  --list-item-selected-color: var(
-    --ino-list-item-selected-color,
-    #{theme.$p-5}
-  );
-  --list-item-selected-background-color: var(
-    --ino-list-item-selected-background-color,
-    #{theme.$p-1}
-  );
-  --list-item-selected-background-color-hover: var(
-    --ino-list-item-selected-background-color-hover,
-    #{theme.$p-2}
-  );
-  --list-item-selected-background-color-active: var(
-    --ino-list-item-selected-background-color-active,
-    #{theme.$p-2}
-  );
-  --list-item-selected-background-color-focus: var(
-    --ino-list-item-selected-background-color-focus,
-    #{theme.$p-2}
-  );
+  --list-item-selected-color: var(--ino-list-item-selected-color, #{theme.$p-5});
+  --list-item-selected-background-color: var(--ino-list-item-selected-background-color, #{theme.$p-1});
+  --list-item-selected-background-color-hover: var(--ino-list-item-selected-background-color-hover, #{theme.$p-2});
+  --list-item-selected-background-color-active: var(--ino-list-item-selected-background-color-active, #{theme.$p-2});
+  --list-item-selected-background-color-focus: var(--ino-list-item-selected-background-color-focus, #{theme.$p-2});
 
-  --list-item-deselected-color: var(
-    --ino-list-item-deselected-color,
-    #{theme.$n-11}
-  );
-  --list-item-deselected-background-color: var(
-    --ino-list-item-deselected-background-color,
-    #{theme.$transparent}
-  );
-  --list-item-deselected-background-color-hover: var(
-    --ino-list-item-deselected-background-color-hover,
-    #{theme.$n-1}
-  );
+  --list-item-deselected-color: var(--ino-list-item-deselected-color, #{theme.$n-11});
+  --list-item-deselected-background-color: var(--ino-list-item-deselected-background-color, #{theme.$transparent});
+  --list-item-deselected-background-color-hover: var(--ino-list-item-deselected-background-color-hover, #{theme.$n-1});
   --list-item-deselected-background-color-active: var(
     --ino-list-item-deselected-background-color-active,
     #{theme.$n-1}
   );
-  --list-item-deselected-background-color-focus: var(
-    --ino-list-item-deselected-background-color-focus,
-    #{theme.$n-1}
-  );
+  --list-item-deselected-background-color-focus: var(--ino-list-item-deselected-background-color-focus, #{theme.$n-1});
 }
 
 ino-list-item {

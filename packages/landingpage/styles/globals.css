@@ -5,8 +5,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
   position: relative;
 }
 
@@ -14,16 +14,8 @@ body {
   position: absolute;
   inset: 0;
   z-index: -10;
-  background: radial-gradient(
-      circle at 15% 11%,
-      var(--inovex-elements-p-2) 2%,
-      transparent 17%
-    ),
-    radial-gradient(
-      circle at 75% 50%,
-      var(--inovex-elements-p-2) 1%,
-      transparent 50%
-    );
+  background: radial-gradient(circle at 15% 11%, var(--inovex-elements-p-2) 2%, transparent 17%),
+    radial-gradient(circle at 75% 50%, var(--inovex-elements-p-2) 1%, transparent 50%);
   filter: blur(10rem);
 }
 

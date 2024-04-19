@@ -6,7 +6,7 @@ export default TaskList.extend({
     return {
       numeric: {
         default: false,
-        parseHTML: (element) => element.tagName.toLowerCase() === 'ol',
+        parseHTML: element => element.tagName.toLowerCase() === 'ol',
       },
     };
   },
@@ -21,10 +21,6 @@ export default TaskList.extend({
   },
 
   renderHTML({ HTMLAttributes: { numeric, ...HTMLAttributes } }) {
-    return [
-      numeric ? 'ol' : 'ul',
-      mergeAttributes(HTMLAttributes, { 'data-type': 'taskList' }),
-      0,
-    ];
+    return [numeric ? 'ol' : 'ul', mergeAttributes(HTMLAttributes, { 'data-type': 'taskList' }), 0];
   },
 });

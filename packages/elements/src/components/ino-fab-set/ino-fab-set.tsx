@@ -1,11 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  h,
-  Host,
-  Prop,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
@@ -72,10 +65,7 @@ export class FabSet implements ComponentInterface {
       'ino-speed-dial': true,
     });
 
-    const directionClasses = classNames(
-      'ino-fab-set-wrapper',
-      'ino-direction-' + this.dialDirection,
-    );
+    const directionClasses = classNames('ino-fab-set-wrapper', 'ino-direction-' + this.dialDirection);
 
     const hasClosedIcon = hasSlotContent(this.el, 'icon-closed');
     const hasOpenedIcon = hasSlotContent(this.el, 'icon-opened');
@@ -87,12 +77,7 @@ export class FabSet implements ComponentInterface {
             <slot></slot>
           </div>
 
-          <ino-fab
-            id={'primary-fab'}
-            class="ino-fab-set-button"
-            edge-position="none"
-            tooltip-placement="none"
-          >
+          <ino-fab id={'primary-fab'} class="ino-fab-set-button" edge-position="none" tooltip-placement="none">
             {hasClosedIcon ? (
               <div slot="icon-leading">
                 <slot name="icon-closed" />

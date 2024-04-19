@@ -7,7 +7,7 @@ import Story from '../StoryWrapper';
 const InoTabMeta = {
   title: 'Structure/ino-tab',
   component: 'ino-tab',
-  render: (args) => html`
+  render: args => html`
     <ino-tab
       icon="${args.icon}"
       indicator-content-width="${args.indicatorContentWidth}"

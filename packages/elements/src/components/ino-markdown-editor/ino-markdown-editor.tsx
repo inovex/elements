@@ -1,13 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
 import { Editor } from '@tiptap/core';
 import Link from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
@@ -15,12 +6,7 @@ import classNames from 'classnames';
 import { InoInputCustomEvent } from '../..';
 import { hasValue } from '../../util/helpers';
 import { ViewMode, ViewModeUnion } from '../types';
-import {
-  Actions,
-  getActiveLink,
-  handleToolbarBtnClick,
-  isToolbarBtnActive,
-} from './editor-toolbar-helper';
+import { Actions, getActiveLink, handleToolbarBtnClick, isToolbarBtnActive } from './editor-toolbar-helper';
 import BulletList from './extensions/bullet_list';
 import TaskItem from './extensions/task_item';
 import TaskList from './extensions/task_list';
@@ -173,8 +159,7 @@ export class MarkdownEditor implements ComponentInterface {
   private onEditorTransaction = (): void => {
     this.toolbarActionsState = new Set<Actions>(
       Object.values(Actions).filter(
-        (action) =>
-          typeof action === 'number' && isToolbarBtnActive(this.editor, action),
+        action => typeof action === 'number' && isToolbarBtnActive(this.editor, action),
       ) as Actions[],
     );
   };
@@ -187,9 +172,7 @@ export class MarkdownEditor implements ComponentInterface {
   private handleMarkdownBlur = (e: CustomEvent<void>): void => {
     e.stopPropagation();
     this.editor.commands.clearContent();
-    this.editor.commands.setContent(
-      this.markdownToHtml(this.textareaRef.value),
-    );
+    this.editor.commands.setContent(this.markdownToHtml(this.textareaRef.value));
     if (!this.errorMessage) this.valueChange.emit(this.textareaRef.value);
     this.inoBlur.emit();
   };
@@ -202,10 +185,7 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   private markdownToHtml(md: string = this.initialValue): string {
-    return this.tryParse(
-      () => markdownSerializer.parse(md),
-      this.editor.getHTML(),
-    );
+    return this.tryParse(() => markdownSerializer.parse(md), this.editor.getHTML());
   }
 
   private tryParse<T>(parseCallback: () => T, fallbackValue: T): T {
@@ -310,7 +290,7 @@ export class MarkdownEditor implements ComponentInterface {
         onClose={() => (this.showLinkDialog = false)}
       >
         <section class={'ino-dialog-section'} slot="body">
-          <form class={'ino-dialog-form'} onSubmit={(e) => this.submitLink(e)}>
+          <form class={'ino-dialog-form'} onSubmit={e => this.submitLink(e)}>
             <ino-input
               label="URL"
               type="text"
@@ -318,7 +298,7 @@ export class MarkdownEditor implements ComponentInterface {
               // autoFocus={true} // doesn't work because MUI Dialog traps focus
               helper="Enter a valid URL"
               value={this.currentURL}
-              onValueChange={(e) => this.handleTextInputChange(e)}
+              onValueChange={e => this.handleTextInputChange(e)}
               placeholder="https://example.org"
             ></ino-input>
             <button type="submit" style={{ display: 'none' }}></button>
@@ -338,7 +318,7 @@ export class MarkdownEditor implements ComponentInterface {
             icon="snackbar-checkmark"
             filled={true}
             disabled={this.isDisabled()}
-            onClick={(e) => {
+            onClick={e => {
               if (!this.isDisabled()) this.submitLink(e);
             }}
             type="submit"
@@ -396,10 +376,7 @@ export class MarkdownEditor implements ComponentInterface {
             >
               <ino-icon icon="strikethrough" />
             </button>
-            <button
-              class={getToolbarActionBtnClass(Actions.LINK)}
-              onClick={() => this.handleLinkButtonClick()}
-            >
+            <button class={getToolbarActionBtnClass(Actions.LINK)} onClick={() => this.handleLinkButtonClick()}>
               <ino-icon icon="link" />
             </button>
             <button
@@ -433,22 +410,14 @@ export class MarkdownEditor implements ComponentInterface {
               <ino-icon icon="code_block" />
             </button>
           </div>
-          <ino-popover
-            placement="top-start"
-            controlled={true}
-            colorScheme="light"
-            visible={Boolean(this.errorMessage)}
-          >
+          <ino-popover placement="top-start" controlled={true} colorScheme="light" visible={Boolean(this.errorMessage)}>
             <span class="markdown-editor__error-text">{this.errorMessage}</span>
           </ino-popover>
         </div>
         <div class="markdown-editor__content">
-          <div
-            class={previewModeEditorClasses}
-            ref={(el) => (this.editorRef = el)}
-          />
+          <div class={previewModeEditorClasses} ref={el => (this.editorRef = el)} />
           <ino-textarea
-            ref={(el) => (this.textareaRef = el)}
+            ref={el => (this.textareaRef = el)}
             class={markdownModeEditorClasses}
             cols={100}
             autogrow={true}

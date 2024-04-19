@@ -1,11 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  Prop,
-  h,
-  ComponentInterface,
-} from '@stencil/core';
+import { Component, Element, Host, Prop, h, ComponentInterface } from '@stencil/core';
 import classNames from 'classnames';
 /**
  * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
@@ -40,10 +33,7 @@ export class InoCarouselSlide implements ComponentInterface {
           'ino-carousel-slide--selected': this.selected,
         })}
       >
-        <div
-          class="ino-carousel-slide__image"
-          style={{ 'background-image': `url(${this.src})` }}
-        />
+        <div class="ino-carousel-slide__image" style={{ 'background-image': `url(${this.src})` }} />
       </Host>
     );
   }

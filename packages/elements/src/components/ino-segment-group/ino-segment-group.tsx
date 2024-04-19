@@ -68,18 +68,13 @@ export class InoSegmentGroup implements ComponentInterface {
    */
   private async updateButtons() {
     Array.from(this.el.querySelectorAll('ino-segment-button')).forEach(
-      (button) => (button.checked = this.value === button.value),
+      button => (button.checked = this.value === button.value),
     );
   }
 
   render() {
     return (
-      <Host
-        class="ino-segment-group"
-        id={this.groupId}
-        name={this.name}
-        value={this.value}
-      >
+      <Host class="ino-segment-group" id={this.groupId} name={this.name} value={this.value}>
         <slot></slot>
       </Host>
     );

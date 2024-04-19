@@ -88,9 +88,7 @@ export class InoTable implements ComponentInterface {
 
   componentDidLoad() {
     if (!this.sortColumnId != !this.sortDirection) {
-      console.warn(
-        'ino-table: sorting on table requires sortColumnId and sortDirection.',
-      );
+      console.warn('ino-table: sorting on table requires sortColumnId and sortDirection.');
       return;
     }
     if (this.sortColumnId) {
@@ -103,14 +101,14 @@ export class InoTable implements ComponentInterface {
     if (headerCells.length < 1) {
       return;
     }
-    const columnIds = headerCells.map((e) => e.columnId);
+    const columnIds = headerCells.map(e => e.columnId);
     if (columnIds.indexOf(newColumnId) < 0) {
       console.warn(`${newColumnId} is no sortable column-id`);
     }
 
     // Reset old value
     if (oldColumnId && columnIds.indexOf(oldColumnId) >= 0) {
-      const oldColumnCell = headerCells.find((e) => e.columnId == oldColumnId);
+      const oldColumnCell = headerCells.find(e => e.columnId == oldColumnId);
       oldColumnCell?.removeAttribute('sort-direction');
     }
 
@@ -123,9 +121,7 @@ export class InoTable implements ComponentInterface {
     if (headerCells.length < 1) {
       return;
     }
-    const newColumnCell = headerCells.find(
-      (e) => e.columnId == this.sortColumnId,
-    );
+    const newColumnCell = headerCells.find(e => e.columnId == this.sortColumnId);
     if (newSortDirection) {
       newColumnCell?.setAttribute('sort-direction', newSortDirection);
     } else {
@@ -134,14 +130,12 @@ export class InoTable implements ComponentInterface {
   }
 
   private getSortableHeaderColumnCells(): HTMLInoTableHeaderCellElement[] {
-    const selector =
-      'ino-table-header-cell:not([not-sortable]):not(.ino-table-cell__selector)';
+    const selector = 'ino-table-header-cell:not([not-sortable]):not(.ino-table-cell__selector)';
     return Array.from(this.el.querySelectorAll(selector));
   }
 
   render() {
-    const hasHeaderSlot =
-      this.el.querySelectorAll('[slot=header-row]').length > 0;
+    const hasHeaderSlot = this.el.querySelectorAll('[slot=header-row]').length > 0;
     const tableClasses = classNames({
       'mdc-data-table': true,
       'mdc-data-table--in-progress': this.loading,

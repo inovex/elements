@@ -235,8 +235,7 @@ export class Select implements ComponentInterface {
 
     const helperTextClasses = classNames({
       'mdc-select-helper-text': true,
-      'mdc-select-helper-text--validation-msg-persistent':
-        this.helperPersistent,
+      'mdc-select-helper-text--validation-msg-persistent': this.helperPersistent,
       'mdc-select-helper-text--validation-msg': this.helperValidation,
     });
 
@@ -244,7 +243,7 @@ export class Select implements ComponentInterface {
       <input
         class="ino-hidden-input"
         aria-hidden
-        ref={(el) => (this.nativeInputElement = el)}
+        ref={el => (this.nativeInputElement = el)}
         required={this.required}
         disabled={this.disabled}
       ></input>
@@ -254,7 +253,7 @@ export class Select implements ComponentInterface {
 
     return (
       <Host class={inoSelectClasses} name={this.name}>
-        <div class={classSelect} ref={(el) => (this.mdcSelectContainerEl = el)}>
+        <div class={classSelect} ref={el => (this.mdcSelectContainerEl = el)}>
           {hiddenInput}
           <div
             class="mdc-select__anchor"
@@ -280,12 +279,7 @@ export class Select implements ComponentInterface {
             />
           </div>
           <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-            <ul
-              role="listbox"
-              tabindex="-1"
-              class="mdc-deprecated-list"
-              ref={(el) => (this.mdcOptionsListEl = el)}
-            >
+            <ul role="listbox" tabindex="-1" class="mdc-deprecated-list" ref={el => (this.mdcOptionsListEl = el)}>
               <slot />
             </ul>
           </div>

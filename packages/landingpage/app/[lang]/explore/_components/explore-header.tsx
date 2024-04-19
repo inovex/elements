@@ -11,9 +11,7 @@ export default function ExploreHeader() {
         <h1 className="header-d3">
           <b>{t('explore.header.title')}</b>
         </h1>
-        <p className={classNames('title-l', styles.subtitle)}>
-          {t('explore.header.subtitle')}
-        </p>
+        <p className={classNames('title-l', styles.subtitle)}>{t('explore.header.subtitle')}</p>
       </div>
       <div className={styles.image}>
         <Image src={`/explore.svg`} alt="explore-image" fill priority={false} />

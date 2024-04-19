@@ -1,13 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
@@ -85,18 +76,8 @@ export class InoSegmentButton implements ComponentInterface {
     });
 
     return (
-      <Host
-        checked={this.checked}
-        onClick={this.handleClick}
-        class={hostClasses}
-      >
-        <button
-          class={buttonClasses}
-          disabled={this.disabled}
-          id={this.buttonId}
-          name={this.name}
-          type={this.type}
-        >
+      <Host checked={this.checked} onClick={this.handleClick} class={hostClasses}>
+        <button class={buttonClasses} disabled={this.disabled} id={this.buttonId} name={this.name} type={this.type}>
           <slot></slot>
         </button>
       </Host>

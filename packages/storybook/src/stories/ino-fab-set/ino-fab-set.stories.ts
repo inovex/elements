@@ -5,9 +5,7 @@ import Story from '../StoryWrapper';
 import './ino-fab-set.scss';
 
 const clickHandler = (e: CustomEvent<void>) => {
-  const fabSetEl = (e.target as HTMLElement).closest(
-    'ino-fab-set',
-  ) as HTMLInoFabSetElement;
+  const fabSetEl = (e.target as HTMLElement).closest('ino-fab-set') as HTMLInoFabSetElement;
   fabSetEl.openDial = !fabSetEl.openDial;
 };
 
@@ -24,7 +22,7 @@ const InoFabSetMeta = {
       },
     },
   },
-  render: (args) => html`
+  render: args => html`
     <ino-fab-set
       open-dial="${args.openDial}"
       top-bottom-location="${args.topBottomLocation}"
@@ -32,16 +30,8 @@ const InoFabSetMeta = {
       dial-direction="${args.dialDirection}"
       @click="${clickHandler}"
     >
-      <ino-icon
-        @clickEl="${clickHandler}"
-        icon="arrow_down"
-        slot="icon-opened"
-      ></ino-icon>
-      <ino-icon
-        @clickEl="${clickHandler}"
-        icon="arrow_up"
-        slot="icon-closed"
-      ></ino-icon>
+      <ino-icon @clickEl="${clickHandler}" icon="arrow_down" slot="icon-opened"></ino-icon>
+      <ino-icon @clickEl="${clickHandler}" icon="arrow_up" slot="icon-closed"></ino-icon>
       <ino-fab label="First FAB">
         <ino-icon slot="icon-leading" icon="star"></ino-icon>
       </ino-fab>

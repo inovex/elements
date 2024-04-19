@@ -1,9 +1,4 @@
-import {
-  APP_INITIALIZER,
-  ModuleWithProviders,
-  NgModule,
-  NgZone,
-} from '@angular/core';
+import { APP_INITIALIZER, ModuleWithProviders, NgModule, NgZone } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { InoElementsConfig } from '@inovex.de/elements';
 import { DIRECTIVES } from './directives/proxies-list';
@@ -37,9 +32,7 @@ const DECLARATIONS = [
   exports: DECLARATIONS,
 })
 export class InoElementsModule {
-  static forRoot(
-    config?: InoElementsConfig,
-  ): ModuleWithProviders<InoElementsModule> {
+  static forRoot(config?: InoElementsConfig): ModuleWithProviders<InoElementsModule> {
     return {
       ngModule: InoElementsModule,
       providers: [

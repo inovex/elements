@@ -10,10 +10,7 @@ export default function LocaleSwitcher() {
   const { lang } = useTranslation();
 
   const isChecked = useMemo(() => lang === SupportedLanguages.EN, [lang]);
-  const isDisabled = useMemo(
-    () => pathName?.split('/')[2] === 'getting-started',
-    [pathName],
-  );
+  const isDisabled = useMemo(() => pathName?.split('/')[2] === 'getting-started', [pathName]);
 
   const leadingStyle = {
     color: isChecked ? '#575464' : 'black',
@@ -35,11 +32,7 @@ export default function LocaleSwitcher() {
 
   return (
     <div>
-      <InoSwitch
-        disabled={isDisabled}
-        checked={isChecked}
-        onCheckedChange={(e) => redirectedLocale(e.detail)}
-      >
+      <InoSwitch disabled={isDisabled} checked={isChecked} onCheckedChange={e => redirectedLocale(e.detail)}>
         <p slot="leading" style={leadingStyle}>
           {SupportedLanguages.DE.toUpperCase()}
         </p>

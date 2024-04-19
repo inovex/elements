@@ -9,22 +9,19 @@ const InoRangeMeta = {
   title: 'Input/ino-range',
   component: 'ino-range',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const eventHandlerSingle = (e: CustomEvent<number>) =>
-          ((e.target as HTMLInoRangeElement).value = e.detail);
-        const eventHandlerStart = (e: CustomEvent<number>) =>
-          ((e.target as HTMLInoRangeElement).valueStart = e.detail);
-        const eventHandlerEnd = (e: CustomEvent<number>) =>
-          ((e.target as HTMLInoRangeElement).valueEnd = e.detail);
+        const eventHandlerSingle = (e: CustomEvent<number>) => ((e.target as HTMLInoRangeElement).value = e.detail);
+        const eventHandlerStart = (e: CustomEvent<number>) => ((e.target as HTMLInoRangeElement).valueStart = e.detail);
+        const eventHandlerEnd = (e: CustomEvent<number>) => ((e.target as HTMLInoRangeElement).valueEnd = e.detail);
         const inoRanges = document.querySelectorAll('ino-range');
-        inoRanges.forEach((r) => {
+        inoRanges.forEach(r => {
           r.addEventListener('valueChange', eventHandlerSingle);
           r.addEventListener('valueStartChange', eventHandlerStart);
           r.addEventListener('valueEndChange', eventHandlerEnd);
         });
         return () =>
-          inoRanges.forEach((r) => {
+          inoRanges.forEach(r => {
             r.removeEventListener('valueChange', eventHandlerSingle);
             r.removeEventListener('valueStartChange', eventHandlerStart);
             r.removeEventListener('valueEndChange', eventHandlerEnd);
@@ -33,7 +30,7 @@ const InoRangeMeta = {
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-range
       class="customizable-range"
       disabled="${args.disabled}"

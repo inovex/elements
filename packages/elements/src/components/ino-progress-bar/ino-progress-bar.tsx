@@ -1,12 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Host,
-  Prop,
-  Watch,
-  h,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 import { MDCLinearProgress } from '@material/linear-progress/component';
 import classNames from 'classnames';
 
@@ -65,9 +57,7 @@ export class InoProgressBar implements ComponentInterface {
   }
 
   private initializeComponent = () => {
-    this.mdcProgress = new MDCLinearProgress(
-      this.el.shadowRoot.querySelector('.mdc-linear-progress'),
-    );
+    this.mdcProgress = new MDCLinearProgress(this.el.shadowRoot.querySelector('.mdc-linear-progress'));
     this.mdcProgress.determinate = !this.indeterminate;
     this.mdcProgress.progress = this.progress;
     this.mdcProgress.buffer = this.buffer;
@@ -80,13 +70,7 @@ export class InoProgressBar implements ComponentInterface {
 
     return (
       <Host>
-        <div
-          role="progressbar"
-          class={progressBarClasses}
-          aria-label={this.label}
-          aria-valuemin="0"
-          aria-valuemax="1"
-        >
+        <div role="progressbar" class={progressBarClasses} aria-label={this.label} aria-valuemin="0" aria-valuemax="1">
           <div class="mdc-linear-progress__buffer">
             <div class="mdc-linear-progress__buffer-bar"></div>
             <div class="mdc-linear-progress__buffer-dots"></div>

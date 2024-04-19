@@ -1,14 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, h, Host, Prop, State, Watch } from '@stencil/core';
 import { SvgParser } from '../../util/svg-parser';
 import { getSvgContent, inoiconContent } from './request';
 import { getUrl } from './utils';
@@ -100,9 +90,7 @@ export class Icon implements ComponentInterface {
         this.svgContent = inoiconContent.get(url);
       } else {
         // async if it hasn't been loaded
-        getSvgContent(url).then(
-          () => (this.svgContent = inoiconContent.get(url)),
-        );
+        getSvgContent(url).then(() => (this.svgContent = inoiconContent.get(url)));
       }
     }
   }
@@ -127,8 +115,8 @@ export class Icon implements ComponentInterface {
     let iconProps = {};
     if (this.clickable) {
       iconProps = {
-        onClick: (e) => this.handleClick(e),
-        onKeyPress: (e) => this.handleKeyPress(e),
+        onClick: e => this.handleClick(e),
+        onKeyPress: e => this.handleKeyPress(e),
         tabindex: 0,
         role: 'button',
       };

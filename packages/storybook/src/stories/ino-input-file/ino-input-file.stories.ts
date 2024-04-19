@@ -8,7 +8,7 @@ const InoInputFileMeta = {
   title: 'Input/ino-input-file',
   component: 'ino-input-file',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         const eventHandler = function (e) {
           e.stopImmediatePropagation();
@@ -17,13 +17,11 @@ const InoInputFileMeta = {
             return;
           }
 
-          const fileNames: string[] = e.detail.files.map((f: File) =>
-            [f.name, f.type, f.size + ' bytes'].join(', '),
-          );
+          const fileNames: string[] = e.detail.files.map((f: File) => [f.name, f.type, f.size + ' bytes'].join(', '));
 
           const container = document.createElement('div');
           container.classList.add('file-list');
-          fileNames.forEach((fileName) => {
+          fileNames.forEach(fileName => {
             container.append(fileName, document.createElement('br'));
           });
 
@@ -42,7 +40,7 @@ const InoInputFileMeta = {
       handles: ['changeFile .customizable-input'],
     },
   },
-  render: (args) => html`
+  render: args => html`
     <ino-input-file
       class="customizable-input"
       accept="${args.accept}"

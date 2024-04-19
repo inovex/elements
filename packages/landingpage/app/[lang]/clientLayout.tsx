@@ -4,28 +4,17 @@ import '../../styles/globals.css';
 import '@code-hike/mdx/dist/index.css';
 import '../../styles/custom-ch.css';
 import { ReactNode, useEffect, useState } from 'react';
-import {
-  I18nContextProvider,
-  UiContextProvider,
-  VersionProvider,
-} from '@context';
+import { I18nContextProvider, UiContextProvider, VersionProvider } from '@context';
 import Layout from './_components/layout';
 import { WithLangProp } from 'translations/i18n';
-import {
-  applyPolyfills,
-  defineCustomElements,
-} from '@inovex.de/elements/dist/loader';
+import { applyPolyfills, defineCustomElements } from '@inovex.de/elements/dist/loader';
 
 type ClientLayoutProps = {
   children: ReactNode;
   translations: any;
 };
 
-export default function ClientLayout({
-  children,
-  lang,
-  translations,
-}: WithLangProp<ClientLayoutProps>) {
+export default function ClientLayout({ children, lang, translations }: WithLangProp<ClientLayoutProps>) {
   /**
    * Fix elements hydration error issue
    * https://nextjs.org/docs/messages/react-hydration-error#solution-1-using-useeffect-to-run-on-the-client-only

@@ -21,9 +21,7 @@ describe('InoControlItem', () => {
       components: [InoControlItem, List, ListItem, Checkbox, Radio],
       html,
     });
-    inoControlItem = page.body.querySelector(
-      'ino-control-item > ino-list-item',
-    );
+    inoControlItem = page.body.querySelector('ino-control-item > ino-list-item');
   };
 
   it('should emit checkedChange event when clicked on checkbox with true as detail', async () => {

@@ -14,8 +14,6 @@ test.describe('ino-option-group', () => {
     const firstGroup = inoOptionGroup.first();
     const inoOptions = firstGroup.locator('ino-option');
     await expect(inoOptions).toHaveCount(4);
-    await expect(inoOptions.first()).toHaveText(
-      await firstGroup.getAttribute('label'),
-    );
+    await expect(inoOptions.first()).toHaveText(await firstGroup.getAttribute('label'));
   });
 });

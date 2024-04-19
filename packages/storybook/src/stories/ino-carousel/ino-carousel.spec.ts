@@ -12,9 +12,7 @@ test.describe('ino-carousel', () => {
 
   async function provideLocators(page: Page) {
     const inoCarousel = page.locator('ino-carousel');
-    const [firstSlide, secondSlide, thirdSlide] = await page
-      .locator('ino-carousel-slide')
-      .all();
+    const [firstSlide, secondSlide, thirdSlide] = await page.locator('ino-carousel-slide').all();
     const [leftButton, rightButton] = await page.getByRole('button').all();
 
     return {

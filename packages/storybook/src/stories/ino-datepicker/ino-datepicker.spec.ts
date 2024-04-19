@@ -11,25 +11,15 @@ const getDefaultLocators = (page: Page) => {
   const calendarInputs = calendar.locator('input');
   const input = page.locator('ino-input input');
   const days = page.locator('.flatpickr-day');
-  const invalidMarker = inoDatepicker.locator(
-    'ino-input .mdc-text-field--invalid',
-  );
+  const invalidMarker = inoDatepicker.locator('ino-input .mdc-text-field--invalid');
 
   async function toggleCalendarPopup() {
     await inoDatepicker.click();
   }
 
   async function assertState(state: 'valid' | 'invalid') {
-    if (state === 'valid')
-      return expect(
-        invalidMarker,
-        'Expected datepicker to be valid',
-      ).toBeHidden();
-    if (state === 'invalid')
-      return expect(
-        invalidMarker,
-        'Expected datepicker to be invalid',
-      ).toBeVisible();
+    if (state === 'valid') return expect(invalidMarker, 'Expected datepicker to be valid').toBeHidden();
+    if (state === 'invalid') return expect(invalidMarker, 'Expected datepicker to be invalid').toBeVisible();
     throw new Error(`Unknown parameter ${state}.`);
   }
 
@@ -113,13 +103,7 @@ test.describe('ino-datepicker', () => {
     });
 
     test('should render time picker', async ({ page }) => {
-      const {
-        inoDatepicker,
-        calendar,
-        calendarInputs,
-        input,
-        toggleCalendarPopup,
-      } = getDefaultLocators(page);
+      const { inoDatepicker, calendar, calendarInputs, input, toggleCalendarPopup } = getDefaultLocators(page);
 
       await setAttribute(inoDatepicker, 'date-format', 'H:i');
       await setAttribute(inoDatepicker, 'type', 'time');
@@ -136,14 +120,7 @@ test.describe('ino-datepicker', () => {
     });
 
     test('should render datetime picker', async ({ page }) => {
-      const {
-        inoDatepicker,
-        calendar,
-        calendarInputs,
-        input,
-        days,
-        toggleCalendarPopup,
-      } = getDefaultLocators(page);
+      const { inoDatepicker, calendar, calendarInputs, input, days, toggleCalendarPopup } = getDefaultLocators(page);
 
       await setAttribute(inoDatepicker, 'date-format', 'd.m.Y H:i');
       await setAttribute(inoDatepicker, 'type', 'datetime');
@@ -159,8 +136,7 @@ test.describe('ino-datepicker', () => {
     });
 
     test('should render month picker', async ({ page }) => {
-      const { inoDatepicker, calendar, input, toggleCalendarPopup } =
-        getDefaultLocators(page);
+      const { inoDatepicker, calendar, input, toggleCalendarPopup } = getDefaultLocators(page);
       const flatpickrMoths = calendar.locator('.flatpickr-monthSelect-month');
 
       await setAttribute(inoDatepicker, 'date-format', 'm.Y');
@@ -176,8 +152,7 @@ test.describe('ino-datepicker', () => {
     });
 
     test('should render date range picker', async ({ page }) => {
-      const { inoDatepicker, calendar, input, days, toggleCalendarPopup } =
-        getDefaultLocators(page);
+      const { inoDatepicker, calendar, input, days, toggleCalendarPopup } = getDefaultLocators(page);
 
       await setAttribute(inoDatepicker, 'date-format', 'd.m.Y');
       await setAttribute(inoDatepicker, 'type', 'date');
@@ -190,16 +165,13 @@ test.describe('ino-datepicker', () => {
       await expect(days).toHaveCount(42);
       await days.nth(10).click();
       await days.nth(17).click();
-      await expect(input).toHaveValue(
-        /\d{2}\.\d{2}\.\d{4} to \d{2}\.\d{2}\.\d{4}/,
-      );
+      await expect(input).toHaveValue(/\d{2}\.\d{2}\.\d{4} to \d{2}\.\d{2}\.\d{4}/);
     });
   });
 
   test.describe('Min and Max', () => {
     test('should cannot select date before min', async ({ page }) => {
-      const { inoDatepicker, input, days, toggleCalendarPopup } =
-        getDefaultLocators(page);
+      const { inoDatepicker, input, days, toggleCalendarPopup } = getDefaultLocators(page);
 
       await setAttribute(inoDatepicker, 'date-format', 'd.m.Y');
       await setAttribute(inoDatepicker, 'min', '10.06.2024');
@@ -212,8 +184,7 @@ test.describe('ino-datepicker', () => {
     });
 
     test('should cannot select date after max', async ({ page }) => {
-      const { inoDatepicker, input, days, toggleCalendarPopup } =
-        getDefaultLocators(page);
+      const { inoDatepicker, input, days, toggleCalendarPopup } = getDefaultLocators(page);
 
       await setAttribute(inoDatepicker, 'date-format', 'd.m.Y');
       await setAttribute(inoDatepicker, 'min', '01.06.2024');

@@ -1,12 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Prop,
-  h,
-  Element,
-  State,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Prop, h, Element, State, Watch } from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 import primary from '../../assets/ino-avatar/primary.svg';
@@ -112,24 +104,12 @@ export class Avatar implements ComponentInterface {
     const avatarBorder = this.renderAvatarBorder();
 
     return (
-      <div
-        class={avatarClasses}
-        role="img"
-        tabIndex={this.interactive ? 0 : null}
-        aria-label={this.a11yLabel}
-      >
+      <div class={avatarClasses} role="img" tabIndex={this.interactive ? 0 : null} aria-label={this.a11yLabel}>
         {avatarBorder}
         {this.src ? (
           <div class="ino-avatar__image image">
-            {this.loading && this.imgIsFetching && (
-              <div class="skeleton-loader"></div>
-            )}
-            <img
-              class="ino-avatar__image-inner"
-              src={this.src}
-              alt={this.alt}
-              onLoad={() => this.handleImageLoad()}
-            />
+            {this.loading && this.imgIsFetching && <div class="skeleton-loader"></div>}
+            <img class="ino-avatar__image-inner" src={this.src} alt={this.alt} onLoad={() => this.handleImageLoad()} />
           </div>
         ) : (
           <div class="ino-avatar__image initials">{this.initials}</div>

@@ -10,21 +10,11 @@ type Props = {
 
 function Milestone(props: Props) {
   return (
-    <div
-      className={
-        props.position === 'right'
-          ? styles.milestoneRight
-          : styles.milestoneLeft
-      }
-    >
+    <div className={props.position === 'right' ? styles.milestoneRight : styles.milestoneLeft}>
       <div className={styles.content}>
         <h3>{props.title}</h3>
-        <div className={classNames(styles.subtitle, 'body-l')}>
-          {props.subtitle}
-        </div>
-        <div className={classNames(styles.text, 'body-m')}>
-          {props.children}
-        </div>
+        <div className={classNames(styles.subtitle, 'body-l')}>{props.subtitle}</div>
+        <div className={classNames(styles.text, 'body-m')}>{props.children}</div>
       </div>
     </div>
   );

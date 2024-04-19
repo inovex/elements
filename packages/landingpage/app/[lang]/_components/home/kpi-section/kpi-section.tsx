@@ -38,11 +38,7 @@ export default function KPIsection() {
         enableScrollSpy: true,
         scrollSpyOnce: true,
       };
-      const countUpAnim = new CountUp(
-        countupRefs.current[i] as HTMLDivElement,
-        kpi.target_value,
-        options,
-      );
+      const countUpAnim = new CountUp(countupRefs.current[i] as HTMLDivElement, kpi.target_value, options);
       countUpAnim.start();
     });
   }
@@ -66,7 +62,7 @@ export default function KPIsection() {
                 <b>
                   <h1
                     className={classNames(styles.kpi_number, 'header-d2')}
-                    ref={(kpi) => (countupRefs.current[i] = kpi)}
+                    ref={kpi => (countupRefs.current[i] = kpi)}
                   ></h1>
                 </b>
                 <div className={'title-s'}>{kpi.title}</div>

@@ -7,9 +7,7 @@ import withHtml from 'next-html';
 import path, { join } from 'path';
 import remarkGfm from 'remark-gfm';
 
-const theme = JSON.parse(
-  await readFile('../../node_modules/shiki/themes/github-light.json'),
-);
+const theme = JSON.parse(await readFile('../../node_modules/shiki/themes/github-light.json'));
 
 const __dirname = path.resolve();
 const assetsPath = join(__dirname, '..', '..', 'assets', 'logo');
@@ -29,7 +27,7 @@ const nextConfiguration = {
       },
     ],
   },
-  webpack: (config) => {
+  webpack: config => {
     config.plugins.push(
       new CopyWebpackPlugin({
         patterns: [
@@ -70,7 +68,4 @@ const withMDX = nextMdx({
 
 const plugins = [withImages, withMDX, withHtml];
 
-export default plugins.reduce(
-  (config, plugin) => plugin(config),
-  nextConfiguration,
-); // merge configs
+export default plugins.reduce((config, plugin) => plugin(config), nextConfiguration); // merge configs

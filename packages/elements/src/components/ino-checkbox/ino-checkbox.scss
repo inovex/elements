@@ -21,18 +21,8 @@ $focus-border-color: $primary-base;
 
 :host {
   .mdc-checkbox {
-    @include checkbox.container-colors(
-      $unchecked-color,
-      $white,
-      $checked-color,
-      $checked-color
-    );
-    @include checkbox.disabled-container-colors(
-      $disabled-color,
-      $white,
-      $disabled-color,
-      $disabled-color
-    );
+    @include checkbox.container-colors($unchecked-color, $white, $checked-color, $checked-color);
+    @include checkbox.disabled-container-colors($disabled-color, $white, $disabled-color, $disabled-color);
 
     &:before,
     &:after {
@@ -78,12 +68,7 @@ $focus-border-color: $primary-base;
 
 :host(:hover) {
   .mdc-checkbox {
-    @include checkbox.container-colors(
-      $primary-base,
-      $white,
-      $checked-color,
-      $checked-color
-    );
+    @include checkbox.container-colors($primary-base, $white, $checked-color, $checked-color);
   }
 }
 

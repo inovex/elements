@@ -1,13 +1,4 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  Prop,
-} from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 /**
@@ -59,8 +50,7 @@ export class InoOption {
   }
 
   componentDidLoad() {
-    if (this.value === undefined)
-      console.error('[ino-option]: A value is required.');
+    if (this.value === undefined) console.error('[ino-option]: A value is required.');
   }
 
   render() {

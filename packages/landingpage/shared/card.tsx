@@ -22,10 +22,7 @@ const Card: FunctionComponent<Props> = ({
   footerClassName,
   cardClassName,
 }) => (
-  <InoCard
-    className={classNames([styles.card, cardClassName])}
-    disableElevation={true}
-  >
+  <InoCard className={classNames([styles.card, cardClassName])} disableElevation={true}>
     {header && (
       <div slot="header" className={classNames(headerClassName)}>
         {header}

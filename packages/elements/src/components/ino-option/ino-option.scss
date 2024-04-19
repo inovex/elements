@@ -20,10 +20,7 @@ ino-option {
    * @prop --ino-option-deselected-background-color-active: Background color if active and deselected
    */
   --height: var(--ino-option-height, #{$height});
-  --option-selected-background-color: var(
-    --ino-option-selected-background-color,
-    #{base.$OPTION-SELECTED-BG-COLOR}
-  );
+  --option-selected-background-color: var(--ino-option-selected-background-color, #{base.$OPTION-SELECTED-BG-COLOR});
   --option-selected-background-color-hover: var(
     --ino-option-selected-background-color-hover,
     #{base.$OPTION-SELECTED-BG-COLOR-HOVER}

@@ -36,10 +36,7 @@ export default function Story<C extends object>(meta: MetaWrapper<C>) {
   if (meta.docsFromProperty) {
     if (!meta.component) throw new Error('Component name needs to be provided');
 
-    const doc = findPropertyDocumentationInJsonDoc(
-      meta.component,
-      meta.docsFromProperty as string,
-    );
+    const doc = findPropertyDocumentationInJsonDoc(meta.component, meta.docsFromProperty as string);
 
     return merge({}, meta, {
       parameters: { docs: { description: { story: doc } } },
@@ -49,19 +46,14 @@ export default function Story<C extends object>(meta: MetaWrapper<C>) {
   return meta;
 }
 
-function findPropertyDocumentationInJsonDoc(
-  tagName: string,
-  property: string,
-): string {
-  const componentDocs = docsJson.components.find((doc) => doc.tag === tagName);
+function findPropertyDocumentationInJsonDoc(tagName: string, property: string): string {
+  const componentDocs = docsJson.components.find(doc => doc.tag === tagName);
 
-  if (!componentDocs)
-    throw new Error(`Could not find docs for component ${tagName}.`);
+  if (!componentDocs) throw new Error(`Could not find docs for component ${tagName}.`);
 
-  const propDocs = componentDocs.props.find((prop) => prop.name === property);
+  const propDocs = componentDocs.props.find(prop => prop.name === property);
 
-  if (!propDocs)
-    throw new Error(`Could not find docs for property ${property}.`);
+  if (!propDocs) throw new Error(`Could not find docs for property ${property}.`);
 
   return propDocs.docs;
 }

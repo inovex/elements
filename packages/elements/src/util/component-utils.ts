@@ -5,10 +5,7 @@ export function generateUniqueId() {
   return '_' + Math.random().toString(36).substr(2, 9);
 }
 
-export function getSlotContent(
-  el: HTMLElement,
-  slotName: string,
-): HTMLElement | null {
+export function getSlotContent(el: HTMLElement, slotName: string): HTMLElement | null {
   return el.querySelector(`[slot="${slotName}"]`);
 }
 

@@ -26,19 +26,8 @@ export default function CopyButton({ rawCode, copyIconId }: CopyButtonProps) {
 
   return (
     <>
-      <InoIcon
-        id={copyIconId}
-        icon={copyIcon}
-        className={styles.copyIcon}
-        onClick={handleIconClick}
-      />
-      <InoPopover
-        controlled={true}
-        visible={visiblePopover}
-        for={copyIconId}
-        trigger="click"
-        placement="top"
-      >
+      <InoIcon id={copyIconId} icon={copyIcon} className={styles.copyIcon} onClick={handleIconClick} />
+      <InoPopover controlled={true} visible={visiblePopover} for={copyIconId} trigger="click" placement="top">
         <div className={styles.popover}>
           <span className="body-s">Copied!</span>
         </div>

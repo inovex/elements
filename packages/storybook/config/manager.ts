@@ -1,9 +1,7 @@
 // configures Storybook's "manager" UI that wraps the preview, and also configures addons panel
 import { addons } from '@storybook/manager-api';
 import theme from './theme';
-import PostCurrentStoryAddon, {
-  ADDON_ID,
-} from '../addons/post-current-story-addon';
+import PostCurrentStoryAddon, { ADDON_ID } from '../addons/post-current-story-addon';
 
 console.group('Addon Status');
 
@@ -16,13 +14,7 @@ addons.setConfig({
   theme,
   sidebar: {
     showRoots: true,
-    collapsedRoots: [
-      'input',
-      'buttons',
-      'structure',
-      'graphic',
-      'notification',
-    ],
+    collapsedRoots: ['input', 'buttons', 'structure', 'graphic', 'notification'],
   },
 });
 

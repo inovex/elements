@@ -8,7 +8,7 @@ const icon = html`<ino-icon icon="onboarding"></ino-icon>`;
 const InoNavItemMeta = {
   title: 'Structure/ino-nav-item',
   component: 'ino-nav-item',
-  render: (args) => html`
+  render: args => html`
     <ino-list>
       <ino-nav-item
         class="customizable-nav-item"
@@ -38,10 +38,9 @@ export const Default = Story({
 export const Text = Story({
   ...InoNavItemMeta,
   docsFromProperty: 'text',
-  render: (args) => html`
+  render: args => html`
     <ino-list>
-      <ino-nav-item class="customizable-nav-item" text="${args.text}">
-      </ino-nav-item>
+      <ino-nav-item class="customizable-nav-item" text="${args.text}"> </ino-nav-item>
     </ino-list>
   `,
   args: {
@@ -52,14 +51,9 @@ export const Text = Story({
 export const TwoLines = Story({
   ...InoNavItemMeta,
   docsFromProperty: 'subText',
-  render: (args) => html`
+  render: args => html`
     <ino-list>
-      <ino-nav-item
-        class="customizable-nav-item"
-        text="${args.text}"
-        sub-text="${args.subText}"
-      >
-      </ino-nav-item>
+      <ino-nav-item class="customizable-nav-item" text="${args.text}" sub-text="${args.subText}"> </ino-nav-item>
     </ino-list>
   `,
   args: {
@@ -71,14 +65,9 @@ export const TwoLines = Story({
 export const Activated = Story({
   ...InoNavItemMeta,
   docsFromProperty: 'activated',
-  render: (args) => html`
+  render: args => html`
     <ino-list>
-      <ino-nav-item
-        class="customizable-nav-item"
-        text="${args.text}"
-        activated="${args.activated}"
-      >
-      </ino-nav-item>
+      <ino-nav-item class="customizable-nav-item" text="${args.text}" activated="${args.activated}"> </ino-nav-item>
     </ino-list>
   `,
   args: {
@@ -90,14 +79,9 @@ export const Activated = Story({
 export const Disabled = Story({
   ...InoNavItemMeta,
   docsFromProperty: 'disabled',
-  render: (args) => html`
+  render: args => html`
     <ino-list>
-      <ino-nav-item
-        class="customizable-nav-item"
-        text="${args.text}"
-        disabled="${args.disabled}"
-      >
-      </ino-nav-item>
+      <ino-nav-item class="customizable-nav-item" text="${args.text}" disabled="${args.disabled}"> </ino-nav-item>
     </ino-list>
   `,
   args: {

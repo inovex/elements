@@ -14,13 +14,8 @@ const InoButtonMeta = {
       },
     },
   },
-  render: (args) => html`
-    <ino-button
-      variant="${args.variant}"
-      disabled="${args.disabled}"
-      dense="${args.dense}"
-      loading="${args.loading}"
-    >
+  render: args => html`
+    <ino-button variant="${args.variant}" disabled="${args.disabled}" dense="${args.dense}" loading="${args.loading}">
       Label
     </ino-button>
   `,

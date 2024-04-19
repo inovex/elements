@@ -132,7 +132,7 @@ export class Dialog implements ComponentInterface {
     }
 
     // Wait to render the content until the MDC Dialog itself is opened
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       this.mdcDialog.listen('MDCDialog:opened', () => resolve(), {
         once: true,
       });
@@ -141,16 +141,12 @@ export class Dialog implements ComponentInterface {
 
   componentWillLoad() {
     // During first initaliazation, attach the dialog to the target.
-    const target = this.attachTo
-      ? document.querySelector(this.attachTo)
-      : document.body;
+    const target = this.attachTo ? document.querySelector(this.attachTo) : document.body;
     target?.appendChild(this.el);
   }
 
   componentDidLoad() {
-    this.mdcDialog = new MDCDialog(
-      this.el.shadowRoot.querySelector('.mdc-dialog'),
-    );
+    this.mdcDialog = new MDCDialog(this.el.shadowRoot.querySelector('.mdc-dialog'));
 
     // Prevent internal handling of escape and scrim click action (would close the dialog).
     // We want to manually close the dialog via our open property
@@ -177,10 +173,7 @@ export class Dialog implements ComponentInterface {
     if (!e.target) {
       return;
     }
-    const element = closest(
-      e.target as Element,
-      `[${DIALOG_ACTION_ATTRIBUTE}]`,
-    );
+    const element = closest(e.target as Element, `[${DIALOG_ACTION_ATTRIBUTE}]`);
     if (!element) {
       return;
     }
@@ -202,9 +195,7 @@ export class Dialog implements ComponentInterface {
               role={this.dialogRole}
               aria-modal={this.dismissible ? 'true' : 'false'}
               aria-labelledby="ino-dialog-title"
-              aria-describedby={
-                this.bodyText ? 'ino-dialog-description' : undefined
-              }
+              aria-describedby={this.bodyText ? 'ino-dialog-description' : undefined}
             >
               <div tabindex="0" />
               {hasDefaultSlot ? (
@@ -212,19 +203,13 @@ export class Dialog implements ComponentInterface {
               ) : (
                 <div>
                   {this.closeIcon && (
-                    <ino-icon-button
-                      class="close-icon"
-                      icon="close"
-                      onClickEl={this.handleClose.bind(this)}
-                    />
+                    <ino-icon-button class="close-icon" icon="close" onClickEl={this.handleClose.bind(this)} />
                   )}
                   {hasHeaderSlot ? (
                     <slot name="header"></slot>
                   ) : (
                     <header>
-                      {this.icon && (
-                        <ino-icon class="header-icon" icon={this.icon} />
-                      )}
+                      {this.icon && <ino-icon class="header-icon" icon={this.icon} />}
                       <h1 id="ino-dialog-title">{this.headerText}</h1>
                     </header>
                   )}
@@ -240,18 +225,12 @@ export class Dialog implements ComponentInterface {
                   ) : (
                     <footer>
                       {this.cancelText && (
-                        <ino-button
-                          variant="outlined"
-                          onClick={this.handleClose.bind(this)}
-                        >
+                        <ino-button variant="outlined" onClick={this.handleClose.bind(this)}>
                           {this.cancelText}
                         </ino-button>
                       )}
                       {this.actionText && (
-                        <ino-button
-                          type="submit"
-                          onClick={() => this.action.emit('submit')}
-                        >
+                        <ino-button type="submit" onClick={() => this.action.emit('submit')}>
                           {this.actionText}
                         </ino-button>
                       )}
@@ -261,10 +240,7 @@ export class Dialog implements ComponentInterface {
               )}
             </div>
           </div>
-          <div
-            class="mdc-dialog__scrim"
-            onClick={() => this.dismissible && this.handleClose()}
-          />
+          <div class="mdc-dialog__scrim" onClick={() => this.dismissible && this.handleClose()} />
         </div>
       </Host>
     );

@@ -11,9 +11,7 @@ describe('ino-icon-button', () => {
   let page: SpecPage;
   let inoIconBtn: HTMLInoIconButtonElement;
 
-  jest
-    .spyOn(global, 'fetch')
-    .mockReturnValue(Promise.resolve(new Response(svgMock)));
+  jest.spyOn(global, 'fetch').mockReturnValue(Promise.resolve(new Response(svgMock)));
   jest.spyOn(SvgParser, 'removeSvgTitle').mockReturnValue(svgMock);
 
   beforeEach(async () => {

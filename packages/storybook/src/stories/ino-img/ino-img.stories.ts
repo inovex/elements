@@ -9,7 +9,7 @@ import './ino-img.scss';
 const InoImgMeta = {
   title: 'Graphic/ino-img',
   component: 'ino-img',
-  render: (args) => html`
+  render: args => html`
     <ino-img
       class="customizable-img"
       alt="${args.alt}"

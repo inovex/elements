@@ -23,9 +23,9 @@ const InoSnackbarMeta = {
     },
   },
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const handleOpen = (e) => {
+        const handleOpen = e => {
           const button = e.target.closest('.snackbar-trigger');
           if (button) {
             const snackbarId = button.getAttribute('data-template-id');
@@ -36,7 +36,7 @@ const InoSnackbarMeta = {
           }
         };
 
-        const handleClose = (e) => {
+        const handleClose = e => {
           const snackbar = e.target;
           if (snackbar) {
             snackbar.setAttribute('open', 'false');
@@ -44,28 +44,22 @@ const InoSnackbarMeta = {
         };
 
         const btns = document.querySelectorAll('.snackbar-trigger');
-        btns.forEach((btn) => btn.addEventListener('click', handleOpen));
+        btns.forEach(btn => btn.addEventListener('click', handleOpen));
 
         const snackbarEls = document.querySelectorAll('ino-snackbar');
-        snackbarEls.forEach((snackbar) =>
-          snackbar.addEventListener('hideEl', handleClose),
-        );
+        snackbarEls.forEach(snackbar => snackbar.addEventListener('hideEl', handleClose));
 
         return () => {
-          btns.forEach((btn) => btn.removeEventListener('click', handleOpen));
-          snackbarEls.forEach((snackbar) =>
-            snackbar.removeEventListener('hideEl', handleClose),
-          );
+          btns.forEach(btn => btn.removeEventListener('click', handleOpen));
+          snackbarEls.forEach(snackbar => snackbar.removeEventListener('hideEl', handleClose));
         };
       });
 
       return story();
     },
   ],
-  render: (args) => html`
-    <ino-button class="snackbar-trigger" data-template-id="${args.id}">
-      Show Snackbar
-    </ino-button>
+  render: args => html`
+    <ino-button class="snackbar-trigger" data-template-id="${args.id}"> Show Snackbar </ino-button>
     <ino-snackbar
       id="${args.id}"
       open="${args.open}"
@@ -151,8 +145,7 @@ export const StayVisibleOnHover = Story({
     stayVisibleOnHover: true,
     id: 'snackbar-stayVisibleOnHover',
     timeout: 5000,
-    defaultSlot:
-      'This snackbar stays visible on hover otherwise it will disappear in 5s',
+    defaultSlot: 'This snackbar stays visible on hover otherwise it will disappear in 5s',
   },
 });
 
@@ -183,12 +176,7 @@ export const CustomElements = {
     id: 'snackbar-customElements',
     actionText: 'Some Action',
     defaultSlot: html`
-      <img
-        slot="icon-slot"
-        src=${inovexElementsLogo}
-        alt="Custom Icon"
-        style="width: 20px; height: 20px;"
-      />
+      <img slot="icon-slot" src=${inovexElementsLogo} alt="Custom Icon" style="width: 20px; height: 20px;" />
       This snackbar uses a custom img.
     `,
   },

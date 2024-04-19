@@ -11,13 +11,12 @@ const InoAvatarMeta = {
   title: 'Graphic/ino-avatar',
   component: 'ino-avatar',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const handleCheckedChange = (e) => {
+        const handleCheckedChange = e => {
           const checkbox: HTMLInoCheckboxElement = e.target;
           const parentDiv = checkbox.closest('div');
-          const avatar: HTMLInoAvatarElement =
-            parentDiv?.querySelector('ino-avatar');
+          const avatar: HTMLInoAvatarElement = parentDiv?.querySelector('ino-avatar');
           checkbox.checked = e.detail;
           avatar.setAttribute('loading', checkbox.checked);
           if (checkbox.indeterminate) {
@@ -26,18 +25,13 @@ const InoAvatarMeta = {
         };
 
         const checkboxes = document.querySelectorAll('ino-checkbox');
-        checkboxes.forEach((c) =>
-          c.addEventListener('checkedChange', handleCheckedChange),
-        );
-        return () =>
-          checkboxes.forEach((c) =>
-            c.removeEventListener('checkedChange', handleCheckedChange),
-          );
+        checkboxes.forEach(c => c.addEventListener('checkedChange', handleCheckedChange));
+        return () => checkboxes.forEach(c => c.removeEventListener('checkedChange', handleCheckedChange));
       });
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-avatar
       initials="${args.initials}"
       interactive="${args.interactive}"
@@ -106,10 +100,7 @@ export const VariantDashedInteractive = Story({
  */
 export const Initials = Story({
   ...Default,
-  render: () => html`
-    <ino-avatar initials="JD" interactive="false" variant="solid" src="">
-    </ino-avatar>
-  `,
+  render: () => html` <ino-avatar initials="JD" interactive="false" variant="solid" src=""> </ino-avatar> `,
 });
 
 /**
@@ -123,18 +114,14 @@ export const WithIcon = Story({
     variant: 'solid',
     src: avatarImg,
   },
-  render: (args) => html`
+  render: args => html`
     <ino-avatar
       initials="${args.initials}"
       interactive="${args.interactive}"
       variant="${args.variant}"
       src="${args.src}"
     >
-      <ino-icon
-        slot="icon-slot"
-        style="--ino-icon-color: #6CF070;"
-        icon="checkmark"
-      ></ino-icon>
+      <ino-icon slot="icon-slot" style="--ino-icon-color: #6CF070;" icon="checkmark"></ino-icon>
     </ino-avatar>
   `,
 });
@@ -142,7 +129,7 @@ export const WithIcon = Story({
 export const LoadingAvatar = Story({
   ...Default,
   docsFromProperty: 'loading',
-  render: (args) => html`
+  render: args => html`
     <div class="avatar-loading-container">
       <ino-avatar
         initials="${args.initials}"
@@ -152,12 +139,7 @@ export const LoadingAvatar = Story({
         src="${args.src}"
       >
       </ino-avatar>
-      <ino-checkbox
-        checked="true"
-        selection="true"
-        name="toggle-loading-checkbox"
-        >Loading</ino-checkbox
-      >
+      <ino-checkbox checked="true" selection="true" name="toggle-loading-checkbox">Loading</ino-checkbox>
     </div>
   `,
 });

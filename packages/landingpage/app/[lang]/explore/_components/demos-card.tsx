@@ -10,20 +10,14 @@ interface Props {
   demoLink: string | JSX.Element;
 }
 
-const DemoCard: FunctionComponent<Props> = ({
-  frameworkName,
-  frameworkIcon,
-  demoLink,
-}) => (
+const DemoCard: FunctionComponent<Props> = ({ frameworkName, frameworkIcon, demoLink }) => (
   <Card
     cardClassName={styles.card}
     contentClassName={styles.content}
     content={
       <>
         <div className={styles.icon}>{frameworkIcon}</div>
-        <div className={classNames(styles.name, 'title-l')}>
-          {frameworkName}
-        </div>
+        <div className={classNames(styles.name, 'title-l')}>{frameworkName}</div>
       </>
     }
     footerClassName={styles.footer}

@@ -14,10 +14,8 @@
   width: 277px;
   height: 392px;
 
-  box-shadow: 0px 0px 18px rgba(20, 20, 20, 0.07),
-    0px 0px 8.08158px rgba(20, 20, 20, 0.0456112),
-    0px 0px 5.20969px rgba(20, 20, 20, 0.035),
-    0px 2px 1px rgba(20, 20, 20, 0.0243888);
+  box-shadow: 0px 0px 18px rgba(20, 20, 20, 0.07), 0px 0px 8.08158px rgba(20, 20, 20, 0.0456112),
+    0px 0px 5.20969px rgba(20, 20, 20, 0.035), 0px 2px 1px rgba(20, 20, 20, 0.0243888);
   border-radius: 5px;
 }
 
@@ -33,11 +31,7 @@
   justify-content: center;
   width: 277px;
   height: 174px;
-  background: linear-gradient(
-    360deg,
-    rgba(190, 204, 255, 0.2) -26.15%,
-    rgba(190, 204, 255, 0) 136.49%
-  );
+  background: linear-gradient(360deg, rgba(190, 204, 255, 0.2) -26.15%, rgba(190, 204, 255, 0) 136.49%);
 
   .imageContainer {
     position: relative;

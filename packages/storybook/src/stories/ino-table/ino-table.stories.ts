@@ -7,39 +7,13 @@ import { useEffect } from '@storybook/preview-api';
 import './ino-table.scss';
 
 const tableContent = html`<tr slot="header-row"></tr>
-  <ino-table-header-cell
-    column-id="id"
-    sort-start="asc"
-    label="ID"
-  ></ino-table-header-cell>
-  <ino-table-header-cell
-    column-id="name"
-    sort-start="asc"
-    label="Name"
-  ></ino-table-header-cell>
-  <ino-table-header-cell
-    column-id="release"
-    label="Release Date"
-  ></ino-table-header-cell>
-  <ino-table-header-cell
-    column-id="box-office"
-    label="Box Office"
-  ></ino-table-header-cell>
-  <ino-table-header-cell
-    column-id="rating"
-    label="Rating"
-    not-sortable
-  ></ino-table-header-cell>
-  <ino-table-header-cell
-    column-id="another1"
-    label="Another Column"
-    not-sortable
-  ></ino-table-header-cell>
-  <ino-table-header-cell
-    column-id="another2"
-    label="Another Column"
-    not-sortable
-  ></ino-table-header-cell>
+  <ino-table-header-cell column-id="id" sort-start="asc" label="ID"></ino-table-header-cell>
+  <ino-table-header-cell column-id="name" sort-start="asc" label="Name"></ino-table-header-cell>
+  <ino-table-header-cell column-id="release" label="Release Date"></ino-table-header-cell>
+  <ino-table-header-cell column-id="box-office" label="Box Office"></ino-table-header-cell>
+  <ino-table-header-cell column-id="rating" label="Rating" not-sortable></ino-table-header-cell>
+  <ino-table-header-cell column-id="another1" label="Another Column" not-sortable></ino-table-header-cell>
+  <ino-table-header-cell column-id="another2" label="Another Column" not-sortable></ino-table-header-cell>
   <tr>
     <td>1</td>
     <td>The Bourne Identity</td>
@@ -109,26 +83,21 @@ const InoTableMeta = {
   component: 'ino-table',
   inline: true,
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         const tables = document.querySelectorAll('ino-table');
-        const sortChangeHandler = (e) => {
+        const sortChangeHandler = e => {
           const { columnId, sortDirection } = e.detail;
           e.target.sortColumnId = columnId;
           e.target.sortDirection = sortDirection;
         };
-        tables.forEach((t) =>
-          t.addEventListener('sortChange', sortChangeHandler),
-        );
-        return () =>
-          tables.forEach((t) =>
-            t.removeEventListener('sortChange', sortChangeHandler),
-          );
+        tables.forEach(t => t.addEventListener('sortChange', sortChangeHandler));
+        return () => tables.forEach(t => t.removeEventListener('sortChange', sortChangeHandler));
       });
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-table
       loading="${args.loading}"
       sort-column-id="${args.sortColumnId}"
@@ -137,12 +106,7 @@ const InoTableMeta = {
       sticky-header="${args.stickyHeader}"
     >
       ${args.loading
-        ? html`<ino-progress-bar
-            slot="loading-indicator"
-            indeterminate
-            debounce="200"
-            active
-          ></ino-progress-bar>`
+        ? html`<ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>`
         : html``}
       ${tableContent}
     </ino-table>
@@ -215,11 +179,9 @@ export const StickyHeader = Story({
 export const SelectionWithCheckboxes = Story({
   ...Default,
   render: () => {
-    const mainBox = document.getElementById(
-      'headerBox',
-    ) as Components.InoCheckbox;
+    const mainBox = document.getElementById('headerBox') as Components.InoCheckbox;
 
-    const checkboxHandler = (e) => {
+    const checkboxHandler = e => {
       const triggerCheckbox = e.target;
       triggerCheckbox.checked = !triggerCheckbox.checked;
 
@@ -229,22 +191,19 @@ export const SelectionWithCheckboxes = Story({
 
       if (triggerCheckbox.id === 'headerBox') {
         triggerCheckbox.indeterminate = false;
-        checkboxes.forEach((checkbox) => {
+        checkboxes.forEach(checkbox => {
           checkbox.checked = mainBox.checked;
           const row = (checkbox as HTMLElement).closest('tr');
           row?.classList.toggle('ino-table__row--selected', mainBox.checked);
         });
       } else if (mainBox) {
         const row = (triggerCheckbox as HTMLElement).closest('tr');
-        row?.classList.toggle(
-          'ino-table__row--selected',
-          triggerCheckbox.checked,
-        );
+        row?.classList.toggle('ino-table__row--selected', triggerCheckbox.checked);
 
-        if (checkboxes.some((i) => i.checked)) {
+        if (checkboxes.some(i => i.checked)) {
           mainBox.indeterminate = true;
         } else {
-          const allChecked = checkboxes.every((i) => i.checked);
+          const allChecked = checkboxes.every(i => i.checked);
           mainBox.checked = allChecked;
           mainBox.indeterminate = allChecked;
         }

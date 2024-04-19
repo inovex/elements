@@ -22,9 +22,7 @@ export const getDatepickerLocale = (el: HTMLElement): CustomLocale => {
   const lang = closestElement ? closestElement.lang : defaultLang;
 
   if (!isLanguageSupported(lang)) {
-    console.warn(
-      `Language "${lang}" is not supported. Using "${defaultLang}" instead.`,
-    );
+    console.warn(`Language "${lang}" is not supported. Using "${defaultLang}" instead.`);
     return datepickerLocales[defaultLang];
   }
   return datepickerLocales[lang];

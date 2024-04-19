@@ -17,7 +17,7 @@ const onSlideChanged = (ev: CustomEvent<string>) => {
 const InoCarouselMeta = {
   title: 'Graphic/ino-carousel',
   component: 'ino-carousel',
-  render: (args) => html`
+  render: args => html`
     <div class="ino-carousel-example">
       <ino-carousel
         class="customizable-carousel"

@@ -12,18 +12,15 @@ function Contributors({ users }: Params) {
   return (
     <>
       <h1 className="header-d3">
-        <b>{t('about.contributors.title_1')}</b>{' '}
-        {t('about.contributors.title_2')}
+        <b>{t('about.contributors.title_1')}</b> {t('about.contributors.title_2')}
       </h1>
       <div className={styles.container}>
         {users?.length === 0 ? (
           <div>{t('about.contributors.not_found')}</div>
         ) : (
-          users?.map((contributor) => (
+          users?.map(contributor => (
             <ContributorCard
-              role={contributor.roles
-                .map((r) => t(`about.contributors.roles.${r}`))
-                .join(' & ')}
+              role={contributor.roles.map(r => t(`about.contributors.roles.${r}`)).join(' & ')}
               key={contributor.id}
               avatarUrl={contributor.avatar_url}
               username={contributor.name}

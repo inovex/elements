@@ -47,7 +47,7 @@ const InoTooltipMeta = {
       control: 'string',
     },
   },
-  render: (args) => html`
+  render: args => html`
     <ino-button id="${args.for}">Trigger Element</ino-button>
     <ino-tooltip
       header-text="${args.headerText}"
@@ -115,7 +115,7 @@ export const Trigger = Story({
 
 export const ColorScheme = Story({
   ...Default,
-  render: (args) => {
+  render: args => {
     const idLight = 'tooltip-light';
     const idDark = 'tooltip-dark';
     const idPrimary = 'tooltip-primary';

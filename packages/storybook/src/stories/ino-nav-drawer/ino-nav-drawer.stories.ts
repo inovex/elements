@@ -14,7 +14,7 @@ const openChangeHandle = function (e) {
   el.setAttribute('open', !!e.detail);
 };
 
-const clickHandler = (e) => {
+const clickHandler = e => {
   e.preventDefault();
   e.stopPropagation();
   const el = e.target.parentElement;
@@ -36,7 +36,7 @@ const clickHandler = (e) => {
     const parentDrawer = el.closest('ino-nav-drawer');
     const navItemNodes = parentDrawer.querySelectorAll('ino-list-item');
     navItemNodes &&
-      navItemNodes.forEach((link) => {
+      navItemNodes.forEach(link => {
         link.activated = false;
       });
     el.activated = true;
@@ -49,15 +49,11 @@ const InoNavDrawerMeta = {
   component: 'ino-nav-drawer',
   parameters: {
     actions: {
-      handles: [
-        'openChange .customizable-drawer',
-        'click .toggle-nav',
-        'clickEl ino-nav-item',
-      ],
+      handles: ['openChange .customizable-drawer', 'click .toggle-nav', 'clickEl ino-nav-item'],
     },
   },
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         document.addEventListener('openChange', openChangeHandle);
         document.addEventListener('click', clickHandler);
@@ -72,29 +68,14 @@ const InoNavDrawerMeta = {
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <div class="story-nav-drawer__default">
-      <ino-nav-drawer
-        ?open=${args.open}
-        anchor="${args.anchor}"
-        variant="${args.variant}"
-        class="customizable-drawer"
-      >
+      <ino-nav-drawer ?open=${args.open} anchor="${args.anchor}" variant="${args.variant}" class="customizable-drawer">
         <div slot="header">
-          <ino-img
-            slot="logo"
-            src=${inovexElementsLogo}
-            width="22"
-            height="31"
-            alt="inovex Elements Logo"
-          ></ino-img>
+          <ino-img slot="logo" src=${inovexElementsLogo} width="22" height="31" alt="inovex Elements Logo"></ino-img>
           <p>inovex Elements</p>
         </div>
-        <ino-list
-          role="menubar"
-          slot="content"
-          aria-label=${args.a11yLabels?.content}
-        >
+        <ino-list role="menubar" slot="content" aria-label=${args.a11yLabels?.content}>
           <ino-nav-item role="menuitem" text="Home" activated>
             <ino-icon icon="home"></ino-icon>
           </ino-nav-item>
@@ -111,11 +92,7 @@ const InoNavDrawerMeta = {
             <ino-icon icon="employee"></ino-icon>
           </ino-nav-item>
         </ino-list>
-        <ino-list
-          role="menubar"
-          slot="footer"
-          aria-label=${args.a11yLabels?.footer}
-        >
+        <ino-list role="menubar" slot="footer" aria-label=${args.a11yLabels?.footer}>
           <ino-nav-item role="menuitem" text="Contact">
             <ino-icon icon="message"></ino-icon>
           </ino-nav-item>

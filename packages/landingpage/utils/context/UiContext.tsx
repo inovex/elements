@@ -9,9 +9,5 @@ export const UiContext = createContext<UiContextType | null>(null);
 
 export const UiContextProvider = ({ children }: { children: ReactNode }) => {
   const [isFooterHidden, hideFooter] = useState<boolean>(false);
-  return (
-    <UiContext.Provider value={{ isFooterHidden, hideFooter }}>
-      {children}
-    </UiContext.Provider>
-  );
+  return <UiContext.Provider value={{ isFooterHidden, hideFooter }}>{children}</UiContext.Provider>;
 };

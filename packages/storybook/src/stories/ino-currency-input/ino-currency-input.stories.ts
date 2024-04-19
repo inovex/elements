@@ -8,15 +8,12 @@ const InoCurrencyInputMeta = {
   title: 'Input/ino-currency-input',
   component: 'ino-currency-input',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
+        const eventHandler = e => e.target.setAttribute('value', e.detail);
         const inputs = document.querySelectorAll('ino-currency-input');
-        inputs.forEach((i) => i.addEventListener('valueChange', eventHandler));
-        return () =>
-          inputs.forEach((i) =>
-            i.removeEventListener('valueChange', eventHandler),
-          );
+        inputs.forEach(i => i.addEventListener('valueChange', eventHandler));
+        return () => inputs.forEach(i => i.removeEventListener('valueChange', eventHandler));
       });
       return story();
     },
@@ -29,18 +26,9 @@ const InoCurrencyInputMeta = {
       toc: false,
     },
   },
-  render: (args) => html`
-    <ino-currency-input
-      value="${args.value}"
-      currency-locale="${args.currencyLocale}"
-    >
-      <ino-input
-        class="customizable-input"
-        id="customizable-input"
-        label="Default Input"
-        outline="true"
-        unit="€"
-      >
+  render: args => html`
+    <ino-currency-input value="${args.value}" currency-locale="${args.currencyLocale}">
+      <ino-input class="customizable-input" id="customizable-input" label="Default Input" outline="true" unit="€">
       </ino-input>
     </ino-currency-input>
   `,

@@ -16,22 +16,12 @@ export default function CoreAspects() {
         <p className="body-l">{t('home.core_aspects.first.text')}</p>
       </div>
       <div className={styles.coreAspect}>
-        <Image
-          src={consistent}
-          alt="consistent image"
-          width={200}
-          height={200}
-        />
+        <Image src={consistent} alt="consistent image" width={200} height={200} />
         <p className="title-l">{t('home.core_aspects.second.title')}</p>
         <p className="body-l">{t('home.core_aspects.second.text')}</p>
       </div>
       <div className={styles.coreAspect}>
-        <Image
-          src={futureproof}
-          alt="futureproof image"
-          width={200}
-          height={200}
-        />
+        <Image src={futureproof} alt="futureproof image" width={200} height={200} />
         <p className="title-l">{t('home.core_aspects.third.title')}</p>
         <p className="body-l">{t('home.core_aspects.third.text')}</p>
       </div>

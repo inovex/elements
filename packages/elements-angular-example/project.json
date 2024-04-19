@@ -71,10 +71,7 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/elements-angular-example/**/*.ts",
-          "packages/elements-angular-example/**/*.html"
-        ]
+        "lintFilePatterns": ["packages/elements-angular-example/**/*.ts", "packages/elements-angular-example/**/*.html"]
       }
     },
     "clean": {}

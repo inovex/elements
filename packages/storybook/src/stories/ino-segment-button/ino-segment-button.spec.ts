@@ -13,9 +13,7 @@ test.describe('ino-segment-button', () => {
     await expect(button).not.toHaveAttribute('checked', 'false');
   });
 
-  test('should not check disabled segment button on click', async ({
-    page,
-  }) => {
+  test('should not check disabled segment button on click', async ({ page }) => {
     await goToStory(page, ['Buttons', 'ino-segment-button', 'disabled']);
     const button = page.locator('ino-segment-button');
 

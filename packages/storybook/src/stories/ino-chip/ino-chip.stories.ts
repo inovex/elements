@@ -12,7 +12,7 @@ const InoChipMeta = {
       handles: ['chipClicked', 'chipRemoved'],
     },
   },
-  render: (args) => html`
+  render: args => html`
     <ino-chip
       class="customizable-chip"
       disabled="${args.disabled}"
@@ -109,10 +109,7 @@ export const Filter = Story({
     return html`
       <div class="ino-chip-story">
         ${values.map(
-          (value) => html` <ino-chip
-            value="${value}"
-            selectable
-            @chipClicked="${(ev) => handleClick(ev.target)}"
+          value => html` <ino-chip value="${value}" selectable @chipClicked="${ev => handleClick(ev.target)}"
             >${value}
           </ino-chip>`,
         )}
@@ -137,7 +134,7 @@ export const Remove = Story({
           (value, index) => html` <ino-chip
             value="${value}"
             removable="${index !== 0}"
-            @chipRemoved="${(ev) => handleClick(ev.target)}"
+            @chipRemoved="${ev => handleClick(ev.target)}"
             >${value}
           </ino-chip>`,
         )}

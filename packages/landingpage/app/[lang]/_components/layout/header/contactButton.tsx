@@ -9,14 +9,9 @@ const ContactButton = () => {
   const { t, lang } = useTranslation();
 
   return (
-    <Link
-      className={styles.contactButton}
-      href={`/${lang}#${SubRoutes.HOME_CONTACT}`}
-    >
+    <Link className={styles.contactButton} href={`/${lang}#${SubRoutes.HOME_CONTACT}`}>
       <InoButton className={styles.button}>
-        <span className={styles.label}>
-          {t('common.navigation.contact.name')}
-        </span>
+        <span className={styles.label}>{t('common.navigation.contact.name')}</span>
       </InoButton>
     </Link>
   );

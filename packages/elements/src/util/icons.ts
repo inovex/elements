@@ -14,7 +14,7 @@ export function addIcons(icons: { [name: string]: string }) {
   if (typeof window === 'undefined') return;
 
   const map = getIconMap();
-  Object.keys(icons).forEach((name) => map.set(name, icons[name]));
+  Object.keys(icons).forEach(name => map.set(name, icons[name]));
 }
 
 export const getSrc = (src: string | undefined) => {

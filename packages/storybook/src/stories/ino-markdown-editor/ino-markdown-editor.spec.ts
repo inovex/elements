@@ -10,13 +10,9 @@ enum ViewMode {
 const MARKDOWN_TEXT = [
   '# Headline 1\n',
   '## Headline 2\n',
-  [
-    '_italic_',
-    '**bold**',
-    '~~strikethrough~~',
-    '[elements](https://github.com/inovex/elements)',
-    '`inline code`',
-  ].join(' '),
+  ['_italic_', '**bold**', '~~strikethrough~~', '[elements](https://github.com/inovex/elements)', '`inline code`'].join(
+    ' ',
+  ),
   '',
   '> Blockquote\n',
   '```\nthis should be a code block\n```\n',
@@ -39,11 +35,7 @@ const HTML_TEXT_TAGS = [
 ];
 
 test.describe('ino-markdown-editor', () => {
-  const setupEditor = (
-    inoMarkdownEditor: Locator,
-    viewMode: ViewMode,
-    text?: string,
-  ) =>
+  const setupEditor = (inoMarkdownEditor: Locator, viewMode: ViewMode, text?: string) =>
     inoMarkdownEditor.evaluate(
       (editor, { viewMode, text }) => {
         editor.setAttribute('view-mode', viewMode);
@@ -69,8 +61,7 @@ test.describe('ino-markdown-editor', () => {
   });
 
   test('should show preview mode correctly', async ({ page }) => {
-    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } =
-      getDefaultLocators(page);
+    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } = getDefaultLocators(page);
     await setupEditor(inoMarkdownEditor, ViewMode.PREVIEW);
     await expect(textArea).not.toBeInViewport();
     await expect(tipTapEditor).toBeInViewport();
@@ -78,8 +69,7 @@ test.describe('ino-markdown-editor', () => {
   });
 
   test('should show markdown mode correctly', async ({ page }) => {
-    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } =
-      getDefaultLocators(page);
+    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } = getDefaultLocators(page);
     await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN);
     await expect(textArea).toBeInViewport();
     await expect(tipTapEditor).not.toBeInViewport();
@@ -87,8 +77,7 @@ test.describe('ino-markdown-editor', () => {
   });
 
   test('should change view mode', async ({ page }) => {
-    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } =
-      getDefaultLocators(page);
+    const { inoMarkdownEditor, textArea, tipTapEditor, textFormatToolbar } = getDefaultLocators(page);
     await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN);
     const viewModeToolbar = inoMarkdownEditor.locator('.toolbar__view-mode');
     await expect(viewModeToolbar).toHaveCount(2);
@@ -111,21 +100,18 @@ test.describe('ino-markdown-editor', () => {
     await expect(buttons).toHaveCount(11);
   });
 
-  test('should show preview as html when set initial value property', async ({
-    page,
-  }) => {
+  test('should show preview as html when set initial value property', async ({ page }) => {
     const { inoMarkdownEditor, tipTapEditor } = getDefaultLocators(page);
     await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN, MARKDOWN_TEXT);
     const htmlValue = await tipTapEditor.innerHTML();
 
     expect(htmlValue.includes('<ul data-type="taskList">')).toBeTruthy();
     expect(htmlValue.match(/input/gm)).toHaveLength(3);
-    HTML_TEXT_TAGS.forEach((tag) => expect(htmlValue).toContain(tag));
+    HTML_TEXT_TAGS.forEach(tag => expect(htmlValue).toContain(tag));
   });
 
   test('should enter text in markdown mode', async ({ page }) => {
-    const { inoMarkdownEditor, textArea, tipTapEditor } =
-      getDefaultLocators(page);
+    const { inoMarkdownEditor, textArea, tipTapEditor } = getDefaultLocators(page);
     const viewModeToolbar = inoMarkdownEditor.locator('.toolbar__view-mode');
     await setupEditor(inoMarkdownEditor, ViewMode.MARKDOWN);
     const dummyText = '# Hallo Welt';

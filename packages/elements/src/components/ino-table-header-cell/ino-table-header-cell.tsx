@@ -124,7 +124,7 @@ export class InoTableHeaderCell implements ComponentInterface {
   @Method()
   async setFocus() {
     this.el.focus();
-    this.popoverElement?.getTippyInstance().then((tippy) => tippy.show());
+    this.popoverElement?.getTippyInstance().then(tippy => tippy.show());
   }
 
   /**
@@ -133,17 +133,15 @@ export class InoTableHeaderCell implements ComponentInterface {
   @Method()
   async setBlur() {
     this.el.blur();
-    this.popoverElement?.getTippyInstance().then((tippy) => tippy.hide());
+    this.popoverElement?.getTippyInstance().then(tippy => tippy.hide());
   }
 
   private sortButtonClickHandler() {
-    const sortOrder =
-      this.sortStart === 'desc' ? ['desc', 'asc'] : ['asc', 'desc'];
+    const sortOrder = this.sortStart === 'desc' ? ['desc', 'asc'] : ['asc', 'desc'];
     let sortDirection = sortOrder[0];
     if (this.sortDirection) {
       const targetIdx = sortOrder.indexOf(this.sortDirection) + 1;
-      sortDirection =
-        targetIdx >= sortOrder.length ? undefined : sortOrder[targetIdx];
+      sortDirection = targetIdx >= sortOrder.length ? undefined : sortOrder[targetIdx];
     }
 
     this.sortDirectionChange.emit({
@@ -164,7 +162,7 @@ export class InoTableHeaderCell implements ComponentInterface {
 
   private create() {
     this.maybeSetMaxWidth();
-    this.popoverElement?.getTippyInstance().then((tippy) => {
+    this.popoverElement?.getTippyInstance().then(tippy => {
       if (!tippy) {
         return;
       }
@@ -182,10 +180,7 @@ export class InoTableHeaderCell implements ComponentInterface {
    */
   private maybeSetMaxWidth() {
     if (this.searchable && !this.el.style.getPropertyValue('max-width')) {
-      this.el.style.setProperty(
-        'max-width',
-        window.getComputedStyle(this.el).width,
-      );
+      this.el.style.setProperty('max-width', window.getComputedStyle(this.el).width);
     }
   }
 
@@ -221,23 +216,14 @@ export class InoTableHeaderCell implements ComponentInterface {
             controlled={true}
             colorScheme="light"
             visible={this.searchActivated}
-            onVisibleChanged={(e) => (this.searchActivated = e.detail)}
-            ref={(popover) =>
-              (this.popoverElement = popover as HTMLInoPopoverElement)
-            }
+            onVisibleChanged={e => (this.searchActivated = e.detail)}
+            ref={popover => (this.popoverElement = popover as HTMLInoPopoverElement)}
             interactive={true}
             distance={8}
             hideOnBlur={true}
           >
-            <div
-              class="mdc-data-table__header-cell-wrapper"
-              slot="popover-trigger"
-              tabindex="0"
-            >
-              <ino-icon
-                icon={this.searchIcon}
-                class="ino-table-header-cell__search-icon"
-              />
+            <div class="mdc-data-table__header-cell-wrapper" slot="popover-trigger" tabindex="0">
+              <ino-icon icon={this.searchIcon} class="ino-table-header-cell__search-icon" />
               <div class="mdc-data-table__header-cell-label">{this.label}</div>
             </div>
 
@@ -255,8 +241,8 @@ export class InoTableHeaderCell implements ComponentInterface {
           <ino-icon-button
             class={`sort-${this.sortDirection || 'none'}`}
             icon={this.sortIcon}
-            onFocus={(e) => e.stopPropagation()}
-            onClick={(e) => e.stopPropagation()}
+            onFocus={e => e.stopPropagation()}
+            onClick={e => e.stopPropagation()}
             onClickEl={this.sortButtonClickHandler.bind(this)}
           />
         )}

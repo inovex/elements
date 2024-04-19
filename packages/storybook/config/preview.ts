@@ -1,15 +1,8 @@
 // configures the "preview" iframe that renders your components
-import {
-  applyPolyfills,
-  defineCustomElements,
-} from '@inovex.de/elements/dist/loader';
+import { applyPolyfills, defineCustomElements } from '@inovex.de/elements/dist/loader';
 
 import './global.scss';
-import {
-  extractArgTypes,
-  extractComponentDescription,
-  setStencilDocJson,
-} from '@pxtrn/storybook-addon-docs-stencil';
+import { extractArgTypes, extractComponentDescription, setStencilDocJson } from '@pxtrn/storybook-addon-docs-stencil';
 import docsJson from '../elements-stencil-docs.json';
 import theme from './theme';
 
@@ -22,7 +15,7 @@ const StencilDocsJson = docsJson as unknown as StencilJsonDocs;
 // custom elements of the stencil generated json docs. This works better  for (attributes / props), methods, events, slots.
 // Enforce @pxtrn/storybook-addon-docs-stencil to use component description instead of component readme
 // see https://github.com/pixtron/storybook-addon-docs-stencil/blob/e87eece216d22d0643057cf15aedb168d83734b7/src/index.ts#L215
-StencilDocsJson.components.forEach((c) => (c.readme = null));
+StencilDocsJson.components.forEach(c => (c.readme = null));
 setStencilDocJson(StencilDocsJson);
 
 // Alternative with a custom elements schema:
@@ -51,8 +44,7 @@ const preview = {
       },
       toc: {
         // 👈 Enables the table of contents for components stories
-        contentsSelector:
-          '.sbdocs-content:not(div:has(#changelog)):not(div:has(#typography))', // disables toc on changelog & typography
+        contentsSelector: '.sbdocs-content:not(div:has(#changelog)):not(div:has(#typography))', // disables toc on changelog & typography
         headingSelector: 'h3', // only selects h3 headlines
         ignoreSelector: '.docs-story > * :is(h3)', // ignore h3 headlines in stories
       },
@@ -61,16 +53,7 @@ const preview = {
     options: {
       panelPosition: 'bottom',
       storySort: {
-        order: [
-          'Docs',
-          [
-            'Welcome',
-            'Changelog',
-            'Framework Integration',
-            'Styleguide',
-            'Contributing',
-          ],
-        ],
+        order: ['Docs', ['Welcome', 'Changelog', 'Framework Integration', 'Styleguide', 'Contributing']],
       },
     },
   },

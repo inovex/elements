@@ -12,10 +12,8 @@ test.describe('ino-autocomplete', () => {
   const getValueChangePromise = () =>
     inoAutocomplete.evaluate(
       () =>
-        new Promise<KeyValue>((resolve) => {
-          document.addEventListener('valueChange', (data: CustomEvent) =>
-            resolve(data.detail),
-          );
+        new Promise<KeyValue>(resolve => {
+          document.addEventListener('valueChange', (data: CustomEvent) => resolve(data.detail));
         }),
     );
 
@@ -55,9 +53,7 @@ test.describe('ino-autocomplete', () => {
     await expect(options).toHaveCount(AutoCompleteStoryOptions.length);
   });
 
-  test('should show the noOptionText if no options was found', async ({
-    page,
-  }) => {
+  test('should show the noOptionText if no options was found', async ({ page }) => {
     await inputEl.focus();
     await inputEl.fill('no match');
     await expect(options).toHaveCount(0);

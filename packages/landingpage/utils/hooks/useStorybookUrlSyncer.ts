@@ -25,10 +25,8 @@ export const useStorybookUrlSyncer = () => {
 
   useMount(() => {
     function onMessage(event: MessageEvent<PostCurrentStoryMessage>) {
-      const isTrustworthy =
-        inDevEnvironment || event.origin === window.location.origin;
-      const isPostCurrentStoryEvent =
-        event.data?.type === POST_CURRENT_STORY_TYPE;
+      const isTrustworthy = inDevEnvironment || event.origin === window.location.origin;
+      const isPostCurrentStoryEvent = event.data?.type === POST_CURRENT_STORY_TYPE;
 
       if (!isTrustworthy || !isPostCurrentStoryEvent) return;
 

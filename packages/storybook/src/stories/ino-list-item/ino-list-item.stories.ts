@@ -15,9 +15,9 @@ const InoListItemMeta = {
   title: 'Structure/ino-list-item',
   component: 'ino-list-item',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => {
+        const eventHandler = e => {
           const el = e.target;
           el.setAttribute('checked', e.detail);
           if (el.getAttribute('indeterminate') === 'true') {
@@ -25,18 +25,13 @@ const InoListItemMeta = {
           }
         };
         const selections = document.querySelectorAll('ino-checkbox, ino-radio');
-        selections.forEach((s) =>
-          s.addEventListener('checkedChange', eventHandler),
-        );
-        return () =>
-          selections.forEach((s) =>
-            s.removeEventListener('checkedChange', eventHandler),
-          );
+        selections.forEach(s => s.addEventListener('checkedChange', eventHandler));
+        return () => selections.forEach(s => s.removeEventListener('checkedChange', eventHandler));
       });
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-list two-lines="${Boolean(args.secondaryText)}">
       <ino-list-item
         secondary-text="${args.secondaryText}"
@@ -117,9 +112,7 @@ export const Graphics = Story({
   ...Default,
   render: () => html`
     <ino-list>
-      <ino-list-item text="Lorem ipsum dolor sit">
-        ${exampleImg}
-      </ino-list-item>
+      <ino-list-item text="Lorem ipsum dolor sit"> ${exampleImg} </ino-list-item>
     </ino-list>
   `,
 });
