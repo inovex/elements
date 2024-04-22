@@ -1,6 +1,6 @@
 {
   "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*", "node_modules/*", "dist/*"],
+  "ignorePatterns": ["!**/*", "node_modules/*", "dist/*", "storybook-static"],
   "overrides": [
     {
       "files": ["src/**/*.{ts,js,tsx,jsx}"],

@@ -1,6 +1,8 @@
+import { join } from 'path';
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,html}'],
+  content: [join(__dirname, 'src/**/*.{js,ts,jsx,tsx,html}')],
   theme: {
     extend: {
       colors: {

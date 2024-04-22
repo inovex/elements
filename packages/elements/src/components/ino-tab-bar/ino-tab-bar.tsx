@@ -1,4 +1,4 @@
-import { MDCTabBar } from '@material/tab-bar/component';
+import { MDCTabBar } from '@material/tab-bar';
 import {
   Component,
   ComponentInterface,

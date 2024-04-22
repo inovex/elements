@@ -84,7 +84,7 @@ const InoInputMeta = {
     maxlength: 100,
     outline: false,
     name: '',
-    pattern: '*',
+    pattern: '.*',
     placeholder: '',
     required: false,
     showLabelHint: false,
@@ -114,6 +114,7 @@ export const Type = Story({
     <ino-input placeholder="type = email" type="email"></ino-input>
     <ino-input type="number" placeholder="type = number"></ino-input>
     <ino-input
+      data-testid="input-test-steps"
       type="number"
       placeholder="type = number with steps=5"
       step="5"

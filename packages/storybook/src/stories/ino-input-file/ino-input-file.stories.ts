@@ -12,15 +12,23 @@ const InoInputFileMeta = {
       useEffect(() => {
         const eventHandler = function (e) {
           e.stopImmediatePropagation();
-          const el = e.target;
+          const el = e.target as HTMLInoInputFileElement;
           if (el.tagName.toLowerCase() !== 'ino-input-file') {
             return;
           }
 
-          const fileNames = e.detail.files
-            .map((f) => [f.name, f.type, f.size + ' bytes'].join(', '))
-            .join('\n');
-          alert(fileNames);
+          const fileNames: string[] = e.detail.files.map((f: File) =>
+            [f.name, f.type, f.size + ' bytes'].join(', '),
+          );
+
+          const container = document.createElement('div');
+          container.classList.add('file-list');
+          fileNames.forEach((fileName) => {
+            container.append(fileName, document.createElement('br'));
+          });
+
+          el.parentElement.querySelector('.file-list')?.remove();
+          el.parentElement.append(container);
         };
 
         document.addEventListener('changeFile', eventHandler);
