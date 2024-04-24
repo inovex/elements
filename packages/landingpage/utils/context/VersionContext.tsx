@@ -11,13 +11,9 @@ export const VersionProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/inovex/elements/pages/hosted-versions.json')
-      .then((response) => response.json())
-      .then((data) => setVersions(data.reverse())); // Assuming reversing is necessary
+      .then(response => response.json())
+      .then(data => setVersions(data.reverse())); // Assuming reversing is necessary
   }, []);
 
-  return (
-    <VersionContext.Provider value={{ versions }}>
-      {children}
-    </VersionContext.Provider>
-  );
+  return <VersionContext.Provider value={{ versions }}>{children}</VersionContext.Provider>;
 };
