@@ -14,7 +14,7 @@ const InoOptionGroupMeta = {
       },
     },
   },
-  render: (args) => html`
+  render: args => html`
     <ino-select label="Select with Group">
       <ino-option-group label="${args.label}">
         <ino-option value="Option 1">Option 1</ino-option>

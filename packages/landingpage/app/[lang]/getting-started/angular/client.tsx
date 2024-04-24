@@ -8,9 +8,7 @@ export const AngularGuidePage = () => {
   return (
     <Layout
       framework={Framework.ANGULAR}
-      sandboxUrl={
-        'https://codesandbox.io/s/github/inovex/elements-example-angular'
-      }
+      sandboxUrl={'https://codesandbox.io/s/github/inovex/elements-example-angular'}
     >
       <AngularGuide />
     </Layout>

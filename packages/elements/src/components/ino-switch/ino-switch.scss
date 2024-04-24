@@ -190,9 +190,7 @@ ino-switch.ino-switch__icon-toggle .mdc-switch {
   }
 }
 
-ino-switch.ino-switch-disabled.ino-switch__icon-toggle
-  .switch-icon--selected
-  ino-icon {
+ino-switch.ino-switch-disabled.ino-switch__icon-toggle .switch-icon--selected ino-icon {
   --icon-color: #{theme.$n-4};
   color: theme.$n-4;
   fill: theme.$n-4;

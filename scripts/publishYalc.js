@@ -30,7 +30,7 @@ async function main() {
   shell.exec('nx run elements:build');
   shell.exec('yalc publish --no-sig', { cwd: 'packages/elements' });
 
-  targets.forEach((target) => {
+  targets.forEach(target => {
     // link @inovex.de/elements dependency
     shell.exec('yalc add @inovex.de/elements', {
       cwd: `packages/elements-${target}`,

@@ -62,7 +62,7 @@ const InoPopoverMeta = {
       options: [true, false, 'initial', 'horizontal', 'vertical'],
     },
   },
-  render: (args) => {
+  render: args => {
     const id = `popover-${POPOVER_COUNTER++}`;
 
     return html`
@@ -82,9 +82,7 @@ const InoPopoverMeta = {
         delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
         arrow="${args.arrow}"
       >
-        <div
-          style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem"
-        >
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem">
           <p>Popovers are complex tooltips.</p>
           <ino-chip>
             Able to contain other HTML-Elements?
@@ -154,14 +152,13 @@ export const Distance = Story({
 export const ColorSchemes = Story({
   ...Default,
   docsFromProperty: 'colorScheme',
-  render: (args) => {
+  render: args => {
     const idLight = 'popover-light';
     const idDark = 'popover-dark';
     const idPrimary = 'popover-primary';
 
     const content = html`<p style="padding: 0.5rem">
-      Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet
-      ipsum do.
+      Lorem ipsum do lor sit amet, con sete tur amet ipsum do, con sete tur amet ipsum do.
     </p>`;
 
     return html`
@@ -243,23 +240,13 @@ export const Interactive = Story({
   ...Default,
   docsFromProperty: 'interactive',
   render: () => html`
-    <ino-popover
-      trigger="click"
-      for="popover-interactive-target"
-      distance="15"
-      interactive
-      placement="top"
-    >
+    <ino-popover trigger="click" for="popover-interactive-target" distance="15" interactive placement="top">
       <div class="interactive-popover">
         <p>I'm interactive. You can click me without closing this popover!</p>
         <ino-button>Button not closing the popover</ino-button>
       </div>
     </ino-popover>
-    <ino-button
-      class="placement-button big-space"
-      id="popover-interactive-target"
-      >Interactive Content
-    </ino-button>
+    <ino-button class="placement-button big-space" id="popover-interactive-target">Interactive Content </ino-button>
   `,
   args: {
     interactive: true,
@@ -270,11 +257,9 @@ export const Controlled = Story({
   ...Default,
   docsFromProperty: 'controlled',
   render: () => {
-    const eventHandler = (e) => {
+    const eventHandler = e => {
       e.target?.setAttribute('visible', e.detail);
-      (
-        document.querySelector('#controlled-checkbox') as HTMLInputElement
-      ).checked = e.detail;
+      (document.querySelector('#controlled-checkbox') as HTMLInputElement).checked = e.detail;
     };
 
     return html`
@@ -287,9 +272,7 @@ export const Controlled = Story({
         distance="15"
         @visibleChanged="${eventHandler}"
       >
-        <ino-checkbox id="controlled-checkbox" slot="popover-trigger">
-          Uncheck to hide / check to show
-        </ino-checkbox>
+        <ino-checkbox id="controlled-checkbox" slot="popover-trigger"> Uncheck to hide / check to show </ino-checkbox>
         <div style="padding: 0.5rem">
           <ino-chip>
             Programmatically shown?

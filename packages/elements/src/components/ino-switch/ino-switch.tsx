@@ -1,15 +1,5 @@
 import { MDCSwitch } from '@material/switch';
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
@@ -64,9 +54,7 @@ export class Switch implements ComponentInterface {
     const hasTrailingSlot = hasSlotContent(this.el, 'trailing');
 
     if (hasLeadingSlot != hasTrailingSlot) {
-      console.error(
-        '[ino-switch] Two icons (leading & trailing) are required in order to use the icon switch.',
-      );
+      console.error('[ino-switch] Two icons (leading & trailing) are required in order to use the icon switch.');
     }
   }
 
@@ -98,23 +86,17 @@ export class Switch implements ComponentInterface {
 
     const hostClasses = classNames(
       'ino-switch',
-      hasLeadingSlot || hasTrailingSlot
-        ? 'ino-switch__icon-toggle'
-        : 'ino-switch__default',
+      hasLeadingSlot || hasTrailingSlot ? 'ino-switch__icon-toggle' : 'ino-switch__default',
       {
         'ino-switch-disabled': this.disabled,
         'ino-switch-icon-disabled': this.disabled,
       },
     );
 
-    const switchClasses = classNames(
-      'mdc-switch',
-      this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected',
-      {
-        'mdc-switch': true,
-        'ino-switch__icon-toggle': hasLeadingSlot && hasTrailingSlot,
-      },
-    );
+    const switchClasses = classNames('mdc-switch', this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected', {
+      'mdc-switch': true,
+      'ino-switch__icon-toggle': hasLeadingSlot && hasTrailingSlot,
+    });
 
     const iconClasses = classNames('mdc-switch__icons', 'switch-icon');
 
@@ -129,15 +111,10 @@ export class Switch implements ComponentInterface {
     );
 
     return (
-      <Host
-        class={hostClasses}
-        checked={this.checked}
-        disabled={this.disabled}
-        onClick={this.handleChange}
-      >
+      <Host class={hostClasses} checked={this.checked} disabled={this.disabled} onClick={this.handleChange}>
         <button
           id={this.switchId}
-          ref={(el) => (this.mdcSwitchEl = el)}
+          ref={el => (this.mdcSwitchEl = el)}
           class={switchClasses}
           disabled={this.disabled}
           type="button"
@@ -161,7 +138,7 @@ export class Switch implements ComponentInterface {
             </span>
           )}
         </button>
-        <label htmlFor={this.switchId} onClick={(e) => e.stopPropagation()}>
+        <label htmlFor={this.switchId} onClick={e => e.stopPropagation()}>
           <slot />
         </label>
       </Host>

@@ -13,13 +13,7 @@ import VersionSelect from '../versionSelect';
 import { useTranslation } from '@hooks/useTranslation';
 
 const MenuIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    width={24}
-    height={26}
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg width={24} height={26} fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
     <rect width={24} height={4} rx={2} />
     <rect y={11} width={24} height={4} rx={2} />
     <rect y={22} width={24} height={4} rx={2} />
@@ -65,55 +59,42 @@ export default function HeaderMobile() {
           [styles.menuOpen]: menuIsOpen,
         })}
       >
-        <Image
-          src={elementsLogo}
-          alt={'elements logo'}
-          width={40}
-          height={40}
-        />
+        <Image src={elementsLogo} alt={'elements logo'} width={40} height={40} />
         <div className={styles.routes}>
-          {Routes.map(
-            ({ key: mainRouteName, url: mainRouteUrl, subRoutes }) => {
-              const routeIsExpanded = expandedSubMenu === mainRouteName;
+          {Routes.map(({ key: mainRouteName, url: mainRouteUrl, subRoutes }) => {
+            const routeIsExpanded = expandedSubMenu === mainRouteName;
 
-              return (
-                <div key={mainRouteName}>
-                  <div className={styles.menuItem}>
-                    <LinkItem
-                      url={mainRouteUrl}
-                      noMargin={true}
-                      name={t(
-                        `common.navigation.${mainRouteName}.name` as LocaleResourcePaths,
-                      )}
-                    />
-                    <InoIcon
-                      icon={routeIsExpanded ? 'arrow_up' : 'arrow_down'}
-                      onClick={() =>
-                        expandSubMenu(routeIsExpanded ? null : mainRouteName)
-                      }
-                    />
-                  </div>
-                  <div
-                    className={classNames({
-                      [styles.subRoutes]: true,
-                      [styles.subRoutesExpanded]: routeIsExpanded,
-                    })}
-                  >
-                    {subRoutes.map((route) => (
-                      <LinkItem
-                        key={route.url}
-                        url={route.url}
-                        name={t(
-                          `common.navigation.${mainRouteName}.subroutes.${route.key}.name` as LocaleResourcePaths,
-                        )}
-                        isDense={true}
-                      />
-                    ))}
-                  </div>
+            return (
+              <div key={mainRouteName}>
+                <div className={styles.menuItem}>
+                  <LinkItem
+                    url={mainRouteUrl}
+                    noMargin={true}
+                    name={t(`common.navigation.${mainRouteName}.name` as LocaleResourcePaths)}
+                  />
+                  <InoIcon
+                    icon={routeIsExpanded ? 'arrow_up' : 'arrow_down'}
+                    onClick={() => expandSubMenu(routeIsExpanded ? null : mainRouteName)}
+                  />
                 </div>
-              );
-            },
-          )}
+                <div
+                  className={classNames({
+                    [styles.subRoutes]: true,
+                    [styles.subRoutesExpanded]: routeIsExpanded,
+                  })}
+                >
+                  {subRoutes.map(route => (
+                    <LinkItem
+                      key={route.url}
+                      url={route.url}
+                      name={t(`common.navigation.${mainRouteName}.subroutes.${route.key}.name` as LocaleResourcePaths)}
+                      isDense={true}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
         <ContactButton />
       </div>

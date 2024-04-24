@@ -10,58 +10,20 @@
       <ino-icon slot="icon-trailing" clickable icon="add" @clickEl="onAdd" />
     </ino-input>
     <ino-list :key="Date.now()">
-      <ino-list-item
-        v-for="todo in uncheckedTodos"
-        :key="todo.id"
-        :text="todo.text"
-      >
+      <ino-list-item v-for="todo in uncheckedTodos" :key="todo.id" :text="todo.text">
         <ino-checkbox slot="leading" @checkedChange="onCheckedChange(todo)" />
-        <ino-tooltip
-          slot="trailing"
-          label="Remove item"
-          placement="right"
-          :for="`remove-unchecked-${todo.id}`"
-        />
-        <ino-icon-button
-          :id="`remove-unchecked-${todo.id}`"
-          slot="trailing"
-          icon="remove"
-          @click="removeTodo(todo)"
-        />
+        <ino-tooltip slot="trailing" label="Remove item" placement="right" :for="`remove-unchecked-${todo.id}`" />
+        <ino-icon-button :id="`remove-unchecked-${todo.id}`" slot="trailing" icon="remove" @click="removeTodo(todo)" />
       </ino-list-item>
       <ino-list-divider />
-      <ino-list-item
-        v-for="todo in checkedTodos"
-        :key="todo.id"
-        :text="todo.text"
-      >
-        <ino-checkbox
-          slot="leading"
-          checked="true"
-          @checkedChange="onCheckedChange(todo)"
-        />
-        <ino-tooltip
-          slot="trailing"
-          label="Remove item"
-          placement="right"
-          :for="`remove-checked-${todo.id}`"
-        />
-        <ino-icon-button
-          :id="`remove-checked-${todo.id}`"
-          slot="trailing"
-          icon="remove"
-          @click="removeTodo(todo)"
-        />
+      <ino-list-item v-for="todo in checkedTodos" :key="todo.id" :text="todo.text">
+        <ino-checkbox slot="leading" checked="true" @checkedChange="onCheckedChange(todo)" />
+        <ino-tooltip slot="trailing" label="Remove item" placement="right" :for="`remove-checked-${todo.id}`" />
+        <ino-icon-button :id="`remove-checked-${todo.id}`" slot="trailing" icon="remove" @click="removeTodo(todo)" />
       </ino-list-item>
     </ino-list>
     <div class="list-action-buttons">
-      <ino-button
-        :disabled="isResetButtonDisabled"
-        fill="outline"
-        @click="resetToDoList"
-      >
-        Reset ToDo list
-      </ino-button>
+      <ino-button :disabled="isResetButtonDisabled" fill="outline" @click="resetToDoList"> Reset ToDo list </ino-button>
       <ino-button @click="clearToDoList"> Clear ToDo list </ino-button>
     </div>
   </div>
@@ -119,10 +81,10 @@ export default {
   },
   computed: {
     uncheckedTodos() {
-      return this.todos.filter((todo) => !todo.checked);
+      return this.todos.filter(todo => !todo.checked);
     },
     checkedTodos() {
-      return this.todos.filter((todo) => todo.checked);
+      return this.todos.filter(todo => todo.checked);
     },
     isResetButtonDisabled() {
       return JSON.stringify(this.todos) === JSON.stringify(initialToDoList);

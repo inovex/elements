@@ -40,9 +40,7 @@ export class InoCarousel implements ComponentInterface {
 
   @Watch('value')
   valueChanged(newVal: string | number) {
-    const nextSlide = this.allSlides.find(
-      (slide: HTMLInoCarouselSlideElement) => slide.value === newVal,
-    );
+    const nextSlide = this.allSlides.find((slide: HTMLInoCarouselSlideElement) => slide.value === newVal);
 
     if (!nextSlide) {
       throw new Error(
@@ -115,17 +113,12 @@ export class InoCarousel implements ComponentInterface {
     clearInterval(this.timer);
 
     if (!this.autoplay) return;
-    this.timer = setInterval(
-      () => this.emitNextSlide(this.reverse ? 'previous' : 'next'),
-      this.intermission,
-    );
+    this.timer = setInterval(() => this.emitNextSlide(this.reverse ? 'previous' : 'next'), this.intermission);
   }
 
   private emitNextSlide(direction: 'next' | 'previous' = 'next') {
     let nextSlide = (
-      direction === 'next'
-        ? this.currentSlideEl.nextElementSibling
-        : this.currentSlideEl.previousElementSibling
+      direction === 'next' ? this.currentSlideEl.nextElementSibling : this.currentSlideEl.previousElementSibling
     ) as HTMLInoCarouselSlideElement;
 
     if (!this.infinite) {
@@ -143,9 +136,7 @@ export class InoCarousel implements ComponentInterface {
   }
 
   private onSlotChanged = () => {
-    this.allSlides = Array.from(
-      this.el.getElementsByTagName('ino-carousel-slide'),
-    );
+    this.allSlides = Array.from(this.el.getElementsByTagName('ino-carousel-slide'));
 
     if (this.allSlides.length === 0)
       console.warn(
@@ -162,27 +153,20 @@ export class InoCarousel implements ComponentInterface {
           </div>
           {!this.hideButtons && (
             <div class="ino-carousel__arrow ino-carousel__arrow--left">
-              <ino-icon-button
-                icon="arrow_left"
-                onClick={() => this.emitNextSlide('previous')}
-              />
+              <ino-icon-button icon="arrow_left" onClick={() => this.emitNextSlide('previous')} />
             </div>
           )}
           {!this.hideButtons && (
             <div class="ino-carousel__arrow ino-carousel__arrow--right">
-              <ino-icon-button
-                icon="arrow_right"
-                onClick={() => this.emitNextSlide('next')}
-              />
+              <ino-icon-button icon="arrow_right" onClick={() => this.emitNextSlide('next')} />
             </div>
           )}
           <div class="ino-carousel__stepper">
-            {this.allSlides.map((el) => (
+            {this.allSlides.map(el => (
               <div
                 class={classNames({
                   'ino-carousel__stepper-dot': true,
-                  'ino-carousel__stepper-dot--selected':
-                    el === this.currentSlideEl,
+                  'ino-carousel__stepper-dot--selected': el === this.currentSlideEl,
                 })}
                 onClick={() => this.valueChange.emit(el.value)}
               />

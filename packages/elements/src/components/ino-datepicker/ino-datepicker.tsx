@@ -411,10 +411,8 @@ export class Datepicker implements ComponentInterface {
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
-      prevArrow:
-        '<ino-icon class="ino-datepicker__icon" icon="arrow_left"></ino-icon>',
-      nextArrow:
-        '<ino-icon class="ino-datepicker__icon" icon="arrow_right"></ino-icon>',
+      prevArrow: '<ino-icon class="ino-datepicker__icon" icon="arrow_left"></ino-icon>',
+      nextArrow: '<ino-icon class="ino-datepicker__icon" icon="arrow_right"></ino-icon>',
       ignoredFocusElements: [],
       wrap: false,
       locale: getDatepickerLocale(this.el),
@@ -481,8 +479,8 @@ export class Datepicker implements ComponentInterface {
           helper-persistent={this.helperPersistent}
           helper-validation={this.helperValidation}
           show-label-hint={this.showLabelHint}
-          onValueChange={(e) => this.valueChange.emit(e.detail)}
-          ref={(inoInputEl) => (this.inoInputEl = inoInputEl)}
+          onValueChange={e => this.valueChange.emit(e.detail)}
+          ref={inoInputEl => (this.inoInputEl = inoInputEl)}
         >
           {!this.inline && (
             <ino-icon

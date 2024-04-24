@@ -1,29 +1,17 @@
-import type {
-  BuildCtx,
-  CompilerCtx,
-  Config,
-  OutputTargetCustom,
-} from '@stencil/core/internal';
+import type { BuildCtx, CompilerCtx, Config, OutputTargetCustom } from '@stencil/core/internal';
 import type { OutputTargetVue } from '@stencil/vue-output-target';
 import { vueOutputTarget as stencilVueOutputTarget } from '@stencil/vue-output-target';
 import * as fs from 'fs';
 import * as path from 'path';
 import { join } from 'path';
 
-const fixedVueOutputTarget = (
-  outputTarget: OutputTargetVue,
-): OutputTargetCustom => {
+const fixedVueOutputTarget = (outputTarget: OutputTargetVue): OutputTargetCustom => {
   const stencilOutputTarget = stencilVueOutputTarget(outputTarget);
 
   return {
     type: 'custom',
     name: 'vue-output-target',
-    generator: async (
-      _config: Config,
-      compilerCtx: CompilerCtx,
-      buildCtx: BuildCtx,
-      docs: any,
-    ) => {
+    generator: async (_config: Config, compilerCtx: CompilerCtx, buildCtx: BuildCtx, docs: any) => {
       await stencilOutputTarget.generator(_config, compilerCtx, buildCtx, docs);
       await runFix(outputTarget.proxiesFile);
     },
@@ -33,11 +21,7 @@ const fixedVueOutputTarget = (
 async function runFix(proxyPath: string) {
   const fullProxyPath = path.resolve(__dirname, '..', proxyPath);
 
-  const elementsVueUtilsPath = path.resolve(
-    path.dirname(fullProxyPath),
-    'vue-component-lib',
-    'utils.ts',
-  );
+  const elementsVueUtilsPath = path.resolve(path.dirname(fullProxyPath), 'vue-component-lib', 'utils.ts');
 
   // provide v-model bindings for elements components
   // change auto-generated utils file to change model update handling
@@ -60,13 +44,7 @@ export default fixedVueOutputTarget({
   // see elements-vue/src/index.ts
   componentModels: [
     {
-      elements: [
-        'ino-checkbox',
-        'ino-radio',
-        'ino-switch',
-        'ino-segment-button',
-        'ino-control-item',
-      ],
+      elements: ['ino-checkbox', 'ino-radio', 'ino-switch', 'ino-segment-button', 'ino-control-item'],
       targetAttr: 'checked',
       event: 'checked-change',
     },

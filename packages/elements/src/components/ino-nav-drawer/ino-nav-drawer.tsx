@@ -15,15 +15,17 @@ import { NavDrawerAnchor, NavDrawerVariant, NavDrawerLabels } from '../types';
 import classNames from 'classnames';
 
 /**
- * A navigation drawer component with different variants, setting up the base layout for your app.
+ * A navigation drawer component designed to organize and facilitate user navigation in your app.
  * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
  *
- * > Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.
+ * Usage Note:
+ * - This component is intended exclusively for navigation purposes. It is optimized for holding items like `ino-list` and `ino-nav-item` for effective user guidance.
+ * - To maintain a clean and organized app structure, `ino-nav-drawer` should be used once per application. This ensures a consistent and predictable navigation experience across different parts of the app.
  *
- * @slot header - For a custom header on top of the navigation bar
- * @slot logo - For the logo on top of the navigation bar (cannot be used with the `header` slot)
+ * @slot header - For a custom header on top of the navigation drawer
+ * @slot logo - For the logo on top of the navigation drawer (cannot be used with the `header` slot)
  * @slot subtitle - For the element just below the logo (cannot be used with the `header` slot)
- * @slot content - For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`)
+ * @slot content - For the content of the navigation drawer (usually used with `ino-list` and `ino-nav-item`)
  * @slot footer - For elements below the content slot
  * @slot app - For the application located next to this nav-drawer
  */
@@ -134,9 +136,7 @@ export class NavDrawer implements ComponentInterface {
   }
 
   private initDrawerInstance(): void {
-    this.drawerInstance = new MDCDrawer(
-      this.el.shadowRoot.querySelector('.mdc-drawer'),
-    );
+    this.drawerInstance = new MDCDrawer(this.el.shadowRoot.querySelector('.mdc-drawer'));
     // set initial value of open state
     if (this.drawerInstance) {
       this.drawerInstance.open = this.open || false;
@@ -145,22 +145,21 @@ export class NavDrawer implements ComponentInterface {
 
   private activateMobileMode() {
     const navItems = this.el.querySelectorAll('ino-nav-item');
-    navItems.forEach((item) => {
+    navItems.forEach(item => {
       item.classList.add('mobile-nav-item');
     });
   }
 
   private deactivateMobileMode() {
     const navItems = this.el.querySelectorAll('ino-nav-item');
-    navItems.forEach((item) => {
+    navItems.forEach(item => {
       item.classList.remove('mobile-nav-item');
     });
   }
 
   private deactivateAllItems() {
-    const allItems: NodeListOf<HTMLInoListItemElement> =
-      this.el.querySelectorAll('ino-list-item');
-    allItems.forEach((item) => (item.activated = false));
+    const allItems: NodeListOf<HTMLInoListItemElement> = this.el.querySelectorAll('ino-list-item');
+    allItems.forEach(item => (item.activated = false));
   }
 
   private closeDrawer = (e: Event) => {
@@ -188,8 +187,7 @@ export class NavDrawer implements ComponentInterface {
     const classDrawer = classNames({
       'mdc-drawer': true,
       'mdc-drawer--docked': variant === 'docked',
-      'mdc-drawer--dismissible':
-        variant === 'dismissible' || variant === 'docked', // docked is a modifier of MDC's dismissible inoVariant
+      'mdc-drawer--dismissible': variant === 'dismissible' || variant === 'docked', // docked is a modifier of MDC's dismissible inoVariant
       'mdc-drawer--modal': variant === 'modal' || isMobile,
       'mdc-drawer--anchor-left': anchor === 'left',
       'mdc-drawer--anchor-right': anchor === 'right',
@@ -197,12 +195,11 @@ export class NavDrawer implements ComponentInterface {
     });
 
     const classAppContent = classNames({
-      'mdc-drawer-app-content':
-        variant === 'docked' || variant === 'dismissible',
+      'mdc-drawer-app-content': variant === 'docked' || variant === 'dismissible',
     });
 
     const nav = (
-      <aside class={classDrawer} ref={(el) => (this.drawerEl = el)}>
+      <aside class={classDrawer} ref={el => (this.drawerEl = el)}>
         <div class="mdc-drawer__header">
           <slot name="header">
             <div class="mdc-drawer__logo">
@@ -246,9 +243,7 @@ export class NavDrawer implements ComponentInterface {
     return (
       <Host>
         {nav}
-        {(isMobile || variant === 'modal') && (
-          <div class="mdc-drawer-scrim"></div>
-        )}
+        {(isMobile || variant === 'modal') && <div class="mdc-drawer-scrim"></div>}
         {main}
       </Host>
     );

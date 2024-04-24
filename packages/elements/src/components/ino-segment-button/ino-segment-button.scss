@@ -18,12 +18,7 @@ $text-active: theme.$p-5;
 ino-segment-button {
   .button {
     @include typography.font($size: m, $weight: medium);
-    @include common.border-rounding-animation(
-      $round-border,
-      $edged-border,
-      0.15s,
-      $round-to-edged: true
-    );
+    @include common.border-rounding-animation($round-border, $edged-border, 0.15s, $round-to-edged: true);
 
     display: flex;
     flex-direction: row;
@@ -43,12 +38,7 @@ ino-segment-button {
 
     &:hover {
       color: $text-active;
-      @include common.border-rounding-animation(
-        $round-border,
-        $edged-border,
-        0.15s,
-        $round-to-edged: false
-      );
+      @include common.border-rounding-animation($round-border, $edged-border, 0.15s, $round-to-edged: false);
     }
 
     &:focus {

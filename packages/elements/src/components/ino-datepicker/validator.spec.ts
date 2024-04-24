@@ -1,7 +1,20 @@
 import { Validator } from './validator';
 
+const originalConsole = console;
+
 describe('DateValidator', () => {
   let dateValidator: Validator;
+
+  beforeAll(() => {
+    global.console = {
+      ...console,
+      warn: jest.fn(),
+    };
+  });
+
+  afterAll(() => {
+    global.console = originalConsole;
+  });
 
   beforeEach(() => {
     dateValidator = new Validator({

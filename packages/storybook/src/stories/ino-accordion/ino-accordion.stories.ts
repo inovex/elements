@@ -11,14 +11,13 @@ const eventHandler = (e: CustomEvent<boolean>) => {
 const inoAccordionMeta = {
   title: 'Structure/ino-accordion',
   component: 'ino-accordion',
-  render: (args) => html` <ino-accordion
+  render: args => html` <ino-accordion
     expanded="${args.expanded}"
     accordion-title="${args.accordionTitle}"
     @expandedChange="${eventHandler}"
   >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi enim,
-    venenatis non facilisis sed, finibus in enim. Sed auctor enim nisl, sit amet
-    feugiat risus blandit vitae.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi enim, venenatis non facilisis sed, finibus in
+    enim. Sed auctor enim nisl, sit amet feugiat risus blandit vitae.
   </ino-accordion>`,
   args: {
     expanded: false,

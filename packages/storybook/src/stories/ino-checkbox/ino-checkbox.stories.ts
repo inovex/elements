@@ -8,7 +8,7 @@ import './ino-checkbox.scss';
 const InoCheckboxMeta = {
   title: 'Input/ino-checkbox',
   component: 'ino-checkbox',
-  render: (args) => {
+  render: args => {
     const [checked, setChecked] = useState(args.checked);
 
     function handleCheckboxChange(ev: CustomEvent<boolean>) {

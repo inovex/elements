@@ -20,9 +20,7 @@ describe('InoSnackbar', () => {
 
     inoSnackbar.setAttribute('action-text', 'my action');
     await page.waitForChanges();
-    inoSnackbar
-      .querySelector<HTMLButtonElement>('.ino-snackbar-action-btn')
-      .click();
+    inoSnackbar.querySelector<HTMLButtonElement>('.ino-snackbar-action-btn').click();
     await page.waitForChanges();
 
     expect(eventSpy).toHaveBeenCalled();

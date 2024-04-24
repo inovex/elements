@@ -2,13 +2,7 @@
 
 import Contact from './_components/contact/contact';
 import { SubRoutes } from '@routes';
-import {
-  ComponentSample,
-  CoreAspects,
-  FaqSection,
-  Header,
-  KPIsection,
-} from './_components/home';
+import { ComponentSample, CoreAspects, FaqSection, Header, KPIsection } from './_components/home';
 
 export const Home = () => {
   return (

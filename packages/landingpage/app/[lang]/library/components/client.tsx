@@ -28,18 +28,9 @@ export const StoryBookPage = () => {
   return (
     <div className={styles.container}>
       {storybookUrl && (
-        <a
-          className={styles.openExternallyButton}
-          href={storybookUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className={styles.openExternallyButton} href={storybookUrl} target="_blank" rel="noreferrer">
           <InoButton>
-            <InoIcon
-              className={styles.openExternallyButtonIcon}
-              icon={openInNew}
-              slot="icon-leading"
-            ></InoIcon>
+            <InoIcon className={styles.openExternallyButtonIcon} icon={openInNew} slot="icon-leading"></InoIcon>
             Open storybook in new tab
           </InoButton>
         </a>

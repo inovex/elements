@@ -1,14 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  InoButton,
-  InoIcon,
-  InoImg,
-  InoInput,
-  InoSnackbar,
-  InoPopover,
-  InoTab,
-} from '../shared/InovexElements';
+import { InoButton, InoIcon, InoImg, InoInput, InoSnackbar, InoPopover, InoTab } from '../shared/InovexElements';
 import { InputType } from '@inovex.de/elements';
 import './Guide.scss';
 import logo from '../assets/elements.svg';
@@ -42,12 +34,7 @@ export const LoginFormApp: React.FC = () => {
   const ValidateLogin = () => {
     if (isValid) {
       return (
-        <InoSnackbar
-          action-text="Welcome back!"
-          timeout={5000}
-          type="success"
-          stay-visible-on-hover="false"
-        >
+        <InoSnackbar action-text="Welcome back!" timeout={5000} type="success" stay-visible-on-hover="false">
           Sucessfully logged in
         </InoSnackbar>
       );
@@ -68,14 +55,7 @@ export const LoginFormApp: React.FC = () => {
     <div className="container">
       <div className="leftpage">
         <div className="header">
-          <InoImg
-            alt="Elements logo"
-            decoding="async"
-            src={logo}
-            height={75}
-            width={75}
-            fallbackIcon="cloud"
-          ></InoImg>
+          <InoImg alt="Elements logo" decoding="async" src={logo} height={75} width={75} fallbackIcon="cloud"></InoImg>
           <h1 style={{ paddingLeft: 25, fontSize: 25 }}>Elements</h1>
         </div>
         <div className="body">
@@ -98,14 +78,14 @@ export const LoginFormApp: React.FC = () => {
               label="email"
               outline
               value={email}
-              onValueChange={(value) => setEmail(value.detail)}
+              onValueChange={value => setEmail(value.detail)}
             ></InoInput>
             <InoInput
               type={hidePassword}
               label="password"
               outline
               value={password}
-              onValueChange={(value) => setPassword(value.detail)}
+              onValueChange={value => setPassword(value.detail)}
             >
               <InoIcon
                 slot="icon-trailing"

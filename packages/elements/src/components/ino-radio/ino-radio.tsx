@@ -1,16 +1,6 @@
 import { MDCFormField } from '@material/form-field';
 import { MDCRadio } from '@material/radio';
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Prop,
-  Watch,
-  h,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
 import classnames from 'classnames';
 import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
@@ -88,9 +78,7 @@ export class Radio implements ComponentInterface {
 
   componentDidLoad() {
     this.radio = new MDCRadio(this.el.shadowRoot.querySelector('.mdc-radio'));
-    this.formField = new MDCFormField(
-      this.el.shadowRoot.querySelector('.mdc-form-field'),
-    );
+    this.formField = new MDCFormField(this.el.shadowRoot.querySelector('.mdc-form-field'));
     this.formField.input = this.radio;
   }
 
@@ -125,9 +113,9 @@ export class Radio implements ComponentInterface {
               disabled={this.disabled}
               name={this.name}
               value={this.value}
-              ref={(input) => (this.nativeInputEl = input as HTMLInputElement)}
+              ref={input => (this.nativeInputEl = input as HTMLInputElement)}
               onInput={this.handleInput}
-              onChange={(e) => e.stopPropagation()}
+              onChange={e => e.stopPropagation()}
             />
 
             <div class="mdc-radio__background">

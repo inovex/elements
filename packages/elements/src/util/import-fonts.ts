@@ -9,22 +9,14 @@ function checkFont(strFamily: HostedFonts): boolean {
 }
 
 function addCSSToHead() {
-  const isCSSVarLoaded = Boolean(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      '--ino-font-family',
-    ),
-  );
+  const isCSSVarLoaded = Boolean(getComputedStyle(document.documentElement).getPropertyValue('--ino-font-family'));
 
   const isLatoLoaded = checkFont(HostedFonts.LATO);
 
   if (!isCSSVarLoaded && !isLatoLoaded) {
     const style = document.createElement('style');
     style.setAttribute('type', 'text/css');
-    style.appendChild(
-      document.createTextNode(
-        "@import url('https://static.inovex.de/css/lato.css');",
-      ),
-    );
+    style.appendChild(document.createTextNode("@import url('https://static.inovex.de/css/lato.css');"));
     document.head.appendChild(style);
   }
 }

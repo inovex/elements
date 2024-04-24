@@ -23,21 +23,12 @@
 
   --nav-drawer-width-open: var(--ino-nav-drawer-width-open, 250px);
   --nav-drawer-width-closed: var(--ino-nav-drawer-width-closed, 72px);
-  --nav-drawer-mobile-width-open: var(
-    --ino-nav-drawer-mobile-width-open,
-    171px
-  );
+  --nav-drawer-mobile-width-open: var(--ino-nav-drawer-mobile-width-open, 171px);
   --nav-drawer-height: var(--ino-nav-drawer-height, 100%);
   --nav-drawer-background: var(--ino-nav-drawer-background, #{theme.$white});
   --nav-drawer-text-color: var(--ino-nav-drawer-text-color, #{theme.$p-7});
-  --nav-drawer-transition-duration: var(
-    --ino-nav-drawer-transition-duration,
-    0.25s
-  );
-  --nav-drawer-timing-function: var(
-    --ino-nav-drawer-timing-function,
-    (0.4, 0, 0.2, 1)
-  );
+  --nav-drawer-transition-duration: var(--ino-nav-drawer-transition-duration, 0.25s);
+  --nav-drawer-timing-function: var(--ino-nav-drawer-timing-function, (0.4, 0, 0.2, 1));
 
   display: flex;
   height: 100%;

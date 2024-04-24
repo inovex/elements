@@ -19,13 +19,9 @@ const CommandByFrameworks: Record<Framework, string> = {
 const COMMAND_CHIP_ID = 'command-chip';
 
 export default function InstallChips() {
-  const [manuallySelectedFramework, setManuallySelectedFramework] =
-    useState<Framework | null>(null);
-  const [carouselFramework, setCarouselFramework] = useState<Framework>(
-    Framework.VUE,
-  );
-  const [currentFramework, setCurrentFramework] =
-    useState<Framework>(carouselFramework);
+  const [manuallySelectedFramework, setManuallySelectedFramework] = useState<Framework | null>(null);
+  const [carouselFramework, setCarouselFramework] = useState<Framework>(Framework.VUE);
+  const [currentFramework, setCurrentFramework] = useState<Framework>(carouselFramework);
 
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);
@@ -35,12 +31,11 @@ export default function InstallChips() {
 
   useInterval(
     () => {
-      setCarouselFramework((currentCommand) => {
+      setCarouselFramework(currentCommand => {
         const currentIndex = FrameworksArr.indexOf(currentCommand);
         const nextIndex = currentIndex + 1;
 
-        if (FrameworksArr.length <= nextIndex)
-          return FrameworksArr[0] as Framework;
+        if (FrameworksArr.length <= nextIndex) return FrameworksArr[0] as Framework;
 
         return FrameworksArr[nextIndex] as Framework;
       });
@@ -69,30 +64,16 @@ export default function InstallChips() {
         >
           <code className={styles.installCommand}>$ {currentCommand}</code>
         </InoChip>
-        <p
-          className={classNames(
-            styles.successMessage,
-            showTooltip && styles.successMessageShow,
-            'body-m',
-          )}
-        >
+        <p className={classNames(styles.successMessage, showTooltip && styles.successMessageShow, 'body-m')}>
           {t('home.header.clipboard_success')}
         </p>
       </div>
       <div className={styles.frameworks}>
         {FrameworksArr.map((framework: Framework) => (
-          <div
-            key={framework}
-            className={classNames(
-              styles.icon,
-              framework === currentFramework && styles.iconActive,
-            )}
-          >
+          <div key={framework} className={classNames(styles.icon, framework === currentFramework && styles.iconActive)}>
             <Image
               onClick={() => {
-                setManuallySelectedFramework(
-                  currentFramework === framework ? null : framework,
-                );
+                setManuallySelectedFramework(currentFramework === framework ? null : framework);
                 setCarouselFramework(framework);
               }}
               src={`${IconByFramework[framework]}`}

@@ -1,13 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Prop,
-  h,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 
 /**
  * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
@@ -110,26 +101,17 @@ export class InoControlItem implements ComponentInterface {
       return;
     }
 
-    this.inputEl.shadowRoot
-      .querySelector('input')
-      .dispatchEvent(new CustomEvent('input'));
+    this.inputEl.shadowRoot.querySelector('input').dispatchEvent(new CustomEvent('input'));
   };
 
   componentDidLoad() {
     if (!['checkbox', 'radio'].includes(this.role))
-      console.warn(
-        `Given role ${this.role}is not valid, fallbacks to role radio`,
-      );
+      console.warn(`Given role ${this.role}is not valid, fallbacks to role radio`);
   }
 
   render() {
     const controlItemPosition = this.trailing ? 'trailing' : 'leading';
-    const slotPosition =
-      this.el.children.length > 0
-        ? this.trailing
-          ? 'leading'
-          : 'trailing'
-        : '';
+    const slotPosition = this.el.children.length > 0 ? (this.trailing ? 'leading' : 'trailing') : '';
 
     const controlItemProps = {
       slot: controlItemPosition,
@@ -138,7 +120,7 @@ export class InoControlItem implements ComponentInterface {
       name: this.name,
       value: this.value,
       onCheckedChange: this.changedHandler,
-      ref: (inputEl) => (this.inputEl = inputEl),
+      ref: inputEl => (this.inputEl = inputEl),
     };
 
     return (
@@ -152,10 +134,7 @@ export class InoControlItem implements ComponentInterface {
           onClick={this.clickHandler}
         >
           {this.role === 'checkbox' ? (
-            <ino-checkbox
-              {...controlItemProps}
-              indeterminate={this.indeterminate}
-            />
+            <ino-checkbox {...controlItemProps} indeterminate={this.indeterminate} />
           ) : (
             <ino-radio {...controlItemProps} />
           )}

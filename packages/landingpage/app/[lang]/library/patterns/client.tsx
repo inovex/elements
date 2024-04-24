@@ -17,10 +17,7 @@ interface PatternsPageProps {
   codeStrings: any;
 }
 
-export const PatternsPage: NextPage<PatternsPageProps> = ({
-  highlightedCodes,
-  codeStrings,
-}) => {
+export const PatternsPage: NextPage<PatternsPageProps> = ({ highlightedCodes, codeStrings }) => {
   const { t, lang } = useTranslation();
   const [expanded, setExpanded] = useState(false);
 
@@ -41,10 +38,8 @@ export const PatternsPage: NextPage<PatternsPageProps> = ({
           {lang === 'en' && (
             <div>
               <p>
-                <strong>Step 1:</strong> Modify your 'tailwind.config.js' to
-                include inovex Elements theme colors. This integration enables
-                you to utilize inovex's color palette within Tailwind's classes.
-                Refer to our{' '}
+                <strong>Step 1:</strong> Modify your 'tailwind.config.js' to include inovex Elements theme colors. This
+                integration enables you to utilize inovex's color palette within Tailwind's classes. Refer to our{' '}
                 <a
                   href="https://github.com/inovex/elements/blob/master/packages/ui-patterns/tailwind.config.js"
                   target="_blank"
@@ -55,8 +50,7 @@ export const PatternsPage: NextPage<PatternsPageProps> = ({
                 for an example configuration.
               </p>
               <p>
-                <strong>Step 2:</strong> For a detailed view of the inovex
-                Elements color palette, visit the{' '}
+                <strong>Step 2:</strong> For a detailed view of the inovex Elements color palette, visit the{' '}
                 <a
                   href="https://elements.inovex.de/en/library/components?element=docs-styleguide-colors--docs"
                   target="_blank"
@@ -64,24 +58,20 @@ export const PatternsPage: NextPage<PatternsPageProps> = ({
                 >
                   storybook styleguide
                 </a>
-                . This guide will help you in selecting appropriate color
-                variables for your designs.
+                . This guide will help you in selecting appropriate color variables for your designs.
               </p>
               <p>
-                Take a look at the Code Snippets below to explore the code and
-                result of using the inovex Elements in combination with Tailwind
-                CSS.
+                Take a look at the Code Snippets below to explore the code and result of using the inovex Elements in
+                combination with Tailwind CSS.
               </p>
             </div>
           )}
           {lang === 'de' && (
             <div>
               <p>
-                <strong>Schritt 1:</strong> Ergänzen Sie Ihre
-                'tailwind.config.js', um die Farbpalette von den inovex Elements
-                einzuschließen. Diese Integration ermöglicht es Ihnen, die
-                Farbpalette von inovex innerhalb der Tailwind-Klassen zu nutzen.
-                Beziehen Sie sich auf unser{' '}
+                <strong>Schritt 1:</strong> Ergänzen Sie Ihre 'tailwind.config.js', um die Farbpalette von den inovex
+                Elements einzuschließen. Diese Integration ermöglicht es Ihnen, die Farbpalette von inovex innerhalb der
+                Tailwind-Klassen zu nutzen. Beziehen Sie sich auf unser{' '}
                 <a
                   href="https://github.com/inovex/elements/blob/master/packages/ui-patterns/tailwind.config.js"
                   target="_blank"
@@ -92,8 +82,8 @@ export const PatternsPage: NextPage<PatternsPageProps> = ({
                 für eine Beispielkonfiguration.
               </p>
               <p>
-                <strong>Schritt 2:</strong> Für eine detaillierte Ansicht der
-                Farbpalette von inovex Elements, besuchen Sie das
+                <strong>Schritt 2:</strong> Für eine detaillierte Ansicht der Farbpalette von inovex Elements, besuchen
+                Sie das
                 <a
                   href="https://elements.inovex.de/en/library/components?element=docs-styleguide-colors--docs"
                   target="_blank"
@@ -101,14 +91,11 @@ export const PatternsPage: NextPage<PatternsPageProps> = ({
                 >
                   Storybook-Styleguide
                 </a>
-                . Dieser Leitfaden wird Ihnen helfen, geeignete Farbvariablen
-                für Ihre Designs auszuwählen.
+                . Dieser Leitfaden wird Ihnen helfen, geeignete Farbvariablen für Ihre Designs auszuwählen.
               </p>
               <p>
-                Schauen Sie sich die untenstehenden Code-Snippets an, um zu
-                sehen, wie die inovex Elements in Kombination mit Tailwind CSS
-                eingesetzt werden und welche Ergebnisse damit erzielt werden
-                können
+                Schauen Sie sich die untenstehenden Code-Snippets an, um zu sehen, wie die inovex Elements in
+                Kombination mit Tailwind CSS eingesetzt werden und welche Ergebnisse damit erzielt werden können
               </p>
             </div>
           )}

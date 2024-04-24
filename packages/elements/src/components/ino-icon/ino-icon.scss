@@ -11,16 +11,14 @@
 
   --icon-width: var(--ino-icon-width, 1em);
   --icon-height: var(--ino-icon-height, 1em);
-  --icon-color: var(
-    --ino-icon-color,
-    var(--ino-icon-color-primary, #{theme.color(primary, base)})
-  );
+  --icon-color: var(--ino-icon-color, var(--ino-icon-color-primary, #{theme.color(primary, base)}));
 }
 
 :host {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
+  vertical-align: middle;
 
   i {
     font-size: inherit;

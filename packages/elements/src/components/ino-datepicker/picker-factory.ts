@@ -7,11 +7,7 @@ export type PartialFlatpickrOptions = Partial<BaseOptions> & {
   onValueChange?: (value: string) => void;
 };
 
-export type PickerOption =
-  | TimePicker
-  | Datepicker
-  | (TimePicker & Datepicker)
-  | MonthPicker;
+export type PickerOption = TimePicker | Datepicker | (TimePicker & Datepicker) | MonthPicker;
 
 export type PickerTypeKeys = (typeof PickerTypes)[keyof typeof PickerTypes];
 
@@ -24,10 +20,7 @@ export const PickerTypes = {
   DateTime: 'datetime',
 } as const;
 
-export const createPicker = (
-  type: PickerTypeKeys,
-  options: PartialFlatpickrOptions,
-): PickerOption => {
+export const createPicker = (type: PickerTypeKeys, options: PartialFlatpickrOptions): PickerOption => {
   switch (type) {
     case PickerTypes.Date:
       return createDatePickerOptions(options);

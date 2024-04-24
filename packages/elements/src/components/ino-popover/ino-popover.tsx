@@ -11,13 +11,7 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import TippyJS, {
-  followCursor,
-  Instance as Tippy,
-  Placement,
-  Props,
-  roundArrow,
-} from 'tippy.js';
+import TippyJS, { followCursor, Instance as Tippy, Placement, Props, roundArrow } from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
 import { TippyThemes, TooltipTrigger } from '../types';
 import { closest } from '@material/dom/ponyfill';
@@ -249,9 +243,7 @@ export class Popover implements ComponentInterface {
 
     const shouldFollowCursor =
       (typeof this.followCursor == 'boolean' && this.followCursor) ||
-      ['horizontal', 'vertical', 'initial'].includes(
-        this.followCursor as string,
-      );
+      ['horizontal', 'vertical', 'initial'].includes(this.followCursor as string);
 
     if (shouldFollowCursor) {
       plugins.push(followCursor);
@@ -279,19 +271,12 @@ export class Popover implements ComponentInterface {
           fn: () => ({
             onMount: () => {
               // Workaround: datepickers may be already initialized an need to be redrawn.
-              const datepickers = Array.from(
-                this.el.querySelectorAll('ino-datepicker'),
-              ) as HTMLInoDatepickerElement[];
-              datepickers?.forEach((datepicker) => datepicker.redraw());
+              const datepickers = Array.from(this.el.querySelectorAll('ino-datepicker')) as HTMLInoDatepickerElement[];
+              datepickers?.forEach(datepicker => datepicker.redraw());
 
               const target = this.popoverContent.querySelector(
-                'ino-input[data-ino-focus],' +
-                  'ino-datepicker[data-ino-focus], ' +
-                  ' ino-textarea[data-ino-focus]',
-              ) as
-                | HTMLInoDatepickerElement
-                | HTMLInoTextareaElement
-                | HTMLInoInputElement;
+                'ino-input[data-ino-focus],' + 'ino-datepicker[data-ino-focus], ' + ' ino-textarea[data-ino-focus]',
+              ) as HTMLInoDatepickerElement | HTMLInoTextareaElement | HTMLInoInputElement;
               target?.setFocus();
             },
             onShow: () => {
@@ -344,10 +329,7 @@ export class Popover implements ComponentInterface {
     if (!e.target) {
       return;
     }
-    const element = closest(
-      e.target as Element,
-      `[${POPOVER_CLOSE_ATTRIBUTE}]`,
-    );
+    const element = closest(e.target as Element, `[${POPOVER_CLOSE_ATTRIBUTE}]`);
     if (!element) {
       return;
     }
@@ -360,11 +342,11 @@ export class Popover implements ComponentInterface {
     return (
       <Host>
         <slot name="popover-trigger" />
-        <div ref={(ref) => (this.popoverContainer = ref)}>
+        <div ref={ref => (this.popoverContainer = ref)}>
           <div
             class={popoverClasses}
             role="tooltip"
-            ref={(ref) => (this.popoverContent = ref)}
+            ref={ref => (this.popoverContent = ref)}
             onClick={this.handlePopoverClick.bind(this)}
           >
             <slot></slot>

@@ -17,7 +17,7 @@ const InoAutocompleteMeta = {
       handles: ['valueChange'],
     },
   },
-  render: (args) => html` <div style="height: 300px;">
+  render: args => html` <div style="height: 300px;">
     <ino-autocomplete
       debounce="${args.debounce}"
       .options=${args.options}

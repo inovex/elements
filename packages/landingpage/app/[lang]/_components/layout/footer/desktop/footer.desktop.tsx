@@ -12,9 +12,7 @@ export default function FooterDesktop() {
         <div key={mainRouteUrl} className={styles.col}>
           <LinkItem
             url={mainRouteUrl}
-            name={t(
-              `common.navigation.${mainRouteName}.name` as LocaleResourcePaths,
-            )}
+            name={t(`common.navigation.${mainRouteName}.name` as LocaleResourcePaths)}
             className={styles.mainRouteName}
             noMargin={true}
           />
@@ -22,9 +20,7 @@ export default function FooterDesktop() {
             <LinkItem
               key={subRouteUrl}
               url={subRouteUrl}
-              name={t(
-                `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name` as LocaleResourcePaths,
-              )}
+              name={t(`common.navigation.${mainRouteName}.subroutes.${subRouteName}.name` as LocaleResourcePaths)}
               isDense={true}
               className={styles.subRouteName}
               isFooter={true}

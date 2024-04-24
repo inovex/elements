@@ -42,20 +42,14 @@ describe('InoCarousel', () => {
   }
 
   it('should slide right upon clicking  right arrow icon', async () => {
-    const { eventSpy, assertEventDetails } = listenForEvent(
-      page,
-      'valueChange',
-    );
+    const { eventSpy, assertEventDetails } = listenForEvent(page, 'valueChange');
     await simulateIconClick('Right');
     expect(eventSpy).toHaveBeenCalled();
     assertEventDetails('b');
   });
 
   it('should show first slide in carousel upon clicking right arrow icon if last slide is showing', async () => {
-    const { eventSpy, assertEventDetails } = listenForEvent(
-      page,
-      'valueChange',
-    );
+    const { eventSpy, assertEventDetails } = listenForEvent(page, 'valueChange');
     inoCarousel.setAttribute('value', 'c');
     await page.waitForChanges();
     await simulateIconClick('Right');
@@ -64,10 +58,7 @@ describe('InoCarousel', () => {
   });
 
   it('should show last slide in carousel upon clicking left arrow icon if first slide is showing', async () => {
-    const { eventSpy, assertEventDetails } = listenForEvent(
-      page,
-      'valueChange',
-    );
+    const { eventSpy, assertEventDetails } = listenForEvent(page, 'valueChange');
     inoCarousel.setAttribute('value', 'a');
     await page.waitForChanges();
 

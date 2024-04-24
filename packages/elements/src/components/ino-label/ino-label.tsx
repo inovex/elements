@@ -60,16 +60,11 @@ export class Label {
 
   componentDidLoad() {
     if (this.outline && !this.mdcNotchedOutline) {
-      this.mdcNotchedOutline = createMDCNotchedOutline(
-        this.el.querySelector('.mdc-notched-outline'),
-      );
+      this.mdcNotchedOutline = createMDCNotchedOutline(this.el.querySelector('.mdc-notched-outline'));
     }
   }
 
-  private filledTemplate = (label: HTMLElement) => [
-    <div class="mdc-line-ripple" />,
-    label,
-  ];
+  private filledTemplate = (label: HTMLElement) => [<div class="mdc-line-ripple" />, label];
 
   private outlineTemplate = (label: HTMLElement) => (
     <div class="mdc-notched-outline">
@@ -95,12 +90,6 @@ export class Label {
       ''
     );
 
-    return (
-      <Host class={hostClasses}>
-        {this.outline
-          ? this.outlineTemplate(label)
-          : this.filledTemplate(label)}
-      </Host>
-    );
+    return <Host class={hostClasses}>{this.outline ? this.outlineTemplate(label) : this.filledTemplate(label)}</Host>;
   }
 }

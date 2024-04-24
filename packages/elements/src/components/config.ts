@@ -43,11 +43,7 @@ export const inoElementsConfig = new Config();
 export const setupConfig = (config: InoElementsConfig) => {
   const win = window as any as InoElementsWindow;
   const namespace = win.inoElements;
-  if (
-    namespace &&
-    namespace.config &&
-    namespace.config.constructor.name !== 'Object'
-  ) {
+  if (namespace && namespace.config && namespace.config.constructor.name !== 'Object') {
     console.error('inovex elements config was already initialized');
     return;
   }

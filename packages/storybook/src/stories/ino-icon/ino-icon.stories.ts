@@ -6,17 +6,14 @@ import Story from '../StoryWrapper';
 import ICONS from './../../../../elements/src/components/ino-icon/icons';
 import './ino-icon.scss';
 
-const ICONS_WITHOUT_INTERNALS = ICONS.filter(
-  (icon) => !icon.startsWith('_'),
-).concat([
+const ICONS_WITHOUT_INTERNALS = ICONS.filter(icon => !icon.startsWith('_')).concat([
   'status_zukuenftige',
   'status_abwesend',
   'status_offboarding_laufend',
 ]);
 
 function copyToClipboard(text) {
-  const snackbar: HTMLInoSnackbarElement =
-    document.createElement('ino-snackbar');
+  const snackbar: HTMLInoSnackbarElement = document.createElement('ino-snackbar');
 
   navigator.clipboard
     .writeText(text)
@@ -31,17 +28,11 @@ function copyToClipboard(text) {
     });
 }
 
-const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
-  (name) => name.length >= 1,
-);
+const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(name => name.length >= 1);
 
 const iconChips = ICON_IDS.map(
-  (name) => html`
-    <ino-chip
-      id="icon-${name}"
-      value="${name}"
-      @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
-    >
+  name => html`
+    <ino-chip id="icon-${name}" value="${name}" @chipClicked="${ev => copyToClipboard(ev.detail)}">
       <ino-icon class="chip-icon" slot="icon-leading" icon="${name}"></ino-icon>
       ${name}
     </ino-chip>
@@ -53,14 +44,11 @@ const InoIconMeta = {
   component: 'ino-icon',
   parameters: {
     actions: {
-      handles: [
-        'clickEl .customizable-icon',
-        'valueChange .customizable-input',
-      ],
+      handles: ['clickEl .customizable-icon', 'valueChange .customizable-input'],
     },
   },
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         const searchIconHandler = function (e) {
           if (e.target.tagName.toLowerCase() !== 'ino-input') {
@@ -70,19 +58,17 @@ const InoIconMeta = {
           const input = e.target as HTMLInoInputElement;
 
           const value: string = e.detail;
-          const chips: HTMLInoChipElement[] = Array.from(
-            document.getElementsByTagName('ino-chip'),
-          );
+          const chips: HTMLInoChipElement[] = Array.from(document.getElementsByTagName('ino-chip'));
 
           // Hide not matching icons
           chips
-            .filter((chip) => !chip.value.includes(value.toLowerCase()))
-            .map((chip) => (chip.style.visibility = 'hidden'));
+            .filter(chip => !chip.value.includes(value.toLowerCase()))
+            .map(chip => (chip.style.visibility = 'hidden'));
 
           // Show matching icons
           chips
-            .filter((chip) => chip.value.includes(value.toLowerCase()))
-            .map((chip) => (chip.style.visibility = 'visible'));
+            .filter(chip => chip.value.includes(value.toLowerCase()))
+            .map(chip => (chip.style.visibility = 'visible'));
 
           input.value = value;
         };
@@ -97,7 +83,7 @@ const InoIconMeta = {
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-icon
       class="customizable-icon"
       clickable="${args.clickable}"

@@ -78,7 +78,7 @@ export class RadioGroup implements ComponentInterface {
     ev.preventDefault();
 
     const radios = await this.getRadios();
-    const checkedRadio = radios.find((radio) => Boolean(radio.checked));
+    const checkedRadio = radios.find(radio => Boolean(radio.checked));
 
     if (!checkedRadio) {
       this.valueChange.emit(radios[0].value);
@@ -90,14 +90,11 @@ export class RadioGroup implements ComponentInterface {
     switch (ev.key) {
       case 'ArrowDown':
       case 'ArrowRight':
-        nextRadioButton =
-          (checkedRadio.nextElementSibling as HTMLInoRadioElement) ?? radios[0];
+        nextRadioButton = (checkedRadio.nextElementSibling as HTMLInoRadioElement) ?? radios[0];
         break;
       case 'ArrowUp':
       case 'ArrowLeft':
-        nextRadioButton =
-          (checkedRadio.previousElementSibling as HTMLInoRadioElement) ??
-          radios[radios.length - 1];
+        nextRadioButton = (checkedRadio.previousElementSibling as HTMLInoRadioElement) ?? radios[radios.length - 1];
         break;
     }
 
@@ -109,7 +106,7 @@ export class RadioGroup implements ComponentInterface {
    */
   private async addHoverAnimation(hoveredRadio: HTMLInoRadioElement) {
     const radios = await this.getRadios();
-    const checkedRadio = radios.find((radio) => Boolean(radio.checked));
+    const checkedRadio = radios.find(radio => Boolean(radio.checked));
 
     if (!checkedRadio || hoveredRadio === checkedRadio) {
       return;
@@ -120,9 +117,7 @@ export class RadioGroup implements ComponentInterface {
 
   private async removeHoverAnimation() {
     const radios = await this.getRadios();
-    const checkedRadio = radios.find((radio) =>
-      radio.classList.contains('ino-checked-hover'),
-    );
+    const checkedRadio = radios.find(radio => radio.classList.contains('ino-checked-hover'));
 
     if (!checkedRadio) {
       return;

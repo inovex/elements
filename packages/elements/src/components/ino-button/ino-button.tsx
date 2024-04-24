@@ -1,12 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  h,
-  Host,
-  Prop,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
@@ -126,15 +118,11 @@ export class Button implements ComponentInterface {
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
     const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
-    const inoButtonClasses = classNames(
-      'button',
-      `button__variant--${this.variant}`,
-      {
-        'button__icon--leading': leadingSlotHasContent,
-        'button__icon--trailing': trailingSlotHasContent,
-        'button--dense': this.dense,
-      },
-    );
+    const inoButtonClasses = classNames('button', `button__variant--${this.variant}`, {
+      'button__icon--leading': leadingSlotHasContent,
+      'button__icon--trailing': trailingSlotHasContent,
+      'button--dense': this.dense,
+    });
 
     const labelClasses = classNames('button__label', {
       'button__label--hide': this.loading,
@@ -149,7 +137,7 @@ export class Button implements ComponentInterface {
           name={this.name}
           type={this.type}
           form={this.form}
-          ref={(el) => (this.buttonEl = el)}
+          ref={el => (this.buttonEl = el)}
         >
           {leadingSlotHasContent && (
             <span class="icon__wrapper">

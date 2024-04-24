@@ -9,10 +9,7 @@ test.describe('ino-option', () => {
     async function selectOptionByText(text: string) {
       const option = page.getByText(text);
       await inoSelect.click();
-      await expect(
-        option,
-        `Option "${text}" should be visible after clicking on the select.`,
-      ).toBeVisible();
+      await expect(option, `Option "${text}" should be visible after clicking on the select.`).toBeVisible();
       await option.click();
     }
 

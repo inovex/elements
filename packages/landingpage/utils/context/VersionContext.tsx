@@ -4,9 +4,7 @@ export interface VersionContextType {
   versions: string[];
 }
 
-export const VersionContext = createContext<VersionContextType | undefined>(
-  undefined,
-);
+export const VersionContext = createContext<VersionContextType | undefined>(undefined);
 
 export const VersionProvider = ({ children }: { children: ReactNode }) => {
   const [versions, setVersions] = useState<string[]>([]);

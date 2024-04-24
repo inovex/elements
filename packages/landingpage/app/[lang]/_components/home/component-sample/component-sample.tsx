@@ -38,24 +38,19 @@ export default function ComponentSample() {
   return (
     <div>
       <h1 className="header-d3">
-        {t('home.component_sample.title_1')}{' '}
-        <b>{t('home.component_sample.title_2')}</b>
+        {t('home.component_sample.title_1')} <b>{t('home.component_sample.title_2')}</b>
       </h1>
       <div className={classNames(styles.subHeaderContainer, 'body-l')}>
-        <p className={styles.subheader}>
-          {t('home.component_sample.subheader')}
-        </p>
+        <p className={styles.subheader}>{t('home.component_sample.subheader')}</p>
         <span className={styles.link}>
-          <Link href={`${lang}${MainRoutes.LIBRARY}`}>
-            {t('home.component_sample.link')}
-          </Link>
+          <Link href={`${lang}${MainRoutes.LIBRARY}`}>{t('home.component_sample.link')}</Link>
         </span>
       </div>
       <div className={styles.componentGrid}>
         <div className={styles.chip}>
           <ComponentSampleCard componentName="Chip" componentCategory="Button">
             <div className={styles.chips}>
-              {Object.values(ChipValues).map((value) => (
+              {Object.values(ChipValues).map(value => (
                 <InoChip
                   key={value}
                   selectable={true}
@@ -77,16 +72,13 @@ export default function ComponentSample() {
                 max={100}
                 value={rangeValue}
                 step={1}
-                onValueChange={(value) => setRangeValue(value.detail)}
+                onValueChange={value => setRangeValue(value.detail)}
               ></InoRange>
             </div>
           </ComponentSampleCard>
         </div>
         <div className={styles.snackbar}>
-          <ComponentSampleCard
-            componentName="Button"
-            componentCategory="Button"
-          >
+          <ComponentSampleCard componentName="Button" componentCategory="Button">
             <InoButton>
               <span>{t('home.component_sample.button')}</span>
             </InoButton>
@@ -94,56 +86,43 @@ export default function ComponentSample() {
         </div>
         <div className={styles.input}>
           <ComponentSampleCard componentName="Input" componentCategory="Input">
-            <InoInput
-              label="Label"
-              value={inputValue}
-              onValueChange={(value) => setInputValue(value.detail)}
-            >
+            <InoInput label="Label" value={inputValue} onValueChange={value => setInputValue(value.detail)}>
               <InoIcon slot="icon-leading" icon="calendar"></InoIcon>
             </InoInput>
           </ComponentSampleCard>
         </div>
         <div className={styles.toggle}>
           <ComponentSampleCard componentName="Toggle" componentCategory="Input">
-            <InoSwitch
-              checked={switchValue}
-              onCheckedChange={(value) => setSwitchValue(value.detail)}
-            >
+            <InoSwitch checked={switchValue} onCheckedChange={value => setSwitchValue(value.detail)}>
               <InoIcon slot="leading" icon="offboarding"></InoIcon>
               <InoIcon slot="trailing" icon="onboarding"></InoIcon>
             </InoSwitch>
           </ComponentSampleCard>
         </div>
         <div className={styles.controlitem}>
-          <ComponentSampleCard
-            componentName="Control Item"
-            componentCategory="Structure"
-          >
+          <ComponentSampleCard componentName="Control Item" componentCategory="Structure">
             <div>
               <InoControlItem
                 role="checkbox"
                 checked={checkboxValue}
                 text="Checkbox"
-                onCheckedChange={(value) => setCheckboxValue(value.detail)}
+                onCheckedChange={value => setCheckboxValue(value.detail)}
               ></InoControlItem>
               <InoControlItem
                 role="radio"
                 checked={radioboxValue}
                 text="Radio Button"
-                onCheckedChange={(value) => setRadioboxValue(value.detail)}
+                onCheckedChange={value => setRadioboxValue(value.detail)}
               ></InoControlItem>
             </div>
           </ComponentSampleCard>
         </div>
         <div className={styles.segmentgroup}>
-          <ComponentSampleCard
-            componentName={'Segment-Group'}
-            componentCategory={'Button'}
-          >
+          <ComponentSampleCard componentName={'Segment-Group'} componentCategory={'Button'}>
             <InoSegmentGroup
               id="segment-grp"
               value={segmentButtonValue}
-              onValueChange={(value) => setSegmentButtonValue(value.detail)}
+              onValueChange={value => setSegmentButtonValue(value.detail)}
             >
               <InoSegmentButton value="opt-1">Option 1</InoSegmentButton>
               <InoSegmentButton value="opt-2">Option 2</InoSegmentButton>

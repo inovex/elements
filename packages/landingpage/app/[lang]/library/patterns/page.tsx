@@ -27,10 +27,5 @@ export default async function Page() {
     highlightedCodes[label] = codeToHtml(code);
   }
 
-  return (
-    <PatternsPage
-      highlightedCodes={highlightedCodes}
-      codeStrings={codeStrings}
-    ></PatternsPage>
-  );
+  return <PatternsPage highlightedCodes={highlightedCodes} codeStrings={codeStrings}></PatternsPage>;
 }

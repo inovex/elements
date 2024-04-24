@@ -10,11 +10,7 @@ const maybeCreateStoryArgs = <T>(story: StoryObj<T>): void => {
   }
 };
 
-export const withIconControl = <T>(
-  story: StoryObj<T>,
-  propertyName: string,
-  defaultValue?: string,
-) => {
+export const withIconControl = <T>(story: StoryObj<T>, propertyName: string, defaultValue?: string) => {
   maybeCreateStoryArgs(story);
   story.args = { ...story.args, [propertyName]: defaultValue || '' };
   story.argTypes = {
@@ -28,11 +24,7 @@ export const withIconControl = <T>(
   };
 };
 
-export const withSortDirection = <T>(
-  story: StoryObj<T>,
-  propertyName: string,
-  defaultValue?: string,
-) => {
+export const withSortDirection = <T>(story: StoryObj<T>, propertyName: string, defaultValue?: string) => {
   maybeCreateStoryArgs(story);
   story.args = { ...story.args, [propertyName]: defaultValue || '' };
   story.argTypes = {
@@ -46,12 +38,10 @@ export const withSortDirection = <T>(
   };
 };
 
-export const getIcons = () =>
-  ICONS.filter((icon: string) => !icon.startsWith('_'));
+export const getIcons = () => ICONS.filter((icon: string) => !icon.startsWith('_'));
 
 export const showSnackbar = (message: string) => {
-  const snackbar: HTMLInoSnackbarElement =
-    document.createElement('ino-snackbar');
+  const snackbar: HTMLInoSnackbarElement = document.createElement('ino-snackbar');
   snackbar.message = message;
   document.body.appendChild(snackbar);
   snackbar.addEventListener('hideEl', () => snackbar.remove());

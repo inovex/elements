@@ -14,9 +14,7 @@ function PatternWrapper({ htmlContent, onMount }: PatternWrapperProps) {
     return onMount(containerRef.current);
   }, [onMount]);
 
-  return (
-    <div ref={containerRef} dangerouslySetInnerHTML={{ __html: htmlContent }} />
-  );
+  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
 
 export default PatternWrapper;

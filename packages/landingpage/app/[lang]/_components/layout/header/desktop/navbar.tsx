@@ -46,9 +46,7 @@ export default function Navbar() {
                   <LinkItem
                     key={subRouteUrl}
                     url={subRouteUrl}
-                    name={t(
-                      `common.navigation.${key}.subroutes.${subRouteName}.name` as LocaleResourcePaths,
-                    )}
+                    name={t(`common.navigation.${key}.subroutes.${subRouteName}.name` as LocaleResourcePaths)}
                     isDense={true}
                     isSubItem={true}
                   />

@@ -14,9 +14,7 @@ export default function FooterMobile() {
       {Routes.map(({ key: mainRouteName, url: mainRouteUrl, subRoutes }) => (
         <div key={mainRouteUrl} className={styles.accordion}>
           <InoAccordion
-            accordionTitle={t(
-              `common.navigation.${mainRouteName}.name` as LocaleResourcePaths,
-            )}
+            accordionTitle={t(`common.navigation.${mainRouteName}.name` as LocaleResourcePaths)}
             expanded={has(mainRouteUrl)}
             onExpandedChange={() => toggle(mainRouteUrl)}
           >
@@ -24,9 +22,7 @@ export default function FooterMobile() {
               <LinkItem
                 key={subRouteUrl}
                 url={subRouteUrl}
-                name={t(
-                  `common.navigation.${mainRouteName}.subroutes.${subRouteName}.name` as LocaleResourcePaths,
-                )}
+                name={t(`common.navigation.${mainRouteName}.subroutes.${subRouteName}.name` as LocaleResourcePaths)}
                 isDense={true}
                 className={styles.subRouteName}
               />

@@ -1,10 +1,5 @@
 import React, { ReactNode } from 'react';
-import {
-  BrowserRouter as Router,
-  Navigate,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import './index.scss';
 import logo from '../../../assets/logo/elements.svg';
 
@@ -55,7 +50,7 @@ const App: React.FC = () => {
         open={navOpen}
         anchor="left"
         variant="docked"
-        onOpenChange={(event) => {
+        onOpenChange={event => {
           setNavOpen(event.detail);
         }}
       >
@@ -78,7 +73,7 @@ const App: React.FC = () => {
             <Route path="/home" element={<HomeTodoApp />} />
             <Route path="/guide" element={<LoginFormApp />} />
 
-            {ROUTES.map((route) => (
+            {ROUTES.map(route => (
               <Route key={route.to} path={route.to} element={route.component} />
             ))}
           </Routes>

@@ -1,13 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Prop,
-  h,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 /**
@@ -87,18 +78,12 @@ export class InputFile implements ComponentInterface {
   }
 
   disconnectedCallback(): void {
-    this.eventListeners.forEach((tuple) =>
-      this.removeEventListeners(this.el, tuple[0], tuple[1]),
-    );
+    this.eventListeners.forEach(tuple => this.removeEventListeners(this.el, tuple[0], tuple[1]));
   }
 
-  private addEventListeners(
-    el: HTMLElement,
-    events: string,
-    fn: EventListener | EventListenerObject,
-  ): void {
+  private addEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
     this.eventListeners.push([events, fn]);
-    events.split(' ').forEach((e) => {
+    events.split(' ').forEach(e => {
       el.addEventListener(e, fn);
     });
   }
@@ -106,10 +91,7 @@ export class InputFile implements ComponentInterface {
   private browserSupportsDragAndDrop(): boolean {
     return (
       'draggable' in this.el ||
-      ('ondragstart' in this.el &&
-        'ondrop' in this.el &&
-        'FormData' in window &&
-        'FileReader' in window)
+      ('ondragstart' in this.el && 'ondrop' in this.el && 'FormData' in window && 'FileReader' in window)
     );
   }
 
@@ -117,14 +99,10 @@ export class InputFile implements ComponentInterface {
     if (this.dragAndDrop && this.browserSupportsDragAndDrop()) {
       const box = this.el.querySelector('.ino-input-file__dnd');
 
-      this.addEventListeners(
-        this.el,
-        'drag dragstart dragend dragover dragenter dragleave drop',
-        (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-        },
-      );
+      this.addEventListeners(this.el, 'drag dragstart dragend dragover dragenter dragleave drop', e => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
       this.addEventListeners(this.el, 'dragover dragenter', () => {
         box.classList.add('ino-input-file__dnd-dragover');
       });
@@ -151,18 +129,12 @@ export class InputFile implements ComponentInterface {
     this.changeFile.emit({ e, files: Array.from(files) });
   }
 
-  private removeEventListeners(
-    el: HTMLElement,
-    events: string,
-    fn: EventListener | EventListenerObject,
-  ): void {
-    events.split(' ').forEach((e) => el.removeEventListener(e, fn));
+  private removeEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
+    events.split(' ').forEach(e => el.removeEventListener(e, fn));
   }
 
   private selectFiles() {
-    const input = this.el.querySelector(
-      '.ino-input-file__native-element',
-    ) as HTMLElement;
+    const input = this.el.querySelector('.ino-input-file__native-element') as HTMLElement;
     input.click();
   }
 
@@ -202,7 +174,7 @@ export class InputFile implements ComponentInterface {
             required={this.required}
             type="file"
             aria-hidden="true"
-            onChange={(e) => this.onFileChange(e)}
+            onChange={e => this.onFileChange(e)}
           />
         </div>
       </Host>

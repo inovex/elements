@@ -14,24 +14,12 @@ interface Props {
   isInactive?: boolean;
 }
 
-const ContributorsCard: FunctionComponent<Props> = ({
-  role,
-  username,
-  avatarUrl,
-  profileLink,
-  isInactive,
-}) => (
+const ContributorsCard: FunctionComponent<Props> = ({ role, username, avatarUrl, profileLink, isInactive }) => (
   <Card
     cardClassName={styles.contributorCard}
     header={
       <div className={styles.avatarContainer}>
-        <Image
-          className={styles.Image}
-          src={avatarUrl}
-          width={100}
-          height={100}
-          alt={`Avatar of ${username}`}
-        />
+        <Image className={styles.Image} src={avatarUrl} width={100} height={100} alt={`Avatar of ${username}`} />
         {isInactive && (
           <InoChip clickable={false} className={styles.statusChip}>
             Inactive

@@ -16,16 +16,7 @@ import { Line } from 'react-chartjs-2';
 import { GithubCommitsPerMonth } from 'types/github';
 import { useTranslation } from '@hooks/useTranslation';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Filler,
-  Legend,
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
 const graphOptions = {
   responsive: true,
@@ -58,9 +49,7 @@ function Activity({ commitsPerMonth }: Props) {
     const inovexTheme = document.querySelector('.inovex-elements-theme');
     const style = getComputedStyle(inovexTheme!);
     const primaryColor = style.getPropertyValue('--inovex-elements-primary');
-    const primaryFocusColor = style.getPropertyValue(
-      '--inovex-elements-primary-focus',
-    );
+    const primaryFocusColor = style.getPropertyValue('--inovex-elements-primary-focus');
     setGraphData({
       labels,
       datasets: [

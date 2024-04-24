@@ -9,7 +9,7 @@ const InoControlItemMeta = {
   title: 'Structure/ino-control-item',
   component: 'ino-control-item',
   decorators: [
-    (story) => {
+    story => {
       useEffect(() => {
         const checkedChangeHandler = (e: CustomEvent<boolean>) => {
           const controlItem = e.target as HTMLInoControlItemElement;
@@ -21,13 +21,12 @@ const InoControlItemMeta = {
           }
         };
         document.addEventListener('checkedChange', checkedChangeHandler);
-        return () =>
-          document.removeEventListener('checkedChange', checkedChangeHandler);
+        return () => document.removeEventListener('checkedChange', checkedChangeHandler);
       });
       return story();
     },
   ],
-  render: (args) => html`
+  render: args => html`
     <ino-list two-lines="${args.secondaryText || false}">
       <ino-control-item
         activated="${args.activated}"

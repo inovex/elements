@@ -13,10 +13,8 @@ const PACKAGES_TO_PUBLISH = [
   'packages/elements-vue',
 ];
 
-const isDryRun = process.argv.some((a) => a.includes('dryRun=true'));
-const isPreRelease = process.argv.some((a) =>
-  a.includes('releaseType=prerelease'),
-);
+const isDryRun = process.argv.some(a => a.includes('dryRun=true'));
+const isPreRelease = process.argv.some(a => a.includes('releaseType=prerelease'));
 const dryRunArg = isDryRun ? '--dry-run' : '';
 const npmTag = isPreRelease ? 'canary' : 'latest';
 
@@ -69,15 +67,11 @@ async function getLatestReleaseCommitSha(): Promise<string> {
     const baseApiUrl = 'https://api.github.com/repos/inovex/elements/';
 
     echo('-n', 'Getting latest release tag ... ');
-    const { tag_name } = await (
-      await fetch(`${baseApiUrl}releases/latest`)
-    ).json();
+    const { tag_name } = await (await fetch(`${baseApiUrl}releases/latest`)).json();
     echo(tag_name, getIcon(1));
 
     echo('-n', 'Getting latest release commit sha ... ');
-    const { sha } = await (
-      await fetch(`${baseApiUrl}commits/${tag_name}`)
-    ).json();
+    const { sha } = await (await fetch(`${baseApiUrl}commits/${tag_name}`)).json();
     echo(sha, getIcon(1));
 
     return sha;
@@ -118,15 +112,8 @@ function runNpmPublish(npmPackage: string, npmTag: string, isDryRun: boolean) {
     return;
   }
 
-  echo(
-    getIcon(0),
-    `Failed publishing npm package @inovex.de/${npmPackage}`,
-    getIcon(0),
-  );
-  echo(
-    getIcon(2),
-    'You need to login into NPM with the respective permissions if publishing to registry fails',
-  );
+  echo(getIcon(0), `Failed publishing npm package @inovex.de/${npmPackage}`, getIcon(0));
+  echo(getIcon(2), 'You need to login into NPM with the respective permissions if publishing to registry fails');
   exit(1);
 }
 
@@ -150,27 +137,18 @@ function checkGithubToken() {
   echo('Used npm tag:', npmTag, getIcon(2));
 
   if (!isMasterBranch && !isDryRun) {
-    echo(
-      getIcon(0),
-      `Release is only allowed on branch "master"! (current: ${currentBranch})`,
-    );
+    echo(getIcon(0), `Release is only allowed on branch "master"! (current: ${currentBranch})`);
     exit(1);
   }
 
   if (!isLoggedIntoNpm) {
-    echo(
-      getIcon(0),
-      'You need to login into NPM with the respective permissions if publishing to registry fails',
-    );
+    echo(getIcon(0), 'You need to login into NPM with the respective permissions if publishing to registry fails');
     if (!isDryRun) exit(1);
   }
 
   if (!isPreRelease && !hasGitHubToken) {
     echo(getIcon(0), 'No GitHub token was found', getIcon(0));
-    echo(
-      getIcon(),
-      'You need to install the github cli locally and login via gh auth login!',
-    );
+    echo(getIcon(), 'You need to install the github cli locally and login via gh auth login!');
     if (!isDryRun) exit(1);
   }
 
@@ -203,10 +181,7 @@ function checkGithubToken() {
     });
     const changelogCmd = `nx release changelog ${version} ${dryRunArg} --from ${sha}`;
 
-    echo(
-      'Running Release ',
-      `(Version: ${version}, Dry run: ${getIcon(isDryRun)})`,
-    );
+    echo('Running Release ', `(Version: ${version}, Dry run: ${getIcon(isDryRun)})`);
 
     if (run(versionCmd) !== 0 || run(changelogCmd) !== 0) {
       echo(getIcon(0), ` ${versionCmd} failed! `, getIcon(0));

@@ -4,10 +4,7 @@
   "overrides": [
     {
       "files": ["src/**/*.{ts,js,tsx,jsx}"],
-      "extends": [
-        "plugin:playwright/recommended",
-        "plugin:storybook/recommended"
-      ],
+      "extends": ["plugin:playwright/recommended", "plugin:storybook/recommended"],
       "rules": {
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off"

@@ -1,12 +1,5 @@
 import { MDCList } from '@material/list';
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Host,
-  Prop,
-  h,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 /**
@@ -64,7 +57,7 @@ export class List implements ComponentInterface {
 
     return (
       <Host>
-        <ul ref={(el) => (this.listEl = el)} class={listClasses}>
+        <ul ref={el => (this.listEl = el)} class={listClasses}>
           <slot />
         </ul>
       </Host>

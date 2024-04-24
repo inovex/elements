@@ -13,13 +13,9 @@ import waterfallImg from '../../assets/images/waterfall.jpg';
 const InoImgListMeta = {
   title: 'Graphic/ino-img-list',
   component: 'ino-img-list',
-  render: (args) => html`
-    <ino-img-list
-      enclose-label="${args.encloseLabel}"
-      masonry="${args.masonry}"
-    >
-      ${sampleImg} ${sampleImg2} ${sampleImg3} ${sampleImg4} ${sampleImg5}
-      ${sampleImg6}
+  render: args => html`
+    <ino-img-list enclose-label="${args.encloseLabel}" masonry="${args.masonry}">
+      ${sampleImg} ${sampleImg2} ${sampleImg3} ${sampleImg4} ${sampleImg5} ${sampleImg6}
     </ino-img-list>
   `,
   args: {
@@ -50,46 +46,14 @@ export const EncloseLabel = Story({
   },
 });
 
-const sampleImg = html`
-  <ino-img src=${beachImg} alt="beach" label="Label" img-list-item></ino-img>
-`;
+const sampleImg = html` <ino-img src=${beachImg} alt="beach" label="Label" img-list-item></ino-img> `;
 
-const sampleImg2 = html`
-  <ino-img src=${fjordImg} alt="fjord" label="Label" img-list-item></ino-img>
-`;
+const sampleImg2 = html` <ino-img src=${fjordImg} alt="fjord" label="Label" img-list-item></ino-img> `;
 
-const sampleImg3 = html`
-  <ino-img
-    src=${forrestImg}
-    alt="forrest"
-    label="Label"
-    img-list-item
-  ></ino-img>
-`;
+const sampleImg3 = html` <ino-img src=${forrestImg} alt="forrest" label="Label" img-list-item></ino-img> `;
 
-const sampleImg4 = html`
-  <ino-img
-    src=${libertyImg}
-    alt="liberty"
-    label="Label"
-    img-list-item
-  ></ino-img>
-`;
+const sampleImg4 = html` <ino-img src=${libertyImg} alt="liberty" label="Label" img-list-item></ino-img> `;
 
-const sampleImg5 = html`
-  <ino-img
-    src=${trondheimImg}
-    alt="trondheim"
-    label="Label"
-    img-list-item
-  ></ino-img>
-`;
+const sampleImg5 = html` <ino-img src=${trondheimImg} alt="trondheim" label="Label" img-list-item></ino-img> `;
 
-const sampleImg6 = html`
-  <ino-img
-    src=${waterfallImg}
-    alt="waterfall"
-    label="Label"
-    img-list-item
-  ></ino-img>
-`;
+const sampleImg6 = html` <ino-img src=${waterfallImg} alt="waterfall" label="Label" img-list-item></ino-img> `;

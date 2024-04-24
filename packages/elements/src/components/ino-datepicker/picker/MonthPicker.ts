@@ -6,13 +6,7 @@ import { PartialFlatpickrOptions } from '../picker-factory';
 
 export type MonthPicker = Pick<
   BaseOptions,
-  | 'defaultDate'
-  | 'minDate'
-  | 'maxDate'
-  | 'plugins'
-  | 'onReady'
-  | 'onDestroy'
-  | 'static'
+  'defaultDate' | 'minDate' | 'maxDate' | 'plugins' | 'onReady' | 'onDestroy' | 'static'
 >;
 
 type OnValueChangeFn = PartialFlatpickrOptions['onValueChange'];
@@ -24,11 +18,7 @@ type OnValueChangeFn = PartialFlatpickrOptions['onValueChange'];
  * When pressing an arrow a new date with the corresponding year is returned as event
  * The yearOffset indicates weather the year is decremented (-1) or incremented(1).
  */
-const monthChangeHandler = (
-  instance: Instance,
-  yearOffset: -1 | 1,
-  onValueChange: OnValueChangeFn,
-) => {
+const monthChangeHandler = (instance: Instance, yearOffset: -1 | 1, onValueChange: OnValueChangeFn) => {
   const currentDate = instance.selectedDates[0];
 
   // No date selected yet
@@ -36,11 +26,7 @@ const monthChangeHandler = (
     return;
   }
 
-  const formattedDate = changeYearByOne(
-    currentDate,
-    instance.config.dateFormat,
-    yearOffset,
-  );
+  const formattedDate = changeYearByOne(currentDate, instance.config.dateFormat, yearOffset);
 
   onValueChange(formattedDate);
 };
@@ -52,11 +38,7 @@ const monthChangeHandler = (
  * @param yearOffset Either 1 for incrementing or -1 for decrementing
  * @return The incremented/decremented date in the given format
  */
-const changeYearByOne = (
-  value: Date,
-  format: string,
-  yearOffset: -1 | 1,
-): string => {
+const changeYearByOne = (value: Date, format: string, yearOffset: -1 | 1): string => {
   const year = value.getFullYear();
   const month = value.getMonth();
   const day = value.getDate();
@@ -65,15 +47,11 @@ const changeYearByOne = (
   return flatpickr.formatDate(newDate, format);
 };
 
-const monthChangePrevHandler = (
-  instance: Instance,
-  onValueChange: OnValueChangeFn,
-) => monthChangeHandler(instance, -1, onValueChange);
+const monthChangePrevHandler = (instance: Instance, onValueChange: OnValueChangeFn) =>
+  monthChangeHandler(instance, -1, onValueChange);
 
-const monthChangeNextHandler = (
-  instance: Instance,
-  onValueChange: OnValueChangeFn,
-) => monthChangeHandler(instance, 1, onValueChange);
+const monthChangeNextHandler = (instance: Instance, onValueChange: OnValueChangeFn) =>
+  monthChangeHandler(instance, 1, onValueChange);
 
 export const createMonthPickerOptions = ({
   minDate,
@@ -84,9 +62,7 @@ export const createMonthPickerOptions = ({
   static: staticVal,
 }: PartialFlatpickrOptions): MonthPicker => {
   if (!onValueChange) {
-    throw new Error(
-      `No 'onValueChange' function passed to the MonthPicker. This should not happen.`,
-    );
+    throw new Error(`No 'onValueChange' function passed to the MonthPicker. This should not happen.`);
   }
 
   return {
@@ -100,20 +76,12 @@ export const createMonthPickerOptions = ({
     defaultDate,
     static: staticVal,
     onReady: (_, __, instance) => {
-      instance.prevMonthNav.addEventListener('click', () =>
-        monthChangePrevHandler(instance, onValueChange),
-      );
-      instance.nextMonthNav.addEventListener('click', () =>
-        monthChangeNextHandler(instance, onValueChange),
-      );
+      instance.prevMonthNav.addEventListener('click', () => monthChangePrevHandler(instance, onValueChange));
+      instance.nextMonthNav.addEventListener('click', () => monthChangeNextHandler(instance, onValueChange));
     },
     onDestroy: (_, __, instance) => {
-      instance.prevMonthNav.removeEventListener('click', () =>
-        monthChangePrevHandler(instance, onValueChange),
-      );
-      instance.nextMonthNav.removeEventListener('click', () =>
-        monthChangeNextHandler(instance, onValueChange),
-      );
+      instance.prevMonthNav.removeEventListener('click', () => monthChangePrevHandler(instance, onValueChange));
+      instance.nextMonthNav.removeEventListener('click', () => monthChangeNextHandler(instance, onValueChange));
     },
   };
 };

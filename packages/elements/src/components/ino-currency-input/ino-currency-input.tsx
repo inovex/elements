@@ -1,13 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  h,
-  Prop,
-  Event,
-  EventEmitter,
-  Watch,
-} from '@stencil/core';
+import { Component, Element, Host, h, Prop, Event, EventEmitter, Watch } from '@stencil/core';
 import { inoElementsConfig as config } from '../config';
 
 /**
@@ -64,9 +55,7 @@ export class CurrencyInput {
 
   componentDidLoad() {
     this.inoInputEl = this.el.querySelector('ino-input');
-    this.inoInputEl?.setUserInputInterceptor((value) =>
-      this.trimCurrencyString(value),
-    );
+    this.inoInputEl?.setUserInputInterceptor(value => this.trimCurrencyString(value));
 
     if (!this.inoInputEl) {
       console.error('currency input requires ino-input as child');
@@ -170,9 +159,7 @@ export class CurrencyInput {
     if (!value && value !== 0) return null;
 
     const locale =
-      this.currencyLocale?.length > 0
-        ? this.currencyLocale
-        : config.get('currencyLocale', this.defaultLocale);
+      this.currencyLocale?.length > 0 ? this.currencyLocale : config.get('currencyLocale', this.defaultLocale);
 
     const opts = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
     return Intl.NumberFormat(locale, opts).format(Number(value));
@@ -218,11 +205,7 @@ export class CurrencyInput {
   render() {
     return (
       <Host>
-        <input
-          type="hidden"
-          ref={(el) => (this.hiddenInputEl = el)}
-          value={this.value}
-        />
+        <input type="hidden" ref={el => (this.hiddenInputEl = el)} value={this.value} />
         <slot></slot>
       </Host>
     );

@@ -17,8 +17,8 @@ import puppeteer from 'puppeteer';
   console.log('Page loaded!');
 
   // Extract all img.avatar.avatar-user src and alt attributes
-  const imageAttributes = await page.$$eval('img.avatar.avatar-user', (imgs) =>
-    imgs.map((img) => ({
+  const imageAttributes = await page.$$eval('img.avatar.avatar-user', imgs =>
+    imgs.map(img => ({
       src: img.getAttribute('src').replace('?s=60', '?s=120'),
       alt: img.getAttribute('alt'),
     })),

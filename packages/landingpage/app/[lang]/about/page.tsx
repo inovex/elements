@@ -11,16 +11,12 @@ import { translator } from 'translations/getTranslations';
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
 
-async function getCommitPerMonth(
-  locale: SupportedLanguages,
-): Promise<GithubCommitsPerMonth> {
+async function getCommitPerMonth(locale: SupportedLanguages): Promise<GithubCommitsPerMonth> {
   const maybeGithubToken = process.env.GITHUB_TOKEN;
   const requestInit: RequestInit = {};
 
   if (maybeGithubToken) {
-    console.log(
-      'Found a Github Token in your environment. Using it to fetch commit info.',
-    );
+    console.log('Found a Github Token in your environment. Using it to fetch commit info.');
     requestInit.headers = new Headers({
       authorization: `Bearer ${maybeGithubToken}`,
     });
@@ -30,10 +26,7 @@ async function getCommitPerMonth(
     );
   }
 
-  const fetchResult = await fetch(
-    GITHUB_REPO_URL + '/stats/participation',
-    requestInit,
-  );
+  const fetchResult = await fetch(GITHUB_REPO_URL + '/stats/participation', requestInit);
 
   if (fetchResult.status === 403) {
     const rateLimitWarning = 'Github rate limit exceeded. Try again later.';
@@ -51,10 +44,7 @@ async function getCommitPerMonth(
   const lastDayOfCurrentWeek = endOfWeek(new Date());
   return activities.all
     .map((commitsPerWeek, index) => {
-      const week = subWeeks(
-        lastDayOfCurrentWeek,
-        NUMBER_WEEKS_PER_YEAR - index,
-      );
+      const week = subWeeks(lastDayOfCurrentWeek, NUMBER_WEEKS_PER_YEAR - index);
       const month = startOfMonth(week);
       return {
         month: format(month, 'MMM yy', {

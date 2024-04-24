@@ -129,10 +129,7 @@ export class Range implements ComponentInterface {
      * prevents the underlying MDCSliderFoundation to be initialised properly as it is trying to acquire the values
      * of the min, max, and value attributes from the input element.
      */
-    this.inputElEnd.setAttribute(
-      'value',
-      `${this.valueEnd || this.value || this.min}`,
-    );
+    this.inputElEnd.setAttribute('value', `${this.valueEnd || this.value || this.min}`);
     this.inputElStart?.setAttribute('value', `${this.valueStart}`);
     this.sliderInstance = new MDCSlider(this.sliderEl);
     this.sliderInstance.setDisabled(this.disabled);
@@ -197,10 +194,10 @@ export class Range implements ComponentInterface {
 
     return (
       <Host>
-        <div ref={(el) => (this.sliderEl = el)} class={sliderClasses}>
+        <div ref={el => (this.sliderEl = el)} class={sliderClasses}>
           {this.ranged && (
             <input
-              ref={(el) => (this.inputElStart = el)}
+              ref={el => (this.inputElStart = el)}
               class="mdc-slider__input"
               type="range"
               min={this.min}
@@ -209,7 +206,7 @@ export class Range implements ComponentInterface {
             />
           )}
           <input
-            ref={(el) => (this.inputElEnd = el)}
+            ref={el => (this.inputElEnd = el)}
             class="mdc-slider__input"
             type="range"
             min={this.ranged ? this.valueStart : this.min}
@@ -232,8 +229,7 @@ export class Range implements ComponentInterface {
             )}
           </div>
           <div class="mdc-slider__thumb">
-            {this.discrete &&
-              Range.renderValueIndicator(this.value || this.valueStart)}
+            {this.discrete && Range.renderValueIndicator(this.value || this.valueStart)}
             <div class="mdc-slider__thumb-knob" />
           </div>
           {this.ranged && (

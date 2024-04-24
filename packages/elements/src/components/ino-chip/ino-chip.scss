@@ -40,6 +40,9 @@ ino-chip {
     transition: ease-in-out 0.15s;
 
     .ino-chip-leading-icon {
+      display: flex;
+      justify-content: center;
+
       --ino-icon-width: #{$icon-size};
       --ino-icon-height: #{$icon-size};
     }
@@ -52,8 +55,7 @@ ino-chip {
       font-size: 13px;
     }
 
-    &.mdc-evolution-chip.mdc-evolution-chip--with-trailing-action
-      .mdc-evolution-chip__action--trailing {
+    &.mdc-evolution-chip.mdc-evolution-chip--with-trailing-action .mdc-evolution-chip__action--trailing {
       padding-right: 5px;
     }
 

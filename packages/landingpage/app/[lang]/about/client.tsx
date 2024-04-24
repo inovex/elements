@@ -11,10 +11,7 @@ interface Params {
   commitsPerMonth: GithubCommitsPerMonth;
 }
 
-export const AboutPage: NextPage<Params> = ({
-  users = [],
-  commitsPerMonth = {},
-}) => {
+export const AboutPage: NextPage<Params> = ({ users = [], commitsPerMonth = {} }) => {
   return (
     <div className="section-container">
       <section id={SubRoutes.ABOUT_TEAM}>

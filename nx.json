@@ -19,12 +19,7 @@
     },
     "lint": {
       "cache": true,
-      "inputs": [
-        "default",
-        "^production",
-        "{projectRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintrc.json"
-      ],
+      "inputs": ["default", "^production", "{projectRoot}/.eslintrc.json", "{workspaceRoot}/.eslintrc.json"],
       "defaultConfiguration": "check",
       "configurations": {
         "check": {
@@ -43,10 +38,7 @@
       "options": {
         "cwd": "{projectRoot}",
         "parallel": false,
-        "commands": [
-          "nx run {projectName}:clean:dist",
-          "nx run {projectName}:clean:node"
-        ]
+        "commands": ["nx run {projectName}:clean:dist", "nx run {projectName}:clean:node"]
       },
       "configurations": {
         "dist": {
@@ -122,10 +114,7 @@
   },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "sharedGlobals": [
-      "{workspaceRoot}/tsconfig.json",
-      "{workspaceRoot}/tsconfig.base.json"
-    ],
+    "sharedGlobals": ["{workspaceRoot}/tsconfig.json", "{workspaceRoot}/tsconfig.base.json"],
     "production": [
       "default",
       "!{projectRoot}/**/*.e2e.ts",

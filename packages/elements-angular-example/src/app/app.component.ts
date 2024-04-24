@@ -34,7 +34,7 @@ export class AppComponent {
   }
 
   delete(todo: Todo) {
-    this.todos = this.todos.filter((currentTodo) => currentTodo !== todo);
+    this.todos = this.todos.filter(currentTodo => currentTodo !== todo);
   }
 
   onViewModeChange(evt: Event): void {

@@ -21,10 +21,7 @@ ino-icon-button {
   $icon-color: var(--ino-icon-button-icon-color, theme.$p-5);
   $background-color: var(--ino-icon-button-background-color, transparent);
   $icon-active-color: var(--ino-icon-button-icon-active-color, theme.$p-5);
-  $background-active-color: var(
-    --ino-icon-button-background-active-color,
-    theme.$p-5
-  );
+  $background-active-color: var(--ino-icon-button-background-active-color, theme.$p-5);
 
   ino-icon {
     --icon-color: #{$icon-color};
@@ -40,6 +37,10 @@ ino-icon-button {
 
     background-color: $background-color;
     border-radius: 50%;
+
+    &__icon {
+      display: inline-flex;
+    }
 
     .mdc-icon-button__ripple::before,
     .mdc-icon-button__ripple::after {
@@ -65,10 +66,7 @@ ino-icon-button {
 // Disabled
 
 .ino-icon-button--disabled.ino-icon-button-filled {
-  --ino-icon-button-background-color: var(
-    --ino-icon-button-background-disabled-color,
-    #{theme.$n-4}
-  );
+  --ino-icon-button-background-color: var(--ino-icon-button-background-disabled-color, #{theme.$n-4});
 
   ino-icon {
     --ino-icon-button-icon-color: #{theme.$white};
@@ -77,9 +75,6 @@ ino-icon-button {
 
 .ino-icon-button--disabled:not(.ino-icon-button-filled) {
   ino-icon {
-    --ino-icon-button-icon-color: var(
-      --ino-icon-button-icon-disabled-color,
-      #{theme.$n-4}
-    );
+    --ino-icon-button-icon-color: var(--ino-icon-button-icon-disabled-color, #{theme.$n-4});
   }
 }

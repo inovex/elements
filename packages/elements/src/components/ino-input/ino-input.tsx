@@ -1,8 +1,4 @@
-import {
-  MDCTextField,
-  MDCTextFieldHelperText,
-  MDCTextFieldIcon,
-} from '@material/textfield';
+import { MDCTextField, MDCTextFieldHelperText, MDCTextFieldIcon } from '@material/textfield';
 import {
   Component,
   ComponentInterface,
@@ -229,10 +225,7 @@ export class Input implements ComponentInterface {
 
     // setSelectionRange does not work on number input
     if (this.nativeInputEl && !['number', 'email'].includes(this.type)) {
-      this.nativeInputEl.setSelectionRange(
-        this.cursorPosition,
-        this.cursorPosition,
-      );
+      this.nativeInputEl.setSelectionRange(this.cursorPosition, this.cursorPosition);
     }
   }
 
@@ -277,35 +270,25 @@ export class Input implements ComponentInterface {
   // ----
 
   async componentDidLoad() {
-    this.mdcTextfield = new MDCTextField(
-      this.el.querySelector('.mdc-text-field'),
-    );
+    this.mdcTextfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
 
     if (this.helper) {
-      this.mdcHelperText = new MDCTextFieldHelperText(
-        this.el.querySelector('.mdc-text-field-helper-text'),
-      );
+      this.mdcHelperText = new MDCTextFieldHelperText(this.el.querySelector('.mdc-text-field-helper-text'));
     }
 
-    if (
-      hasSlotContent(this.el, 'ino-icon-leading') ||
-      hasSlotContent(this.el, 'ino-icon-trailing')
-    ) {
-      this.mdcTextfieldIcon = new MDCTextFieldIcon(
-        this.el.querySelector('.mdc-text-field__icon'),
-      );
+    if (hasSlotContent(this.el, 'ino-icon-leading') || hasSlotContent(this.el, 'ino-icon-trailing')) {
+      this.mdcTextfieldIcon = new MDCTextFieldIcon(this.el.querySelector('.mdc-text-field__icon'));
     }
 
-    const mdcNotchedOutline =
-      await this.inoLabelElement.getMdcNotchedOutlineInstance();
+    const mdcNotchedOutline = await this.inoLabelElement.getMdcNotchedOutlineInstance();
     this.mdcTextfield.initialize(
       undefined,
       undefined,
-      (el) => this.mdcHelperText ?? new MDCTextFieldHelperText(el),
+      el => this.mdcHelperText ?? new MDCTextFieldHelperText(el),
       undefined,
-      (el) => this.mdcTextfieldIcon ?? new MDCTextFieldIcon(el),
+      el => this.mdcTextfieldIcon ?? new MDCTextFieldIcon(el),
       undefined,
-      (el) => mdcNotchedOutline ?? new MDCNotchedOutline(el),
+      el => mdcNotchedOutline ?? new MDCNotchedOutline(el),
     );
 
     if (this.type === 'email') {
@@ -396,7 +379,9 @@ export class Input implements ComponentInterface {
   // Native input event handler
   // ----
 
-  private handleNativeInputChange = (e) => {
+  private handleNativeInputChange = e => {
+    if (this.disabled) return;
+
     let value = e.target.value;
 
     if (this.userInputInterceptorFn) {
@@ -416,22 +401,20 @@ export class Input implements ComponentInterface {
     }
   };
 
-  private handleBlur = (e) => {
+  private handleBlur = e => {
     if (this.type === 'email') {
       this.mdcTextfield.valid = this.nativeInputEl.checkValidity();
     }
     this.inoBlur.emit(e);
   };
 
-  private handleFocus = (e) => {
+  private handleFocus = e => {
     this.inoFocus.emit(e);
   };
 
   private handleInputNumberArrowClick = (shouldIncrement: boolean) => {
     let stepWithFallback = this.step && this.step !== 'any' ? this.step : 1;
-    stepWithFallback = shouldIncrement
-      ? stepWithFallback
-      : stepWithFallback * -1;
+    stepWithFallback = shouldIncrement ? stepWithFallback : stepWithFallback * -1;
 
     const value = Number(this.value.replace(',', '.'));
     const precision = value ? getPrecision(value) : 0;
@@ -483,18 +466,12 @@ export class Input implements ComponentInterface {
   }
 
   private characterCounterTemplate() {
-    return (
-      <div class="mdc-text-field-character-counter">
-        {`${this.value?.length} / ${this.maxlength}`}
-      </div>
-    );
+    return <div class="mdc-text-field-character-counter">{`${this.value?.length} / ${this.maxlength}`}</div>;
   }
 
   render() {
     const hasHelperText = Boolean(this.helper);
-    const hasCharacterCounter = Boolean(
-      this.helperCharacterCounter && !Number.isNaN(this.maxlength),
-    );
+    const hasCharacterCounter = Boolean(this.helperCharacterCounter && !Number.isNaN(this.maxlength));
 
     const leadingIconSlot = hasSlotContent(this.el, 'icon-leading');
     const trailingIconSlot = hasSlotContent(this.el, 'icon-trailing');
@@ -518,7 +495,7 @@ export class Input implements ComponentInterface {
       <Host>
         <span class={classTextfield}>
           <ino-label
-            ref={(el) => (this.inoLabelElement = el)}
+            ref={el => (this.inoLabelElement = el)}
             for={this.inputID}
             outline={this.outline}
             text={this.label}
@@ -533,7 +510,7 @@ export class Input implements ComponentInterface {
           )}
           <input
             id={this.inputID}
-            ref={(el) => (this.nativeInputEl = el)}
+            ref={el => (this.nativeInputEl = el)}
             class="mdc-text-field__input"
             autocomplete={this.autocomplete}
             autofocus={this.autoFocus}
@@ -555,11 +532,7 @@ export class Input implements ComponentInterface {
             onFocus={this.handleFocus}
             list={this.dataList}
           />
-          {this.unit && (
-            <span class="mdc-text-field__affix mdc-text-field__affix--suffix">
-              {this.unit}
-            </span>
-          )}
+          {this.unit && <span class="mdc-text-field__affix mdc-text-field__affix--suffix">{this.unit}</span>}
           {this.type === 'number' && (
             <div class={'arrow-container'}>
               <ino-icon

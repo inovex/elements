@@ -129,7 +129,7 @@ export class Textarea implements ComponentInterface {
    * Emits when the textarea is blurred and validates email input
    */
   @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
-  private handleBlur = (e) => {
+  private handleBlur = e => {
     this.inoBlur.emit(e);
   };
 
@@ -137,10 +137,7 @@ export class Textarea implements ComponentInterface {
   handleChange(value: string) {
     if (this.nativeTextareaElement && this.textfield) {
       this.textfield.value = value;
-      this.nativeTextareaElement.setSelectionRange(
-        this.cursorPosition,
-        this.cursorPosition,
-      );
+      this.nativeTextareaElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
       this.updateAutogrow();
     }
   }
@@ -254,7 +251,7 @@ export class Textarea implements ComponentInterface {
       <Host class={hostClasses}>
         <div class={classes}>
           <textarea
-            ref={(el) => (this.nativeTextareaElement = el)}
+            ref={el => (this.nativeTextareaElement = el)}
             id={this.inputID}
             class="mdc-text-field__input"
             autofocus={this.autoFocus}

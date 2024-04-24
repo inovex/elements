@@ -8,9 +8,7 @@ export function setupEventListener(
   const element = container.querySelector(selector);
 
   if (!element)
-    throw new Error(
-      `Event-Listener could not be set up. The elements could not be queried by '${selector}'.`,
-    );
+    throw new Error(`Event-Listener could not be set up. The elements could not be queried by '${selector}'.`);
 
   const eventHandler = (e: Event) => {
     const customEvent = e as CustomEvent;

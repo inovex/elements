@@ -6,14 +6,8 @@ import Story from '../StoryWrapper';
 const InoSpinnerMeta = {
   title: 'Notification/ino-spinner',
   component: 'ino-spinner',
-  render: (args) => html`
-    <ino-spinner
-      height="${args.height}"
-      modal="${args.modal}"
-      type="${args.type}"
-      width="${args.width}"
-    >
-    </ino-spinner>
+  render: args => html`
+    <ino-spinner height="${args.height}" modal="${args.modal}" type="${args.type}" width="${args.width}"> </ino-spinner>
   `,
   args: {
     modal: false,

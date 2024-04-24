@@ -1,14 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Prop,
-  h,
-  Listen,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Listen } from '@stencil/core';
 import classNames from 'classnames';
 
 /**
@@ -90,9 +80,7 @@ export class Tab implements ComponentInterface {
         >
           <span class="mdc-tab__content">
             {this.icon && <ino-icon class="mdc-tab__icon" icon={this.icon} />}
-            <span class="mdc-tab__text-label">
-              {this.label ? this.label : <slot />}
-            </span>
+            <span class="mdc-tab__text-label">{this.label ? this.label : <slot />}</span>
             {this.indicatorContentWidth && indicatorWidth}
           </span>
           {!this.indicatorContentWidth && indicatorWidth}

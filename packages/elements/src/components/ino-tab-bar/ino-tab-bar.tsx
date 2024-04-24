@@ -1,4 +1,4 @@
-import { MDCTabBar } from '@material/tab-bar/component';
+import { MDCTabBar } from '@material/tab-bar';
 import {
   Component,
   ComponentInterface,
@@ -52,8 +52,7 @@ export class TabBar implements ComponentInterface {
   }
 
   private updateActiveTabState(activeTabIndex: number) {
-    const tabs: NodeListOf<HTMLInoTabElement> =
-      this.el.querySelectorAll('ino-tab');
+    const tabs: NodeListOf<HTMLInoTabElement> = this.el.querySelectorAll('ino-tab');
     tabs.forEach((tab, index) => {
       tab.a11ySelected = index === activeTabIndex;
     });
@@ -73,9 +72,7 @@ export class TabBar implements ComponentInterface {
   @Listen('interacted')
   async interactionHandler(e) {
     e.stopPropagation();
-    const allTabs = await Promise.all(
-      Array.from(this.el.querySelectorAll('ino-tab')),
-    );
+    const allTabs = await Promise.all(Array.from(this.el.querySelectorAll('ino-tab')));
     const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
     this.activeTabChange.emit(indexOfActivatedTab);
     this.updateActiveTabState(indexOfActivatedTab);

@@ -3228,7 +3228,7 @@
           "name": "edgePosition",
           "type": "\"bottom-left\" | \"bottom-right\" | \"none\" | \"top-left\" | \"top-right\"",
           "complexType": {
-            "original": "| 'top-right'\n    | 'top-left'\n    | 'bottom-right'\n    | 'bottom-left'\n    | 'none'",
+            "original": "'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none'",
             "resolved": "\"bottom-left\" | \"bottom-right\" | \"none\" | \"top-left\" | \"top-right\"",
             "references": {}
           },
@@ -6625,17 +6625,17 @@
       "fileName": "ino-nav-drawer.tsx",
       "tag": "ino-nav-drawer",
       "readme": "# ino-nav-drawer\n\n",
-      "overview": "A navigation drawer component with different variants, setting up the base layout for your app.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n> Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.",
+      "overview": "A navigation drawer component designed to organize and facilitate user navigation in your app.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\nUsage Note:\n- This component is intended exclusively for navigation purposes. It is optimized for holding items like `ino-list` and `ino-nav-item` for effective user guidance.\n- To maintain a clean and organized app structure, `ino-nav-drawer` should be used once per application. This ensures a consistent and predictable navigation experience across different parts of the app.",
       "usage": {},
-      "docs": "A navigation drawer component with different variants, setting up the base layout for your app.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n> Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.",
+      "docs": "A navigation drawer component designed to organize and facilitate user navigation in your app.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\nUsage Note:\n- This component is intended exclusively for navigation purposes. It is optimized for holding items like `ino-list` and `ino-nav-item` for effective user guidance.\n- To maintain a clean and organized app structure, `ino-nav-drawer` should be used once per application. This ensures a consistent and predictable navigation experience across different parts of the app.",
       "docsTags": [
         {
           "name": "slot",
-          "text": "header - For a custom header on top of the navigation bar"
+          "text": "header - For a custom header on top of the navigation drawer"
         },
         {
           "name": "slot",
-          "text": "logo - For the logo on top of the navigation bar (cannot be used with the `header` slot)"
+          "text": "logo - For the logo on top of the navigation drawer (cannot be used with the `header` slot)"
         },
         {
           "name": "slot",
@@ -6643,7 +6643,7 @@
         },
         {
           "name": "slot",
-          "text": "content - For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`)"
+          "text": "content - For the content of the navigation drawer (usually used with `ino-list` and `ino-nav-item`)"
         },
         {
           "name": "slot",
@@ -6858,7 +6858,7 @@
         },
         {
           "name": "content",
-          "docs": "For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`)"
+          "docs": "For the content of the navigation drawer (usually used with `ino-list` and `ino-nav-item`)"
         },
         {
           "name": "footer",
@@ -6866,11 +6866,11 @@
         },
         {
           "name": "header",
-          "docs": "For a custom header on top of the navigation bar"
+          "docs": "For a custom header on top of the navigation drawer"
         },
         {
           "name": "logo",
-          "docs": "For the logo on top of the navigation bar (cannot be used with the `header` slot)"
+          "docs": "For the logo on top of the navigation drawer (cannot be used with the `header` slot)"
         },
         {
           "name": "subtitle",
@@ -11415,7 +11415,7 @@
       "path": "src/components/types.ts"
     },
     "src/components/types.ts::InputType": {
-      "declaration": "export type InputType =\n  | 'color'\n  | 'email'\n  | 'number'\n  | 'password'\n  | 'search'\n  | 'tel'\n  | 'text'\n  | 'url'\n  | 'week';",
+      "declaration": "export type InputType = 'color' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'week';",
       "docstring": "",
       "path": "src/components/types.ts"
     },

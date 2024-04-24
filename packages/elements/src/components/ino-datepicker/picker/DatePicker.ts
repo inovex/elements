@@ -1,9 +1,6 @@
 import { BaseOptions } from 'flatpickr/dist/types/options';
 
-export type Datepicker = Pick<
-  BaseOptions,
-  'dateFormat' | 'minDate' | 'maxDate' | 'mode' | 'defaultDate' | 'static'
->;
+export type Datepicker = Pick<BaseOptions, 'dateFormat' | 'minDate' | 'maxDate' | 'mode' | 'defaultDate' | 'static'>;
 
 export const createDatePickerOptions = ({
   dateFormat,
