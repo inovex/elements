@@ -28,12 +28,6 @@ export class Fab implements ComponentInterface {
   @Element() el!: HTMLInoFabElement;
 
   /**
-   * Adds an icon to the Fab.
-   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
-   */
-  @Prop() icon?: string;
-
-  /**
    * Optional, for the text label. Applicable only for Extended FAB.
    */
   @Prop() label?: string;
@@ -53,10 +47,9 @@ export class Fab implements ComponentInterface {
    */
   @Prop() disabled = false;
 
-  /**
-   * Optional, modifies the FAB to a smaller size
-   */
-  @Prop() mini = false;
+  @Prop() variant: 'small' | 'standard' | 'large' = 'standard';
+
+  @Prop() shadow? = false;
 
   /**
    * The placement of the tooltip which will be displayed when the button is not extended.
@@ -69,12 +62,6 @@ export class Fab implements ComponentInterface {
     if (this.disabled) {
       e.preventDefault();
       e.stopPropagation();
-    }
-
-    if (this.icon) {
-      console.warn(
-        `Property 'icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`,
-      );
     }
   }
   @Watch('label')
@@ -131,7 +118,10 @@ export class Fab implements ComponentInterface {
     const classFab = classNames({
       'mdc-fab': true,
       'mdc-fab--extended': this.extended,
-      'mdc-fab--mini': this.mini,
+      'mdc-fab--small': this.variant === 'small',
+      'mdc-fab--standard:': this.variant === 'standard',
+      'mdc-fab--large': this.variant === 'large',
+      'mdc-fab--shadow': this.shadow,
     });
 
     const iconSlotHasContent = hasSlotContent(this.el, 'icon-leading');
@@ -139,10 +129,7 @@ export class Fab implements ComponentInterface {
     return (
       <Host class={hostClasses} id={this.uniqueHelperId}>
         <button class={classFab} disabled={this.disabled}>
-          <span class="material-icons mdc-fab__icon">
-            {this.icon && !iconSlotHasContent && <ino-icon icon={this.icon} />}
-            {iconSlotHasContent && <slot name="icon-leading" />}
-          </span>
+          <span class="material-icons mdc-fab__icon">{iconSlotHasContent && <slot name="icon-leading" />}</span>
           {this.extended && <span class="mdc-fab__label">{this.label}</span>}
         </button>
       </Host>

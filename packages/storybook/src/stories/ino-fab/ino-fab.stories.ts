@@ -14,10 +14,10 @@ const InoFabMeta = {
       edge-position="${args.edgePosition}"
       extended="${args.extended}"
       label="${args.label}"
-      mini="${args.mini}"
+      variant="${args.variant}"
       tooltip-placement="${args.tooltipPlacement}"
     >
-      <ino-icon slot="icon-leading" icon="${args.icon}" />
+      <ino-icon slot="icon-leading" icon="add" />
     </ino-fab>
   `,
   args: {
@@ -25,11 +25,15 @@ const InoFabMeta = {
     edgePosition: 'top-left',
     extended: false,
     label: 'Label',
-    mini: false,
-    tooltipPlacement: 'right',
+    variant: 'small',
+    tooltipPlacement: 'left',
     icon: 'add',
   },
   argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['small', 'standard', 'large'],
+    },
     edgePosition: {
       control: {
         type: 'select',

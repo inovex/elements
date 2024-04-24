@@ -68,7 +68,35 @@ ino-fab {
 
   // colors
   .mdc-fab {
-    @include setEdgedBorders(top-left);
+    width: 56px;
+    height: 56px;
+
+    ino-icon {
+      --icon-color: var(--fab-icon-color);
+      --icon-width: 26px;
+      --icon-height: 26px;
+    }
+
+    &.mdc-fab--small {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+
+      ino-icon {
+        --icon-width: 20px;
+        --icon-height: 20px;
+      }
+    }
+
+    &.mdc-fab--large {
+      height: 96px;
+      width: 96px;
+
+      ino-icon {
+        --icon-width: 40px;
+        --icon-height: 40px;
+      }
+    }
 
     @include fab.ink-color(var(--fab-color));
     @include fab.container-color(var(--fab-background-color));
@@ -92,17 +120,6 @@ ino-fab {
       }
     }
 
-    ino-icon {
-      --icon-color: var(--fab-icon-color);
-      --icon-width: 30px;
-      --icon-height: 30px;
-    }
-
-    &.mdc-fab--mini ino-icon {
-      --icon-width: 25px;
-      --icon-height: 25px;
-    }
-
     &:not(.mdc-fab--extended),
     &.mdc-fab--extended {
       box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3), 0 12px 28px 0 rgba(61, 214, 245, 0.14);
@@ -115,7 +132,7 @@ ino-fab {
 
   // Generate ino-edge-position classes
   @each $position in $edge-positions {
-    &.ino-fab--edge-position-#{$position} .mdc-fab {
+    &.ino-fab--edge-position-#{$position} .mdc-fab:not(.mdc-fab--small) {
       @include setEdgedBorders($position);
     }
   }
