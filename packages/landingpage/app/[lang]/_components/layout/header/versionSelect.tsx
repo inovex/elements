@@ -38,11 +38,13 @@ const VersionSelect = () => {
       outline
       className={styles.versionSelect}
     >
-      {versions.map((version, i) => (
-        <InoOption key={i} value={version}>
-          {version}
-        </InoOption>
-      ))}
+      <div className={styles.options}>
+        {versions.map((version, i) => (
+          <InoOption key={i} value={version}>
+            {version}
+          </InoOption>
+        ))}
+      </div>
     </InoSelect>
   );
 };
