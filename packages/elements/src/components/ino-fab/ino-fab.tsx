@@ -64,7 +64,7 @@ export class Fab implements ComponentInterface {
   /**
    * The theme of the tooltip which will be displayed when the button is not extended.
    */
-  @Prop() tooltipTheme?: TippyThemes = 'transparent'
+  @Prop() tooltipTheme?: TippyThemes = 'transparent';
 
   /**
    * The placement of the tooltip which will be displayed when the button is not extended.
@@ -105,7 +105,7 @@ export class Fab implements ComponentInterface {
 
     const tooltip = document.createElement('ino-tooltip');
     Object.keys(attributes).forEach(key => tooltip.setAttribute(key, attributes[key]));
-    tooltip.setAttribute('color-scheme', this.tooltipTheme)
+    tooltip.setAttribute('color-scheme', this.tooltipTheme);
     this.el.appendChild(tooltip);
     this.tooltip = tooltip;
   }
