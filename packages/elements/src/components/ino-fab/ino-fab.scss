@@ -92,7 +92,7 @@ ino-fab {
   --fab-background-color-active: var(--ino-fab-background-color-active, #{theme.$p-5});
   --fab-icon-color: var(--ino-fab-icon-color, #{theme.$white});
   --fab-color-disabled: var(--ino-fab-color-disabled, #{theme.$white});
-  --ino-fab-color-focused: var(--ino-fab-color-focused, #{theme.$p-3});
+  --fab-color-focused: var(--ino-fab-color-focused, #{theme.$p-3});
   --fab-background-color-disabled: var(--ino-background-color-disabled, #{theme.$n-4});
   --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #{theme.$white});
 
@@ -103,10 +103,9 @@ ino-fab {
     font-weight: 700;
     text-transform: none;
     box-shadow: none;
-    border: 4px solid var(--ino-fab-color-focused);
 
     &:focus:not(:active)::before {
-      outline: 4px solid theme.$p-3;
+      outline: 4px solid var(--fab-color-focused);
     }
 
     .material-icons.mdc-fab__icon {
@@ -148,10 +147,6 @@ ino-fab {
       }
     }
 
-    &:focus:active {
-      border: 4px solid var(--ino-fab-color-focused);
-    }
-
     &:active,
     &:focus:active {
       box-shadow: none;
@@ -159,7 +154,6 @@ ino-fab {
 
     &.mdc-ripple-upgraded--background-focused {
       box-shadow: none;
-      border: 4px solid var(--ino-fab-color-focused);
     }
 
     @include fab.ink-color(var(--fab-color));
