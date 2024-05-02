@@ -3189,13 +3189,11 @@
         "ino-fab-set"
       ],
       "dependencies": [
-        "ino-tooltip",
-        "ino-icon"
+        "ino-tooltip"
       ],
       "dependencyGraph": {
         "ino-fab": [
-          "ino-tooltip",
-          "ino-icon"
+          "ino-tooltip"
         ],
         "ino-fab-set": [
           "ino-fab"
@@ -3237,7 +3235,7 @@
           "reflectToAttr": false,
           "docs": "The position of the edge.",
           "docsTags": [],
-          "default": "'top-left'",
+          "default": "'top-right'",
           "values": [
             {
               "value": "bottom-left",
@@ -3274,7 +3272,7 @@
           "mutable": false,
           "attr": "extended",
           "reflectToAttr": false,
-          "docs": "Optional, modifies the FAB to wider size which includes a text label.",
+          "docs": "Optional, modifies the FAB to wider size which includes a text label.\nNote: This property is only available for the `standard` variant.\nIf set to true while the variant is not `standard`, it will override the `variant` property.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -3283,33 +3281,6 @@
             }
           ],
           "optional": false,
-          "required": false
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "icon",
-          "reflectToAttr": false,
-          "docs": "Adds an icon to the Fab.",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot."
-            }
-          ],
-          "deprecation": "This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
           "required": false
         },
         {
@@ -3334,7 +3305,7 @@
           "required": false
         },
         {
-          "name": "mini",
+          "name": "shadow",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -3342,9 +3313,9 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "mini",
+          "attr": "shadow",
           "reflectToAttr": false,
-          "docs": "Optional, modifies the FAB to a smaller size",
+          "docs": "Optional, displays a shadow around the button.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -3352,7 +3323,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3438,6 +3409,37 @@
             },
             {
               "value": "top-start",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"large\" | \"small\" | \"standard\"",
+          "complexType": {
+            "original": "'small' | 'standard' | 'large'",
+            "resolved": "\"large\" | \"small\" | \"standard\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The variant of the FAB.",
+          "docsTags": [],
+          "default": "'standard'",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            },
+            {
+              "value": "standard",
               "type": "string"
             }
           ],
@@ -3538,8 +3540,7 @@
           "ino-icon"
         ],
         "ino-fab": [
-          "ino-tooltip",
-          "ino-icon"
+          "ino-tooltip"
         ]
       },
       "props": [
@@ -3708,7 +3709,6 @@
         "ino-chip",
         "ino-datepicker",
         "ino-dialog",
-        "ino-fab",
         "ino-fab-set",
         "ino-icon-button",
         "ino-img",
@@ -3731,9 +3731,6 @@
           "ino-icon"
         ],
         "ino-dialog": [
-          "ino-icon"
-        ],
-        "ino-fab": [
           "ino-icon"
         ],
         "ino-fab-set": [

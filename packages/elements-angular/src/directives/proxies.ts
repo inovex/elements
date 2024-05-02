@@ -373,14 +373,14 @@ export declare interface InoDialog extends Components.InoDialog {
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'edgePosition', 'extended', 'icon', 'label', 'mini', 'tooltipPlacement']
+  inputs: ['disabled', 'edgePosition', 'extended', 'label', 'shadow', 'tooltipPlacement', 'variant']
 })
 @Component({
   selector: 'ino-fab',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'edgePosition', 'extended', 'icon', 'label', 'mini', 'tooltipPlacement'],
+  inputs: ['disabled', 'edgePosition', 'extended', 'label', 'shadow', 'tooltipPlacement', 'variant'],
 })
 export class InoFab {
   protected el: HTMLElement;

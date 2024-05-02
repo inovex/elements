@@ -34,21 +34,29 @@ export class Fab implements ComponentInterface {
 
   /**
    * Optional, modifies the FAB to wider size which includes a text label.
+   * Note: This property is only available for the `standard` variant.
+   * If set to true while the variant is not `standard`, it will override the `variant` property.
    */
   @Prop() extended = false;
 
   /**
    * The position of the edge.
    */
-  @Prop() edgePosition: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none' = 'top-left';
+  @Prop() edgePosition: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none' = 'top-right';
 
   /**
    * Disables the button.
    */
   @Prop() disabled = false;
 
+  /**
+   * The variant of the FAB.
+   */
   @Prop() variant: 'small' | 'standard' | 'large' = 'standard';
 
+  /**
+   * Optional, displays a shadow around the button.
+   */
   @Prop() shadow? = false;
 
   /**
@@ -118,9 +126,9 @@ export class Fab implements ComponentInterface {
     const classFab = classNames({
       'mdc-fab': true,
       'mdc-fab--extended': this.extended,
-      'mdc-fab--small': this.variant === 'small',
+      'mdc-fab--small': this.variant === 'small' && !this.extended,
       'mdc-fab--standard:': this.variant === 'standard',
-      'mdc-fab--large': this.variant === 'large',
+      'mdc-fab--large': this.variant === 'large' && !this.extended,
       'mdc-fab--shadow': this.shadow,
     });
 

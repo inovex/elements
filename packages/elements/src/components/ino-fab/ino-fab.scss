@@ -3,6 +3,7 @@
 @use '@material/fab';
 @use '../base/new-theme' as theme;
 @use '../base/animation';
+@use '../base/typography-new' as typography;
 
 @include fab.core-styles;
 
@@ -17,11 +18,11 @@ $edged-borders: (
 );
 
 $extended-edged-borders: (
-  none: 24px,
-  top-left: 0 24px 24px 24px,
-  top-right: 24px 0 24px 24px,
-  bottom-right: 24px 24px 0 24px,
-  bottom-left: 24px 24px 24px 0,
+  none: 28px,
+  top-left: 2px 28px 28px 28px,
+  top-right: 28px 2px 28px 28px,
+  bottom-right: 28px 28px 2px 28px,
+  bottom-left: 28px 28px 28px 2px,
 );
 
 @mixin setEdgedBorders($position) {
@@ -32,15 +33,45 @@ $extended-edged-borders: (
       map_get($edged-borders, $position),
       fab-#{$position}-default
     );
+
+    &:focus:not(:active) {
+      @include animation.button-rounding(map_get($edged-borders, $position), 50%, fab-#{$position}-focus);
+    }
   }
 
   &.mdc-fab--extended {
     border-radius: map_get($extended-edged-borders, $position);
+    height: 56px;
+    padding: 15.5px 20px;
+    gap: 12px;
+    box-shadow: none;
+
     @include animation.button-rounding(
       map_get($extended-edged-borders, none),
       map_get($extended-edged-borders, $position),
       fab-#{$position}-extended
     );
+
+    &:focus:not(:active) {
+      @include animation.button-rounding(
+        map_get($extended-edged-borders, $position),
+        28px,
+        fab-#{$position}-extended-focus
+      );
+    }
+  }
+
+  &.mdc-fab--extended.mdc-fab--shadow {
+    box-shadow: 0px 4px 10px 0.1px #1801e140, 0px 0.5px 4px 0.2px #00124d80;
+
+    &:hover,
+    &:focus:not(:active) {
+      box-shadow: 0px 4px 10px 0.1px #1801e140, 0px 0.5px 4px 0.2px #00124d80;
+    }
+    &:active,
+    &:focus:active {
+      box-shadow: none;
+    }
   }
 }
 
@@ -56,20 +87,31 @@ ino-fab {
    * @prop --fab-icon-color-disabled: Color of the slotted icon if disabled
    */
   --fab-color: var(--ino-fab-color, white);
-  --fab-background-color: var(--ino-fab-background-color, #{theme.$p-6});
-  --fab-background-color-hover: var(--ino-fab-background-color-hover, #{theme.$p-5});
-  --fab-background-color-active: var(--ino-fab-background-color-active, #{theme.$p-7});
+  --fab-background-color: var(--ino-fab-background-color, #{theme.$p-5});
+  --fab-background-color-hover: var(--ino-fab-background-color-hover, #5274ff);
+  --fab-background-color-active: var(--ino-fab-background-color-active, #{theme.$p-5});
   --fab-icon-color: var(--ino-fab-icon-color, #{theme.$white});
   --fab-color-disabled: var(--ino-fab-color-disabled, #{theme.$white});
+  --ino-fab-color-focused: var(--ino-fab-color-focused, #{theme.$p-3});
   --fab-background-color-disabled: var(--ino-background-color-disabled, #{theme.$n-4});
   --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #{theme.$white});
 
-  display: inline-block;
-
   // colors
   .mdc-fab {
-    width: 56px;
-    height: 56px;
+    @include typography.typo(title-l);
+    @include fab.icon-size(26px, 26px);
+    font-weight: 700;
+    text-transform: none;
+    box-shadow: none;
+    border: 4px solid var(--ino-fab-color-focused);
+
+    &:focus:not(:active)::before {
+      outline: 4px solid theme.$p-3;
+    }
+
+    .material-icons.mdc-fab__icon {
+      margin: 0;
+    }
 
     ino-icon {
       --icon-color: var(--fab-icon-color);
@@ -77,10 +119,18 @@ ino-fab {
       --icon-height: 26px;
     }
 
+    &.mdc-fab--shadow {
+      box-shadow: 0px 4px 10px 0.1px #1801e140, 0px 0.5px 4px 0.2px #00124d80;
+
+      &:hover,
+      &:focus:not(:active) {
+        box-shadow: 0px 4px 10px 0.1px #1801e140, 0px 0.5px 4px 0.2px #00124d80;
+      }
+    }
+
     &.mdc-fab--small {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
 
       ino-icon {
         --icon-width: 20px;
@@ -98,11 +148,26 @@ ino-fab {
       }
     }
 
+    &:focus:active {
+      border: 4px solid var(--ino-fab-color-focused);
+    }
+
+    &:active,
+    &:focus:active {
+      box-shadow: none;
+    }
+
+    &.mdc-ripple-upgraded--background-focused {
+      box-shadow: none;
+      border: 4px solid var(--ino-fab-color-focused);
+    }
+
     @include fab.ink-color(var(--fab-color));
     @include fab.container-color(var(--fab-background-color));
 
     &:hover {
       @include fab.container-color(var(--fab-background-color-hover));
+      box-shadow: none;
     }
 
     &:active,
@@ -118,15 +183,6 @@ ino-fab {
       ino-icon {
         --icon-color: var(--fab-icon-color-disabled);
       }
-    }
-
-    &:not(.mdc-fab--extended),
-    &.mdc-fab--extended {
-      box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3), 0 12px 28px 0 rgba(61, 214, 245, 0.14);
-    }
-
-    &:active {
-      box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
     }
   }
 

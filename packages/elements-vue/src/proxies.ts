@@ -176,12 +176,12 @@ export const InoDialog = /*@__PURE__*/ defineContainer<JSX.InoDialog>('ino-dialo
 
 
 export const InoFab = /*@__PURE__*/ defineContainer<JSX.InoFab>('ino-fab', undefined, [
-  'icon',
   'label',
   'extended',
   'edgePosition',
   'disabled',
-  'mini',
+  'variant',
+  'shadow',
   'tooltipPlacement'
 ]);
 

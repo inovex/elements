@@ -533,26 +533,25 @@ export namespace Components {
          */
         "edgePosition": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
         /**
-          * Optional, modifies the FAB to wider size which includes a text label.
+          * Optional, modifies the FAB to wider size which includes a text label. Note: This property is only available for the `standard` variant. If set to true while the variant is not `standard`, it will override the `variant` property.
          */
         "extended": boolean;
-        /**
-          * Adds an icon to the Fab.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
-         */
-        "icon"?: string;
         /**
           * Optional, for the text label. Applicable only for Extended FAB.
          */
         "label"?: string;
         /**
-          * Optional, modifies the FAB to a smaller size
+          * Optional, displays a shadow around the button.
          */
-        "mini": boolean;
+        "shadow"?: boolean;
         /**
           * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
          */
         "tooltipPlacement": Placement | 'none';
+        /**
+          * The variant of the FAB.
+         */
+        "variant": 'small' | 'standard' | 'large';
     }
     /**
      * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
@@ -3327,26 +3326,25 @@ declare namespace LocalJSX {
          */
         "edgePosition"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
         /**
-          * Optional, modifies the FAB to wider size which includes a text label.
+          * Optional, modifies the FAB to wider size which includes a text label. Note: This property is only available for the `standard` variant. If set to true while the variant is not `standard`, it will override the `variant` property.
          */
         "extended"?: boolean;
-        /**
-          * Adds an icon to the Fab.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
-         */
-        "icon"?: string;
         /**
           * Optional, for the text label. Applicable only for Extended FAB.
          */
         "label"?: string;
         /**
-          * Optional, modifies the FAB to a smaller size
+          * Optional, displays a shadow around the button.
          */
-        "mini"?: boolean;
+        "shadow"?: boolean;
         /**
           * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
          */
         "tooltipPlacement"?: Placement | 'none';
+        /**
+          * The variant of the FAB.
+         */
+        "variant"?: 'small' | 'standard' | 'large';
     }
     /**
      * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab

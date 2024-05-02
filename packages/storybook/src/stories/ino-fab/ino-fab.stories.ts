@@ -16,18 +16,19 @@ const InoFabMeta = {
       label="${args.label}"
       variant="${args.variant}"
       tooltip-placement="${args.tooltipPlacement}"
+      shadow="${args.shadow}"
     >
       <ino-icon slot="icon-leading" icon="add" />
     </ino-fab>
   `,
   args: {
     disabled: false,
-    edgePosition: 'top-left',
+    edgePosition: 'top-right',
     extended: false,
     label: 'Label',
-    variant: 'small',
+    variant: 'standard',
+    shadow: true,
     tooltipPlacement: 'left',
-    icon: 'add',
   },
   argTypes: {
     variant: {
