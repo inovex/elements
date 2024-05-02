@@ -96,6 +96,8 @@ ino-fab {
   --fab-background-color-disabled: var(--ino-background-color-disabled, #{theme.$n-4});
   --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #{theme.$white});
 
+  display: inline-block;
+
   // colors
   .mdc-fab {
     @include typography.typo(title-l);

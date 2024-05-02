@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import { Placement } from 'tippy.js';
 import { hasSlotContent } from '../../util/component-utils';
 
+import { TippyThemes } from '../types';
+
 /**
  * A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
  * It appears in front of all screen content, typically as a circular shape with an icon in its center.
@@ -60,6 +62,11 @@ export class Fab implements ComponentInterface {
   @Prop() shadow? = false;
 
   /**
+   * The theme of the tooltip which will be displayed when the button is not extended.
+   */
+  @Prop() tooltipTheme?: TippyThemes = 'transparent'
+
+  /**
    * The placement of the tooltip which will be displayed when the button is not extended.
    * Use `none`, if you don't want a tooltip to be displayed.
    */
@@ -98,6 +105,7 @@ export class Fab implements ComponentInterface {
 
     const tooltip = document.createElement('ino-tooltip');
     Object.keys(attributes).forEach(key => tooltip.setAttribute(key, attributes[key]));
+    tooltip.setAttribute('color-scheme', this.tooltipTheme)
     this.el.appendChild(tooltip);
     this.tooltip = tooltip;
   }

@@ -3416,6 +3416,47 @@
           "required": false
         },
         {
+          "name": "tooltipTheme",
+          "type": "\"dark\" | \"light\" | \"primary\" | \"transparent\"",
+          "complexType": {
+            "original": "TippyThemes",
+            "resolved": "\"dark\" | \"light\" | \"primary\" | \"transparent\"",
+            "references": {
+              "TippyThemes": {
+                "location": "import",
+                "path": "../types",
+                "id": "src/components/types.ts::TippyThemes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "tooltip-theme",
+          "reflectToAttr": false,
+          "docs": "The theme of the tooltip which will be displayed when the button is not extended.",
+          "docsTags": [],
+          "default": "'transparent'",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "transparent",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "variant",
           "type": "\"large\" | \"small\" | \"standard\"",
           "complexType": {
@@ -3586,28 +3627,6 @@
           "required": false
         },
         {
-          "name": "icon",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "icon",
-          "reflectToAttr": false,
-          "docs": "The icon of the fab set.",
-          "docsTags": [],
-          "default": "'options_dotted'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "label",
           "type": "string",
           "complexType": {
@@ -3710,33 +3729,6 @@
             },
             {
               "value": "top",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\"menu\" | \"stacked\"",
-          "complexType": {
-            "original": "'menu' | 'stacked'",
-            "resolved": "\"menu\" | \"stacked\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "The variant of the fab set.",
-          "docsTags": [],
-          "default": "'menu'",
-          "values": [
-            {
-              "value": "menu",
-              "type": "string"
-            },
-            {
-              "value": "stacked",
               "type": "string"
             }
           ],
@@ -7420,10 +7412,10 @@
         },
         {
           "name": "colorScheme",
-          "type": "\"dark\" | \"light\" | \"primary\"",
+          "type": "\"dark\" | \"light\" | \"primary\" | \"transparent\"",
           "complexType": {
             "original": "TippyThemes",
-            "resolved": "\"dark\" | \"light\" | \"primary\"",
+            "resolved": "\"dark\" | \"light\" | \"primary\" | \"transparent\"",
             "references": {
               "TippyThemes": {
                 "location": "import",
@@ -7449,6 +7441,10 @@
             },
             {
               "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "transparent",
               "type": "string"
             }
           ],
@@ -11085,10 +11081,10 @@
         },
         {
           "name": "colorScheme",
-          "type": "\"dark\" | \"light\" | \"primary\"",
+          "type": "\"dark\" | \"light\" | \"primary\" | \"transparent\"",
           "complexType": {
             "original": "TippyThemes",
-            "resolved": "\"dark\" | \"light\" | \"primary\"",
+            "resolved": "\"dark\" | \"light\" | \"primary\" | \"transparent\"",
             "references": {
               "TippyThemes": {
                 "location": "import",
@@ -11100,7 +11096,7 @@
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip.\n\nValid options include: `light`, `dark` or `primary`",
+          "docs": "Sets the color scheme of the tooltip.\n\nValid options include: `light`, `dark`, `primary` or `transparent`.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -11114,6 +11110,10 @@
             },
             {
               "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "transparent",
               "type": "string"
             }
           ],
@@ -11456,6 +11456,11 @@
       "docstring": "",
       "path": "src/components/types.ts"
     },
+    "src/components/types.ts::TippyThemes": {
+      "declaration": "export type TippyThemes = 'light' | 'dark' | 'primary' | 'transparent';",
+      "docstring": "",
+      "path": "src/components/types.ts"
+    },
     "../../node_modules/tippy.js/index.d.ts::Placement": {
       "declaration": "export declare type Placement = AutoPlacement | BasePlacement | VariationPlacement;",
       "docstring": "",
@@ -11513,11 +11518,6 @@
     },
     "src/components/types.ts::NavDrawerLabels": {
       "declaration": "{\n  content: string;\n  footer: string;\n  toggleBtn: string;\n}",
-      "docstring": "",
-      "path": "src/components/types.ts"
-    },
-    "src/components/types.ts::TippyThemes": {
-      "declaration": "export type TippyThemes = 'light' | 'dark' | 'primary';",
       "docstring": "",
       "path": "src/components/types.ts"
     },

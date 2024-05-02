@@ -16,6 +16,7 @@ const InoFabMeta = {
       label="${args.label}"
       variant="${args.variant}"
       tooltip-placement="${args.tooltipPlacement}"
+      tooltip-theme="${args.tooltipTheme}"
       shadow="${args.shadow}"
     >
       <ino-icon slot="icon-leading" icon="add" />
@@ -29,6 +30,7 @@ const InoFabMeta = {
     variant: 'standard',
     shadow: true,
     tooltipPlacement: 'top',
+    tooltipTheme: 'transparent',
   },
   argTypes: {
     variant: {
@@ -87,7 +89,7 @@ export const Variants = Story({
       <ino-fab tooltip-placement="none" label="Default Fab">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab  variant="small" label="small fab">
+      <ino-fab tooltip-placement="top" variant="small" label="small fab">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
       <ino-fab extended label="Extended Button">
@@ -115,19 +117,19 @@ export const EdgePositions = Story({
   ...Default,
   render: () => html`
     <div class="ino-fab-variants">
-      <ino-fab label="top-left" edge-position="top-left">
+      <ino-fab tooltip-theme="primary" tooltip-placement="top" label="top-left" edge-position="top-left">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab label="top-right" edge-position="top-right">
+      <ino-fab tooltip-theme="primary" tooltip-placement="top" label="top-right" edge-position="top-right">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab label="bottom-right" edge-position="bottom-right">
+      <ino-fab tooltip-theme="primary" tooltip-placement="bottom" label="bottom-right" edge-position="bottom-right">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab label="bottom-left" edge-position="bottom-left">
+      <ino-fab tooltip-theme="primary" tooltip-placement="bottom" label="bottom-left" edge-position="bottom-left">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab label="none" edge-position="none">
+      <ino-fab tooltip-theme="primary" tooltip-placement="right" label="none" edge-position="none">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
     </div>

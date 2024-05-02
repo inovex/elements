@@ -549,6 +549,10 @@ export namespace Components {
          */
         "tooltipPlacement": Placement | 'none';
         /**
+          * The theme of the tooltip which will be displayed when the button is not extended.
+         */
+        "tooltipTheme"?: TippyThemes;
+        /**
           * The variant of the FAB.
          */
         "variant": 'small' | 'standard' | 'large';
@@ -569,10 +573,6 @@ export namespace Components {
          */
         "dialDirection": Locations;
         /**
-          * The icon of the fab set.
-         */
-        "icon"?: string;
-        /**
           * The label of the fab set when the variant is `stacked`.
          */
         "label"?: string;
@@ -588,10 +588,6 @@ export namespace Components {
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
         "topBottomLocation": VerticalLocation;
-        /**
-          * The variant of the fab set.
-         */
-        "variant": 'menu' | 'stacked';
     }
     /**
      * A light icon component for texts and other components.
@@ -1678,7 +1674,7 @@ export namespace Components {
          */
         "arrow": boolean;
         /**
-          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark`, `primary` or `transparent`.
          */
         "colorScheme": TippyThemes;
         /**
@@ -3354,6 +3350,10 @@ declare namespace LocalJSX {
          */
         "tooltipPlacement"?: Placement | 'none';
         /**
+          * The theme of the tooltip which will be displayed when the button is not extended.
+         */
+        "tooltipTheme"?: TippyThemes;
+        /**
           * The variant of the FAB.
          */
         "variant"?: 'small' | 'standard' | 'large';
@@ -3374,10 +3374,6 @@ declare namespace LocalJSX {
          */
         "dialDirection"?: Locations;
         /**
-          * The icon of the fab set.
-         */
-        "icon"?: string;
-        /**
           * The label of the fab set when the variant is `stacked`.
          */
         "label"?: string;
@@ -3393,10 +3389,6 @@ declare namespace LocalJSX {
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
         "topBottomLocation"?: VerticalLocation;
-        /**
-          * The variant of the fab set.
-         */
-        "variant"?: 'menu' | 'stacked';
     }
     /**
      * A light icon component for texts and other components.
@@ -4560,7 +4552,7 @@ declare namespace LocalJSX {
          */
         "arrow"?: boolean;
         /**
-          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+          * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark`, `primary` or `transparent`.
          */
         "colorScheme"?: TippyThemes;
         /**

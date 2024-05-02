@@ -47,7 +47,7 @@ export type NavDrawerLabels = {
   footer: string;
   toggleBtn: string;
 };
-export type TippyThemes = 'light' | 'dark' | 'primary';
+export type TippyThemes = 'light' | 'dark' | 'primary' | 'transparent';
 export type ButtonVariants = 'filled' | 'outlined' | 'text';
 export type SnackbarLabels = {
   snackbarLabel: string;
