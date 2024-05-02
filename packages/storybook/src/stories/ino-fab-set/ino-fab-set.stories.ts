@@ -28,22 +28,24 @@ const InoFabSetMeta = {
       top-bottom-location="${args.topBottomLocation}"
       left-right-location="${args.leftRightLocation}"
       dial-direction="${args.dialDirection}"
+      variant="${args.variant}"
+      icon="${args.icon}"
       @click="${clickHandler}"
     >
-      <ino-icon @clickEl="${clickHandler}" icon="arrow_down" slot="icon-opened"></ino-icon>
-      <ino-icon @clickEl="${clickHandler}" icon="arrow_up" slot="icon-closed"></ino-icon>
-      <ino-fab label="First FAB">
-        <ino-icon slot="icon-leading" icon="star"></ino-icon>
+      <ino-fab label="First FAB" variant="small">
+        <ino-icon slot="icon-leading" icon="download"></ino-icon>
       </ino-fab>
-      <ino-fab label="Second FAB">
-        <ino-icon slot="icon-leading" icon="favorite"></ino-icon>
+      <ino-fab label="Second FAB" variant="small">
+        <ino-icon slot="icon-leading" icon="remove"></ino-icon>
       </ino-fab>
-      <ino-fab label="Third FAB">
-        <ino-icon slot="icon-leading" icon="info"></ino-icon>
+      <ino-fab label="Third FAB" variant="small">
+        <ino-icon slot="icon-leading" icon="edit"></ino-icon>
       </ino-fab>
     </ino-fab-set>
   `,
   args: {
+    variant: 'menu',
+    icon: 'options_dotted',
     openDial: false,
     dialDirection: 'top',
     leftRightLocation: 'left',

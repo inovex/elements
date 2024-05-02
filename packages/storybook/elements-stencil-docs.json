@@ -3586,6 +3586,49 @@
           "required": false
         },
         {
+          "name": "icon",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "The icon of the fab set.",
+          "docsTags": [],
+          "default": "'options_dotted'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label of the fab set when the variant is `stacked`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "leftRightLocation",
           "type": "\"left\" | \"right\"",
           "complexType": {
@@ -3667,6 +3710,33 @@
             },
             {
               "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"menu\" | \"stacked\"",
+          "complexType": {
+            "original": "'menu' | 'stacked'",
+            "resolved": "\"menu\" | \"stacked\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The variant of the fab set.",
+          "docsTags": [],
+          "default": "'menu'",
+          "values": [
+            {
+              "value": "menu",
+              "type": "string"
+            },
+            {
+              "value": "stacked",
               "type": "string"
             }
           ],

@@ -1,6 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
 import classNames from 'classnames';
-import { hasSlotContent } from '../../util/component-utils';
 
 import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 
@@ -28,6 +27,21 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 })
 export class FabSet implements ComponentInterface {
   @Element() el!: HTMLInoFabSetElement;
+
+  /**
+   * The variant of the fab set.
+   */
+  @Prop() variant: 'menu' | 'stacked' = 'menu';
+
+  /**
+   * The label of the fab set when the variant is `stacked`.
+   */
+  @Prop() label?: string;
+
+  /**
+   * The icon of the fab set.
+   */
+  @Prop() icon? = 'options_dotted';
 
   /**
    * The direction of the speed dial.
@@ -67,9 +81,6 @@ export class FabSet implements ComponentInterface {
 
     const directionClasses = classNames('ino-fab-set-wrapper', 'ino-direction-' + this.dialDirection);
 
-    const hasClosedIcon = hasSlotContent(this.el, 'icon-closed');
-    const hasOpenedIcon = hasSlotContent(this.el, 'icon-opened');
-
     return (
       <Host class={hostClasses}>
         <div class={directionClasses}>
@@ -77,31 +88,22 @@ export class FabSet implements ComponentInterface {
             <slot></slot>
           </div>
 
-          <ino-fab id={'primary-fab'} class="ino-fab-set-button" edge-position="none" tooltip-placement="none">
-            {hasClosedIcon ? (
-              <div slot="icon-leading">
-                <slot name="icon-closed" />
-              </div>
-            ) : (
-              <ino-icon
-                class="ino-fab-set-icon ino-fab-set-icon--closed"
-                slot="icon-leading"
-                icon={'_fab_set_arrow_up'}
-              />
-            )}
-
-            {hasOpenedIcon ? (
-              <div slot="icon-leading">
-                <slot name="icon-opened" />
-              </div>
-            ) : (
-              <ino-icon
-                class="ino-fab-set-icon ino-fab-set-icon--opened"
-                slot="icon-leading"
-                icon={'_fab_set_arrow_down'}
-              />
-            )}
-          </ino-fab>
+          {this.variant === 'stacked' ? (
+            <ino-fab
+              id={'primary-fab'}
+              class="ino-fab-set-button"
+              edge-position="top-right"
+              tooltip-placement="none"
+              extended
+              label={this.label}
+            >
+              <ino-icon class="ino-fab-set-icon" slot="icon-leading" icon={this.icon} />
+            </ino-fab>
+          ) : (
+            <ino-fab id={'primary-fab'} class="ino-fab-set-button" edge-position="top-right" tooltip-placement="none">
+              <ino-icon class="ino-fab-set-icon" slot="icon-leading" icon={this.icon} />
+            </ino-fab>
+          )}
         </div>
       </Host>
     );

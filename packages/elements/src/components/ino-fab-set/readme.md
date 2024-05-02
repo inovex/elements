@@ -21,12 +21,15 @@ your local state and pass the state to the component again to open/close the fab
 
 ## Properties
 
-| Property            | Attribute             | Description                                                                                   | Type                                     | Default    |
-| ------------------- | --------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- |
-| `dialDirection`     | `dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`    |
-| `leftRightLocation` | `left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
-| `openDial`          | `open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`    |
-| `topBottomLocation` | `top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
+| Property            | Attribute             | Description                                                                                   | Type                                     | Default            |
+| ------------------- | --------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------------ |
+| `dialDirection`     | `dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`            |
+| `icon`              | `icon`                | The icon of the fab set.                                                                      | `string`                                 | `'options_dotted'` |
+| `label`             | `label`               | The label of the fab set when the variant is `stacked`.                                       | `string`                                 | `undefined`        |
+| `leftRightLocation` | `left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`           |
+| `openDial`          | `open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`            |
+| `topBottomLocation` | `top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'`         |
+| `variant`           | `variant`             | The variant of the fab set.                                                                   | `"menu" \| "stacked"`                    | `'menu'`           |
 
 
 ## Slots

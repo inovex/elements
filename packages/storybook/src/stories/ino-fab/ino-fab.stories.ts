@@ -25,10 +25,10 @@ const InoFabMeta = {
     disabled: false,
     edgePosition: 'top-right',
     extended: false,
-    label: 'Label',
+    label: 'Hello',
     variant: 'standard',
     shadow: true,
-    tooltipPlacement: 'left',
+    tooltipPlacement: 'top',
   },
   argTypes: {
     variant: {
@@ -87,7 +87,7 @@ export const Variants = Story({
       <ino-fab tooltip-placement="none" label="Default Fab">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab mini label="Mini Fab">
+      <ino-fab  variant="small" label="small fab">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
       <ino-fab extended label="Extended Button">

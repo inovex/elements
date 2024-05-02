@@ -187,6 +187,9 @@ export const InoFab = /*@__PURE__*/ defineContainer<JSX.InoFab>('ino-fab', undef
 
 
 export const InoFabSet = /*@__PURE__*/ defineContainer<JSX.InoFabSet>('ino-fab-set', undefined, [
+  'variant',
+  'label',
+  'icon',
   'dialDirection',
   'topBottomLocation',
   'leftRightLocation',

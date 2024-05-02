@@ -58,26 +58,12 @@ ino-fab-set {
 
     .ino-speed-dial {
       display: none;
-      align-items: center;
+      align-items: flex-end;
     }
 
     .ino-fab-set-button {
       padding: $fab-set-padding;
       align-self: center;
-    }
-
-    div[slot='icon-leading'] {
-      display: contents;
-    }
-
-    .ino-fab-set-icon--opened,
-    [slot='icon-opened'] {
-      display: none;
-    }
-
-    .ino-fab-set-icon--closed,
-    [slot='icon-closed'] {
-      display: block;
     }
   }
 
@@ -99,16 +85,6 @@ ino-fab-set {
   }
 
   &.ino-fab-set--open-dial {
-    .ino-fab-set-wrapper {
-      .ino-fab-set-icon--opened,
-      [slot='icon-opened'] {
-        display: block;
-      }
-      .ino-fab-set-icon--closed,
-      [slot='icon-closed'] {
-        display: none;
-      }
-    }
 
     .ino-speed-dial {
       display: flex;

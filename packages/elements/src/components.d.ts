@@ -569,6 +569,14 @@ export namespace Components {
          */
         "dialDirection": Locations;
         /**
+          * The icon of the fab set.
+         */
+        "icon"?: string;
+        /**
+          * The label of the fab set when the variant is `stacked`.
+         */
+        "label"?: string;
+        /**
           * The side where the Fab is displayed. Possible values: `right`, `left` (default).
          */
         "leftRightLocation": HorizontalLocation;
@@ -580,6 +588,10 @@ export namespace Components {
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
         "topBottomLocation": VerticalLocation;
+        /**
+          * The variant of the fab set.
+         */
+        "variant": 'menu' | 'stacked';
     }
     /**
      * A light icon component for texts and other components.
@@ -3362,6 +3374,14 @@ declare namespace LocalJSX {
          */
         "dialDirection"?: Locations;
         /**
+          * The icon of the fab set.
+         */
+        "icon"?: string;
+        /**
+          * The label of the fab set when the variant is `stacked`.
+         */
+        "label"?: string;
+        /**
           * The side where the Fab is displayed. Possible values: `right`, `left` (default).
          */
         "leftRightLocation"?: HorizontalLocation;
@@ -3373,6 +3393,10 @@ declare namespace LocalJSX {
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
         "topBottomLocation"?: VerticalLocation;
+        /**
+          * The variant of the fab set.
+         */
+        "variant"?: 'menu' | 'stacked';
     }
     /**
      * A light icon component for texts and other components.

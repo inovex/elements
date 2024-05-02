@@ -395,14 +395,14 @@ export declare interface InoFab extends Components.InoFab {}
 
 
 @ProxyCmp({
-  inputs: ['dialDirection', 'leftRightLocation', 'openDial', 'topBottomLocation']
+  inputs: ['dialDirection', 'icon', 'label', 'leftRightLocation', 'openDial', 'topBottomLocation', 'variant']
 })
 @Component({
   selector: 'ino-fab-set',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['dialDirection', 'leftRightLocation', 'openDial', 'topBottomLocation'],
+  inputs: ['dialDirection', 'icon', 'label', 'leftRightLocation', 'openDial', 'topBottomLocation', 'variant'],
 })
 export class InoFabSet {
   protected el: HTMLElement;
