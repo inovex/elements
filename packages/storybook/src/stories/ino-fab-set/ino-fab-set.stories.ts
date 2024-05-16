@@ -60,7 +60,7 @@ export const Default = Story({
 
 /**
  * This example shows the ino-fab-set component positioned at the bottom left.
-  * The primary ino-fab button `Open Chat` opens a vertical menu with more options.
+ * The primary ino-fab button `Open Chat` opens a vertical menu with more options.
  * Additionally, each secondary ino-fab button has an ino-tooltip to provide more information.
  */
 export const Extended = Story({
@@ -74,12 +74,7 @@ export const Extended = Story({
       class="ino-fab-set--bottom-left"
       @click="${clickHandler}"
     >
-      <ino-fab
-        slot="primary-fab"
-        label="Open Chat"
-        edge-position="top-right"
-        variant="extended"
-      >
+      <ino-fab slot="primary-fab" label="Open Chat" edge-position="top-right" variant="extended">
         <ino-icon slot="icon-leading" icon="chat"></ino-icon>
       </ino-fab>
       <ino-fab id="second-fab" label="Second FAB" variant="small">
@@ -97,13 +92,7 @@ export const Extended = Story({
       <ino-fab id="third-fab" label="Third FAB" variant="small">
         <ino-icon slot="icon-leading" icon="mail"></ino-icon>
       </ino-fab>
-      <ino-tooltip
-        for="third-fab"
-        placement="left"
-        trigger="mouseenter focus"
-        color-scheme="transparent"
-        arrow="false"
-      >
+      <ino-tooltip for="third-fab" placement="left" trigger="mouseenter focus" color-scheme="transparent" arrow="false">
         mail
       </ino-tooltip>
     </ino-fab-set>
