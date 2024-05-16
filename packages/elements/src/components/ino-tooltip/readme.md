@@ -46,19 +46,6 @@ Type: `Promise<any>`
 | `"default The text shown in the tooltip."` |             |
 
 
-## Dependencies
-
-### Used by
-
- - [ino-fab](../ino-fab)
-
-### Graph
-```mermaid
-graph TD;
-  ino-fab --> ino-tooltip
-  style ino-tooltip fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

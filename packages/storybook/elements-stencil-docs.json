@@ -3188,13 +3188,8 @@
       "dependents": [
         "ino-fab-set"
       ],
-      "dependencies": [
-        "ino-tooltip"
-      ],
+      "dependencies": [],
       "dependencyGraph": {
-        "ino-fab": [
-          "ino-tooltip"
-        ],
         "ino-fab-set": [
           "ino-fab"
         ]
@@ -3262,28 +3257,6 @@
           "required": false
         },
         {
-          "name": "extended",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "extended",
-          "reflectToAttr": false,
-          "docs": "Optional, modifies the FAB to wider size which includes a text label.\nNote: This property is only available for the `standard` variant.\nIf set to true while the variant is not `standard`, it will override the `variant` property.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "label",
           "type": "string",
           "complexType": {
@@ -3315,7 +3288,7 @@
           "mutable": false,
           "attr": "shadow",
           "reflectToAttr": false,
-          "docs": "Optional, displays a shadow around the button.",
+          "docs": "Optional, displays a shadow around the button. Flat when it should be part of a button, shadow to abheben",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -3327,141 +3300,11 @@
           "required": false
         },
         {
-          "name": "tooltipPlacement",
-          "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"none\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
-          "complexType": {
-            "original": "Placement | 'none'",
-            "resolved": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"none\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
-            "references": {
-              "Placement": {
-                "location": "import",
-                "path": "tippy.js",
-                "id": "../../node_modules/tippy.js/index.d.ts::Placement"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "tooltip-placement",
-          "reflectToAttr": false,
-          "docs": "The placement of the tooltip which will be displayed when the button is not extended.\nUse `none`, if you don't want a tooltip to be displayed.",
-          "docsTags": [],
-          "default": "'left'",
-          "values": [
-            {
-              "value": "auto",
-              "type": "string"
-            },
-            {
-              "value": "auto-end",
-              "type": "string"
-            },
-            {
-              "value": "auto-start",
-              "type": "string"
-            },
-            {
-              "value": "bottom",
-              "type": "string"
-            },
-            {
-              "value": "bottom-end",
-              "type": "string"
-            },
-            {
-              "value": "bottom-start",
-              "type": "string"
-            },
-            {
-              "value": "left",
-              "type": "string"
-            },
-            {
-              "value": "left-end",
-              "type": "string"
-            },
-            {
-              "value": "left-start",
-              "type": "string"
-            },
-            {
-              "value": "none",
-              "type": "string"
-            },
-            {
-              "value": "right",
-              "type": "string"
-            },
-            {
-              "value": "right-end",
-              "type": "string"
-            },
-            {
-              "value": "right-start",
-              "type": "string"
-            },
-            {
-              "value": "top",
-              "type": "string"
-            },
-            {
-              "value": "top-end",
-              "type": "string"
-            },
-            {
-              "value": "top-start",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "tooltipTheme",
-          "type": "\"dark\" | \"light\" | \"primary\" | \"transparent\"",
-          "complexType": {
-            "original": "TippyThemes",
-            "resolved": "\"dark\" | \"light\" | \"primary\" | \"transparent\"",
-            "references": {
-              "TippyThemes": {
-                "location": "import",
-                "path": "../types",
-                "id": "src/components/types.ts::TippyThemes"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "tooltip-theme",
-          "reflectToAttr": false,
-          "docs": "The theme of the tooltip which will be displayed when the button is not extended.",
-          "docsTags": [],
-          "default": "'transparent'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "transparent",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "variant",
-          "type": "\"large\" | \"small\" | \"standard\"",
+          "type": "\"extended\" | \"large\" | \"small\" | \"standard\"",
           "complexType": {
-            "original": "'small' | 'standard' | 'large'",
-            "resolved": "\"large\" | \"small\" | \"standard\"",
+            "original": "'small' | 'standard' | 'large' | 'extended'",
+            "resolved": "\"extended\" | \"large\" | \"small\" | \"standard\"",
             "references": {}
           },
           "mutable": false,
@@ -3471,6 +3314,10 @@
           "docsTags": [],
           "default": "'standard'",
           "values": [
+            {
+              "value": "extended",
+              "type": "string"
+            },
             {
               "value": "large",
               "type": "string"
@@ -3558,15 +3405,7 @@
       "docsTags": [
         {
           "name": "slot",
-          "text": "default - One or more `ino-fab`"
-        },
-        {
-          "name": "slot",
-          "text": "icon-opened - The icon of the FAB button while being open"
-        },
-        {
-          "name": "slot",
-          "text": "icon-closed - The icon of the FAB button while being closed"
+          "text": "primary-fab - The main fab button of the fab set."
         }
       ],
       "encapsulation": "none",
@@ -3579,53 +3418,9 @@
         "ino-fab-set": [
           "ino-fab",
           "ino-icon"
-        ],
-        "ino-fab": [
-          "ino-tooltip"
         ]
       },
       "props": [
-        {
-          "name": "dialDirection",
-          "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
-          "complexType": {
-            "original": "Locations",
-            "resolved": "\"bottom\" | \"left\" | \"right\" | \"top\"",
-            "references": {
-              "Locations": {
-                "location": "import",
-                "path": "../types",
-                "id": "src/components/types.ts::Locations"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "dial-direction",
-          "reflectToAttr": false,
-          "docs": "The direction of the speed dial.\nPossible values: `top` (default), `bottom`, `right`, `left`.",
-          "docsTags": [],
-          "default": "'top'",
-          "values": [
-            {
-              "value": "bottom",
-              "type": "string"
-            },
-            {
-              "value": "left",
-              "type": "string"
-            },
-            {
-              "value": "right",
-              "type": "string"
-            },
-            {
-              "value": "top",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
         {
           "name": "label",
           "type": "string",
@@ -3645,39 +3440,6 @@
             }
           ],
           "optional": true,
-          "required": false
-        },
-        {
-          "name": "leftRightLocation",
-          "type": "\"left\" | \"right\"",
-          "complexType": {
-            "original": "HorizontalLocation",
-            "resolved": "\"left\" | \"right\"",
-            "references": {
-              "HorizontalLocation": {
-                "location": "import",
-                "path": "../types",
-                "id": "src/components/types.ts::HorizontalLocation"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "left-right-location",
-          "reflectToAttr": false,
-          "docs": "The side where the Fab is displayed.\nPossible values: `right`, `left` (default).",
-          "docsTags": [],
-          "default": "'left'",
-          "values": [
-            {
-              "value": "left",
-              "type": "string"
-            },
-            {
-              "value": "right",
-              "type": "string"
-            }
-          ],
-          "optional": false,
           "required": false
         },
         {
@@ -3703,36 +3465,29 @@
           "required": false
         },
         {
-          "name": "topBottomLocation",
-          "type": "\"bottom\" | \"top\"",
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
           "complexType": {
-            "original": "VerticalLocation",
-            "resolved": "\"bottom\" | \"top\"",
-            "references": {
-              "VerticalLocation": {
-                "location": "import",
-                "path": "../types",
-                "id": "src/components/types.ts::VerticalLocation"
-              }
-            }
+            "original": "'horizontal' | 'vertical'",
+            "resolved": "\"horizontal\" | \"vertical\"",
+            "references": {}
           },
           "mutable": false,
-          "attr": "top-bottom-location",
+          "attr": "orientation",
           "reflectToAttr": false,
-          "docs": "The side where the Fab is displayed.\nPossible values: `top`, `bottom` (default).",
+          "docs": "The orientation of the dial in which the secondary ino-fabs will be displayed.",
           "docsTags": [],
-          "default": "'bottom'",
           "values": [
             {
-              "value": "bottom",
+              "value": "horizontal",
               "type": "string"
             },
             {
-              "value": "top",
+              "value": "vertical",
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -3741,20 +3496,18 @@
       "styles": [],
       "slots": [
         {
-          "name": "default",
-          "docs": "One or more `ino-fab`"
-        },
-        {
-          "name": "icon-closed",
-          "docs": "The icon of the FAB button while being closed"
-        },
-        {
-          "name": "icon-opened",
-          "docs": "The icon of the FAB button while being open"
+          "name": "primary-fab",
+          "docs": "The main fab button of the fab set."
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "src/components/ino-icon/ino-icon.tsx",
@@ -11047,15 +10800,9 @@
         }
       ],
       "encapsulation": "none",
-      "dependents": [
-        "ino-fab"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "ino-fab": [
-          "ino-tooltip"
-        ]
-      },
+      "dependencyGraph": {},
       "props": [
         {
           "name": "arrow",
@@ -11456,31 +11203,6 @@
       "docstring": "",
       "path": "src/components/types.ts"
     },
-    "src/components/types.ts::TippyThemes": {
-      "declaration": "export type TippyThemes = 'light' | 'dark' | 'primary' | 'transparent';",
-      "docstring": "",
-      "path": "src/components/types.ts"
-    },
-    "../../node_modules/tippy.js/index.d.ts::Placement": {
-      "declaration": "export declare type Placement = AutoPlacement | BasePlacement | VariationPlacement;",
-      "docstring": "",
-      "path": "../../node_modules/tippy.js/index.d.ts"
-    },
-    "src/components/types.ts::Locations": {
-      "declaration": "export type Locations = HorizontalLocation | VerticalLocation;",
-      "docstring": "",
-      "path": "src/components/types.ts"
-    },
-    "src/components/types.ts::VerticalLocation": {
-      "declaration": "export type VerticalLocation = 'top' | 'bottom';",
-      "docstring": "",
-      "path": "src/components/types.ts"
-    },
-    "src/components/types.ts::HorizontalLocation": {
-      "declaration": "export type HorizontalLocation = 'left' | 'right';",
-      "docstring": "",
-      "path": "src/components/types.ts"
-    },
     "src/components/types.ts::ImageDecodingTypes": {
       "declaration": "export type ImageDecodingTypes = 'async' | 'auto' | 'sync';",
       "docstring": "",
@@ -11506,6 +11228,11 @@
       "docstring": "",
       "path": "src/components/types.ts"
     },
+    "../../node_modules/tippy.js/index.d.ts::Placement": {
+      "declaration": "export declare type Placement = AutoPlacement | BasePlacement | VariationPlacement;",
+      "docstring": "",
+      "path": "../../node_modules/tippy.js/index.d.ts"
+    },
     "src/components/types.ts::NavDrawerAnchor": {
       "declaration": "export type NavDrawerAnchor = 'left' | 'right';",
       "docstring": "",
@@ -11518,6 +11245,11 @@
     },
     "src/components/types.ts::NavDrawerLabels": {
       "declaration": "{\n  content: string;\n  footer: string;\n  toggleBtn: string;\n}",
+      "docstring": "",
+      "path": "src/components/types.ts"
+    },
+    "src/components/types.ts::TippyThemes": {
+      "declaration": "export type TippyThemes = 'light' | 'dark' | 'primary' | 'transparent';",
       "docstring": "",
       "path": "src/components/types.ts"
     },

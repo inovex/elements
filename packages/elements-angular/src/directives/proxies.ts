@@ -373,14 +373,14 @@ export declare interface InoDialog extends Components.InoDialog {
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'edgePosition', 'extended', 'label', 'shadow', 'tooltipPlacement', 'tooltipTheme', 'variant']
+  inputs: ['disabled', 'edgePosition', 'label', 'shadow', 'variant']
 })
 @Component({
   selector: 'ino-fab',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'edgePosition', 'extended', 'label', 'shadow', 'tooltipPlacement', 'tooltipTheme', 'variant'],
+  inputs: ['disabled', 'edgePosition', 'label', 'shadow', 'variant'],
 })
 export class InoFab {
   protected el: HTMLElement;
@@ -395,14 +395,14 @@ export declare interface InoFab extends Components.InoFab {}
 
 
 @ProxyCmp({
-  inputs: ['dialDirection', 'label', 'leftRightLocation', 'openDial', 'topBottomLocation']
+  inputs: ['label', 'openDial', 'orientation']
 })
 @Component({
   selector: 'ino-fab-set',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['dialDirection', 'label', 'leftRightLocation', 'openDial', 'topBottomLocation'],
+  inputs: ['label', 'openDial', 'orientation'],
 })
 export class InoFabSet {
   protected el: HTMLElement;

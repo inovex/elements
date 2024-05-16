@@ -21,22 +21,18 @@ your local state and pass the state to the component again to open/close the fab
 
 ## Properties
 
-| Property            | Attribute             | Description                                                                                   | Type                                     | Default     |
-| ------------------- | --------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ----------- |
-| `dialDirection`     | `dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`     |
-| `label`             | `label`               | The label of the fab set when the variant is `stacked`.                                       | `string`                                 | `undefined` |
-| `leftRightLocation` | `left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`    |
-| `openDial`          | `open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`     |
-| `topBottomLocation` | `top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'`  |
+| Property      | Attribute     | Description                                                                    | Type                         | Default     |
+| ------------- | ------------- | ------------------------------------------------------------------------------ | ---------------------------- | ----------- |
+| `label`       | `label`       | The label of the fab set when the variant is `stacked`.                        | `string`                     | `undefined` |
+| `openDial`    | `open-dial`   | Opens the dial (**uncontrolled**)                                              | `boolean`                    | `false`     |
+| `orientation` | `orientation` | The orientation of the dial in which the secondary ino-fabs will be displayed. | `"horizontal" \| "vertical"` | `undefined` |
 
 
 ## Slots
 
-| Slot            | Description                                   |
-| --------------- | --------------------------------------------- |
-| `"default"`     | One or more `ino-fab`                         |
-| `"icon-closed"` | The icon of the FAB button while being closed |
-| `"icon-opened"` | The icon of the FAB button while being open   |
+| Slot            | Description                         |
+| --------------- | ----------------------------------- |
+| `"primary-fab"` | The main fab button of the fab set. |
 
 
 ## Dependencies
@@ -51,7 +47,6 @@ your local state and pass the state to the component again to open/close the fab
 graph TD;
   ino-fab-set --> ino-fab
   ino-fab-set --> ino-icon
-  ino-fab --> ino-tooltip
   style ino-fab-set fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

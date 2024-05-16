@@ -12,11 +12,8 @@ const InoFabMeta = {
       class="customizable-fab"
       disabled="${args.disabled}"
       edge-position="${args.edgePosition}"
-      extended="${args.extended}"
       label="${args.label}"
       variant="${args.variant}"
-      tooltip-placement="${args.tooltipPlacement}"
-      tooltip-theme="${args.tooltipTheme}"
       shadow="${args.shadow}"
     >
       <ino-icon slot="icon-leading" icon="add" />
@@ -25,46 +22,20 @@ const InoFabMeta = {
   args: {
     disabled: false,
     edgePosition: 'top-right',
-    extended: false,
     label: 'Hello',
     variant: 'standard',
     shadow: true,
-    tooltipPlacement: 'top',
-    tooltipTheme: 'transparent',
   },
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['small', 'standard', 'large'],
+      options: ['small', 'standard', 'large', 'extended'],
     },
     edgePosition: {
       control: {
         type: 'select',
       },
       options: ['top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'],
-    },
-    tooltipPlacement: {
-      control: {
-        type: 'select',
-      },
-      options: [
-        'auto',
-        'auto-end',
-        'auto-start',
-        'bottom',
-        'bottom-end',
-        'bottom-start',
-        'left',
-        'left-end',
-        'left-start',
-        'none',
-        'right',
-        'right-end',
-        'right-start',
-        'top',
-        'top-end',
-        'top-start',
-      ],
     },
   },
 } as Meta<Components.InoFab>;
@@ -78,8 +49,10 @@ export const Default = Story({
 /**
  * In order to achive diffrent variations, use this properties:
  *
- * - `mini`: Optional, modifies the FAB to a smaller size
- * - `extended`: Optional, modifies the FAB to wider size which includes a text label.
+ * - `small`: modifies the FAB to a smaller size
+ * - `extended`: modifies the FAB to wider size which includes a text label.
+ * - `large`: modifies the FAB to a larger size
+ * - `standard`: default size
  * - `disabled`: Disables the button
  */
 export const Variants = Story({
@@ -92,7 +65,7 @@ export const Variants = Story({
       <ino-fab tooltip-placement="top" variant="small" label="small fab">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab extended label="Extended Button">
+      <ino-fab variant="extended" label="Extended Button">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
       <ino-fab disabled label="Disabled Button">
@@ -117,21 +90,57 @@ export const EdgePositions = Story({
   ...Default,
   render: () => html`
     <div class="ino-fab-variants">
-      <ino-fab tooltip-theme="primary" tooltip-placement="top" label="top-left" edge-position="top-left">
+      <ino-fab id="left-fab" label="top-left" edge-position="top-left">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab tooltip-theme="primary" tooltip-placement="top" label="top-right" edge-position="top-right">
+      <ino-tooltip for="left-fab" placement="left" trigger="mouseenter focus" color-scheme="transparent" arrow="false">
+        top-left
+      </ino-tooltip>
+
+      <ino-fab id="top-fab" label="top-right" edge-position="top-right">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab tooltip-theme="primary" tooltip-placement="bottom" label="bottom-right" edge-position="bottom-right">
+      <ino-tooltip for="top-fab" placement="top" trigger="mouseenter focus" color-scheme="transparent" arrow="false">
+        top-right
+      </ino-tooltip>
+
+      <ino-fab id="bottom-fab" label="bottom-right" edge-position="bottom-right">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab tooltip-theme="primary" tooltip-placement="bottom" label="bottom-left" edge-position="bottom-left">
+      <ino-tooltip
+        for="bottom-fab"
+        placement="bottom"
+        trigger="mouseenter focus"
+        color-scheme="transparent"
+        arrow="false"
+      >
+        bottom-right
+      </ino-tooltip>
+
+      <ino-fab id="top-again-fab" label="bottom-left" edge-position="bottom-left">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
-      <ino-fab tooltip-theme="primary" tooltip-placement="right" label="none" edge-position="none">
+      <ino-tooltip
+        for="top-again-fab"
+        placement="top"
+        trigger="mouseenter focus"
+        color-scheme="transparent"
+        arrow="false"
+      >
+        bottom-left
+      </ino-tooltip>
+      <ino-fab id="right-fab" label="none" edge-position="none">
         <ino-icon slot="icon-leading" icon="add"></ino-icon>
       </ino-fab>
+      <ino-tooltip
+        for="right-fab"
+        placement="right"
+        trigger="mouseenter focus"
+        color-scheme="transparent"
+        arrow="false"
+      >
+        none
+      </ino-tooltip>
     </div>
   `,
 });

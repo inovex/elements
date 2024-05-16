@@ -3,8 +3,6 @@ import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import './ino-fab-set.scss';
-import { modifyYarnRcToFitNewDirectory } from 'nx/src/utils/package-manager';
-import { description } from 'packages/storybook/dist/assets/package-CneTSe02';
 
 const clickHandler = (e: CustomEvent<void>) => {
   const fabSetEl = (e.target as HTMLElement).closest('ino-fab-set') as HTMLInoFabSetElement;
@@ -28,10 +26,8 @@ const InoFabSetMeta = {
   render: args => html`
     <ino-fab-set
       open-dial="${args.openDial}"
-      top-bottom-location="${args.topBottomLocation}"
-      left-right-location="${args.leftRightLocation}"
-      dial-direction="${args.dialDirection}"
       label="${args.label}"
+      orientation="${args.orientation}"
       @click="${clickHandler}"
     >
       <ino-fab slot="primary-fab" label="${args.label}" edge-position="top-right" tooltip-placement="none">
@@ -52,9 +48,7 @@ const InoFabSetMeta = {
     icon: 'options_dotted',
     label: 'Label',
     openDial: false,
-    dialDirection: 'top',
-    leftRightLocation: 'left',
-    topBottomLocation: 'bottom',
+    orientation: 'vertical',
   },
 } as Meta<Components.InoFabSet>;
 
@@ -64,58 +58,54 @@ export const Default = Story({
   ...InoFabSetMeta,
 });
 
-export const Stacked = Story({
-  parameters: {
-    docs: {
-      description: {
-        story: 'TEST',
-      },
-    },
-  },
+/**
+ * This example shows the ino-fab-set component positioned at the bottom left.
+  * The primary ino-fab button `Open Chat` opens a vertical menu with more options.
+ * Additionally, each secondary ino-fab button has an ino-tooltip to provide more information.
+ */
+export const Extended = Story({
   ...Default,
 
   render: () => html`
     <ino-fab-set
       open-dial="false"
-      top-bottom-location="bottom"
-      left-right-location="left"
-      dial-direction="top"
       label="Open Chat"
+      orientation="vertical"
+      class="ino-fab-set--bottom-left"
       @click="${clickHandler}"
     >
-      <ino-fab slot="primary-fab" label="Open Chat" edge-position="top-right" tooltip-placement="none" extended>
+      <ino-fab
+        slot="primary-fab"
+        label="Open Chat"
+        edge-position="top-right"
+        variant="extended"
+      >
         <ino-icon slot="icon-leading" icon="chat"></ino-icon>
       </ino-fab>
-      <ino-fab label="Second FAB" variant="small">
+      <ino-fab id="second-fab" label="Second FAB" variant="small">
         <ino-icon slot="icon-leading" icon="call"></ino-icon>
       </ino-fab>
-      <ino-fab label="Third FAB" variant="small">
+      <ino-tooltip
+        for="second-fab"
+        placement="left"
+        trigger="mouseenter focus"
+        color-scheme="transparent"
+        arrow="false"
+      >
+        call
+      </ino-tooltip>
+      <ino-fab id="third-fab" label="Third FAB" variant="small">
         <ino-icon slot="icon-leading" icon="mail"></ino-icon>
       </ino-fab>
+      <ino-tooltip
+        for="third-fab"
+        placement="left"
+        trigger="mouseenter focus"
+        color-scheme="transparent"
+        arrow="false"
+      >
+        mail
+      </ino-tooltip>
     </ino-fab-set>
   `,
-});
-
-export const DialDirection = Story({
-  ...Default,
-  docsFromProperty: 'dialDirection',
-  args: {
-    dialDirection: 'bottom',
-  },
-});
-
-export const LeftRightLocation = Story({
-  ...Default,
-  docsFromProperty: 'leftRightLocation',
-  args: {
-    leftRightLocation: 'right',
-  },
-});
-
-export const TopBottomLocation = Story({
-  ...Default,
-  docsFromProperty: 'topBottomLocation',
-  args: {
-    topBottomLocation: 'top',
-  },
 });

@@ -1,10 +1,7 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, h, Host, Listen, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
-import { Placement } from 'tippy.js';
 import { hasSlotContent } from '../../util/component-utils';
-
-import { TippyThemes } from '../types';
 
 /**
  * A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
@@ -25,7 +22,6 @@ import { TippyThemes } from '../types';
 })
 export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
-  private tooltip?: HTMLInoTooltipElement;
 
   @Element() el!: HTMLInoFabElement;
 
@@ -33,13 +29,6 @@ export class Fab implements ComponentInterface {
    * Optional, for the text label. Applicable only for Extended FAB.
    */
   @Prop() label?: string;
-
-  /**
-   * Optional, modifies the FAB to wider size which includes a text label.
-   * Note: This property is only available for the `standard` variant.
-   * If set to true while the variant is not `standard`, it will override the `variant` property.
-   */
-  @Prop() extended = false;
 
   /**
    * The position of the edge.
@@ -54,23 +43,12 @@ export class Fab implements ComponentInterface {
   /**
    * The variant of the FAB.
    */
-  @Prop() variant: 'small' | 'standard' | 'large' = 'standard';
+  @Prop() variant: 'small' | 'standard' | 'large' | 'extended' = 'standard';
 
   /**
-   * Optional, displays a shadow around the button.
+   * Optional, displays a shadow around the button. Flat when it should be part of a button, shadow to abheben
    */
   @Prop() shadow? = false;
-
-  /**
-   * The theme of the tooltip which will be displayed when the button is not extended.
-   */
-  @Prop() tooltipTheme?: TippyThemes = 'transparent';
-
-  /**
-   * The placement of the tooltip which will be displayed when the button is not extended.
-   * Use `none`, if you don't want a tooltip to be displayed.
-   */
-  @Prop() tooltipPlacement: Placement | 'none' = 'left';
 
   @Listen('click')
   clickHandler(e) {
@@ -79,35 +57,9 @@ export class Fab implements ComponentInterface {
       e.stopPropagation();
     }
   }
-  @Watch('label')
-  watchHandler() {
-    if (this.tooltip) {
-      this.tooltip.remove();
-      this.renderTooltip();
-    }
-  }
 
   componentDidLoad() {
     this.fabRipple = new MDCRipple(this.el.querySelector('.mdc-fab'));
-
-    if (!this.extended && this.tooltipPlacement !== 'none') {
-      this.renderTooltip();
-    }
-  }
-
-  private renderTooltip() {
-    const attributes: Partial<HTMLInoTooltipElement> = {
-      for: this.uniqueHelperId,
-      label: this.label,
-      placement: this.tooltipPlacement === 'none' ? undefined : this.tooltipPlacement,
-      trigger: 'mouseenter focus',
-    };
-
-    const tooltip = document.createElement('ino-tooltip');
-    Object.keys(attributes).forEach(key => tooltip.setAttribute(key, attributes[key]));
-    tooltip.setAttribute('color-scheme', this.tooltipTheme);
-    this.el.appendChild(tooltip);
-    this.tooltip = tooltip;
   }
 
   disconnectedCallback() {
@@ -133,10 +85,10 @@ export class Fab implements ComponentInterface {
 
     const classFab = classNames({
       'mdc-fab': true,
-      'mdc-fab--extended': this.extended,
-      'mdc-fab--small': this.variant === 'small' && !this.extended,
+      'mdc-fab--extended': this.variant === 'extended',
+      'mdc-fab--small': this.variant === 'small',
       'mdc-fab--standard:': this.variant === 'standard',
-      'mdc-fab--large': this.variant === 'large' && !this.extended,
+      'mdc-fab--large': this.variant === 'large',
       'mdc-fab--shadow': this.shadow,
     });
 
@@ -146,7 +98,7 @@ export class Fab implements ComponentInterface {
       <Host class={hostClasses} id={this.uniqueHelperId}>
         <button class={classFab} disabled={this.disabled}>
           <span class="material-icons mdc-fab__icon">{iconSlotHasContent && <slot name="icon-leading" />}</span>
-          {this.extended && <span class="mdc-fab__label">{this.label}</span>}
+          {this.variant === 'extended' && <span class="mdc-fab__label">{this.label}</span>}
         </button>
       </Host>
     );

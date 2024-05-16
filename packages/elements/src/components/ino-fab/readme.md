@@ -18,16 +18,13 @@ FABs come in three types: regular, mini, and extended
 
 ## Properties
 
-| Property           | Attribute           | Description                                                                                                                                                                                                                          | Type                                                                                                                                                                                                                   | Default         |
-| ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `disabled`         | `disabled`          | Disables the button.                                                                                                                                                                                                                 | `boolean`                                                                                                                                                                                                              | `false`         |
-| `edgePosition`     | `edge-position`     | The position of the edge.                                                                                                                                                                                                            | `"bottom-left" \| "bottom-right" \| "none" \| "top-left" \| "top-right"`                                                                                                                                               | `'top-right'`   |
-| `extended`         | `extended`          | Optional, modifies the FAB to wider size which includes a text label. Note: This property is only available for the `standard` variant. If set to true while the variant is not `standard`, it will override the `variant` property. | `boolean`                                                                                                                                                                                                              | `false`         |
-| `label`            | `label`             | Optional, for the text label. Applicable only for Extended FAB.                                                                                                                                                                      | `string`                                                                                                                                                                                                               | `undefined`     |
-| `shadow`           | `shadow`            | Optional, displays a shadow around the button.                                                                                                                                                                                       | `boolean`                                                                                                                                                                                                              | `false`         |
-| `tooltipPlacement` | `tooltip-placement` | The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.                                                                                       | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "none" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`        |
-| `tooltipTheme`     | `tooltip-theme`     | The theme of the tooltip which will be displayed when the button is not extended.                                                                                                                                                    | `"dark" \| "light" \| "primary" \| "transparent"`                                                                                                                                                                      | `'transparent'` |
-| `variant`          | `variant`           | The variant of the FAB.                                                                                                                                                                                                              | `"large" \| "small" \| "standard"`                                                                                                                                                                                     | `'standard'`    |
+| Property       | Attribute       | Description                                                                                               | Type                                                                     | Default       |
+| -------------- | --------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------- |
+| `disabled`     | `disabled`      | Disables the button.                                                                                      | `boolean`                                                                | `false`       |
+| `edgePosition` | `edge-position` | The position of the edge.                                                                                 | `"bottom-left" \| "bottom-right" \| "none" \| "top-left" \| "top-right"` | `'top-right'` |
+| `label`        | `label`         | Optional, for the text label. Applicable only for Extended FAB.                                           | `string`                                                                 | `undefined`   |
+| `shadow`       | `shadow`        | Optional, displays a shadow around the button. Flat when it should be part of a button, shadow to abheben | `boolean`                                                                | `false`       |
+| `variant`      | `variant`       | The variant of the FAB.                                                                                   | `"extended" \| "large" \| "small" \| "standard"`                         | `'standard'`  |
 
 
 ## Slots
@@ -57,14 +54,9 @@ FABs come in three types: regular, mini, and extended
 
  - [ino-fab-set](../ino-fab-set)
 
-### Depends on
-
-- [ino-tooltip](../ino-tooltip)
-
 ### Graph
 ```mermaid
 graph TD;
-  ino-fab --> ino-tooltip
   ino-fab-set --> ino-fab
   style ino-fab fill:#f9f,stroke:#333,stroke-width:4px
 ```

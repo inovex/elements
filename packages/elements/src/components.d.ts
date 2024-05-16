@@ -5,15 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, ImageDecodingTypes, InputType, KeyValue, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
-import { Placement, Props } from "tippy.js";
 import { MDCNotchedOutline } from "@material/notched-outline";
+import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
-export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+export { Alignment, ButtonType, ButtonVariants, ChipSurface, DialogCloseAction, DialogSubmitAction, ImageDecodingTypes, InputType, KeyValue, NavDrawerAnchor, NavDrawerLabels, NavDrawerVariant, SnackbarLabels, SnackbarType, SpinnerType, TippyThemes, TooltipTrigger, UserInputInterceptor, ViewModeUnion } from "./components/types";
 export { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
-export { Placement, Props } from "tippy.js";
 export { MDCNotchedOutline } from "@material/notched-outline";
+export { Placement, Props } from "tippy.js";
 export { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
@@ -533,29 +533,17 @@ export namespace Components {
          */
         "edgePosition": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
         /**
-          * Optional, modifies the FAB to wider size which includes a text label. Note: This property is only available for the `standard` variant. If set to true while the variant is not `standard`, it will override the `variant` property.
-         */
-        "extended": boolean;
-        /**
           * Optional, for the text label. Applicable only for Extended FAB.
          */
         "label"?: string;
         /**
-          * Optional, displays a shadow around the button.
+          * Optional, displays a shadow around the button. Flat when it should be part of a button, shadow to abheben
          */
         "shadow"?: boolean;
         /**
-          * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
-         */
-        "tooltipPlacement": Placement | 'none';
-        /**
-          * The theme of the tooltip which will be displayed when the button is not extended.
-         */
-        "tooltipTheme"?: TippyThemes;
-        /**
           * The variant of the FAB.
          */
-        "variant": 'small' | 'standard' | 'large';
+        "variant": 'small' | 'standard' | 'large' | 'extended';
     }
     /**
      * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
@@ -569,25 +557,17 @@ export namespace Components {
      */
     interface InoFabSet {
         /**
-          * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
-         */
-        "dialDirection": Locations;
-        /**
           * The label of the fab set when the variant is `stacked`.
          */
         "label"?: string;
-        /**
-          * The side where the Fab is displayed. Possible values: `right`, `left` (default).
-         */
-        "leftRightLocation": HorizontalLocation;
         /**
           * Opens the dial (**uncontrolled**)
          */
         "openDial": boolean;
         /**
-          * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
+          * The orientation of the dial in which the secondary ino-fabs will be displayed.
          */
-        "topBottomLocation": VerticalLocation;
+        "orientation"?: 'horizontal' | 'vertical';
     }
     /**
      * A light icon component for texts and other components.
@@ -3334,29 +3314,17 @@ declare namespace LocalJSX {
          */
         "edgePosition"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
         /**
-          * Optional, modifies the FAB to wider size which includes a text label. Note: This property is only available for the `standard` variant. If set to true while the variant is not `standard`, it will override the `variant` property.
-         */
-        "extended"?: boolean;
-        /**
           * Optional, for the text label. Applicable only for Extended FAB.
          */
         "label"?: string;
         /**
-          * Optional, displays a shadow around the button.
+          * Optional, displays a shadow around the button. Flat when it should be part of a button, shadow to abheben
          */
         "shadow"?: boolean;
         /**
-          * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
-         */
-        "tooltipPlacement"?: Placement | 'none';
-        /**
-          * The theme of the tooltip which will be displayed when the button is not extended.
-         */
-        "tooltipTheme"?: TippyThemes;
-        /**
           * The variant of the FAB.
          */
-        "variant"?: 'small' | 'standard' | 'large';
+        "variant"?: 'small' | 'standard' | 'large' | 'extended';
     }
     /**
      * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
@@ -3370,25 +3338,17 @@ declare namespace LocalJSX {
      */
     interface InoFabSet {
         /**
-          * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
-         */
-        "dialDirection"?: Locations;
-        /**
           * The label of the fab set when the variant is `stacked`.
          */
         "label"?: string;
-        /**
-          * The side where the Fab is displayed. Possible values: `right`, `left` (default).
-         */
-        "leftRightLocation"?: HorizontalLocation;
         /**
           * Opens the dial (**uncontrolled**)
          */
         "openDial"?: boolean;
         /**
-          * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
+          * The orientation of the dial in which the secondary ino-fabs will be displayed.
          */
-        "topBottomLocation"?: VerticalLocation;
+        "orientation"?: 'horizontal' | 'vertical';
     }
     /**
      * A light icon component for texts and other components.
