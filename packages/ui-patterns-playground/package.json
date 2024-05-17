@@ -1,10 +1,10 @@
 {
   "name": "ui-patterns-playground",
   "private": true,
-  "version": "9.3.0",
+  "version": "9.3.1",
   "type": "module",
   "dependencies": {
-    "@inovex.de/elements-react": "^9.3.0",
-    "@inovex.de/ui-patterns": "^9.3.0"
+    "@inovex.de/elements-react": "^9.3.1",
+    "@inovex.de/ui-patterns": "^9.3.1"
   }
 }
