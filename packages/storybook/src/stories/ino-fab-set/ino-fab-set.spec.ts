@@ -5,7 +5,7 @@ test.describe('ino-fab-set', () => {
   let inoFabSet: Locator;
 
   test.beforeEach(async ({ page }) => {
-    await goToStory(page, ['Buttons', 'ino-fab-set', 'left-right-location']);
+    await goToStory(page, ['Buttons', 'ino-fab-set', 'extended']);
     inoFabSet = page.locator('ino-fab-set');
   });
 
