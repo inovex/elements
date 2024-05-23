@@ -1,5 +1,5 @@
 import { expect, Locator, test } from '@playwright/test';
-import { goToStory } from '../test-utils';
+import { goToStory, setAttribute } from '../test-utils';
 
 test.describe('ino-fab-set', () => {
   let inoFabSet: Locator;
@@ -19,5 +19,15 @@ test.describe('ino-fab-set', () => {
     for (const inoFab of await inoFabLocator.all()) {
       await expect(inoFab).toBeVisible();
     }
+  });
+
+  test('should correctly change dial direction based on orientation', async ({ page }) => {
+    const inoFabSetWrapper = page.locator('.ino-fab-set-wrapper');
+    await inoFabSet.click();
+    await expect(inoFabSetWrapper).toHaveClass('ino-fab-set-wrapper ino-direction-top');
+    await inoFabSet.click();
+    await setAttribute(inoFabSet, 'orientation', 'horizontal');
+    await inoFabSet.click();
+    await expect(inoFabSetWrapper).toHaveClass('ino-fab-set-wrapper ino-direction-right');
   });
 });
