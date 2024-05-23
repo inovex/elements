@@ -6,10 +6,10 @@ test.describe('ino-fab', () => {
     await goToStory(page, ['Buttons', 'ino-fab', 'default']);
   });
 
-  test('should render with property mini', async ({ page }) => {
+  test('should render with small variant', async ({ page }) => {
     const inoFab = page.locator('ino-fab');
     const { width, height } = await inoFab.boundingBox();
-    await setAttribute(inoFab, 'mini', 'true');
+    await setAttribute(inoFab, 'variant', 'small');
     await inoFab.click();
     const { width: miniWidth, height: miniHeight } = await inoFab.boundingBox();
 
@@ -17,10 +17,10 @@ test.describe('ino-fab', () => {
     expect(height).toBeGreaterThan(miniHeight);
   });
 
-  test('should render with property extended', async ({ page }) => {
+  test('should render with extended variant', async ({ page }) => {
     const inoFab = page.locator('ino-fab');
     const { width } = await inoFab.boundingBox();
-    await setAttribute(inoFab, 'extended', 'true');
+    await setAttribute(inoFab, 'variant', 'extended');
     await inoFab.click();
     const { width: extendedWidth } = await inoFab.boundingBox();
 

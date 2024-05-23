@@ -1,7 +1,6 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, h, Host, Listen, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
-import { Placement } from 'tippy.js';
 import { hasSlotContent } from '../../util/component-utils';
 
 /**
@@ -23,15 +22,8 @@ import { hasSlotContent } from '../../util/component-utils';
 })
 export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
-  private tooltip?: HTMLInoTooltipElement;
 
   @Element() el!: HTMLInoFabElement;
-
-  /**
-   * Adds an icon to the Fab.
-   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
-   */
-  @Prop() icon?: string;
 
   /**
    * Optional, for the text label. Applicable only for Extended FAB.
@@ -39,14 +31,9 @@ export class Fab implements ComponentInterface {
   @Prop() label?: string;
 
   /**
-   * Optional, modifies the FAB to wider size which includes a text label.
-   */
-  @Prop() extended = false;
-
-  /**
    * The position of the edge.
    */
-  @Prop() edgePosition: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none' = 'top-left';
+  @Prop() edgePosition: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none' = 'top-right';
 
   /**
    * Disables the button.
@@ -54,15 +41,14 @@ export class Fab implements ComponentInterface {
   @Prop() disabled = false;
 
   /**
-   * Optional, modifies the FAB to a smaller size
+   * The variant of the FAB.
    */
-  @Prop() mini = false;
+  @Prop() variant: 'small' | 'standard' | 'large' | 'extended' = 'standard';
 
   /**
-   * The placement of the tooltip which will be displayed when the button is not extended.
-   * Use `none`, if you don't want a tooltip to be displayed.
+   * Optional, displays a shadow around the button. Flat when it should be part of a button, shadow to abheben
    */
-  @Prop() tooltipPlacement: Placement | 'none' = 'left';
+  @Prop() shadow? = false;
 
   @Listen('click')
   clickHandler(e) {
@@ -70,41 +56,10 @@ export class Fab implements ComponentInterface {
       e.preventDefault();
       e.stopPropagation();
     }
-
-    if (this.icon) {
-      console.warn(
-        `Property 'icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`,
-      );
-    }
-  }
-  @Watch('label')
-  watchHandler() {
-    if (this.tooltip) {
-      this.tooltip.remove();
-      this.renderTooltip();
-    }
   }
 
   componentDidLoad() {
     this.fabRipple = new MDCRipple(this.el.querySelector('.mdc-fab'));
-
-    if (!this.extended && this.tooltipPlacement !== 'none') {
-      this.renderTooltip();
-    }
-  }
-
-  private renderTooltip() {
-    const attributes: Partial<HTMLInoTooltipElement> = {
-      for: this.uniqueHelperId,
-      label: this.label,
-      placement: this.tooltipPlacement === 'none' ? undefined : this.tooltipPlacement,
-      trigger: 'mouseenter focus',
-    };
-
-    const tooltip = document.createElement('ino-tooltip');
-    Object.keys(attributes).forEach(key => tooltip.setAttribute(key, attributes[key]));
-    this.el.appendChild(tooltip);
-    this.tooltip = tooltip;
   }
 
   disconnectedCallback() {
@@ -130,8 +85,11 @@ export class Fab implements ComponentInterface {
 
     const classFab = classNames({
       'mdc-fab': true,
-      'mdc-fab--extended': this.extended,
-      'mdc-fab--mini': this.mini,
+      'mdc-fab--extended': this.variant === 'extended',
+      'mdc-fab--small': this.variant === 'small',
+      'mdc-fab--standard:': this.variant === 'standard',
+      'mdc-fab--large': this.variant === 'large',
+      'mdc-fab--shadow': this.shadow,
     });
 
     const iconSlotHasContent = hasSlotContent(this.el, 'icon-leading');
@@ -139,11 +97,8 @@ export class Fab implements ComponentInterface {
     return (
       <Host class={hostClasses} id={this.uniqueHelperId}>
         <button class={classFab} disabled={this.disabled}>
-          <span class="material-icons mdc-fab__icon">
-            {this.icon && !iconSlotHasContent && <ino-icon icon={this.icon} />}
-            {iconSlotHasContent && <slot name="icon-leading" />}
-          </span>
-          {this.extended && <span class="mdc-fab__label">{this.label}</span>}
+          <span class="material-icons mdc-fab__icon">{iconSlotHasContent && <slot name="icon-leading" />}</span>
+          {this.variant === 'extended' && <span class="mdc-fab__label">{this.label}</span>}
         </button>
       </Host>
     );

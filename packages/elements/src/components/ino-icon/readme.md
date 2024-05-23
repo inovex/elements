@@ -60,7 +60,6 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
  - [ino-chip](../ino-chip)
  - [ino-datepicker](../ino-datepicker)
  - [ino-dialog](../ino-dialog)
- - [ino-fab](../ino-fab)
  - [ino-fab-set](../ino-fab-set)
  - [ino-icon-button](../ino-icon-button)
  - [ino-img](../ino-img)
@@ -78,7 +77,6 @@ graph TD;
   ino-chip --> ino-icon
   ino-datepicker --> ino-icon
   ino-dialog --> ino-icon
-  ino-fab --> ino-icon
   ino-fab-set --> ino-icon
   ino-icon-button --> ino-icon
   ino-img --> ino-icon

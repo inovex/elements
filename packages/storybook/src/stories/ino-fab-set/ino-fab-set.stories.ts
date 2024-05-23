@@ -16,6 +16,7 @@ const InoFabSetMeta = {
     actions: {
       handles: ['click ino-fab'],
     },
+    // layout: 'centered',
     docs: {
       story: {
         height: '300px',
@@ -25,29 +26,29 @@ const InoFabSetMeta = {
   render: args => html`
     <ino-fab-set
       open-dial="${args.openDial}"
-      top-bottom-location="${args.topBottomLocation}"
-      left-right-location="${args.leftRightLocation}"
-      dial-direction="${args.dialDirection}"
+      label="${args.label}"
+      orientation="${args.orientation}"
       @click="${clickHandler}"
     >
-      <ino-icon @clickEl="${clickHandler}" icon="arrow_down" slot="icon-opened"></ino-icon>
-      <ino-icon @clickEl="${clickHandler}" icon="arrow_up" slot="icon-closed"></ino-icon>
-      <ino-fab label="First FAB">
-        <ino-icon slot="icon-leading" icon="star"></ino-icon>
+      <ino-fab slot="primary-fab" label="${args.label}" edge-position="top-right" tooltip-placement="none">
+        <ino-icon slot="icon-leading" icon="options_dotted"></ino-icon>
       </ino-fab>
-      <ino-fab label="Second FAB">
-        <ino-icon slot="icon-leading" icon="favorite"></ino-icon>
+      <ino-fab label="First FAB" variant="small">
+        <ino-icon slot="icon-leading" icon="download"></ino-icon>
       </ino-fab>
-      <ino-fab label="Third FAB">
-        <ino-icon slot="icon-leading" icon="info"></ino-icon>
+      <ino-fab label="Second FAB" variant="small">
+        <ino-icon slot="icon-leading" icon="remove"></ino-icon>
+      </ino-fab>
+      <ino-fab label="Third FAB" variant="small">
+        <ino-icon slot="icon-leading" icon="edit"></ino-icon>
       </ino-fab>
     </ino-fab-set>
   `,
   args: {
+    icon: 'options_dotted',
+    label: 'Label',
     openDial: false,
-    dialDirection: 'top',
-    leftRightLocation: 'left',
-    topBottomLocation: 'bottom',
+    orientation: 'vertical',
   },
 } as Meta<Components.InoFabSet>;
 
@@ -57,26 +58,43 @@ export const Default = Story({
   ...InoFabSetMeta,
 });
 
-export const DialDirection = Story({
+/**
+ * This example shows the ino-fab-set component positioned at the bottom left.
+ * The primary ino-fab button `Open Chat` opens a vertical menu with more options.
+ * Additionally, each secondary ino-fab button has an ino-tooltip to provide more information.
+ */
+export const Extended = Story({
   ...Default,
-  docsFromProperty: 'dialDirection',
-  args: {
-    dialDirection: 'bottom',
-  },
-});
 
-export const LeftRightLocation = Story({
-  ...Default,
-  docsFromProperty: 'leftRightLocation',
-  args: {
-    leftRightLocation: 'right',
-  },
-});
-
-export const TopBottomLocation = Story({
-  ...Default,
-  docsFromProperty: 'topBottomLocation',
-  args: {
-    topBottomLocation: 'top',
-  },
+  render: () => html`
+    <ino-fab-set
+      open-dial="false"
+      label="Open Chat"
+      orientation="vertical"
+      class="ino-fab-set--bottom-left"
+      @click="${clickHandler}"
+    >
+      <ino-fab slot="primary-fab" label="Open Chat" edge-position="top-right" variant="extended">
+        <ino-icon slot="icon-leading" icon="chat"></ino-icon>
+      </ino-fab>
+      <ino-fab id="second-fab" label="Second FAB" variant="small">
+        <ino-icon slot="icon-leading" icon="call"></ino-icon>
+      </ino-fab>
+      <ino-tooltip
+        for="second-fab"
+        placement="left"
+        trigger="mouseenter focus"
+        color-scheme="transparent"
+        arrow="false"
+      >
+        call
+      </ino-tooltip>
+      <ino-fab id="third-fab" label="Third FAB" variant="small">
+        <ino-icon slot="icon-leading" icon="mail"></ino-icon>
+      </ino-fab>
+      <ino-tooltip for="third-fab" placement="left" trigger="mouseenter focus" color-scheme="transparent" arrow="false">
+        mail
+      </ino-tooltip>
+    </ino-fab-set>
+  `,
 });

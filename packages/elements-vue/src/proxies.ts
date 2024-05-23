@@ -176,20 +176,17 @@ export const InoDialog = /*@__PURE__*/ defineContainer<JSX.InoDialog>('ino-dialo
 
 
 export const InoFab = /*@__PURE__*/ defineContainer<JSX.InoFab>('ino-fab', undefined, [
-  'icon',
   'label',
-  'extended',
   'edgePosition',
   'disabled',
-  'mini',
-  'tooltipPlacement'
+  'variant',
+  'shadow'
 ]);
 
 
 export const InoFabSet = /*@__PURE__*/ defineContainer<JSX.InoFabSet>('ino-fab-set', undefined, [
-  'dialDirection',
-  'topBottomLocation',
-  'leftRightLocation',
+  'label',
+  'orientation',
   'openDial'
 ]);
 

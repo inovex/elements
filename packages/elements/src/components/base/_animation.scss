@@ -1,5 +1,6 @@
 @mixin border-radius($name, $from, $to, $duration) {
   animation: $name $duration;
+  animation-fill-mode: forwards;
 
   @keyframes #{$name} {
     from {
@@ -15,7 +16,7 @@
 @mixin button-rounding($round-border, $edged-border, $name) {
   @include border-radius($name + 'to-edged', $round-border, $edged-border, 0.3s);
 
-  &:hover {
+  &:hover:not(:focus) {
     border-radius: $round-border;
 
     @include border-radius($name + 'to-round', $edged-border, $round-border, 0.15s);

@@ -54,3 +54,7 @@ $shadow-color: rgba(theme.$n-10, 0.35);
 .tippy-box[data-theme~='primary'] {
   @include tooltip(theme.$p-3, theme.$p-6);
 }
+
+.tippy-box[data-theme~='transparent'] {
+  @include tooltip(transparent, theme.$p-10);
+}

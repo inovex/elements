@@ -36,7 +36,7 @@ const InoTooltipMeta = {
       control: {
         type: 'select',
       },
-      options: ['light', 'dark', 'primary'],
+      options: ['light', 'dark', 'primary', 'transparent'],
     },
     delay: {
       control: {
@@ -119,6 +119,7 @@ export const ColorScheme = Story({
     const idLight = 'tooltip-light';
     const idDark = 'tooltip-dark';
     const idPrimary = 'tooltip-primary';
+    const idTransparent = 'tooltip-transparent';
 
     return html`
       <ino-button id="${idLight}">Light</ino-button>
@@ -147,6 +148,17 @@ export const ColorScheme = Story({
       <ino-tooltip
         color-scheme="primary"
         for="${idPrimary}"
+        placement="${args.placement}"
+        trigger="${args.trigger}"
+        delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}
+        arrow="${args.arrow}"
+      >
+        This is a tooltip
+      </ino-tooltip>
+      <ino-button id="${idTransparent}">Transparent</ino-button>
+      <ino-tooltip
+        color-scheme="transparent"
+        for="${idTransparent}"
         placement="${args.placement}"
         trigger="${args.trigger}"
         delay=${typeof args.delay === 'number' ? args.delay : [args.delay]}

@@ -29,7 +29,7 @@ export class Tooltip implements ComponentInterface {
   /**
    * Sets the color scheme of the tooltip.
    *
-   * Valid options include: `light`, `dark` or `primary`
+   * Valid options include: `light`, `dark`, `primary` or `transparent`.
    */
   @Prop() colorScheme: TippyThemes = 'primary';
 
