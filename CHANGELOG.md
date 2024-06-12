@@ -1,3 +1,16 @@
+## 9.3.1 (2024-05-17)
+
+
+### 🩹 Fixes
+
+- **elements:** align ino-icon vertically ([#1379](https://github.com/inovex/elements/pull/1379))
+- **ui-patterns:** tailwind styles not being integrated ([#1377](https://github.com/inovex/elements/pull/1377))
+
+### ❤️  Thank You
+
+- Jan-Niklas
+- Tobias Heim Galindo @TobiasHeimGalindo
+
 ## 9.3.0 (2024-04-05)
 
 
