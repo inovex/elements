@@ -51,6 +51,7 @@ const InoNavDrawerMeta = {
     actions: {
       handles: ['openChange .customizable-drawer', 'click .toggle-nav', 'clickEl ino-nav-item'],
     },
+    layout: 'padded',
   },
   decorators: [
     story => {
@@ -163,6 +164,6 @@ export const Mobile = Story({
   docsFromProperty: 'variant',
   args: {
     variant: 'mobile',
-    open: false,
+    open: true,
   },
 });
