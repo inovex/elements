@@ -59,11 +59,11 @@ To begin contributing a new UI pattern:
 
 5. Import the new pattern component and its HTML content at the beginning of the landing page pattern page:
 
-   ```js
+  ```js
    // landingpage/pages/library/patterns/index.tsx
   import { MyPatternA, myPatternAHtml } from '@inovex.de/ui-patterns';
-   ```
-
+  ```
+  
    - Add the pattern to the `PreviewBox` component, which will display the pattern and the highlighted code snippet:
 
    ```js
