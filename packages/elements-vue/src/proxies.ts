@@ -331,6 +331,13 @@ export const InoMarkdownEditor = /*@__PURE__*/ defineContainer<JSX.InoMarkdownEd
 ]);
 
 
+export const InoMeetupAccordion = /*@__PURE__*/ defineContainer<JSX.InoMeetupAccordion>('ino-meetup-accordion', undefined, [
+  'expanded',
+  'accordionTitle',
+  'expandedChange'
+]);
+
+
 export const InoMenu = /*@__PURE__*/ defineContainer<JSX.InoMenu>('ino-menu', undefined, [
   'placement'
 ]);

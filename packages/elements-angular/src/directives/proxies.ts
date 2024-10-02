@@ -722,6 +722,34 @@ The value of type `string` can be found in `event.detail`
 
 
 @ProxyCmp({
+  inputs: ['accordionTitle', 'expanded']
+})
+@Component({
+  selector: 'ino-meetup-accordion',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['accordionTitle', 'expanded'],
+})
+export class InoMeetupAccordion {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['expandedChange']);
+  }
+}
+
+
+export declare interface InoMeetupAccordion extends Components.InoMeetupAccordion {
+  /**
+   * Emits when the user clicks to toggle the accordion.
+   */
+  expandedChange: EventEmitter<CustomEvent<boolean>>;
+}
+
+
+@ProxyCmp({
   inputs: ['placement']
 })
 @Component({
