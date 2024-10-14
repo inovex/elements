@@ -6522,7 +6522,7 @@
           "reflectToAttr": false,
           "docs": "The title of the accordion.",
           "docsTags": [],
-          "default": "''",
+          "default": "'Accordion Title'",
           "values": [
             {
               "type": "string"

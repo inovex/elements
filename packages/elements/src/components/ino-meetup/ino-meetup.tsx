@@ -14,7 +14,7 @@ export class MeetupAccordion {
   /**
    * The title of the accordion.
    */
-  @Prop() accordionTitle = '';
+  @Prop() accordionTitle = 'Accordion Title';
 
   /**
    * Emits when the user clicks to toggle the accordion.
@@ -30,9 +30,7 @@ export class MeetupAccordion {
     return (
       <div class={`ino-meetup-accordion ${this.expanded ? 'ino-meetup-accordion--expanded' : ''}`}>
         <div class="ino-meetup-accordion__header" onClick={() => this.toggleAccordion()}>
-          <button aria-expanded={this.expanded}>
-            <span>{this.accordionTitle || 'Accordion Title'}</span>
-          </button>
+          <button aria-expanded={this.expanded}>{this.accordionTitle}</button>
         </div>
         <div
           class={`ino-meetup-accordion__content-wrapper ${
