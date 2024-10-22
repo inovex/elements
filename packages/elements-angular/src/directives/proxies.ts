@@ -722,14 +722,14 @@ The value of type `string` can be found in `event.detail`
 
 
 @ProxyCmp({
-  inputs: ['accordionTitle', 'expanded']
+  inputs: ['accordionTitle']
 })
 @Component({
   selector: 'ino-meetup-accordion',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['accordionTitle', 'expanded'],
+  inputs: ['accordionTitle'],
 })
 export class InoMeetupAccordion {
   protected el: HTMLElement;

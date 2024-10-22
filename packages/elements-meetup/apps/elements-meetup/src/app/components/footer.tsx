@@ -1,3 +1,5 @@
+import { InoImg } from "@inovex.de/elements-react";
+
 export default function Footer() {
   return (
     <footer className="bg-inovex-n-1 " aria-labelledby="footer">
@@ -158,12 +160,13 @@ export default function Footer() {
             </div>
           </div>
           <div className="col-span-3 border-t mt-6 flex flex-wrap sm:justify-start items-center g">
-            {/* <ino-img
+            <InoImg
                 id="attributions"
-                height="30"
-                width="30"
+                src="/inovex-logo.svg"
+                height={30}
+                width={30}
                 className="mr-1"
-              ></ino-img> */}
+            ></InoImg>
             <a
               className="tailwind label-s"
               target="_blank"

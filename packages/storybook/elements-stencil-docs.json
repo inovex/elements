@@ -6530,28 +6530,6 @@
           ],
           "optional": false,
           "required": false
-        },
-        {
-          "name": "expanded",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "expanded",
-          "reflectToAttr": false,
-          "docs": "Whether the accordion is expanded or collapsed.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
         }
       ],
       "methods": [],

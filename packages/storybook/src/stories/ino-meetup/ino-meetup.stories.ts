@@ -4,7 +4,7 @@ import { Components } from '@inovex.de/elements';
 import './ino-meetup.scss';
 
 const eventHandler = (e: CustomEvent<boolean>) => {
-  (e.target as HTMLInoMeetupAccordionElement).expanded = e.detail;
+  
 };
 
 const inoAccordionMeta = {
@@ -12,7 +12,6 @@ const inoAccordionMeta = {
   component: 'ino-meetup-accordion',
   render: args => html`
     <ino-meetup-accordion
-      expanded="${args.expanded}"
       accordion-title="${args.accordionTitle}"
       @expandedChange="${eventHandler}"
     >

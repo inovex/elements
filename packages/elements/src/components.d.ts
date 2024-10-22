@@ -1033,10 +1033,6 @@ export namespace Components {
           * The title of the accordion.
          */
         "accordionTitle": string;
-        /**
-          * Whether the accordion is expanded or collapsed.
-         */
-        "expanded": boolean;
     }
     /**
      * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
@@ -3882,10 +3878,6 @@ declare namespace LocalJSX {
           * The title of the accordion.
          */
         "accordionTitle"?: string;
-        /**
-          * Whether the accordion is expanded or collapsed.
-         */
-        "expanded"?: boolean;
         /**
           * Emits when the user clicks to toggle the accordion.
          */

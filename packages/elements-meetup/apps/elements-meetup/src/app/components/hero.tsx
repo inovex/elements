@@ -1,4 +1,4 @@
-import { InoButton } from "@inovex.de/elements-react";
+import { InoButton, InoImg } from "@inovex.de/elements-react";
 
 
 export default function Hero() {
@@ -7,12 +7,12 @@ export default function Hero() {
       <div className="flex flex-col">
         <div className="text-left">
           <div className="inline-flex items-center">
-            {/* <InoImg
+            <InoImg
               id="heroLogo"
+              src="/inovex-logo.svg"
               height={30}
               width={30}
-              className="h-12"
-            ></InoImg> */}
+            ></InoImg>
             <p className="title-s !m-0">inovex Elements</p>
           </div>
           <h1 className="header-d1 mt-6 text-inovex-primary">
@@ -34,11 +34,12 @@ export default function Hero() {
         </div>
         <section>
           <div className="mt-12">
-            {/* <InoImg
+            <InoImg
               id="preview"
+              src="/elements-preview.png"
               ratio-height="0.5"
               className="rounded-xl"
-            ></InoImg> */}
+            ></InoImg>
           </div>
         </section>
       </div>

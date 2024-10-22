@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 
 @Component({
   tag: 'ino-meetup-accordion',
@@ -9,7 +9,7 @@ export class MeetupAccordion {
   /**
    * Whether the accordion is expanded or collapsed.
    */
-  @Prop() expanded = false;
+  @State() expanded = false;
 
   /**
    * The title of the accordion.
@@ -20,6 +20,12 @@ export class MeetupAccordion {
    * Emits when the user clicks to toggle the accordion.
    */
   @Event() expandedChange: EventEmitter<boolean>;
+
+  componentDidLoad() {
+    if (!this.accordionTitle) {
+      console.warn('Ino-Accordion: missing accordionTitle property.');
+    }
+  }
 
   private toggleAccordion() {
     this.expanded = !this.expanded;
