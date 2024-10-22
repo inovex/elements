@@ -1,7 +1,7 @@
 'use client';
 
 import { NextPage } from 'next';
-import { Login, Footer, Hero, SettingsPage } from '@inovex.de/ui-patterns';
+import { Login, Footer, Hero, SettingsPage, Faq } from '@inovex.de/ui-patterns';
 import PreviewBox from './_components/preview-box';
 import styles from './client.module.scss';
 import { useTranslation } from '@hooks/useTranslation';
@@ -125,6 +125,14 @@ export const PatternsPage: NextPage<PatternsPageProps> = ({ highlightedCodes, co
         previewComponent={<Footer />}
         highlightedCode={highlightedCodes.footer}
         rawCode={codeStrings.footer}
+      />
+       <PreviewBox
+        title={t('library.designPatterns.faq.title')}
+        id="faq"
+        description={t('library.designPatterns.faq.description')}
+        previewComponent={<Faq />}
+        highlightedCode={highlightedCodes.faq}
+        rawCode={codeStrings.faq}
       />
       <PreviewBox
         title={t('library.designPatterns.settingsPage.title')}
