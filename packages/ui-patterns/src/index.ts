@@ -15,3 +15,6 @@ export { default as heroHtml } from './patterns/hero/hero.html?raw';
 
 export { default as SettingsPage } from './patterns/settingsPage/SettingsPage';
 export { default as settingsPageHtml } from './patterns/settingsPage/settingsPage.html?raw';
+
+export { default as Faq } from './patterns/faq/Faq';
+export { default as faqHtml } from './patterns/faq/faq.html?raw';

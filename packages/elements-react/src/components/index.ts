@@ -34,6 +34,7 @@ export const InoList = /*@__PURE__*/createReactComponent<JSX.InoList, HTMLInoLis
 export const InoListDivider = /*@__PURE__*/createReactComponent<JSX.InoListDivider, HTMLInoListDividerElement>('ino-list-divider');
 export const InoListItem = /*@__PURE__*/createReactComponent<JSX.InoListItem, HTMLInoListItemElement>('ino-list-item');
 export const InoMarkdownEditor = /*@__PURE__*/createReactComponent<JSX.InoMarkdownEditor, HTMLInoMarkdownEditorElement>('ino-markdown-editor');
+export const InoMeetupAccordion = /*@__PURE__*/createReactComponent<JSX.InoMeetupAccordion, HTMLInoMeetupAccordionElement>('ino-meetup-accordion');
 export const InoMenu = /*@__PURE__*/createReactComponent<JSX.InoMenu, HTMLInoMenuElement>('ino-menu');
 export const InoNavDrawer = /*@__PURE__*/createReactComponent<JSX.InoNavDrawer, HTMLInoNavDrawerElement>('ino-nav-drawer');
 export const InoNavItem = /*@__PURE__*/createReactComponent<JSX.InoNavItem, HTMLInoNavItemElement>('ino-nav-item');

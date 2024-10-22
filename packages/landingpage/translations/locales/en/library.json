@@ -20,6 +20,10 @@
     "footer": {
       "title": "Footer Navigation",
       "description": "Conclude your site with a Footer that provides essential information and navigational cues in a concise layout."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Deliver an easily accessible FAQ page that answers common questions clearly and concisely."
     }
   }
 }

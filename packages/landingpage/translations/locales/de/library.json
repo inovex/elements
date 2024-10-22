@@ -20,6 +20,10 @@
     "footer": {
       "title": "Footer-Navigation",
       "description": "Runden Sie Ihre Webseite mit einem Footer ab, der wesentliche Informationen und Navigationshinweise in einem prägnanten Layout bietet."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Bieten Sie Benutzern eine leicht zugängliche FAQ-Seite, die häufig gestellte Fragen klar und übersichtlich beantwortet."
     }
   }
 }

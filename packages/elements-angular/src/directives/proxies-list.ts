@@ -28,6 +28,7 @@ export const DIRECTIVES = [
   d.InoListDivider,
   d.InoListItem,
   d.InoMarkdownEditor,
+  d.InoMeetupAccordion,
   d.InoMenu,
   d.InoNavDrawer,
   d.InoNavItem,

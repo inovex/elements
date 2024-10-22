@@ -4,6 +4,7 @@ import '@inovex.de/elements-react';
 
 import Guide from './components/guide';
 import NavigationDrawer from './components/navigationDrawer';
+import FaqSection from './faqSection';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/guide" element={<Guide />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/mypatterna" element={<MyPatternA />} />
+          <Route path="/faq" element={<FaqSection />} />
         </Routes>
       </NavigationDrawer>
     </Router>
