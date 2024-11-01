@@ -1,20 +1,25 @@
-import { Component, h, Prop, Event, EventEmitter, State } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, State, ComponentInterface, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ino-meetup-accordion',
   styleUrl: 'ino-meetup.scss',
   shadow: false,
 })
-export class MeetupAccordion {
+export class MeetupAccordion implements ComponentInterface {
+  /**
+   * The title of the accordion.
+   */
+  @Prop() accordionTitle = 'Accordion Title';
+
   /**
    * Whether the accordion is expanded or collapsed.
    */
   @State() expanded = false;
 
-  /**
-   * The title of the accordion.
-   */
-  @Prop() accordionTitle = 'Accordion Title';
+  @Watch('expanded')
+  expandedChanged() {
+    this.expandedChange.emit(this.expanded);
+  }
 
   /**
    * Emits when the user clicks to toggle the accordion.
@@ -29,7 +34,6 @@ export class MeetupAccordion {
 
   private toggleAccordion() {
     this.expanded = !this.expanded;
-    this.expandedChange.emit(this.expanded);
   }
 
   render() {
