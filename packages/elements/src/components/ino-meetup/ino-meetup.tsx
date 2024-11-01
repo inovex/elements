@@ -34,14 +34,15 @@ export class MeetupAccordion {
 
   render() {
     return (
-      <div class={`ino-meetup-accordion ${this.expanded ? 'ino-meetup-accordion--expanded' : ''}`}>
+      <div class={{ 'ino-meetup-accordion': true, 'ino-meetup-accordion--expanded': this.expanded }}>
         <div class="ino-meetup-accordion__header" onClick={() => this.toggleAccordion()}>
           <button aria-expanded={this.expanded}>{this.accordionTitle}</button>
         </div>
         <div
-          class={`ino-meetup-accordion__content-wrapper ${
-            this.expanded ? 'ino-meetup-accordion__content-wrapper--expanded' : ''
-          }`}
+          class={{
+            'ino-meetup-accordion__content-wrapper': true,
+            'ino-meetup-accordion__content-wrapper--expanded': this.expanded,
+          }}
         >
           <div class="ino-meetup-accordion__content">
             <slot />
