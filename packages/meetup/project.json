@@ -1,0 +1,50 @@
+{
+  "name": "meetup",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/meetup",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/packages/meetup"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "packages/meetup"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "meetup:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "meetup:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "meetup:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "meetup:build:production"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "tags": []
+}

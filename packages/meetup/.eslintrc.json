@@ -5,7 +5,7 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
-        "@next/next/no-html-link-for-pages": ["error", "apps/elements-meetup/pages"]
+        "@next/next/no-html-link-for-pages": ["error", "packages/meetup/pages"]
       }
     },
     {

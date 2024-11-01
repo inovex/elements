@@ -17,24 +17,26 @@
       }
     ],
     "types": [
-      "jest",
       "node"
-    ]
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "../../apps/elements-meetup/.next/types/**/*.ts",
-    "../../dist/apps/elements-meetup/.next/types/**/*.ts",
+    "../../packages/meetup/.next/types/**/*.ts",
+    "../../dist/packages/meetup/.next/types/**/*.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "jest.config.ts",
-    "**/*.spec.ts",
-    "**/*.test.ts"
+    "node_modules"
   ]
 }

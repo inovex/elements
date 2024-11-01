@@ -1,4 +1,4 @@
-import { InoImg } from "@inovex.de/elements-react";
+import { InoImg } from '@inovex.de/elements-react';
 
 export default function Footer() {
   return (
@@ -9,17 +9,13 @@ export default function Footer() {
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div>
-            <a className="tailwind title-m text-inovex-primary">
-              inovex Elements
-            </a>
+            <a className="tailwind title-m text-inovex-primary">inovex Elements</a>
             <p className="label-l">the Universal UI Toolkit</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 col-span-2 gap-8 xl:mt-0 mt-6">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="label-l text-inovex-primary cursor-pointer">
-                  Home
-                </h3>
+                <h3 className="label-l text-inovex-primary cursor-pointer">Home</h3>
                 <ul role="list" className="mt-2 label-m space-y-2">
                   <li>
                     <a className="tailwind hover:text-inovex-primary" href="#">
@@ -54,9 +50,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="label-l text-inovex-primary cursor-pointer">
-                  Explore
-                </h3>
+                <h3 className="label-l text-inovex-primary cursor-pointer">Explore</h3>
                 <ul role="list" className="mt-2 label-m space-y-2">
                   <li>
                     <a className="tailwind hover:text-inovex-primary" href="#">
@@ -81,9 +75,7 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="label-l text-inovex-primary cursor-pointer">
-                  Guides
-                </h3>
+                <h3 className="label-l text-inovex-primary cursor-pointer">Guides</h3>
                 <ul role="list" className="mt-2 label-m space-y-2">
                   <li>
                     <a className="tailwind hover:text-inovex-primary" href="#">
@@ -112,9 +104,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="label-l text-inovex-primary cursor-pointer">
-                  Library
-                </h3>
+                <h3 className="label-l text-inovex-primary cursor-pointer">Library</h3>
                 <ul role="list" className="mt-2 label-m space-y-2">
                   <li>
                     <a className="tailwind hover:text-inovex-primary" href="#">
@@ -133,9 +123,7 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-1 md:gap-8">
               <div>
-                <h3 className="label-l text-inovex-primary cursor-pointer">
-                  About
-                </h3>
+                <h3 className="label-l text-inovex-primary cursor-pointer">About</h3>
                 <ul role="list" className="mt-2 label-m space-y-2">
                   <li>
                     <a className="tailwind hover:text-inovex-primary" href="#">
@@ -160,19 +148,8 @@ export default function Footer() {
             </div>
           </div>
           <div className="col-span-3 border-t mt-6 flex flex-wrap sm:justify-start items-center g">
-            <InoImg
-                id="attributions"
-                src="/inovex-logo.svg"
-                height={30}
-                width={30}
-                className="mr-1"
-            ></InoImg>
-            <a
-              className="tailwind label-s"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.inovex.de/"
-            >
+            <InoImg id="attributions" src="/inovex-logo.svg" height={30} width={30} className="mr-1"></InoImg>
+            <a className="tailwind label-s" target="_blank" rel="noopener noreferrer" href="https://www.inovex.de/">
               inovex GmbH
             </a>
             <span className="px-2 label-s">•</span>

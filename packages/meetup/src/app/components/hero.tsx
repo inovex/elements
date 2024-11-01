@@ -1,5 +1,4 @@
-import { InoButton, InoImg } from "@inovex.de/elements-react";
-
+import { InoButton, InoImg } from '@inovex.de/elements-react';
 
 export default function Hero() {
   return (
@@ -7,12 +6,7 @@ export default function Hero() {
       <div className="flex flex-col">
         <div className="text-left">
           <div className="inline-flex items-center">
-            <InoImg
-              id="heroLogo"
-              src="/inovex-logo.svg"
-              height={30}
-              width={30}
-            ></InoImg>
+            <InoImg id="heroLogo" src="/inovex-logo.svg" height={30} width={30}></InoImg>
             <p className="title-s !m-0">inovex Elements</p>
           </div>
           <h1 className="header-d1 mt-6 text-inovex-primary">
@@ -22,10 +16,8 @@ export default function Hero() {
             </span>
           </h1>
           <p className="mt-6 text-gray-600 font-medium leading-relaxed max-w-xl">
-            It’s hard to build and maintain UI components. Don’t start from
-            scratch every time you create a new project. Build them once, run
-            them everywhere! Use our open source UI component library inovex
-            Elements.
+            It’s hard to build and maintain UI components. Don’t start from scratch every time you create a new project.
+            Build them once, run them everywhere! Use our open source UI component library inovex Elements.
           </p>
         </div>
         <div className="flex gap-2 mt-12">
@@ -34,12 +26,7 @@ export default function Hero() {
         </div>
         <section>
           <div className="mt-12">
-            <InoImg
-              id="preview"
-              src="/elements-preview.png"
-              ratio-height="0.5"
-              className="rounded-xl"
-            ></InoImg>
+            <InoImg id="preview" src="/elements-preview.png" ratio-height="0.5" className="rounded-xl"></InoImg>
           </div>
         </section>
       </div>

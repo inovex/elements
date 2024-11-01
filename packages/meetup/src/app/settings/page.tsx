@@ -21,30 +21,18 @@ export default function Settings() {
         {isLoading ? (
           <div className="bg-white shadow rounded-lg p-6 max-w-md mx-auto">
             <p className="text-lg text-gray-600 mb-4 text-center">Loading your settings...</p>
-            <InoProgressBar
-              indeterminate={true}
-              buffer={0}
-              progress={0}
-              label="Loading"
-            />
+            <InoProgressBar indeterminate={true} buffer={0} progress={0} label="Loading" />
           </div>
         ) : (
           <InoCard disableElevation>
             <div slot="header" className="px-6 py-4 border-b border-gray-200">
-              <h2 className="text-xl font-semibold text-gray-800">
-                Your Settings
-              </h2>
+              <h2 className="text-xl font-semibold text-gray-800">Your Settings</h2>
             </div>
             <div slot="content" className="px-6 py-4">
               <SettingsComponent />
             </div>
-            <div
-              slot="footer"
-              className="px-6 py-4 bg-gray-50 border-t border-gray-200"
-            >
-              <p className="text-sm text-gray-600">
-                Last updated: {new Date().toLocaleDateString()}
-              </p>
+            <div slot="footer" className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+              <p className="text-sm text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
             </div>
           </InoCard>
         )}
