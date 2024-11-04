@@ -38,17 +38,12 @@ export class MeetupAccordion implements ComponentInterface {
 
   render() {
     return (
-      <div class={{ 'ino-meetup-accordion': true, 'ino-meetup-accordion--expanded': this.expanded }}>
-        <div class="ino-meetup-accordion__header" onClick={() => this.toggleAccordion()}>
-          <button aria-expanded={this.expanded}>{this.accordionTitle}</button>
-        </div>
-        <div
-          class={{
-            'ino-meetup-accordion__content-wrapper': true,
-            'ino-meetup-accordion__content-wrapper--expanded': this.expanded,
-          }}
-        >
-          <div class="ino-meetup-accordion__content">
+      <div class={{ accordion: true, 'accordion--expanded': this.expanded }}>
+        <button class="question" onClick={() => this.toggleAccordion()}>
+          {this.accordionTitle}
+        </button>
+        <div class="answer">
+          <div class="answer__content">
             <slot />
           </div>
         </div>

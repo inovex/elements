@@ -1,69 +1,56 @@
 @use '../base/typography-new' as typography;
 @use '../base/new-theme' as theme;
 
-.ino-meetup-accordion {
+.accordion {
   border: 1px solid theme.$n-3;
   border-radius: 8px;
   margin-bottom: 16px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  &__header {
-    cursor: pointer;
-    padding: 16px;
-    @include typography.typo(title-s);
-    background-color: theme.$p-1;
-    transition: background-color 0.3s ease;
+  &--expanded {
+    background-color: #e8e8e8;
 
-    &:hover {
-      background-color: theme.$p-3;
+    .question::after {
+        transform: rotate(180deg);
     }
 
-    button {
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      padding: 0;
-      font: inherit;
-      cursor: pointer;
-      outline: inherit;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      &::after {
-        content: '\25BC';
-        font-size: 0.8em;
-        transition: transform 0.3s ease;
-      }
-    }
-  }
-
-  &__content-wrapper {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-
-    &--expanded {
+    .answer {
       max-height: 300px;
     }
   }
+}
+
+.question {
+  @include typography.typo(title-s);
+  padding: 16px;
+  background-color: theme.$p-1;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: theme.$p-3;
+  }
+
+  &::after {
+    content: '\25BC';
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+  }
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 
   &__content {
     padding: 16px;
     background-color: #ffffff;
     @include typography.typo(body-m);
     color: theme.$n-10;
-  }
-
-  &--expanded {
-    .ino-meetup-accordion__header {
-      background-color: #e8e8e8;
-
-      button::after {
-        transform: rotate(180deg);
-      }
-    }
   }
 }
