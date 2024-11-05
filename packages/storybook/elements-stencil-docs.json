@@ -6500,17 +6500,54 @@
       "fileName": "ino-meetup.tsx",
       "tag": "ino-meetup-accordion",
       "readme": "# ino-meetup-accordion\n\n\n",
-      "overview": "",
+      "overview": "`ino-meetup-accordion` is a component that implements a simple accordion UI element.\nIt allows users to expand or collapse content sections by clicking on the title.\nThe component emits an event when its expanded state changes, and it provides a slot for\ncustom content to be displayed when expanded.",
       "usage": {},
-      "docs": "",
+      "docs": "`ino-meetup-accordion` is a component that implements a simple accordion UI element.\nIt allows users to expand or collapse content sections by clicking on the title.\nThe component emits an event when its expanded state changes, and it provides a slot for\ncustom content to be displayed when expanded.",
       "docsTags": [],
-      "encapsulation": "none",
+      "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
-      "props": [],
+      "props": [
+        {
+          "name": "accordionTitle",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accordion-title",
+          "reflectToAttr": false,
+          "docs": "The title of the accordion.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "expandedChange",
+          "detail": "boolean",
+          "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the user clicks to toggle the accordion.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],
