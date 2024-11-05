@@ -6508,47 +6508,9 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
-      "props": [
-        {
-          "name": "accordionTitle",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "accordion-title",
-          "reflectToAttr": false,
-          "docs": "The title of the accordion.",
-          "docsTags": [],
-          "default": "'Accordion Title'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
+      "props": [],
       "methods": [],
-      "events": [
-        {
-          "event": "expandedChange",
-          "detail": "boolean",
-          "bubbles": true,
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emits when the user clicks to toggle the accordion.",
-          "docsTags": []
-        }
-      ],
+      "events": [],
       "styles": [],
       "slots": [],
       "parts": [],

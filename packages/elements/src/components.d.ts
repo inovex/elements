@@ -1029,10 +1029,6 @@ export namespace Components {
         "viewMode": ViewModeUnion;
     }
     interface InoMeetupAccordion {
-        /**
-          * The title of the accordion.
-         */
-        "accordionTitle": string;
     }
     /**
      * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
@@ -1767,10 +1763,6 @@ export interface InoMarkdownEditorCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoMarkdownEditorElement;
 }
-export interface InoMeetupAccordionCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLInoMeetupAccordionElement;
-}
 export interface InoNavDrawerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoNavDrawerElement;
@@ -2329,18 +2321,7 @@ declare global {
         prototype: HTMLInoMarkdownEditorElement;
         new (): HTMLInoMarkdownEditorElement;
     };
-    interface HTMLInoMeetupAccordionElementEventMap {
-        "expandedChange": boolean;
-    }
     interface HTMLInoMeetupAccordionElement extends Components.InoMeetupAccordion, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLInoMeetupAccordionElementEventMap>(type: K, listener: (this: HTMLInoMeetupAccordionElement, ev: InoMeetupAccordionCustomEvent<HTMLInoMeetupAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLInoMeetupAccordionElementEventMap>(type: K, listener: (this: HTMLInoMeetupAccordionElement, ev: InoMeetupAccordionCustomEvent<HTMLInoMeetupAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInoMeetupAccordionElement: {
         prototype: HTMLInoMeetupAccordionElement;
@@ -3874,14 +3855,6 @@ declare namespace LocalJSX {
         "viewMode"?: ViewModeUnion;
     }
     interface InoMeetupAccordion {
-        /**
-          * The title of the accordion.
-         */
-        "accordionTitle"?: string;
-        /**
-          * Emits when the user clicks to toggle the accordion.
-         */
-        "onExpandedChange"?: (event: InoMeetupAccordionCustomEvent<boolean>) => void;
     }
     /**
      * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
