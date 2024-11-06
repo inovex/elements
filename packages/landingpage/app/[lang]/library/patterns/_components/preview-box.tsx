@@ -2,6 +2,7 @@ import React, { useMemo, useRef, useState } from 'react';
 import ViewModeSelection, { ViewMode } from './view-mode-selection';
 import CopyButton from './copy-button';
 import styles from './preview-box.module.scss';
+import CopyButtonReact from './copy-button-react';
 
 interface PreviewBoxProps {
   id: string;
@@ -38,6 +39,7 @@ export default function PreviewBox({
         <ViewModeSelection selectedValue={selectedValue} setSelectedValue={setSelectedValue} />
         <div className={styles.divider} />
         <CopyButton rawCode={rawCode} copyIconId={`copy-icon-${id}`} />
+        <CopyButtonReact rawCode={rawCode} copyIconId={`copy-icon-${id}`} />
       </div>
       <div className={`${styles.previewBox} ${selectedValue === 'PreviewMode' ? styles.previewMode : styles.codeMode}`}>
         <div
