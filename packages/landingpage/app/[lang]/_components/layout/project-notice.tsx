@@ -7,8 +7,8 @@ export default function ProjectNotice() {
       <div className={styles.content}>
         <div className={styles.icon}>⚠️</div>
         <div className={styles.text}>
-          <strong>Project Notice:</strong> This project is currently paused and not actively developed. 
-          We appreciate your interest and will provide updates when development resumes.
+          <strong>Project Notice:</strong> This project is currently paused and not actively developed. We appreciate
+          your interest and will provide updates when development resumes.
         </div>
       </div>
     </div>
