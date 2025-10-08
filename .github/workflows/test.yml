@@ -28,7 +28,7 @@ jobs:
           echo "PLAYWRIGHT_VERSION=$PLAYWRIGHT_VERSION" >> $GITHUB_ENV
       - name: Cache Playwright Browsers for Playwright's Version
         id: cache-playwright-browsers
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
           key: playwright-browsers-${{ env.PLAYWRIGHT_VERSION }}
@@ -55,7 +55,7 @@ jobs:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Upload playwright trace
         if: ${{ failure() && steps.test_projects.conclusion == 'failure' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-traces
           path: dist/.playwright/packages/storybook/test-output
