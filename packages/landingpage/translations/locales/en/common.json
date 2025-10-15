@@ -115,5 +115,9 @@
       "label": "Data Protection",
       "url": "https://www.inovex.de/en/data-protection/"
     }
+  },
+  "projectNotice": {
+    "title": "Project Notice:",
+    "message": "This project is currently paused and not actively developed. We appreciate your interest and will provide updates when development resumes."
   }
 }

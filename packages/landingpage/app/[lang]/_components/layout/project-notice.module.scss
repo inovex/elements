@@ -1,12 +1,12 @@
 .notice {
-  background: var(--inovex-elements-p-2);
-  color: black;
+  background: linear-gradient(135deg, #ff4400 0%, #f7931e 100%);
+  color: white;
   padding: 16px 0;
-  text-align: center;
+  text-align: left;
   position: relative;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-bottom: 2px solid var(--inovex-elements-p-4);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  border-bottom: 3px solid #fd3f00;
 }
 
 .content {
@@ -15,7 +15,7 @@
   padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
 }
 
@@ -25,9 +25,9 @@
 }
 
 .text {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
-  font-weight: 500;
+  font-weight: 00;
 }
 
 .text strong {
@@ -43,7 +43,7 @@
   }
 
   .text {
-    font-size: 13px;
+    font-size: 16px;
     text-align: center;
   }
 

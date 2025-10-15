@@ -115,5 +115,9 @@
       "label": "Datenschutz",
       "url": "https://www.inovex.de/de/datenschutz/"
     }
+  },
+  "projectNotice": {
+    "title": "Projekt-Hinweis:",
+    "message": "Dieses Projekt ist derzeit pausiert und wird nicht aktiv weiterentwickelt. Wir schätzen Ihr Interesse und werden Updates bereitstellen, sobald die Entwicklung wieder aufgenommen wird."
   }
 }
