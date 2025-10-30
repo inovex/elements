@@ -175,12 +175,13 @@ test.describe('ino-datepicker', () => {
 
       await setAttribute(inoDatepicker, 'date-format', 'd.m.Y');
       await setAttribute(inoDatepicker, 'min', '10.06.2024');
+      await setAttribute(inoDatepicker, 'value', '10.06.2024');
 
       await toggleCalendarPopup();
-      await days.nth(5).click();
-      await expect(input).not.toHaveValue(DATE_PATTERN);
-      await days.nth(20).click();
-      await expect(input).toHaveValue(DATE_PATTERN);
+      await days.nth(5).click(); // should be the 05.06.2024 -> not allowed
+      await expect(input).toHaveValue('10.06.2024');
+      await days.nth(20).click(); // should be the 15.06.2024
+      await expect(input).toHaveValue('15.06.2024');
     });
 
     test('should cannot select date after max', async ({ page }) => {
