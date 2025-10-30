@@ -41,7 +41,7 @@ jobs:
           fetch-depth: 0
       - name: Track master branch to make nx affected work
         run: git branch --track main origin/master
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org

@@ -36,7 +36,7 @@ runs:
   steps:
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v6
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements
@@ -46,7 +46,7 @@ runs:
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-react artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v6
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-react
@@ -56,7 +56,7 @@ runs:
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-angular artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v6
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-angular
@@ -66,7 +66,7 @@ runs:
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-vue artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v6
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-vue
@@ -76,7 +76,7 @@ runs:
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-angular-example artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v6
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-angular-example
@@ -86,7 +86,7 @@ runs:
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-react-example artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v6
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-react-example
@@ -96,7 +96,7 @@ runs:
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-vue-example artifact
-      uses: dawidd6/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v6
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-vue-example

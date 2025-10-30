@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/dependencies-install
       - name: Build landingpage ⚒️
         run: yarn nx run landingpage:build
@@ -20,7 +20,7 @@ jobs:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
 
       - name: Upload build output ⬆️
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: landingpage
           path: packages/landingpage/out/
@@ -29,11 +29,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           ref: pages
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: landingpage
           path: ./artifact
