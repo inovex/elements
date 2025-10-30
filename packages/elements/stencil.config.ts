@@ -44,6 +44,7 @@ export const config: Config = {
   ],
   testing: {
     setupFilesAfterEnv: ['./setupSpecTests.ts'],
+    browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
   },
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
