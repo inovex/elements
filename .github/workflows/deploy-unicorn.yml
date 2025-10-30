@@ -10,7 +10,7 @@ jobs:
     outputs:
       hasChanges: ${{ steps.evaluation.outputs.hasChanges }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref || github.ref }}
           fetch-depth: 0
@@ -25,7 +25,7 @@ jobs:
       # 4. Update cache if necessary
       - name: Get last commit info file from cache
         id: sha-cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: last_commit_sha.txt
           key: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}-${{ github.run_id }}
@@ -71,7 +71,7 @@ jobs:
       name: github-pages
       url: https://elements.inovex.de/unicorn/${{ env.GITHUB_REF_NAME_SLUG_URL }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: pages
 
@@ -79,7 +79,7 @@ jobs:
         uses: rlespinasse/github-slug-action@v4
 
       - name: Download Storybook artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: storybook
           path: storybook-dist

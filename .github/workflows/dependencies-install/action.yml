@@ -5,20 +5,20 @@ author: 'Benjamin Pagelsdorf'
 runs:
   using: 'composite'
   steps:
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
         node-version-file: '.nvmrc'
         registry-url: https://registry.npmjs.org
         scope: '@inovex.de' # important for yarn
         always-auth: true
     - name: restore node_modules cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       id: node-cache
       with:
         path: '**/node_modules'
         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
     - name: restore nx cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: '**/.nx-cache'
         key: nx_cache-${{ github.ref_name || github.ref }}-${{ github.job }}-${{ github.run_id }}
@@ -26,7 +26,7 @@ runs:
           nx_cache-${{ github.ref_name || github.ref }}-${{ github.job }}
     - name: restore nx cache (build core)
       if: github.job != 'build_core'
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: '**/.nx-cache'
         key: nx_cache-${{ github.ref_name || github.ref }}-build_core-${{ github.run_id }}

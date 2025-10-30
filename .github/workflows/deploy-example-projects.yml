@@ -10,10 +10,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: pages
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: master-branch
       - uses: ./master-branch/.github/workflows/artifacts-download
