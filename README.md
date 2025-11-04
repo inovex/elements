@@ -1,5 +1,13 @@
-<div align="center">
+<h3 align="center">⚠️ Project Notice ⚠️</h3>
 
+<div align="center">
+  This project is currently paused and not actively developed.<br>
+  We appreciate your interest and will provide updates when development resumes.</div>
+
+<h1></h1>
+
+<div align="center">
+  
   <a href="https://elements.inovex.de/">
     <img width="300" src="assets/logo/elements_dark.svg">
   </a>
