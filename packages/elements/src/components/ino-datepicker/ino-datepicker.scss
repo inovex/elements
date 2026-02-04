@@ -1,7 +1,7 @@
 @use '../base/typography';
 @use '../base/new-theme' as theme;
-@import '~flatpickr/dist/flatpickr';
-@import '~flatpickr/dist/plugins/monthSelect/style';
+@use '~flatpickr/dist/flatpickr';
+@use '~flatpickr/dist/plugins/monthSelect/style';
 
 $padding-vertical: 12px;
 $padding-horizontal: 24px;

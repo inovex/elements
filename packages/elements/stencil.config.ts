@@ -40,6 +40,7 @@ export const config: Config = {
   plugins: [
     sass({
       includePaths: ['../../node_modules'].map(d => join(__dirname, d)),
+      silenceDeprecations: ['global-builtin', 'if-function', 'color-functions', 'slash-div'], // TODO: will be done with migration
     }),
   ],
   testing: {
