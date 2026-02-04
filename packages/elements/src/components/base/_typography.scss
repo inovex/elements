@@ -1,4 +1,6 @@
 @use 'sass:math';
+@use 'sass:map';
+@use 'sass:string';
 
 // ##################################
 // Font and typography
@@ -6,11 +8,11 @@
 
 // => Font Family
 $_font-families: (
-  sans-serif: unquote('Lato, Verdana, sans-serif'),
-  monospace: unquote('Courier, monospace'),
+  sans-serif: string.unquote('Lato, Verdana, sans-serif'),
+  monospace: string.unquote('Courier, monospace'),
 );
 @function font-family($mode: sans-serif) {
-  @return var(--ino-font-family, map-get($_font-families, $mode));
+  @return var(--ino-font-family, map.get($_font-families, $mode));
 }
 
 // => Font weights
@@ -23,7 +25,7 @@ $_font-weights: (
   bold: 700,
 );
 @function font-weight($weight: regular) {
-  @return map-get($_font-weights, $weight);
+  @return map.get($_font-weights, $weight);
 }
 
 // => Font sizes
@@ -58,7 +60,7 @@ $_font-sizes: (
 );
 
 @function font-size($type: m) {
-  @return map-get(map-get($_font-sizes, $type), 'font-size');
+  @return map.get(map.get($_font-sizes, $type), 'font-size');
 }
 
 // Further mixins

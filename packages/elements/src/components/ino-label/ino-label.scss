@@ -1,5 +1,6 @@
 @use '../base/mdc-customize';
 @use '@material/floating-label/mdc-floating-label';
+@use 'sass:color';
 
 $label-color: rgba(0, 0, 0, 0.6);
 
@@ -22,7 +23,7 @@ ino-label {
     &:not(.ino-label--required) .mdc-floating-label:after {
       content: ' - Optional' + '\a0';
       font-style: italic;
-      color: lighten($label-color, 30);
+      color: color.adjust($label-color, $lightness: 30%);
     }
   }
 

@@ -1,5 +1,6 @@
 @use '../base/theme';
 @use '../base/typography';
+@use 'sass:color';
 
 ino-input-file {
   /**
@@ -42,7 +43,7 @@ ino-input-file {
     }
 
     &.ino-input-file__dnd-dragover:not(.ino-input-file__dnd-disabled) {
-      background-color: lighten(theme.color(primary), 38%);
+      background-color: color.adjust(theme.color(primary), $lightness: 38%);
     }
 
     &.ino-input-file__dnd-disabled {

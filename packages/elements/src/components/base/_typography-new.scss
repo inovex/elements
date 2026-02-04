@@ -1,5 +1,6 @@
 @use 'sass:math';
 @use 'sass:list';
+@use 'sass:map';
 
 $default-text-size: 16px;
 
@@ -108,11 +109,11 @@ $typographies: (
     @error "#{$typo-name} is not a valid typo name. Expected one of #{$typo-names}.";
   }
 
-  $typo: map-get($typographies, $typo-name);
+  $typo: map.get($typographies, $typo-name);
 
   font-family: Lato, Verdana, sans-serif;
-  font-size: map-get($typo, 'font-size');
-  line-height: map-get($typo, 'line-height');
-  letter-spacing: map-get($typo, 'letter-spacing');
-  font-weight: map-get($typo, 'font-weight');
+  font-size: map.get($typo, 'font-size');
+  line-height: map.get($typo, 'line-height');
+  letter-spacing: map.get($typo, 'letter-spacing');
+  font-weight: map.get($typo, 'font-weight');
 }
