@@ -30,7 +30,7 @@ export default defineConfig({
   reporter: process.env.CI ? 'dot' : 'list',
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'yarn nx run storybook:preview',
+    command: 'pnpm nx run storybook:preview',
     url: STORYBOOK_URL,
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,

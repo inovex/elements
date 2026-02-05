@@ -1,0 +1,16 @@
+packages:
+  - packages/*
+
+# the installation will exit with a non-zero exit code if any dependencies have unreviewed build scripts (aka postinstall scripts).
+strictDepBuilds: true
+
+onlyBuiltDependencies:
+  - '@swc/core'
+  - 'core-js'
+  - 'esbuild'
+  - 'less'
+  - 'nice-napi'
+  - 'puppeteer'
+  - 'sharp'
+  - 'unrs-resolver'
+  - '@parcel/watcher'

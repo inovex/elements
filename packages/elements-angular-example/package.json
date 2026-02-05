@@ -3,6 +3,6 @@
   "version": "9.3.1",
   "private": true,
   "dependencies": {
-    "@inovex.de/elements-angular": "^9.3.1"
+    "@inovex.de/elements-angular": "workspace:*"
   }
 }

@@ -45,7 +45,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org
-          scope: '@inovex.de' # important for yarn
+          scope: '@inovex.de'
           always-auth: true
       - uses: ./.github/workflows/dependencies-install
       - name: Setup Git
@@ -55,11 +55,11 @@ jobs:
       - name: Set npm loglevel
         run: npm config set loglevel warn
       - name: Build libs
-        run: yarn run nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
+        run: pnpm nx run-many -t build -p elements,elements-angular,elements-react,elements-vue
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Version & Release
         shell: bash
-        run: yarn nx run workspace:publish:prerelease
+        run: pnpm nx run workspace:publish:prerelease
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

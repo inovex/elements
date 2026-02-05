@@ -3365,7 +3365,7 @@
               "Placement": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/tippy.js/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement"
               }
             }
           },
@@ -3698,9 +3698,9 @@
       "fileName": "ino-icon.tsx",
       "tag": "ino-icon",
       "readme": "# ino-icon\n\n\n",
-      "overview": "A light icon component for texts and other components.\nThis component is based on the ionicons (https://github.com/ionic-team/ionicons)\n\n#### Additional Hints\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n#### Add icons\nIf you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.",
+      "overview": "A light icon component for texts and other components.\nThis component is based on the ionicons (https://github.com/ionic-team/ionicons)\n\n#### Additional Hints\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n#### Add icons\nIf you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `pnpm integrate:icons` script which takes care of the rest.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.",
       "usage": {},
-      "docs": "A light icon component for texts and other components.\nThis component is based on the ionicons (https://github.com/ionic-team/ionicons)\n\n#### Additional Hints\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n#### Add icons\nIf you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.",
+      "docs": "A light icon component for texts and other components.\nThis component is based on the ionicons (https://github.com/ionic-team/ionicons)\n\n#### Additional Hints\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n#### Add icons\nIf you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `pnpm integrate:icons` script which takes care of the rest.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.",
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
@@ -5829,7 +5829,7 @@
               "MDCNotchedOutline": {
                 "location": "import",
                 "path": "@material/notched-outline",
-                "id": "../../node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline"
+                "id": "../../node_modules/.pnpm/@material+notched-outline@13.0.0/node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline"
               }
             },
             "return": "Promise<MDCNotchedOutline>"
@@ -6532,7 +6532,7 @@
               "Placement": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/tippy.js/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement"
               }
             }
           },
@@ -7467,7 +7467,7 @@
               "Props": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/tippy.js/index.d.ts::Props"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Props"
               }
             }
           },
@@ -7594,7 +7594,7 @@
               "Placement": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/tippy.js/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement"
               }
             }
           },
@@ -11156,7 +11156,7 @@
               "Placement": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/tippy.js/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement"
               }
             }
           },
@@ -11389,10 +11389,10 @@
       "docstring": "",
       "path": "src/components/types.ts"
     },
-    "../../node_modules/tippy.js/index.d.ts::Placement": {
+    "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement": {
       "declaration": "export declare type Placement = AutoPlacement | BasePlacement | VariationPlacement;",
       "docstring": "",
-      "path": "../../node_modules/tippy.js/index.d.ts"
+      "path": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts"
     },
     "src/components/types.ts::Locations": {
       "declaration": "export type Locations = HorizontalLocation | VerticalLocation;",
@@ -11424,10 +11424,10 @@
       "docstring": "",
       "path": "src/components/types.ts"
     },
-    "../../node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline": {
+    "../../node_modules/.pnpm/@material+notched-outline@13.0.0/node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline": {
       "declaration": "any",
       "docstring": "",
-      "path": "../../node_modules/@material/notched-outline/index.d.ts"
+      "path": "../../node_modules/.pnpm/@material+notched-outline@13.0.0/node_modules/@material/notched-outline/index.d.ts"
     },
     "src/components/types.ts::ViewModeUnion": {
       "declaration": "\"markdown\" | \"preview\" | \"readonly\"",
@@ -11454,10 +11454,10 @@
       "docstring": "",
       "path": "src/components/types.ts"
     },
-    "../../node_modules/tippy.js/index.d.ts::Props": {
+    "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Props": {
       "declaration": "export interface Props extends LifecycleHooks, RenderProps {\n  animateFill: boolean;\n  appendTo: 'parent' | Element | ((ref: Element) => Element);\n  aria: {\n    content?: 'auto' | 'describedby' | 'labelledby' | null;\n    expanded?: 'auto' | boolean;\n  };\n  delay: number | [number | null, number | null];\n  duration: number | [number | null, number | null];\n  followCursor: boolean | 'horizontal' | 'vertical' | 'initial';\n  getReferenceClientRect: null | GetReferenceClientRect;\n  hideOnClick: boolean | 'toggle';\n  ignoreAttributes: boolean;\n  inlinePositioning: boolean;\n  interactive: boolean;\n  interactiveBorder: number;\n  interactiveDebounce: number;\n  moveTransition: string;\n  offset:\n    | [number, number]\n    | (({\n        placement,\n        popper,\n        reference,\n      }: {\n        placement: Placement;\n        popper: Popper.Rect;\n        reference: Popper.Rect;\n      }) => [number, number]);\n  placement: Placement;\n  plugins: Plugin<unknown>[];\n  popperOptions: Partial<Popper.Options>;\n  render:\n    | ((\n        instance: Instance\n      ) => {\n        popper: PopperElement;\n        onUpdate?: (prevProps: Props, nextProps: Props) => void;\n      })\n    | null;\n  showOnCreate: boolean;\n  sticky: boolean | 'reference' | 'popper';\n  touch: boolean | 'hold' | ['hold', number];\n  trigger: string;\n  triggerTarget: Element | Element[] | null;\n}",
       "docstring": "",
-      "path": "../../node_modules/tippy.js/index.d.ts"
+      "path": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts"
     },
     "src/components/types.ts::TooltipTrigger": {
       "declaration": "export type TooltipTrigger =\n  | 'mouseenter'\n  | 'mouseenter focus'\n  | 'mouseenter click'\n  | 'mouseenter focus click'\n  | 'mouseenter click focus'\n  | 'focus'\n  | 'focus mouseenter'\n  | 'focus click'\n  | 'focus mouseenter click'\n  | 'focus click mouseenter'\n  | 'click'\n  | 'click mouseenter'\n  | 'click focus'\n  | 'click mouseenter focus'\n  | 'click focus mouseenter';",

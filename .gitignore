@@ -38,3 +38,9 @@ tmp/
 .nx-cache
 
 .nx/cache
+
+# pnpm
+.pnpm-store/
+.pnpm-debug.log*
+
+

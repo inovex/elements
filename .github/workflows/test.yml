@@ -23,7 +23,7 @@ jobs:
 
       - name: Store Playwright's Version
         run: |
-          PLAYWRIGHT_VERSION=$(npx playwright -V | awk '{ print $2 }')
+          PLAYWRIGHT_VERSION=$(pnpm exec playwright -V | awk '{ print $2 }')
           echo "Playwright's Version: $PLAYWRIGHT_VERSION"
           echo "PLAYWRIGHT_VERSION=$PLAYWRIGHT_VERSION" >> $GITHUB_ENV
       - name: Cache Playwright Browsers for Playwright's Version
@@ -34,23 +34,23 @@ jobs:
           key: playwright-browsers-${{ env.PLAYWRIGHT_VERSION }}
       - name: Setup Playwright
         if: steps.cache-playwright-browsers.outputs.cache-hit != 'true'
-        run: yarn playwright install --with-deps
+        run: pnpm playwright install --with-deps
 
       - name: Check format
-        run: yarn format
+        run: pnpm format
       - name: Check lint
-        run: yarn lint:ci
+        run: pnpm lint:ci
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Build all projects
-        run: yarn build
+        run: pnpm build
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Check if there are changes
         uses: NathanielHill/fail-if-changes@v1.1.1
       - name: Test all projects
         id: test_projects
-        run: yarn test
+        run: pnpm test
         env:
           NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
       - name: Upload playwright trace

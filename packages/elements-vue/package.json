@@ -20,7 +20,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@inovex.de/elements": "^9.3.1"
+    "@inovex.de/elements": "workspace:*"
   },
   "peerDependencies": {
     "vue": "^3.0.0"

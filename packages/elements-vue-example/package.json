@@ -3,7 +3,7 @@
   "version": "9.3.1",
   "private": true,
   "dependencies": {
-    "@inovex.de/elements-vue": "^9.3.1",
+    "@inovex.de/elements-vue": "workspace:*",
     "vue": "^3.4.21"
   },
   "devDependencies": {
