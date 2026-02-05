@@ -33,8 +33,8 @@ In order to get the most mature and stable version, we have to update the depend
 2. Search for the currently used material-components-web version in the `CHANGELOG`, e.g. `5.0.0`
 3. If a new version is available, open the `package.json` located in the inovex Elements package directory and replace
    the current version of **every** material component with the next minor version, e.g. `5.1.0`.
-4. Run `yarn install` in the root directory
-5. Run `yarn start` to check if the build succeeds and the Storybook opens in the browser.
+4. Run `pnpm install` in the root directory
+5. Run `pnpm start` to check if the build succeeds and the Storybook opens in the browser.
 6. Go through every component and check the `CHANGELOG` for any changes. Adjust the component accordingly and
    make sure that the component works as intended, the styles have not been altered by the upgrade, and that
    all component tests pass.

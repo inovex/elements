@@ -5,18 +5,20 @@ author: 'Benjamin Pagelsdorf'
 runs:
   using: 'composite'
   steps:
-    - uses: actions/setup-node@v4
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10.29.2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
         node-version-file: '.nvmrc'
         registry-url: https://registry.npmjs.org
-        scope: '@inovex.de' # important for yarn
+        scope: '@inovex.de'
         always-auth: true
-    - name: restore node_modules cache
-      uses: actions/cache@v4
-      id: node-cache
-      with:
-        path: '**/node_modules'
-        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+        cache: 'pnpm'
+
     - name: restore nx cache
       uses: actions/cache@v4
       with:
@@ -31,5 +33,5 @@ runs:
         path: '**/.nx-cache'
         key: nx_cache-${{ github.ref_name || github.ref }}-build_core-${{ github.run_id }}
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: pnpm install --frozen-lockfile
       shell: bash

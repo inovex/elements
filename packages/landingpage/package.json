@@ -5,8 +5,8 @@
   "dependencies": {
     "@code-hike/mdx": "^0.7.4",
     "@formatjs/intl-localematcher": "^0.5.4",
-    "@inovex.de/elements-react": "^9.0.0",
-    "@inovex.de/ui-patterns": "^9.0.0",
+    "@inovex.de/elements-react": "workspace:*",
+    "@inovex.de/ui-patterns": "workspace:*",
     "@mdx-js/loader": "^2.1.4",
     "@mdx-js/react": "^2.1.4",
     "@next/mdx": "^12.3.1",

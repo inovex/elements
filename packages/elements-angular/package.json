@@ -20,7 +20,7 @@
     "rxjs": ">=7.5.0"
   },
   "dependencies": {
-    "@inovex.de/elements": "^9.3.1",
+    "@inovex.de/elements": "workspace:*",
     "tslib": "^2.3.0"
   },
   "schematics": "./dist/schematics/collection.json",

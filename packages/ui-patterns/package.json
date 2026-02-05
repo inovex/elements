@@ -23,7 +23,7 @@
     "package.json"
   ],
   "peerDependencies": {
-    "@inovex.de/elements-react": "^9.3.0",
+    "@inovex.de/elements-react": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

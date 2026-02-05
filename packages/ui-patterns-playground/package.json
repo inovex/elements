@@ -4,7 +4,7 @@
   "version": "9.3.1",
   "type": "module",
   "dependencies": {
-    "@inovex.de/elements-react": "^9.3.1",
-    "@inovex.de/ui-patterns": "^9.3.1"
+    "@inovex.de/elements-react": "workspace:*",
+    "@inovex.de/ui-patterns": "workspace:*"
   }
 }

@@ -3,8 +3,10 @@
   "version": "9.3.1",
   "private": true,
   "description": "This is a Monorepo root package which is used to execute build scripts.",
+  "packageManager": "pnpm@10.29.2",
   "engines": {
-    "node": ">=20.11"
+    "node": ">=20.11",
+    "pnpm": ">=10.0.0"
   },
   "scripts": {
     "start:storybook": "nx run-many --target=start --projects=storybook,elements --output-style=stream",
@@ -18,10 +20,10 @@
     "lint:ci": "nx affected --target=lint --configuration=ci --output-style=stream",
     "format": "nx format:check",
     "format:fix": "nx format:write",
-    "qc": "yarn lint:ci && yarn format && yarn build && yarn test",
-    "clean": "nx run-many --target=clean && yarn clean:nx && shx rm -rf node_modules .nx",
-    "clean:dist": "nx run-many --target=clean --configuration=dist && yarn clean:nx",
-    "clean:node": "nx run-many --target=clean --configuration=node && yarn clean:nx && shx rm -rf node_modules",
+    "qc": "pnpm lint:ci && pnpm format && pnpm build && pnpm test",
+    "clean": "nx run-many --target=clean && pnpm clean:nx && shx rm -rf node_modules .nx",
+    "clean:dist": "nx run-many --target=clean --configuration=dist && pnpm clean:nx",
+    "clean:node": "nx run-many --target=clean --configuration=node && pnpm clean:nx && shx rm -rf node_modules",
     "clean:nx": "nx daemon --stop && nx reset"
   },
   "nx": {
@@ -117,19 +119,5 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/@types/jasmine",
-      "**/@types/jasminewd2",
-      "**/@types/eslint",
-      "**/@types/estree",
-      "**/@types/eslint-scope",
-      "**/flatpickr",
-      "**/@mdx-js/*"
-    ]
   }
 }
