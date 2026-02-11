@@ -3,8 +3,20 @@
   "private": true,
   "version": "9.3.1",
   "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "start": "vite --port 4500",
+    "lint": "eslint src",
+    "clean": "shx rm -rf dist"
+  },
   "dependencies": {
     "@inovex.de/elements-react": "workspace:*",
-    "@inovex.de/ui-patterns": "workspace:*"
+    "@inovex.de/ui-patterns": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.3",
+    "vite": "~5.0.0"
   }
 }

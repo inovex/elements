@@ -4,6 +4,13 @@
   "version": "9.3.1",
   "private": true,
   "license": "MIT",
+  "scripts": {
+    "build": "vite build",
+    "start": "vite --port 4300",
+    "preview": "vite preview --port 4300",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "clean": "shx rm -rf dist"
+  },
   "dependencies": {
     "@inovex.de/elements-react": "workspace:*",
     "react": "^18.2.0",
@@ -15,6 +22,7 @@
     "@types/react": "^18.2.24",
     "@types/react-dom": "^18.2.8",
     "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react": "^4.2.1"
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "~5.0.0"
   }
 }

@@ -69,13 +69,13 @@ export class Avatar implements ComponentInterface {
     this.imgIsFetching = newValue;
   }
 
-  handleImageLoad() {
+  private handleImageLoad() {
     if (!this.loading) {
       this.imgIsFetching = false;
     }
   }
 
-  renderAvatarBorder() {
+  private renderAvatarBorder() {
     const isDashed = this.variant === 'dashed';
     const isSecondary = this.colorSecondary;
 

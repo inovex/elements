@@ -2,13 +2,21 @@
   "name": "elements-vue-example",
   "version": "9.3.1",
   "private": true,
+  "scripts": {
+    "build": "vite build",
+    "start": "vite --port 4400",
+    "preview": "vite preview --port 4400",
+    "lint": "eslint \"src/**/*.{ts,tsx,vue,js}\"",
+    "clean": "shx rm -rf dist"
+  },
   "dependencies": {
     "@inovex.de/elements-vue": "workspace:*",
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "eslint-plugin-vue": "^9.17.0"
+    "eslint-plugin-vue": "^9.17.0",
+    "vite": "~5.0.0"
   },
   "browserslist": [
     "> 1%",

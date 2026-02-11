@@ -1,9 +1,17 @@
 {
   "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*"],
+  "ignorePatterns": ["!**/*", "node_modules/*", "dist/*"],
   "overrides": [
     {
       "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": ["./tsconfig.json", "./tsconfig.app.json", "./tsconfig.spec.json"],
+        "createDefaultProgram": true,
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
+      "extends": ["plugin:@angular-eslint/recommended", "plugin:@angular-eslint/template/process-inline-templates"],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -21,12 +29,11 @@
             "style": "kebab-case"
           }
         ]
-      },
-      "extends": ["plugin:@nx/angular", "plugin:@angular-eslint/template/process-inline-templates"]
+      }
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@nx/angular-template"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
     }
   ]

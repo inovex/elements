@@ -13,12 +13,13 @@
     "types": ["jest"],
     "skipLibCheck": true
   },
-  "references": [
-    {
-      "path": "./tsconfig.lib.json"
-    },
-    {
-      "path": "./tsconfig.eslint.json"
-    }
-  ]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "output-targets/**/*.ts",
+    "output-targets/**/*.tsx",
+    "scripts/**/*.ts",
+    "scripts/**/*.tsx"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

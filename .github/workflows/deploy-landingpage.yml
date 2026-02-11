@@ -14,10 +14,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/dependencies-install
       - name: Build landingpage ⚒️
-        run: pnpm nx run landingpage:build
+        run: pnpm turbo run build --filter @inovex.de/landingpage
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
 
       - name: Upload build output ⬆️
         uses: actions/upload-artifact@v4

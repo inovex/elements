@@ -38,6 +38,15 @@
   "files": [
     "dist/"
   ],
+  "scripts": {
+    "postinstall": "test \"$CI\" = \"true\" && echo 'Skipping Playwright install in CI' || playwright install --with-deps chromium",
+    "build": "storybook build -c config -o dist",
+    "start": "storybook dev -p 6006 -c config",
+    "start:prod": "test -d dist || pnpm build && npx http-server dist -p 6007 -c-1",
+    "test": "playwright test",
+    "lint": "eslint src",
+    "clean": "shx rm -rf dist"
+  },
   "dependencies": {
     "@inovex.de/elements": "workspace:*",
     "lit": "^3.1.0",
@@ -46,6 +55,7 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.0",
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.0",
     "@storybook/addon-docs": "^7.6.12",
     "@storybook/addon-essentials": "^7.6.12",
@@ -57,6 +67,7 @@
     "@storybook/web-components-vite": "^7.6.12",
     "@types/lodash-es": "^4.17.12",
     "eslint-plugin-storybook": "^0.6.15",
+    "http-server": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.6.12"

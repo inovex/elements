@@ -1,0 +1,27 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "out/**", ".next/**", ".angular/**", ".stencil/**"]
+    },
+    "test": {
+      "dependsOn": ["^build", "build"],
+      "outputs": []
+    },
+    "lint": {},
+    "clean": {
+      "cache": false
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "start:prod": {
+      "cache": false
+    },
+    "schematics": {
+      "dependsOn": ["build"]
+    }
+  }
+}

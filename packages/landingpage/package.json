@@ -2,6 +2,14 @@
   "name": "@inovex.de/landingpage",
   "version": "9.0.0",
   "private": true,
+  "scripts": {
+    "build": "next build",
+    "start": "next dev -p 4600",
+    "start:prod": "next start -p 4600",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "clean": "shx rm -rf out .next"
+  },
   "dependencies": {
     "@code-hike/mdx": "^0.7.4",
     "@formatjs/intl-localematcher": "^0.5.4",

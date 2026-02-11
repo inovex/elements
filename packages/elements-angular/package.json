@@ -9,6 +9,12 @@
     "Sven Lindauer <slindauer@inovex.de>",
     "Benjamin Pagelsdorf <benjamin.pagelsdorf@inovex.de>"
   ],
+  "scripts": {
+    "build": "node buildHelper.js preBuild && ng-packagr -p ng-package.json -c tsconfig.lib.prod.json && node buildHelper.js sync && pnpm run schematics",
+    "start": "node buildHelper.js preBuild && ng-packagr -p ng-package.json -c tsconfig.lib.json --watch",
+    "schematics": "tsc -p tsconfig.schematics.json --outDir dist/schematics && shx cp src/schematics/collection.json dist/schematics && shx cp src/schematics/add/schema.json dist/schematics/add",
+    "clean": "shx rm -rf dist"
+  },
   "homepage": "https://elements.inovex.de",
   "bugs": {
     "url": "https://github.com/inovex/elements/issues"
@@ -35,9 +41,15 @@
   "fesm2020": "./dist/fesm2020/inovex.de-elements-angular.mjs",
   "fesm2015": "./dist/fesm2015/inovex.de-elements-angular.mjs",
   "typings": "./dist/index.d.ts",
+  "devDependencies": {
+    "@angular/compiler": "~15.1.0",
+    "@angular/compiler-cli": "~15.1.0",
+    "ng-packagr": "~15.1.0",
+    "typescript": "~4.9.5"
+  },
   "exports": {
     "./package.json": {
-      "default": "./package.json"
+      "default": "./dist/package.json"
     },
     ".": {
       "types": "./dist/index.d.ts",
