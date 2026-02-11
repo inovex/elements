@@ -1,35 +1,44 @@
 import { defineConfig, devices } from '@playwright/test';
-import { fileURLToPath } from 'url';
+import type { GitHubActionOptions } from '@estruyf/github-actions-reporter';
 
-// @ts-expect-error we probably need a custom tsconfig for the playwright environment
-const __filename = fileURLToPath(import.meta.url);
-const STORYBOOK_URL = 'http://localhost:6007';
-// For CI, you may want to set BASE_URL to the deployed application.
-const baseURL = process.env['BASE_URL'] || STORYBOOK_URL; // storybook URL
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
   testDir: 'src',
+
+  fullyParallel: true,
+
+  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  forbidOnly: !!process.env.CI,
+
+  /* Retry on CI only */
+  retries: process.env.CI ? 2 : 0,
+
+  reporter: process.env.CI
+    ? [
+        ['html', { open: 'never' }],
+        [
+          '@estruyf/github-actions-reporter',
+          <GitHubActionOptions>{
+            includeResults: ['fail', 'flaky', 'skipped'],
+          },
+        ],
+      ]
+    : [['list'], ['html', { open: 'never' }]],
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL,
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-all-retries',
+    trace: 'retain-on-failure',
+    video: process.env.ci ? 'off' : 'retain-on-failure',
   },
   expect: {
     timeout: process.env.CI ? 30000 : 10000,
   },
-  reporter: process.env.CI ? 'dot' : 'list',
   /* Run your local dev server before starting the tests */
   webServer: {
     command: 'pnpm run start:prod',
-    url: STORYBOOK_URL,
+    port: 6007,
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
   },

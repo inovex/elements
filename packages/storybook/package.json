@@ -55,6 +55,7 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
+    "@estruyf/github-actions-reporter": "^1.11.0",
     "@playwright/test": "^1.56.0",
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.0",
     "@storybook/addon-docs": "^7.6.12",

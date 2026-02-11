@@ -33,5 +33,6 @@ packages/storybook/custom-elements.json
 packages/landingpage/public/site.webmanifest
 
 **/test-results
+**/playwright-report
 
 assets/
