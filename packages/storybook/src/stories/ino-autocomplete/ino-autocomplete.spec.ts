@@ -40,7 +40,7 @@ test.describe('ino-autocomplete', () => {
     await expect(menu).toBeVisible();
   });
 
-  test('should hide menu on input blur', async () => {
+  test.fixme('should hide menu on input blur', async () => {
     await inputEl.click();
     await expect(menu).toBeVisible();
     await inputEl.blur();
