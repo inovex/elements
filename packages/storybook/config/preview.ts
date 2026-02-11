@@ -1,5 +1,5 @@
 // configures the "preview" iframe that renders your components
-import { applyPolyfills, defineCustomElements } from '@inovex.de/elements/dist/loader';
+import { defineCustomElements } from '@inovex.de/elements/dist/loader';
 
 import './global.scss';
 import { extractArgTypes, extractComponentDescription, setStencilDocJson } from '@pxtrn/storybook-addon-docs-stencil';
@@ -23,7 +23,7 @@ setStencilDocJson(StencilDocsJson);
 // import { setCustomElements } from '@storybook/web-components';
 // setCustomElements(customElements);
 
-applyPolyfills().then(() => defineCustomElements(window));
+defineCustomElements(window);
 
 // Explicit order for the docs section
 const preview = {
