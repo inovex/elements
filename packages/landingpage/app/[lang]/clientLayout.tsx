@@ -7,7 +7,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import { I18nContextProvider, UiContextProvider, VersionProvider } from '@context';
 import Layout from './_components/layout';
 import { WithLangProp } from 'translations/i18n';
-import { applyPolyfills, defineCustomElements } from '@inovex.de/elements/dist/loader';
+import { defineCustomElements } from '@inovex.de/elements/dist/loader';
 
 type ClientLayoutProps = {
   children: ReactNode;
@@ -22,7 +22,6 @@ export default function ClientLayout({ children, lang, translations }: WithLangP
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     (async () => {
-      await applyPolyfills();
       defineCustomElements(window);
       document.querySelector('html')?.setAttribute('lang', lang);
       setIsClient(true);
