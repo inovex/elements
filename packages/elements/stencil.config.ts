@@ -43,8 +43,6 @@ export const config: Config = {
   testing: {
     setupFilesAfterEnv: ['./setupSpecTests.ts'],
     browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
-    // explicitly cache it in node_modules to make it easier to cache it in CI
-    cacheDirectory: join(__dirname, 'node_modules', '.cache', 'puppeteer'),
   },
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
