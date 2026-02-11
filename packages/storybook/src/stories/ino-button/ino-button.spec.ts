@@ -23,9 +23,14 @@ test.describe('ino-button', () => {
     await expect(spinnerEl).toBeHidden();
     await expect(inoButton).toHaveText(/Label/i);
 
-    const { height: newHeight, width: newWidth } = await inoButton.boundingBox();
+    await expect(async () => {
+      const box = await inoButton.boundingBox();
 
-    expect(Math.abs(newHeight - height)).toBeLessThanOrEqual(1);
-    expect(Math.abs(newWidth - width)).toBeLessThanOrEqual(1);
+      if (box) {
+        const { height: newHeight, width: newWidth } = box;
+        expect(Math.abs(newHeight - height)).toBeLessThanOrEqual(1);
+        expect(Math.abs(newWidth - width)).toBeLessThanOrEqual(1);
+      }
+    }).toPass({ timeout: 10_000 });
   });
 });

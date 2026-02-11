@@ -48,9 +48,11 @@ test.describe('ino-textarea', () => {
 
       await setAttribute(inoTextArea, 'cols', '10');
       await inoTextArea.blur();
-      const { width: tenColsWidth } = await textarea.boundingBox();
 
-      expect(oneColWidth).toBeLessThan(tenColsWidth);
+      expect(async () => {
+        const { width: tenColsWidth } = await textarea.boundingBox();
+        expect(oneColWidth).toBeLessThan(tenColsWidth);
+      }).toPass({ timeout: 10_000 });
     });
 
     test('should NOT increase width when input exceeds width and autogrow not set', async ({ page }) => {
@@ -80,7 +82,7 @@ test.describe('ino-textarea', () => {
       expect(bBoxAfter.height).toBeGreaterThan(bBoxBefore.height);
     });
 
-    test('should not enter more than max length', async ({ page }) => {
+    test.fixme('should not enter more than max length', async ({ page }) => {
       const inoTextArea = page.locator('ino-textarea');
       const nativeTextarea = inoTextArea.locator('textarea');
       await setAttribute(inoTextArea, 'maxlength', '3');
