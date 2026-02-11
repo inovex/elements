@@ -8,60 +8,22 @@ jobs:
   changeDetection:
     runs-on: ubuntu-latest
     outputs:
-      hasChanges: ${{ steps.evaluation.outputs.hasChanges }}
+      hasChanges: ${{ steps.changed-files.outputs.any_changed || 'true' }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref || github.ref }}
           fetch-depth: 0
 
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
 
-      # Cache handling to determine the last commit id of unicorn deployment
-      # 1. Load cache file
-      # 2. Read SHA from file
-      # 3. Check if commit SHA has changed
-      # 4. Update cache if necessary
-      - name: Get last commit info file from cache
-        id: sha-cache
-        uses: actions/cache@v4
-        with:
-          path: last_commit_sha.txt
-          key: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}-${{ github.run_id }}
-          restore-keys: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}
-
-      - name: Read commit sha from file
-        id: last-commit
-        run: test -f last_commit_sha.txt
-          && echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
-          || echo "sha=${{ github.event.pull_request.base.sha || github.event.before }}" >> $GITHUB_OUTPUT
-
-      - name: Save commit SHA to cache
-        id: current-commit
-        run: echo "${{ github.event.pull_request.head.sha || github.sha }}" > last_commit_sha.txt
-          && echo "sha=${{ github.event.pull_request.base.sha || github.sha }}" >> $GITHUB_OUTPUT
-
       - name: Get changed files
-        if: steps.current-commit.outputs.sha != steps.last-commit.outputs.sha
         id: changed-files
-        uses: tj-actions/changed-files@v41
+        uses: tj-actions/changed-files@v45
         with:
-          sha: ${{ steps.current-commit.outputs.sha }}
-          base_sha: ${{ steps.last-commit.outputs.sha }}
           files: |
-            packages/elements
-            packages/storybook
-
-      - name: Print all changed files
-        if: steps.current-commit.outputs.sha != steps.last-commit.outputs.sha
-        run: echo '${{ toJSON(steps.changed-files.outputs.all_changed_and_modified_files) }}'
-
-      - name: Check if storybook or elements was changed
-        if: steps.changed-files.outputs.all_changed_and_modified_files != ''
-          || steps.current-commit.outputs.sha == steps.last-commit.outputs.sha
-        id: evaluation
-        run: echo "hasChanges=true" >> $GITHUB_OUTPUT
+            packages/elements/**
+            packages/storybook/**
 
   deploy:
     runs-on: ubuntu-latest
