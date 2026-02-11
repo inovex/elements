@@ -35,11 +35,12 @@
     "test:spec": "stencil test --spec",
     "test:e2e": "stencil test --e2e",
     "test:watch": "stencil test --spec --e2e --watch",
-    "lint": "eslint src --ext .ts,.tsx --fix-dry-run",
+    "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "lint:ci": "eslint src --ext .ts,.tsx",
     "icons": "ts-node --project tsconfig.json scripts/integrateIcons.ts",
-    "icons:optimize": "svgo -f src/assets/ino-icon --config svgo.config.js"
+    "icons:optimize": "svgo -f src/assets/ino-icon --config svgo.config.js",
+    "clean": "shx rm -rf ./dist ./.stencil"
   },
   "homepage": "https://elements.inovex.de",
   "bugs": {

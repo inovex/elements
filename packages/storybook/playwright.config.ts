@@ -1,7 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import { nxE2EPreset } from '@nx/playwright/preset';
 import { fileURLToPath } from 'url';
-import { workspaceRoot } from '@nx/devkit';
 
 // @ts-expect-error we probably need a custom tsconfig for the playwright environment
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +15,7 @@ const baseURL = process.env['BASE_URL'] || STORYBOOK_URL; // storybook URL
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  ...nxE2EPreset(__filename, { testDir: './src' }),
+  testDir: 'src',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
@@ -30,10 +28,10 @@ export default defineConfig({
   reporter: process.env.CI ? 'dot' : 'list',
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm nx run storybook:preview',
+    command: 'pnpm run start:prod',
     url: STORYBOOK_URL,
     reuseExistingServer: !process.env.CI,
-    cwd: workspaceRoot,
+    timeout: 120000,
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

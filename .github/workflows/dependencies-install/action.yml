@@ -19,19 +19,17 @@ runs:
         always-auth: true
         cache: 'pnpm'
 
-    - name: restore nx cache
+    - name: Restore Turborepo Cache
       uses: actions/cache@v4
       with:
-        path: '**/.nx-cache'
-        key: nx_cache-${{ github.ref_name || github.ref }}-${{ github.job }}-${{ github.run_id }}
+        path: |
+          .turbo
+          node_modules/.cache/turbo
+        key: turbo-${{ runner.os }}-${{ github.ref_name }}-${{ github.sha }}
         restore-keys: |
-          nx_cache-${{ github.ref_name || github.ref }}-${{ github.job }}
-    - name: restore nx cache (build core)
-      if: github.job != 'build_core'
-      uses: actions/cache@v4
-      with:
-        path: '**/.nx-cache'
-        key: nx_cache-${{ github.ref_name || github.ref }}-build_core-${{ github.run_id }}
+          turbo-${{ runner.os }}-${{ github.ref_name }}-
+          turbo-${{ runner.os }}-
+
     - name: Install Dependencies
       run: pnpm install --frozen-lockfile
       shell: bash

@@ -3,9 +3,9 @@
   "compilerOptions": {
     "outDir": "dist",
     "lib": ["dom", "es2018"],
-    //"declarationDir": "../../dist/elements-react/dist/types",
     "skipLibCheck": true,
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "rootDir": "src"
   },
   "references": [
     {

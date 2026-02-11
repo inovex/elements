@@ -24,6 +24,7 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 
 storybook-static/
+test-results/
 
 .yalc
 yalc.lock
@@ -44,3 +45,4 @@ tmp/
 .pnpm-debug.log*
 
 
+**/.turbo/

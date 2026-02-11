@@ -24,9 +24,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/dependencies-install
       - name: Build Storybook
-        run: pnpm nx run storybook:build
-        env:
-          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
+        run: pnpm turbo run build --filter @inovex.de/storybook
       - name: Upload Storybook artifact ⬆️
         uses: actions/upload-artifact@v4
         with:

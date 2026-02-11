@@ -5,6 +5,7 @@ vendor/
 
 .angular
 .nx-cache/
+**/.turbo
 /.nx/cache
 .idea/
 .vscode/
@@ -25,8 +26,12 @@ CONTEXT.md
 components.d.ts
 packages/elements-react/src/components/**
 packages/elements-angular/src/directives/**
+packages/elements-angular-example/angular.json
 packages/elements-vue/src/**
 packages/storybook/elements-stencil-docs.json
 packages/storybook/custom-elements.json
+packages/landingpage/public/site.webmanifest
+
+**/test-results
 
 assets/

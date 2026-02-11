@@ -19,6 +19,12 @@
   "files": [
     "dist/"
   ],
+  "scripts": {
+    "build": "tsc --project ./tsconfig.lib.json",
+    "compile": "tsc --project ./tsconfig.lib.json",
+    "start": "tsc --project ./tsconfig.lib.json --watch",
+    "clean": "shx rm -rf dist"
+  },
   "dependencies": {
     "@inovex.de/elements": "workspace:*"
   },
