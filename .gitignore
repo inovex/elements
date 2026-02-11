@@ -24,6 +24,7 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 
 storybook-static/
+playwright-report/
 test-results/
 
 .yalc
