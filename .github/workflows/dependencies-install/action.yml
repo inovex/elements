@@ -19,6 +19,21 @@ runs:
         always-auth: true
         cache: 'pnpm'
 
+    - name: Get Puppeteer version
+      id: puppeteer-version
+      run: |
+        PUPPETEER_VERSION=$(node -p "require('./packages/elements/package.json').devDependencies.puppeteer")
+        echo "version=$PUPPETEER_VERSION" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Cache Puppeteer Chrome Binary
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/puppeteer
+        key: puppeteer-${{ runner.os }}-${{ steps.puppeteer-version.outputs.version }}
+        restore-keys: |
+          puppeteer-${{ runner.os }}-
+
     - name: Restore Turborepo Cache
       uses: actions/cache@v4
       with:
