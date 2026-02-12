@@ -1,0 +1,34 @@
+name: Canary Release
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  canary:
+    name: Canary Release
+    runs-on: ubuntu-latest
+    # Prevent running this when the "Version Packages" PR merges (the stable release)
+    if: "!contains(github.event.head_commit.message, 'chore: version packages')"
+    permissions:
+      contents: read
+      id-token: write # Required for NPM provenance if you use it
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/workflows/dependencies-install
+        with:
+          skip-browsers: 'true'
+
+      - name: Publish Canary
+        run: pnpm release-packages:canary
+        env:
+          # You need this token to publish to NPM
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
