@@ -34,7 +34,7 @@ jobs:
           # Updates package.json versions based on intent
           version: pnpm version-packages
           # Publishes to NPM and creates the GitHub Release
-          publish: pnpm release
+          publish: pnpm release-packages
           commit: 'chore: version packages'
           title: 'chore: version packages'
         env:

@@ -15,7 +15,6 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'chore: version packages')"
     permissions:
       contents: read
-      id-token: write # Required for NPM provenance if you use it
 
     steps:
       - uses: actions/checkout@v4
@@ -26,9 +25,22 @@ jobs:
         with:
           skip-browsers: 'true'
 
+      - name: Check for Changesets
+        id: check_changesets
+        run: |
+        # Run changeset status. If it succeeds (exit 0), we have changesets.
+        # If it fails (exit 1), we don't.
+          if pnpm changeset status; then
+            echo "has_changesets=true" >> $GITHUB_OUTPUT
+            echo "✅ Changesets found. Proceeding..."
+          else
+            echo "has_changesets=false" >> $GITHUB_OUTPUT
+            echo "⏭️ No changesets found. Skipping canary release."
+          fi
+
       - name: Publish Canary
+        if: steps.check_changesets.outputs.has_changesets == 'true'
         run: pnpm release-packages:canary
         env:
-          # You need this token to publish to NPM
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

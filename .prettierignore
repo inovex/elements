@@ -36,3 +36,5 @@ packages/landingpage/public/site.webmanifest
 **/playwright-report
 
 assets/
+.changeset
+.github
