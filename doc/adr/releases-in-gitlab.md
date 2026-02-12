@@ -1,6 +1,8 @@
 # Release Workflow in Gitlab instead of Github
 
-- Status: accepted
+> **⚠️ Deprecated**: This decision has been superseded. As of 2024, the release workflow has been migrated to **GitHub Actions** using [Changesets](https://github.com/changesets/changesets). See this [README](../../.changesets/README.md).
+
+- Status: superseded
 - Deciders: Alexander Gerlach, Sven Lindauer, Jan-Niklas Voß
 - Date: 08.09.2020
 

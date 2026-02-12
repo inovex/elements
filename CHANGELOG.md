@@ -1,3 +1,9 @@
+# Changelog
+
+> **Note:** As of 12.02.2026, this file is archived.
+> Please view the [GitHub Releases](https://github.com/inovex/elements/releases) for the latest updates.
+
+---
 ## 9.3.1 (2024-05-17)
 
 
