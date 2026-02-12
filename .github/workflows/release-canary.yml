@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+    # Only run if a changeset file is added/modified
+    paths:
+      - '.changeset/*.md'
+      - '!.changeset/README.md' # Ignore the readme
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -25,21 +29,7 @@ jobs:
         with:
           skip-browsers: 'true'
 
-      - name: Check for Changesets
-        id: check_changesets
-        # Run changeset status. If it succeeds (exit 0), we have changesets.
-        # If it fails (exit 1), we don't.
-        run: |
-          if pnpm changeset status; then
-            echo "has_changesets=true" >> $GITHUB_OUTPUT
-            echo "✅ Changesets found. Proceeding..."
-          else
-            echo "has_changesets=false" >> $GITHUB_OUTPUT
-            echo "⏭️ No changesets found. Skipping canary release."
-          fi
-
       - name: Publish Canary
-        if: steps.check_changesets.outputs.has_changesets == 'true'
         run: pnpm release-packages:canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
