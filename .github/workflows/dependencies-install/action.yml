@@ -1,6 +1,11 @@
 name: 'Install node dependencies'
 description: 'Installs the node dependencies of inovex-elements packages'
 author: 'Benjamin Pagelsdorf'
+inputs:
+  skip-browsers:
+    description: 'Skip Puppeteer/Playwright browser downloads'
+    required: false
+    default: 'false'
 
 runs:
   using: 'composite'
@@ -20,6 +25,7 @@ runs:
         cache: 'pnpm'
 
     - name: Get Puppeteer version
+      if: inputs.skip-browsers != 'true'
       id: puppeteer-version
       run: |
         PUPPETEER_VERSION=$(node -p "require('./packages/elements/package.json').devDependencies.puppeteer")
@@ -27,6 +33,7 @@ runs:
       shell: bash
 
     - name: Cache Puppeteer Chrome Binary
+      if: inputs.skip-browsers != 'true'
       uses: actions/cache@v4
       with:
         path: ~/.cache/puppeteer
@@ -48,3 +55,6 @@ runs:
     - name: Install Dependencies
       run: pnpm install --frozen-lockfile
       shell: bash
+      env:
+        PUPPETEER_SKIP_DOWNLOAD: ${{ inputs.skip-browsers == 'true' && 'true' || 'false' }}
+        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.skip-browsers == 'true' && 'true' || 'false' }}

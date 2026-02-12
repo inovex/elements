@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/dependencies-install
+        with:
+          skip-browsers: 'true'
       - name: Build landingpage ⚒️
         run: pnpm turbo run build --filter @inovex.de/landingpage
         env:
