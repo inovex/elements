@@ -5,7 +5,7 @@
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "packageManager": "pnpm@10.29.2",
   "engines": {
-    "node": ">=20.11",
+    "node": ">=24",
     "pnpm": ">=10.0.0"
   },
   "scripts": {
