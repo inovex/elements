@@ -274,8 +274,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(@tiptap/core@2.1.0(@tiptap/pm@2.1.0))
       '@tiptap/extension-link':
-        specifier: 2.1.0
-        version: 2.1.0(@tiptap/core@2.1.0(@tiptap/pm@2.1.0))(@tiptap/pm@2.1.0)
+        specifier: 2.10.4
+        version: 2.10.4(@tiptap/core@2.1.0(@tiptap/pm@2.1.0))(@tiptap/pm@2.1.0)
       '@tiptap/extension-list-item':
         specifier: 2.1.0
         version: 2.1.0(@tiptap/core@2.1.0(@tiptap/pm@2.1.0))
@@ -321,7 +321,7 @@ importers:
     devDependencies:
       '@stencil-community/eslint-plugin':
         specifier: ^0.7.2
-        version: 0.7.2(@typescript-eslint/eslint-plugin@6.13.2(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.4.2))(eslint@8.57.1)(typescript@5.4.2))(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.4.2))(eslint-plugin-react@7.37.5(eslint@8.57.1))(eslint@8.57.1)(typescript@5.4.2)
+        version: 0.7.2(@typescript-eslint/eslint-plugin@6.13.2(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.3.3))(eslint@8.57.1)(typescript@5.3.3))(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.3.3))(eslint-plugin-react@7.32.2(eslint@8.57.1))(eslint@8.57.1)(typescript@5.3.3)
       '@stencil/angular-output-target':
         specifier: ^0.8.3
         version: 0.8.4(@stencil/core@4.20.0)
@@ -345,7 +345,7 @@ importers:
         version: 0.1.11
       puppeteer:
         specifier: '20'
-        version: 20.9.0(encoding@0.1.13)(typescript@5.4.2)
+        version: 20.9.0(encoding@0.1.13)(typescript@5.3.3)
       svgo:
         specifier: ^2.8.0
         version: 2.8.0
@@ -670,7 +670,7 @@ importers:
         version: 7.6.21(@types/react-dom@18.2.14)(@types/react@18.2.33)(encoding@0.1.13)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
       '@storybook/builder-vite':
         specifier: ^7.6.12
-        version: 7.6.21(encoding@0.1.13)(typescript@5.4.2)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))
+        version: 7.6.21(encoding@0.1.13)(typescript@5.3.3)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))
       '@storybook/manager-api':
         specifier: ^7.6.12
         version: 7.6.21(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
@@ -682,13 +682,13 @@ importers:
         version: 7.6.21(encoding@0.1.13)(lit@3.3.2)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
       '@storybook/web-components-vite':
         specifier: ^7.6.12
-        version: 7.6.21(encoding@0.1.13)(lit@3.3.2)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)(typescript@5.4.2)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))
+        version: 7.6.21(encoding@0.1.13)(lit@3.3.2)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)(typescript@5.3.3)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
       eslint-plugin-storybook:
         specifier: ^0.6.15
-        version: 0.6.15(eslint@8.57.1)(typescript@5.4.2)
+        version: 0.6.15(eslint@8.57.1)(typescript@5.3.3)
       http-server:
         specifier: ^14.1.1
         version: 14.1.1
@@ -4124,11 +4124,11 @@ packages:
     peerDependencies:
       '@tiptap/core': ^2.0.0
 
-  '@tiptap/extension-link@2.1.0':
-    resolution: {integrity: sha512-/YDKLLQ0RGtFVv88ruW+3Nvy7xTHxZjKTPvhxFjtl1yOilfOgqtFmHa19tQnNldf96mEPJ0ztqA1eFeACqevyw==}
+  '@tiptap/extension-link@2.10.4':
+    resolution: {integrity: sha512-9lbtMUPc9IYCRMKV/B4k/no9J5OQQl/jJn9W2ce3NjJZSrOjuZs0CjJZgCESIaj6911s7nEJUvxKKmsbD3UC3Q==}
     peerDependencies:
-      '@tiptap/core': ^2.0.0
-      '@tiptap/pm': ^2.0.0
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
 
   '@tiptap/extension-list-item@2.1.0':
     resolution: {integrity: sha512-A+u/Mw2mQwUx7nWTmo+pFP9mHCG2Wv+TJLY4Eh2ttwV/zPVVE9dweVzwM5f0ZXSyO+YqT+n8pRb2SBoCRrXbow==}
@@ -14698,7 +14698,7 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@puppeteer/browsers@1.4.6(typescript@5.4.2)':
+  '@puppeteer/browsers@1.4.6(typescript@5.3.3)':
     dependencies:
       debug: 4.3.4
       extract-zip: 2.0.1
@@ -14708,7 +14708,7 @@ snapshots:
       unbzip2-stream: 1.4.3
       yargs: 17.7.1
     optionalDependencies:
-      typescript: 5.4.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - bare-abort-controller
       - react-native-b4a
@@ -15277,16 +15277,16 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@stencil-community/eslint-plugin@0.7.2(@typescript-eslint/eslint-plugin@6.13.2(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.4.2))(eslint@8.57.1)(typescript@5.4.2))(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.4.2))(eslint-plugin-react@7.37.5(eslint@8.57.1))(eslint@8.57.1)(typescript@5.4.2)':
+  '@stencil-community/eslint-plugin@0.7.2(@typescript-eslint/eslint-plugin@6.13.2(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.3.3))(eslint@8.57.1)(typescript@5.3.3))(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.3.3))(eslint-plugin-react@7.32.2(eslint@8.57.1))(eslint@8.57.1)(typescript@5.3.3)':
     dependencies:
-      '@typescript-eslint/eslint-plugin': 6.13.2(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.4.2))(eslint@8.57.1)(typescript@5.4.2)
-      '@typescript-eslint/parser': 6.13.2(eslint@8.57.1)(typescript@5.4.2)
+      '@typescript-eslint/eslint-plugin': 6.13.2(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.3.3))(eslint@8.57.1)(typescript@5.3.3)
+      '@typescript-eslint/parser': 6.13.2(eslint@8.57.1)(typescript@5.3.3)
       eslint: 8.57.1
-      eslint-plugin-react: 7.37.5(eslint@8.57.1)
+      eslint-plugin-react: 7.32.2(eslint@8.57.1)
       eslint-utils: 3.0.0(eslint@8.57.1)
       jsdom: 23.2.0
-      tsutils: 3.21.0(typescript@5.4.2)
-      typescript: 5.4.2
+      tsutils: 3.21.0(typescript@5.3.3)
+      typescript: 5.3.3
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -15490,7 +15490,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@storybook/builder-vite@7.6.21(encoding@0.1.13)(typescript@5.4.2)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))':
+  '@storybook/builder-vite@7.6.21(encoding@0.1.13)(typescript@5.3.3)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))':
     dependencies:
       '@storybook/channels': 7.6.21
       '@storybook/client-logger': 7.6.21
@@ -15510,7 +15510,7 @@ snapshots:
       rollup: 3.29.5
       vite: 5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0)
     optionalDependencies:
-      typescript: 5.4.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -15876,9 +15876,9 @@ snapshots:
       '@types/express': 4.17.25
       file-system-cache: 2.3.0
 
-  '@storybook/web-components-vite@7.6.21(encoding@0.1.13)(lit@3.3.2)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)(typescript@5.4.2)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))':
+  '@storybook/web-components-vite@7.6.21(encoding@0.1.13)(lit@3.3.2)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)(typescript@5.3.3)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))':
     dependencies:
-      '@storybook/builder-vite': 7.6.21(encoding@0.1.13)(typescript@5.4.2)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))
+      '@storybook/builder-vite': 7.6.21(encoding@0.1.13)(typescript@5.3.3)(vite@5.0.13(@types/node@18.16.9)(less@4.5.1)(sass@1.97.3)(stylus@0.59.0)(terser@5.46.0))
       '@storybook/core-server': 7.6.21(encoding@0.1.13)
       '@storybook/node-logger': 7.6.21
       '@storybook/web-components': 7.6.21(encoding@0.1.13)(lit@3.3.2)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
@@ -16042,7 +16042,7 @@ snapshots:
     dependencies:
       '@tiptap/core': 2.1.0(@tiptap/pm@2.1.0)
 
-  '@tiptap/extension-link@2.1.0(@tiptap/core@2.1.0(@tiptap/pm@2.1.0))(@tiptap/pm@2.1.0)':
+  '@tiptap/extension-link@2.10.4(@tiptap/core@2.1.0(@tiptap/pm@2.1.0))(@tiptap/pm@2.1.0)':
     dependencies:
       '@tiptap/core': 2.1.0(@tiptap/pm@2.1.0)
       '@tiptap/pm': 2.1.0
@@ -16469,26 +16469,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/eslint-plugin@6.13.2(@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.4.2))(eslint@8.57.1)(typescript@5.4.2)':
-    dependencies:
-      '@eslint-community/regexpp': 4.12.2
-      '@typescript-eslint/parser': 6.13.2(eslint@8.57.1)(typescript@5.4.2)
-      '@typescript-eslint/scope-manager': 6.13.2
-      '@typescript-eslint/type-utils': 6.13.2(eslint@8.57.1)(typescript@5.4.2)
-      '@typescript-eslint/utils': 6.13.2(eslint@8.57.1)(typescript@5.4.2)
-      '@typescript-eslint/visitor-keys': 6.13.2
-      debug: 4.4.3
-      eslint: 8.57.1
-      graphemer: 1.4.0
-      ignore: 5.3.2
-      natural-compare: 1.4.0
-      semver: 7.7.3
-      ts-api-utils: 1.4.3(typescript@5.4.2)
-    optionalDependencies:
-      typescript: 5.4.2
-    transitivePeerDependencies:
-      - supports-color
-
   '@typescript-eslint/parser@6.13.2(eslint@8.57.1)(typescript@5.3.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 6.13.2
@@ -16554,18 +16534,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/type-utils@6.13.2(eslint@8.57.1)(typescript@5.4.2)':
-    dependencies:
-      '@typescript-eslint/typescript-estree': 6.13.2(typescript@5.4.2)
-      '@typescript-eslint/utils': 6.13.2(eslint@8.57.1)(typescript@5.4.2)
-      debug: 4.4.3
-      eslint: 8.57.1
-      ts-api-utils: 1.4.3(typescript@5.4.2)
-    optionalDependencies:
-      typescript: 5.4.2
-    transitivePeerDependencies:
-      - supports-color
-
   '@typescript-eslint/types@5.44.0': {}
 
   '@typescript-eslint/types@5.62.0': {}
@@ -16586,7 +16554,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/typescript-estree@5.62.0(typescript@5.4.2)':
+  '@typescript-eslint/typescript-estree@5.62.0(typescript@5.3.3)':
     dependencies:
       '@typescript-eslint/types': 5.62.0
       '@typescript-eslint/visitor-keys': 5.62.0
@@ -16594,9 +16562,9 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.7.3
-      tsutils: 3.21.0(typescript@5.4.2)
+      tsutils: 3.21.0(typescript@5.3.3)
     optionalDependencies:
-      typescript: 5.4.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - supports-color
 
@@ -16643,14 +16611,14 @@ snapshots:
       - supports-color
       - typescript
 
-  '@typescript-eslint/utils@5.62.0(eslint@8.57.1)(typescript@5.4.2)':
+  '@typescript-eslint/utils@5.62.0(eslint@8.57.1)(typescript@5.3.3)':
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@8.57.1)
       '@types/json-schema': 7.0.15
       '@types/semver': 7.7.1
       '@typescript-eslint/scope-manager': 5.62.0
       '@typescript-eslint/types': 5.62.0
-      '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.4.2)
+      '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.3.3)
       eslint: 8.57.1
       eslint-scope: 5.1.1
       semver: 7.7.3
@@ -16666,20 +16634,6 @@ snapshots:
       '@typescript-eslint/scope-manager': 6.13.2
       '@typescript-eslint/types': 6.13.2
       '@typescript-eslint/typescript-estree': 6.13.2(typescript@5.3.3)
-      eslint: 8.57.1
-      semver: 7.7.3
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-
-  '@typescript-eslint/utils@6.13.2(eslint@8.57.1)(typescript@5.4.2)':
-    dependencies:
-      '@eslint-community/eslint-utils': 4.9.1(eslint@8.57.1)
-      '@types/json-schema': 7.0.15
-      '@types/semver': 7.7.1
-      '@typescript-eslint/scope-manager': 6.13.2
-      '@typescript-eslint/types': 6.13.2
-      '@typescript-eslint/typescript-estree': 6.13.2(typescript@5.4.2)
       eslint: 8.57.1
       semver: 7.7.3
     transitivePeerDependencies:
@@ -18851,10 +18805,10 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-storybook@0.6.15(eslint@8.57.1)(typescript@5.4.2):
+  eslint-plugin-storybook@0.6.15(eslint@8.57.1)(typescript@5.3.3):
     dependencies:
       '@storybook/csf': 0.0.1
-      '@typescript-eslint/utils': 5.62.0(eslint@8.57.1)(typescript@5.4.2)
+      '@typescript-eslint/utils': 5.62.0(eslint@8.57.1)(typescript@5.3.3)
       eslint: 8.57.1
       requireindex: 1.2.0
       ts-dedent: 2.2.0
@@ -22698,16 +22652,16 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  puppeteer-core@20.9.0(encoding@0.1.13)(typescript@5.4.2):
+  puppeteer-core@20.9.0(encoding@0.1.13)(typescript@5.3.3):
     dependencies:
-      '@puppeteer/browsers': 1.4.6(typescript@5.4.2)
+      '@puppeteer/browsers': 1.4.6(typescript@5.3.3)
       chromium-bidi: 0.4.16(devtools-protocol@0.0.1147663)
       cross-fetch: 4.0.0(encoding@0.1.13)
       debug: 4.3.4
       devtools-protocol: 0.0.1147663
       ws: 8.13.0
     optionalDependencies:
-      typescript: 5.4.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - bare-abort-controller
       - bufferutil
@@ -22716,11 +22670,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  puppeteer@20.9.0(encoding@0.1.13)(typescript@5.4.2):
+  puppeteer@20.9.0(encoding@0.1.13)(typescript@5.3.3):
     dependencies:
-      '@puppeteer/browsers': 1.4.6(typescript@5.4.2)
+      '@puppeteer/browsers': 1.4.6(typescript@5.3.3)
       cosmiconfig: 8.2.0
-      puppeteer-core: 20.9.0(encoding@0.1.13)(typescript@5.4.2)
+      puppeteer-core: 20.9.0(encoding@0.1.13)(typescript@5.3.3)
     transitivePeerDependencies:
       - bare-abort-controller
       - bufferutil
@@ -24183,10 +24137,10 @@ snapshots:
       tslib: 1.14.1
       typescript: 4.9.5
 
-  tsutils@3.21.0(typescript@5.4.2):
+  tsutils@3.21.0(typescript@5.3.3):
     dependencies:
       tslib: 1.14.1
-      typescript: 5.4.2
+      typescript: 5.3.3
 
   tunnel-agent@0.6.0:
     dependencies:
