@@ -27,9 +27,9 @@ jobs:
 
       - name: Check for Changesets
         id: check_changesets
-        run: |
         # Run changeset status. If it succeeds (exit 0), we have changesets.
         # If it fails (exit 1), we don't.
+        run: |
           if pnpm changeset status; then
             echo "has_changesets=true" >> $GITHUB_OUTPUT
             echo "✅ Changesets found. Proceeding..."
