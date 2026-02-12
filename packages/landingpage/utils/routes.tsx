@@ -40,7 +40,6 @@ export enum SubRoutes {
   GETTING_STARTED_VUE = 'vue',
   LIBRARY_STYLEGUIDE = 'styleguide',
   LIBRARY_COMPONENTS = 'components',
-  LIBRARY_PATTERNS = 'patterns',
   LIBRARY_CHANGELOGS = 'changelogs',
   ABOUT_TEAM = 'team',
   ABOUT_HISTORY = 'history',
@@ -156,11 +155,6 @@ const allRoutes: RouteTree = [
         key: 'components',
         fragment: SubRoutes.LIBRARY_COMPONENTS,
         url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_COMPONENTS}`,
-      },
-      {
-        key: 'patterns',
-        fragment: SubRoutes.LIBRARY_PATTERNS,
-        url: `${MainRoutes.LIBRARY}/${SubRoutes.LIBRARY_PATTERNS}`,
       },
       /*
       {

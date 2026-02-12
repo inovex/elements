@@ -21,7 +21,6 @@ The project code is located in the `packages/` directory:
 | **`elements-vue`** | `@inovex.de/elements-vue` | Vue wrappers for `elements`. | Vue 3 |
 | **`storybook`** | `@inovex.de/elements-storybook` | Component documentation and playground. | Storybook |
 | **`landingpage`** | `@inovex.de/landingpage` | The public website for inovex elements. | Next.js |
-| **`ui-patterns`** | `@inovex.de/ui-patterns` | Higher-level UI patterns and compositions. | React (mostly) |
 | **`*-example`** | `elements-*-example` | Example applications demonstrating usage. | Angular, React, Vue |
 
 ## 🚀 Key Commands
@@ -31,7 +30,6 @@ Run these commands from the root directory using `pnpm`.
 ### Development
 - **`pnpm start:storybook`**: Starts the Storybook development server (documentation & component playground).
 - **`pnpm start:landingpage`**: Starts the landing page development server.
-- **`pnpm start:ui-patterns-playground`**: Starts the UI patterns playground.
 
 ### Build & Quality
 - **`pnpm build`**: Builds all projects in the monorepo (using Turborepo).

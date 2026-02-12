@@ -11,7 +11,6 @@
   "scripts": {
     "start:storybook": "turbo start --filter=@inovex.de/elements-storybook --filter=@inovex.de/elements",
     "start:landingpage": "turbo start --filter=@inovex.de/landingpage",
-    "start:ui-patterns-playground": "turbo start --filter=@inovex.de/ui-patterns --filter=@inovex.de/ui-patterns-playground",
     "build": "turbo build",
     "test": "turbo test --filter=@inovex.de/elements --filter=@inovex.de/elements-storybook",
     "test:core:watch": "turbo run test:watch --filter=@inovex.de/elements",
