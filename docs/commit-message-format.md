@@ -1,7 +1,3 @@
-import { Meta, Description } from "@storybook/addon-docs";
-
-<Meta title="Docs/Contributing/Commit Message Format" />
-
 # Commit Message Format
 
 > We use this format to make the automatic generation of the changelog for all packages easy.
@@ -41,30 +37,6 @@ You are able to use **one** or **none** of the following packages:
 | elements-angular | [@inovex.de/elements-angular](packages/elements-angular) |
 | elements-react   | [@inovex.de/elements-react](packages/elements-react)     |
 | storybook        | [@inovex.de/elements-storybook](packages/storybook)      |
-
-## Scope
-
-The scope can be anything specifying the scope of the change inside a package. Use an asterisk (`*`) to designate a global scope.
-
-Here are some of the allowed scopes:
-
-- `elements|ino-button`
-- `elements|ino-card`
-- `elements|...`
-
-- `elements-angular|ino-button`
-- `elements-angular|ino-card`
-- `elements-angular|...`
-
-- `elements-react|ino-button`
-- `elements-react|ino-card`
-- `elements-react|...`
-
-- `storybook|ino-button`
-- `storybook|ino-card`
-- `*`
-
-> You can always check which package/scope combinations are allowed by checking the [scopes in our action](https://github.com/inovex/elements/blob/master/.github/workflows/semantic-pull-request.yml#L34) file.
 
 ## Subject
 
