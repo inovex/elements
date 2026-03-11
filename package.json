@@ -5,7 +5,7 @@
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "packageManager": "pnpm@10.29.2",
   "engines": {
-    "node": ">=24",
+    "node": ">=22.0.0",
     "pnpm": ">=10.0.0"
   },
   "scripts": {
@@ -19,7 +19,7 @@
     "lint:ci": "turbo lint",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "qc": "pnpm lint:ci && pnpm format && pnpm build && pnpm test",
+    "qc": "turbo run lint build && pnpm format && pnpm test",
     "clean": "turbo clean && shx rm -rf node_modules .turbo",
     "changeset": "changeset",
     "release-packages": "pnpm build && changeset publish",

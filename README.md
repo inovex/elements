@@ -59,9 +59,10 @@ We are using the following libraries under the hood:
 # 🔗 Links
 
 - [Homepage](https://elements.inovex.de/#/)
-- [How to Contribute](https://github.com/inovex/elements/blob/master/CONTRIBUTING.md)
+- [How to Contribute](CONTRIBUTING.md)
+- [Architecture & Setup](docs/architecture.md)
 - [Components Documentation](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-welcome--page)
-- [Changelog](https://github.com/inovex/elements/blob/master/CHANGELOG.md)
+- [Changelog](CHANGELOG.md)
 
 # ❓ Support
 
