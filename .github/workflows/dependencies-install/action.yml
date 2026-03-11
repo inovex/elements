@@ -52,9 +52,13 @@ runs:
           turbo-${{ runner.os }}-${{ github.ref_name }}-
           turbo-${{ runner.os }}-
 
+    - name: Skip browser downloads
+      if: inputs.skip-browsers == 'true'
+      run: |
+        echo "PUPPETEER_SKIP_DOWNLOAD=true" >> $GITHUB_ENV
+        echo "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" >> $GITHUB_ENV
+      shell: bash
+
     - name: Install Dependencies
       run: pnpm install --frozen-lockfile
       shell: bash
-      env:
-        PUPPETEER_SKIP_DOWNLOAD: ${{ inputs.skip-browsers == 'true' && 'true' || 'false' }}
-        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ inputs.skip-browsers == 'true' && 'true' || 'false' }}

@@ -127,7 +127,7 @@
     "@types/css-font-loading-module": "^0.0.6",
     "@types/prosemirror-markdown": "1.5.6",
     "@types/resize-observer-browser": "^0.1.7",
-    "puppeteer": "20",
+    "puppeteer": "20.9.0",
     "svgo": "^2.8.0"
   }
 }
