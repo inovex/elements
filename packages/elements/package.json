@@ -102,7 +102,7 @@
     "@tiptap/extension-heading": "2.1.0",
     "@tiptap/extension-horizontal-rule": "2.1.0",
     "@tiptap/extension-italic": "2.1.0",
-    "@tiptap/extension-link": "2.1.0",
+    "@tiptap/extension-link": "2.10.4",
     "@tiptap/extension-list-item": "2.1.0",
     "@tiptap/extension-ordered-list": "2.1.0",
     "@tiptap/extension-paragraph": "2.1.0",
