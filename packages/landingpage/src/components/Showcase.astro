@@ -1,0 +1,244 @@
+---
+import { useTranslations } from '../i18n';
+import ShowcaseCard from './ShowcaseCard.astro';
+
+const t = useTranslations(Astro.currentLocale);
+
+const demoUsers = [
+  { initials: 'AM', name: 'Alice Müller',  role: 'Lead Developer'  },
+  { initials: 'BS', name: 'Bob Schmidt',   role: 'UI/UX Designer'  },
+  { initials: 'CR', name: 'Carol Richter', role: 'Product Manager' },
+];
+---
+
+<section id="showcase" aria-labelledby="showcase-heading" class="py-32 px-6 border-b border-slate-100">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-16">
+      <h2 id="showcase-heading" class="text-3xl font-bold text-slate-900 mb-3">{t.showcase.heading}</h2>
+      <p class="text-slate-500">{t.showcase.subheading}</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <!-- ─── Card 1: Login Form ─────────────────────────────────────── -->
+      <ShowcaseCard title={t.showcase.login.title}>
+        <!--
+          showcase-login is a custom element defined in the <script> below.
+          It listens to valueChange on each ino-input and reflects the new
+          value back onto the element's .value property so the input stays
+          controlled (unmanaged component pattern).
+        -->
+        <showcase-login>
+          <form
+            role="form"
+            aria-label={t.showcase.login.title}
+            class="space-y-5"
+            novalidate
+          >
+            <ino-input
+              label={t.showcase.login.username}
+              type="text"
+              name="username"
+              autocomplete="username"
+              value=""
+            ></ino-input>
+            <ino-input
+              label={t.showcase.login.password}
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              value=""
+            ></ino-input>
+            <div class="pt-2">
+              <ino-button variant="filled" type="submit">{t.showcase.login.submit}</ino-button>
+            </div>
+          </form>
+        </showcase-login>
+      </ShowcaseCard>
+
+      <!-- ─── Card 2: Settings ──────────────────────────────────────── -->
+      <ShowcaseCard title={t.showcase.settings.title}>
+        <!--
+          showcase-settings syncs:
+          - ino-switch  → checkedChange → .checked
+          - ino-checkbox → checkedChange → .checked
+          - ino-radio-group → valueChange  → .value
+        -->
+        <showcase-settings>
+          <div class="space-y-5">
+            <div class="flex items-center justify-between gap-4">
+              <span class="text-sm text-slate-700 font-medium select-none">{t.showcase.settings.notifications}</span>
+              <ino-switch checked name="demo-notifications" aria-label={t.showcase.settings.notifications}></ino-switch>
+            </div>
+            <div class="flex items-center justify-between gap-4">
+              <span class="text-sm text-slate-700 font-medium select-none">{t.showcase.settings.darkMode}</span>
+              <ino-switch name="demo-dark-mode" aria-label={t.showcase.settings.darkMode}></ino-switch>
+            </div>
+            <hr class="border-slate-200" aria-hidden="true" />
+            <fieldset class="border-none p-0 m-0">
+              <legend class="text-sm text-slate-700 font-medium mb-3">{t.showcase.settings.theme}</legend>
+              <ino-radio-group value="auto" alignment="horizontal">
+                <ino-radio name="demo-theme" value="light">{t.showcase.settings.themeLight}</ino-radio>
+                <ino-radio name="demo-theme" value="dark">{t.showcase.settings.themeDark}</ino-radio>
+                <ino-radio name="demo-theme" value="auto">{t.showcase.settings.themeAuto}</ino-radio>
+              </ino-radio-group>
+            </fieldset>
+            <hr class="border-slate-200" aria-hidden="true" />
+            <ino-checkbox name="demo-newsletter" checked>{t.showcase.settings.newsletter}</ino-checkbox>
+          </div>
+        </showcase-settings>
+      </ShowcaseCard>
+
+      <!-- ─── Card 3: Team / User List ─────────────────────────────── -->
+      <ShowcaseCard title={t.showcase.userList.title}>
+        <ul role="list" class="divide-y divide-slate-100" aria-label={t.showcase.userList.title}>
+          {demoUsers.map((user) => (
+            <li class="flex items-center gap-3 py-3 first:pt-0 last:pb-0">
+              <ino-avatar
+                initials={user.initials}
+                a11y-label={user.name}
+                variant="solid"
+                style="--ino-avatar-size: 50px;"
+              ></ino-avatar>
+              <div class="grow min-w-0">
+                <p class="text-sm font-semibold text-slate-900 truncate">{user.name}</p>
+                <p class="text-xs text-slate-400 truncate">{user.role}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </ShowcaseCard>
+
+      <!-- ─── Card 4: Sprint Board ──────────────────────────────────── -->
+      <ShowcaseCard title={t.showcase.taskBoard.title}>
+        <showcase-sprint>
+          <ul role="list" class="space-y-4 mb-8" aria-label={t.showcase.taskBoard.title}>
+            <li>
+              <ino-checkbox name={`sprint-task-integrate-elements`} checked={true}>
+                Integrate elements
+              </ino-checkbox>
+            </li>
+            <li>
+              <ino-checkbox name={`sprint-task-replace-old-components`} checked={false}>
+                Replace old components
+              </ino-checkbox>
+            </li>
+            <li>
+              <ino-checkbox name={`sprint-task-be-happy`} checked={false}>
+                Be happy
+              </ino-checkbox>
+            </li>
+          </ul>
+
+          <div>
+            <div class="flex justify-between items-baseline mb-2">
+              <span class="text-xs font-semibold text-slate-500">{t.showcase.taskBoard.progressLabel}</span>
+              <span data-progress-label class="text-xs font-bold text-(--ix-primary)" aria-hidden="true">
+                33%
+              </span>
+            </div>
+            <ino-progress-bar
+              progress={0.33}
+              label={`${t.showcase.taskBoard.progressLabel} 33%`}
+            ></ino-progress-bar>
+          </div>
+        </showcase-sprint>
+      </ShowcaseCard>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  /**
+   * showcase-login
+   * Listens to valueChange on every ino-input inside and reflects
+   * the emitted string back onto the element's .value property.
+   * Without this, ino-input resets to its last prop-value after every keystroke
+   * (unmanaged component pattern).
+   */
+  class ShowcaseLogin extends HTMLElement {
+    async connectedCallback() {
+      await customElements.whenDefined('ino-input');
+
+      this.querySelectorAll('ino-input').forEach((input) => {
+        input.addEventListener('valueChange', (e) => {
+          (input as any).value = (e as CustomEvent<string>).detail;
+        });
+      });
+    }
+  }
+  customElements.define('showcase-login', ShowcaseLogin);
+
+  /**
+   * showcase-settings
+   * Keeps all unmanaged controls inside the settings card in sync:
+   *   ino-switch   → checkedChange (detail = new boolean) → .checked
+   *   ino-checkbox → checkedChange (detail = new boolean) → .checked
+   *   ino-radio-group → valueChange (detail = selected value string) → .value
+   */
+  class ShowcaseSettings extends HTMLElement {
+    async connectedCallback() {
+      await Promise.all([
+        customElements.whenDefined('ino-switch'),
+        customElements.whenDefined('ino-checkbox'),
+        customElements.whenDefined('ino-radio-group'),
+      ]);
+
+      this.querySelectorAll('ino-switch').forEach((sw) => {
+        sw.addEventListener('checkedChange', (e) => {
+          (sw as any).checked = (e as CustomEvent<boolean>).detail;
+        });
+      });
+
+      this.querySelectorAll('ino-checkbox').forEach((cb) => {
+        cb.addEventListener('checkedChange', (e) => {
+          (cb as any).checked = (e as CustomEvent<boolean>).detail;
+        });
+      });
+
+      const radioGroup = this.querySelector('ino-radio-group');
+      radioGroup?.addEventListener('valueChange', (e) => {
+        (radioGroup as any).value = (e as CustomEvent<string>).detail;
+      });
+    }
+  }
+  customElements.define('showcase-settings', ShowcaseSettings);
+
+  /**
+   * showcase-sprint
+   * Each ino-checkbox represents a task. On checkedChange:
+   *  1. Reflect the new boolean back onto .checked.
+   *  2. Recalculate progress (checked / total).
+   *  3. Push the new progress to ino-progress-bar and the visible label.
+   */
+  class ShowcaseSprint extends HTMLElement {
+    async connectedCallback() {
+      await Promise.all([
+        customElements.whenDefined('ino-checkbox'),
+        customElements.whenDefined('ino-progress-bar'),
+      ]);
+
+      const progressBar  = this.querySelector('ino-progress-bar');
+      const progressLabel = this.querySelector<HTMLElement>('[data-progress-label]');
+      const checkboxes   = Array.from(this.querySelectorAll('ino-checkbox'));
+
+      const update = () => {
+        const checkedCount = checkboxes.filter((cb) => (cb as any).checked).length;
+        const progress = checkedCount / checkboxes.length;
+        if (progressBar)   (progressBar  as any).progress = progress;
+        if (progressLabel) progressLabel.textContent = `${Math.round(progress * 100)}%`;
+      };
+
+      checkboxes.forEach((cb) => {
+        cb.addEventListener('checkedChange', (e) => {
+          (cb as any).checked = (e as CustomEvent<boolean>).detail;
+          update();
+        });
+      });
+    }
+  }
+  customElements.define('showcase-sprint', ShowcaseSprint);
+</script>
+

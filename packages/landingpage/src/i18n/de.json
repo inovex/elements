@@ -1,0 +1,145 @@
+{
+  "skipToMain": "Zum Hauptinhalt springen",
+  "meta": {
+    "title": "inovex elements – die interoperable UI-Bibliothek für jedes Framework",
+    "description": "Open-Source Web-Components-Bibliothek von inovex. Einmal bauen, überall einsetzen – Angular, React, Vue oder reines JavaScript."
+  },
+  "nav": {
+    "benefits": "Vorteile",
+    "showcase": "Showcase",
+    "articles": "Blog",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "langSwitch": "English",
+    "langSwitchHref": "/",
+    "langSwitchLabel": "Zu Englisch wechseln"
+  },
+  "hero": {
+    "title1": "die ",
+    "titleMark": "interoperable",
+    "title2": " UI-Bibliothek.",
+    "subtitle": "Framework-agnostische Web Components für Enterprise-Anwendungen. Einmal bauen, überall einsetzen – ohne Kompromisse beim Design.",
+    "cta": "Kontaktiere uns",
+    "cta2": "Zur Doku"
+  },
+  "benefits": {
+    "heading": "Warum inovex elements?",
+    "items": [
+      {
+        "tag": "01 / Agnostic",
+        "title": "Framework-Frei",
+        "text": "Kein Vendor-Lock-in. Nutze die Komponenten in React, Angular, Vue oder Vanilla JS – sie funktionieren überall nativ."
+      },
+      {
+        "tag": "02 / Standards",
+        "title": "Web Standards",
+        "text": "Basierend auf Browser-Standards. Zukunftsfähig, performant und unabhängig von Framework-Updates."
+      },
+      {
+        "tag": "03 / Design",
+        "title": "Konsistenz",
+        "text": "Ein einheitliches Corporate Design über alle Teams und Projekte hinweg."
+      }
+    ]
+  },
+  "showcase": {
+    "heading": "Komponenten Showcase",
+    "subheading": "Einige unserer 46+ Komponenten in Aktion",
+    "login": {
+      "title": "Anmelden",
+      "username": "Benutzername",
+      "password": "Passwort",
+      "submit": "Einloggen"
+    },
+    "settings": {
+      "title": "Einstellungen",
+      "notifications": "Push-Benachrichtigungen",
+      "darkMode": "Dunkelmodus",
+      "newsletter": "Newsletter abonnieren",
+      "theme": "Farbschema",
+      "themeLight": "Hell",
+      "themeDark": "Dunkel",
+      "themeAuto": "Automatisch"
+    },
+    "userList": {
+      "title": "Teammitglieder",
+      "viewProfile": "Profil ansehen"
+    },
+    "taskBoard": {
+      "title": "Sprint Board",
+      "progressLabel": "Sprint-Fortschritt",
+      "statusDone": "Erledigt",
+      "statusActive": "In Bearbeitung",
+      "statusTodo": "Offen"
+    }
+  },
+  "articles": {
+    "heading": "Aus dem Blog",
+    "subheading": "Neuigkeiten und Artikel rund um inovex elements",
+    "readMore": "Artikel lesen",
+    "items": [
+      {
+        "url": "https://www.inovex.de/de/blog/inovex-elements-open-source/",
+        "title": "Veröffentlichung der @inovex.de/elements 1.0: Unsere Open Source UI Bibliothek!",
+        "author": "Patrick Hillert",
+        "date": "30.09.2020"
+      },
+      {
+        "url": "https://www.inovex.de/de/training/web-components/inhouse/",
+        "title": "inovex Academy: Web-Komponenten",
+        "author": "Auf Anfrage",
+        "date": "2 Tage Training"
+      },
+      {
+        "url": "https://www.inovex.de/de/blog/evaluation-frontend-monorepo-frameworks/",
+        "title": "Evaluation von Frontend Monorepo Frameworks: Nx vs. Bit vs. Rush vs. Turborepo",
+        "author": "Robin Pavkovic",
+        "date": "04.04.2023"
+      }
+    ]
+  },
+  "faq": {
+    "heading": "FAQ",
+    "subheading": "Antworten auf die häufigsten Fragen rund um die inovex elements",
+    "items": [
+      {
+        "q": "Was sind die inovex Elements?",
+        "a": "Die inovex Elements sind eine Sammlung wiederverwendbarer UI-Komponenten (z.B. Buttons, Textfelder, …) fürs Web, basierend auf dem Web-Components-Standard. Damit lassen sie sich in jedem Framework einsetzen – für ein konsistentes UI/UX bei massiv eingespartem Entwicklungs- und Wartungsaufwand."
+      },
+      {
+        "q": "Sind die inovex Elements Open Source?",
+        "a": "Ja! Die inovex Elements-Bibliothek ist Open Source und unter der MIT-Lizenz kostenlos verfügbar."
+      },
+      {
+        "q": "Warum verwendet nicht jeder Web-Components?",
+        "a": "Web-Components sind ein relativ neuer Standard, seit 2018 von allen gängigen Browsern unterstützt. Die initiale Pflege ist aufwändiger, aber sobald diese Hürde genommen ist, kann immenser Wartungsaufwand gespart werden."
+      },
+      {
+        "q": "Wie kann ich die Elemente verwenden?",
+        "a": "Das Paket per npm installieren und defineCustomElements() im App-Entry aufrufen. Für Angular, React und Vue bieten wir eigene Wrapper-Pakete. Detaillierte Anleitungen finden sich in unserem Storybook."
+      },
+      {
+        "q": "Wer steckt hinter den inovex Elements?",
+        "a": "Die inovex Elements werden von einem Team aus Entwickler:innen und Designer:innen bei inovex GmbH, einem digitalen Innovationsunternehmen mit Sitz in Deutschland, gepflegt."
+      },
+      {
+        "q": "Wie oft werden die inovex Elements aktualisiert?",
+        "a": "Wir aktualisieren die Bibliothek regelmäßig und streben an, mindestens monatlich eine neue Version herauszugeben."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "subheading": "Fragen, Anregungen oder Interesse an einer Zusammenarbeit?",
+    "link": "Kontaktieren Sie uns über unsere Homepage!"
+  },
+  "footer": {
+    "copyright": "© 2026 inovex GmbH",
+    "imprint": "Impressum",
+    "imprintHref": "https://www.inovex.de/de/impressum/",
+    "privacy": "Datenschutz",
+    "privacyHref": "https://www.inovex.de/de/datenschutz/",
+    "github": "GitHub",
+    "githubHref": "https://github.com/inovex/elements"
+  }
+}

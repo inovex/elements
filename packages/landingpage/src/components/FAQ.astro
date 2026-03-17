@@ -1,0 +1,42 @@
+---
+import { useTranslations } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<section id="faq" aria-labelledby="faq-heading" class="py-32 px-6 border-b border-slate-100">
+  <div class="max-w-2xl mx-auto">
+
+    <div class="text-center mb-16">
+      <h2 id="faq-heading" class="text-3xl font-bold text-slate-900 mb-3">{t.faq.heading}</h2>
+      <p class="text-slate-500">{t.faq.subheading}</p>
+    </div>
+
+    <div class="space-y-3">
+      {t.faq.items.map((item) => (
+        <ino-accordion accordion-title={item.q}>
+          <p class="text-sm text-slate-500 leading-relaxed">{item.a}</p>
+        </ino-accordion>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  await customElements.whenDefined('ino-accordion');
+
+  const accordions = Array.from(
+    document.querySelectorAll<HTMLInoAccordionElement>('#faq ino-accordion'),
+  );
+
+  accordions.forEach((accordion, index) => {
+    accordion.addEventListener('expandedChange', (event) => {
+      const { detail: shouldExpand } = event;
+
+      accordions.forEach((el, i) => {
+        el.expanded = i === index ? shouldExpand : false;
+      });
+    });
+  });
+</script>

@@ -1,35 +1,5 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "react": ["./node_modules/@types/react"],
-      "@assets/*": ["public/*"],
-      "@context": ["utils/context/index.ts"],
-      "@hooks/*": ["utils/hooks/*"],
-      "@routes": ["utils/routes.tsx"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
-    },
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "extends": ["../../tsconfig", "astro/tsconfigs/strict"],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

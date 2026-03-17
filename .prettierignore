@@ -10,8 +10,7 @@ vendor/
 .idea/
 .vscode/
 node_modules/
-**/.next/
-**/out/
+**/.astro/
 pnpm-lock.yaml
 
 # Hand written files

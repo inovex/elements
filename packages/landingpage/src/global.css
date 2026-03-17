@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@theme inline {
+  /* ── Brand primary ─────────────────────────────────────────────────── */
+  --color-ix-primary: var(--inovex-elements-primary);
+  --color-ix-primary-focus: var(--inovex-elements-primary-focus);
+
+  --color-p1: var(--inovex-elements-p-1);
+  --color-p2: var(--inovex-elements-p-2);
+  --color-p3: var(--inovex-elements-p-3);
+  --color-p4: var(--inovex-elements-p-4);
+  --color-p5: var(--inovex-elements-p-5);
+  --color-p6: var(--inovex-elements-p-6);
+  --color-p7: var(--inovex-elements-p-7);
+  --color-p8: var(--inovex-elements-p-8);
+  --color-p9: var(--inovex-elements-p-9);
+  --color-p10: var(--inovex-elements-p-10);
+  --color-p11: var(--inovex-elements-p-11);
+  --color-p12: var(--inovex-elements-p-12);
+
+  --color-n1: var(--inovex-elements-n-1);
+  --color-n2: var(--inovex-elements-n-2);
+  --color-n3: var(--inovex-elements-n-3);
+  --color-n4: var(--inovex-elements-n-4);
+  --color-n5: var(--inovex-elements-n-5);
+  --color-n6: var(--inovex-elements-n-6);
+  --color-n7: var(--inovex-elements-n-7);
+  --color-n8: var(--inovex-elements-n-8);
+  --color-n9: var(--inovex-elements-n-9);
+  --color-n10: var(--inovex-elements-n-10);
+  --color-n11: var(--inovex-elements-n-11);
+  --color-n12: var(--inovex-elements-n-12);
+
+  --color-informational: var(--inovex-elements-informational);
+  --color-informational-light: var(--inovex-elements-informational-light);
+  --color-success: var(--inovex-elements-success);
+  --color-success-light: var(--inovex-elements-success-light);
+  --color-error: var(--inovex-elements-error);
+  --color-error-light: var(--inovex-elements-error-light);
+  --color-warning: var(--inovex-elements-warning);
+  --color-warning-light: var(--inovex-elements-warning-light);
+
+  --font-sans: 'Lato', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Focus ring – visible for keyboard users, hidden for pointer users */
+  :focus-visible {
+    outline: 2px solid var(--color-ix-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h2 {
+    color: var(--inovex-elements-n-12);
+  }
+}
