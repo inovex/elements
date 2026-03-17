@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# @inovex.de/landingpage
 
-## Getting Started
+The public landing page for [inovex elements](https://elements.inovex.de), built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com).
 
-First, run the development server:
+## Tech
 
-```bash
-npm run dev
-# or
-yarn dev
+- **[Astro](https://astro.build)** — static site generator, zero JS shipped by default
+- **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first styling via the Vite plugin
+- **[@inovex.de/elements](../elements)** — web components consumed directly, no wrappers needed
+
+## Structure
+
+```
+src/
+├── assets/          # SVGs and brand assets
+├── components/      # Astro components (Hero, NavBar, Showcase, …)
+├── i18n/            # Translations (en.json, de.json) + useTranslations helper
+├── layouts/         # Layout.astro (shared HTML shell)
+├── pages/
+│   ├── index.astro  # German (default, no prefix)
+│   └── en/
+│       └── index.astro  # English (/en/)
+└── global.css       # Tailwind CSS entry point
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Commands
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Run from the **repo root**:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+| Command | Action |
+| :--- | :--- |
+| `pnpm start:landingpage` | Start local dev server |
+| `pnpm build` | Build all packages including landingpage |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Or run directly from this package:
 
-## Learn More
+| Command        | Action |
+|:---------------| :--- |
+| `pnpm start`   | Start local dev server at `localhost:4321` |
+| `pnpm build`   | Build to `./dist/` |
+| `pnpm preview` | Preview the production build locally |
 
-To learn more about Next.js, take a look at the following resources:
+## i18n
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Two locales are supported: German (`de`, default) and English (`en`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- German pages live at `/` (no prefix)
+- English pages live at `/en/`
+- Translations are in `src/i18n/de.json` and `src/i18n/en.json`
+- Use `useTranslations(Astro.currentLocale)` in any component to get the typed translation object

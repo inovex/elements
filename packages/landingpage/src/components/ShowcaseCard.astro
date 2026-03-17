@@ -1,0 +1,10 @@
+---
+const { title } = Astro.props;
+
+---
+<div class="p-10 bg-slate-50 rounded-4xl border border-slate-100 shadow-sm">
+  <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8" aria-hidden="true">
+    {title}
+  </p>
+  <slot />
+</div>

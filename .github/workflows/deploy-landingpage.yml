@@ -17,14 +17,12 @@ jobs:
           skip-browsers: 'true'
       - name: Build landingpage ⚒️
         run: pnpm turbo run build --filter @inovex.de/landingpage
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload build output ⬆️
         uses: actions/upload-artifact@v4
         with:
           name: landingpage
-          path: packages/landingpage/out/
+          path: packages/landingpage/dist/
 
   deploy-landingpage:
     runs-on: ubuntu-latest

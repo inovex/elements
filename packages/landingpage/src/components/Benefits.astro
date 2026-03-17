@@ -1,0 +1,27 @@
+---
+import { useTranslations } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<section id="benefits" aria-labelledby="benefits-heading" class="py-24 px-6 border-b border-slate-100 bg-slate-50/50">
+  <div class="max-w-5xl mx-auto">
+
+    <h2 id="benefits-heading" class="sr-only">{t.benefits.heading}</h2>
+
+    <ul class="grid md:grid-cols-3 gap-12 list-none" role="list">
+      {t.benefits.items.map((item) => (
+        <li>
+          <article>
+            <span class="text-p9 font-bold text-xs uppercase tracking-widest mb-4 block" aria-hidden="true">
+              {item.tag}
+            </span>
+            <h3 class="text-xl font-bold mb-4 text-slate-900">{item.title}</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">{item.text}</p>
+          </article>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+</section>

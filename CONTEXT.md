@@ -20,7 +20,7 @@ The project code is located in the `packages/` directory:
 | **`elements-react`** | `@inovex.de/elements-react` | React wrappers for `elements`. | React |
 | **`elements-vue`** | `@inovex.de/elements-vue` | Vue wrappers for `elements`. | Vue 3 |
 | **`storybook`** | `@inovex.de/elements-storybook` | Component documentation and playground. | Storybook |
-| **`landingpage`** | `@inovex.de/landingpage` | The public website for inovex elements. | Next.js |
+| **`landingpage`** | `@inovex.de/landingpage` | The public website for inovex elements. | Astro, Tailwind CSS |
 | **`*-example`** | `elements-*-example` | Example applications demonstrating usage. | Angular, React, Vue |
 
 ## 🚀 Key Commands

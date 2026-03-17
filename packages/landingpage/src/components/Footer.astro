@@ -1,0 +1,45 @@
+---
+import { defaultLang, useTranslations } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
+const currentLang = Astro.currentLocale ?? defaultLang;
+---
+
+<footer class="py-10 px-6 border-t border-slate-100" role="contentinfo">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-n8">
+
+    <a
+      href={`https://www.inovex.de/${currentLang}/`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      © 2026 inovex GmbH
+    </a>
+
+    <nav aria-label="Footer links">
+      <ul class="flex items-center gap-6 list-none flex-wrap justify-center" role="list">
+        <li>
+          <a
+            href="https://github.com/inovex/elements"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-p10 transition-colors"
+          >
+            {t.footer.github}
+          </a>
+        </li>
+        <li>
+          <a href="https://www.inovex.de/de/impressum"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="hover:text-p10 transition-colors"
+          >
+            {t.footer.imprint}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</footer>
+

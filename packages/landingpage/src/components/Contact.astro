@@ -1,0 +1,24 @@
+---
+import { useTranslations, defaultLang } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
+const currentLang = Astro.currentLocale ?? defaultLang;
+---
+
+<section id="contact" aria-labelledby="contact-heading" class="py-32 px-6 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-2xl mx-auto">
+
+    <div class="text-center mb-12">
+      <h2 id="contact-heading" class="text-4xl font-bold text-n12 mb-4">{t.contact.heading}</h2>
+      <p class="text-n8 mb-2">{t.contact.subheading}</p>
+      <a
+        class="text-p5 font-bold hover:underline"
+        href={`https://www.inovex.de/${currentLang}/kontakt/`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t.contact.link}
+      </a>
+    </div>
+  </div>
+</section>

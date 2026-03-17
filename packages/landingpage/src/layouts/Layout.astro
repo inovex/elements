@@ -1,0 +1,84 @@
+---
+import '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
+import '../global.css';
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import { useTranslations, defaultLang } from '../i18n';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const t = useTranslations(Astro.currentLocale);
+const currentLang = Astro.currentLocale ?? defaultLang;
+
+const { title = t.meta.title, description = t.meta.description } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://elements.inovex.de');
+const alternateLang = currentLang === 'en' ? 'de' : 'en';
+const alternateHref = getAbsoluteLocaleUrl(alternateLang, '');
+const defaultHref  = getAbsoluteLocaleUrl(defaultLang, '');
+---
+
+<!doctype html>
+<html lang={currentLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicons & PWA manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#3300ff" />
+
+
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href={canonicalUrl.href} />
+    <link rel="alternate" hreflang={currentLang} href={canonicalUrl.href} />
+    <link rel="alternate" hreflang={alternateLang} href={alternateHref} />
+    <link rel="alternate" hreflang="x-default" href={defaultHref} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/elements-preview.png', canonicalUrl.origin).href} />
+    <meta property="og:image:alt" content={title} />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/elements-preview.png', canonicalUrl.origin).href} />
+    <meta name="twitter:image:alt" content={title} />
+
+    <slot name="head" />
+  </head>
+  <body class="inovex-elements-theme">
+    <!-- Skip to main content for keyboard / screen reader users -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-ix-primary focus:px-4 focus:py-2 focus:text-white focus:outline-none"
+    >
+      {t.skipToMain}
+    </a>
+
+    <slot />
+  </body>
+</html>
+
+<!-- Registers all ino-* custom elements in the browser -->
+<script>
+  import { defineCustomElements } from '@inovex.de/elements/dist/loader';
+  defineCustomElements();
+</script>

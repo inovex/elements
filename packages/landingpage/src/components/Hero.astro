@@ -1,0 +1,41 @@
+---
+import { useTranslations, defaultLang } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
+const currentLang = Astro.currentLocale ?? defaultLang;
+
+---
+
+<section aria-labelledby="hero-heading" class="pt-24 pb-32 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+
+    <h1
+      id="hero-heading"
+      class="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-n12 leading-tight"
+    >
+      {t.hero.title1}<span class="text-p6">{t.hero.titleMark}</span>{t.hero.title2}
+    </h1>
+
+    <p class="text-xl text-n10 max-w-2xl mx-auto leading-relaxed mb-12">
+      {t.hero.subtitle}
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <!-- Primary CTA -->
+      <a
+        href={`https://www.inovex.de/${currentLang}/kontakt/`}
+        class="bg-n12 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-n10 transition-colors"
+      >
+        {t.hero.cta}
+      </a>
+
+      <a
+        href="https://elements.inovex.de/version/latest"
+        class="bg-p8 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-p6 transition-colors"
+      >
+        {t.hero.cta2}
+      </a>
+    </div>
+
+  </div>
+</section>

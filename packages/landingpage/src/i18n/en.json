@@ -1,0 +1,145 @@
+{
+  "skipToMain": "Skip to main content",
+  "meta": {
+    "title": "inovex elements – the interoperable UI library for any framework",
+    "description": "Open source web components library by inovex. Build them once, run them everywhere – Angular, React, Vue or plain JavaScript."
+  },
+  "nav": {
+    "benefits": "Benefits",
+    "showcase": "Showcase",
+    "articles": "Articles",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "langSwitch": "Deutsch",
+    "langSwitchHref": "/de/",
+    "langSwitchLabel": "Switch to German"
+  },
+  "hero": {
+    "title1": "the ",
+    "titleMark": "interoperable",
+    "title2": " UI library.",
+    "subtitle": "Framework-agnostic Web Components for enterprise applications. Build them once, run them everywhere – no compromises on design.",
+    "cta": "Contact us",
+    "cta2": "Dig into our Docs"
+  },
+  "benefits": {
+    "heading": "Why inovex elements?",
+    "items": [
+      {
+        "tag": "01 / Agnostic",
+        "title": "Framework-Free",
+        "text": "No vendor lock-in. Use the components in React, Angular, Vue or Vanilla JS – they work everywhere natively."
+      },
+      {
+        "tag": "02 / Standards",
+        "title": "Web Standards",
+        "text": "Based on browser standards. Future-proof, performant and independent of framework updates."
+      },
+      {
+        "tag": "03 / Design",
+        "title": "Consistency",
+        "text": "A unified corporate design across all teams and projects."
+      }
+    ]
+  },
+  "showcase": {
+    "heading": "Component Showcase",
+    "subheading": "Some of our 46+ components in action",
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Sign In"
+    },
+    "settings": {
+      "title": "Settings",
+      "notifications": "Push Notifications",
+      "darkMode": "Dark Mode",
+      "newsletter": "Subscribe to newsletter",
+      "theme": "Color Theme",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeAuto": "Auto"
+    },
+    "userList": {
+      "title": "Team Members",
+      "viewProfile": "View profile"
+    },
+    "taskBoard": {
+      "title": "Sprint Board",
+      "progressLabel": "Sprint Progress",
+      "statusDone": "Done",
+      "statusActive": "In Progress",
+      "statusTodo": "Todo"
+    }
+  },
+  "articles": {
+    "heading": "From the Blog",
+    "subheading": "News and articles about inovex elements",
+    "readMore": "Read article",
+    "items": [
+      {
+        "url": "https://www.inovex.de/en/blog/inovex-elements-open-source/",
+        "title": "Announcing @inovex.de/elements 1.0: Our Open Source UI Library!",
+        "author": "Patrick Hillert",
+        "date": "30.09.2020"
+      },
+      {
+        "url": "https://www.inovex.de/en/training/web-components/inhouse/",
+        "title": "inovex Academy: Web Components",
+        "author": "On Request",
+        "date": "2-day training"
+      },
+      {
+        "url": "https://www.inovex.de/en/blog/evaluation-frontend-monorepo-frameworks/",
+        "title": "Evaluation of front-end monorepo frameworks: Nx vs. Bit vs. Rush vs. Turborepo",
+        "author": "Robin Pavkovic",
+        "date": "04.04.2023"
+      }
+    ]
+  },
+  "faq": {
+    "heading": "FAQ",
+    "subheading": "Answers to the most frequently asked questions about inovex elements",
+    "items": [
+      {
+        "q": "What are the inovex Elements?",
+        "a": "The inovex Elements are a collection of reusable UI components (e.g. buttons, text fields, …) for the web, based on the Web Components standard. This allows using them in any web framework, creating a consistent UI/UX while saving massive development and maintenance efforts."
+      },
+      {
+        "q": "Are the inovex Elements open source?",
+        "a": "Yes! The inovex Elements library is open source and available for free under the MIT license."
+      },
+      {
+        "q": "Why doesn't everyone use Web Components?",
+        "a": "Web Components are a relatively new standard, supported by major browsers since 2018. Initial maintenance is more complex, but once past that hurdle you save immense effort – new components only need to be built once and work in any framework."
+      },
+      {
+        "q": "How can I use the Elements?",
+        "a": "Install the package via npm and call defineCustomElements() in your app entry point. We also provide dedicated wrappers for Angular, React and Vue. Check our Storybook for detailed integration guides."
+      },
+      {
+        "q": "Who is behind the inovex Elements?",
+        "a": "The inovex Elements is managed by a team of software developers and designers at inovex GmbH, a digital innovation company based in Germany."
+      },
+      {
+        "q": "How often are the inovex Elements updated?",
+        "a": "We update the library regularly and aim to release a new version at least monthly, keeping up with the latest web technology."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact Us",
+    "subheading": "Questions, suggestions, or want to work with us?",
+    "link": "Contact us via our homepage!"
+  },
+  "footer": {
+    "copyright": "© 2026 inovex GmbH",
+    "imprint": "Imprint",
+    "imprintHref": "https://www.inovex.de/en/imprint/",
+    "privacy": "Privacy Policy",
+    "privacyHref": "https://www.inovex.de/en/privacy-policy/",
+    "github": "GitHub",
+    "githubHref": "https://github.com/inovex/elements"
+  }
+}

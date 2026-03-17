@@ -1,0 +1,77 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { Image } from 'astro:assets';
+import elementsLogo from "../assets/elements.svg";
+import githubLogo from "../assets/github-logo.svg";
+
+import { useTranslations, defaultLang } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
+
+const currentLang = Astro.currentLocale ?? defaultLang;
+const otherLang = currentLang === 'en' ? 'de' : 'en';
+const homeHref = getRelativeLocaleUrl(currentLang, '');
+const langSwitchHref = getRelativeLocaleUrl(otherLang, '');
+---
+
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+
+    <!-- Logo / Brand -->
+    <a href={homeHref} class="flex items-center gap-2 shrink-0" aria-label="inovex elements – home">
+      <Image src={elementsLogo} width="30" height="30" alt="Logo of the inovex elements" />
+      <span class="text-xl font-extrabold tracking-tight text-p5">
+        <span class="font-normal text-slate-500">inovex</span>
+        elements
+      </span>
+    </a>
+
+    <!-- Primary navigation – anchor links to page sections -->
+    <nav aria-label="Page sections">
+      <ul class="flex items-center gap-6 list-none" role="list">
+        <li class="hidden sm:block">
+          <a href="#benefits" class="font-medium text-n8 hover:text-p5 transition-colors">
+            {t.nav.benefits}
+          </a>
+        </li>
+        <li class="hidden sm:block">
+          <a href="#showcase" class="font-medium text-n8 hover:text-p5 transition-colors">
+            {t.nav.showcase}
+          </a>
+        </li>
+        <li class="hidden sm:block">
+          <a href="#faq" class="font-medium text-n8 hover:text-p5 transition-colors">
+            {t.nav.faq}
+          </a>
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="bg-ix-primary text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+          >
+            {t.nav.contact}
+          </a>
+        </li>
+
+        <li>
+          <a href="https://github.com/inovex/elements" class="flex items-center gap-2 shrink-0" target="_blank" aria-label="Repository on Github">
+            <Image src={githubLogo} width="30" height="30" alt="Github Logo" />
+          </a>
+        </li>
+
+        <!-- Language switcher -->
+        <li>
+          <a
+            href={langSwitchHref}
+            hreflang={otherLang}
+            aria-label={t.nav.langSwitchLabel}
+            class="font-medium text-n8 hover:text-p5 transition-colors"
+          >
+            {t.nav.langSwitch}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
