@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { Components, KeyValue } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';

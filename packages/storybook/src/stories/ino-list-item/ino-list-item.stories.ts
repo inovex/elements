@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
-import { useEffect } from '@storybook/preview-api';
+import { useEffect } from 'storybook/preview-api';
 import Story from '../StoryWrapper';
 import './ino-list-item.scss';
 

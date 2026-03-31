@@ -1,9 +1,9 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import { getIcons } from '../utils';
-import { useEffect } from '@storybook/preview-api';
+import { useEffect } from 'storybook/preview-api';
 import { registerInlineDatepickerHandler } from '../ino-datepicker/utils';
 import './ino-table-header-cell.scss';
 

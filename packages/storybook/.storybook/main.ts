@@ -16,23 +16,16 @@ const config: StorybookConfig = {
 
   stories: ['../src/**/*.stories.ts', '../src/**/*.mdx'],
 
-  addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: { docs: false }, // docs addon is added explicitly below, so we can disable it here
-    },
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        mdxPluginOptions: {
-          mdxCompileOptions: {
-            remarkPlugins: [remarkGfm],
-          },
+  addons: [{
+    name: getAbsolutePath("@storybook/addon-docs"),
+    options: {
+      mdxPluginOptions: {
+        mdxCompileOptions: {
+          remarkPlugins: [remarkGfm],
         },
       },
     },
-    getAbsolutePath("@pxtrn/storybook-addon-docs-stencil"),
-  ],
+  }],
 
   docs: {},
 

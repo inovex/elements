@@ -1,9 +1,9 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit';
 import Story from '../StoryWrapper';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import { useEffect } from '@storybook/preview-api';
+import { useEffect } from 'storybook/preview-api';
 import './ino-table.scss';
 
 const tableContent = html`<tr slot="header-row"></tr>

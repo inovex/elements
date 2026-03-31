@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
-import { useEffect } from '@storybook/preview-api';
+import { useEffect } from 'storybook/preview-api';
 import Story from '../StoryWrapper';
 import lightningImg from '../../assets/images/lightning.jpg';
 import mountainsImg from '../../assets/images/mountains.jpg';

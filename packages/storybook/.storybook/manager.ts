@@ -1,5 +1,5 @@
 // configures Storybook's "manager" UI that wraps the preview, and also configures addons panel
-import { addons } from '@storybook/manager-api';
+import { addons } from 'storybook/manager-api';
 import theme from './theme';
 import PostCurrentStoryAddon, { ADDON_ID } from '../addons/post-current-story-addon';
 

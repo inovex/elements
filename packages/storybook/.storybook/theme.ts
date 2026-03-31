@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 import '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
 
 interface PackageJson {
