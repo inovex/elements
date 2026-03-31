@@ -1,19 +1,20 @@
+import { dirname, join } from "path";
 import { StorybookConfig } from '@storybook/web-components-vite';
 import remarkGfm from 'remark-gfm';
 
 const config: StorybookConfig = {
   core: {
-    builder: '@storybook/builder-vite',
+    builder: getAbsolutePath("@storybook/builder-vite"),
   },
 
   framework: {
-    name: '@storybook/web-components-vite',
+    name: getAbsolutePath("@storybook/web-components-vite"),
     options: {},
   },
 
   staticDirs: ['../static', '../../elements/src/assets', '../../../assets/logo'],
 
-  stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
+  stories: ['../src/**/*.stories.ts', '../src/**/*.mdx'],
 
   addons: [
     {
@@ -30,15 +31,17 @@ const config: StorybookConfig = {
         },
       },
     },
-    '@pxtrn/storybook-addon-docs-stencil',
+    getAbsolutePath("@pxtrn/storybook-addon-docs-stencil"),
   ],
 
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
 
   features: {
     buildStoriesJson: true, // generate index.json including all story ids that are used by the tests
   },
 };
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}
