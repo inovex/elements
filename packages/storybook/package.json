@@ -40,8 +40,8 @@
   ],
   "scripts": {
     "postinstall": "test \"$CI\" = \"true\" && echo 'Skipping Playwright install in CI' || playwright install --with-deps chromium",
-    "build": "storybook build -c config -o dist",
-    "start": "storybook dev -p 6006 -c config",
+    "build": "storybook build -o dist",
+    "start": "storybook dev -p 6006",
     "start:prod": "test -d dist || pnpm build && npx http-server dist -p 6007 -c-1",
     "test": "playwright test",
     "lint": "eslint src",
