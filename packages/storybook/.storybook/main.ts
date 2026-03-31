@@ -1,14 +1,14 @@
-import { dirname, join } from "path";
+import { dirname, join } from 'path';
 import { StorybookConfig } from '@storybook/web-components-vite';
 import remarkGfm from 'remark-gfm';
 
 const config: StorybookConfig = {
   core: {
-    builder: getAbsolutePath("@storybook/builder-vite"),
+    builder: getAbsolutePath('@storybook/builder-vite'),
   },
 
   framework: {
-    name: getAbsolutePath("@storybook/web-components-vite"),
+    name: getAbsolutePath('@storybook/web-components-vite'),
     options: {},
   },
 
@@ -16,16 +16,18 @@ const config: StorybookConfig = {
 
   stories: ['../src/**/*.stories.ts', '../src/**/*.mdx'],
 
-  addons: [{
-    name: getAbsolutePath("@storybook/addon-docs"),
-    options: {
-      mdxPluginOptions: {
-        mdxCompileOptions: {
-          remarkPlugins: [remarkGfm],
+  addons: [
+    {
+      name: getAbsolutePath('@storybook/addon-docs'),
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
         },
       },
     },
-  }],
+  ],
 
   docs: {},
 
@@ -36,5 +38,5 @@ const config: StorybookConfig = {
 export default config;
 
 function getAbsolutePath(value: string): any {
-  return dirname(require.resolve(join(value, "package.json")));
+  return dirname(require.resolve(join(value, 'package.json')));
 }

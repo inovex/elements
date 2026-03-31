@@ -1,12 +1,17 @@
 // configures the "preview" iframe that renders your components
 import { defineCustomElements } from '@inovex.de/elements/dist/loader';
-
 import './global.scss';
 import theme from './theme';
+import docsJson from '../elements-stencil-docs.json';
 
 import DocumentationTemplate from './DocumentationTemplate.mdx';
 
 defineCustomElements(window);
+
+// Build a lookup map from component tag → readme content
+const readmeByTag = new Map<string, string>(
+  docsJson.components.filter(c => c.readme?.trim()).map(c => [c.tag, c.readme]),
+);
 
 // Explicit order for the docs section
 const preview = {
@@ -18,11 +23,12 @@ const preview = {
     },
     docs: {
       theme,
-      // NEW: HIDE DECORATORS FROM STORY OUTPUT,
-      // FIXME: disabled all decorator functions which are currently used for event handling
       source: {
         format: 'html',
       },
+      // Replaces the behaviour of @pxtrn/storybook-addon-docs-stencil:
+      // called by the <Description /> block to get the component-level readme.
+      extractComponentDescription: (component: string) => readmeByTag.get(component) ?? null,
       toc: {
         // 👈 Enables the table of contents for components stories
         contentsSelector: '.sbdocs-content:not(div:has(#changelog)):not(div:has(#typography))', // disables toc on changelog & typography
