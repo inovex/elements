@@ -26,8 +26,6 @@ jobs:
           fetch-depth: 0
 
       - uses: ./.github/workflows/dependencies-install
-        with:
-          skip-browsers: 'true'
 
       - name: Publish Canary
         run: pnpm release-packages:canary
