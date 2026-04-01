@@ -9,7 +9,10 @@
       "dependsOn": ["^build", "build"],
       "outputs": ["test-results/**", "playwright-report/**"]
     },
-    "lint": {},
+    "lint": {
+      "dependsOn": ["^build", "build"]
+    },
+    "format": {},
     "clean": {
       "cache": false
     },
