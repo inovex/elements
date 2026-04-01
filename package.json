@@ -18,7 +18,7 @@
     "lint:ci": "turbo lint",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "qc": "turbo run lint build && pnpm format && pnpm test",
+    "qc": "turbo run build lint format test",
     "clean": "turbo clean && shx rm -rf node_modules .turbo **/.turbo **/node_modules",
     "changeset": "changeset",
     "release-packages": "pnpm build && changeset publish",
