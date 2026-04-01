@@ -1,12 +1,17 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
+    "rootDir": "src",
     "outDir": "dist",
     "lib": ["dom", "es2020"],
     "declarationDir": "dist/types",
     "strict": false,
     "skipLibCheck": true,
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "esModuleInterop": true,
+    "module": "ES2020",
+    "moduleResolution": "bundler",
+    "target": "es2017"
   },
   "references": [
     {
