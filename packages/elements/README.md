@@ -12,6 +12,55 @@ See [instructions](https://github.com/inovex/elements/tree/master/packages/story
 
 Please refer to the top level [README at GitHub](https://github.com/inovex/elements) to see the available script commands.
 
+
+## 🧪 Testing Strategy
+
+inovex elements uses two complementary testing approaches:
+
+### Unit Tests (Stencil / Jest)
+> `packages/elements/src/components/**/*.spec.ts`
+
+Use unit tests for anything that can be verified by inspecting the rendered DOM in isolation:
+
+- **Property → class/attribute mapping**: does setting `disabled="true"` add the right CSS class?
+- **Event emission**: does clicking fire the expected custom event?
+- **Event stopping**: is an internal event stopped from propagating?
+- **Conditional rendering**: are elements added/removed based on props?
+
+Unit tests use `newSpecPage` from `@stencil/core/testing` and run in JSDOM via Jest. They are fast, self-contained, and require no running browser or server.
+
+```ts
+// Example
+const page = await newSpecPage({ components: [MyComponent], html: `<my-component/>` });
+myEl.setAttribute('disabled', 'true');
+await page.waitForChanges();
+expect(myEl.querySelector('button')).toHaveClass('is-disabled');
+```
+
+**Do NOT use unit tests** when the behaviour depends on a real browser layout engine, actual CSS rendering, or third-party JS that breaks in JSDOM (e.g. MDC JS interactions, animation callbacks, focus management).
+
+### E2E Tests (Playwright)
+> `packages/storybook/src/stories/**/*.spec.ts`
+
+Use Playwright tests for anything that requires a real browser or interaction with a fully rendered story:
+
+- **Visual / layout behaviour**: element visibility, dimensions, CSS transitions.
+- **User interaction flows**: click sequences, keyboard navigation, focus trapping.
+- **Third-party JS integration**: components backed by MDC that rely on JS lifecycle hooks (e.g. drawer open/close driven by `MDCDrawer`).
+- **Cross-component behaviour**: interactions that involve multiple components working together.
+
+Playwright tests run against the running Storybook dev server (`pnpm start:storybook`) and use the `goToStory` helper to navigate to a specific story.
+
+```ts
+// Example
+await goToStory(page, ['Structure', 'ino-nav-drawer', 'default']);
+await page.getByRole('button', { name: 'Toggle Navigation' }).click();
+await expect(page.getByText('Home')).toBeHidden();
+```
+
+**Rule of thumb**: start with a unit test. Only reach for Playwright when you need real browser behaviour.
+
+
 ## Technologies used
 
 ### Stencil

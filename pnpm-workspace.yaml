@@ -10,7 +10,6 @@ onlyBuiltDependencies:
   - 'esbuild'
   - 'less'
   - 'nice-napi'
-  - 'puppeteer'
   - 'sharp'
   - 'unrs-resolver'
   - '@parcel/watcher'

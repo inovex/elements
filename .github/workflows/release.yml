@@ -22,8 +22,6 @@ jobs:
           fetch-depth: 0
 
       - uses: ./.github/workflows/dependencies-install
-        with:
-          skip-browsers: 'true'
 
       - name: Create Release Pull Request or Publish
         uses: changesets/action@v1

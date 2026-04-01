@@ -26,7 +26,9 @@ test.describe('ino-nav-drawer', () => {
     const openChangeDetail = page.evaluate(
       () =>
         new Promise<boolean>(resolve => {
-          document.querySelector('ino-nav-drawer').addEventListener('openChange', (e: CustomEvent) => resolve(e.detail), { once: true });
+          document
+            .querySelector('ino-nav-drawer')
+            .addEventListener('openChange', (e: CustomEvent) => resolve(e.detail), { once: true });
         }),
     );
 
@@ -45,7 +47,9 @@ test.describe('ino-nav-drawer', () => {
     const openChangeDetail = page.evaluate(
       () =>
         new Promise<boolean>(resolve => {
-          document.querySelector('ino-nav-drawer').addEventListener('openChange', (e: CustomEvent) => resolve(e.detail), { once: true });
+          document
+            .querySelector('ino-nav-drawer')
+            .addEventListener('openChange', (e: CustomEvent) => resolve(e.detail), { once: true });
         }),
     );
 

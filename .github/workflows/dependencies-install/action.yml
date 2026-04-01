@@ -3,9 +3,9 @@ description: 'Installs the node dependencies of inovex-elements packages'
 author: 'Benjamin Pagelsdorf'
 inputs:
   skip-browsers:
-    description: 'Skip Puppeteer/Playwright browser downloads'
+    description: 'Skip Playwright browser downloads'
     required: false
-    default: 'false'
+    default: 'true'
 
 runs:
   using: 'composite'
@@ -24,23 +24,6 @@ runs:
         always-auth: true
         cache: 'pnpm'
 
-    - name: Get Puppeteer version
-      if: inputs.skip-browsers != 'true'
-      id: puppeteer-version
-      run: |
-        PUPPETEER_VERSION=$(node -p "require('./packages/elements/package.json').devDependencies.puppeteer")
-        echo "version=$PUPPETEER_VERSION" >> $GITHUB_OUTPUT
-      shell: bash
-
-    - name: Cache Puppeteer Chrome Binary
-      if: inputs.skip-browsers != 'true'
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/puppeteer
-        key: puppeteer-${{ runner.os }}-${{ steps.puppeteer-version.outputs.version }}
-        restore-keys: |
-          puppeteer-${{ runner.os }}-
-
     - name: Restore Turborepo Cache
       uses: actions/cache@v4
       with:
@@ -55,7 +38,6 @@ runs:
     - name: Skip browser downloads
       if: inputs.skip-browsers == 'true'
       run: |
-        echo "PUPPETEER_SKIP_DOWNLOAD=true" >> $GITHUB_ENV
         echo "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1" >> $GITHUB_ENV
       shell: bash
 

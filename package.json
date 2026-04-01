@@ -13,7 +13,6 @@
     "start:landingpage": "turbo start --filter=@inovex.de/landingpage",
     "build": "turbo build",
     "test": "turbo test --filter=@inovex.de/elements --filter=@inovex.de/elements-storybook",
-    "test:core:watch": "turbo run test:watch --filter=@inovex.de/elements",
     "lint": "turbo lint",
     "lint:fix": "turbo lint -- --fix",
     "lint:ci": "turbo lint",
