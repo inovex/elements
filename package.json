@@ -19,7 +19,7 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "qc": "turbo run lint build && pnpm format && pnpm test",
-    "clean": "turbo clean && shx rm -rf node_modules .turbo",
+    "clean": "turbo clean && shx rm -rf node_modules .turbo **/.turbo **/node_modules",
     "changeset": "changeset",
     "release-packages": "pnpm build && changeset publish",
     "release-packages:canary": "pnpm build && changeset version --snapshot canary && changeset publish --tag canary",
@@ -65,7 +65,7 @@
     "tailwindcss": "^3.3.3",
     "ts-node": "^10.9.1",
     "turbo": "^2.8.5",
-    "typescript": "~5.3.2",
+    "typescript": "^5.9.3",
     "vite-plugin-dts": "^3.6.0",
     "vite-plugin-static-copy": "^0.17.0",
     "yalc": "^1.0.0-pre.32"
