@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "moduleResolution": "bundler",
     "allowJs": true,
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
