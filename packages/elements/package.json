@@ -31,8 +31,9 @@
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --watch --ci",
-    "test": "stencil test --spec",
+    "test": "stencil test --spec && stencil-test",
     "test:watch": "stencil test --spec --watch",
+    "test:vitest": "stencil-test --no-build",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "lint:ci": "eslint src --ext .ts,.tsx",
@@ -87,7 +88,7 @@
     "@material/textfield": "^13.0.0",
     "@material/theme": "^13.0.0",
     "@material/typography": "^13.0.0",
-    "@stencil/core": "4.28.2",
+    "@stencil/core": "4.43.3",
     "@tarekraafat/autocomplete.js": "^10.2.7",
     "@tiptap/core": "2.1.0",
     "@tiptap/extension-blockquote": "2.1.0",
@@ -120,6 +121,7 @@
     "@stencil/angular-output-target": "^0.8.3",
     "@stencil/react-output-target": "^0.5.3",
     "@stencil/sass": "^3.0.8",
+    "@stencil/vitest": "^1.10.0",
     "@stencil/vue-output-target": "^0.8.7",
     "@types/css-font-loading-module": "^0.0.6",
     "@types/fs-extra": "^9.0.13",
@@ -127,6 +129,7 @@
     "@types/resize-observer-browser": "^0.1.7",
     "camelcase": "^6.2.0",
     "fs-extra": "^9.0.0",
-    "svgo": "^2.8.0"
+    "svgo": "^2.8.0",
+    "vitest": "^4.1.2"
   }
 }

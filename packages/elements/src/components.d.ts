@@ -19,10 +19,12 @@ export namespace Components {
     interface InoAccordion {
         /**
           * The title of the accordion.
+          * @default ''
          */
         "accordionTitle": string;
         /**
           * Whether the accordion is expanded or collapsed.
+          * @default false
          */
         "expanded": boolean;
     }
@@ -41,10 +43,12 @@ export namespace Components {
     interface InoAutocomplete {
         /**
           * Number of ms the search function should be delayed after the user typed something.
+          * @default 100
          */
         "debounce": number;
         /**
           * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
+          * @default 'Found No Results for "$"'
          */
         "noOptionsText": string;
         /**
@@ -59,34 +63,42 @@ export namespace Components {
     interface InoAvatar {
         /**
           * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+          * @default ''
          */
         "a11yLabel"?: string;
         /**
           * The alternative text of the avatar image.
+          * @default ''
          */
         "alt"?: string;
         /**
           * Colors the border of the avatar in the secondary color.
+          * @default false
          */
         "colorSecondary": boolean;
         /**
           * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
+          * @default ''
          */
         "initials": string;
         /**
           * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
+          * @default false
          */
         "interactive": boolean;
         /**
           * Overrides the avatar's loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the avatar will not show any loading animations.  By default, the loading animation will be shown only while the image is being fetched.
+          * @default false
          */
         "loading"?: boolean;
         /**
           * The img of the avatar.
+          * @default ''
          */
         "src": string;
         /**
           * The style variant of the avatar. Can be 'dashed' | 'solid'.
+          * @default 'solid'
          */
         "variant": 'dashed' | 'solid';
     }
@@ -100,6 +112,7 @@ export namespace Components {
         "autoFocus"?: boolean;
         /**
           * Makes the button text and container slightly smaller.
+          * @default false
          */
         "dense": boolean;
         /**
@@ -120,10 +133,12 @@ export namespace Components {
         "name"?: string;
         /**
           * The type of this form.  Can either be `button`, `submit` or `reset`.
+          * @default 'button'
          */
         "type"?: ButtonType;
         /**
           * The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards.
+          * @default 'filled'
          */
         "variant": ButtonVariants;
     }
@@ -134,10 +149,12 @@ export namespace Components {
     interface InoCard {
         /**
           * Disables the hover effect if true
+          * @default false
          */
         "disableElevation": boolean;
         /**
           * Selects the card and displays a check mark icon on top of the card
+          * @default false
          */
         "selected": boolean;
     }
@@ -151,22 +168,27 @@ export namespace Components {
     interface InoCarousel {
         /**
           * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
+          * @default false
          */
         "autoplay": boolean;
         /**
           * Hides the arrow buttons
+          * @default false
          */
         "hideButtons": boolean;
         /**
           * Restarts playback from the first slide upon reaching the last slide
+          * @default true
          */
         "infinite": boolean;
         /**
           * Sets the intermission between two slides (Unit: ms)
+          * @default 5000
          */
         "intermission": number;
         /**
           * Enables reverse playback of the slides
+          * @default false
          */
         "reverse": boolean;
         /**
@@ -197,6 +219,7 @@ export namespace Components {
     interface InoCheckbox {
         /**
           * Marks this element as checked. (**unmanaged**)
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -231,14 +254,17 @@ export namespace Components {
     interface InoChip {
         /**
           * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
+          * @default true
          */
         "clickable": boolean;
         /**
           * Disables all interactions.
+          * @default false
          */
         "disabled": boolean;
         /**
           * The fill type of this element.
+          * @default 'solid'
          */
         "fill": ChipSurface;
         /**
@@ -248,14 +274,17 @@ export namespace Components {
         "label": string;
         /**
           * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
+          * @default false
          */
         "removable": boolean;
         /**
           * Makes the chip selectable.
+          * @default false
          */
         "selectable": boolean;
         /**
           * Marks this element as selected (**works only in conjunction with `selectable`**)
+          * @default false
          */
         "selected": boolean;
         /**
@@ -276,6 +305,7 @@ export namespace Components {
         "activated"?: boolean;
         /**
           * Marks this element as checked. (**unmanaged**)
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -348,6 +378,7 @@ export namespace Components {
         "appendTo"?: string;
         /**
           * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
+          * @default true
          */
         "attachToBody": boolean;
         /**
@@ -356,6 +387,7 @@ export namespace Components {
         "autoFocus"?: boolean;
         /**
           * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
+          * @default 'd-m-Y'
          */
         "dateFormat"?: string;
         /**
@@ -364,10 +396,12 @@ export namespace Components {
         "defaultDate"?: string | string[];
         /**
           * A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
+          * @default 12
          */
         "defaultHour": number;
         /**
           * A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
+          * @default 0
          */
         "defaultMinute"?: number;
         /**
@@ -392,6 +426,7 @@ export namespace Components {
         "helperValidation"?: boolean;
         /**
           * Adjusts the step for the hour input (incl. scrolling) Default is 1
+          * @default 1
          */
         "hourStep": number;
         /**
@@ -412,6 +447,7 @@ export namespace Components {
         "min"?: string;
         /**
           * Adjusts the step for the minute input (incl. scrolling) Default is 5
+          * @default 5
          */
         "minuteStep": number;
         /**
@@ -456,10 +492,12 @@ export namespace Components {
         "twelveHourTime"?: boolean;
         /**
           * Selects the correct picker corresponding to the given type.
+          * @default 'date'
          */
         "type"?: PickerTypeKeys;
         /**
           * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
+          * @default ''
          */
         "value"?: string;
     }
@@ -489,10 +527,12 @@ export namespace Components {
         "cancelText"?: string;
         /**
           * Adds a close icon in the top right corner to close the `ino-dialog`.
+          * @default false
          */
         "closeIcon": boolean;
         /**
           * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
+          * @default 'dialog'
          */
         "dialogRole"?: 'dialog' | 'alertdialog';
         /**
@@ -513,6 +553,7 @@ export namespace Components {
         "icon"?: string;
         /**
           * Opens the dialog if set to true
+          * @default false
          */
         "open": boolean;
     }
@@ -526,14 +567,17 @@ export namespace Components {
     interface InoFab {
         /**
           * Disables the button.
+          * @default false
          */
         "disabled": boolean;
         /**
           * The position of the edge.
+          * @default 'top-left'
          */
         "edgePosition": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
+          * @default false
          */
         "extended": boolean;
         /**
@@ -547,10 +591,12 @@ export namespace Components {
         "label"?: string;
         /**
           * Optional, modifies the FAB to a smaller size
+          * @default false
          */
         "mini": boolean;
         /**
           * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
+          * @default 'left'
          */
         "tooltipPlacement": Placement | 'none';
     }
@@ -567,18 +613,22 @@ export namespace Components {
     interface InoFabSet {
         /**
           * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
+          * @default 'top'
          */
         "dialDirection": Locations;
         /**
           * The side where the Fab is displayed. Possible values: `right`, `left` (default).
+          * @default 'left'
          */
         "leftRightLocation": HorizontalLocation;
         /**
           * Opens the dial (**uncontrolled**)
+          * @default false
          */
         "openDial": boolean;
         /**
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
+          * @default 'bottom'
          */
         "topBottomLocation": VerticalLocation;
     }
@@ -650,6 +700,7 @@ export namespace Components {
         "icon"?: string;
         /**
           * The type of this form.  Can either be `button`, `submit` or `reset`.
+          * @default 'button'
          */
         "type"?: ButtonType;
     }
@@ -667,6 +718,7 @@ export namespace Components {
         "decoding"?: ImageDecodingTypes;
         /**
           * Icon used for fallback image if image can not be loaded
+          * @default 'image_not_available'
          */
         "fallbackIcon": string;
         /**
@@ -675,6 +727,7 @@ export namespace Components {
         "height"?: number;
         /**
           * Indicates that the image is a part of an image list component
+          * @default false
          */
         "imgListItem": boolean;
         /**
@@ -683,10 +736,12 @@ export namespace Components {
         "label"?: string;
         /**
           * The ratio height for this image (default = 1). Use this attribute together with `ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
+          * @default 1
          */
         "ratioHeight"?: number;
         /**
           * The ratio width of this image (default = 1). Use this attribute together with `ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
+          * @default 1
          */
         "ratioWidth"?: number;
         /**
@@ -721,10 +776,12 @@ export namespace Components {
     interface InoImgList {
         /**
           * Encapsulates the label of all img-list-items within the image
+          * @default false
          */
         "encloseLabel": boolean;
         /**
           * Enables the masonry image list variant, which allows the images to be any combination of aspect ratios.
+          * @default false
          */
         "masonry": boolean;
     }
@@ -811,6 +868,7 @@ export namespace Components {
         "required"?: boolean;
         /**
           * If set, resets the value after the user typed in the native input element (default). Disabling might be useful to prevent the input from resetting (e.g. `<ino-currency-input>`) and in turn making it uncontrolled.
+          * @default true
          */
         "resetOnChange": boolean;
         /**
@@ -831,10 +889,12 @@ export namespace Components {
         "showLabelHint"?: boolean;
         /**
           * The step value of this element. Use `any` for decimal numbers
+          * @default 1
          */
         "step"?: number | 'any';
         /**
           * The type of this element (default = text).
+          * @default 'text'
          */
         "type"?: InputType;
         /**
@@ -843,6 +903,7 @@ export namespace Components {
         "unit": string;
         /**
           * The value of this element. (**unmanaged**)
+          * @default ''
          */
         "value": string;
     }
@@ -865,18 +926,22 @@ export namespace Components {
         "disabled"?: boolean;
         /**
           * Enables drag-and-drop file input
+          * @default false
          */
         "dragAndDrop"?: boolean;
         /**
           * Sets the secondary text of the drag and drop window
+          * @default 'or'
          */
         "dragAndDropSecondaryText"?: string;
         /**
           * Sets the primary text of the drag and drop window
+          * @default 'Drag your files here'
          */
         "dragAndDropText"?: string;
         /**
           * Sets the label of the select files button.
+          * @default 'Select file'
          */
         "label"?: string;
         /**
@@ -934,6 +999,7 @@ export namespace Components {
     interface InoList {
         /**
           * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+          * @default false
          */
         "avatar"?: boolean;
         /**
@@ -1025,6 +1091,7 @@ export namespace Components {
         "initialValue": string;
         /**
           * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the Markdown syntax.
+          * @default 'preview'
          */
         "viewMode": ViewModeUnion;
     }
@@ -1037,6 +1104,7 @@ export namespace Components {
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
+          * @default 'auto'
          */
         "placement": Placement;
     }
@@ -1050,18 +1118,22 @@ export namespace Components {
     interface InoNavDrawer {
         /**
           * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+          * @default {     content: 'Main Navigation',     footer: 'Footer Navigation',     toggleBtn: 'Toggle Navigation',   }
          */
         "a11yLabels"?: NavDrawerLabels;
         /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
+          * @default 'left'
          */
         "anchor"?: NavDrawerAnchor;
         /**
           * Marks this element as open. (**unmanaged**)
+          * @default false
          */
         "open"?: boolean;
         /**
           * The variant to use for the drawer.
+          * @default 'docked'
          */
         "variant"?: NavDrawerVariant;
     }
@@ -1073,10 +1145,12 @@ export namespace Components {
     interface InoNavItem {
         /**
           * Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated.
+          * @default false
          */
         "activated"?: boolean;
         /**
           * Styles the row in a disabled style.
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -1094,10 +1168,12 @@ export namespace Components {
     interface InoOption {
         /**
           * Disables the option
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * Selects the option
+          * @default false
          */
         "selected"?: boolean;
         /**
@@ -1126,30 +1202,37 @@ export namespace Components {
     interface InoPopover {
         /**
           * Shows an arrow pointing towards its trigger-element
+          * @default false
          */
         "arrow": boolean;
         /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
+          * @default false
          */
         "attachToBody": boolean;
         /**
           * Sets the color scheme of the popup.  Valid options include: `primary`, `light` and `dark`.
+          * @default 'primary'
          */
         "colorScheme": TippyThemes;
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
+          * @default false
          */
         "controlled": boolean;
         /**
           * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * @default 0
          */
         "delay"?: number | [number, number];
         /**
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
+          * @default 10
          */
         "distance"?: number;
         /**
           * Determines if and how the popover follows the user's mouse cursor.
+          * @default false
          */
         "followCursor": Props['followCursor'];
         /**
@@ -1162,26 +1245,32 @@ export namespace Components {
         "getTippyInstance": () => Promise<any>;
         /**
           * If true, hides the popper on blur.
+          * @default false
          */
         "hideOnBlur"?: boolean;
         /**
           * If true, hides the popper on esc.
+          * @default false
          */
         "hideOnEsc"?: boolean;
         /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
+          * @default false
          */
         "interactive"?: boolean;
         /**
           * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+          * @default 'auto'
          */
         "placement": Placement;
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
+          * @default 'mouseenter focus'
          */
         "trigger": Exclude<TooltipTrigger, 'manual'>;
         /**
           * Programmatically show or hide the popover. Can only be used in controlled mode (see property `controlled`). Use the `visibleChanged` to sync the popovers' visibility state with yours.
+          * @default false
          */
         "visible"?: boolean;
     }
@@ -1191,10 +1280,12 @@ export namespace Components {
     interface InoProgressBar {
         /**
           * Sets the buffer progress
+          * @default 0
          */
         "buffer"?: number;
         /**
           * Indicates whether the state of the progress bar is indeterminate
+          * @default false
          */
         "indeterminate"?: boolean;
         /**
@@ -1203,6 +1294,7 @@ export namespace Components {
         "label"?: string;
         /**
           * Sets the progress of the progress bar. Should always be between 0 and 1
+          * @default 0
          */
         "progress"?: number;
     }
@@ -1214,6 +1306,7 @@ export namespace Components {
     interface InoRadio {
         /**
           * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
+          * @default false
          */
         "checked": boolean;
         /**
@@ -1235,6 +1328,7 @@ export namespace Components {
     interface InoRadioGroup {
         /**
           * Sets the alignment of the radios to either vertical or horizontal.
+          * @default 'horizontal'
          */
         "alignment": Alignment;
         /**
@@ -1264,6 +1358,7 @@ export namespace Components {
         "max": number;
         /**
           * The min value of this element.
+          * @default 0
          */
         "min"?: number;
         /**
@@ -1272,6 +1367,7 @@ export namespace Components {
         "name"?: string;
         /**
           * Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.
+          * @default false
          */
         "ranged": boolean;
         /**
@@ -1281,6 +1377,7 @@ export namespace Components {
         "setValueToAriaTextMapperFn": (fn: (value: number) => string) => Promise<void>;
         /**
           * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers.
+          * @default 1
          */
         "step"?: number;
         /**
@@ -1302,14 +1399,17 @@ export namespace Components {
     interface InoSegmentButton {
         /**
           * Activates the button
+          * @default false
          */
         "checked": boolean;
         /**
           * Slightly decreases the size of the button
+          * @default false
          */
         "dense": boolean;
         /**
           * Disables the button
+          * @default false
          */
         "disabled": boolean;
         /**
@@ -1386,6 +1486,7 @@ export namespace Components {
         "showLabelHint"?: boolean;
         /**
           * The value of this element. (**unmanaged**)
+          * @default ''
          */
         "value"?: string;
     }
@@ -1395,6 +1496,7 @@ export namespace Components {
     interface InoSnackbar {
         /**
           * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+          * @default {     snackbarLabel: this.type,     closeLabel: 'Close notification',   }
          */
         "a11yLabels"?: SnackbarLabels;
         /**
@@ -1408,18 +1510,22 @@ export namespace Components {
         "message"?: string;
         /**
           * Controls the visibility state of the snackbar. When set to `true`, the snackbar is displayed; otherwise, it is hidden.
+          * @default true
          */
         "open": boolean;
         /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
+          * @default false
          */
         "stayVisibleOnHover"?: boolean;
         /**
           * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
+          * @default 5000
          */
         "timeout"?: number;
         /**
           * Changes the snackbar type. There are four types of messages: info, success, warning and error.
+          * @default 'info'
          */
         "type": SnackbarType;
     }
@@ -1430,18 +1536,22 @@ export namespace Components {
     interface InoSpinner {
         /**
           * The height of this spinner (default = 40)
+          * @default 40
          */
         "height": number;
         /**
           * If true, the spinner is shown as modal over the current app page.
+          * @default false
          */
         "modal": boolean;
         /**
           * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
+          * @default 'tile'
          */
         "type": SpinnerType;
         /**
           * The width of this spinner (defaul = 40)
+          * @default 40
          */
         "width": number;
     }
@@ -1451,6 +1561,7 @@ export namespace Components {
     interface InoSwitch {
         /**
           * Marks this element as checked. (**unmanaged**)
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -1480,6 +1591,7 @@ export namespace Components {
         "icon"?: string;
         /**
           * Indicates that the tab only expands to the width of its content.
+          * @default false
          */
         "indicatorContentWidth": boolean;
         /**
@@ -1489,6 +1601,7 @@ export namespace Components {
         "label"?: string;
         /**
           * Indicates that the tab icon and label should flow vertically instead of horizontally.
+          * @default false
          */
         "stacked": boolean;
     }
@@ -1498,10 +1611,12 @@ export namespace Components {
     interface InoTabBar {
         /**
           * Activates the tab at the given index (**unmanaged**).
+          * @default 0
          */
         "activeTab"?: number;
         /**
           * Autofocus of tab on activation.
+          * @default false
          */
         "autoFocus"?: boolean;
     }
@@ -1530,6 +1645,7 @@ export namespace Components {
         "sortDirection"?: SortDirection;
         /**
           * True, if table header stays visible on vertical scroll
+          * @default false
          */
         "stickyHeader"?: boolean;
     }
@@ -1539,6 +1655,7 @@ export namespace Components {
     interface InoTableHeaderCell {
         /**
           * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
+          * @default false
          */
         "autofocus": boolean;
         /**
@@ -1551,14 +1668,17 @@ export namespace Components {
         "label": string;
         /**
           * If true, the cell is **not** sortable. By default, table header cells are sortable.
+          * @default false
          */
         "notSortable": boolean;
         /**
           * Identifier of the search icon (default `search`). Used for date or list search columns.
+          * @default 'search'
          */
         "searchIcon": string;
         /**
           * True, if the column has been searched for this column. Persistent state to indicate the user that this column has a search filter.
+          * @default false
          */
         "searched": boolean;
         /**
@@ -1580,6 +1700,7 @@ export namespace Components {
         "sortDirection"?: SortDirection;
         /**
           * The initial sort direction state (default `desc`).  By default, all columns are sorted descending followed by ascending. To switch this order, set sort Start to asc.
+          * @default 'desc'
          */
         "sortStart": SortDirection;
     }
@@ -1594,6 +1715,7 @@ export namespace Components {
         "autoFocus"?: boolean;
         /**
           * An optional flag to allow the textarea adjust its height to display all the content. The `rows` attribute can also be used to specify a minimum height. Use CSS to specify a max-height for the textarea element. Once the height exceeds the max-height, autogrow will re-enable the vertical scrollbar.
+          * @default false
          */
         "autogrow": boolean;
         /**
@@ -1654,6 +1776,7 @@ export namespace Components {
         "showLabelHint"?: boolean;
         /**
           * The value of this element. (**unmanaged**)
+          * @default ''
          */
         "value"?: string;
     }
@@ -1664,14 +1787,17 @@ export namespace Components {
     interface InoTooltip {
         /**
           * Shows an arrow
+          * @default false
          */
         "arrow": boolean;
         /**
           * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+          * @default 'primary'
          */
         "colorScheme": TippyThemes;
         /**
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * @default 0
          */
         "delay"?: number | [number, number];
         /**
@@ -1693,10 +1819,12 @@ export namespace Components {
         "label"?: string;
         /**
           * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+          * @default 'auto'
          */
         "placement": Placement;
         /**
           * The trigger to show the tooltip - either `click`, `hover` or `focus`. Multiple triggers possible by separating them with a space.
+          * @default 'mouseenter focus'
          */
         "trigger": TooltipTrigger;
     }
@@ -2774,13 +2902,17 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
     interface InoAccordion {
         /**
           * The title of the accordion.
+          * @default ''
          */
         "accordionTitle"?: string;
         /**
           * Whether the accordion is expanded or collapsed.
+          * @default false
          */
         "expanded"?: boolean;
         /**
@@ -2803,10 +2935,12 @@ declare namespace LocalJSX {
     interface InoAutocomplete {
         /**
           * Number of ms the search function should be delayed after the user typed something.
+          * @default 100
          */
         "debounce"?: number;
         /**
           * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
+          * @default 'Found No Results for "$"'
          */
         "noOptionsText"?: string;
         /**
@@ -2825,34 +2959,42 @@ declare namespace LocalJSX {
     interface InoAvatar {
         /**
           * The aria-label used for the avatar element. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.
+          * @default ''
          */
         "a11yLabel"?: string;
         /**
           * The alternative text of the avatar image.
+          * @default ''
          */
         "alt"?: string;
         /**
           * Colors the border of the avatar in the secondary color.
+          * @default false
          */
         "colorSecondary"?: boolean;
         /**
           * The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.
+          * @default ''
          */
         "initials"?: string;
         /**
           * Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.
+          * @default false
          */
         "interactive"?: boolean;
         /**
           * Overrides the avatar's loading animation behavior. When set to true, the loading animation is displayed indefinitely. When set to false, the avatar will not show any loading animations.  By default, the loading animation will be shown only while the image is being fetched.
+          * @default false
          */
         "loading"?: boolean;
         /**
           * The img of the avatar.
+          * @default ''
          */
         "src"?: string;
         /**
           * The style variant of the avatar. Can be 'dashed' | 'solid'.
+          * @default 'solid'
          */
         "variant"?: 'dashed' | 'solid';
     }
@@ -2866,6 +3008,7 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         /**
           * Makes the button text and container slightly smaller.
+          * @default false
          */
         "dense"?: boolean;
         /**
@@ -2886,10 +3029,12 @@ declare namespace LocalJSX {
         "name"?: string;
         /**
           * The type of this form.  Can either be `button`, `submit` or `reset`.
+          * @default 'button'
          */
         "type"?: ButtonType;
         /**
           * The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards.
+          * @default 'filled'
          */
         "variant"?: ButtonVariants;
     }
@@ -2900,10 +3045,12 @@ declare namespace LocalJSX {
     interface InoCard {
         /**
           * Disables the hover effect if true
+          * @default false
          */
         "disableElevation"?: boolean;
         /**
           * Selects the card and displays a check mark icon on top of the card
+          * @default false
          */
         "selected"?: boolean;
     }
@@ -2917,18 +3064,22 @@ declare namespace LocalJSX {
     interface InoCarousel {
         /**
           * Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.
+          * @default false
          */
         "autoplay"?: boolean;
         /**
           * Hides the arrow buttons
+          * @default false
          */
         "hideButtons"?: boolean;
         /**
           * Restarts playback from the first slide upon reaching the last slide
+          * @default true
          */
         "infinite"?: boolean;
         /**
           * Sets the intermission between two slides (Unit: ms)
+          * @default 5000
          */
         "intermission"?: number;
         /**
@@ -2937,6 +3088,7 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: InoCarouselCustomEvent<string>) => void;
         /**
           * Enables reverse playback of the slides
+          * @default false
          */
         "reverse"?: boolean;
         /**
@@ -2967,6 +3119,7 @@ declare namespace LocalJSX {
     interface InoCheckbox {
         /**
           * Marks this element as checked. (**unmanaged**)
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -3005,14 +3158,17 @@ declare namespace LocalJSX {
     interface InoChip {
         /**
           * Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...
+          * @default true
          */
         "clickable"?: boolean;
         /**
           * Disables all interactions.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The fill type of this element.
+          * @default 'solid'
          */
         "fill"?: ChipSurface;
         /**
@@ -3030,14 +3186,17 @@ declare namespace LocalJSX {
         "onChipRemoved"?: (event: InoChipCustomEvent<string>) => void;
         /**
           * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
+          * @default false
          */
         "removable"?: boolean;
         /**
           * Makes the chip selectable.
+          * @default false
          */
         "selectable"?: boolean;
         /**
           * Marks this element as selected (**works only in conjunction with `selectable`**)
+          * @default false
          */
         "selected"?: boolean;
         /**
@@ -3058,6 +3217,7 @@ declare namespace LocalJSX {
         "activated"?: boolean;
         /**
           * Marks this element as checked. (**unmanaged**)
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -3138,6 +3298,7 @@ declare namespace LocalJSX {
         "appendTo"?: string;
         /**
           * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
+          * @default true
          */
         "attachToBody"?: boolean;
         /**
@@ -3146,6 +3307,7 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         /**
           * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
+          * @default 'd-m-Y'
          */
         "dateFormat"?: string;
         /**
@@ -3154,10 +3316,12 @@ declare namespace LocalJSX {
         "defaultDate"?: string | string[];
         /**
           * A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
+          * @default 12
          */
         "defaultHour"?: number;
         /**
           * A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
+          * @default 0
          */
         "defaultMinute"?: number;
         /**
@@ -3182,6 +3346,7 @@ declare namespace LocalJSX {
         "helperValidation"?: boolean;
         /**
           * Adjusts the step for the hour input (incl. scrolling) Default is 1
+          * @default 1
          */
         "hourStep"?: number;
         /**
@@ -3202,6 +3367,7 @@ declare namespace LocalJSX {
         "min"?: string;
         /**
           * Adjusts the step for the minute input (incl. scrolling) Default is 5
+          * @default 5
          */
         "minuteStep"?: number;
         /**
@@ -3238,10 +3404,12 @@ declare namespace LocalJSX {
         "twelveHourTime"?: boolean;
         /**
           * Selects the correct picker corresponding to the given type.
+          * @default 'date'
          */
         "type"?: PickerTypeKeys;
         /**
           * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
+          * @default ''
          */
         "value"?: string;
     }
@@ -3271,10 +3439,12 @@ declare namespace LocalJSX {
         "cancelText"?: string;
         /**
           * Adds a close icon in the top right corner to close the `ino-dialog`.
+          * @default false
          */
         "closeIcon"?: boolean;
         /**
           * The role of the dialog. Can be either 'dialog' or 'alertdialog'. The 'alertdialog' role should be used for important alerts and error messages.
+          * @default 'dialog'
          */
         "dialogRole"?: 'dialog' | 'alertdialog';
         /**
@@ -3307,6 +3477,7 @@ declare namespace LocalJSX {
         "onDialogOpen"?: (event: InoDialogCustomEvent<void>) => void;
         /**
           * Opens the dialog if set to true
+          * @default false
          */
         "open"?: boolean;
     }
@@ -3320,14 +3491,17 @@ declare namespace LocalJSX {
     interface InoFab {
         /**
           * Disables the button.
+          * @default false
          */
         "disabled"?: boolean;
         /**
           * The position of the edge.
+          * @default 'top-left'
          */
         "edgePosition"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
+          * @default false
          */
         "extended"?: boolean;
         /**
@@ -3341,10 +3515,12 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * Optional, modifies the FAB to a smaller size
+          * @default false
          */
         "mini"?: boolean;
         /**
           * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
+          * @default 'left'
          */
         "tooltipPlacement"?: Placement | 'none';
     }
@@ -3361,18 +3537,22 @@ declare namespace LocalJSX {
     interface InoFabSet {
         /**
           * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
+          * @default 'top'
          */
         "dialDirection"?: Locations;
         /**
           * The side where the Fab is displayed. Possible values: `right`, `left` (default).
+          * @default 'left'
          */
         "leftRightLocation"?: HorizontalLocation;
         /**
           * Opens the dial (**uncontrolled**)
+          * @default false
          */
         "openDial"?: boolean;
         /**
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
+          * @default 'bottom'
          */
         "topBottomLocation"?: VerticalLocation;
     }
@@ -3452,6 +3632,7 @@ declare namespace LocalJSX {
         "onClickEl"?: (event: InoIconButtonCustomEvent<any>) => void;
         /**
           * The type of this form.  Can either be `button`, `submit` or `reset`.
+          * @default 'button'
          */
         "type"?: ButtonType;
     }
@@ -3469,6 +3650,7 @@ declare namespace LocalJSX {
         "decoding"?: ImageDecodingTypes;
         /**
           * Icon used for fallback image if image can not be loaded
+          * @default 'image_not_available'
          */
         "fallbackIcon"?: string;
         /**
@@ -3477,6 +3659,7 @@ declare namespace LocalJSX {
         "height"?: number;
         /**
           * Indicates that the image is a part of an image list component
+          * @default false
          */
         "imgListItem"?: boolean;
         /**
@@ -3485,10 +3668,12 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * The ratio height for this image (default = 1). Use this attribute together with `ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
+          * @default 1
          */
         "ratioHeight"?: number;
         /**
           * The ratio width of this image (default = 1). Use this attribute together with `ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
+          * @default 1
          */
         "ratioWidth"?: number;
         /**
@@ -3523,10 +3708,12 @@ declare namespace LocalJSX {
     interface InoImgList {
         /**
           * Encapsulates the label of all img-list-items within the image
+          * @default false
          */
         "encloseLabel"?: boolean;
         /**
           * Enables the masonry image list variant, which allows the images to be any combination of aspect ratios.
+          * @default false
          */
         "masonry"?: boolean;
     }
@@ -3621,6 +3808,7 @@ declare namespace LocalJSX {
         "required"?: boolean;
         /**
           * If set, resets the value after the user typed in the native input element (default). Disabling might be useful to prevent the input from resetting (e.g. `<ino-currency-input>`) and in turn making it uncontrolled.
+          * @default true
          */
         "resetOnChange"?: boolean;
         /**
@@ -3629,10 +3817,12 @@ declare namespace LocalJSX {
         "showLabelHint"?: boolean;
         /**
           * The step value of this element. Use `any` for decimal numbers
+          * @default 1
          */
         "step"?: number | 'any';
         /**
           * The type of this element (default = text).
+          * @default 'text'
          */
         "type"?: InputType;
         /**
@@ -3641,6 +3831,7 @@ declare namespace LocalJSX {
         "unit"?: string;
         /**
           * The value of this element. (**unmanaged**)
+          * @default ''
          */
         "value"?: string;
     }
@@ -3663,18 +3854,22 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         /**
           * Enables drag-and-drop file input
+          * @default false
          */
         "dragAndDrop"?: boolean;
         /**
           * Sets the secondary text of the drag and drop window
+          * @default 'or'
          */
         "dragAndDropSecondaryText"?: string;
         /**
           * Sets the primary text of the drag and drop window
+          * @default 'Drag your files here'
          */
         "dragAndDropText"?: string;
         /**
           * Sets the label of the select files button.
+          * @default 'Select file'
          */
         "label"?: string;
         /**
@@ -3735,6 +3930,7 @@ declare namespace LocalJSX {
     interface InoList {
         /**
           * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+          * @default false
          */
         "avatar"?: boolean;
         /**
@@ -3842,6 +4038,7 @@ declare namespace LocalJSX {
         "onViewModeChange"?: (event: InoMarkdownEditorCustomEvent<ViewModeUnion>) => void;
         /**
           * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the Markdown syntax.
+          * @default 'preview'
          */
         "viewMode"?: ViewModeUnion;
     }
@@ -3854,6 +4051,7 @@ declare namespace LocalJSX {
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
+          * @default 'auto'
          */
         "placement"?: Placement;
     }
@@ -3867,10 +4065,12 @@ declare namespace LocalJSX {
     interface InoNavDrawer {
         /**
           * The aria-labels used for content and footer nav elements. https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.
+          * @default {     content: 'Main Navigation',     footer: 'Footer Navigation',     toggleBtn: 'Toggle Navigation',   }
          */
         "a11yLabels"?: NavDrawerLabels;
         /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
+          * @default 'left'
          */
         "anchor"?: NavDrawerAnchor;
         /**
@@ -3879,10 +4079,12 @@ declare namespace LocalJSX {
         "onOpenChange"?: (event: InoNavDrawerCustomEvent<boolean>) => void;
         /**
           * Marks this element as open. (**unmanaged**)
+          * @default false
          */
         "open"?: boolean;
         /**
           * The variant to use for the drawer.
+          * @default 'docked'
          */
         "variant"?: NavDrawerVariant;
     }
@@ -3894,10 +4096,12 @@ declare namespace LocalJSX {
     interface InoNavItem {
         /**
           * Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated.
+          * @default false
          */
         "activated"?: boolean;
         /**
           * Styles the row in a disabled style.
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3915,6 +4119,7 @@ declare namespace LocalJSX {
     interface InoOption {
         /**
           * Disables the option
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -3923,6 +4128,7 @@ declare namespace LocalJSX {
         "onClickEl"?: (event: InoOptionCustomEvent<HTMLInoOptionElement>) => void;
         /**
           * Selects the option
+          * @default false
          */
         "selected"?: boolean;
         /**
@@ -3951,30 +4157,37 @@ declare namespace LocalJSX {
     interface InoPopover {
         /**
           * Shows an arrow pointing towards its trigger-element
+          * @default false
          */
         "arrow"?: boolean;
         /**
           * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
+          * @default false
          */
         "attachToBody"?: boolean;
         /**
           * Sets the color scheme of the popup.  Valid options include: `primary`, `light` and `dark`.
+          * @default 'primary'
          */
         "colorScheme"?: TippyThemes;
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
+          * @default false
          */
         "controlled"?: boolean;
         /**
           * The delay in milliseconds before `ino-popover` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * @default 0
          */
         "delay"?: number | [number, number];
         /**
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
+          * @default 10
          */
         "distance"?: number;
         /**
           * Determines if and how the popover follows the user's mouse cursor.
+          * @default false
          */
         "followCursor"?: Props['followCursor'];
         /**
@@ -3983,14 +4196,17 @@ declare namespace LocalJSX {
         "for"?: string;
         /**
           * If true, hides the popper on blur.
+          * @default false
          */
         "hideOnBlur"?: boolean;
         /**
           * If true, hides the popper on esc.
+          * @default false
          */
         "hideOnEsc"?: boolean;
         /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
+          * @default false
          */
         "interactive"?: boolean;
         /**
@@ -3999,14 +4215,17 @@ declare namespace LocalJSX {
         "onVisibleChanged"?: (event: InoPopoverCustomEvent<boolean>) => void;
         /**
           * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+          * @default 'auto'
          */
         "placement"?: Placement;
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
+          * @default 'mouseenter focus'
          */
         "trigger"?: Exclude<TooltipTrigger, 'manual'>;
         /**
           * Programmatically show or hide the popover. Can only be used in controlled mode (see property `controlled`). Use the `visibleChanged` to sync the popovers' visibility state with yours.
+          * @default false
          */
         "visible"?: boolean;
     }
@@ -4016,10 +4235,12 @@ declare namespace LocalJSX {
     interface InoProgressBar {
         /**
           * Sets the buffer progress
+          * @default 0
          */
         "buffer"?: number;
         /**
           * Indicates whether the state of the progress bar is indeterminate
+          * @default false
          */
         "indeterminate"?: boolean;
         /**
@@ -4028,6 +4249,7 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * Sets the progress of the progress bar. Should always be between 0 and 1
+          * @default 0
          */
         "progress"?: number;
     }
@@ -4039,6 +4261,7 @@ declare namespace LocalJSX {
     interface InoRadio {
         /**
           * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -4064,6 +4287,7 @@ declare namespace LocalJSX {
     interface InoRadioGroup {
         /**
           * Sets the alignment of the radios to either vertical or horizontal.
+          * @default 'horizontal'
          */
         "alignment"?: Alignment;
         /**
@@ -4097,6 +4321,7 @@ declare namespace LocalJSX {
         "max"?: number;
         /**
           * The min value of this element.
+          * @default 0
          */
         "min"?: number;
         /**
@@ -4117,10 +4342,12 @@ declare namespace LocalJSX {
         "onValueStartChange"?: (event: InoRangeCustomEvent<number>) => void;
         /**
           * Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.
+          * @default false
          */
         "ranged"?: boolean;
         /**
           * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers.
+          * @default 1
          */
         "step"?: number;
         /**
@@ -4142,14 +4369,17 @@ declare namespace LocalJSX {
     interface InoSegmentButton {
         /**
           * Activates the button
+          * @default false
          */
         "checked"?: boolean;
         /**
           * Slightly decreases the size of the button
+          * @default false
          */
         "dense"?: boolean;
         /**
           * Disables the button
+          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -4238,6 +4468,7 @@ declare namespace LocalJSX {
         "showLabelHint"?: boolean;
         /**
           * The value of this element. (**unmanaged**)
+          * @default ''
          */
         "value"?: string;
     }
@@ -4247,6 +4478,7 @@ declare namespace LocalJSX {
     interface InoSnackbar {
         /**
           * The aria-labels used to provide accessible snackbar context as well as close icon button label.
+          * @default {     snackbarLabel: this.type,     closeLabel: 'Close notification',   }
          */
         "a11yLabels"?: SnackbarLabels;
         /**
@@ -4268,18 +4500,22 @@ declare namespace LocalJSX {
         "onHideEl"?: (event: InoSnackbarCustomEvent<any>) => void;
         /**
           * Controls the visibility state of the snackbar. When set to `true`, the snackbar is displayed; otherwise, it is hidden.
+          * @default true
          */
         "open"?: boolean;
         /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
+          * @default false
          */
         "stayVisibleOnHover"?: boolean;
         /**
           * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
+          * @default 5000
          */
         "timeout"?: number;
         /**
           * Changes the snackbar type. There are four types of messages: info, success, warning and error.
+          * @default 'info'
          */
         "type"?: SnackbarType;
     }
@@ -4290,18 +4526,22 @@ declare namespace LocalJSX {
     interface InoSpinner {
         /**
           * The height of this spinner (default = 40)
+          * @default 40
          */
         "height"?: number;
         /**
           * If true, the spinner is shown as modal over the current app page.
+          * @default false
          */
         "modal"?: boolean;
         /**
           * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
+          * @default 'tile'
          */
         "type"?: SpinnerType;
         /**
           * The width of this spinner (defaul = 40)
+          * @default 40
          */
         "width"?: number;
     }
@@ -4311,6 +4551,7 @@ declare namespace LocalJSX {
     interface InoSwitch {
         /**
           * Marks this element as checked. (**unmanaged**)
+          * @default false
          */
         "checked"?: boolean;
         /**
@@ -4344,6 +4585,7 @@ declare namespace LocalJSX {
         "icon"?: string;
         /**
           * Indicates that the tab only expands to the width of its content.
+          * @default false
          */
         "indicatorContentWidth"?: boolean;
         /**
@@ -4357,6 +4599,7 @@ declare namespace LocalJSX {
         "onInteracted"?: (event: InoTabCustomEvent<any>) => void;
         /**
           * Indicates that the tab icon and label should flow vertically instead of horizontally.
+          * @default false
          */
         "stacked"?: boolean;
     }
@@ -4366,10 +4609,12 @@ declare namespace LocalJSX {
     interface InoTabBar {
         /**
           * Activates the tab at the given index (**unmanaged**).
+          * @default 0
          */
         "activeTab"?: number;
         /**
           * Autofocus of tab on activation.
+          * @default false
          */
         "autoFocus"?: boolean;
         /**
@@ -4406,6 +4651,7 @@ declare namespace LocalJSX {
         "sortDirection"?: SortDirection;
         /**
           * True, if table header stays visible on vertical scroll
+          * @default false
          */
         "stickyHeader"?: boolean;
     }
@@ -4415,6 +4661,7 @@ declare namespace LocalJSX {
     interface InoTableHeaderCell {
         /**
           * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
+          * @default false
          */
         "autofocus"?: boolean;
         /**
@@ -4427,6 +4674,7 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * If true, the cell is **not** sortable. By default, table header cells are sortable.
+          * @default false
          */
         "notSortable"?: boolean;
         /**
@@ -4439,10 +4687,12 @@ declare namespace LocalJSX {
         "onSortDirectionChange"?: (event: InoTableHeaderCellCustomEvent<SortDirectionChangeDetails>) => void;
         /**
           * Identifier of the search icon (default `search`). Used for date or list search columns.
+          * @default 'search'
          */
         "searchIcon"?: string;
         /**
           * True, if the column has been searched for this column. Persistent state to indicate the user that this column has a search filter.
+          * @default false
          */
         "searched"?: boolean;
         /**
@@ -4451,6 +4701,7 @@ declare namespace LocalJSX {
         "sortDirection"?: SortDirection;
         /**
           * The initial sort direction state (default `desc`).  By default, all columns are sorted descending followed by ascending. To switch this order, set sort Start to asc.
+          * @default 'desc'
          */
         "sortStart"?: SortDirection;
     }
@@ -4465,6 +4716,7 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         /**
           * An optional flag to allow the textarea adjust its height to display all the content. The `rows` attribute can also be used to specify a minimum height. Use CSS to specify a max-height for the textarea element. Once the height exceeds the max-height, autogrow will re-enable the vertical scrollbar.
+          * @default false
          */
         "autogrow"?: boolean;
         /**
@@ -4525,6 +4777,7 @@ declare namespace LocalJSX {
         "showLabelHint"?: boolean;
         /**
           * The value of this element. (**unmanaged**)
+          * @default ''
          */
         "value"?: string;
     }
@@ -4535,14 +4788,17 @@ declare namespace LocalJSX {
     interface InoTooltip {
         /**
           * Shows an arrow
+          * @default false
          */
         "arrow"?: boolean;
         /**
           * Sets the color scheme of the tooltip.  Valid options include: `light`, `dark` or `primary`
+          * @default 'primary'
          */
         "colorScheme"?: TippyThemes;
         /**
           * The delay in milliseconds before `ino-tooltip` shows up or hides.  If only one number is given, the show and hide delay get the given delay duration.  If two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.  Defaults to 0ms.
+          * @default 0
          */
         "delay"?: number | [number, number];
         /**
@@ -4560,69 +4816,480 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+          * @default 'auto'
          */
         "placement"?: Placement;
         /**
           * The trigger to show the tooltip - either `click`, `hover` or `focus`. Multiple triggers possible by separating them with a space.
+          * @default 'mouseenter focus'
          */
         "trigger"?: TooltipTrigger;
     }
+
+    interface InoAccordionAttributes {
+        "expanded": boolean;
+        "accordionTitle": string;
+    }
+    interface InoAutocompleteAttributes {
+        "debounce": number;
+        "noOptionsText": string;
+        "value": string | KeyValue | null;
+    }
+    interface InoAvatarAttributes {
+        "alt": string;
+        "initials": string;
+        "src": string;
+        "interactive": boolean;
+        "variant": 'dashed' | 'solid';
+        "colorSecondary": boolean;
+        "a11yLabel": string;
+        "loading": boolean;
+    }
+    interface InoButtonAttributes {
+        "autoFocus": boolean;
+        "disabled": boolean;
+        "name": string;
+        "form": string;
+        "type": ButtonType;
+        "variant": ButtonVariants;
+        "dense": boolean;
+        "loading": boolean;
+    }
+    interface InoCardAttributes {
+        "selected": boolean;
+        "disableElevation": boolean;
+    }
+    interface InoCarouselAttributes {
+        "value": string;
+        "autoplay": boolean;
+        "hideButtons": boolean;
+        "infinite": boolean;
+        "intermission": number;
+        "reverse": boolean;
+    }
+    interface InoCarouselSlideAttributes {
+        "src": string;
+        "selected": boolean;
+        "value": string;
+    }
+    interface InoCheckboxAttributes {
+        "checked": boolean;
+        "disabled": boolean;
+        "name": string;
+        "value": string;
+        "selection": boolean;
+        "indeterminate": boolean;
+    }
+    interface InoChipAttributes {
+        "disabled": boolean;
+        "fill": ChipSurface;
+        "label": string;
+        "removable": boolean;
+        "selectable": boolean;
+        "selected": boolean;
+        "value": string;
+        "clickable": boolean;
+    }
+    interface InoControlItemAttributes {
+        "role": string | null;
+        "text": string;
+        "secondaryText": string;
+        "selected": boolean;
+        "activated": boolean;
+        "checked": boolean;
+        "disabled": boolean;
+        "name": string;
+        "value": string;
+        "indeterminate": boolean;
+        "trailing": boolean;
+    }
+    interface InoCurrencyInputAttributes {
+        "currencyLocale": string;
+        "value": string;
+    }
+    interface InoDatepickerAttributes {
+        "autoFocus": boolean;
+        "appendTo": string;
+        "disabled": boolean;
+        "name": string;
+        "placeholder": string;
+        "required": boolean;
+        "showLabelHint": boolean;
+        "value": string;
+        "min": string;
+        "max": string;
+        "outline": boolean;
+        "label": string;
+        "helper": string;
+        "helperPersistent": boolean;
+        "helperValidation": boolean;
+        "inline": boolean;
+        "range": boolean;
+        "attachToBody": boolean;
+        "dateFormat": string;
+        "defaultDate": string | string[];
+        "defaultHour": number;
+        "defaultMinute": number;
+        "twelveHourTime": boolean;
+        "type": PickerTypeKeys;
+        "minuteStep": number;
+        "hourStep": number;
+        "error": boolean;
+    }
+    interface InoDialogAttributes {
+        "attachTo": string;
+        "fullwidth": boolean;
+        "dismissible": boolean;
+        "open": boolean;
+        "dialogRole": 'dialog' | 'alertdialog';
+        "headerText": string;
+        "bodyText": string;
+        "cancelText": string;
+        "closeIcon": boolean;
+        "actionText": string;
+        "icon": string;
+    }
+    interface InoFabAttributes {
+        "icon": string;
+        "label": string;
+        "extended": boolean;
+        "edgePosition": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+        "disabled": boolean;
+        "mini": boolean;
+        "tooltipPlacement": Placement | 'none';
+    }
+    interface InoFabSetAttributes {
+        "dialDirection": Locations;
+        "topBottomLocation": VerticalLocation;
+        "leftRightLocation": HorizontalLocation;
+        "openDial": boolean;
+    }
+    interface InoIconAttributes {
+        "icon": string;
+        "colorSecondary": boolean;
+        "clickable": boolean;
+        "src": string;
+        "svgTitle": string;
+    }
+    interface InoIconButtonAttributes {
+        "autoFocus": boolean;
+        "disabled": boolean;
+        "activated": boolean;
+        "filled": boolean;
+        "icon": string;
+        "type": ButtonType;
+    }
+    interface InoImgAttributes {
+        "alt": string;
+        "decoding": ImageDecodingTypes;
+        "height": number;
+        "sizes": string;
+        "src": string;
+        "srcset": string;
+        "width": number;
+        "usemap": string;
+        "fallbackIcon": string;
+        "imgListItem": boolean;
+        "label": string;
+        "ratioWidth": number;
+        "ratioHeight": number;
+        "rounded": boolean;
+    }
+    interface InoImgListAttributes {
+        "masonry": boolean;
+        "encloseLabel": boolean;
+    }
+    interface InoInputAttributes {
+        "autocomplete": string;
+        "autoFocus": boolean;
+        "dataList": string;
+        "disabled": boolean;
+        "error": boolean;
+        "helper": string;
+        "helperCharacterCounter": boolean;
+        "helperPersistent": boolean;
+        "helperValidation": boolean;
+        "label": string;
+        "min": string;
+        "max": string;
+        "maxlength": number;
+        "name": string;
+        "outline": boolean;
+        "pattern": string;
+        "placeholder": string;
+        "required": boolean;
+        "showLabelHint": boolean;
+        "step": string;
+        "type": InputType;
+        "unit": string;
+        "value": string;
+        "resetOnChange": boolean;
+    }
+    interface InoInputFileAttributes {
+        "accept": string;
+        "autoFocus": boolean;
+        "disabled": boolean;
+        "multiple": boolean;
+        "name": string;
+        "required": boolean;
+        "label": string;
+        "dragAndDrop": boolean;
+        "dragAndDropText": string;
+        "dragAndDropSecondaryText": string;
+    }
+    interface InoLabelAttributes {
+        "outline": boolean;
+        "text": string;
+        "required": boolean;
+        "showHint": boolean;
+        "disabled": boolean;
+        "for": string;
+    }
+    interface InoListAttributes {
+        "dense": boolean;
+        "twoLines": boolean;
+        "avatar": boolean;
+    }
+    interface InoListDividerAttributes {
+        "betweenLists": boolean;
+        "padded": boolean;
+        "inset": boolean;
+    }
+    interface InoListItemAttributes {
+        "text": string;
+        "secondaryText": string;
+        "selected": boolean;
+        "activated": boolean;
+        "disabled": boolean;
+    }
+    interface InoMarkdownEditorAttributes {
+        "initialValue": string;
+        "viewMode": ViewModeUnion;
+    }
+    interface InoMenuAttributes {
+        "placement": Placement;
+    }
+    interface InoNavDrawerAttributes {
+        "open": boolean;
+        "anchor": NavDrawerAnchor;
+        "variant": NavDrawerVariant;
+    }
+    interface InoNavItemAttributes {
+        "text": string;
+        "subText": string;
+        "activated": boolean;
+        "disabled": boolean;
+    }
+    interface InoOptionAttributes {
+        "disabled": boolean;
+        "selected": boolean;
+        "value": string;
+    }
+    interface InoOptionGroupAttributes {
+        "label": string;
+    }
+    interface InoPopoverAttributes {
+        "placement": Placement;
+        "arrow": boolean;
+        "attachToBody": boolean;
+        "for": string;
+        "hideOnBlur": boolean;
+        "hideOnEsc": boolean;
+        "distance": number;
+        "colorScheme": TippyThemes;
+        "interactive": boolean;
+        "followCursor": string;
+        "trigger": Exclude<TooltipTrigger, 'manual'>;
+        "delay": number | [number, number];
+        "controlled": boolean;
+        "visible": boolean;
+    }
+    interface InoProgressBarAttributes {
+        "buffer": number;
+        "indeterminate": boolean;
+        "label": string;
+        "progress": number;
+    }
+    interface InoRadioAttributes {
+        "checked": boolean;
+        "disabled": boolean;
+        "name": string;
+        "value": string;
+    }
+    interface InoRadioGroupAttributes {
+        "value": string;
+        "alignment": Alignment;
+    }
+    interface InoRangeAttributes {
+        "disabled": boolean;
+        "discrete": boolean;
+        "markers": boolean;
+        "name": string;
+        "min": number;
+        "max": number;
+        "value": number;
+        "ranged": boolean;
+        "valueStart": number;
+        "valueEnd": number;
+        "step": number;
+    }
+    interface InoSegmentButtonAttributes {
+        "checked": boolean;
+        "disabled": boolean;
+        "dense": boolean;
+        "name": string;
+        "value": string;
+        "type": string;
+    }
+    interface InoSegmentGroupAttributes {
+        "name": string;
+        "value": string;
+    }
+    interface InoSelectAttributes {
+        "disabled": boolean;
+        "name": string;
+        "required": boolean;
+        "showLabelHint": boolean;
+        "label": string;
+        "outline": boolean;
+        "value": string;
+        "helper": string;
+        "helperValidation": boolean;
+        "helperPersistent": boolean;
+        "error": boolean;
+    }
+    interface InoSnackbarAttributes {
+        "message": string;
+        "actionText": string;
+        "open": boolean;
+        "type": SnackbarType;
+        "timeout": number;
+        "stayVisibleOnHover": boolean;
+    }
+    interface InoSpinnerAttributes {
+        "type": SpinnerType;
+        "modal": boolean;
+        "height": number;
+        "width": number;
+    }
+    interface InoSwitchAttributes {
+        "checked": boolean;
+        "disabled": boolean;
+        "name": string;
+    }
+    interface InoTabAttributes {
+        "icon": string;
+        "label": string;
+        "a11yControls": string;
+        "a11ySelected": boolean;
+        "stacked": boolean;
+        "indicatorContentWidth": boolean;
+    }
+    interface InoTabBarAttributes {
+        "activeTab": number;
+        "autoFocus": boolean;
+    }
+    interface InoTableAttributes {
+        "loading": boolean;
+        "noHover": boolean;
+        "sortColumnId": string;
+        "sortDirection": SortDirection;
+        "stickyHeader": boolean;
+    }
+    interface InoTableHeaderCellAttributes {
+        "autofocus": boolean;
+        "searchIcon": string;
+        "columnId": string;
+        "label": string;
+        "searched": boolean;
+        "notSortable": boolean;
+        "sortDirection": SortDirection;
+        "sortStart": SortDirection;
+    }
+    interface InoTextareaAttributes {
+        "autoFocus": boolean;
+        "cols": number;
+        "disabled": boolean;
+        "maxlength": number;
+        "minlength": number;
+        "showCharacterCounter": boolean;
+        "name": string;
+        "placeholder": string;
+        "required": boolean;
+        "showLabelHint": boolean;
+        "rows": number;
+        "value": string;
+        "outline": boolean;
+        "autogrow": boolean;
+        "label": string;
+    }
+    interface InoTooltipAttributes {
+        "headerText": string;
+        "colorScheme": TippyThemes;
+        "placement": Placement;
+        "arrow": boolean;
+        "for": string;
+        "trigger": TooltipTrigger;
+        "delay": number | [number, number];
+        "label": string;
+    }
+
     interface IntrinsicElements {
-        "ino-accordion": InoAccordion;
-        "ino-autocomplete": InoAutocomplete;
-        "ino-avatar": InoAvatar;
-        "ino-button": InoButton;
-        "ino-card": InoCard;
-        "ino-carousel": InoCarousel;
-        "ino-carousel-slide": InoCarouselSlide;
-        "ino-checkbox": InoCheckbox;
-        "ino-chip": InoChip;
-        "ino-control-item": InoControlItem;
-        "ino-currency-input": InoCurrencyInput;
-        "ino-datepicker": InoDatepicker;
-        "ino-dialog": InoDialog;
-        "ino-fab": InoFab;
-        "ino-fab-set": InoFabSet;
-        "ino-icon": InoIcon;
-        "ino-icon-button": InoIconButton;
-        "ino-img": InoImg;
-        "ino-img-list": InoImgList;
-        "ino-input": InoInput;
-        "ino-input-file": InoInputFile;
-        "ino-label": InoLabel;
-        "ino-list": InoList;
-        "ino-list-divider": InoListDivider;
-        "ino-list-item": InoListItem;
-        "ino-markdown-editor": InoMarkdownEditor;
-        "ino-menu": InoMenu;
-        "ino-nav-drawer": InoNavDrawer;
-        "ino-nav-item": InoNavItem;
-        "ino-option": InoOption;
-        "ino-option-group": InoOptionGroup;
-        "ino-popover": InoPopover;
-        "ino-progress-bar": InoProgressBar;
-        "ino-radio": InoRadio;
-        "ino-radio-group": InoRadioGroup;
-        "ino-range": InoRange;
-        "ino-segment-button": InoSegmentButton;
-        "ino-segment-group": InoSegmentGroup;
-        "ino-select": InoSelect;
-        "ino-snackbar": InoSnackbar;
-        "ino-spinner": InoSpinner;
-        "ino-switch": InoSwitch;
-        "ino-tab": InoTab;
-        "ino-tab-bar": InoTabBar;
-        "ino-table": InoTable;
-        "ino-table-header-cell": InoTableHeaderCell;
-        "ino-textarea": InoTextarea;
-        "ino-tooltip": InoTooltip;
+        "ino-accordion": Omit<InoAccordion, keyof InoAccordionAttributes> & { [K in keyof InoAccordion & keyof InoAccordionAttributes]?: InoAccordion[K] } & { [K in keyof InoAccordion & keyof InoAccordionAttributes as `attr:${K}`]?: InoAccordionAttributes[K] } & { [K in keyof InoAccordion & keyof InoAccordionAttributes as `prop:${K}`]?: InoAccordion[K] };
+        "ino-autocomplete": Omit<InoAutocomplete, keyof InoAutocompleteAttributes> & { [K in keyof InoAutocomplete & keyof InoAutocompleteAttributes]?: InoAutocomplete[K] } & { [K in keyof InoAutocomplete & keyof InoAutocompleteAttributes as `attr:${K}`]?: InoAutocompleteAttributes[K] } & { [K in keyof InoAutocomplete & keyof InoAutocompleteAttributes as `prop:${K}`]?: InoAutocomplete[K] };
+        "ino-avatar": Omit<InoAvatar, keyof InoAvatarAttributes> & { [K in keyof InoAvatar & keyof InoAvatarAttributes]?: InoAvatar[K] } & { [K in keyof InoAvatar & keyof InoAvatarAttributes as `attr:${K}`]?: InoAvatarAttributes[K] } & { [K in keyof InoAvatar & keyof InoAvatarAttributes as `prop:${K}`]?: InoAvatar[K] };
+        "ino-button": Omit<InoButton, keyof InoButtonAttributes> & { [K in keyof InoButton & keyof InoButtonAttributes]?: InoButton[K] } & { [K in keyof InoButton & keyof InoButtonAttributes as `attr:${K}`]?: InoButtonAttributes[K] } & { [K in keyof InoButton & keyof InoButtonAttributes as `prop:${K}`]?: InoButton[K] };
+        "ino-card": Omit<InoCard, keyof InoCardAttributes> & { [K in keyof InoCard & keyof InoCardAttributes]?: InoCard[K] } & { [K in keyof InoCard & keyof InoCardAttributes as `attr:${K}`]?: InoCardAttributes[K] } & { [K in keyof InoCard & keyof InoCardAttributes as `prop:${K}`]?: InoCard[K] };
+        "ino-carousel": Omit<InoCarousel, keyof InoCarouselAttributes> & { [K in keyof InoCarousel & keyof InoCarouselAttributes]?: InoCarousel[K] } & { [K in keyof InoCarousel & keyof InoCarouselAttributes as `attr:${K}`]?: InoCarouselAttributes[K] } & { [K in keyof InoCarousel & keyof InoCarouselAttributes as `prop:${K}`]?: InoCarousel[K] } & OneOf<"value", InoCarousel["value"], InoCarouselAttributes["value"]>;
+        "ino-carousel-slide": Omit<InoCarouselSlide, keyof InoCarouselSlideAttributes> & { [K in keyof InoCarouselSlide & keyof InoCarouselSlideAttributes]?: InoCarouselSlide[K] } & { [K in keyof InoCarouselSlide & keyof InoCarouselSlideAttributes as `attr:${K}`]?: InoCarouselSlideAttributes[K] } & { [K in keyof InoCarouselSlide & keyof InoCarouselSlideAttributes as `prop:${K}`]?: InoCarouselSlide[K] };
+        "ino-checkbox": Omit<InoCheckbox, keyof InoCheckboxAttributes> & { [K in keyof InoCheckbox & keyof InoCheckboxAttributes]?: InoCheckbox[K] } & { [K in keyof InoCheckbox & keyof InoCheckboxAttributes as `attr:${K}`]?: InoCheckboxAttributes[K] } & { [K in keyof InoCheckbox & keyof InoCheckboxAttributes as `prop:${K}`]?: InoCheckbox[K] };
+        "ino-chip": Omit<InoChip, keyof InoChipAttributes> & { [K in keyof InoChip & keyof InoChipAttributes]?: InoChip[K] } & { [K in keyof InoChip & keyof InoChipAttributes as `attr:${K}`]?: InoChipAttributes[K] } & { [K in keyof InoChip & keyof InoChipAttributes as `prop:${K}`]?: InoChip[K] };
+        "ino-control-item": Omit<InoControlItem, keyof InoControlItemAttributes> & { [K in keyof InoControlItem & keyof InoControlItemAttributes]?: InoControlItem[K] } & { [K in keyof InoControlItem & keyof InoControlItemAttributes as `attr:${K}`]?: InoControlItemAttributes[K] } & { [K in keyof InoControlItem & keyof InoControlItemAttributes as `prop:${K}`]?: InoControlItem[K] } & OneOf<"role", InoControlItem["role"], InoControlItemAttributes["role"]> & OneOf<"text", InoControlItem["text"], InoControlItemAttributes["text"]>;
+        "ino-currency-input": Omit<InoCurrencyInput, keyof InoCurrencyInputAttributes> & { [K in keyof InoCurrencyInput & keyof InoCurrencyInputAttributes]?: InoCurrencyInput[K] } & { [K in keyof InoCurrencyInput & keyof InoCurrencyInputAttributes as `attr:${K}`]?: InoCurrencyInputAttributes[K] } & { [K in keyof InoCurrencyInput & keyof InoCurrencyInputAttributes as `prop:${K}`]?: InoCurrencyInput[K] };
+        "ino-datepicker": Omit<InoDatepicker, keyof InoDatepickerAttributes> & { [K in keyof InoDatepicker & keyof InoDatepickerAttributes]?: InoDatepicker[K] } & { [K in keyof InoDatepicker & keyof InoDatepickerAttributes as `attr:${K}`]?: InoDatepickerAttributes[K] } & { [K in keyof InoDatepicker & keyof InoDatepickerAttributes as `prop:${K}`]?: InoDatepicker[K] };
+        "ino-dialog": Omit<InoDialog, keyof InoDialogAttributes> & { [K in keyof InoDialog & keyof InoDialogAttributes]?: InoDialog[K] } & { [K in keyof InoDialog & keyof InoDialogAttributes as `attr:${K}`]?: InoDialogAttributes[K] } & { [K in keyof InoDialog & keyof InoDialogAttributes as `prop:${K}`]?: InoDialog[K] };
+        "ino-fab": Omit<InoFab, keyof InoFabAttributes> & { [K in keyof InoFab & keyof InoFabAttributes]?: InoFab[K] } & { [K in keyof InoFab & keyof InoFabAttributes as `attr:${K}`]?: InoFabAttributes[K] } & { [K in keyof InoFab & keyof InoFabAttributes as `prop:${K}`]?: InoFab[K] };
+        "ino-fab-set": Omit<InoFabSet, keyof InoFabSetAttributes> & { [K in keyof InoFabSet & keyof InoFabSetAttributes]?: InoFabSet[K] } & { [K in keyof InoFabSet & keyof InoFabSetAttributes as `attr:${K}`]?: InoFabSetAttributes[K] } & { [K in keyof InoFabSet & keyof InoFabSetAttributes as `prop:${K}`]?: InoFabSet[K] };
+        "ino-icon": Omit<InoIcon, keyof InoIconAttributes> & { [K in keyof InoIcon & keyof InoIconAttributes]?: InoIcon[K] } & { [K in keyof InoIcon & keyof InoIconAttributes as `attr:${K}`]?: InoIconAttributes[K] } & { [K in keyof InoIcon & keyof InoIconAttributes as `prop:${K}`]?: InoIcon[K] };
+        "ino-icon-button": Omit<InoIconButton, keyof InoIconButtonAttributes> & { [K in keyof InoIconButton & keyof InoIconButtonAttributes]?: InoIconButton[K] } & { [K in keyof InoIconButton & keyof InoIconButtonAttributes as `attr:${K}`]?: InoIconButtonAttributes[K] } & { [K in keyof InoIconButton & keyof InoIconButtonAttributes as `prop:${K}`]?: InoIconButton[K] };
+        "ino-img": Omit<InoImg, keyof InoImgAttributes> & { [K in keyof InoImg & keyof InoImgAttributes]?: InoImg[K] } & { [K in keyof InoImg & keyof InoImgAttributes as `attr:${K}`]?: InoImgAttributes[K] } & { [K in keyof InoImg & keyof InoImgAttributes as `prop:${K}`]?: InoImg[K] };
+        "ino-img-list": Omit<InoImgList, keyof InoImgListAttributes> & { [K in keyof InoImgList & keyof InoImgListAttributes]?: InoImgList[K] } & { [K in keyof InoImgList & keyof InoImgListAttributes as `attr:${K}`]?: InoImgListAttributes[K] } & { [K in keyof InoImgList & keyof InoImgListAttributes as `prop:${K}`]?: InoImgList[K] };
+        "ino-input": Omit<InoInput, keyof InoInputAttributes> & { [K in keyof InoInput & keyof InoInputAttributes]?: InoInput[K] } & { [K in keyof InoInput & keyof InoInputAttributes as `attr:${K}`]?: InoInputAttributes[K] } & { [K in keyof InoInput & keyof InoInputAttributes as `prop:${K}`]?: InoInput[K] };
+        "ino-input-file": Omit<InoInputFile, keyof InoInputFileAttributes> & { [K in keyof InoInputFile & keyof InoInputFileAttributes]?: InoInputFile[K] } & { [K in keyof InoInputFile & keyof InoInputFileAttributes as `attr:${K}`]?: InoInputFileAttributes[K] } & { [K in keyof InoInputFile & keyof InoInputFileAttributes as `prop:${K}`]?: InoInputFile[K] };
+        "ino-label": Omit<InoLabel, keyof InoLabelAttributes> & { [K in keyof InoLabel & keyof InoLabelAttributes]?: InoLabel[K] } & { [K in keyof InoLabel & keyof InoLabelAttributes as `attr:${K}`]?: InoLabelAttributes[K] } & { [K in keyof InoLabel & keyof InoLabelAttributes as `prop:${K}`]?: InoLabel[K] };
+        "ino-list": Omit<InoList, keyof InoListAttributes> & { [K in keyof InoList & keyof InoListAttributes]?: InoList[K] } & { [K in keyof InoList & keyof InoListAttributes as `attr:${K}`]?: InoListAttributes[K] } & { [K in keyof InoList & keyof InoListAttributes as `prop:${K}`]?: InoList[K] };
+        "ino-list-divider": Omit<InoListDivider, keyof InoListDividerAttributes> & { [K in keyof InoListDivider & keyof InoListDividerAttributes]?: InoListDivider[K] } & { [K in keyof InoListDivider & keyof InoListDividerAttributes as `attr:${K}`]?: InoListDividerAttributes[K] } & { [K in keyof InoListDivider & keyof InoListDividerAttributes as `prop:${K}`]?: InoListDivider[K] };
+        "ino-list-item": Omit<InoListItem, keyof InoListItemAttributes> & { [K in keyof InoListItem & keyof InoListItemAttributes]?: InoListItem[K] } & { [K in keyof InoListItem & keyof InoListItemAttributes as `attr:${K}`]?: InoListItemAttributes[K] } & { [K in keyof InoListItem & keyof InoListItemAttributes as `prop:${K}`]?: InoListItem[K] };
+        "ino-markdown-editor": Omit<InoMarkdownEditor, keyof InoMarkdownEditorAttributes> & { [K in keyof InoMarkdownEditor & keyof InoMarkdownEditorAttributes]?: InoMarkdownEditor[K] } & { [K in keyof InoMarkdownEditor & keyof InoMarkdownEditorAttributes as `attr:${K}`]?: InoMarkdownEditorAttributes[K] } & { [K in keyof InoMarkdownEditor & keyof InoMarkdownEditorAttributes as `prop:${K}`]?: InoMarkdownEditor[K] };
+        "ino-menu": Omit<InoMenu, keyof InoMenuAttributes> & { [K in keyof InoMenu & keyof InoMenuAttributes]?: InoMenu[K] } & { [K in keyof InoMenu & keyof InoMenuAttributes as `attr:${K}`]?: InoMenuAttributes[K] } & { [K in keyof InoMenu & keyof InoMenuAttributes as `prop:${K}`]?: InoMenu[K] };
+        "ino-nav-drawer": Omit<InoNavDrawer, keyof InoNavDrawerAttributes> & { [K in keyof InoNavDrawer & keyof InoNavDrawerAttributes]?: InoNavDrawer[K] } & { [K in keyof InoNavDrawer & keyof InoNavDrawerAttributes as `attr:${K}`]?: InoNavDrawerAttributes[K] } & { [K in keyof InoNavDrawer & keyof InoNavDrawerAttributes as `prop:${K}`]?: InoNavDrawer[K] };
+        "ino-nav-item": Omit<InoNavItem, keyof InoNavItemAttributes> & { [K in keyof InoNavItem & keyof InoNavItemAttributes]?: InoNavItem[K] } & { [K in keyof InoNavItem & keyof InoNavItemAttributes as `attr:${K}`]?: InoNavItemAttributes[K] } & { [K in keyof InoNavItem & keyof InoNavItemAttributes as `prop:${K}`]?: InoNavItem[K] };
+        "ino-option": Omit<InoOption, keyof InoOptionAttributes> & { [K in keyof InoOption & keyof InoOptionAttributes]?: InoOption[K] } & { [K in keyof InoOption & keyof InoOptionAttributes as `attr:${K}`]?: InoOptionAttributes[K] } & { [K in keyof InoOption & keyof InoOptionAttributes as `prop:${K}`]?: InoOption[K] } & OneOf<"value", InoOption["value"], InoOptionAttributes["value"]>;
+        "ino-option-group": Omit<InoOptionGroup, keyof InoOptionGroupAttributes> & { [K in keyof InoOptionGroup & keyof InoOptionGroupAttributes]?: InoOptionGroup[K] } & { [K in keyof InoOptionGroup & keyof InoOptionGroupAttributes as `attr:${K}`]?: InoOptionGroupAttributes[K] } & { [K in keyof InoOptionGroup & keyof InoOptionGroupAttributes as `prop:${K}`]?: InoOptionGroup[K] };
+        "ino-popover": Omit<InoPopover, keyof InoPopoverAttributes> & { [K in keyof InoPopover & keyof InoPopoverAttributes]?: InoPopover[K] } & { [K in keyof InoPopover & keyof InoPopoverAttributes as `attr:${K}`]?: InoPopoverAttributes[K] } & { [K in keyof InoPopover & keyof InoPopoverAttributes as `prop:${K}`]?: InoPopover[K] };
+        "ino-progress-bar": Omit<InoProgressBar, keyof InoProgressBarAttributes> & { [K in keyof InoProgressBar & keyof InoProgressBarAttributes]?: InoProgressBar[K] } & { [K in keyof InoProgressBar & keyof InoProgressBarAttributes as `attr:${K}`]?: InoProgressBarAttributes[K] } & { [K in keyof InoProgressBar & keyof InoProgressBarAttributes as `prop:${K}`]?: InoProgressBar[K] };
+        "ino-radio": Omit<InoRadio, keyof InoRadioAttributes> & { [K in keyof InoRadio & keyof InoRadioAttributes]?: InoRadio[K] } & { [K in keyof InoRadio & keyof InoRadioAttributes as `attr:${K}`]?: InoRadioAttributes[K] } & { [K in keyof InoRadio & keyof InoRadioAttributes as `prop:${K}`]?: InoRadio[K] };
+        "ino-radio-group": Omit<InoRadioGroup, keyof InoRadioGroupAttributes> & { [K in keyof InoRadioGroup & keyof InoRadioGroupAttributes]?: InoRadioGroup[K] } & { [K in keyof InoRadioGroup & keyof InoRadioGroupAttributes as `attr:${K}`]?: InoRadioGroupAttributes[K] } & { [K in keyof InoRadioGroup & keyof InoRadioGroupAttributes as `prop:${K}`]?: InoRadioGroup[K] };
+        "ino-range": Omit<InoRange, keyof InoRangeAttributes> & { [K in keyof InoRange & keyof InoRangeAttributes]?: InoRange[K] } & { [K in keyof InoRange & keyof InoRangeAttributes as `attr:${K}`]?: InoRangeAttributes[K] } & { [K in keyof InoRange & keyof InoRangeAttributes as `prop:${K}`]?: InoRange[K] };
+        "ino-segment-button": Omit<InoSegmentButton, keyof InoSegmentButtonAttributes> & { [K in keyof InoSegmentButton & keyof InoSegmentButtonAttributes]?: InoSegmentButton[K] } & { [K in keyof InoSegmentButton & keyof InoSegmentButtonAttributes as `attr:${K}`]?: InoSegmentButtonAttributes[K] } & { [K in keyof InoSegmentButton & keyof InoSegmentButtonAttributes as `prop:${K}`]?: InoSegmentButton[K] };
+        "ino-segment-group": Omit<InoSegmentGroup, keyof InoSegmentGroupAttributes> & { [K in keyof InoSegmentGroup & keyof InoSegmentGroupAttributes]?: InoSegmentGroup[K] } & { [K in keyof InoSegmentGroup & keyof InoSegmentGroupAttributes as `attr:${K}`]?: InoSegmentGroupAttributes[K] } & { [K in keyof InoSegmentGroup & keyof InoSegmentGroupAttributes as `prop:${K}`]?: InoSegmentGroup[K] };
+        "ino-select": Omit<InoSelect, keyof InoSelectAttributes> & { [K in keyof InoSelect & keyof InoSelectAttributes]?: InoSelect[K] } & { [K in keyof InoSelect & keyof InoSelectAttributes as `attr:${K}`]?: InoSelectAttributes[K] } & { [K in keyof InoSelect & keyof InoSelectAttributes as `prop:${K}`]?: InoSelect[K] };
+        "ino-snackbar": Omit<InoSnackbar, keyof InoSnackbarAttributes> & { [K in keyof InoSnackbar & keyof InoSnackbarAttributes]?: InoSnackbar[K] } & { [K in keyof InoSnackbar & keyof InoSnackbarAttributes as `attr:${K}`]?: InoSnackbarAttributes[K] } & { [K in keyof InoSnackbar & keyof InoSnackbarAttributes as `prop:${K}`]?: InoSnackbar[K] };
+        "ino-spinner": Omit<InoSpinner, keyof InoSpinnerAttributes> & { [K in keyof InoSpinner & keyof InoSpinnerAttributes]?: InoSpinner[K] } & { [K in keyof InoSpinner & keyof InoSpinnerAttributes as `attr:${K}`]?: InoSpinnerAttributes[K] } & { [K in keyof InoSpinner & keyof InoSpinnerAttributes as `prop:${K}`]?: InoSpinner[K] };
+        "ino-switch": Omit<InoSwitch, keyof InoSwitchAttributes> & { [K in keyof InoSwitch & keyof InoSwitchAttributes]?: InoSwitch[K] } & { [K in keyof InoSwitch & keyof InoSwitchAttributes as `attr:${K}`]?: InoSwitchAttributes[K] } & { [K in keyof InoSwitch & keyof InoSwitchAttributes as `prop:${K}`]?: InoSwitch[K] };
+        "ino-tab": Omit<InoTab, keyof InoTabAttributes> & { [K in keyof InoTab & keyof InoTabAttributes]?: InoTab[K] } & { [K in keyof InoTab & keyof InoTabAttributes as `attr:${K}`]?: InoTabAttributes[K] } & { [K in keyof InoTab & keyof InoTabAttributes as `prop:${K}`]?: InoTab[K] };
+        "ino-tab-bar": Omit<InoTabBar, keyof InoTabBarAttributes> & { [K in keyof InoTabBar & keyof InoTabBarAttributes]?: InoTabBar[K] } & { [K in keyof InoTabBar & keyof InoTabBarAttributes as `attr:${K}`]?: InoTabBarAttributes[K] } & { [K in keyof InoTabBar & keyof InoTabBarAttributes as `prop:${K}`]?: InoTabBar[K] };
+        "ino-table": Omit<InoTable, keyof InoTableAttributes> & { [K in keyof InoTable & keyof InoTableAttributes]?: InoTable[K] } & { [K in keyof InoTable & keyof InoTableAttributes as `attr:${K}`]?: InoTableAttributes[K] } & { [K in keyof InoTable & keyof InoTableAttributes as `prop:${K}`]?: InoTable[K] };
+        "ino-table-header-cell": Omit<InoTableHeaderCell, keyof InoTableHeaderCellAttributes> & { [K in keyof InoTableHeaderCell & keyof InoTableHeaderCellAttributes]?: InoTableHeaderCell[K] } & { [K in keyof InoTableHeaderCell & keyof InoTableHeaderCellAttributes as `attr:${K}`]?: InoTableHeaderCellAttributes[K] } & { [K in keyof InoTableHeaderCell & keyof InoTableHeaderCellAttributes as `prop:${K}`]?: InoTableHeaderCell[K] };
+        "ino-textarea": Omit<InoTextarea, keyof InoTextareaAttributes> & { [K in keyof InoTextarea & keyof InoTextareaAttributes]?: InoTextarea[K] } & { [K in keyof InoTextarea & keyof InoTextareaAttributes as `attr:${K}`]?: InoTextareaAttributes[K] } & { [K in keyof InoTextarea & keyof InoTextareaAttributes as `prop:${K}`]?: InoTextarea[K] };
+        "ino-tooltip": Omit<InoTooltip, keyof InoTooltipAttributes> & { [K in keyof InoTooltip & keyof InoTooltipAttributes]?: InoTooltip[K] } & { [K in keyof InoTooltip & keyof InoTooltipAttributes as `attr:${K}`]?: InoTooltipAttributes[K] } & { [K in keyof InoTooltip & keyof InoTooltipAttributes as `prop:${K}`]?: InoTooltip[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ino-accordion": LocalJSX.InoAccordion & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
+            "ino-accordion": LocalJSX.IntrinsicElements["ino-accordion"] & JSXBase.HTMLAttributes<HTMLInoAccordionElement>;
             /**
              * `ino-autocomplete` is a component that acts similarly to the native `datalist` feature of the `<input>` element.
              * Unlike other components, `ino-autocomplete` is stateful, meaning it maintains its own state. This makes it less
@@ -4635,17 +5302,17 @@ declare module "@stencil/core" {
              * ## Filtering
              * The options are filtered using `.includes(...)`, which ignores case sensitivity.
              */
-            "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
-            "ino-avatar": LocalJSX.InoAvatar & JSXBase.HTMLAttributes<HTMLInoAvatarElement>;
+            "ino-autocomplete": LocalJSX.IntrinsicElements["ino-autocomplete"] & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
+            "ino-avatar": LocalJSX.IntrinsicElements["ino-avatar"] & JSXBase.HTMLAttributes<HTMLInoAvatarElement>;
             /**
              * A button component with different styles and icon capability.
              */
-            "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
+            "ino-button": LocalJSX.IntrinsicElements["ino-button"] & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             /**
              * The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
              * fully customize the appearance of the card.
              */
-            "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
+            "ino-card": LocalJSX.IntrinsicElements["ino-card"] & JSXBase.HTMLAttributes<HTMLInoCardElement>;
             /**
              * The `ino-carousel` component works in combination with the `ino-carousel-slide` component
              * and can be used to display an array of images as a slide show. What is more,
@@ -4653,15 +5320,15 @@ declare module "@stencil/core" {
              * Lastly, using the css variables described at the bottom of the page, you can easily customize
              * the dimensions of the component as well as the duration of the slide transition.
              */
-            "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
+            "ino-carousel": LocalJSX.IntrinsicElements["ino-carousel"] & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
             /**
              * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
              */
-            "ino-carousel-slide": LocalJSX.InoCarouselSlide & JSXBase.HTMLAttributes<HTMLInoCarouselSlideElement>;
+            "ino-carousel-slide": LocalJSX.IntrinsicElements["ino-carousel-slide"] & JSXBase.HTMLAttributes<HTMLInoCarouselSlideElement>;
             /**
              * An image that is shown in the `<ino-carousel>` component. Should only be used in conjunction with it.
              */
-            "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
+            "ino-checkbox": LocalJSX.IntrinsicElements["ino-checkbox"] & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
             /**
              * The ino-chip component displays the provided content and icon as a chip.
              * Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `icon` attribute.
@@ -4670,14 +5337,14 @@ declare module "@stencil/core" {
              * **Selection**: Chips can be used for single or multi-selection among a few options. Refer to the **Selection** and **Filter** stories for examples.
              * **Removable Chips**: Set `removable` to `true` to allow chip removal by the user, which will display a `close` icon on the chip's right side. On removal, a `removeChip` event is emitted instead of hiding or destroying the component. Handle the removal process by listening to this event.
              */
-            "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
+            "ino-chip": LocalJSX.IntrinsicElements["ino-chip"] & JSXBase.HTMLAttributes<HTMLInoChipElement>;
             /**
              * A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
              * This component is used as child of `ino-list` and `ino-menu` components.
              * #### Restrictions
              * Please note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element
              */
-            "ino-control-item": LocalJSX.InoControlItem & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
+            "ino-control-item": LocalJSX.IntrinsicElements["ino-control-item"] & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
             /**
              * A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.
              * The `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.
@@ -4685,7 +5352,7 @@ declare module "@stencil/core" {
              * The currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.
              * However, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.
              */
-            "ino-currency-input": LocalJSX.InoCurrencyInput & JSXBase.HTMLAttributes<HTMLInoCurrencyInputElement>;
+            "ino-currency-input": LocalJSX.IntrinsicElements["ino-currency-input"] & JSXBase.HTMLAttributes<HTMLInoCurrencyInputElement>;
             /**
              * A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
              * #### Types
@@ -4695,7 +5362,7 @@ declare module "@stencil/core" {
              * - datetime
              * - month
              */
-            "ino-datepicker": LocalJSX.InoDatepicker & JSXBase.HTMLAttributes<HTMLInoDatepickerElement>;
+            "ino-datepicker": LocalJSX.IntrinsicElements["ino-datepicker"] & JSXBase.HTMLAttributes<HTMLInoDatepickerElement>;
             /**
              * The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
              * It is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.
@@ -4703,7 +5370,7 @@ declare module "@stencil/core" {
              * - **Child Component Layout Issues**: If elements like ripples or labels in the `ino-dialog` are mispositioned or incorrectly sized, it may indicate that child components are being rendered before the dialog is fully open.
              * - **Rendering After Dialog Opens**: To prevent layout issues, render sensitive child components (e.g. `ino-icon-button`) only after the `dialogOpen` event has fired.
              */
-            "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
+            "ino-dialog": LocalJSX.IntrinsicElements["ino-dialog"] & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             /**
              * A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
              * It appears in front of all screen content, typically as a circular shape with an icon in its center.
@@ -4711,7 +5378,7 @@ declare module "@stencil/core" {
              * #### Additional Hints
              * **Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.
              */
-            "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
+            "ino-fab": LocalJSX.IntrinsicElements["ino-fab"] & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             /**
              * The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
              * button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed
@@ -4722,7 +5389,7 @@ declare module "@stencil/core" {
              * The ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to
              * your local state and pass the state to the component again to open/close the fab-set.
              */
-            "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
+            "ino-fab-set": LocalJSX.IntrinsicElements["ino-fab-set"] & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
             /**
              * A light icon component for texts and other components.
              * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
@@ -4737,53 +5404,53 @@ declare module "@stencil/core" {
              * > on how to integrate the icons with Angular, React or plain JavaScript.
              * Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
              */
-            "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
+            "ino-icon": LocalJSX.IntrinsicElements["ino-icon"] & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             /**
              * A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.
              * ## Additional Hints
              * **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
              */
-            "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
+            "ino-icon-button": LocalJSX.IntrinsicElements["ino-icon-button"] & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
             /**
              * An image component with different styles that reserves a predefined space to avoid jumping contents.
              */
-            "ino-img": LocalJSX.InoImg & JSXBase.HTMLAttributes<HTMLInoImgElement>;
+            "ino-img": LocalJSX.IntrinsicElements["ino-img"] & JSXBase.HTMLAttributes<HTMLInoImgElement>;
             /**
              * The ino-img-list component is used in combination with the ino-img component to display an array of images
              * in a grid-like format. It is based on the mdc-image-list component.
              */
-            "ino-img-list": LocalJSX.InoImgList & JSXBase.HTMLAttributes<HTMLInoImgListElement>;
+            "ino-img-list": LocalJSX.IntrinsicElements["ino-img-list"] & JSXBase.HTMLAttributes<HTMLInoImgListElement>;
             /**
              * An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
              * Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
              */
-            "ino-input": LocalJSX.InoInput & JSXBase.HTMLAttributes<HTMLInoInputElement>;
+            "ino-input": LocalJSX.IntrinsicElements["ino-input"] & JSXBase.HTMLAttributes<HTMLInoInputElement>;
             /**
              * An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
              * This component replaces the native behaviour with a custom `ino-button` with logic.
              */
-            "ino-input-file": LocalJSX.InoInputFile & JSXBase.HTMLAttributes<HTMLInoInputFileElement>;
+            "ino-input-file": LocalJSX.IntrinsicElements["ino-input-file"] & JSXBase.HTMLAttributes<HTMLInoInputFileElement>;
             /**
              * This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
              */
-            "ino-label": LocalJSX.InoLabel & JSXBase.HTMLAttributes<HTMLInoLabelElement>;
+            "ino-label": LocalJSX.IntrinsicElements["ino-label"] & JSXBase.HTMLAttributes<HTMLInoLabelElement>;
             /**
              * A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.
              * This component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.
              * #### Additional Hints
              * Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
              */
-            "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
+            "ino-list": LocalJSX.IntrinsicElements["ino-list"] & JSXBase.HTMLAttributes<HTMLInoListElement>;
             /**
              * A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.
              * This component is used as child of `ino-list` and `ino-menu` components.
              */
-            "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
+            "ino-list-divider": LocalJSX.IntrinsicElements["ino-list-divider"] & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             /**
              * A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
              * This component is used as child of `ino-list` and `ino-menu` components.
              */
-            "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
+            "ino-list-item": LocalJSX.IntrinsicElements["ino-list-item"] & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
             /**
              * The **Preview Mode** supports following actions:
              * | Actions ||||
@@ -4809,14 +5476,14 @@ declare module "@stencil/core" {
              * | Header 1 (h1) | 2x | Double the base size (e.g., 32px) |
              * | Header 2 (h2) | 1.75x | 1.75 times the base size (e.g., 28px) |
              */
-            "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
+            "ino-markdown-editor": LocalJSX.IntrinsicElements["ino-markdown-editor"] & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
             /**
              * A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
              * The anchor element is the parent element.
              * The menu items consist of different variations of the `ino-list-item` component.
              * If you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.
              */
-            "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
+            "ino-menu": LocalJSX.IntrinsicElements["ino-menu"] & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
             /**
              * A navigation drawer component designed to organize and facilitate user navigation in your app.
              * It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
@@ -4824,22 +5491,22 @@ declare module "@stencil/core" {
              * - This component is intended exclusively for navigation purposes. It is optimized for holding items like `ino-list` and `ino-nav-item` for effective user guidance.
              * - To maintain a clean and organized app structure, `ino-nav-drawer` should be used once per application. This ensures a consistent and predictable navigation experience across different parts of the app.
              */
-            "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
+            "ino-nav-drawer": LocalJSX.IntrinsicElements["ino-nav-drawer"] & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
             /**
              * A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.
              * This component is used as child of `ino-list` and `ino-menu` components.
              * > Note: This component's main use case is within the `ino-nav-drawer`.
              */
-            "ino-nav-item": LocalJSX.InoNavItem & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;
+            "ino-nav-item": LocalJSX.IntrinsicElements["ino-nav-item"] & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;
             /**
              * An option component that can be used to add options to an ino-select component.
              */
-            "ino-option": LocalJSX.InoOption & JSXBase.HTMLAttributes<HTMLInoOptionElement>;
+            "ino-option": LocalJSX.IntrinsicElements["ino-option"] & JSXBase.HTMLAttributes<HTMLInoOptionElement>;
             /**
              * A wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.
              * Beyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).
              */
-            "ino-option-group": LocalJSX.InoOptionGroup & JSXBase.HTMLAttributes<HTMLInoOptionGroupElement>;
+            "ino-option-group": LocalJSX.IntrinsicElements["ino-option-group"] & JSXBase.HTMLAttributes<HTMLInoOptionGroupElement>;
             /**
              * A Popover is a dialog which is bound to a specific element and appears next to it. Under the
              * hood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.
@@ -4848,80 +5515,80 @@ declare module "@stencil/core" {
              * components are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips
              * can only display plain text.
              */
-            "ino-popover": LocalJSX.InoPopover & JSXBase.HTMLAttributes<HTMLInoPopoverElement>;
+            "ino-popover": LocalJSX.IntrinsicElements["ino-popover"] & JSXBase.HTMLAttributes<HTMLInoPopoverElement>;
             /**
              * The `ino-progress-bar` is a linear progress bar based on the mdc-linear-progress component.
              */
-            "ino-progress-bar": LocalJSX.InoProgressBar & JSXBase.HTMLAttributes<HTMLInoProgressBarElement>;
+            "ino-progress-bar": LocalJSX.IntrinsicElements["ino-progress-bar"] & JSXBase.HTMLAttributes<HTMLInoProgressBarElement>;
             /**
              * A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
              * #### Additional Hints
              * Clicking on the radio button triggers an event that contains the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.
              */
-            "ino-radio": LocalJSX.InoRadio & JSXBase.HTMLAttributes<HTMLInoRadioElement>;
+            "ino-radio": LocalJSX.IntrinsicElements["ino-radio"] & JSXBase.HTMLAttributes<HTMLInoRadioElement>;
             /**
              * A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
              */
-            "ino-radio-group": LocalJSX.InoRadioGroup & JSXBase.HTMLAttributes<HTMLInoRadioGroupElement>;
+            "ino-radio-group": LocalJSX.IntrinsicElements["ino-radio-group"] & JSXBase.HTMLAttributes<HTMLInoRadioGroupElement>;
             /**
              * A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
              */
-            "ino-range": LocalJSX.InoRange & JSXBase.HTMLAttributes<HTMLInoRangeElement>;
+            "ino-range": LocalJSX.IntrinsicElements["ino-range"] & JSXBase.HTMLAttributes<HTMLInoRangeElement>;
             /**
              * A button component that can be used in combination with the ino-segment-group component.
              */
-            "ino-segment-button": LocalJSX.InoSegmentButton & JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement>;
+            "ino-segment-button": LocalJSX.IntrinsicElements["ino-segment-button"] & JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement>;
             /**
              * A button group that can be used as an alternative to drop-down menus.
              */
-            "ino-segment-group": LocalJSX.InoSegmentGroup & JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement>;
+            "ino-segment-group": LocalJSX.IntrinsicElements["ino-segment-group"] & JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement>;
             /**
              * A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
              * #### Additional Hints
              * Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
              */
-            "ino-select": LocalJSX.InoSelect & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
+            "ino-select": LocalJSX.IntrinsicElements["ino-select"] & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
             /**
              * Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
              */
-            "ino-snackbar": LocalJSX.InoSnackbar & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
+            "ino-snackbar": LocalJSX.IntrinsicElements["ino-snackbar"] & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
             /**
              * A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.
              * This component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.
              */
-            "ino-spinner": LocalJSX.InoSpinner & JSXBase.HTMLAttributes<HTMLInoSpinnerElement>;
+            "ino-spinner": LocalJSX.IntrinsicElements["ino-spinner"] & JSXBase.HTMLAttributes<HTMLInoSpinnerElement>;
             /**
              * Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
              */
-            "ino-switch": LocalJSX.InoSwitch & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;
+            "ino-switch": LocalJSX.IntrinsicElements["ino-switch"] & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;
             /**
              * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
              */
-            "ino-tab": LocalJSX.InoTab & JSXBase.HTMLAttributes<HTMLInoTabElement>;
+            "ino-tab": LocalJSX.IntrinsicElements["ino-tab"] & JSXBase.HTMLAttributes<HTMLInoTabElement>;
             /**
              * Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.
              */
-            "ino-tab-bar": LocalJSX.InoTabBar & JSXBase.HTMLAttributes<HTMLInoTabBarElement>;
+            "ino-tab-bar": LocalJSX.IntrinsicElements["ino-tab-bar"] & JSXBase.HTMLAttributes<HTMLInoTabBarElement>;
             /**
              * The ino-table is a custom table used to display sets of data across multiple columns.
              * It currently supports different states (selected, active), sorting and loading indication.
              * > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).
              */
-            "ino-table": LocalJSX.InoTable & JSXBase.HTMLAttributes<HTMLInoTableElement>;
+            "ino-table": LocalJSX.IntrinsicElements["ino-table"] & JSXBase.HTMLAttributes<HTMLInoTableElement>;
             /**
              * The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.
              */
-            "ino-table-header-cell": LocalJSX.InoTableHeaderCell & JSXBase.HTMLAttributes<HTMLInoTableHeaderCellElement>;
+            "ino-table-header-cell": LocalJSX.IntrinsicElements["ino-table-header-cell"] & JSXBase.HTMLAttributes<HTMLInoTableHeaderCellElement>;
             /**
              * A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
              * > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
              */
-            "ino-textarea": LocalJSX.InoTextarea & JSXBase.HTMLAttributes<HTMLInoTextareaElement>;
+            "ino-textarea": LocalJSX.IntrinsicElements["ino-textarea"] & JSXBase.HTMLAttributes<HTMLInoTextareaElement>;
             /**
              * A tooltip component that displays text when users hover over, focus on, or tap an element.
              * > Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.
              */
-            "ino-tooltip": LocalJSX.InoTooltip & JSXBase.HTMLAttributes<HTMLInoTooltipElement>;
+            "ino-tooltip": LocalJSX.IntrinsicElements["ino-tooltip"] & JSXBase.HTMLAttributes<HTMLInoTooltipElement>;
         }
     }
 }

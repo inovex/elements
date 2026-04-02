@@ -1,8 +1,8 @@
 {
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.28.2",
-    "typescriptVersion": "5.5.4"
+    "version": "4.43.3",
+    "typescriptVersion": "5.8.3"
   },
   "components": [
     {
@@ -36,7 +36,12 @@
           "attr": "accordion-title",
           "reflectToAttr": false,
           "docs": "The title of the accordion.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -60,7 +65,12 @@
           "attr": "expanded",
           "reflectToAttr": false,
           "docs": "Whether the accordion is expanded or collapsed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -98,6 +108,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -131,7 +142,12 @@
           "attr": "debounce",
           "reflectToAttr": false,
           "docs": "Number of ms the search function should be delayed after the user typed something.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "100"
+            }
+          ],
           "default": "100",
           "values": [
             {
@@ -155,7 +171,12 @@
           "attr": "no-options-text",
           "reflectToAttr": false,
           "docs": "Text to display when there are no options found, where `$` is the placeholder for the input of the user.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'Found No Results for \"$\"'"
+            }
+          ],
           "default": "'Found No Results for \"$\"'",
           "values": [
             {
@@ -177,7 +198,8 @@
               "KeyValue": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::KeyValue"
+                "id": "src/components/types.ts::KeyValue",
+                "referenceLocation": "KeyValue"
               }
             }
           },
@@ -208,7 +230,8 @@
               "KeyValue": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::KeyValue"
+                "id": "src/components/types.ts::KeyValue",
+                "referenceLocation": "KeyValue"
               }
             }
           },
@@ -256,6 +279,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "selection",
@@ -300,7 +324,12 @@
           "attr": "a-1-1y-label",
           "reflectToAttr": false,
           "docs": "The aria-label used for the avatar element.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/img_role.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -324,7 +353,12 @@
           "attr": "alt",
           "reflectToAttr": false,
           "docs": "The alternative text of the avatar image.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -348,7 +382,12 @@
           "attr": "color-secondary",
           "reflectToAttr": false,
           "docs": "Colors the border of the avatar in the secondary color.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -372,7 +411,12 @@
           "attr": "initials",
           "reflectToAttr": false,
           "docs": "The initials of the avatar. Will be shown if no `src` is defined or `img` fails to load.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -396,7 +440,12 @@
           "attr": "interactive",
           "reflectToAttr": false,
           "docs": "Enables interactive visuals for the avatar by animating the border and a pointing cursor upon hovering the Element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -420,7 +469,12 @@
           "attr": "loading",
           "reflectToAttr": false,
           "docs": "Overrides the avatar's loading animation behavior.\nWhen set to true, the loading animation is displayed indefinitely.\nWhen set to false, the avatar will not show any loading animations.\n\nBy default, the loading animation will be shown only while the image is being fetched.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -444,7 +498,12 @@
           "attr": "src",
           "reflectToAttr": false,
           "docs": "The img of the avatar.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -468,7 +527,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The style variant of the avatar.\nCan be 'dashed' | 'solid'.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'solid'"
+            }
+          ],
           "default": "'solid'",
           "values": [
             {
@@ -502,6 +566,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -577,7 +642,12 @@
           "attr": "dense",
           "reflectToAttr": false,
           "docs": "Makes the button text and container slightly smaller.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -691,7 +761,8 @@
               "ButtonType": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::ButtonType"
+                "id": "src/components/types.ts::ButtonType",
+                "referenceLocation": "ButtonType"
               }
             }
           },
@@ -699,7 +770,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of this form.\n\nCan either be `button`, `submit` or `reset`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'button'"
+            }
+          ],
           "default": "'button'",
           "values": [
             {
@@ -730,7 +806,8 @@
               "ButtonVariants": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::ButtonVariants"
+                "id": "src/components/types.ts::ButtonVariants",
+                "referenceLocation": "ButtonVariants"
               }
             }
           },
@@ -738,7 +815,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The button variant.\n\n* **filled**: Contain actions that are important for your application.\n* **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app.\n* **text**: Typically used for less prominent actions, including those in dialogs and cards.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'filled'"
+            }
+          ],
           "default": "'filled'",
           "values": [
             {
@@ -774,6 +856,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -821,7 +904,12 @@
           "attr": "disable-elevation",
           "reflectToAttr": false,
           "docs": "Disables the hover effect if true",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -845,7 +933,12 @@
           "attr": "selected",
           "reflectToAttr": false,
           "docs": "Selects the card and displays a check mark icon on top of the card",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -917,6 +1010,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -959,7 +1053,12 @@
           "attr": "autoplay",
           "reflectToAttr": false,
           "docs": "Enables autoplay which causes slides to be changed automatically after `intermission` milliseconds.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -983,7 +1082,12 @@
           "attr": "hide-buttons",
           "reflectToAttr": false,
           "docs": "Hides the arrow buttons",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1007,7 +1111,12 @@
           "attr": "infinite",
           "reflectToAttr": false,
           "docs": "Restarts playback from the first slide upon reaching the last slide",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -1031,7 +1140,12 @@
           "attr": "intermission",
           "reflectToAttr": false,
           "docs": "Sets the intermission between two slides (Unit: ms)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "5000"
+            }
+          ],
           "default": "5000",
           "values": [
             {
@@ -1055,7 +1169,12 @@
           "attr": "reverse",
           "reflectToAttr": false,
           "docs": "Enables reverse playback of the slides",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1127,6 +1246,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -1218,6 +1338,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -1257,7 +1378,12 @@
           "attr": "checked",
           "reflectToAttr": false,
           "docs": "Marks this element as checked. (**unmanaged**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1410,6 +1536,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -1457,7 +1584,12 @@
           "attr": "clickable",
           "reflectToAttr": false,
           "docs": "Marks this element as clickable and displays all interactions like hover-effects, click-effects, pointer-cursor,...",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -1481,7 +1613,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "Disables all interactions.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1503,7 +1640,8 @@
               "ChipSurface": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::ChipSurface"
+                "id": "src/components/types.ts::ChipSurface",
+                "referenceLocation": "ChipSurface"
               }
             }
           },
@@ -1511,7 +1649,12 @@
           "attr": "fill",
           "reflectToAttr": false,
           "docs": "The fill type of this element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'solid'"
+            }
+          ],
           "default": "'solid'",
           "values": [
             {
@@ -1568,7 +1711,12 @@
           "attr": "removable",
           "reflectToAttr": false,
           "docs": "Adds a close icon on the right side of this chip which emits the `removeChip` event on click.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1592,7 +1740,12 @@
           "attr": "selectable",
           "reflectToAttr": false,
           "docs": "Makes the chip selectable.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1616,7 +1769,12 @@
           "attr": "selected",
           "reflectToAttr": false,
           "docs": "Marks this element as selected (**works only in conjunction with `selectable`**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -1699,6 +1857,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "click",
@@ -1771,7 +1930,12 @@
           "attr": "checked",
           "reflectToAttr": false,
           "docs": "Marks this element as checked. (**unmanaged**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -2016,6 +2180,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -2112,6 +2277,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -2184,7 +2350,12 @@
           "attr": "attach-to-body",
           "reflectToAttr": false,
           "docs": "Attach calendar overlay to body (true) or\nPosition the calendar inside the wrapper and inside the ino-datepicker (false)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -2231,7 +2402,12 @@
           "attr": "date-format",
           "reflectToAttr": false,
           "docs": "A string to change the date format.\nPossible values are listed [here](https://flatpickr.js.org/formatting/).\nThe default value is `d-m-Y` which accepts values like `01-01-2019`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'d-m-Y'"
+            }
+          ],
           "default": "'d-m-Y'",
           "values": [
             {
@@ -2281,7 +2457,12 @@
           "attr": "default-hour",
           "reflectToAttr": false,
           "docs": "A number containing the initial hour in the date-time picker overlay.\nIf a `value` is given, this will be ignored.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "12"
+            }
+          ],
           "default": "12",
           "values": [
             {
@@ -2305,7 +2486,12 @@
           "attr": "default-minute",
           "reflectToAttr": false,
           "docs": "A number containing the initial minute in the date-time picker overlay.\nIf a `value` is given, this will be ignored.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -2444,7 +2630,12 @@
           "attr": "hour-step",
           "reflectToAttr": false,
           "docs": "Adjusts the step for the hour input (incl. scrolling)\nDefault is 1",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -2560,7 +2751,12 @@
           "attr": "minute-step",
           "reflectToAttr": false,
           "docs": "Adjusts the step for the minute input (incl. scrolling)\nDefault is 5",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "5"
+            }
+          ],
           "default": "5",
           "values": [
             {
@@ -2743,7 +2939,8 @@
               "PickerTypeKeys": {
                 "location": "import",
                 "path": "./picker-factory",
-                "id": "src/components/ino-datepicker/picker-factory.ts::PickerTypeKeys"
+                "id": "src/components/ino-datepicker/picker-factory.ts::PickerTypeKeys",
+                "referenceLocation": "PickerTypeKeys"
               }
             }
           },
@@ -2751,7 +2948,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "Selects the correct picker corresponding to the given type.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'date'"
+            }
+          ],
           "default": "'date'",
           "values": [
             {
@@ -2788,7 +2990,12 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The currently selected date shown in the input field **unmanaged**. The given value\nwill not be formatted as date.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -2897,6 +3104,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "click",
@@ -3066,7 +3274,12 @@
           "attr": "close-icon",
           "reflectToAttr": false,
           "docs": "Adds a close icon in the top right corner to close the `ino-dialog`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3090,7 +3303,12 @@
           "attr": "dialog-role",
           "reflectToAttr": false,
           "docs": "The role of the dialog. Can be either 'dialog' or 'alertdialog'.\nThe 'alertdialog' role should be used for important alerts and error messages.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'dialog'"
+            }
+          ],
           "default": "'dialog'",
           "values": [
             {
@@ -3211,7 +3429,12 @@
           "attr": "open",
           "reflectToAttr": false,
           "docs": "Opens the dialog if set to true",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3237,7 +3460,8 @@
               "DialogSubmitAction": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::DialogSubmitAction"
+                "id": "src/components/types.ts::DialogSubmitAction",
+                "referenceLocation": "DialogSubmitAction"
               }
             }
           },
@@ -3257,7 +3481,8 @@
               "DialogCloseAction": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::DialogCloseAction"
+                "id": "src/components/types.ts::DialogCloseAction",
+                "referenceLocation": "DialogCloseAction"
               }
             }
           },
@@ -3357,6 +3582,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "keyup",
@@ -3410,7 +3636,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "Disables the button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3434,7 +3665,12 @@
           "attr": "edge-position",
           "reflectToAttr": false,
           "docs": "The position of the edge.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'top-left'"
+            }
+          ],
           "default": "'top-left'",
           "values": [
             {
@@ -3475,7 +3711,12 @@
           "attr": "extended",
           "reflectToAttr": false,
           "docs": "Optional, modifies the FAB to wider size which includes a text label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3551,7 +3792,12 @@
           "attr": "mini",
           "reflectToAttr": false,
           "docs": "Optional, modifies the FAB to a smaller size",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3573,7 +3819,8 @@
               "Placement": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement",
+                "referenceLocation": "Placement"
               }
             }
           },
@@ -3581,7 +3828,12 @@
           "attr": "tooltip-placement",
           "reflectToAttr": false,
           "docs": "The placement of the tooltip which will be displayed when the button is not extended.\nUse `none`, if you don't want a tooltip to be displayed.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'left'"
+            }
+          ],
           "default": "'left'",
           "values": [
             {
@@ -3706,6 +3958,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "click",
@@ -3763,7 +4016,8 @@
               "Locations": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::Locations"
+                "id": "src/components/types.ts::Locations",
+                "referenceLocation": "Locations"
               }
             }
           },
@@ -3771,7 +4025,12 @@
           "attr": "dial-direction",
           "reflectToAttr": false,
           "docs": "The direction of the speed dial.\nPossible values: `top` (default), `bottom`, `right`, `left`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'top'"
+            }
+          ],
           "default": "'top'",
           "values": [
             {
@@ -3806,7 +4065,8 @@
               "HorizontalLocation": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::HorizontalLocation"
+                "id": "src/components/types.ts::HorizontalLocation",
+                "referenceLocation": "HorizontalLocation"
               }
             }
           },
@@ -3814,7 +4074,12 @@
           "attr": "left-right-location",
           "reflectToAttr": false,
           "docs": "The side where the Fab is displayed.\nPossible values: `right`, `left` (default).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'left'"
+            }
+          ],
           "default": "'left'",
           "values": [
             {
@@ -3843,7 +4108,12 @@
           "attr": "open-dial",
           "reflectToAttr": false,
           "docs": "Opens the dial (**uncontrolled**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -3865,7 +4135,8 @@
               "VerticalLocation": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::VerticalLocation"
+                "id": "src/components/types.ts::VerticalLocation",
+                "referenceLocation": "VerticalLocation"
               }
             }
           },
@@ -3873,7 +4144,12 @@
           "attr": "top-bottom-location",
           "reflectToAttr": false,
           "docs": "The side where the Fab is displayed.\nPossible values: `top`, `bottom` (default).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'bottom'"
+            }
+          ],
           "default": "'bottom'",
           "values": [
             {
@@ -3909,6 +4185,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -4135,6 +4412,7 @@
       ],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -4351,7 +4629,8 @@
               "ButtonType": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::ButtonType"
+                "id": "src/components/types.ts::ButtonType",
+                "referenceLocation": "ButtonType"
               }
             }
           },
@@ -4359,7 +4638,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of this form.\n\nCan either be `button`, `submit` or `reset`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'button'"
+            }
+          ],
           "default": "'button'",
           "values": [
             {
@@ -4447,6 +4731,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "click",
@@ -4508,7 +4793,8 @@
               "ImageDecodingTypes": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::ImageDecodingTypes"
+                "id": "src/components/types.ts::ImageDecodingTypes",
+                "referenceLocation": "ImageDecodingTypes"
               }
             }
           },
@@ -4548,7 +4834,12 @@
           "attr": "fallback-icon",
           "reflectToAttr": false,
           "docs": "Icon used for fallback image if image can not be loaded",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'image_not_available'"
+            }
+          ],
           "default": "'image_not_available'",
           "values": [
             {
@@ -4595,7 +4886,12 @@
           "attr": "img-list-item",
           "reflectToAttr": false,
           "docs": "Indicates that the image is a part of an image list component",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4642,7 +4938,12 @@
           "attr": "ratio-height",
           "reflectToAttr": false,
           "docs": "The ratio height for this image (default = 1).\nUse this attribute together with `ratio-width` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -4666,7 +4967,12 @@
           "attr": "ratio-width",
           "reflectToAttr": false,
           "docs": "The ratio width of this image (default = 1).\nUse this attribute together with `ratio-height` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -4822,6 +5128,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -4855,7 +5162,12 @@
           "attr": "enclose-label",
           "reflectToAttr": false,
           "docs": "Encapsulates the label of all img-list-items within the image",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4879,7 +5191,12 @@
           "attr": "masonry",
           "reflectToAttr": false,
           "docs": "Enables the masonry image list variant, which allows the images to\nbe any combination of aspect ratios.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -4908,6 +5225,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -5399,7 +5717,12 @@
           "attr": "step",
           "reflectToAttr": false,
           "docs": "The step value of this element. Use `any` for decimal numbers",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -5425,7 +5748,8 @@
               "InputType": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::InputType"
+                "id": "src/components/types.ts::InputType",
+                "referenceLocation": "InputType"
               }
             }
           },
@@ -5433,7 +5757,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of this element (default = text).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'text'"
+            }
+          ],
           "default": "'text'",
           "values": [
             {
@@ -5513,7 +5842,12 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of this element. (**unmanaged**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -5680,6 +6014,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "change",
@@ -5804,7 +6139,12 @@
           "attr": "drag-and-drop",
           "reflectToAttr": false,
           "docs": "Enables drag-and-drop file input",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -5828,7 +6168,12 @@
           "attr": "drag-and-drop-secondary-text",
           "reflectToAttr": false,
           "docs": "Sets the secondary text of the drag and drop window",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'or'"
+            }
+          ],
           "default": "'or'",
           "values": [
             {
@@ -5852,7 +6197,12 @@
           "attr": "drag-and-drop-text",
           "reflectToAttr": false,
           "docs": "Sets the primary text of the drag and drop window",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'Drag your files here'"
+            }
+          ],
           "default": "'Drag your files here'",
           "values": [
             {
@@ -5876,7 +6226,12 @@
           "attr": "label",
           "reflectToAttr": false,
           "docs": "Sets the label of the select files button.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'Select file'"
+            }
+          ],
           "default": "'Select file'",
           "values": [
             {
@@ -5994,6 +6349,7 @@
       ],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -6181,7 +6537,8 @@
               "MDCNotchedOutline": {
                 "location": "import",
                 "path": "@material/notched-outline",
-                "id": "../../node_modules/.pnpm/@material+notched-outline@13.0.0/node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline"
+                "id": "../../node_modules/.pnpm/@material+notched-outline@13.0.0/node_modules/@material/notched-outline/index.d.ts::MDCNotchedOutline",
+                "referenceLocation": "MDCNotchedOutline"
               }
             },
             "return": "Promise<MDCNotchedOutline>"
@@ -6196,6 +6553,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -6235,7 +6593,12 @@
           "attr": "avatar",
           "reflectToAttr": false,
           "docs": "Configures the leading tiles of each row to display images instead of icons.\nThis will make the graphics of the list items larger.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -6310,6 +6673,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -6401,6 +6765,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -6679,6 +7044,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "keydown",
@@ -6773,7 +7139,8 @@
               "ViewModeUnion": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::ViewModeUnion"
+                "id": "src/components/types.ts::ViewModeUnion",
+                "referenceLocation": "ViewModeUnion"
               }
             }
           },
@@ -6781,7 +7148,12 @@
           "attr": "view-mode",
           "reflectToAttr": false,
           "docs": "Sets the view mode of the editor.\nCan be changed between `preview` (default), `markdown` and `readonly`.\nThe `markdown` mode is made for advanced users that know the Markdown syntax.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'preview'"
+            }
+          ],
           "default": "'preview'",
           "values": [
             {
@@ -6844,7 +7216,8 @@
               "ViewModeUnion": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::ViewModeUnion"
+                "id": "src/components/types.ts::ViewModeUnion",
+                "referenceLocation": "ViewModeUnion"
               }
             }
           },
@@ -6873,6 +7246,7 @@
       ],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -6912,7 +7286,8 @@
               "Placement": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement",
+                "referenceLocation": "Placement"
               }
             }
           },
@@ -6920,7 +7295,12 @@
           "attr": "placement",
           "reflectToAttr": false,
           "docs": "Determines the position of the opened menu.\nUsually, the default value (`auto`) will work just fine.\nUse this if the positioning is off for some reason.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'auto'"
+            }
+          ],
           "default": "'auto'",
           "values": [
             {
@@ -7000,6 +7380,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -7060,14 +7441,20 @@
               "NavDrawerLabels": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::NavDrawerLabels"
+                "id": "src/components/types.ts::NavDrawerLabels",
+                "referenceLocation": "NavDrawerLabels"
               }
             }
           },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "The aria-labels used for content and footer nav elements.\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation',\n  }"
+            }
+          ],
           "default": "{\n    content: 'Main Navigation',\n    footer: 'Footer Navigation',\n    toggleBtn: 'Toggle Navigation',\n  }",
           "values": [
             {
@@ -7089,7 +7476,8 @@
               "NavDrawerAnchor": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::NavDrawerAnchor"
+                "id": "src/components/types.ts::NavDrawerAnchor",
+                "referenceLocation": "NavDrawerAnchor"
               }
             }
           },
@@ -7097,7 +7485,12 @@
           "attr": "anchor",
           "reflectToAttr": false,
           "docs": "Side from which the drawer will appear.\nPossible values: `left` (default), `right`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'left'"
+            }
+          ],
           "default": "'left'",
           "values": [
             {
@@ -7126,7 +7519,12 @@
           "attr": "open",
           "reflectToAttr": false,
           "docs": "Marks this element as open. (**unmanaged**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7148,7 +7546,8 @@
               "NavDrawerVariant": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::NavDrawerVariant"
+                "id": "src/components/types.ts::NavDrawerVariant",
+                "referenceLocation": "NavDrawerVariant"
               }
             }
           },
@@ -7156,7 +7555,12 @@
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "The variant to use for the drawer.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'docked'"
+            }
+          ],
           "default": "'docked'",
           "values": [
             {
@@ -7268,6 +7672,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "clickEl",
@@ -7313,7 +7718,12 @@
           "attr": "activated",
           "reflectToAttr": false,
           "docs": "Styles the row in an activated style.\n\nUse this for only one item\nand to mark it as permanently activated.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7337,7 +7747,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "Styles the row in a disabled style.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7427,6 +7842,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -7466,7 +7882,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "Disables the option",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7490,7 +7911,12 @@
           "attr": "selected",
           "reflectToAttr": false,
           "docs": "Selects the option",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7602,6 +8028,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "click",
@@ -7674,6 +8101,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -7725,7 +8153,12 @@
           "attr": "arrow",
           "reflectToAttr": false,
           "docs": "Shows an arrow pointing towards its trigger-element",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7749,7 +8182,12 @@
           "attr": "attach-to-body",
           "reflectToAttr": false,
           "docs": "If set, attaches the popover element to the body.\nUseful to avoid overflow or z-index issues.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7771,7 +8209,8 @@
               "TippyThemes": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::TippyThemes"
+                "id": "src/components/types.ts::TippyThemes",
+                "referenceLocation": "TippyThemes"
               }
             }
           },
@@ -7779,7 +8218,12 @@
           "attr": "color-scheme",
           "reflectToAttr": false,
           "docs": "Sets the color scheme of the popup.\n\nValid options include: `primary`, `light` and `dark`.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'primary'"
+            }
+          ],
           "default": "'primary'",
           "values": [
             {
@@ -7812,7 +8256,12 @@
           "attr": "controlled",
           "reflectToAttr": false,
           "docs": "Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7836,7 +8285,12 @@
           "attr": "delay",
           "reflectToAttr": false,
           "docs": "The delay in milliseconds before `ino-popover` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -7863,7 +8317,12 @@
           "attr": "distance",
           "reflectToAttr": false,
           "docs": "Displaces the popover away from, or toward, the anchor element in the direction of its placement.\nA positive number displaces it further away, while a negative number lets it overlap the anchor.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "10"
+            }
+          ],
           "default": "10",
           "values": [
             {
@@ -7885,7 +8344,8 @@
               "Props": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Props"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Props",
+                "referenceLocation": "Props"
               }
             }
           },
@@ -7893,7 +8353,12 @@
           "attr": "follow-cursor",
           "reflectToAttr": false,
           "docs": "Determines if and how the popover follows the user's mouse cursor.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7952,7 +8417,12 @@
           "attr": "hide-on-blur",
           "reflectToAttr": false,
           "docs": "If true, hides the popper on blur.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -7976,7 +8446,12 @@
           "attr": "hide-on-esc",
           "reflectToAttr": false,
           "docs": "If true, hides the popper on esc.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8000,7 +8475,12 @@
           "attr": "interactive",
           "reflectToAttr": false,
           "docs": "Use this if you want to interact with the popover content (e.g. button clicks)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8022,7 +8502,8 @@
               "Placement": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement",
+                "referenceLocation": "Placement"
               }
             }
           },
@@ -8030,7 +8511,12 @@
           "attr": "placement",
           "reflectToAttr": false,
           "docs": "The placement of this popover.\nAccepted values: `top(-start, -end)`, `right(-start, -end)`,\n`bottom(-start, -end)`, `left(-start, -end)`",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'auto'"
+            }
+          ],
           "default": "'auto'",
           "values": [
             {
@@ -8113,7 +8599,8 @@
               "TooltipTrigger": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::TooltipTrigger"
+                "id": "src/components/types.ts::TooltipTrigger",
+                "referenceLocation": "TooltipTrigger"
               }
             }
           },
@@ -8121,7 +8608,12 @@
           "attr": "trigger",
           "reflectToAttr": false,
           "docs": "The trigger to show the tooltip - either click, hover or focus.\nMultiple triggers are possible by separating them with a space.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'mouseenter focus'"
+            }
+          ],
           "default": "'mouseenter focus'",
           "values": [
             {
@@ -8202,7 +8694,12 @@
           "attr": "visible",
           "reflectToAttr": false,
           "docs": "Programmatically show or hide the popover.\nCan only be used in controlled mode (see property `controlled`).\nUse the `visibleChanged` to sync the popovers' visibility state with yours.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8267,6 +8764,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -8295,7 +8793,12 @@
           "attr": "buffer",
           "reflectToAttr": false,
           "docs": "Sets the buffer progress",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -8319,7 +8822,12 @@
           "attr": "indeterminate",
           "reflectToAttr": false,
           "docs": "Indicates whether the state of the progress bar is indeterminate",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8366,7 +8874,12 @@
           "attr": "progress",
           "reflectToAttr": false,
           "docs": "Sets the progress of the progress bar.\nShould always be between 0 and 1",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -8390,6 +8903,7 @@
       ],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -8429,7 +8943,12 @@
           "attr": "checked",
           "reflectToAttr": false,
           "docs": "Initially marks this element as checked.\nIf another ino-radio element in the same group receives `true`,\nthe value will be changed to false automatically.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8536,6 +9055,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -8567,7 +9087,8 @@
               "Alignment": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::Alignment"
+                "id": "src/components/types.ts::Alignment",
+                "referenceLocation": "Alignment"
               }
             }
           },
@@ -8575,7 +9096,12 @@
           "attr": "alignment",
           "reflectToAttr": false,
           "docs": "Sets the alignment of the radios to either vertical or horizontal.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'horizontal'"
+            }
+          ],
           "default": "'horizontal'",
           "values": [
             {
@@ -8644,6 +9170,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "checkedChange",
@@ -8785,7 +9312,12 @@
           "attr": "min",
           "reflectToAttr": false,
           "docs": "The min value of this element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -8832,7 +9364,12 @@
           "attr": "ranged",
           "reflectToAttr": false,
           "docs": "Allows to input an interval.\nUse `valueStart` and `valueEnd` to provide values.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -8856,7 +9393,12 @@
           "attr": "step",
           "reflectToAttr": false,
           "docs": "The step size for this element.\nOnly applicable if `discrete` is enabled.\nIs used to calculate the number of markers.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "1"
+            }
+          ],
           "default": "1",
           "values": [
             {
@@ -9026,6 +9568,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -9059,7 +9602,12 @@
           "attr": "checked",
           "reflectToAttr": false,
           "docs": "Activates the button",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -9083,7 +9631,12 @@
           "attr": "dense",
           "reflectToAttr": false,
           "docs": "Slightly decreases the size of the button",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -9107,7 +9660,12 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "Disables the button",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -9214,6 +9772,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -9307,6 +9866,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "checkedChange",
@@ -9586,7 +10146,12 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of this element. (**unmanaged**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -9644,6 +10209,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "MDCSelect:change",
@@ -9692,14 +10258,20 @@
               "SnackbarLabels": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::SnackbarLabels"
+                "id": "src/components/types.ts::SnackbarLabels",
+                "referenceLocation": "SnackbarLabels"
               }
             }
           },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "The aria-labels used to provide accessible snackbar context as well as close icon button label.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "{\n    snackbarLabel: this.type,\n    closeLabel: 'Close notification',\n  }"
+            }
+          ],
           "default": "{\n    snackbarLabel: this.type,\n    closeLabel: 'Close notification',\n  }",
           "values": [
             {
@@ -9774,7 +10346,12 @@
           "attr": "open",
           "reflectToAttr": false,
           "docs": "Controls the visibility state of the snackbar.\nWhen set to `true`, the snackbar is displayed; otherwise, it is hidden.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
           "default": "true",
           "values": [
             {
@@ -9798,7 +10375,12 @@
           "attr": "stay-visible-on-hover",
           "reflectToAttr": false,
           "docs": "If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -9822,7 +10404,12 @@
           "attr": "timeout",
           "reflectToAttr": false,
           "docs": "Sets the timeout in ms until the snackbar disappears. The timeout can\nbe disabled by setting it to a negative value.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "5000"
+            }
+          ],
           "default": "5000",
           "values": [
             {
@@ -9844,7 +10431,8 @@
               "SnackbarType": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::SnackbarType"
+                "id": "src/components/types.ts::SnackbarType",
+                "referenceLocation": "SnackbarType"
               }
             }
           },
@@ -9852,7 +10440,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "Changes the snackbar type. There are four types of messages: info, success, warning and error.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'info'"
+            }
+          ],
           "default": "'info'",
           "values": [
             {
@@ -9938,6 +10531,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "keyup",
@@ -9979,7 +10573,12 @@
           "attr": "height",
           "reflectToAttr": false,
           "docs": "The height of this spinner (default = 40)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "40"
+            }
+          ],
           "default": "40",
           "values": [
             {
@@ -10003,7 +10602,12 @@
           "attr": "modal",
           "reflectToAttr": false,
           "docs": "If true, the spinner is shown as modal over the current app page.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10025,7 +10629,8 @@
               "SpinnerType": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::SpinnerType"
+                "id": "src/components/types.ts::SpinnerType",
+                "referenceLocation": "SpinnerType"
               }
             }
           },
@@ -10033,7 +10638,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "The type of this spinner.\nPossible values: `tile` (default), `bounce` or `circle`",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'tile'"
+            }
+          ],
           "default": "'tile'",
           "values": [
             {
@@ -10066,7 +10676,12 @@
           "attr": "width",
           "reflectToAttr": false,
           "docs": "The width of this spinner (defaul = 40)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "40"
+            }
+          ],
           "default": "40",
           "values": [
             {
@@ -10084,6 +10699,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -10125,7 +10741,12 @@
           "attr": "checked",
           "reflectToAttr": false,
           "docs": "Marks this element as checked. (**unmanaged**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10217,6 +10838,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -10320,7 +10942,12 @@
           "attr": "indicator-content-width",
           "reflectToAttr": false,
           "docs": "Indicates that the tab only expands to the width of its content.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10372,7 +10999,12 @@
           "attr": "stacked",
           "reflectToAttr": false,
           "docs": "Indicates that the tab icon and label should flow vertically instead of horizontally.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10405,6 +11037,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "MDCTab:interacted",
@@ -10444,7 +11077,12 @@
           "attr": "active-tab",
           "reflectToAttr": false,
           "docs": "Activates the tab at the given index (**unmanaged**).",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -10468,7 +11106,12 @@
           "attr": "auto-focus",
           "reflectToAttr": false,
           "docs": "Autofocus of tab on activation.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10506,6 +11149,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "interacted",
@@ -10620,7 +11264,8 @@
               "SortDirection": {
                 "location": "import",
                 "path": "../../interface",
-                "id": "src/interface.d.ts::SortDirection"
+                "id": "src/interface.d.ts::SortDirection",
+                "referenceLocation": "SortDirection"
               }
             }
           },
@@ -10661,7 +11306,12 @@
           "attr": "sticky-header",
           "reflectToAttr": false,
           "docs": "True, if table header stays visible on vertical scroll",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10687,7 +11337,8 @@
               "SortDirectionChangeDetails": {
                 "location": "import",
                 "path": "../../interface",
-                "id": "src/interface.d.ts::SortDirectionChangeDetails"
+                "id": "src/interface.d.ts::SortDirectionChangeDetails",
+                "referenceLocation": "SortDirectionChangeDetails"
               }
             }
           },
@@ -10719,6 +11370,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "sortDirectionChange",
@@ -10771,7 +11423,12 @@
           "attr": "autofocus",
           "reflectToAttr": false,
           "docs": "Marks the header as autofocused (used for searchable header cells).\n\nUse this in combination with the `data-ino-focus` attribute on\nthe actual search target element to focus a specific input element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10841,7 +11498,12 @@
           "attr": "not-sortable",
           "reflectToAttr": false,
           "docs": "If true, the cell is **not** sortable.\nBy default, table header cells are sortable.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10865,7 +11527,12 @@
           "attr": "search-icon",
           "reflectToAttr": false,
           "docs": "Identifier of the search icon (default `search`).\nUsed for date or list search columns.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'search'"
+            }
+          ],
           "default": "'search'",
           "values": [
             {
@@ -10889,7 +11556,12 @@
           "attr": "searched",
           "reflectToAttr": false,
           "docs": "True, if the column has been searched for this column.\nPersistent state to indicate the user that this column\nhas a search filter.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -10911,7 +11583,8 @@
               "SortDirection": {
                 "location": "import",
                 "path": "../../interface",
-                "id": "src/interface.d.ts::SortDirection"
+                "id": "src/interface.d.ts::SortDirection",
+                "referenceLocation": "SortDirection"
               }
             }
           },
@@ -10945,7 +11618,8 @@
               "SortDirection": {
                 "location": "import",
                 "path": "../../interface",
-                "id": "src/interface.d.ts::SortDirection"
+                "id": "src/interface.d.ts::SortDirection",
+                "referenceLocation": "SortDirection"
               }
             }
           },
@@ -10953,7 +11627,12 @@
           "attr": "sort-start",
           "reflectToAttr": false,
           "docs": "The initial sort direction state (default `desc`).\n\nBy default, all columns are sorted descending followed by ascending.\nTo switch this order, set sort Start to asc.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'desc'"
+            }
+          ],
           "default": "'desc'",
           "values": [
             {
@@ -11082,7 +11761,8 @@
               "SortDirectionChangeDetails": {
                 "location": "import",
                 "path": "../../interface",
-                "id": "src/interface.d.ts::SortDirectionChangeDetails"
+                "id": "src/interface.d.ts::SortDirectionChangeDetails",
+                "referenceLocation": "SortDirectionChangeDetails"
               }
             }
           },
@@ -11100,6 +11780,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     },
     {
@@ -11162,7 +11843,12 @@
           "attr": "autogrow",
           "reflectToAttr": false,
           "docs": "An optional flag to allow the textarea adjust its height to display all the content.\nThe `rows` attribute can also be used to specify a minimum height. Use CSS to specify\na max-height for the textarea element. Once the height exceeds the max-height, autogrow\nwill re-enable the vertical scrollbar.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11462,7 +12148,12 @@
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of this element. (**unmanaged**)",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "''"
+            }
+          ],
           "default": "''",
           "values": [
             {
@@ -11570,6 +12261,7 @@
       ],
       "slots": [],
       "parts": [],
+      "customStates": [],
       "listeners": [
         {
           "event": "change",
@@ -11620,7 +12312,12 @@
           "attr": "arrow",
           "reflectToAttr": false,
           "docs": "Shows an arrow",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -11642,7 +12339,8 @@
               "TippyThemes": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::TippyThemes"
+                "id": "src/components/types.ts::TippyThemes",
+                "referenceLocation": "TippyThemes"
               }
             }
           },
@@ -11650,7 +12348,12 @@
           "attr": "color-scheme",
           "reflectToAttr": false,
           "docs": "Sets the color scheme of the tooltip.\n\nValid options include: `light`, `dark` or `primary`",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'primary'"
+            }
+          ],
           "default": "'primary'",
           "values": [
             {
@@ -11683,7 +12386,12 @@
           "attr": "delay",
           "reflectToAttr": false,
           "docs": "The delay in milliseconds before `ino-tooltip` shows up or hides.\n\nIf only one number is given, the show and hide delay get the given delay duration.\n\nIf two numbers are given e.g. `[500, 200]` the show delay is 500ms and the hide delay is 200ms.\n\nDefaults to 0ms.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "0"
+            }
+          ],
           "default": "0",
           "values": [
             {
@@ -11782,7 +12490,8 @@
               "Placement": {
                 "location": "import",
                 "path": "tippy.js",
-                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/tippy.js@6.3.7/node_modules/tippy.js/index.d.ts::Placement",
+                "referenceLocation": "Placement"
               }
             }
           },
@@ -11790,7 +12499,12 @@
           "attr": "placement",
           "reflectToAttr": false,
           "docs": "The placement of the tooltip.\nAccepted values: `top(-start, -end)`, `right(-start, -end)`,\n`bottom(-start, -end)`, `left(-start, -end)`",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'auto'"
+            }
+          ],
           "default": "'auto'",
           "values": [
             {
@@ -11869,7 +12583,8 @@
               "TooltipTrigger": {
                 "location": "import",
                 "path": "../types",
-                "id": "src/components/types.ts::TooltipTrigger"
+                "id": "src/components/types.ts::TooltipTrigger",
+                "referenceLocation": "TooltipTrigger"
               }
             }
           },
@@ -11877,7 +12592,12 @@
           "attr": "trigger",
           "reflectToAttr": false,
           "docs": "The trigger to show the tooltip - either `click`, `hover` or `focus`.\nMultiple triggers possible by separating them with a space.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'mouseenter focus'"
+            }
+          ],
           "default": "'mouseenter focus'",
           "values": [
             {
@@ -11980,6 +12700,7 @@
         }
       ],
       "parts": [],
+      "customStates": [],
       "listeners": []
     }
   ],
