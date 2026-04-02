@@ -53,7 +53,16 @@ const preview = {
     options: {
       panelPosition: 'bottom',
       storySort: {
-        order: ['Docs', ['Welcome', 'Changelog', 'Framework Integration', 'Styleguide', 'Contributing']],
+        order: [
+          'Docs',
+          [
+            'Welcome',
+            'Changelog',
+            ['Framework Integration', ['Angular', 'React', 'Vue']],
+            'Styleguide',
+            'Contributing',
+          ],
+        ],
       },
     },
   },
