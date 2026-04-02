@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Docs/Framework Integration/React" />
+
+# Integrate with React
+
+Please follow these steps for integration into React.
+
+## Step 1: Install `@inovex.de/elements-react`
+
+```shell
+npm i @inovex.de/elements-react
+```
+
+## Step 2: Use the components
+
+You can now use the components just like any other React component. Import the components you want to use:
+
+```tsx
+import { InoButton, InoInput } from '@inovex.de/elements-react';
+
+function MyComponent() {
+  return (
+    <div>
+      <InoInput label="email" outline />
+      <InoInput label="password" outline />
+      <InoButton type="submit">Sign In</InoButton>
+    </div>
+  );}
+```

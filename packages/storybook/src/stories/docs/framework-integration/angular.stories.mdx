@@ -1,0 +1,85 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Docs/Framework Integration/Angular" />
+
+# Integrate with Angular
+
+We set up a demo project with the Angular CLI to show you how to integrate the components into a freshly generated Angular project.
+These instructions are based on `angular@12.0.0` and [`angular-cli@12.0.0`](https://cli.angular.io/).
+
+## Step 1: Install `@inovex.de/elements-angular`
+
+We provide an integration layer package for Angular so you can use the inovex Elements as a native Angular library with full type support.
+
+**Using Angular CLI (recommended):**
+
+```bash
+ng add @inovex.de/elements-angular
+```
+
+> The `ino-icons` are added to your project automatically when you use the Angular CLI.
+
+
+**Using npm:**
+
+```shell
+npm i @inovex.de/elements-angular
+```
+
+
+## Step 2: Update `angular.json` (npm / yarn only)
+
+> This step is only necessary if you installed the Angular wrapper via npm or yarn.
+
+Add the following entry to the build assets
+(`projects.<your-project-name>.architect.build.options.assets`) **and** to the
+test assets (`projects.<your-project-name>.architect.test.options.assets`):
+
+```json
+// ...
+{
+  "glob": "**/*",
+  "input": "node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
+  "output": "/ino-icon"
+}
+// ...
+```
+
+## Step 3: Import `InoElementsModule`
+
+The Angular wrapper exposes all `@Input` properties and `@Output` events as
+typed Angular directives, giving you full IDE auto-completion and compiler
+checks.
+
+Import `InoElementsModule` into your app module (or any shared module):
+
+1. Import the module from `@inovex.de/elements-angular`
+2. Add it to your `imports` array — you can optionally pass an `InoElementsConfig`
+3. Add `CUSTOM_ELEMENTS_SCHEMA` to the `schemas` array
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { InoElementsModule } from '@inovex.de/elements-angular';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    InoElementsModule.forRoot({}),
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+export class AppModule {}
+```
+
+> **Tip:** If you have multiple feature modules, import `InoElementsModule` once
+> in a shared module and re-export it from there.
+
+## Use the Components
+
+That's it — you are now ready to use any inovex Elements component in your Angular templates!
+

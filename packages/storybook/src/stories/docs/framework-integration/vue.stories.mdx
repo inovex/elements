@@ -1,0 +1,39 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Docs/Framework Integration/Vue" />
+
+# Integrate with Vue.js
+
+Please follow these steps for integration into Vue.
+
+## Step 1: Install `@inovex.de/elements-vue`
+
+```shell
+npm i @inovex.de/elements-vue
+```
+
+## Step 2: Register the plugin
+
+Open `src/main.js`, import the plugin, and register it with your Vue app:
+
+```javascript
+import { createApp } from 'vue';
+import { InoElementsVue } from '@inovex.de/elements-vue';
+import App from './App.vue';
+
+const app = createApp(App);
+app.use(InoElementsVue);
+app.mount('#app');
+```
+
+## Step 3: Use the components
+
+You can now use the components just like any other Vue component:
+
+```vue
+import { InoButton } from "@inovex.de/elements-vue";
+
+<template>
+  <InoButton>Click me</InoButton>
+</template>
+```
