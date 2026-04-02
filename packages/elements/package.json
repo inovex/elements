@@ -57,7 +57,6 @@
     "dist/"
   ],
   "dependencies": {
-    "@hedgedoc/markdown-it-task-lists": "^1.0.3",
     "@material/button": "^13.0.0",
     "@material/card": "^13.0.0",
     "@material/checkbox": "^13.0.0",
@@ -88,7 +87,7 @@
     "@material/textfield": "^13.0.0",
     "@material/theme": "^13.0.0",
     "@material/typography": "^13.0.0",
-    "@stencil/core": "4.20.0",
+    "@stencil/core": "4.28.2",
     "@tarekraafat/autocomplete.js": "^10.2.7",
     "@tiptap/core": "2.1.0",
     "@tiptap/extension-blockquote": "2.1.0",

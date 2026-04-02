@@ -5,7 +5,7 @@ import {
   MarkdownSerializerState,
 } from '@tiptap/pm/markdown';
 import { Node } from '@tiptap/pm/model';
-import taskLists from '@hedgedoc/markdown-it-task-lists';
+import { taskListPlugin } from './task-list-plugin';
 import Bold from '@tiptap/extension-bold';
 import Code from '@tiptap/extension-code';
 import Italic from '@tiptap/extension-italic';
@@ -90,7 +90,7 @@ export default {
       // list of markdown-it rules: https://github.com/markdown-it/markdown-it/issues/289
       markdownRenderer = defaultMarkdownParser['tokenizer']
         .enable('strikethrough')
-        .use(taskLists, { enabled: true, label: true, labelAfter: true });
+        .use(taskListPlugin, { enabled: true, label: true, labelAfter: true });
     }
 
     return markdownRenderer.render(markdownText);
