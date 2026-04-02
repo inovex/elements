@@ -57,6 +57,7 @@
   "devDependencies": {
     "@estruyf/github-actions-reporter": "^1.11.0",
     "@playwright/test": "^1.56.0",
+    "@stencil/storybook-plugin": "^0.6.1",
     "@storybook/addon-docs": "9.1.20",
     "@storybook/builder-vite": "9.1.20",
     "@storybook/web-components-vite": "9.1.20",

@@ -8,11 +8,6 @@ import DocumentationTemplate from './DocumentationTemplate.mdx';
 
 defineCustomElements(window);
 
-// Build a lookup map from component tag → readme content
-const readmeByTag = new Map<string, string>(
-  docsJson.components.filter(c => c.readme?.trim()).map(c => [c.tag, c.readme]),
-);
-
 // Explicit order for the docs section
 const preview = {
   parameters: {
@@ -25,15 +20,6 @@ const preview = {
       theme,
       source: {
         format: 'html',
-      },
-      // Replaces the behaviour of @pxtrn/storybook-addon-docs-stencil:
-      // called by the <Description /> block to get the component-level readme.
-      extractComponentDescription: (component: string) => readmeByTag.get(component) ?? null,
-      toc: {
-        // 👈 Enables the table of contents for components stories
-        contentsSelector: '.sbdocs-content:not(div:has(#changelog)):not(div:has(#typography))', // disables toc on changelog & typography
-        headingSelector: 'h3', // only selects h3 headlines
-        ignoreSelector: '.docs-story > * :is(h3)', // ignore h3 headlines in stories
       },
       page: DocumentationTemplate,
     },
