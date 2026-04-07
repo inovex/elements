@@ -1,4 +1,9 @@
 {
+  "maintenance": {
+    "message": "The inovex elements are currently in maintenance mode.",
+    "label": "Maintenance notice",
+    "dismiss": "Dismiss"
+  },
   "skipToMain": "Skip to main content",
   "meta": {
     "title": "inovex elements – the interoperable UI library for any framework",
