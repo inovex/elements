@@ -1,4 +1,9 @@
 {
+  "maintenance": {
+    "message": "Die inovex elements befinden sich derzeit im Wartungsmodus.",
+    "label": "Wartungshinweis",
+    "dismiss": "Schließen"
+  },
   "skipToMain": "Zum Hauptinhalt springen",
   "meta": {
     "title": "inovex elements – die interoperable UI-Bibliothek für jedes Framework",

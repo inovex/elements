@@ -3,6 +3,7 @@ import '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
 import '../global.css';
 import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import { useTranslations, defaultLang } from '../i18n';
+import MaintenanceBanner from '../components/MaintenanceBanner.astro';
 
 interface Props {
   title?: string;
@@ -65,6 +66,7 @@ const defaultHref  = getAbsoluteLocaleUrl(defaultLang, '');
     <slot name="head" />
   </head>
   <body class="inovex-elements-theme">
+    <MaintenanceBanner />
     <!-- Skip to main content for keyboard / screen reader users -->
     <a
       href="#main-content"
