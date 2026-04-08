@@ -1,0 +1,5 @@
+- Migrate all test to the new test runners
+- Make stencil generate component manifest in preperation for stencil-storybook integration
+- Move stories from /storybook to next to the components
+  - This will make it easier to maintain the stories
+  - Will also allow us to use the same test runners for both stories and tests, which will make it easier to maintain them

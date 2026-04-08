@@ -1,6 +1,5 @@
-import { Meta } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components';
 import docsJson from '../../elements-stencil-docs';
-import { merge } from 'lodash-es';
 
 export interface MetaWrapper<T> extends Meta<T> {
   docsFromProperty?: keyof T;
@@ -29,21 +28,33 @@ export interface MetaWrapper<T> extends Meta<T> {
  * })
  * ```
  *
- * @param meta The story object (see https://release-7-0--storybook-frontpage.netlify.app/docs/7.0/writing-stories/introduction) with the extra `docsFromProperty` string
- * @returns The same object extended with the added documentation
+ * @param meta The story object with the extra `docsFromProperty` string
+ * @returns A story object (without meta-only fields) extended with the added documentation
  */
-export default function Story<C extends object>(meta: MetaWrapper<C>) {
-  if (meta.docsFromProperty) {
+export default function Story<C extends object>(meta: MetaWrapper<C>): StoryObj<C> {
+  const { title: _title, docsFromProperty, ...story } = meta as MetaWrapper<C> & { title?: string };
+
+  if (docsFromProperty) {
     if (!meta.component) throw new Error('Component name needs to be provided');
 
-    const doc = findPropertyDocumentationInJsonDoc(meta.component, meta.docsFromProperty as string);
+    const doc = findPropertyDocumentationInJsonDoc(meta.component, docsFromProperty as string);
 
-    return merge({}, meta, {
-      parameters: { docs: { description: { story: doc } } },
-    });
+    return {
+      ...story,
+      parameters: {
+        ...story.parameters,
+        docs: {
+          ...(story.parameters?.docs as object),
+          description: {
+            ...((story.parameters?.docs as Record<string, unknown>)?.description as object),
+            story: doc,
+          },
+        },
+      },
+    } as StoryObj<C>;
   }
 
-  return meta;
+  return story as StoryObj<C>;
 }
 
 function findPropertyDocumentationInJsonDoc(tagName: string, property: string): string {

@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';
-import { useEffect } from '@storybook/preview-api';
+import { useEffect } from 'storybook/preview-api';
 import './ino-markdown-editor.scss';
 
 const ID = 'editor-playground';

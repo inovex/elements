@@ -1,8 +1,8 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';
-import { useEffect } from '@storybook/preview-api';
+import { useEffect } from 'storybook/preview-api';
 import './ino-tab-bar.scss';
 
 const eventHandler = e => e.target.setAttribute('active-tab', e.detail);

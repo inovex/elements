@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/preview-api';
+import { useEffect } from 'storybook/preview-api';
 import { html } from 'lit-html';
 import Story from '../StoryWrapper';
 import './ino-avatar.scss';

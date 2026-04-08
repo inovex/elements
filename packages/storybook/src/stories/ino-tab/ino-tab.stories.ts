@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { getIcons } from '../utils';
