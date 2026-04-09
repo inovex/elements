@@ -19,6 +19,47 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? 'https://elements
 const alternateLang = currentLang === 'en' ? 'de' : 'en';
 const alternateHref = getAbsoluteLocaleUrl(alternateLang, '');
 const defaultHref  = getAbsoluteLocaleUrl(defaultLang, '');
+
+const siteUrl = Astro.site?.href ?? 'https://elements.inovex.de';
+
+const jsonLdOrganization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'inovex GmbH',
+  url: 'https://www.inovex.de',
+  logo: `${siteUrl}elements.svg`,
+  sameAs: ['https://github.com/inovex/elements'],
+};
+
+const jsonLdSoftwareApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'inovex elements',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Any',
+  url: canonicalUrl.origin,
+  description: description,
+  author: {
+    '@type': 'Organization',
+    name: 'inovex GmbH',
+    url: 'https://www.inovex.de',
+  },
+  license: 'https://opensource.org/licenses/MIT',
+  codeRepository: 'https://github.com/inovex/elements',
+};
+
+const jsonLdFaqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: t.faq.items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
 ---
 
 <!doctype html>
@@ -55,6 +96,8 @@ const defaultHref  = getAbsoluteLocaleUrl(defaultLang, '');
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL('/elements-preview.png', canonicalUrl.origin).href} />
     <meta property="og:image:alt" content={title} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter / X card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -62,6 +105,11 @@ const defaultHref  = getAbsoluteLocaleUrl(defaultLang, '');
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL('/elements-preview.png', canonicalUrl.origin).href} />
     <meta name="twitter:image:alt" content={title} />
+
+    <!-- Structured data (JSON-LD) -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLdSoftwareApplication)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLdFaqPage)} />
 
     <slot name="head" />
   </head>

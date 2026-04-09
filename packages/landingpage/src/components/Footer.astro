@@ -20,7 +20,7 @@ const currentLang = Astro.currentLocale ?? defaultLang;
       <ul class="flex items-center gap-6 list-none flex-wrap justify-center" role="list">
         <li>
           <a
-            href="https://github.com/inovex/elements"
+            href={t.footer.githubHref}
             target="_blank"
             rel="noopener noreferrer"
             class="hover:text-p10 transition-colors"
@@ -29,12 +29,23 @@ const currentLang = Astro.currentLocale ?? defaultLang;
           </a>
         </li>
         <li>
-          <a href="https://www.inovex.de/de/impressum"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="hover:text-p10 transition-colors"
+          <a
+            href={t.footer.imprintHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-p10 transition-colors"
           >
             {t.footer.imprint}
+          </a>
+        </li>
+        <li>
+          <a
+            href={t.footer.privacyHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-p10 transition-colors"
+          >
+            {t.footer.privacy}
           </a>
         </li>
       </ul>
