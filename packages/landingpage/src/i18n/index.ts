@@ -3,7 +3,7 @@ import de from './de.json';
 
 export type Lang = 'en' | 'de';
 
-export const defaultLang: Lang = 'en';
+export const defaultLang: Lang = 'de';
 export const supportedLangs: Lang[] = ['en', 'de'];
 
 const translations: Record<Lang, typeof en> = { en, de };
