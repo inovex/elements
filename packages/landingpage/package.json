@@ -17,7 +17,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@inovex.de/elements": "workspace:*",
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "^6.0.5",
+    "astro": "^6.1.6",
     "tailwindcss": "^4.2.1",
     "typescript": "^6.0.2"
   }
