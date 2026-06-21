@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@angular/animations": "~15.1.0",
-    "@angular/common": "~15.1.0",
+    "@angular/common": "~20.3.25",
     "@angular/compiler": "~15.1.0",
     "@angular/core": "~15.1.0",
     "@angular/forms": "~15.1.0",
